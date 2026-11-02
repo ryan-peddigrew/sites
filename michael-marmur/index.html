@@ -1,0 +1,285 @@
+<!-- 
+IMAGE URLs TO DOWNLOAD:
+1. Logo: https://mmbusinessadvisor.com/wp-content/uploads/2021/01/logo.png
+2. Michael's Headshot: https://mmbusinessadvisor.com/wp-content/uploads/2021/01/michael-marmur.jpg
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michael Marmur &amp; Associates | Business Mediation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
+  :root {
+    --mm-green: #3a5a40; /* Calm, deep green */
+    --bg-color: #faf9f6; /* Very soft off-white */
+    --text-dark: #2c2c2c;
+    --text-light: #5a5a5a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Typography - Strict Mobile Constraints */
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    color: var(--mm-green);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  
+  p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+    max-width: 100%;
+  }
+
+  /* Layout */
+  .container {
+    width: 100%;
+    padding: 0 24px;
+    max-width: 900px; /* Narrower for reading focus */
+    margin: 0 auto;
+  }
+
+  header {
+    padding: 30px 0;
+    position: sticky;
+    top: 0;
+    background: rgba(250, 249, 246, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 10;
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Logo Effect: Soft shadow for depth */
+  .logo {
+    height: 60px;
+    filter: drop-shadow(0px 2px 4px rgba(58, 90, 64, 0.15));
+  }
+
+  /* Buttons (44px min height) */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 30px;
+    background-color: var(--mm-green);
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    border: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .btn:hover { opacity: 0.85; }
+
+  /* Sections */
+  section { padding: 80px 0; }
+
+  /* Special Effect: Calming Reveal */
+  .reveal-text {
+    animation: slowFadeUp 2.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  @keyframes slowFadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--text-dark);
+  }
+
+  .hero h1 span { color: var(--mm-green); font-style: italic; }
+
+  /* Service Cards - Minimalist */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  .service-item {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+  }
+
+  /* About Layout */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .headshot {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 4px;
+    filter: grayscale(20%);
+  }
+
+  form input, form textarea {
+    width: 100%;
+    min-height: 44px;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    background: transparent;
+    font-family: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
+  }
+
+  @media (min-width: 768px) {
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    .about-grid { grid-template-columns: 1fr 2fr; }
+    h1 { font-size: 4.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="/">
+      <img src="https://mmbusinessadvisor.com/wp-content/uploads/2021/01/logo.png" alt="Michael Marmur &amp; Associates" class="logo">
+    </a>
+    <nav>
+      <a href="#services">Practice Areas</a>
+      <a href="#process">Process &amp; Fees</a>
+      <a href="#about">About Michael</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <h1 class="reveal-text">It's not black or white . . . <br><span>it's green.</span></h1>
+    </div>
+  </section>
+
+  <section id="services" style="background-color: #fff;">
+    <div class="container">
+      <h2>Practice Areas</h2>
+      <p>Providing structured mediation and advisory services across Canada and the US via phone or Zoom.</p>
+      
+      <div class="services-grid">
+        <div class="service-item">
+          <h3>Partnership Disputes</h3>
+          <p>Resolving complex conflicts between business partners while preserving enterprise value.</p>
+        </div>
+        <div class="service-item">
+          <h3>Family Business</h3>
+          <p>Navigating succession planning, intergenerational conflict, and family dynamics.</p>
+        </div>
+        <div class="service-item">
+          <h3>Workplace Conflict</h3>
+          <p>Addressing internal friction to restore a productive and respectful environment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="container">
+    <h2>Process &amp; Fees</h2>
+    <p>We utilize our registered <strong>Consequential Analysis&reg;</strong> methodology to evaluate disputes.</p>
+    <p>We operate on a transparent, fixed-fee structure, eliminating the unpredictability of hourly billing during sensitive negotiations.</p>
+  </section>
+
+  <section id="about" style="background-color: #fff;">
+    <div class="container about-grid">
+      <div>
+        <img src="https://mmbusinessadvisor.com/wp-content/uploads/2021/01/michael-marmur.jpg" alt="Michael Marmur" class="headshot">
+      </div>
+      <div>
+        <h2>About Michael Marmur</h2>
+        <p>A seasoned business advisor and mediator bringing decades of corporate experience to complex dispute resolution.</p>
+        <p>Discreet, impartial, and focused on practical, forward-looking outcomes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="container">
+    <h2>Contact</h2>
+    <p>Reach out to discuss your situation in strict confidence.</p>
+    <p><em>[PLACEHOLDER: Add "Free 20 minute consultation" text here if confirmed by Michael.]</em></p>
+    
+    <div style="margin-top: 30px; display: grid; gap: 40px; grid-template-columns: 1fr;">
+      <form onsubmit="event.preventDefault();">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Briefly describe the nature of the inquiry..." style="min-height: 120px;" required></textarea>
+        <button type="submit" class="btn">Send Confidential Message</button>
+      </form>
+      <div>
+        <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Direct Contact</h3>
+        <p>[CONFIRM] Phone: 1-XXX-XXX-XXXX</p>
+        <p>[CONFIRM] Email: michael@mmbusinessadvisor.com</p>
+        <p>[CONFIRM] Location: Serving Canada and the US remotely.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer style="padding: 40px 0; text-align: center; border-top: 1px solid #ddd; background: #fff;">
+  <p style="font-size: 0.9rem; color: #888;">&copy; 2026 Michael Marmur &amp; Associates. Consequential Analysis is a registered mark.</p>
+</footer>
+
+</body>
+</html>

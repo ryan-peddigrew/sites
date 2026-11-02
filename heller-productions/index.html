@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<!--
+IMAGE SOURCES (verified 200 OK, 2 Nov 2026):
+Logo: https://hellerproductionsinc.com/wp-content/uploads/2019/02/HPI_LOGO-WhiteBkgd.png
+Rose Picnic: https://hellerproductionsinc.com/wp-content/uploads/2019/02/37354295_849572291918659_3042160743467188224_o-650x434.jpg
+David Foster: https://hellerproductionsinc.com/wp-content/uploads/2018/12/Kirsten-1-e1550681787975-650x499.jpg
+Taboo Resort: https://hellerproductionsinc.com/wp-content/uploads/2018/10/thumb-3-650x350.jpeg
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FBF4EE">
+<title>Heller Productions Inc. | Boutique event agency, Toronto</title>
+<meta name="description" content="Heller Productions Inc. (Heller Events): a Toronto boutique event agency for corporate, non-profit and social events, golf tournaments and incentive travel since 1998.">
+<link rel="icon" href="https://hellerproductionsinc.com/wp-content/uploads/2019/02/HPI_LOGO-WhiteBkgd.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF4EE; --paper2:#F5E8E0; --ink:#1B1418; --mute:#6E6066; --line:#E6D6CF;
+  --mag:#D41772; --magdeep:#A80F5A; --blush:#F8D6E3; --white:#fff;
+  --r:28px; --gut:16px;
+  --disp:'Bricolage Grotesque',system-ui,sans-serif; --body:'Figtree',system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--body);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{width:min(1240px,100% - 2*var(--gut));margin-inline:auto}
+@media(min-width:760px){:root{--gut:32px}}
+.eyebrow{font:600 13px/1.2 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mag);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:2px;background:currentColor;border-radius:2px}
+h1,h2,h3{font-family:var(--disp);font-weight:800;letter-spacing:-.035em;line-height:.95}
+h2{font-size:clamp(38px,8vw,84px)}
+.lede{font-size:clamp(18px,2.1vw,22px);line-height:1.5;color:var(--ink);max-width:36ch}
+.mute{color:var(--mute)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font:700 16px var(--body);text-decoration:none;transition:transform .2s,background .2s,color .2s}
+.btn svg{width:20px;height:20px}
+.btn-mag{background:var(--mag);color:#fff}
+.btn-mag:hover{background:var(--magdeep)}
+.btn-line{border:2px solid var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.btn:active{transform:scale(.97)}
+.bang{color:var(--mag)}
+
+/* header */
+.top{position:fixed;inset:0 0 auto;z-index:50;padding-top:env(safe-area-inset-top);transition:background .3s,box-shadow .3s}
+.top.solid{background:rgba(251,244,238,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-height:48px}
+.brand img{width:44px;height:44px;border-radius:50%}
+.brand b{font:800 18px/1 var(--disp);letter-spacing:-.02em}
+.brand small{display:block;font:500 12px/1.3 var(--body);color:var(--mute);letter-spacing:.02em}
+.top nav{display:none;gap:30px;font-weight:600;font-size:15px}
+.top nav a{text-decoration:none;padding:12px 0;position:relative}
+.top nav a::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:2px;background:var(--mag);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.top nav a:hover::after{transform:scaleX(1)}
+.top-r{display:flex;align-items:center;gap:10px}
+.top-r .btn{min-height:46px;padding:0 20px;font-size:15px;display:none}
+.menu-btn{width:48px;height:48px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center}
+.menu-btn svg{width:22px;height:22px}
+@media(min-width:980px){.top nav{display:flex}.top-r .btn{display:inline-flex}.menu-btn{display:none}}
+
+/* menu overlay */
+.menu{position:fixed;inset:0;z-index:60;background:var(--mag);color:#fff;display:flex;flex-direction:column;padding:calc(env(safe-area-inset-top) + 14px) var(--gut) 28px;clip-path:circle(0 at calc(100% - 40px) 40px);transition:clip-path .55s cubic-bezier(.7,0,.2,1);visibility:hidden}
+.menu.open{clip-path:circle(150% at calc(100% - 40px) 40px);visibility:visible}
+.menu-head{display:flex;justify-content:space-between;align-items:center;height:58px}
+.menu-head .menu-btn{background:#fff;color:var(--mag)}
+.menu ol{list-style:none;margin-top:auto;margin-bottom:auto}
+.menu li a{display:flex;align-items:baseline;gap:14px;text-decoration:none;font:800 clamp(44px,12vw,72px)/1.05 var(--disp);letter-spacing:-.04em;padding:6px 0}
+.menu li a span{font:600 14px var(--body);letter-spacing:.1em;opacity:.7}
+.menu-foot{font-size:15px;line-height:1.7;opacity:.95}
+.menu-foot a{text-decoration:none;display:inline-block;min-height:44px;line-height:44px}
+
+/* hero */
+.hero{padding-top:calc(env(safe-area-inset-top) + 96px);padding-bottom:40px;position:relative;overflow:hidden}
+.hero-grid{display:grid;gap:34px;align-items:center}
+.hero h1{font-size:clamp(56px,15vw,132px);line-height:.88;margin:18px 0 22px}
+.hero h1 .w{display:block;overflow:hidden;padding-bottom:.04em}
+.hero h1 .w i{display:inline-block;font-style:normal;transform:translateY(105%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 .w:nth-child(2) i{animation-delay:.12s}
+.hero h1 .w:nth-child(3) i{animation-delay:.24s}
+@keyframes rise{to{transform:none}}
+.hero .lede{margin-bottom:28px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:28px;font-size:14px;color:var(--mute);font-weight:500}
+.hero-meta b{color:var(--ink);font-weight:700}
+
+/* deck */
+.deck-zone{position:relative;height:min(118vw,560px);display:grid;place-items:center}
+.giant{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:800 clamp(130px,44vw,400px)/.8 var(--disp);letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px rgba(212,23,114,.28);white-space:nowrap;pointer-events:none;user-select:none}
+.deck{position:relative;width:min(74vw,380px);aspect-ratio:4/5;touch-action:pan-y}
+.card{position:absolute;inset:0;border-radius:24px;overflow:hidden;background:var(--paper2);box-shadow:0 30px 60px -28px rgba(60,10,35,.45),0 2px 0 rgba(0,0,0,.04);transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .5s;will-change:transform;cursor:grab;border:6px solid #fff}
+.card img{width:100%;height:100%;object-fit:cover;pointer-events:none;user-select:none;-webkit-user-drag:none}
+.card.drag{transition:none;cursor:grabbing}
+.deck-tag{position:absolute;left:50%;bottom:-6px;transform:translate(-50%,100%);background:var(--ink);color:var(--paper);font:600 13px var(--body);padding:9px 16px;border-radius:999px;white-space:nowrap;z-index:20}
+.sticker{position:absolute;right:-6%;top:-4%;width:96px;height:96px;z-index:30;animation:spin 18s linear infinite}
+.sticker img{width:100%;height:100%;border-radius:50%;box-shadow:0 10px 24px -10px rgba(212,23,114,.6)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.deck-hint{position:absolute;bottom:4px;left:0;right:0;text-align:center;font-size:13px;color:var(--mute);display:none}
+@media(min-width:980px){
+  .hero{padding-top:130px;min-height:100svh;display:flex;align-items:center}
+  .hero-grid{grid-template-columns:1.05fr 1fr}
+  .deck-zone{height:640px}
+  .deck{width:420px}
+  .sticker{width:120px;height:120px}
+}
+
+/* sections */
+section{position:relative}
+.pad{padding:84px 0}
+@media(min-width:980px){.pad{padding:130px 0}}
+.head{display:grid;gap:18px;margin-bottom:40px}
+@media(min-width:980px){.head{grid-template-columns:1.2fr 1fr;align-items:end;margin-bottom:60px}}
+
+/* statement */
+.statement p.big{font:700 clamp(28px,5.2vw,58px)/1.08 var(--disp);letter-spacing:-.03em;max-width:22ch}
+.statement p.big em{font-style:normal;color:var(--mag)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:48px}
+.fact{background:#fff;border-radius:var(--r);padding:26px 24px}
+.fact strong{display:block;font:800 clamp(44px,6vw,64px)/1 var(--disp);letter-spacing:-.04em;color:var(--mag)}
+.fact span{display:block;margin-top:10px;font-weight:600}
+.fact small{display:block;color:var(--mute);font-size:15px;margin-top:2px}
+
+/* formats rail */
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:min(78vw,330px);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px var(--gut) 18px;margin:0 calc(-1*var(--gut));scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.fmt{scroll-snap-align:start;position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;background:var(--ink);color:#fff}
+.fmt img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.fmt:hover img{transform:scale(1.05)}
+.fmt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(27,20,24,.82))}
+.fmt div{position:absolute;left:22px;right:22px;bottom:22px;z-index:2}
+.fmt b{display:block;font:800 30px/1 var(--disp);letter-spacing:-.03em}
+.fmt span{display:block;font-size:14px;opacity:.85;margin-top:8px}
+.fmt .n{position:absolute;top:18px;left:20px;z-index:2;font:700 13px var(--body);letter-spacing:.1em;background:rgba(255,255,255,.18);backdrop-filter:blur(6px);padding:7px 12px;border-radius:999px}
+@media(min-width:1100px){.rail{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible;margin:0;padding:0}.fmt{aspect-ratio:4/3}}
+.rail-note{font-size:14px;color:var(--mute);margin-top:6px}
+@media(min-width:1100px){.rail-note{display:none}}
+
+/* services */
+.svc{background:var(--ink);color:var(--paper);border-radius:var(--r);margin:0 8px}
+@media(min-width:760px){.svc{margin:0 16px}}
+.svc .eyebrow{color:var(--blush)}
+.svc .lede{color:var(--paper)}
+.svc-grid{display:grid;gap:40px}
+@media(min-width:980px){.svc-grid{grid-template-columns:1fr 1.1fr;gap:70px}}
+.svc-photo{border-radius:22px;overflow:hidden;aspect-ratio:4/3;margin-top:28px}
+.svc-photo img{width:100%;height:100%;object-fit:cover}
+.svc h3{font-size:clamp(28px,4vw,40px);margin-bottom:8px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;list-style:none}
+.tags li{border:1.5px solid rgba(251,244,238,.28);border-radius:999px;padding:10px 16px;font-weight:600;font-size:15px;transition:background .2s,border-color .2s,color .2s}
+.tags li:hover{background:var(--mag);border-color:var(--mag);color:#fff}
+.svc p+p{margin-top:14px}
+
+/* work list */
+.work-list{list-style:none;border-top:2px solid var(--ink)}
+.work-list li{border-bottom:1px solid var(--line)}
+.work-row{width:100%;display:grid;grid-template-columns:34px 1fr 72px;align-items:center;gap:12px;padding:18px 0;text-align:left;min-height:96px}
+.work-row .idx{font:700 13px var(--body);color:var(--mute)}
+.work-row .t{font:800 clamp(24px,4.6vw,56px)/1 var(--disp);letter-spacing:-.035em;transition:color .25s,transform .35s}
+.work-row .c{display:block;font:600 13px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--mag);margin-top:8px}
+.work-row .th{width:72px;height:72px;border-radius:16px;overflow:hidden}
+.work-row .th img{width:100%;height:100%;object-fit:cover}
+.work-row:hover .t{color:var(--mag);transform:translateX(8px)}
+@media(min-width:760px){.work-row{grid-template-columns:60px 1fr 210px;padding:26px 0}.work-row .side{display:flex;justify-content:flex-end;align-items:center;gap:14px;font-weight:600;font-size:15px}}
+.work-row .side .count{display:none}
+@media(min-width:760px){.work-row .side .count{display:inline}}
+@media(hover:hover) and (pointer:fine){.work-row .th{display:none}.work-row .side::after{content:"";width:46px;height:46px;border-radius:50%;border:2px solid var(--ink);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231B1418' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M7 17 17 7M9 7h8v8'/%3E%3C/svg%3E") center/20px no-repeat;transition:background-color .2s}.work-row:hover .side::after{background-color:var(--blush)}}
+.follow{position:fixed;left:0;top:0;width:300px;aspect-ratio:4/3;border-radius:20px;overflow:hidden;pointer-events:none;z-index:40;opacity:0;transform:translate(-50%,-50%) scale(.8);transition:opacity .25s,scale .25s;box-shadow:0 30px 60px -20px rgba(60,10,35,.5)}
+.follow img{width:100%;height:100%;object-fit:cover}
+.follow.on{opacity:1}
+
+/* signature (magenta) */
+.sig{background:var(--mag);color:#fff;border-radius:var(--r);margin:0 8px;overflow:hidden}
+@media(min-width:760px){.sig{margin:0 16px}}
+.sig .eyebrow{color:#fff}
+.sig h2{max-width:13ch}
+.sig-grid{display:grid;gap:16px;margin-top:40px}
+@media(min-width:900px){.sig-grid{grid-template-columns:1fr 1fr}}
+.sig-card{background:#fff;color:var(--ink);border-radius:24px;overflow:hidden;display:flex;flex-direction:column}
+.sig-card .ph{aspect-ratio:16/11;overflow:hidden;position:relative}
+.sig-card .ph img{width:100%;height:100%;object-fit:cover}
+.sig-card .ph small{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.5);color:#fff;font-size:11px;padding:4px 8px;border-radius:6px}
+.sig-card .bd{padding:24px}
+.sig-card h3{font-size:clamp(28px,3.4vw,38px);margin-bottom:10px}
+.sig-card p{color:var(--mute)}
+.sig-card .lbl{font:700 12px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mag);margin-bottom:10px;display:block}
+
+/* team */
+.team{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(min-width:760px){.team{grid-template-columns:repeat(3,1fr);gap:20px}}
+.mem{text-align:left;background:#fff;border-radius:var(--r);padding:14px 14px 18px;transition:transform .3s}
+.mem:hover{transform:translateY(-4px)}
+.mem .ph{border-radius:20px;overflow:hidden;aspect-ratio:1;background:var(--paper2);position:relative}
+.mem .ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:filter .4s}
+.mem:hover .ph img{filter:grayscale(0)}
+.mem b{display:block;font:800 clamp(19px,2.4vw,24px)/1.1 var(--disp);letter-spacing:-.02em;margin-top:14px}
+.mem span{display:block;font-size:14px;color:var(--mute);margin-top:4px;line-height:1.35}
+.mem em{display:inline-flex;align-items:center;gap:6px;font-style:normal;font-weight:700;font-size:14px;color:var(--mag);margin-top:10px;min-height:28px}
+
+/* quotes */
+.quotes{display:grid;grid-auto-flow:column;grid-auto-columns:min(86vw,440px);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px var(--gut) 18px;margin:0 calc(-1*var(--gut));scrollbar-width:none}
+.quotes::-webkit-scrollbar{display:none}
+.q{scroll-snap-align:start;background:var(--blush);border-radius:var(--r);padding:28px 26px;display:flex;flex-direction:column;gap:20px}
+.q svg{width:40px;height:40px;color:var(--mag)}
+.q p{font:500 19px/1.45 var(--body)}
+.q footer{margin-top:auto;font-size:15px}
+.q footer b{display:block}
+.q footer span{color:var(--mute)}
+
+/* clients */
+.clients{display:flex;flex-wrap:wrap;gap:4px 22px;font:800 clamp(26px,4.4vw,48px)/1.2 var(--disp);letter-spacing:-.03em}
+.clients span{white-space:nowrap}
+.clients span:not(:last-child)::after{content:"";display:inline-block;width:.22em;height:.22em;border-radius:50%;background:var(--mag);margin-left:22px;vertical-align:middle}
+.partners{margin-top:40px;color:var(--mute);font-size:16px;line-height:1.8}
+.partners b{color:var(--ink)}
+
+/* contact */
+.contact{background:#fff;border-radius:var(--r);margin:0 8px}
+@media(min-width:760px){.contact{margin:0 16px}}
+.ct-grid{display:grid;gap:40px}
+@media(min-width:980px){.ct-grid{grid-template-columns:1fr 1fr;gap:70px}}
+.ct-list{list-style:none;margin-top:30px;display:grid;gap:4px}
+.ct-list a,.ct-list div{display:flex;align-items:center;gap:14px;min-height:56px;text-decoration:none;font-weight:600}
+.ct-list svg{width:40px;height:40px;flex:none;color:var(--mag)}
+.ct-list small{display:block;color:var(--mute);font-weight:500;font-size:14px}
+form{display:grid;gap:14px}
+label{display:grid;gap:6px;font-weight:600;font-size:15px}
+input,textarea,select{font:inherit;font-size:17px;border:1.5px solid var(--line);background:var(--paper);border-radius:16px;padding:14px 16px;min-height:54px;color:var(--ink);width:100%}
+textarea{min-height:140px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--mag);box-shadow:0 0 0 4px rgba(212,23,114,.14)}
+.form-note{font-size:14px;color:var(--mute)}
+.form-ok{display:none;background:var(--blush);border-radius:16px;padding:16px;font-weight:600}
+
+/* footer */
+.foot{padding:70px 0 110px}
+.foot-word{font:800 clamp(90px,26vw,320px)/.8 var(--disp);letter-spacing:-.06em;color:var(--ink);margin-bottom:40px}
+.foot-word .bang{display:inline-block;transform-origin:bottom;animation:nod 3.6s ease-in-out infinite}
+@keyframes nod{0%,80%,100%{transform:none}88%{transform:rotate(8deg)}94%{transform:rotate(-4deg)}}
+.foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding-top:24px;font-size:15px;color:var(--mute)}
+.soc{display:flex;gap:6px}
+.soc a{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--line);color:var(--ink)}
+.soc a:hover{background:var(--mag);border-color:var(--mag);color:#fff}
+.soc svg{width:22px;height:22px}
+
+/* dialogs */
+dialog{border:0;padding:0;max-width:none;max-height:none;background:transparent;color:inherit}
+dialog::backdrop{background:rgba(27,20,24,.7);backdrop-filter:blur(4px)}
+.gal{width:100vw;height:100dvh;background:var(--ink);color:#fff}
+.gal-in{height:100%;display:flex;flex-direction:column}
+.gal-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:calc(env(safe-area-inset-top) + 12px) var(--gut) 12px}
+.gal-top h3{font-size:clamp(20px,3vw,30px);letter-spacing:-.02em}
+.gal-top small{display:block;font:600 13px var(--body);color:var(--blush);letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
+.x{width:48px;height:48px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;flex:none}
+.x svg{width:22px;height:22px}
+.gal-track{flex:1;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;gap:0}
+.gal-track::-webkit-scrollbar{display:none}
+.gal-track figure{flex:0 0 100%;scroll-snap-align:center;display:grid;place-items:center;padding:0 var(--gut)}
+.gal-track img{max-height:calc(100dvh - 170px);width:auto;max-width:100%;border-radius:16px;object-fit:contain}
+.gal-bot{display:flex;justify-content:space-between;align-items:center;padding:12px var(--gut) calc(env(safe-area-inset-bottom) + 16px)}
+.gal-bot button{width:52px;height:52px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);display:grid;place-items:center}
+.gal-bot button svg{width:22px;height:22px}
+.gal-count{font-weight:600}
+.bio{width:min(640px,100vw - 24px);max-height:88dvh;background:var(--paper);border-radius:var(--r);overflow:auto;margin:auto}
+.bio-in{padding:22px}
+.bio-head{display:flex;gap:16px;align-items:center;margin-bottom:18px}
+.bio-head img{width:84px;height:84px;border-radius:50%;object-fit:cover;filter:grayscale(1)}
+.bio-head h3{font-size:28px}
+.bio-head span{color:var(--mag);font-weight:600;font-size:15px}
+.bio-head .x{margin-left:auto;background:var(--ink);color:#fff}
+.bio p+p{margin-top:14px}
+
+.pill{position:fixed;left:12px;bottom:calc(env(safe-area-inset-bottom) + 12px);z-index:45;background:var(--ink);color:var(--paper);font:600 12px var(--body);letter-spacing:.06em;padding:8px 12px;border-radius:999px;opacity:.85}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .hero h1 .w i{transform:none}
+  .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Heller Productions home">
+      <img src="https://hellerproductionsinc.com/wp-content/uploads/2019/02/HPI_LOGO-WhiteBkgd.png" alt="" width="44" height="44">
+      <span><b>Heller Productions</b><small>Heller Events, Toronto</small></span>
+    </a>
+    <nav aria-label="Main">
+      <a href="#about">About</a><a href="#services">Services</a><a href="#work">Portfolio</a><a href="#team">Team</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="top-r">
+      <a class="btn btn-mag" href="#contact">Plan an event</a>
+      <button class="menu-btn" id="menuOpen" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <div class="menu-head">
+    <span class="brand"><img src="https://hellerproductionsinc.com/wp-content/uploads/2019/02/HPI_LOGO-WhiteBkgd.png" alt="" width="44" height="44"></span>
+    <button class="menu-btn" id="menuClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <ol>
+    <li><a href="#about"><span>01</span>About</a></li>
+    <li><a href="#services"><span>02</span>Services</a></li>
+    <li><a href="#work"><span>03</span>Portfolio</a></li>
+    <li><a href="#team"><span>04</span>Team</a></li>
+    <li><a href="#contact"><span>05</span>Contact</a></li>
+  </ol>
+  <div class="menu-foot">
+    <a href="tel:+14164327019">416-432-7019</a><br>
+    <a href="mailto:lori@hellerevents.ca">lori@hellerevents.ca</a>
+  </div>
+</div>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Boutique event agency, Toronto</p>
+      <h1 aria-label="Passion. Performance. Details."><span class="w"><i>Passion<span class="bang">.</span></i></span><span class="w"><i>Performance<span class="bang">.</span></i></span><span class="w"><i>Details<span class="bang">.</span></i></span></h1>
+      <p class="lede">Over 25 years of experience creating memorable corporate, luxury and social events.</p>
+      <div class="hero-cta">
+        <a class="btn btn-mag" href="#contact">Plan an event <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-line" href="#work">See the work</a>
+      </div>
+      <div class="hero-meta"><span><b>Since 1998</b></span><span>Corporate</span><span>Non-profit</span><span>Golf</span><span>Incentive travel</span></div>
+    </div>
+    <div class="deck-zone">
+      <div class="giant" aria-hidden="true">H!</div>
+      <div class="deck" id="deck" aria-roledescription="photo stack" aria-label="Photos from Heller events. Swipe to see the next one.">
+        <div class="sticker" aria-hidden="true"><img src="https://hellerproductionsinc.com/wp-content/uploads/2019/02/HPI_LOGO-WhiteBkgd.png" alt=""></div>
+      </div>
+      <div class="deck-tag" id="deckTag" aria-live="polite">Second Annual Rosé Picnic</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement pad" id="about">
+  <div class="wrap">
+    <p class="eyebrow rv">What we do</p>
+    <p class="big rv" style="margin-top:22px">Since 1998, Heller Productions has managed <em>corporate and non-profit events, retail conferences, golf tournaments and incentive travel trips</em>, just to name a few.</p>
+    <p class="lede rv mute" style="margin-top:24px;max-width:46ch">We have raised the bar in the events industry around and beyond the Greater Toronto Area, and gained a reputation as one of Canada’s finest boutique event companies.</p>
+    <div class="facts">
+      <div class="fact rv"><strong>1998</strong><span>Founded by Lori Heller</span><small>After a career on Bay Street</small></div>
+      <div class="fact rv"><strong>25+</strong><span>Years of events</span><small>Corporate, luxury and social</small></div>
+      <div class="fact rv"><strong>GTA</strong><span>And far beyond</span><small>Incentive trips around the world</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATS -->
+<section class="pad" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="eyebrow rv">The events</p><h2 class="rv" style="margin-top:16px">Every kind of<br>occasion<span class="bang">!</span></h2></div>
+      <p class="lede rv mute">Every event you stage is an opportunity to motivate and inspire clients and colleagues.</p>
+    </div>
+    <div class="rail">
+      <article class="fmt"><img src="img/summit-boats.jpg" alt="Team activity on the water" loading="lazy"><span class="n">01</span><div><b>Corporate events</b><span>Summits, meetings and team days</span></div></article>
+      <article class="fmt"><img src="img/redrose-room.jpg" alt="Gala dinner room with red roses" loading="lazy"><span class="n">02</span><div><b>Non-profit and galas</b><span>Charity events and award galas</span></div></article>
+      <article class="fmt"><img src="img/td-golf.jpg" alt="Golf course with palm trees" loading="lazy"><span class="n">03</span><div><b>Golf tournaments</b><span>Golf travel and tournaments</span></div></article>
+      <article class="fmt"><img src="img/td-resort.jpg" alt="Resort hotel in the sun" loading="lazy"><span class="n">04</span><div><b>Incentive travel</b><span>Trips around the world</span></div></article>
+      <article class="fmt"><img src="img/soiree-crowd.jpg" alt="Guests at an evening in a wine shop" loading="lazy"><span class="n">05</span><div><b>Retail conferences</b><span>Launches and in-store evenings</span></div></article>
+      <article class="fmt"><img src="img/rose-lawn.jpg" alt="Guests in pink and white on a lawn" loading="lazy"><span class="n">06</span><div><b>Social events</b><span>Festivals, picnics and parties</span></div></article>
+    </div>
+    <p class="rail-note">Swipe to see more</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="svc pad" id="services">
+  <div class="wrap svc-grid">
+    <div>
+      <p class="eyebrow rv">The services</p>
+      <h2 class="rv" style="margin-top:16px">A personal touch<span class="bang">.</span></h2>
+      <p class="lede rv" style="margin-top:20px">With professional attention to detail.</p>
+      <div class="svc-photo rv"><img src="img/df-dinner.jpg" alt="Long candlelit dinner table set with white flowers" loading="lazy"></div>
+    </div>
+    <div>
+      <p class="rv">Working closely as your partners, we manage everything for you to ensure your success.</p>
+      <p class="rv">Through ongoing personal involvement, our experienced professionals take the time to understand your vision and objectives, from conception through to event fruition.</p>
+      <h3 class="rv" style="margin-top:40px">Our team is an extension of your team.</h3>
+      <p class="rv" style="opacity:.8">Heller Productions takes care of all the program components and details, including:</p>
+      <ul class="tags rv">
+        <li>Activities</li><li>Audio visual</li><li>Budget reconciliation</li><li>Communications</li><li>Décor</li><li>Entertainment</li><li>Event logistics</li><li>Food and beverage</li><li>Marketing and design</li><li>Media and public relations</li><li>On-site event management</li><li>Operations</li><li>Promotional items</li><li>Project management</li><li>Online registration and ticketing</li><li>Theme development</li><li>Vendor and supplier contracts</li><li>Venue liaison</li><li>Website design and development</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="pad" id="work">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="eyebrow rv">The portfolio</p><h2 class="rv" style="margin-top:16px">The work<span class="bang">.</span></h2></div>
+      <p class="lede rv mute">One-of-a-kind, luxurious and memorable events, tailored to each client. Tap any event to see the photos.</p>
+    </div>
+    <ul class="work-list" id="workList"></ul>
+  </div>
+  <div class="follow" id="follow" aria-hidden="true"><img alt=""></div>
+</section>
+
+<!-- SIGNATURE -->
+<section class="sig pad" id="signature">
+  <div class="wrap">
+    <p class="eyebrow rv">Heller Events presents</p>
+    <h2 class="rv" style="margin-top:16px">Our own events, too<span style="color:var(--ink)">!</span></h2>
+    <div class="sig-grid">
+      <article class="sig-card rv">
+        <div class="ph"><img src="img/rose-crowd.jpg" alt="Crowd dressed in pink at The Rosé Picnic" loading="lazy"></div>
+        <div class="bd"><span class="lbl">Curated by Heller Events</span><h3>The Rosé Picnic</h3><p>Toronto’s summer celebration of rosé, food and friends, curated every year by Heller Events.</p></div>
+      </article>
+      <article class="sig-card rv">
+        <div class="ph"><img src="img/deb-guest.jpg" alt="Guest dressed all in white at Le Dîner en Blanc Toronto" loading="lazy" style="object-position:50% 20%"><small>Photo: Ryan Emberley</small></div>
+        <div class="bd"><span class="lbl">Hosted by Heller Events</span><h3>Le Dîner en Blanc Toronto</h3><p>The pop-up picnic that began in Paris, at a secret location in Toronto. Group tables and custom packages for 4 to 50 guests.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="pad" id="team">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="eyebrow rv">Meet the team</p><h2 class="rv" style="margin-top:16px">The bigger the team, the more important the dream<span class="bang">.</span></h2></div>
+      <p class="lede rv mute">Tap a name to read more.</p>
+    </div>
+    <div class="team" id="teamGrid"></div>
+  </div>
+</section>
+
+<!-- QUOTES -->
+<section class="pad" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="eyebrow rv">Kind words</p><h2 class="rv" style="margin-top:16px">From the venues<span class="bang">.</span></h2></div>
+      <p class="lede rv mute">What our venue partners say about working with the Heller team.</p>
+    </div>
+    <div class="quotes">
+      <figure class="q"><svg viewBox="0 0 40 40" fill="currentColor" aria-hidden="true"><path d="M4 30V20C4 12 8 7 16 5l1.5 3C13 9.6 11 12.6 11 17h6v13H4Zm19 0V20c0-8 4-13 12-15l1.5 3C32 9.6 30 12.6 30 17h6v13H23Z"/></svg><p>“Each event was unique in vision and scale, though the one thing that remained unchanged was their professionalism and friendliness. The Heller Team’s poise and conduct set the bar high, and inspires you to journey alongside them.”</p><footer><b>Rachel Deelstra</b><span>Corporate Events and Sales Director, Donnelly Group</span></footer></figure>
+      <figure class="q"><svg viewBox="0 0 40 40" fill="currentColor" aria-hidden="true"><path d="M4 30V20C4 12 8 7 16 5l1.5 3C13 9.6 11 12.6 11 17h6v13H4Zm19 0V20c0-8 4-13 12-15l1.5 3C32 9.6 30 12.6 30 17h6v13H23Z"/></svg><p>“It is always a pleasure working with Heller Productions Inc. They have exceptional attention to detail and consistently deliver a smooth event on their clients’ behalf.”</p><footer><b>Matthew Worth</b><span>Group Sales Manager, JW Marriott Grosvenor House London</span></footer></figure>
+      <figure class="q"><svg viewBox="0 0 40 40" fill="currentColor" aria-hidden="true"><path d="M4 30V20C4 12 8 7 16 5l1.5 3C13 9.6 11 12.6 11 17h6v13H4Zm19 0V20c0-8 4-13 12-15l1.5 3C32 9.6 30 12.6 30 17h6v13H23Z"/></svg><p>“From sourcing, to negotiations through contracts, to planning event details, and including the execution of the events onsite at our hotel, the team is very professional. They are personable and easy to relate to.”</p><footer><b>Jen Eunson</b><span>Sales Manager, Sheraton Suites Calgary Eau Claire</span></footer></figure>
+      <figure class="q"><svg viewBox="0 0 40 40" fill="currentColor" aria-hidden="true"><path d="M4 30V20C4 12 8 7 16 5l1.5 3C13 9.6 11 12.6 11 17h6v13H4Zm19 0V20c0-8 4-13 12-15l1.5 3C32 9.6 30 12.6 30 17h6v13H23Z"/></svg><p>“Dedication and team synergy come to mind when working with Heller Productions, and that’s how great events are made possible. We love working with Heller Productions, it’s easy, seamless and fun every time!”</p><footer><b>Helen Stukator</b><span>Director of Sales, Blue Mountain Resort</span></footer></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="pad" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow rv">Featured clients</p>
+    <div class="clients rv" style="margin-top:22px">
+      <span>TD</span><span>The David Foster Foundation</span><span>SickKids</span><span>Aecon</span><span>Golf Town</span><span>Branksome Hall</span><span>Love Child</span><span>Food Dudes</span><span>The Rosé Picnic</span>
+    </div>
+    <p class="partners rv"><b>Partners:</b> BenchMRK, CCR, Centre Stage AV, Cuisivin, DMV Interiors, Duet Public Relations, FMAV, Freeman Audio Visual Canada, The McEwan Group, Red Scarf Gift Company, Riot Productions, Run Your Show, The Influence Agency.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact pad" id="contact">
+  <div class="wrap ct-grid">
+    <div>
+      <p class="eyebrow rv">Contact</p>
+      <h2 class="rv" style="margin-top:16px">Planning an event<span class="bang">?</span></h2>
+      <p class="lede rv" style="margin-top:20px">We’d love to hear from you. Questions, an upcoming event, or want to join the Heller team? Leave us a message.</p>
+      <ul class="ct-list rv">
+        <li><a href="tel:+14164327019"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6h5l2.5 7-3.5 2.5a19 19 0 0 0 8.5 8.5L27 20.5l7 2.5v5a3 3 0 0 1-3 3A25 25 0 0 1 9 9a3 3 0 0 1 3-3Z"/></svg><span>416-432-7019<small>Monday to Friday, 9 am to 5 pm</small></span></a></li>
+        <li><a href="mailto:lori@hellerevents.ca"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="9" width="30" height="22" rx="3"/><path d="m6 11 14 11 14-11"/></svg><span>lori@hellerevents.ca<small>Email Lori directly</small></span></a></li>
+        <li><a href="https://maps.google.com/?q=40+Eglinton+Ave+East+Suite+803+Toronto+ON+M4P+3A2" target="_blank" rel="noopener"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 35s11-10 11-19a11 11 0 0 0-22 0c0 9 11 19 11 19Z"/><circle cx="20" cy="16" r="4"/></svg><span>40 Eglinton Ave East, Suite 803<small>Toronto, ON M4P 3A2</small></span></a></li>
+      </ul>
+    </div>
+    <div class="rv">
+      <form id="form" novalidate>
+        <label>Name *<input name="name" autocomplete="name" required></label>
+        <label>Email *<input name="email" type="email" autocomplete="email" required></label>
+        <label>Telephone<input name="phone" type="tel" autocomplete="tel"></label>
+        <label>Message<textarea name="message" placeholder="Tell us about your event: type, date and number of guests"></textarea></label>
+        <button class="btn btn-mag" type="submit">Send message</button>
+        <p class="form-note">Preview only: this form does not send yet.</p>
+        <div class="form-ok" id="formOk" role="status">Thank you! In the finished site this sends straight to Lori.</div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-word" aria-hidden="true">Heller<span class="bang">!</span></div>
+    <div class="foot-row">
+      <span>&copy; Heller Productions Inc. Toronto, since 1998. @hellerevents</span>
+      <div class="soc">
+        <a href="https://www.instagram.com/hellerevents/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.facebook.com/hellereventstoronto/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v6h4v-6H16l.5-4h-3V9c0-.6.4-1 1-1Z"/></svg></a>
+        <a href="https://www.linkedin.com/company/heller-productions-inc-" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 9h3.2v11H4.5zM6.1 3.5a1.9 1.9 0 1 1 0 3.8 1.9 1.9 0 0 1 0-3.8ZM10 9h3v1.6c.5-.9 1.7-1.9 3.5-1.9 3.4 0 4 2.2 4 5.1V20h-3.2v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V20H10z"/></svg></a>
+        <a href="https://twitter.com/HellerEvents" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.7 8 10.3h-6.3l-4.9-6.4L5.3 21H2.2l7.3-8.3L1.8 3h6.4l4.4 5.9L17.8 3Zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5Z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<span class="pill">Draft preview</span>
+
+<dialog class="gal" id="gal" aria-label="Event photos">
+  <div class="gal-in">
+    <div class="gal-top"><div><h3 id="galTitle"></h3><small id="galCat"></small></div><button class="x" data-close aria-label="Close photos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="gal-track" id="galTrack"></div>
+    <div class="gal-bot"><button id="galPrev" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><span class="gal-count" id="galCount"></span><button id="galNext" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button></div>
+  </div>
+</dialog>
+
+<dialog class="bio" id="bio" aria-labelledby="bioName">
+  <div class="bio-in">
+    <div class="bio-head"><img id="bioImg" alt=""><div><h3 id="bioName"></h3><span id="bioRole"></span></div><button class="x" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div id="bioText"></div>
+  </div>
+</dialog>
+
+<script>
+(()=>{
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=s=>document.querySelector(s);
+
+/* header + menu */
+const top=$('#top');addEventListener('scroll',()=>top.classList.toggle('solid',scrollY>30),{passive:true});
+const menu=$('#menu'),mo=$('#menuOpen');
+const setMenu=o=>{menu.classList.toggle('open',o);menu.setAttribute('aria-hidden',!o);mo.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''};
+mo.onclick=()=>setMenu(true);$('#menuClose').onclick=()=>setMenu(false);
+menu.querySelectorAll('a').forEach(a=>a.onclick=()=>setMenu(false));
+
+/* data */
+const P=[
+ {t:'TD Securities Pinnacle Incentive Program',c:'Incentive travel',img:['td-dinner','td-resort','td-golf','td-gifts','td-dessert']},
+ {t:'Red Rose Ball',c:'Gala',img:['redrose-room','redrose-guests','redrose-couple']},
+ {t:'Second Annual Rosé Picnic',c:'Festival',img:['rose-lawn','rose-crowd','rose-tents','rose-guest','rose-aerial','rose-glasses','rose-toast']},
+ {t:'Rosé Soirée at The Wine Shop',c:'Retail evening',img:['soiree-crowd','soiree-shop','soiree-bar','soiree-table','soiree-guests','soiree-hosts']},
+ {t:'TD Capital Markets Summit',c:'Corporate',img:['summit-boats','summit-tug','summit-pink','summit-team']},
+ {t:'David Foster Charity Event',c:'Charity',img:['df-dinner','df-stage','df-table','df-room','df-bubbly','df-place','df-chef','df-guests','df-team','df-lori','df-cheese']},
+ {t:'The Rosé Picnic Pop-Up at Bymark',c:'Pop-up',img:['bymark-group','bymark-lounge','bymark-friends','bymark-board','bymark-tacos','bymark-treats','bymark-glass','bymark-setup','bymark-hosts','bymark-chefs','bymark-door']}
+];
+const src=n=>'img/'+n+'.jpg';
+
+/* hero deck */
+const deckPics=[['rose-lawn','Second Annual Rosé Picnic'],['redrose-room','Red Rose Ball'],['td-dinner','TD Securities Pinnacle Incentive Program'],['soiree-crowd','Rosé Soirée at The Wine Shop'],['df-dinner','David Foster Charity Event'],['bymark-group','The Rosé Picnic Pop-Up at Bymark'],['summit-boats','TD Capital Markets Summit']];
+const deck=$('#deck'),tag=$('#deckTag');
+const cards=deckPics.map(([n,l],i)=>{const d=document.createElement('div');d.className='card';d.dataset.label=l;d.innerHTML=`<img src="${src(n)}" alt="${l}" ${i>2?'loading="lazy"':''}>`;deck.appendChild(d);return d});
+let order=cards.slice();
+const rot=[-3,4,-6,7,-2,5,-4];
+function lay(){order.forEach((c,i)=>{const z=order.length-i;c.style.zIndex=z;const k=Math.min(i,3);c.style.transform=`translate(${k*10}px,${k*-12}px) rotate(${i===0?-1.5:rot[i%rot.length]}deg) scale(${1-k*.035})`;c.style.opacity=i>3?0:1;c.setAttribute('aria-hidden',i!==0)});tag.textContent=order[0].dataset.label}
+function next(dir=1){const c=order.shift();c.style.transform=`translate(${dir*120}%,-6%) rotate(${dir*18}deg)`;c.style.zIndex=99;setTimeout(()=>{order.push(c);lay()},RM?0:380)}
+lay();
+let auto=RM?null:setInterval(()=>{if(!document.hidden)next(1)},3400);
+const stopAuto=()=>{clearInterval(auto);auto=null};
+let sx=0,sy=0,dx=0,dragging=false,cur=null;
+deck.addEventListener('pointerdown',e=>{cur=order[0];if(!cur.contains(e.target)&&e.target!==cur)return;dragging=true;sx=e.clientX;sy=e.clientY;dx=0;cur.classList.add('drag');stopAuto()});
+addEventListener('pointermove',e=>{if(!dragging)return;dx=e.clientX-sx;const dy=e.clientY-sy;if(Math.abs(dy)>Math.abs(dx)*1.4&&Math.abs(dx)<12)return;cur.style.transform=`translate(${dx}px,${dy*.2}px) rotate(${dx/14}deg)`},{passive:true});
+const end=()=>{if(!dragging)return;dragging=false;cur.classList.remove('drag');if(Math.abs(dx)>70)next(Math.sign(dx));else if(Math.abs(dx)<6)next(1);else lay()};
+addEventListener('pointerup',end);addEventListener('pointercancel',end);
+
+/* work list */
+const wl=$('#workList'),fol=$('#follow'),folImg=fol.querySelector('img');
+P.forEach((p,i)=>{const li=document.createElement('li');li.className='rv';li.innerHTML=`<button class="work-row" data-i="${i}"><span class="idx">${String(i+1).padStart(2,'0')}</span><span><span class="t">${p.t}</span><span class="c">${p.c}</span></span><span class="side"><span class="count">${p.img.length} photos</span><span class="th"><img src="${src(p.img[0])}" alt="" loading="lazy"></span></span></button>`;wl.appendChild(li)});
+const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+if(fine&&!RM){let fx=0,fy=0,tx=0,ty=0,raf;
+  const loop=()=>{fx+=(tx-fx)*.16;fy+=(ty-fy)*.16;fol.style.translate=`${fx}px ${fy}px`;raf=requestAnimationFrame(loop)};
+  wl.addEventListener('mousemove',e=>{tx=e.clientX+170;ty=e.clientY;if(!raf){fx=tx;fy=ty;loop()}});
+  wl.querySelectorAll('.work-row').forEach(b=>{b.addEventListener('mouseenter',()=>{folImg.src=src(P[b.dataset.i].img[0]);fol.classList.add('on')})});
+  wl.addEventListener('mouseleave',()=>{fol.classList.remove('on');cancelAnimationFrame(raf);raf=null});
+}
+/* gallery */
+const gal=$('#gal'),gt=$('#galTrack'),gc=$('#galCount');let gn=0;
+function openGal(i){const p=P[i];$('#galTitle').textContent=p.t;$('#galCat').textContent=p.c;gn=p.img.length;
+  gt.innerHTML=p.img.map((n,k)=>`<figure><img src="${src(n)}" alt="${p.t}, photo ${k+1}" ${k>1?'loading="lazy"':''}></figure>`).join('');
+  gc.textContent=`1 / ${gn}`;gal.showModal();gt.scrollLeft=0;fol.classList.remove('on')}
+const gi=()=>Math.round(gt.scrollLeft/gt.clientWidth);
+gt.addEventListener('scroll',()=>{gc.textContent=`${gi()+1} / ${gn}`},{passive:true});
+const go=d=>gt.scrollTo({left:Math.max(0,Math.min(gn-1,gi()+d))*gt.clientWidth,behavior:RM?'auto':'smooth'});
+$('#galPrev').onclick=()=>go(-1);$('#galNext').onclick=()=>go(1);
+gal.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+wl.addEventListener('click',e=>{const b=e.target.closest('.work-row');if(b)openGal(+b.dataset.i)});
+
+/* team */
+const T=[
+ {n:'Lori Heller',r:'President',i:'lori',b:['Lori began her career on Bay Street working in Syndication and Debt Capital Markets at CIBC World Markets and eventually moved into event marketing, sponsorships and donations. With that knowledge and experience under her belt, she launched her own event management company in 1998.','Over 25 years later, Heller Productions has raised the bar in the events industry and has gained a reputation as one of Canada’s finest boutique event companies. The name alone is synonymous with precision, personal edge, vision and flair.','Heller Productions has created and produced events for the David Foster Foundation, Grand Cru Culinary Wine Festival, Vinifera Wine Lovers’ Gala, President’s Cup, and countless corporate events, golf tournaments, conferences, award galas and incentive trips around the world.','Lori embodies a perfect blend of creative thinking, personal service and attention to detail. The results speak for themselves: unforgettable events and outstanding successes, year after year.']},
+ {n:'Angela Carson',r:'Senior Event Manager and Director of Operations',i:'angela',b:['Angela is a professional, seasoned and savvy event planner who exemplifies client focus and attention to detail. With over 15 years of experience as an elite event planner, Angela understands that each event and client is unique and believes her services should be as well.','Her extensive experience with corporate events, trade shows, weddings, golf tournaments and charity events means her clients can trust nothing will be left to chance.','Whether it’s the day-to-day pre-planning, suggesting clever concepts, unique problem-solving or precise on-site execution, Angela always finds a way to deliver the “WOW” factor each event deserves.']},
+ {n:'Michelle Maderer',r:'Director of Events',i:'michelle',b:['Michelle joined Heller Productions from the world of catering and event marketing. She has a passion for planning events and helping others create a unique and memorable experience.','With a degree from York University and a diploma from Seneca College, her event planning experience and love of food led her into catering, where she shared her culinary passions with others.','She brings a wide range of skills in planning and organizing events, and is an avid traveller who has ventured across the globe experiencing new cultures and culinary delights.']},
+ {n:'Erin Poredos',r:'Event Manager and Business Development',i:'erin',b:['With more than 8 years of project management, sales, marketing and event experience, Erin has worked in a variety of capacities, from managing industry events to educational conferences.','She is a passionate and creative team player who strives to identify new opportunities that bring people together to create meaningful and engaging experiences.','Erin’s creativity, initiative and highly driven attitude build strong relationships with her clients, ensuring their vision is executed beyond their expectations.']},
+ {n:'Krystle Reyes',r:'Event Manager',i:'krystle',b:['Krystle Reyes is a creative and business professional, in that order. As a former graphic designer, she understands the art of expression.','As an event and project management professional, she is wired to help brands, leaders and salespeople achieve success while coordinating logistics to create seamless and memorable events.','Her organizational skills and attention to detail mean projects are delivered on time, budgets are managed and brand guidelines stay intact.']},
+ {n:'Janice Figov',r:'Accountant',i:'janice',b:['Janice is a certified Adult Educator with 20 years of experience in the software and consulting industry, specializing in software and systems training. She started Figov Associates in 1991.','She currently teaches at George Brown College, and her extensive education and experience with QuickBooks, accounting and bookkeeping make her uniquely qualified to keep the systems behind every event running smoothly.']}
+];
+const tg=$('#teamGrid'),bio=$('#bio');
+T.forEach((m,k)=>{const b=document.createElement('button');b.className='mem rv';b.innerHTML=`<div class="ph"><img src="img/team-${m.i}.jpg" alt="${m.n}" loading="lazy"></div><b>${m.n}</b><span>${m.r}</span><em>Read more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></em>`;
+  b.onclick=()=>{$('#bioImg').src=`img/team-${m.i}.jpg`;$('#bioName').textContent=m.n;$('#bioRole').textContent=m.r;$('#bioText').innerHTML=m.b.map(p=>`<p>${p}</p>`).join('');bio.showModal()};tg.appendChild(b)});
+
+/* dialogs close */
+document.querySelectorAll('dialog').forEach(d=>{d.addEventListener('click',e=>{if(e.target===d||e.target.closest('[data-close]'))d.close()})});
+
+/* form */
+$('#form').addEventListener('submit',e=>{e.preventDefault();const f=e.target;if(!f.name.value.trim()||!/^\S+@\S+\.\S+$/.test(f.email.value)){f.reportValidity();return}$('#formOk').style.display='block'});
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+})();
+</script>
+</body>
+</html>

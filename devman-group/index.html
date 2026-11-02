@@ -1,0 +1,1193 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Devman Group Inc. | Condominium refurbishment, Greater Toronto Area</title>
+<meta name="description" content="Design-build refurbishment for condominium corridors, lobbies and amenity spaces across the Greater Toronto Area. Communication. Quality. Service.">
+<meta name="theme-color" content="#0E1113">
+<link rel="preload" as="image" href="img/h1.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Schibsted+Grotesk:wght@400;500;700&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E1113; --graphite:#1A1F23; --paper:#F3F1EC; --stone:#E3DFD6; --line:#CFCAC0;
+  --teal:#0088A3; --teal-d:#22B3CF; --mute:#9AA1A4; --mute-d:#A7ADAF;
+  --display:'Big Shoulders Display',Impact,sans-serif;
+  --body:'Schibsted Grotesk',system-ui,sans-serif;
+  --mono:'Martian Mono',ui-monospace,monospace;
+  --gut:clamp(16px,4vw,48px); --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.mono{font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+h1,h2,h3{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.92;letter-spacing:.005em}
+h2{font-size:clamp(44px,8vw,96px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:2px;font:700 15px/1 var(--body);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn svg{width:20px;height:20px}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-teal:hover{background:var(--teal-d)}
+.btn-line{border-color:currentColor;background:transparent}
+.btn-line:hover{background:#fff;color:var(--ink);border-color:#fff}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+
+/* header */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(14,17,19,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;max-width:none}
+.logo{display:flex;align-items:center;min-height:44px}
+.logo img{height:38px;width:auto;filter:drop-shadow(0 6px 10px rgba(0,0,0,.55)) drop-shadow(0 1px 2px rgba(0,0,0,.4));transform:translateY(-1px)}
+.nav{display:none;gap:28px;align-items:center}
+.nav a{font:500 14px/1 var(--body);text-decoration:none;opacity:.85;min-height:44px;display:flex;align-items:center}
+.nav a:hover{opacity:1}
+.nav .btn{min-height:44px;padding:0 18px;opacity:1}
+.dir-btn{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 4px 0 14px;background:none;border:0;color:#fff;font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.dir-btn svg{width:28px;height:28px}
+@media(min-width:960px){.nav{display:flex}.dir-btn{display:none}}
+
+/* directory overlay menu */
+.dir{position:fixed;inset:0;z-index:60;background:var(--ink);color:#fff;display:flex;flex-direction:column;padding:0 var(--gut) 28px;transform:translateY(-100%);transition:transform .45s cubic-bezier(.7,0,.2,1);visibility:hidden}
+.dir.open{transform:none;visibility:visible}
+.dir-top{display:flex;justify-content:space-between;align-items:center;height:68px}
+.dir-close{width:48px;height:48px;display:grid;place-items:center;background:none;border:0;color:#fff;cursor:pointer}
+.dir-close svg{width:30px;height:30px}
+.dir-head{margin:18px 0 10px;color:var(--mute-d)}
+.dir ol{list-style:none;border-top:1px solid rgba(255,255,255,.14)}
+.dir li a{display:grid;grid-template-columns:52px 1fr auto;align-items:center;min-height:64px;border-bottom:1px solid rgba(255,255,255,.14);text-decoration:none;font:800 34px/1 var(--display);text-transform:uppercase}
+.dir li a span:first-child{font:500 12px var(--mono);color:var(--teal)}
+.dir li a svg{width:24px;height:24px;opacity:.5}
+.dir-foot{margin-top:auto;display:grid;gap:10px}
+.dir-foot .btn{width:100%}
+
+/* hero: walk down the corridor */
+.hero{position:relative;height:190vh;background:var(--ink)}
+.hero-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;color:#fff}
+.hero-img{position:absolute;inset:0;transform-origin:50% 48%;will-change:transform;background:#0E1113}
+.sl{position:absolute;inset:0;background:center 55%/cover no-repeat;opacity:0;transform:scale(1.12);transition:opacity 1.4s ease,transform 7s linear}
+.sl.on{opacity:1;transform:scale(1)}
+.hw{display:block;overflow:hidden}
+.hw>span{display:block;transform:translateY(105%);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.hero.go .hw>span{transform:none}
+.hero.go .hw:nth-child(2)>span{transition-delay:.12s}.hero.go .hw:nth-child(3)>span{transition-delay:.24s}
+.hero h1 b.hw>span{color:transparent;-webkit-text-stroke:2px #fff}
+.hero .kicker,.hero p,.hero .ctas{opacity:0;transform:translateY(16px);transition:opacity .8s .35s,transform .8s .35s}
+.hero.go .kicker,.hero.go p,.hero.go .ctas{opacity:1;transform:none}
+.dots{display:flex;gap:6px;justify-content:flex-end;margin-top:10px}
+.dots i{width:22px;height:3px;background:rgba(255,255,255,.35)}
+.dots i.on{background:#0088A3}
+@media(max-width:600px){.floor{display:block;top:84px;right:16px}.floor b{font-size:34px}}
+/* loader */
+.ld{position:fixed;inset:0;z-index:100;background:#0E1113;display:grid;place-items:center;transition:transform .6s cubic-bezier(.7,0,.2,1)}
+.ld.out{transform:translateY(-100%)}
+.ld-in{display:grid;justify-items:center;gap:22px;width:min(78vw,320px)}
+.ld img{width:100%;height:auto;filter:drop-shadow(0 8px 14px rgba(0,0,0,.6))}
+.ld-bld{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;width:120px}
+.ld-bld i{aspect-ratio:1;background:#1d2428}
+.ld-bld i.on{background:#0088A3;box-shadow:0 0 10px rgba(0,136,163,.7)}
+.ld-row{display:flex;justify-content:space-between;width:100%;color:#a7adaf;font:500 11px 'Martian Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+.ld-row b{color:#fff;font-weight:500}
+.ld-bar{width:100%;height:3px;background:#1d2428}
+.ld-bar i{display:block;height:100%;width:0;background:#0088A3}
+@media (prefers-reduced-motion:reduce){.sl{transition:opacity .01s}.hw>span{transform:none;transition:none}.hero .kicker,.hero p,.hero .ctas{opacity:1;transform:none;transition:none}.ld{transition:none}}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,17,19,.55) 0%,rgba(14,17,19,.15) 38%,rgba(14,17,19,.82) 100%)}
+.hero-in{position:absolute;inset:auto 0 0 0;padding:0 var(--gut) clamp(28px,6vh,64px);max-width:var(--max);margin:0 auto;will-change:opacity,transform}
+.hero .kicker{display:flex;align-items:center;gap:10px;margin-bottom:16px;color:#d8f3f8}
+.hero .kicker i{width:28px;height:3px;background:var(--teal);display:block}
+.hero h1{font-size:clamp(44px,11.4vw,176px);line-height:.86;font-weight:900}
+.hero h1 b{display:block;font-weight:900;color:transparent;-webkit-text-stroke:2px #fff}
+.hero p{max-width:34ch;margin:18px 0 24px;font-size:clamp(17px,2vw,21px);line-height:1.45;color:#eceeee}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:10px}
+.hero .ctas .btn{flex:1 1 220px}
+@media(min-width:700px){.hero .ctas .btn{max-width:280px}}
+.floor{position:absolute;right:var(--gut);top:92px;text-align:right;color:#fff;opacity:.9}
+.floor b{display:block;font:900 64px/1 var(--display)}
+@media(max-width:600px){.floor{display:none}}
+
+/* intro */
+.intro{padding:clamp(44px,8vw,104px) 0 clamp(36px,6vw,80px)}
+.intro-grid{display:grid;gap:28px}
+.intro h2{font-size:clamp(40px,6.4vw,82px)}
+.intro h2 em{font-style:normal;color:var(--teal)}
+.intro .copy p+p{margin-top:16px}
+.intro .copy p{max-width:58ch}
+@media(min-width:900px){.intro-grid{grid-template-columns:1.1fr 1fr;gap:64px;align-items:end}}
+
+/* commitments */
+.pillars{display:grid;gap:1px;background:var(--line);border-block:1px solid var(--line)}
+.pillar{background:var(--paper);padding:32px var(--gut) 36px;display:grid;gap:14px}
+.pillar .mono{color:var(--teal)}
+.pillar h3{font-size:clamp(46px,6vw,72px)}
+.pillar p{max-width:34ch;color:#2a2e30}
+.pillar svg{width:40px;height:40px;stroke:var(--ink)}
+@media(min-width:900px){.pillars{grid-template-columns:repeat(3,1fr)}.pillar{padding:44px 36px 48px}}
+
+/* directory board */
+.board{background:var(--ink);color:#fff;padding:clamp(40px,7vw,96px) 0}
+.board-head{display:grid;gap:18px;margin-bottom:44px}
+.board-head p{color:var(--mute-d);max-width:56ch}
+.board .mono{color:var(--teal)}
+@media(min-width:900px){.board-head{grid-template-columns:1fr 1fr;align-items:end;gap:64px}}
+.tabs{display:flex;gap:6px;margin-bottom:22px}
+.tab{min-height:48px;padding:0 18px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:2px}
+.tab[aria-selected="true"]{background:#fff;color:var(--ink);border-color:#fff}
+.dirboard{background:var(--graphite);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:8px clamp(14px,3vw,36px) 18px;box-shadow:inset 0 0 0 6px #14181b}
+.dirboard ol{list-style:none;display:grid}
+.dirboard li{display:grid;grid-template-columns:44px 1fr;align-items:baseline;gap:8px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);font:600 clamp(26px,4.4vw,46px)/1 var(--display);text-transform:uppercase;letter-spacing:.02em}
+.dirboard li span{font:500 12px var(--mono);color:var(--teal)}
+.dirboard li:last-child{border-bottom:0}
+@media(min-width:900px){.dirboard ol.two{grid-template-columns:1fr 1fr;column-gap:56px}}
+.panel[hidden]{display:none}
+.panel-note{margin:22px 0 0;color:var(--mute-d);max-width:62ch}
+.board .ctas{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px}
+
+/* projects rail */
+.projects{padding:clamp(40px,7vw,96px) 0 clamp(36px,6vw,72px)}
+.proj-head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:20px;flex-wrap:wrap}
+.proj-head p{max-width:40ch;color:var(--mute)}
+.arrows{display:none;gap:8px}
+.arrows button{width:52px;height:52px;border:1px solid var(--ink);background:transparent;display:grid;place-items:center;cursor:pointer;border-radius:2px}
+.arrows button:hover{background:var(--ink);color:#fff}
+.arrows svg{width:24px;height:24px}
+@media(min-width:900px){.arrows{display:flex}}
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--gut) 18px;scroll-padding:0 var(--gut);scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+@media(min-width:1340px){.rail{padding-left:calc((100vw - var(--max))/2 + var(--gut));scroll-padding-left:calc((100vw - var(--max))/2 + var(--gut))}}
+.card{flex:0 0 auto;width:min(76vw,340px);scroll-snap-align:start;background:none;border:0;padding:0;text-align:left;cursor:zoom-in;color:inherit;font:inherit}
+.card .ph{aspect-ratio:3/4;overflow:hidden;border-radius:3px;background:var(--stone)}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.card:hover img{transform:scale(1.04)}
+.plaque{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;padding:12px 14px;background:var(--ink);color:#fff;border-radius:2px}
+.plaque strong{font:800 24px/1 var(--display);text-transform:uppercase;letter-spacing:.02em}
+.plaque span{color:#9fe3f0}
+.rail-hint{padding:0 var(--gut);color:var(--mute);display:flex;align-items:center;gap:8px}
+.rail-hint svg{width:22px;height:22px}
+@media(min-width:900px){.rail-hint{display:none}}
+
+/* on-site */
+.onsite{background:var(--stone);padding:clamp(40px,7vw,96px) 0}
+.onsite-grid{display:grid;gap:36px}
+.onsite figure{position:relative;border-radius:3px;overflow:hidden;aspect-ratio:4/5;max-height:640px}
+.onsite figure img{width:100%;height:100%;object-fit:cover}
+.onsite h2{font-size:clamp(40px,6vw,78px);margin:14px 0 20px}
+.onsite .mono{color:var(--teal-d)}
+.onsite p{max-width:52ch}
+.onsite p+p{margin-top:14px}
+@media(min-width:900px){.onsite-grid{grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}}
+.steps{list-style:none;margin-top:30px;border-top:1px solid var(--line)}
+.steps li{display:grid;grid-template-columns:52px 1fr;gap:6px;padding:16px 0;border-bottom:1px solid var(--line)}
+.steps li span{font:500 12px var(--mono);color:var(--teal-d);padding-top:5px}
+.steps li b{display:block;font:800 26px/1 var(--display);text-transform:uppercase;margin-bottom:4px}
+.steps li p{color:#2f3335;font-size:16px}
+
+/* reviews */
+.reviews{padding:clamp(40px,7vw,96px) 0}
+.reviews h2{margin-bottom:24px}
+.quotes{display:grid;gap:16px}
+@media(min-width:800px){.quotes{grid-template-columns:1fr 1fr}}
+.q{background:#fff;border:1px solid var(--line);border-radius:3px;padding:28px 24px 24px;display:flex;flex-direction:column;gap:20px}
+.q svg{width:40px;height:40px;color:var(--teal)}
+.q blockquote{font:500 clamp(19px,2vw,23px)/1.4 var(--body)}
+.q figcaption{margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+.q figcaption b{display:block;font:800 24px/1 var(--display);text-transform:uppercase}
+.q figcaption span{display:block;color:var(--mute);font-size:14px;margin-top:4px}
+
+/* about */
+.about{background:var(--ink);color:#fff;padding:clamp(40px,7vw,96px) 0;position:relative;overflow:hidden}
+.about-grid{display:grid;gap:30px}
+.about .mono{color:var(--teal)}
+.about h2{font-size:clamp(44px,7vw,92px)}
+.about p{color:#d5d9da;max-width:58ch}
+.about p+p{margin-top:14px}
+.about .pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.about .pair img{aspect-ratio:3/4;object-fit:cover;border-radius:3px;width:100%}
+.about .pair img:last-child{margin-top:48px}
+@media(min-width:900px){.about-grid{grid-template-columns:1.1fr .9fr;gap:72px;align-items:center}}
+
+/* contact */
+.contact{padding:clamp(40px,7vw,96px) 0}
+.contact-grid{display:grid;gap:40px}
+@media(min-width:900px){.contact-grid{grid-template-columns:1fr 1fr;gap:72px}}
+.contact h2{font-size:clamp(44px,7vw,92px)}
+.contact h2 em{font-style:normal;color:var(--teal)}
+.lines{list-style:none;margin-top:28px;border-top:1px solid var(--line)}
+.lines a,.lines div{display:grid;grid-template-columns:44px 1fr;align-items:center;gap:6px;min-height:64px;padding:10px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.lines svg{width:28px;height:28px;color:var(--teal-d)}
+.lines small{display:block;color:var(--mute);font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.lines strong{font-weight:500}
+form{display:grid;gap:14px;background:#fff;border:1px solid var(--line);padding:24px;border-radius:3px}
+label{display:grid;gap:6px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+input,textarea{font:400 17px var(--body);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:2px;padding:14px;min-height:52px;width:100%}
+textarea{min-height:130px;resize:vertical}
+input:focus,textarea:focus{outline:2px solid var(--teal);border-color:var(--teal)}
+form .btn{width:100%}
+.form-note{font-size:14px;color:var(--mute)}
+.form-msg{display:none;padding:14px;background:var(--stone);border-radius:2px;font-size:15px}
+.form-msg.show{display:block}
+
+footer{background:var(--ink);color:#c9cecf;padding:44px 0 calc(28px + env(safe-area-inset-bottom))}
+.foot{display:grid;gap:24px}
+footer img{height:40px;width:auto}
+footer .mono{color:var(--mute-d)}
+footer nav{display:flex;flex-wrap:wrap;gap:4px 20px}
+footer nav a{min-height:44px;display:inline-flex;align-items:center;text-decoration:none;font-size:15px}
+@media(min-width:900px){.foot{grid-template-columns:1fr auto;align-items:center}}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:80;background:rgba(14,17,19,.96);display:none;align-items:center;justify-content:center;padding:70px 16px 24px}
+.lb.open{display:flex}
+.lb figure{max-width:min(92vw,720px);max-height:100%;display:flex;flex-direction:column;gap:12px}
+.lb img{max-height:calc(100svh - 150px);width:auto;margin:0 auto;border-radius:3px;object-fit:contain}
+.lb figcaption{color:#fff;text-align:center}
+.lb .x{position:absolute;top:12px;right:12px;width:52px;height:52px;background:none;border:0;color:#fff;cursor:pointer;display:grid;place-items:center}
+.lb .x svg{width:32px;height:32px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .hero{height:auto}.hero-stick{position:relative}
+  .dir{transition:none}
+  .card img{transition:none}
+}
+/* facts strip */
+.facts{background:var(--ink);color:#fff;border-top:1px solid rgba(255,255,255,.08)}
+.facts .wrap{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.1);padding:0}
+.fact{background:var(--ink);padding:22px var(--gut) 24px}
+.fact b{display:block;font:900 clamp(48px,7vw,84px)/.9 var(--display);color:#fff}
+.fact span{display:block;margin-top:8px;color:var(--mute-d);font-size:15px;line-height:1.35}
+@media(min-width:900px){.facts .wrap{grid-template-columns:repeat(4,1fr)}.fact{padding:30px 32px}}
+
+/* explorer */
+.explore{background:var(--ink);color:#fff;padding:clamp(40px,7vw,96px) 0}
+.explore .mono,.brief .ex-head .mono{color:var(--teal)}
+.ex-head{display:grid;gap:12px;margin-bottom:24px}
+.ex-head h2{margin-top:12px}
+.ex-head p{max-width:52ch;color:var(--mute-d)}
+.brief .ex-head p{color:var(--mute)}
+@media(min-width:900px){.ex-head{grid-template-columns:1fr 1fr;align-items:end;gap:64px}}
+.ex-grid{display:grid;gap:28px;grid-template-columns:minmax(0,1fr)}
+.ex-left,.ex-panel{min-width:0}
+.br-grid>*{min-width:0}
+@media(min-width:900px){.ex-grid{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:56px;align-items:start}}
+.zone-pills{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 calc(var(--gut)*-1) 18px;padding:0 var(--gut)}
+.zone-pills::-webkit-scrollbar{display:none}
+.zone-pills button{flex:0 0 auto;min-height:46px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;font:500 14px var(--body);cursor:pointer;white-space:nowrap}
+.zone-pills button[aria-selected="true"]{background:var(--teal);border-color:var(--teal)}
+@media(min-width:900px){.zone-pills{flex-wrap:wrap;margin:0 0 18px;padding:0}}
+.tower{width:100%;max-width:420px;margin:0 auto;display:block;height:auto}
+.tower .zone{cursor:pointer}
+.tower .zf{fill:#161b1f;stroke:#e9ecec;stroke-width:1.4;transition:fill .25s}
+.tower .zf.below{fill:#111518}
+.tower .w{fill:#20272c;stroke:#e9ecec;stroke-width:1;transition:fill .25s}
+.tower .ln,.tower .ground{stroke:#e9ecec;stroke-width:1.4;fill:none}
+.tower .ground{stroke-width:2}
+.tower .ln-frame{fill:#161b1f;stroke:#e9ecec;stroke-width:1.4}
+.tower text{fill:#7d8689;font:500 10px var(--mono);letter-spacing:.1em}
+.tower .zone:hover .zf{fill:#1d2d33}
+.tower .zone.on .zf{fill:rgba(0,136,163,.28);stroke:#3fc7e0}
+.tower .zone.on .w{fill:#0088A3;stroke:#3fc7e0}
+.ex-panel{background:var(--graphite);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:24px clamp(18px,3vw,32px) 26px}
+.ex-tag{color:var(--teal)}
+.ex-name{font-size:clamp(40px,5vw,64px);margin:8px 0 10px}
+.ex-desc{color:#d5d9da;max-width:46ch}
+.ex-ph{margin:18px 0 4px;border-radius:3px;overflow:hidden;position:relative;aspect-ratio:16/10;background:#14181b}
+.ex-ph img{width:100%;height:100%;object-fit:cover}
+.ex-ph figcaption{position:absolute;left:10px;bottom:10px;background:rgba(14,17,19,.85);color:#fff;padding:6px 10px;border-radius:2px}
+.ex-ph[hidden]{display:none}
+.ex-list{display:grid;gap:8px;margin-top:18px}
+.svc-row{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:56px;padding:8px 8px 8px 16px;border:1px solid rgba(255,255,255,.14);border-radius:3px;background:transparent;color:#fff;font:600 clamp(22px,2.6vw,28px)/1 var(--display);text-transform:uppercase;letter-spacing:.02em;cursor:pointer;text-align:left;width:100%}
+.svc-row i{flex:0 0 40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;transition:background .2s,transform .2s}
+.svc-row i svg{width:20px;height:20px}
+.svc-row[aria-pressed="true"]{border-color:var(--teal);background:rgba(0,136,163,.14)}
+.svc-row[aria-pressed="true"] i{background:var(--teal);border-color:var(--teal);transform:rotate(45deg)}
+.ex-actions{display:grid;gap:10px;margin-top:20px}
+@media(min-width:600px){.ex-actions{grid-template-columns:1fr 1fr}}
+.bcount{display:inline-grid;place-items:center;min-width:26px;height:26px;padding:0 6px;border-radius:999px;background:var(--teal);color:#fff;font:500 12px var(--mono)}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink)}
+
+/* brief builder */
+.brief{padding:clamp(40px,7vw,96px) 0;background:var(--paper)}
+.br-grid{display:grid;gap:28px;grid-template-columns:minmax(0,1fr)}
+@media(min-width:960px){.br-grid{grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}.br-card{position:sticky;top:88px}}
+.br-form{display:grid;gap:14px;background:none;border:0;padding:0}
+fieldset{border:1px solid var(--line);border-radius:3px;padding:20px 18px 22px;background:#fff;display:grid;gap:12px;min-width:0}
+legend{float:left;width:100%;display:flex;align-items:center;gap:12px;font:800 clamp(26px,3vw,32px)/1 var(--display);text-transform:uppercase;margin-bottom:6px}
+legend span{flex:0 0 34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font:500 13px var(--mono)}
+legend em{font:500 10px var(--mono);letter-spacing:.08em;color:var(--mute);font-style:normal;margin-left:auto}
+.hint{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{min-height:46px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font:500 15px var(--body);cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.chips button:hover{border-color:var(--ink)}
+.chips button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.chips.svc button[aria-pressed="true"]{background:var(--teal);border-color:var(--teal)}
+.chips button.shake{animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.br-form label{display:grid;gap:8px}
+.range output{font:900 32px/1 var(--display);color:var(--ink);margin-left:6px}
+input[type=range]{-webkit-appearance:none;appearance:none;height:44px;background:transparent;padding:0;border:0;min-height:44px}
+input[type=range]::-webkit-slider-runnable-track{height:6px;background:var(--stone);border-radius:3px}
+input[type=range]::-moz-range-track{height:6px;background:var(--stone);border-radius:3px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:var(--teal);border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.25);margin-top:-12px}
+input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--teal);border:3px solid #fff}
+.br-card{background:#fff;border:1px solid var(--line);border-top:6px solid var(--teal);border-radius:3px;padding:24px 22px 22px;box-shadow:0 20px 50px -30px rgba(14,17,19,.45)}
+.br-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.br-logo{height:30px;width:auto;filter:drop-shadow(0 3px 5px rgba(0,0,0,.18))}
+.br-top .mono{color:var(--mute)}
+.br-card h3{font-size:clamp(36px,4vw,48px)}
+.br-sub{color:var(--mute);margin-top:6px}
+.meter{height:10px;background:var(--stone);border-radius:5px;overflow:hidden;margin:18px 0 8px}
+.meter i{display:block;height:100%;width:0;background:var(--teal);transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.br-tier{color:var(--teal-d)}
+.br-dl{margin-top:16px;border-top:1px solid var(--line)}
+.br-dl div{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.br-dl dt{font:500 10px/1.8 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.br-dl dd{font-size:15px}
+.br-next{margin-top:16px}
+.br-next .mono{color:var(--mute)}
+.br-next ol{margin:8px 0 0 20px;font-size:15px;display:grid;gap:4px}
+.br-note{margin-top:14px;font-size:14px;color:var(--mute);background:var(--paper);padding:12px;border-radius:2px}
+.br-actions{display:grid;gap:8px;margin-top:16px}
+.br-actions .btn{width:100%}
+.toast{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom));transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-size:15px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:90}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* project filters */
+.filters{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 var(--gut) 18px;max-width:var(--max);margin:0 auto}
+.filters::-webkit-scrollbar{display:none}
+.filters button{flex:0 0 auto;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:#fff;font:500 14px var(--body);cursor:pointer;color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.filters button span{font:500 11px var(--mono);opacity:.6;margin-left:6px}
+.card[hidden]{display:none}
+
+/* phone action bar */
+.actbar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:grid;grid-template-columns:1fr 1.4fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(14,17,19,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transform:translateY(110%);transition:transform .35s}
+.actbar.show{transform:none}
+.actbar .btn{min-height:50px;padding:0 12px}
+.actbar .btn-line{color:#fff}
+@media(min-width:960px){.actbar{display:none}}
+@media(max-width:959px){footer{padding-bottom:calc(96px + env(safe-area-inset-bottom))}}
+
+@media (prefers-reduced-motion:reduce){.meter i,.actbar,.toast,.svc-row i{transition:none}.chips button.shake{animation:none}}
+
+@media print{
+  @page{margin:16mm}
+  body{background:#fff}
+  .hdr,.dir,.actbar,.toast,.lb,footer,main>section:not(#brief),.facts,.br-form,.brief .ex-head,.br-actions{display:none!important}
+  .brief{padding:0}
+  .br-grid{display:block}
+  .br-card{box-shadow:none;border:1px solid #999;border-top:6px solid #0088A3;position:static}
+  .br-card::after{content:"Devman Group Inc. · 2651 John St, Unit 6, Markham, ON L3R 2W5 · 905-604-0555 · team@devmaninc.com";display:block;margin-top:18px;font:500 10px var(--mono);color:#555}
+}
+
+.news{background:var(--teal);color:#fff;padding:clamp(40px,7vw,80px) 0}
+.news-in{display:grid;gap:24px}
+.news .mono{color:#d8f3f8}
+.news h2{font-size:clamp(44px,7vw,84px);margin:10px 0 12px}
+.news p{max-width:46ch}
+.news-form{display:grid;gap:10px;background:none;border:0;padding:0}
+.news-form input{background:#fff;border-color:#fff}
+.news-form .btn{background:var(--ink)}
+.news-form .btn:hover{background:#000}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(min-width:900px){.news-in{grid-template-columns:1fr 1fr;align-items:end;gap:64px}.news-form{grid-template-columns:1fr auto}}
+
+/* ===== dark flip ===== */
+body{background:#0B0E10;color:#E9ECEC}
+.intro,.projects,.reviews,.contact,.brief{background:#0B0E10;color:#E9ECEC}
+.intro{background:radial-gradient(60% 80% at 100% 0%,rgba(0,136,163,.18),transparent 60%),#0B0E10}
+.brief{background:radial-gradient(50% 60% at 0% 10%,rgba(0,136,163,.16),transparent 60%),#0B0E10}
+.contact{background:radial-gradient(60% 70% at 100% 100%,rgba(0,136,163,.2),transparent 60%),#0B0E10}
+.pillars{background:#232a2f;border-color:#232a2f}
+.pillar{background:#0F1315;transition:background .3s}
+.pillar:hover{background:#12191d}
+.pillar p{color:#c3c9cb}.pillar svg{stroke:#3fc7e0}
+.onsite{background:#12171A;color:#E9ECEC}
+.onsite p,.steps li p{color:#c3c9cb}
+.steps,.steps li{border-color:#2A3136}
+.q{background:#12171A;border-color:#2A3136}
+.q figcaption{border-color:#2A3136}.q figcaption span{color:#9aa1a4}
+.fs{border:1px solid #2A3136;border-radius:3px;padding:20px 18px 22px;background:#12171A;display:grid;gap:12px;min-width:0}
+.lg{display:flex;align-items:center;flex-wrap:wrap;gap:12px;font:800 clamp(26px,3vw,32px)/1 var(--display);text-transform:uppercase;margin-bottom:4px;color:#fff}
+.lg span{flex:0 0 34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font:500 13px var(--mono)}
+.lg em{flex-basis:100%;font:500 10px var(--mono);letter-spacing:.08em;color:#9aa1a4;font-style:normal;padding-left:46px}
+.chips button{background:#0B0E10;border-color:#2A3136;color:#E9ECEC}
+.chips button:hover{border-color:#fff}
+.chips button[aria-pressed="true"]{background:#fff;border-color:#fff;color:#0E1113}
+.chips.svc button[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.hint{color:#9aa1a4}
+input,textarea{background:#0B0E10;color:#fff;border-color:#2A3136}
+.range output{color:#fff}
+input[type=range]::-webkit-slider-runnable-track{background:#2A3136}
+input[type=range]::-moz-range-track{background:#2A3136}
+.br-card{background:#12171A;border-color:#2A3136;border-top-color:var(--teal);box-shadow:0 30px 60px -30px rgba(0,136,163,.45)}
+.meter{background:#2A3136}
+.br-dl,.br-dl div{border-color:#2A3136}
+.br-note{background:#0B0E10;color:#9aa1a4}
+.btn-ghost{color:#fff;border-color:#2A3136}.btn-ghost:hover{border-color:#fff}
+.filters button{background:#12171A;color:#fff;border-color:#2A3136}
+.filters button[aria-pressed="true"]{background:#fff;color:#0E1113;border-color:#fff}
+.plaque{border:1px solid #2A3136;background:#12171A}
+.card .ph{background:#12171A}
+.arrows button{border-color:#fff;color:#fff}
+.arrows button:hover{background:#fff;color:#0E1113}
+.proj-head p,.rail-hint{color:#9aa1a4}
+form{background:#12171A;border-color:#2A3136}
+label{color:#9aa1a4}
+.lines,.lines a,.lines div{border-color:#2A3136}
+.form-msg{background:#1b2226}
+.btn-line:hover{background:#fff;color:#0E1113}
+/* pixel grid texture from the logo */
+.explore,.about{background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:32px 32px}
+@media print{body,.brief{background:#fff;color:#000}.br-card{background:#fff;color:#000}.br-card h3{color:#000}.br-note{background:#f3f3f3;color:#333}}
+
+/* hero v4 */
+.hero h1{font-size:clamp(64px,17vw,210px);line-height:.84;letter-spacing:-.01em}
+.hero h1 .rot em{font-style:normal;display:inline-block;color:#fff;background:linear-gradient(90deg,#3fe0ff,#0088A3);-webkit-background-clip:text;background-clip:text;color:transparent;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .5s}
+.hero h1 .rot em.out{transform:translateY(-100%);opacity:0}
+.hero h1 .rot em.in{transform:translateY(100%);opacity:0;transition:none}
+.hero h1 .rot{min-height:.9em}
+.hero .kicker{color:#fff;opacity:.9}
+.hero-shade{background:linear-gradient(180deg,rgba(11,14,16,.6) 0%,rgba(11,14,16,.1) 35%,rgba(11,14,16,.88) 100%)}
+.hero-stick::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(63,224,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(63,224,255,.07) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(180deg,#000,transparent 55%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 55%)}
+.hero-in{z-index:2}.floor{z-index:2}
+@media(max-width:600px){.hero h1{font-size:clamp(56px,17.5vw,90px)}}
+
+/* project deck */
+.deckwrap{background:#0B0E10;padding:clamp(40px,7vw,96px) 0;overflow:hidden;border-top:1px solid #1c2226}
+.deck-grid{display:grid;gap:36px;align-items:center}
+@media(min-width:900px){.deck-grid{grid-template-columns:.9fr 1.1fr;gap:64px}}
+.deck-copy .mono{color:var(--teal)}
+.deck-copy h2{margin:12px 0 16px;color:#fff}
+.deck-copy p{color:#c3c9cb;max-width:40ch}
+.deck-nav{display:flex;align-items:center;gap:16px;margin-top:24px}
+.deck-nav .mono{color:#9aa1a4}
+.deck{position:relative;height:clamp(380px,56vh,540px);perspective:1200px;touch-action:pan-y}
+.dk{position:absolute;left:50%;top:50%;width:min(68vw,330px);aspect-ratio:3/4;margin:0;border-radius:6px;overflow:hidden;background:#12171A;box-shadow:0 30px 60px -20px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.08);transform:translate(-50%,-50%) rotate(calc((var(--p) - 0) * 1deg)) translateX(calc(var(--x) * 1px)) translateY(calc(var(--y) * 1px)) scale(var(--s));transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .4s;cursor:grab;--p:0;--x:0;--y:0;--s:1;will-change:transform}
+.dk img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.dk figcaption{position:absolute;inset:auto 0 0 0;padding:40px 16px 14px;background:linear-gradient(transparent,rgba(11,14,16,.92));display:flex;justify-content:space-between;align-items:end;gap:10px}
+.dk figcaption b{font:800 24px/1 var(--display);text-transform:uppercase;color:#fff}
+.dk figcaption .mono{color:#3fe0ff}
+.dk.drag{transition:none;cursor:grabbing}
+.dk.fly{opacity:0}
+@media (prefers-reduced-motion:reduce){.dk{transition:none}}
+
+</style>
+</head>
+<body>
+
+<div class="ld" id="ld" aria-hidden="true">
+  <div class="ld-in">
+    <img src="img/logo-white.png" alt="">
+    <div class="ld-bld" id="ld-bld"></div>
+    <div class="ld-bar"><i id="ld-bar"></i></div>
+    <div class="ld-row"><span id="ld-msg">Preparing the site</span><b id="ld-pct">0%</b></div>
+  </div>
+</div>
+<header class="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Devman Group Inc. home"><img src="img/logo-white.png" alt="Devman Group Incorporated" width="106" height="38"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#brief">Project brief</a>
+      <a href="#projects">Projects</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#about">About us</a>
+      <a class="btn btn-teal" href="#contact">Schedule an appointment</a>
+    </nav>
+    <button class="dir-btn" type="button" aria-expanded="false" aria-controls="dir">Directory
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="dir" id="dir" aria-hidden="true">
+  <div class="dir-top">
+    <img src="img/logo-white.png" alt="" style="height:34px;width:auto;filter:drop-shadow(0 6px 10px rgba(0,0,0,.55))">
+    <button class="dir-close" type="button" aria-label="Close directory"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <p class="dir-head mono">Building directory</p>
+  <ol>
+    <li><a href="#services"><span>01</span>Services<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#brief"><span>02</span>Project brief<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#projects"><span>03</span>Projects<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#how"><span>04</span>How we work<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#reviews"><span>05</span>Reviews<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#about"><span>06</span>About us<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#contact"><span>07</span>Contact<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+  </ol>
+  <div class="dir-foot">
+    <a class="btn btn-teal" href="#contact">Schedule an appointment</a>
+    <a class="btn btn-line" href="tel:+19056040555">Call 905-604-0555</a>
+  </div>
+</div>
+
+<main id="top">
+
+<section class="hero" aria-label="Introduction">
+  <div class="hero-stick">
+    <div class="hero-img" role="img" aria-label="Devman Group refurbishment projects">
+      <div class="sl on" style="background-image:url(img/h1.jpg)" data-a="1 Maison Parc" data-t="Lobby"></div>
+      <div class="sl" data-bg="img/h2.jpg" data-a="3900 Yonge St" data-t="Corridor"></div>
+      <div class="sl" data-bg="img/h3.jpg" data-a="1818 Bayview" data-t="Foyer"></div>
+      <div class="sl" data-bg="img/h4.jpg" data-a="1 Shaw St" data-t="Corridor"></div>
+      <div class="sl" data-bg="img/h5.jpg" data-a="80 Antibes Dr" data-t="Lobby"></div>
+    </div>
+    <div class="hero-shade"></div>
+    <div class="floor mono">Now showing<b id="fl-a">1 Shaw St</b><span id="fl-t">Corridor</span><div class="dots" id="dots"></div></div>
+    <div class="hero-in">
+      <div class="kicker mono"><i></i>Communication. Quality. Service.</div>
+      <h1><span class="hw"><span>Beautiful</span></span><span class="hw rot" aria-live="polite"><span><em id="rot">lobbies.</em></span></span></h1>
+      <p>Design-build refurbishment for condominium common areas, from concept to reality.</p>
+      <div class="ctas">
+        <a class="btn btn-teal" href="#brief">Build your project brief</a>
+        <a class="btn btn-line" href="#services">Tap through a building</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="deckwrap" aria-label="Project reel">
+  <div class="wrap deck-grid">
+    <div class="deck-copy">
+      <span class="mono">The reel</span>
+      <h2>Swipe through<br>the work.</h2>
+      <p>Real lobbies, corridors and foyers from across the Greater Toronto Area. Flick a photo away to see the next one.</p>
+      <div class="deck-nav"><button type="button" class="btn btn-teal" id="dk-next">Next project</button><span class="mono" id="dk-n">01 / 06</span></div>
+    </div>
+    <div class="deck" id="deck"><figure class="dk" style="--i:0"><img src="img/maison-lobby.jpg" alt="1 Maison Parc Crt, Lobby" loading="lazy"><figcaption><b>1 Maison Parc Crt</b><span class="mono">Lobby</span></figcaption></figure><figure class="dk" style="--i:1"><img src="img/yonge.jpg" alt="3900 Yonge St, Corridor" loading="lazy"><figcaption><b>3900 Yonge St</b><span class="mono">Corridor</span></figcaption></figure><figure class="dk" style="--i:2"><img src="img/bayview-stair.jpg" alt="1818 Bayview, Foyer" loading="lazy"><figcaption><b>1818 Bayview</b><span class="mono">Foyer</span></figcaption></figure><figure class="dk" style="--i:3"><img src="img/antibes-lobby.jpg" alt="80 Antibes Dr, Lobby" loading="lazy"><figcaption><b>80 Antibes Dr</b><span class="mono">Lobby</span></figcaption></figure><figure class="dk" style="--i:4"><img src="img/shaw-lobby.jpg" alt="1 Shaw St, Lobby" loading="lazy"><figcaption><b>1 Shaw St</b><span class="mono">Lobby</span></figcaption></figure><figure class="dk" style="--i:5"><img src="img/randolph.jpg" alt="211 Randolph Rd, Elevators" loading="lazy"><figcaption><b>211 Randolph Rd</b><span class="mono">Elevators</span></figcaption></figure></div>
+  </div>
+</section>
+<section class="intro">
+  <div class="wrap intro-grid">
+    <h2 class="rv">Interiors residents are <em>proud</em> to call home.</h2>
+    <div class="copy rv">
+      <p>Devman Group Inc. is a general contracting firm specializing in high-quality refurbishment and renovation for condominiums across the Greater Toronto Area.</p>
+      <p>As experienced design-build contractors, we deliver tailored, cost-effective solutions that enhance property value, functionality and aesthetics.</p>
+      <p>Our team of licensed professionals is committed to quality craftsmanship, transparency and client satisfaction.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pillars" aria-label="Our commitments">
+  <div class="pillar rv">
+    <svg viewBox="0 0 40 40" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9h28v18H18l-8 6v-6H6z"/><path d="M12 16h16M12 21h10"/></svg>
+    <span class="mono">Commitment 01</span>
+    <h3>Communication</h3>
+    <p>Through scheduling, updates and open dialogue with management and residents.</p>
+  </div>
+  <div class="pillar rv">
+    <svg viewBox="0 0 40 40" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="10"/><path d="M25.5 25.5L34 34"/><path d="M13.5 18l3 3 6-6"/></svg>
+    <span class="mono">Commitment 02</span>
+    <h3>Quality</h3>
+    <p>Through site reviews and the vetting of every installer.</p>
+  </div>
+  <div class="pillar rv">
+    <svg viewBox="0 0 40 40" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="9" width="28" height="25" rx="1"/><path d="M6 16h28M13 5v7M27 5v7"/><path d="M14 25l4 4 8-8"/></svg>
+    <span class="mono">Commitment 03</span>
+    <h3>Service</h3>
+    <p>Through honest, upfront timelines, doing everything we can to keep the project on time and on budget.</p>
+  </div>
+</section>
+
+<section class="facts" aria-label="Quick facts">
+  <div class="wrap">
+    <div class="fact"><b data-n="12">12</b><span>Interior spaces we refurbish</span></div>
+    <div class="fact"><b data-n="5">5</b><span>Exterior services with our partners</span></div>
+    <div class="fact"><b data-n="1">1</b><span>On-site manager on every project</span></div>
+    <div class="fact"><b data-n="14">14</b><span>Projects in the gallery below</span></div>
+  </div>
+</section>
+
+<section class="explore" id="services">
+  <div class="wrap">
+    <div class="ex-head">
+      <div>
+        <span class="mono">01 · Services</span>
+        <h2>Tap a floor.</h2>
+      </div>
+      <p>Every shared space in your building, inside and out. Tap a floor to see what we refurbish there, then add it to your project brief.</p>
+    </div>
+    <div class="ex-grid">
+      <div class="ex-left">
+        <div class="zone-pills" role="tablist" aria-label="Building floors">
+          <button type="button" role="tab" data-zone="res">Residential floors</button>
+          <button type="button" role="tab" data-zone="amen">Amenity floor</button>
+          <button type="button" role="tab" data-zone="lobby" aria-selected="true">Lobby level</button>
+          <button type="button" role="tab" data-zone="lower">Lower level</button>
+          <button type="button" role="tab" data-zone="ext">Outside</button>
+        </div>
+        <svg class="tower" viewBox="0 0 320 540" aria-hidden="true">
+          <g class="zone" data-zone="ext">
+            <rect class="zf" x="70" y="54" width="12" height="396"/><rect class="zf" x="238" y="54" width="12" height="396"/>
+            <path class="zf" d="M118 392h84l10 10H108z"/>
+            <rect class="zf" x="0" y="450" width="70" height="10"/><rect class="zf" x="250" y="450" width="70" height="10"/>
+            <path class="ln" d="M14 450v10M28 450v10M42 450v10M56 450v10M264 450v10M278 450v10M292 450v10M306 450v10"/>
+            <circle class="zf" cx="30" cy="432" r="16"/><rect class="zf" x="26" y="440" width="8" height="10"/>
+            <circle class="zf" cx="290" cy="432" r="16"/><rect class="zf" x="286" y="440" width="8" height="10"/>
+          </g>
+          <rect class="ln-frame" x="96" y="30" width="128" height="24"/>
+          <g class="zone" data-zone="res">
+            <rect class="zf" x="82" y="54" width="156" height="246"/>
+            <g class="win"></g>
+          </g>
+          <g class="zone" data-zone="amen">
+            <rect class="zf" x="82" y="300" width="156" height="60"/>
+            <rect class="w" x="92" y="312" width="40" height="36"/><rect class="w" x="140" y="312" width="40" height="36"/><rect class="w" x="188" y="312" width="40" height="36"/>
+          </g>
+          <g class="zone" data-zone="lobby">
+            <rect class="zf" x="82" y="360" width="156" height="90"/>
+            <rect class="w" x="90" y="406" width="22" height="44"/><rect class="w" x="208" y="406" width="22" height="44"/>
+            <rect class="w" x="140" y="412" width="40" height="38"/><path class="ln" d="M160 412v38"/>
+            <rect class="w" x="90" y="372" width="140" height="16"/>
+          </g>
+          <path class="ground" d="M0 450h320"/>
+          <g class="zone" data-zone="lower">
+            <rect class="zf below" x="70" y="460" width="180" height="62"/>
+            <rect class="w" x="84" y="476" width="34" height="32"/><rect class="w" x="143" y="476" width="34" height="32"/><rect class="w" x="202" y="476" width="34" height="32"/>
+          </g>
+          <g class="tags">
+            <text x="160" y="22" text-anchor="middle">PH</text>
+          </g>
+        </svg>
+      </div>
+      <div class="ex-panel" aria-live="polite">
+        <span class="mono ex-tag"></span>
+        <h3 class="ex-name"></h3>
+        <p class="ex-desc"></p>
+        <figure class="ex-ph"><img alt="" loading="lazy"><figcaption class="mono"></figcaption></figure>
+        <div class="ex-list"></div>
+        <div class="ex-actions">
+          <button type="button" class="btn btn-teal ex-all">Add this floor to my brief</button>
+          <a class="btn btn-line ex-go" href="#brief">Open my brief <span class="bcount">0</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="brief" id="brief">
+  <div class="wrap">
+    <div class="ex-head">
+      <div>
+        <span class="mono">02 · Project brief</span>
+        <h2>Build your project brief.</h2>
+      </div>
+      <p>Five quick questions. You get a board-ready summary to share with your board or management team. We get what we need to prepare for a site meeting.</p>
+    </div>
+    <div class="br-grid">
+      <form class="br-form" id="brief-form" onsubmit="return false">
+        <div class="fs" role="group">
+          <div class="lg"><span>1</span>Who's planning this?</div>
+          <div class="chips" data-name="role" data-single>
+            <button type="button" aria-pressed="false">Property manager</button>
+            <button type="button" aria-pressed="false">Board member</button>
+            <button type="button" aria-pressed="false">Committee member</button>
+            <button type="button" aria-pressed="false">Other</button>
+          </div>
+        </div>
+        <div class="fs" role="group">
+          <div class="lg"><span>2</span>Which spaces?</div>
+          <p class="hint">Inside</p>
+          <div class="chips svc" data-group="Inside"></div>
+          <p class="hint">Outside, with our partners</p>
+          <div class="chips svc" data-group="Outside"></div>
+        </div>
+        <div class="fs" role="group">
+          <div class="lg"><span>3</span>Your building</div>
+          <label>Building name or address<input id="b-name" autocomplete="off" placeholder="For example, 1 Shaw St"></label>
+          <label class="range">Residential floors <output id="b-floors-out">12</output><input id="b-floors" type="range" min="1" max="50" value="12"></label>
+        </div>
+        <div class="fs" role="group">
+          <div class="lg"><span>4</span>When are you hoping to start?</div>
+          <div class="chips" data-name="when" data-single>
+            <button type="button" aria-pressed="false">Within 6 months</button>
+            <button type="button" aria-pressed="false">6 to 12 months</button>
+            <button type="button" aria-pressed="false">Over a year</button>
+            <button type="button" aria-pressed="false">Just planning a budget</button>
+          </div>
+        </div>
+        <div class="fs" role="group">
+          <div class="lg"><span>5</span>What matters most? <em>Pick up to 3</em></div>
+          <div class="chips" data-name="prio" data-max="3">
+            <button type="button" aria-pressed="false">Minimal disruption</button>
+            <button type="button" aria-pressed="false">Keeping residents informed</button>
+            <button type="button" aria-pressed="false">Timeless design</button>
+            <button type="button" aria-pressed="false">Staying on budget</button>
+            <button type="button" aria-pressed="false">Staying on schedule</button>
+            <button type="button" aria-pressed="false">Value-engineering options</button>
+          </div>
+        </div>
+      </form>
+
+      <aside class="br-card" id="brief-card" aria-live="polite">
+        <div class="br-top">
+          <img src="img/logo-white.png" alt="Devman Group Incorporated" class="br-logo">
+          <span class="mono">Project brief</span>
+        </div>
+        <h3 id="c-name">Your building</h3>
+        <p class="br-sub" id="c-sub">Pick your spaces to start.</p>
+        <div class="meter" aria-hidden="true"><i id="c-bar"></i></div>
+        <p class="mono br-tier" id="c-tier">Scope: not started</p>
+        <dl class="br-dl">
+          <div><dt>Spaces</dt><dd id="c-spaces">None yet</dd></div>
+          <div><dt>Timing</dt><dd id="c-when">Not set</dd></div>
+          <div><dt>Priorities</dt><dd id="c-prio">Not set</dd></div>
+        </dl>
+        <div class="br-next">
+          <span class="mono">What happens next</span>
+          <ol>
+            <li>Site meeting with your management team</li>
+            <li>We value-engineer and prepare your budget</li>
+            <li>Design with our partner design firms</li>
+          </ol>
+        </div>
+        <p class="br-note">No prices here on purpose. Every building is different, so we prepare your budget after the site meeting.</p>
+        <div class="br-actions">
+          <button type="button" class="btn btn-teal" id="c-send">Request a site meeting</button>
+          <button type="button" class="btn btn-ghost" id="c-print"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3"/><rect x="7" y="14" width="10" height="7"/></svg>Save as PDF for your board</button>
+          <button type="button" class="btn btn-ghost" id="c-copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="8" y="8" width="12" height="13" rx="1"/><path d="M16 8V4H4v13h4"/></svg><span>Copy brief</span></button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+<section class="projects" id="projects">
+  <div class="wrap proj-head">
+    <div>
+      <span class="mono" style="color:var(--teal-d)">03 · Projects</span>
+      <h2 style="margin-top:12px">Recent work</h2>
+    </div>
+    <p>Corridors, lobbies and entrances refurbished for condominium communities across the Greater Toronto Area.</p>
+    <div class="arrows">
+      <button type="button" data-dir="-1" aria-label="Previous projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+      <button type="button" data-dir="1" aria-label="Next projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+  <div class="filters" role="group" aria-label="Filter projects">
+    <button type="button" data-f="all" aria-pressed="true">All</button>
+    <button type="button" data-f="lobby" aria-pressed="false">Lobbies</button>
+    <button type="button" data-f="corridor" aria-pressed="false">Corridors</button>
+    <button type="button" data-f="elev" aria-pressed="false">Elevators</button>
+    <button type="button" data-f="entr" aria-pressed="false">Entrances</button>
+  </div>
+  <div class="rail" id="rail">
+    <button class="card" data-type="lobby" type="button" data-src="img/maison-lobby.jpg" data-cap="1 Maison Parc Crt · Lobby"><div class="ph"><img src="img/maison-lobby.jpg" alt="Refurbished lobby with lounge seating at 1 Maison Parc Crt" loading="lazy"></div><div class="plaque"><strong>1 Maison Parc Crt</strong><span class="mono">Lobby</span></div></button>
+    <button class="card" data-type="lobby" type="button" data-src="img/shaw-lobby.jpg" data-cap="1 Shaw St · Lobby"><div class="ph"><img src="img/shaw-lobby.jpg" alt="Lobby with patterned tile floor at 1 Shaw St" loading="lazy"></div><div class="plaque"><strong>1 Shaw St</strong><span class="mono">Lobby</span></div></button>
+    <button class="card" data-type="lobby" type="button" data-src="img/bayview-stair.jpg" data-cap="1818 Bayview · Stair and foyer"><div class="ph"><img src="img/bayview-stair.jpg" alt="Foyer with crystal chandelier and staircase at 1818 Bayview" loading="lazy"></div><div class="plaque"><strong>1818 Bayview</strong><span class="mono">Foyer</span></div></button>
+    <button class="card" data-type="corridor" type="button" data-src="img/yonge.jpg" data-cap="3900 Yonge St · Corridor"><div class="ph"><img src="img/yonge.jpg" alt="Corridor with marble floor and wood panelling at 3900 Yonge St" loading="lazy"></div><div class="plaque"><strong>3900 Yonge St</strong><span class="mono">Corridor</span></div></button>
+    <button class="card" data-type="lobby" type="button" data-src="img/antibes-lobby.jpg" data-cap="80 Antibes Dr · Lobby"><div class="ph"><img src="img/antibes-lobby.jpg" alt="Lobby concierge desk at 80 Antibes Dr" loading="lazy"></div><div class="plaque"><strong>80 Antibes Dr</strong><span class="mono">Lobby</span></div></button>
+    <button class="card" data-type="elev" type="button" data-src="img/randolph.jpg" data-cap="211 Randolph Rd · Elevator lobby"><div class="ph"><img src="img/randolph.jpg" alt="Elevator lobby at 211 Randolph Rd" loading="lazy"></div><div class="plaque"><strong>211 Randolph Rd</strong><span class="mono">Elevators</span></div></button>
+    <button class="card" data-type="lobby" type="button" data-src="img/richmond-lobby.jpg" data-cap="670 Richmond St W · Lobby"><div class="ph"><img src="img/richmond-lobby.jpg" alt="Lobby with wood slat wall and stair at 670 Richmond St W" loading="lazy"></div><div class="plaque"><strong>670 Richmond St W</strong><span class="mono">Lobby</span></div></button>
+    <button class="card" data-type="entr" type="button" data-src="img/bayview-entrance.jpg" data-cap="1818 Bayview · Entrance"><div class="ph"><img src="img/bayview-entrance.jpg" alt="Building entrance canopy at 1818 Bayview" loading="lazy"></div><div class="plaque"><strong>1818 Bayview</strong><span class="mono">Entrance</span></div></button>
+    <button class="card" data-type="lobby" type="button" data-src="img/stadium-lobby.jpg" data-cap="90 Stadium · Lobby"><div class="ph"><img src="img/stadium-lobby.jpg" alt="Lobby reception desk at 90 Stadium" loading="lazy"></div><div class="plaque"><strong>90 Stadium</strong><span class="mono">Lobby</span></div></button>
+    <button class="card" data-type="corridor" type="button" data-src="img/maison-corridor.jpg" data-cap="1 Maison Parc Crt · Corridor"><div class="ph"><img src="img/maison-corridor.jpg" alt="Corridor at 1 Maison Parc Crt" loading="lazy"></div><div class="plaque"><strong>1 Maison Parc Crt</strong><span class="mono">Corridor</span></div></button>
+    <button class="card" data-type="corridor" type="button" data-src="img/birchmount.jpg" data-cap="8110–8130 Birchmount Rd · Corridor"><div class="ph"><img src="img/birchmount.jpg" alt="Corridor at 8110 to 8130 Birchmount Rd" loading="lazy"></div><div class="plaque"><strong>Birchmount Rd</strong><span class="mono">Corridor</span></div></button>
+    <button class="card" data-type="elev" type="button" data-src="img/shaw-elevators.jpg" data-cap="1 Shaw St · Elevator lobby"><div class="ph"><img src="img/shaw-elevators.jpg" alt="Elevator lobby with patterned floor at 1 Shaw St" loading="lazy"></div><div class="plaque"><strong>1 Shaw St</strong><span class="mono">Elevators</span></div></button>
+    <button class="card" data-type="corridor" type="button" data-src="img/atherley.jpg" data-cap="354 Atherley · Corridor"><div class="ph"><img src="img/atherley.jpg" alt="Corridor with stone and wood details at 354 Atherley" loading="lazy"></div><div class="plaque"><strong>354 Atherley</strong><span class="mono">Corridor</span></div></button>
+    <button class="card" data-type="corridor" type="button" data-src="img/baffin.jpg" data-cap="51 Baffin Crt · Corridor"><div class="ph"><img src="img/baffin.jpg" alt="Corridor at 51 Baffin Crt" loading="lazy"></div><div class="plaque"><strong>51 Baffin Crt</strong><span class="mono">Corridor</span></div></button>
+  </div>
+  <p class="rail-hint mono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Swipe for more · tap to enlarge</p>
+</section>
+
+<section class="onsite" id="how">
+  <div class="wrap onsite-grid">
+    <figure class="rv"><img src="img/on-site.jpg" alt="Devman Group team member finishing a stairwell wall" loading="lazy"></figure>
+    <div class="rv">
+      <span class="mono">04 · How we work</span>
+      <h2>An on-site manager on every project.</h2>
+      <p>Our experience helps management minimize disruption and lets residents know what to expect.</p>
+      <p>That flow of communication builds trust and keeps us accountable for a smooth transition.</p>
+      <ol class="steps">
+        <li><span>01</span><div><b>Site meeting</b><p>We start on site with your management team.</p></div></li>
+        <li><span>02</span><div><b>Value-engineer the budget</b><p>We work with you to value-engineer and prepare a budget.</p></div></li>
+        <li><span>03</span><div><b>Design with our partners</b><p>We partner with design firms on a design custom to your building's vision and demographic.</p></div></li>
+        <li><span>04</span><div><b>Build with an on-site manager</b><p>Scheduling, updates and site reviews, with honest, upfront timelines.</p></div></li>
+        <li><span>05</span><div><b>Final installation</b><p>Timeless design and superior installations, with meticulous attention to detail.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <span class="mono" style="color:var(--teal-d)">05 · Reviews</span>
+    <h2 style="margin-top:12px">What property managers say</h2>
+    <div class="quotes">
+      <figure class="q rv">
+        <svg viewBox="0 0 40 40" fill="currentColor"><path d="M6 30V20c0-7 4-11 11-12v4c-4 1-6 3-6 7h6v11zm17 0V20c0-7 4-11 11-12v4c-4 1-6 3-6 7h6v11z"/></svg>
+        <blockquote>The team on-site was professional, organized and focused on delivering a great job. They were completely transparent about their work schedule, and provided weekly notices to keep our residents informed.</blockquote>
+        <figcaption><b>Ken</b><span>Director, Goldview Property Management (1 Shaw St, Toronto)</span></figcaption>
+      </figure>
+      <figure class="q rv">
+        <svg viewBox="0 0 40 40" fill="currentColor"><path d="M6 30V20c0-7 4-11 11-12v4c-4 1-6 3-6 7h6v11zm17 0V20c0-7 4-11 11-12v4c-4 1-6 3-6 7h6v11z"/></svg>
+        <blockquote>I would recommend Devman Group to any corporation who values a well-managed project with thorough communication and attention to detail.</blockquote>
+        <figcaption><b>Vadim</b><span>Property Manager, York Condominium Corporation No. 465</span></figcaption>
+      </figure>
+      <figure class="q rv">
+        <svg viewBox="0 0 40 40" fill="currentColor"><path d="M6 30V20c0-7 4-11 11-12v4c-4 1-6 3-6 7h6v11zm17 0V20c0-7 4-11 11-12v4c-4 1-6 3-6 7h6v11z"/></svg>
+        <blockquote>The team's communication and attention to detail throughout ensured a well managed project that exceeded expectations. I would recommend Devman Group to other corporations and residents looking for a successful refurbishment project.</blockquote>
+        <figcaption><b>Lori</b><span>Property Manager, Halton Condominium Corporation No. 28</span></figcaption>
+      </figure>
+      <figure class="q rv">
+        <svg viewBox="0 0 40 40" fill="currentColor"><path d="M6 30V20c0-7 4-11 11-12v4c-4 1-6 3-6 7h6v11zm17 0V20c0-7 4-11 11-12v4c-4 1-6 3-6 7h6v11z"/></svg>
+        <blockquote>It is a pleasure to work with Devman Group Inc., and I would recommend them to anyone considering future common areas refurbishment projects.</blockquote>
+        <figcaption><b>Buran</b><span>Property Manager, FirstService Residential</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="rv">
+      <span class="mono">06 · About us</span>
+      <h2 style="margin:12px 0 22px">Built on passion.</h2>
+      <p>Devman Group was founded on a passion for an industry that blends residential and commercial construction.</p>
+      <p>Enhancing a building's beauty through innovative, custom design, and making that shared space real for residents, is what drives us.</p>
+      <p>We serve both the management teams and the residents of every building we work in, with spaces that suit current residents and appeal to future ones.</p>
+    </div>
+    <div class="pair rv">
+      <img src="img/bayview-corridor.jpg" alt="Corridor with panelled doors at 1818 Bayview" loading="lazy">
+      <img src="img/shaw-door.jpg" alt="Suite door and wayfinding sign at 1 Shaw St" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="mono" style="color:var(--teal-d)">07 · Contact</span>
+      <h2 style="margin-top:12px">Let's create a <em>beautiful</em> space.</h2>
+      <p style="margin-top:18px;max-width:44ch">We would love to hear from you. Schedule an appointment today.</p>
+      <div class="lines">
+        <a href="tel:+19056040555"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z"/></svg><span><small>Phone</small><strong>905-604-0555</strong></span></a>
+        <a href="mailto:team@devmaninc.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg><span><small>Email</small><strong>team@devmaninc.com</strong></span></a>
+        <a href="https://maps.google.com/?q=2651+John+St+Unit+6+Markham+ON+L3R+2W5" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0112 2.5a7 7 0 017 7C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span><small>Office</small><strong>2651 John St, Unit 6, Markham, ON L3R 2W5</strong></span></a>
+      </div>
+    </div>
+    <form id="form" novalidate>
+      <label>Your name<input name="name" autocomplete="name" required></label>
+      <label>Your email<input name="email" type="email" autocomplete="email" required></label>
+      <label>Building or subject<input name="subject"></label>
+      <label>Your message (optional)<textarea name="message"></textarea></label>
+      <button class="btn btn-teal" type="submit">Schedule an appointment</button>
+      <p class="form-msg" id="form-msg" role="status">Thanks. This is a preview, so the form is not connected yet. Please call or email in the meantime.</p>
+    </form>
+  </div>
+</section>
+
+<section class="news" aria-label="Newsletter">
+  <div class="wrap news-in">
+    <div>
+      <span class="mono">Newsletter</span>
+      <h2>Stay in the loop.</h2>
+      <p>New projects and services for property managers and condo boards, straight to your inbox.</p>
+    </div>
+    <form id="news" class="news-form" novalidate>
+      <label class="sr" for="news-email">Email address</label>
+      <input id="news-email" type="email" autocomplete="email" placeholder="Your email" required>
+      <button class="btn btn-teal" type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div style="display:grid;gap:14px">
+      <img src="img/logo-white.png" alt="Devman Group Incorporated">
+      <span class="mono">Communication. Quality. Service.</span>
+      <span style="font-size:14px">© 2026 Devman Group Inc. · 2651 John St, Unit 6, Markham, ON</span>
+    </div>
+    <nav aria-label="Footer">
+      <a href="#services">Services</a><a href="#projects">Projects</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="actbar" aria-label="Quick actions">
+  <a class="btn btn-line" href="tel:+19056040555">Call</a>
+  <a class="btn btn-teal" href="#brief">Your brief <span class="bcount">0</span></a>
+</div>
+<div class="toast" role="status"></div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Project photo">
+  <button class="x" type="button" aria-label="Close photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <figure><img alt=""><figcaption class="mono"></figcaption></figure>
+</div>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // directory menu
+  var dir=document.getElementById('dir'),btn=document.querySelector('.dir-btn');
+  function setDir(o){dir.classList.toggle('open',o);dir.setAttribute('aria-hidden',!o);btn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''}
+  btn.addEventListener('click',function(){setDir(true)});
+  dir.querySelector('.dir-close').addEventListener('click',function(){setDir(false)});
+  dir.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setDir(false)})});
+
+  // hero: walk down the corridor as you scroll
+  var hero=document.querySelector('.hero'),img=document.querySelector('.hero-img'),txt=document.querySelector('.hero-in'),fl=document.querySelector('.floor');
+  if(!reduce){
+    var tick=false;
+    function walk(){
+      tick=false;
+      var r=hero.getBoundingClientRect(),span=hero.offsetHeight-window.innerHeight;
+      var p=Math.min(1,Math.max(0,-r.top/span));
+      img.style.transform='scale('+(1+p*0.75).toFixed(4)+')';
+      txt.style.opacity=(1-Math.max(0,p-.35)*1.9).toFixed(3);
+      txt.style.transform='translateY('+(-p*40).toFixed(1)+'px)';
+      if(fl)fl.style.opacity=(0.9-p*1.4).toFixed(3);
+    }
+    window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(walk)}},{passive:true});
+    walk();
+  }
+
+  // service tabs
+  var tabs=document.querySelectorAll('.tab');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);document.getElementById(x.getAttribute('aria-controls')).hidden=!on});
+  })});
+
+  // project rail arrows
+  var rail=document.getElementById('rail');
+  document.querySelectorAll('.arrows button').forEach(function(b){b.addEventListener('click',function(){
+    rail.scrollBy({left:(+b.dataset.dir)*rail.clientWidth*0.8,behavior:reduce?'auto':'smooth'});
+  })});
+
+  // lightbox
+  var lb=document.getElementById('lb'),li=lb.querySelector('img'),lc=lb.querySelector('figcaption'),last;
+  document.querySelectorAll('.card').forEach(function(c){c.addEventListener('click',function(){
+    last=c;li.src=c.dataset.src;li.alt=c.querySelector('img').alt;lc.textContent=c.dataset.cap;lb.classList.add('open');document.body.style.overflow='hidden';lb.querySelector('.x').focus();
+  })});
+  function closeLb(){lb.classList.remove('open');document.body.style.overflow='';if(last)last.focus()}
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target.closest('.x'))closeLb()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeLb();setDir(false)}});
+
+  // reveal on scroll
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  }else{document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')})}
+
+  // preview form
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('form-msg').classList.add('show')});
+})();
+</script>
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var PLUS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
+  var Z={
+    res:{name:'Residential floors',tag:'Floors 2 and up',desc:'The corridors residents walk every day, from the elevator to their front door.',ph:'img/yonge.jpg',cap:'3900 Yonge St · Corridor',svc:['Corridors','Stairwells']},
+    amen:{name:'Amenity floor',tag:'Shared amenities',desc:'Spaces that meet the needs of current residents and appeal to future ones.',ph:null,svc:['Recreation and party rooms','Exercise rooms','Squash courts','Sauna and pool areas','Guest suites']},
+    lobby:{name:'Lobby level',tag:'Ground floor',desc:'The first thing residents and visitors see. We supply and install every interior finish.',ph:'img/shaw-lobby.jpg',cap:'1 Shaw St · Lobby',svc:['Lobbies and foyers','Management offices']},
+    lower:{name:'Lower level',tag:'Service rooms',desc:'The rooms residents use every week, refurbished with the same care as the lobby.',ph:null,svc:['Locker and change rooms','Laundry rooms','Disposal rooms']},
+    ext:{name:'Outside',tag:'Exterior · with our partners',desc:'Your exterior is seen by everyone who passes by. Value-engineered to suit any budget.',ph:'img/bayview-entrance.jpg',cap:'1818 Bayview · Entrance',svc:['Concrete repair','Interlocking','Exterior painting','Stucco finishes','Caulking']}
+  };
+  var OUT=Z.ext.svc;
+  var sel=new Set();
+
+  // windows on the tower
+  var wg=document.querySelector('.tower .win'),h='';
+  for(var f=0;f<8;f++){for(var i=0;i<4;i++){h+='<rect class="w" x="'+(92+i*36)+'" y="'+(64+f*29.5)+'" width="28" height="18"/>'}}
+  wg.innerHTML=h;
+
+  var panel=document.querySelector('.ex-panel'),cur='lobby';
+  function showZone(k){
+    cur=k;var z=Z[k];
+    document.querySelectorAll('.zone-pills button').forEach(function(b){b.setAttribute('aria-selected',b.dataset.zone===k)});
+    document.querySelectorAll('.tower .zone').forEach(function(g){g.classList.toggle('on',g.dataset.zone===k)});
+    panel.querySelector('.ex-tag').textContent=z.tag;
+    panel.querySelector('.ex-name').textContent=z.name;
+    panel.querySelector('.ex-desc').textContent=z.desc;
+    var fig=panel.querySelector('.ex-ph');
+    if(z.ph){fig.hidden=false;fig.querySelector('img').src=z.ph;fig.querySelector('img').alt=z.cap;fig.querySelector('figcaption').textContent=z.cap}else{fig.hidden=true}
+    panel.querySelector('.ex-list').innerHTML=z.svc.map(function(s){return '<button type="button" class="svc-row" data-svc="'+s+'" aria-pressed="'+sel.has(s)+'"><span>'+s+'</span><i>'+PLUS+'</i></button>'}).join('');
+    syncAll();
+  }
+  document.querySelectorAll('.zone-pills button,.tower .zone').forEach(function(el){el.addEventListener('click',function(){showZone(el.dataset.zone)})});
+  panel.addEventListener('click',function(e){var b=e.target.closest('.svc-row');if(b)toggle(b.dataset.svc)});
+  panel.querySelector('.ex-all').addEventListener('click',function(){var all=Z[cur].svc.every(function(s){return sel.has(s)});Z[cur].svc.forEach(function(s){all?sel.delete(s):sel.add(s)});syncAll();if(!all)toast(Z[cur].name+' added to your brief')});
+
+  // brief service chips
+  ['Inside','Outside'].forEach(function(g){
+    var box=document.querySelector('.chips.svc[data-group="'+g+'"]'),list=[];
+    Object.keys(Z).forEach(function(k){Z[k].svc.forEach(function(s){if((OUT.indexOf(s)>-1)===(g==='Outside'))list.push(s)})});
+    box.innerHTML=list.map(function(s){return '<button type="button" data-svc="'+s+'" aria-pressed="false">'+s+'</button>'}).join('');
+    box.addEventListener('click',function(e){var b=e.target.closest('button');if(b)toggle(b.dataset.svc)});
+  });
+  function toggle(s){sel.has(s)?sel.delete(s):sel.add(s);syncAll()}
+
+  // single / multi chips
+  var state={role:'',when:'',prio:[]};
+  document.querySelectorAll('.chips[data-name]').forEach(function(box){
+    var name=box.dataset.name,single=box.hasAttribute('data-single'),max=+box.dataset.max||99;
+    box.addEventListener('click',function(e){
+      var b=e.target.closest('button');if(!b)return;
+      var on=b.getAttribute('aria-pressed')==='true';
+      if(single){box.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed',String(!on));state[name]=on?'':b.textContent}
+      else{
+        if(!on&&state[name].length>=max){b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');toast('Pick up to '+max);return}
+        b.setAttribute('aria-pressed',String(!on));
+        state[name]=[].map.call(box.querySelectorAll('[aria-pressed="true"]'),function(x){return x.textContent});
+      }
+      render();
+    });
+  });
+  var nameIn=document.getElementById('b-name'),fl=document.getElementById('b-floors'),flo=document.getElementById('b-floors-out');
+  nameIn.addEventListener('input',render);
+  fl.addEventListener('input',function(){flo.textContent=fl.value;render()});
+
+  function syncAll(){
+    document.querySelectorAll('[data-svc]').forEach(function(b){b.setAttribute('aria-pressed',sel.has(b.dataset.svc))});
+    document.querySelectorAll('.bcount').forEach(function(c){c.textContent=sel.size});
+    render();
+  }
+  function render(){
+    var n=sel.size,floors=+fl.value,arr=Array.from(sel);
+    document.getElementById('c-name').textContent=nameIn.value.trim()||'Your building';
+    var sub=[];if(state.role)sub.push(state.role);sub.push(floors+' residential floor'+(floors>1?'s':''));
+    if(sel.has('Corridors'))sub.push('about '+floors+' corridor'+(floors>1?'s':''));
+    document.getElementById('c-sub').textContent=n?sub.join(' · '):'Pick your spaces to start.';
+    var tier=n===0?'Scope: not started':n<=2?'Scope: focused refurbishment':n<=5?'Scope: multi-space refurbishment':'Scope: full common-area refurbishment';
+    document.getElementById('c-tier').textContent=tier;
+    document.getElementById('c-bar').style.width=Math.min(100,n/17*100+(n?12:0))+'%';
+    var ins=arr.filter(function(s){return OUT.indexOf(s)<0}),out=arr.filter(function(s){return OUT.indexOf(s)>-1});
+    document.getElementById('c-spaces').textContent=n?[ins.length?'Inside: '+ins.join(', '):'',out.length?'Outside: '+out.join(', '):''].filter(Boolean).join('. '):'None yet';
+    document.getElementById('c-when').textContent=state.when||'Not set';
+    document.getElementById('c-prio').textContent=state.prio.length?state.prio.join(', '):'Not set';
+  }
+  function briefText(){
+    return ['Project brief for '+(nameIn.value.trim()||'our building'),
+      'Role: '+(state.role||'Not set'),
+      'Residential floors: '+fl.value,
+      'Spaces: '+(Array.from(sel).join(', ')||'None yet'),
+      'Timing: '+(state.when||'Not set'),
+      'Priorities: '+(state.prio.join(', ')||'Not set')].join('\n');
+  }
+  document.getElementById('c-print').addEventListener('click',function(){window.print()});
+  document.getElementById('c-copy').addEventListener('click',function(){
+    var t=briefText();
+    (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){toast('Brief copied')},function(){toast('Copy not available on this device')});
+  });
+  document.getElementById('c-send').addEventListener('click',function(){
+    if(!sel.size){toast('Add at least one space first');return}
+    var ta=document.querySelector('#form textarea'),sj=document.querySelector('#form input[name="subject"]');
+    ta.value=briefText();if(nameIn.value.trim())sj.value=nameIn.value.trim();
+    document.getElementById('contact').scrollIntoView({behavior:reduce?'auto':'smooth'});
+    setTimeout(function(){document.querySelector('#form input[name="name"]').focus({preventScroll:true})},reduce?0:700);
+  });
+
+  // project filters
+  var cards=[].slice.call(document.querySelectorAll('#rail .card'));
+  var fb=document.querySelector('.filters');
+  fb.querySelectorAll('button').forEach(function(b){
+    var t=b.dataset.f,c=t==='all'?cards.length:cards.filter(function(x){return x.dataset.type===t}).length;
+    b.insertAdjacentHTML('beforeend','<span>'+c+'</span>');
+  });
+  fb.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    fb.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+    cards.forEach(function(c){c.hidden=!(b.dataset.f==='all'||c.dataset.type===b.dataset.f)});
+    document.getElementById('rail').scrollTo({left:0});
+  });
+
+  // counters
+  var facts=document.querySelectorAll('.fact b[data-n]');
+  function count(el){var n=+el.dataset.n;if(reduce){el.textContent=n;return}var t0=null;function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/900);el.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){count(e.target);io.unobserve(e.target)}})});facts.forEach(function(f){io.observe(f)})}else facts.forEach(count);
+
+  // phone action bar
+  var bar=document.querySelector('.actbar'),hero=document.querySelector('.hero');
+  function barCheck(){bar.classList.toggle('show',hero.getBoundingClientRect().bottom<window.innerHeight*0.6)}
+  window.addEventListener('scroll',barCheck,{passive:true});barCheck();
+
+  // newsletter
+  document.getElementById('news').addEventListener('submit',function(e){e.preventDefault();toast('Thanks. Preview only: sign-up not connected yet.')});
+
+  var tEl=document.querySelector('.toast'),tT;
+  function toast(m){tEl.textContent=m;tEl.classList.add('show');clearTimeout(tT);tT=setTimeout(function(){tEl.classList.remove('show')},2200)}
+
+  showZone('lobby');
+})();
+</script>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hero=document.querySelector('.hero');
+  // loader: floors light up bottom to top
+  var ld=document.getElementById('ld'),bld=document.getElementById('ld-bld'),cells=[];
+  for(var i=0;i<36;i++){var c=document.createElement('i');bld.appendChild(c);cells.push(c)}
+  var order=cells.map(function(c,i){return i}).reverse();
+  var msgs=['Preparing the site','Reviewing the corridors','Lighting the lobby','Ready'];
+  var seen=false;try{seen=sessionStorage.getItem('dmld')==='1';sessionStorage.setItem('dmld','1')}catch(e){}
+  if(seen){ld.remove();hero.classList.add('go')}
+  var dur=reduce?200:750,t0=null,done=seen;
+  function step(t){
+    if(!t0)t0=t;var p=Math.min(1,(t-t0)/dur);
+    var n=Math.round(p*cells.length);for(var k=0;k<n;k++)cells[order[k]].classList.add('on');
+    document.getElementById('ld-bar').style.width=(p*100)+'%';
+    document.getElementById('ld-pct').textContent=Math.round(p*100)+'%';
+    document.getElementById('ld-msg').textContent=msgs[Math.min(3,Math.floor(p*3.999))];
+    if(p<1)requestAnimationFrame(step);else finish();
+  }
+  function finish(){if(done)return;done=true;ld.classList.add('out');hero.classList.add('go');setTimeout(function(){ld.remove()},850)}
+  if(!seen){requestAnimationFrame(step);setTimeout(finish,1500)}
+  // hero slideshow
+  var sl=[].slice.call(document.querySelectorAll('.sl')),dots=document.getElementById('dots'),cur=0;
+  sl.forEach(function(){dots.appendChild(document.createElement('i'))});
+  function show(i){sl[cur].classList.remove('on');cur=i;sl[cur].classList.add('on');
+    document.getElementById('fl-a').textContent=sl[cur].dataset.a;document.getElementById('fl-t').textContent=sl[cur].dataset.t;
+    [].forEach.call(dots.children,function(d,j){d.classList.toggle('on',j===cur)})}
+  show(0);
+  window.addEventListener('load',function(){sl.forEach(function(x){if(x.dataset.bg)x.style.backgroundImage='url('+x.dataset.bg+')'});if(!reduce)setInterval(function(){show((cur+1)%sl.length)},4500)});
+})();
+</script>
+
+<script>
+(function(){
+  var w=['lobbies.','corridors.','amenity spaces.','entrances.','stairwells.','party rooms.','guest suites.'],i=0,el=document.getElementById('rot');
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  setInterval(function(){
+    el.classList.add('out');
+    setTimeout(function(){i=(i+1)%w.length;el.textContent=w[i];el.classList.remove('out');el.classList.add('in');void el.offsetWidth;el.classList.remove('in')},450);
+  },2200);
+})();
+</script>
+
+<script>
+(function(){
+  var deck=document.getElementById('deck');if(!deck)return;
+  var cards=[].slice.call(deck.querySelectorAll('.dk')),order=cards.slice(),N=cards.length,count=document.getElementById('dk-n'),idx=0,fanned=false;
+  var fan=[[0,0,0,1],[-7,-46,14,.96],[6,44,22,.93],[-3,-18,30,.9],[4,20,36,.87],[0,0,40,.84]];
+  var stack=[[0,0,0,1],[-2,-6,8,.97],[2,6,14,.94],[-1,-3,20,.91],[1,3,24,.88],[0,0,28,.85]];
+  function lay(){order.forEach(function(c,k){var f=(fanned?fan:stack)[Math.min(k,5)];c.style.setProperty('--p',f[0]);c.style.setProperty('--x',f[1]);c.style.setProperty('--y',f[2]);c.style.setProperty('--s',f[3]);c.style.zIndex=N-k});count.textContent=('0'+(idx%N+1)).slice(-2)+' / 0'+N}
+  function next(dir){var top=order[0];top.classList.add('fly');top.style.setProperty('--x',(dir||1)*520);top.style.setProperty('--p',(dir||1)*24);
+    setTimeout(function(){order.push(order.shift());top.classList.remove('fly');idx++;lay()},320)}
+  document.getElementById('dk-next').addEventListener('click',function(){next(1)});
+  // swipe / drag the top card
+  var sx=0,dx=0,dragging=false,top=null;
+  deck.addEventListener('pointerdown',function(e){top=order[0];if(!top.contains(e.target))return;dragging=true;sx=e.clientX;dx=0;top.classList.add('drag');top.setPointerCapture(e.pointerId)});
+  deck.addEventListener('pointermove',function(e){if(!dragging)return;dx=e.clientX-sx;top.style.setProperty('--x',dx);top.style.setProperty('--p',dx/14)});
+  function end(){if(!dragging)return;dragging=false;top.classList.remove('drag');if(Math.abs(dx)>70)next(dx>0?1:-1);else if(Math.abs(dx)<6)next(1);else lay()}
+  deck.addEventListener('pointerup',end);deck.addEventListener('pointercancel',end);
+  lay();
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){setTimeout(function(){fanned=true;lay()},250);io.disconnect()}})},{threshold:.35});io.observe(deck)}else{fanned=true;lay()}
+})();
+</script>
+</body>
+</html>

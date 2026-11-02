@@ -199,6 +199,69 @@ body.client .flag{display:none}
 .dark :focus-visible,.access :focus-visible,.find :focus-visible{outline-color:var(--gold)}
 .rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.in{opacity:1;transform:none}
+/* ===== BLACK + DYNAMIC THEME (Ryan 2026-11-02: no cream; black, same gold) ===== */
+:root{--bone:#050505;--cream:#F4EFE4;--text:#EDE7DA;--muted:#9C9585;--line:#26221A;--gold-deep:#D4AF37;color-scheme:dark}
+body{background:#050505;color:var(--text)}
+.top{background:#050505cc;border-bottom:1px solid #1d1a14}
+.top img{filter:none}
+.top li a:hover{color:var(--gold)}
+.btn.p{background:var(--gold);color:#0A0A0A}
+.btn.p:hover{box-shadow:0 0 0 6px #D4AF3722,0 10px 40px -8px #D4AF37aa}
+.btn.g{background:var(--cream);color:#0A0A0A}
+.btn.o{color:var(--cream);border-color:#ffffff40}
+.btn.o:hover{border-color:var(--gold);color:var(--gold)}
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.hero::before,.hero::after{content:"";position:absolute;z-index:-1;border-radius:50%;filter:blur(90px);opacity:.5;animation:drift 18s ease-in-out infinite alternate}
+.hero::before{width:620px;height:620px;left:-160px;top:-120px;background:radial-gradient(circle,#D4AF3755,transparent 70%)}
+.hero::after{width:520px;height:520px;right:-120px;bottom:-140px;background:radial-gradient(circle,#D98E6A44,transparent 70%);animation-duration:24s}
+@keyframes drift{to{transform:translate(120px,80px) scale(1.25)}}
+.hero h1 em,.statement p em,.card h2 em,.find h2 em,.how h2 em{background:linear-gradient(100deg,#8A6400,#F4D77A 35%,#D4AF37 55%,#8A6400 90%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 6s linear infinite}
+@keyframes sheen{to{background-position:-220% 0}}
+.hero .lede{color:#C9C2B3}
+.arch{box-shadow:0 0 0 1px #D4AF3755,0 0 80px -10px #D4AF3733,0 40px 90px -30px #000}
+.arch{background-size:112%;animation:kb 22s ease-in-out infinite alternate;will-change:transform}
+@keyframes kb{to{background-size:128%;background-position:60% 40%}}
+.arch .cap{color:var(--gold)}
+.proof b{color:var(--cream)}
+/* marquee */
+.band{border-block:1px solid #1d1a14;overflow:hidden;padding:20px 0;background:#0A0A0A}
+.band .tr{display:flex;width:max-content;animation:mq 38s linear infinite}
+.band:hover .tr{animation-play-state:paused}
+.band span{font:italic 400 clamp(1.6rem,3vw,2.4rem)/1 var(--f-serif);color:#6d6657;padding:0 26px;display:flex;align-items:center;gap:52px;white-space:nowrap}
+.band span::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px var(--gold)}
+@keyframes mq{to{transform:translateX(-50%)}}
+.statement p{color:var(--cream)}
+/* cards with cursor spotlight */
+.card{background:#0E0D0B;border:1px solid #2a251b;color:var(--text);overflow:hidden;transition:border-color .4s,transform .6s var(--ease)}
+.card.in{background:#12100C}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--x,50%) var(--y,0%),#D4AF3722,transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
+.card:hover{border-color:#D4AF3788}.card:hover::before{opacity:1}
+.card>*{position:relative}
+.card .lead,.items small{color:#A9A294}
+.card.in .lead{color:#A9A294}
+.items .row i{border-bottom-color:#4a4333}
+.items .row b{color:var(--cream)}
+.find,.access{background:#0E0D0B;border:1px solid #1f1c14}
+.peek{box-shadow:0 0 0 1px #D4AF3744,0 30px 80px -30px #D4AF3733}
+.how .lede,.steps .s small,.faq p,.founder small{color:#A9A294}
+.steps .s{border-color:#26221A}
+.steps .s b,.founder p.q,.faq summary{color:var(--cream)}
+@media (min-width:860px){.steps .s{border-top:1px solid #3a3426}}
+.steps .s em{-webkit-text-stroke:1px var(--gold);color:transparent}
+.brief{box-shadow:0 0 120px -20px #D4AF3755}
+.brief .btn.p{background:#0A0A0A;color:var(--gold)}
+.ph{border-color:#D4AF3788;color:var(--gold)}
+.faq details,.faq details:last-child{border-color:#26221A}
+.faq summary::after{border-color:var(--gold)}
+.foot{background:#0A0A0A;border-top:1px solid #1d1a14}
+.dock{background:#000d;border:1px solid #2a251b}
+.dock a.on{background:var(--gold)}
+::selection{background:var(--gold);color:#000}
+/* cursor glow, soft drift on touch screens */
+.glow{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;background:radial-gradient(circle,#D4AF3724,transparent 65%);pointer-events:none;z-index:1;transform:translate(var(--gx,50vw),var(--gy,30vh));transition:transform .25s ease-out;mix-blend-mode:screen}
+.top,.dock{z-index:60}
+main,footer{position:relative}
+.rv{transform:translateY(34px) scale(.98)}.rv.in{transform:none}
 </style>
 </head>
 <body>
@@ -226,6 +289,8 @@ body.client .flag{display:none}
   </div>
   <div class="arch rv" role="img" aria-label="A private dining room set for service"><span class="cap">Launching first in Toronto</span></div>
 </div></div></section>
+
+<div class="band" aria-hidden="true"><div class="tr"><span>Seated dinner</span><span>Standing reception</span><span>Open-air patio</span><span>Private entrance</span><span>Full buyout</span><span>Floorplans and menus</span><span>Compare side by side</span><span>Seated dinner</span><span>Standing reception</span><span>Open-air patio</span><span>Private entrance</span><span>Full buyout</span><span>Floorplans and menus</span><span>Compare side by side</span></div></div>
 
 <section class="statement"><div class="wrap rv">
   <p>Anyone can book a table. Some nights need a <em>room.</em></p>
@@ -370,6 +435,15 @@ body.client .flag{display:none}
   d.querySelectorAll('a[data-pick]').forEach(function(a){a.addEventListener('click',function(){setSide(a.dataset.pick)})});
   d.getElementById('form').addEventListener('submit',function(e){e.preventDefault();d.getElementById('ok').style.display='block'});
   setSide('');
+})();
+</script>
+<script>
+(function(){var g=document.createElement('div');g.className='glow';document.body.appendChild(g);
+addEventListener('pointermove',function(e){g.style.setProperty('--gx',e.clientX+'px');g.style.setProperty('--gy',e.clientY+'px')},{passive:true});
+document.querySelectorAll('.card').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--x',e.clientX-r.left+'px');c.style.setProperty('--y',e.clientY-r.top+'px')})});
+var a=document.querySelector('.arch');if(a&&!matchMedia('(prefers-reduced-motion:reduce)').matches)addEventListener('scroll',function(){a.style.transform='translateY('+Math.min(scrollY*.06,40)+'px)'},{passive:true});
+/* phones: glow drifts on its own */
+if(matchMedia('(hover:none)').matches){var t=0;setInterval(function(){t+=.02;g.style.setProperty('--gx',(50+30*Math.sin(t))+'vw');g.style.setProperty('--gy',(35+25*Math.cos(t*.7))+'vh')},60)}
 })();
 </script>
 </body>

@@ -1,0 +1,643 @@
+<!--
+OPEN FIXES BEFORE PUBLISHING (draft, not approved for launch):
+- Replace the brand fallback text with the official bp3D logo file (do not redraw).
+- Replace the image placeholders with verified portfolio photos.
+- Confirm phone, address and email (marked [CONFIRM]).
+- Connect the quote form to an approved enquiry service.
+Original site: https://bp3dcreatives.com
+-->
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F2C121">
+  <meta name="description" content="bp3D Creatives designs and fabricates experiential displays, branded environments, event props, large-format graphics and kitting solutions.">
+  <title>bp3D Creatives — Experiential Displays &amp; Structures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --yellow: #F2C121;
+      --black: #111110;
+      --white: #FFFFFF;
+      --paper: #F5F3EC;
+      --grey: #77766F;
+      --line: rgba(17, 17, 16, .17);
+      --display: "Barlow Condensed", Impact, sans-serif;
+      --body: "DM Sans", Arial, sans-serif;
+      --gutter: clamp(20px, 5vw, 76px);
+      --max: 1600px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; color: var(--black); background: var(--paper); font-family: var(--body); -webkit-font-smoothing: antialiased; }
+    body, button, input, textarea, select { font-family: var(--body); }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font-size: 16px; }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 3px solid #1859A9; outline-offset: 4px; }
+    .wrap { width: min(100%, var(--max)); margin-inline: auto; padding-inline: var(--gutter); }
+    .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 18px; font-size: 11px; font-weight: 700; letter-spacing: .14em; line-height: 1.5; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 22px; height: 3px; flex: 0 0 auto; background: var(--yellow); }
+    .display { margin: 0; font-family: var(--display); font-weight: 900; letter-spacing: -.045em; line-height: .83; text-transform: uppercase; }
+    .button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 15px; padding: 13px 20px; border: 1px solid var(--black); background: var(--black); color: var(--white); font-size: 12px; font-weight: 700; letter-spacing: .04em; transition: background .2s ease, color .2s ease; }
+    .button:hover { background: var(--yellow); color: var(--black); }
+    .button--yellow { border-color: var(--yellow); background: var(--yellow); color: var(--black); }
+    .button--yellow:hover { border-color: var(--black); background: var(--black); color: var(--white); }
+    .arrow { width: 15px; height: 15px; flex: 0 0 auto; }
+    .header { position: sticky; z-index: 50; top: 0; border-bottom: 1px solid var(--line); background: var(--paper); }
+    .header-inner { display: flex; min-height: 76px; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; min-width: 120px; align-items: center; gap: 12px; }
+    .brand img { width: 124px; max-height: 48px; object-fit: contain; object-position: left center; }
+    .brand-fallback { font-family: var(--display); font-size: 28px; font-weight: 900; letter-spacing: -.04em; }
+    .brand-fallback span { color: #9B7600; }
+    .nav { display: flex; align-items: center; gap: clamp(16px, 2.5vw, 38px); }
+    .nav a:not(.button) { font-size: 11px; font-weight: 700; }
+    .nav a:not(.button):hover { color: #876600; }
+    .nav .button { min-height: 44px; padding: 10px 16px; }
+    .menu-toggle { display: none; width: 48px; height: 48px; align-items: center; justify-content: center; border: 1px solid var(--line); background: transparent; color: var(--black); cursor: pointer; }
+    .hero { position: relative; overflow: hidden; background: var(--yellow); }
+    .hero-inner { position: relative; display: grid; min-height: 650px; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 0; padding-top: 70px; padding-bottom: 66px; }
+    .hero-copy { position: relative; z-index: 2; padding-bottom: 35px; }
+    .hero .eyebrow::before { background: var(--black); }
+    .hero-title { position: relative; z-index: 2; font-size: clamp(100px, 16vw, 236px); letter-spacing: -.065em; line-height: .68; }
+    .hero-title span { display: block; }
+    .hero-title .outline { color: transparent; -webkit-text-stroke: 2px var(--black); }
+    .hero-subtitle { max-width: 410px; margin: 32px 0 25px; font-size: clamp(14px, 1.4vw, 18px); line-height: 1.65; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .hero-art { position: relative; align-self: stretch; display: flex; min-height: 430px; align-items: center; justify-content: center; }
+    .hero-art::before { position: absolute; top: 9%; right: -14%; width: 90%; aspect-ratio: 1; border: 1px solid rgba(17, 17, 16, .24); border-radius: 50%; content: ""; }
+    .hero-art::after { position: absolute; top: 15%; right: -5%; width: 73%; aspect-ratio: 1; border: 1px solid rgba(17, 17, 16, .18); border-radius: 50%; content: ""; }
+    .hero-art img { position: relative; z-index: 1; width: min(100%, 470px); max-height: 500px; object-fit: contain; filter: drop-shadow(16px 22px 0 rgba(17, 17, 16, .12)); transform: rotate(-3deg); }
+    .image-placeholder { display: flex; width: 100%; min-height: 240px; align-items: center; justify-content: center; padding: 25px; border: 1px dashed rgba(17, 17, 16, .5); background: rgba(255,255,255,.18); color: var(--black); font-size: 12px; text-align: center; }
+    .hero-art .image-placeholder { position: relative; z-index: 1; width: 75%; min-height: 330px; }
+    .hero-bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 18px; padding-bottom: 18px; border-top: 1px solid rgba(17,17,16,.25); font-size: 10px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+    .intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding-top: 100px; padding-bottom: 100px; }
+    .intro h2 { max-width: 600px; font-size: clamp(54px, 8vw, 108px); }
+    .intro-right { align-self: end; max-width: 500px; padding-bottom: 4px; }
+    .intro-right p { margin: 0 0 25px; color: #45443F; font-size: 15px; line-height: 1.8; }
+    .work { padding-top: 82px; padding-bottom: 100px; background: var(--black); color: var(--white); }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 42px; }
+    .section-heading h2 { font-size: clamp(58px, 9vw, 112px); }
+    .section-heading p { max-width: 245px; margin: 0 0 7px; color: #C3C2BC; font-size: 13px; line-height: 1.7; }
+    .work-track { display: grid; grid-auto-columns: minmax(260px, 30%); grid-auto-flow: column; gap: 16px; overflow-x: auto; padding-bottom: 18px; scroll-snap-type: x mandatory; scrollbar-color: var(--yellow) #333; scrollbar-width: thin; }
+    .project { min-width: 0; scroll-snap-align: start; }
+    .project-visual { position: relative; overflow: hidden; aspect-ratio: 3 / 4; background: #262622; }
+    .project-visual img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+    .project:hover .project-visual img { transform: scale(1.035); }
+    .project-index { position: absolute; top: 12px; left: 12px; display: grid; width: 34px; height: 34px; place-items: center; background: var(--yellow); color: var(--black); font-size: 11px; font-weight: 700; }
+    .project-caption { display: flex; align-items: start; justify-content: space-between; gap: 12px; padding-top: 16px; }
+    .project-caption h3 { margin: 0; font-family: var(--display); font-size: 29px; font-weight: 800; line-height: 1; text-transform: uppercase; }
+    .project-caption span { padding-top: 4px; color: #C3C2BC; font-size: 10px; text-align: right; }
+    .work-footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 32px; }
+    .work-footer p { color: #C3C2BC; font-size: 12px; line-height: 1.7; }
+    .services { padding-top: 100px; padding-bottom: 110px; }
+    .services-top { display: grid; grid-template-columns: 1fr .7fr; align-items: end; gap: 35px; margin-bottom: 55px; }
+    .services-top h2 { font-size: clamp(60px, 10vw, 130px); }
+    .services-top p { max-width: 400px; margin: 0 0 5px; color: #45443F; font-size: 14px; line-height: 1.8; }
+    .service-list { border-top: 1px solid var(--line); }
+    .service { display: grid; grid-template-columns: 70px 1fr 1fr 26px; align-items: start; gap: 20px; padding: 27px 0; border-bottom: 1px solid var(--line); }
+    .service-number { padding-top: 9px; color: #8B8981; font-size: 11px; }
+    .service h3 { margin: 0; font-family: var(--display); font-size: clamp(26px, 3.1vw, 43px); font-weight: 800; line-height: .98; text-transform: uppercase; }
+    .service p { max-width: 410px; margin: 3px 0 0; color: #5B5952; font-size: 13px; line-height: 1.8; }
+    .service svg { width: 22px; height: 22px; margin-top: 3px; }
+    .kitting { display: grid; grid-template-columns: 1fr 1fr; min-height: 490px; background: #E8E4D8; }
+    .kitting-image { min-height: 420px; background: #D5D0C2; }
+    .kitting-image img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; }
+    .kitting-copy { display: flex; flex-direction: column; align-items: start; justify-content: center; padding: clamp(30px, 6vw, 86px); }
+    .kitting-copy h2 { font-size: clamp(56px, 7vw, 92px); }
+    .kitting-copy p { max-width: 430px; margin: 24px 0; color: #45443F; font-size: 14px; line-height: 1.8; }
+    .kitting-copy ul { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; width: 100%; margin: 0 0 28px; padding: 0; list-style: none; }
+    .kitting-copy li { position: relative; padding-left: 14px; font-size: 12px; line-height: 1.6; }
+    .kitting-copy li::before { position: absolute; top: 7px; left: 0; width: 5px; height: 5px; background: #A27D00; content: ""; }
+    .about { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; padding-top: 110px; padding-bottom: 110px; }
+    .about h2 { font-size: clamp(60px, 9vw, 112px); }
+    .about-copy { align-self: end; max-width: 630px; }
+    .about-copy p { margin: 0 0 20px; color: #45443F; font-size: 15px; line-height: 1.85; }
+    .about-copy .large-copy { color: var(--black); font-size: clamp(20px, 2.6vw, 31px); font-weight: 600; line-height: 1.35; }
+    .contact { padding-top: 95px; padding-bottom: 100px; background: var(--yellow); }
+    .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(35px, 8vw, 120px); }
+    .contact h2 { font-size: clamp(70px, 11vw, 140px); }
+    .contact-copy > p { max-width: 350px; margin: 25px 0; font-size: 14px; line-height: 1.8; }
+    .contact-details { display: grid; gap: 14px; margin-top: 35px; }
+    .contact-details a { width: fit-content; font-size: 14px; font-weight: 700; }
+    .contact-details small { display: block; margin-bottom: 5px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .quote-form { padding: clamp(22px, 4vw, 42px); background: var(--paper); }
+    .quote-form h3 { margin: 0 0 8px; font-family: var(--display); font-size: 38px; font-weight: 800; text-transform: uppercase; }
+    .form-note { margin: 0 0 25px; color: #5B5952; font-size: 12px; line-height: 1.7; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
+    .field { display: flex; flex-direction: column; gap: 8px; }
+    .field--full { grid-column: 1 / -1; }
+    .field label { font-size: 11px; font-weight: 700; }
+    .field input, .field textarea, .field select { width: 100%; min-height: 48px; padding: 12px; border: 1px solid #D4D1C7; border-radius: 0; background: white; color: var(--black); }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .quote-form .button { width: 100%; margin-top: 22px; cursor: pointer; }
+    .form-status { margin: 15px 0 0; font-size: 12px; line-height: 1.7; }
+    .footer { padding-top: 28px; padding-bottom: 28px; background: var(--black); color: var(--white); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer-brand { font-family: var(--display); font-size: 30px; font-weight: 900; letter-spacing: -.04em; }
+    .footer-brand span { color: var(--yellow); }
+    .footer p { margin: 0; color: #C3C2BC; font-size: 10px; line-height: 1.7; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .footer-links a { font-size: 11px; font-weight: 600; }
+    @media (min-width: 1600px) { .hero-title { font-size: 236px; } }
+    @media (max-width: 900px) {
+      .hero-inner { min-height: auto; grid-template-columns: 1fr .8fr; padding-top: 75px; padding-bottom: 35px; }
+      .hero-title { font-size: clamp(95px, 16vw, 150px); }
+      .hero-art { min-height: 360px; }
+      .hero-art img { width: 115%; }
+      .intro { gap: 35px; }
+      .work-track { grid-auto-columns: minmax(245px, 42%); }
+      .service { grid-template-columns: 40px 1fr 1fr 22px; gap: 14px; }
+      .about { gap: 35px; }
+      .contact-grid { gap: 35px; }
+    }
+    @media (max-width: 650px) {
+      :root { --gutter: 22px; }
+      .header-inner { min-height: 68px; }
+      .brand img { width: 105px; }
+      .menu-toggle { display: flex; }
+      .nav { position: absolute; top: 100%; right: 0; left: 0; display: none; align-items: stretch; gap: 0; padding: 8px var(--gutter) 20px; border-bottom: 1px solid var(--line); background: var(--paper); }
+      .nav.is-open { display: flex; flex-direction: column; }
+      .nav a:not(.button) { display: flex; min-height: 48px; align-items: center; border-bottom: 1px solid var(--line); }
+      .nav .button { margin-top: 14px; }
+      .hero-inner { display: flex; flex-direction: column; align-items: stretch; padding-top: 54px; padding-bottom: 20px; }
+      .hero-copy { padding-bottom: 0; }
+      .hero-title { font-size: clamp(94px, 24vw, 148px); line-height: .73; }
+      .hero-title .outline { -webkit-text-stroke-width: 1.5px; }
+      .hero-subtitle { max-width: 330px; margin-top: 25px; font-size: 14px; }
+      .hero-art { min-height: 290px; margin-top: 10px; }
+      .hero-art img { width: min(85%, 340px); max-height: 320px; }
+      .hero-art::before { right: 0; width: 80%; }
+      .hero-art::after { right: 7%; width: 65%; }
+      .hero-art .image-placeholder { width: 85%; min-height: 240px; }
+      .hero-bottom { align-items: start; font-size: 9px; }
+      .intro { grid-template-columns: 1fr; gap: 25px; padding-top: 72px; padding-bottom: 75px; }
+      .intro h2 { font-size: clamp(64px, 17vw, 88px); }
+      .intro-right p { font-size: 14px; }
+      .work { padding-top: 68px; padding-bottom: 70px; }
+      .section-heading { display: block; margin-bottom: 30px; }
+      .section-heading h2 { font-size: 76px; }
+      .section-heading p { margin-top: 20px; }
+      .work-track { grid-auto-columns: 78%; gap: 12px; margin-right: calc(-1 * var(--gutter)); padding-right: var(--gutter); }
+      .project-caption h3 { font-size: 27px; }
+      .work-footer { align-items: start; flex-direction: column; }
+      .services { padding-top: 72px; padding-bottom: 78px; }
+      .services-top { grid-template-columns: 1fr; gap: 20px; margin-bottom: 35px; }
+      .services-top h2 { font-size: 76px; }
+      .services-top p { font-size: 13px; }
+      .service { grid-template-columns: 28px 1fr 22px; gap: 12px; padding: 23px 0; }
+      .service h3 { grid-column: 2; font-size: 32px; }
+      .service p { grid-column: 2; grid-row: 2; margin-top: 3px; font-size: 12px; }
+      .service svg { grid-column: 3; grid-row: 1; }
+      .service-number { grid-column: 1; grid-row: 1; }
+      .kitting { grid-template-columns: 1fr; }
+      .kitting-image, .kitting-image img { min-height: 270px; }
+      .kitting-copy { padding: 42px var(--gutter) 48px; }
+      .kitting-copy h2 { font-size: 72px; }
+      .kitting-copy p { font-size: 13px; }
+      .kitting-copy ul { gap: 12px; }
+      .kitting-copy li { font-size: 11px; }
+      .about { grid-template-columns: 1fr; gap: 28px; padding-top: 76px; padding-bottom: 76px; }
+      .about h2 { font-size: 82px; }
+      .about-copy p { font-size: 14px; }
+      .about-copy .large-copy { font-size: 22px; }
+      .contact { padding-top: 72px; padding-bottom: 72px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 38px; }
+      .contact h2 { font-size: clamp(78px, 21vw, 110px); }
+      .contact-copy > p { margin: 20px 0; }
+      .contact-details { margin-top: 25px; }
+      .quote-form { padding: 22px 18px; }
+      .quote-form h3 { font-size: 34px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field--full { grid-column: auto; }
+      .footer-inner { align-items: start; flex-direction: column; }
+      .footer-links { gap: 16px; }
+      .footer p { font-size: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#home" aria-label="bp3D Creatives home">
+        <!-- PLACEHOLDER: replace with the official logo URL. Do not redraw the logo. -->
+        <span class="brand-fallback" style="display:inline-block">bp<span>3D</span></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="siteNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+      </button>
+      <nav class="nav" id="siteNav" aria-label="Main navigation">
+        <a href="#work">Our Work</a>
+        <a href="#services">Services</a>
+        <a href="#kitting">Kitting</a>
+        <a href="#about">About</a>
+        <a class="button" href="#contact">Start a Project
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Experiential Displays &amp; Structures</p>
+          <h1 class="display hero-title">
+            <span>Make</span>
+            <span class="outline">Some</span>
+            <span>Noise.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Create a VISUAL STIMULUS! Promote your brand, attract and engage your customers.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#work">Explore Our Work
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg>
+            </a>
+            <a class="button button--yellow" href="#contact">Let's Build Something</a>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <!-- Verified original bp3D image URL from its current website. -->
+          <img
+            src="https://bp3dcreatives.com/wp-content/uploads/2015/07/IMG_0628-1.jpg"
+            alt="Oversized yellow football display"
+            fetchpriority="high"
+            onerror="this.hidden=true;this.nextElementSibling.hidden=false"
+          >
+          <div class="image-placeholder" hidden>
+            [PLACEHOLDER: select a current hero photograph of a fabricated bp3D display]
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap hero-bottom">
+        <span>Concept to creation</span>
+        <span>Designed and fabricated</span>
+        <span>Built for impact</span>
+      </div>
+    </section>
+
+    <section class="wrap intro">
+      <div>
+        <p class="eyebrow">Ideas made tangible</p>
+        <h2 class="display">Big Ideas.<br>Real Things.</h2>
+      </div>
+      <div class="intro-right">
+        <p>
+          We design and fabricate for event planners, marketing agencies, retail agencies, creative directors and set decorators in film and television.
+        </p>
+        <p>
+          From branded environments to interactive displays, trade show props and large-format graphics, bp3D brings creative ideas into the physical world.
+        </p>
+        <a class="button" href="#services">Discover Our Services
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="work" id="work">
+      <div class="wrap">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Selected projects</p>
+            <h2 class="display">We Build<br>Excitement.</h2>
+          </div>
+          <p>A selection of projects featured in the bp3D portfolio.</p>
+        </div>
+
+        <div class="work-track" aria-label="Portfolio projects">
+          <article class="project">
+            <div class="project-visual">
+              <img src="https://bp3dcreatives.com/wp-content/uploads/2015/07/IMG_0628-1.jpg" alt="Oversized football display" loading="lazy">
+              <span class="project-index">01</span>
+            </div>
+            <div class="project-caption">
+              <h3>NFL 100th</h3>
+              <span>Experiential display</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual">
+              <div class="image-placeholder">[PLACEHOLDER: original TD Globe project photo]</div>
+              <span class="project-index">02</span>
+            </div>
+            <div class="project-caption">
+              <h3>TD Globe</h3>
+              <span>Portfolio project</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual">
+              <div class="image-placeholder">[PLACEHOLDER: original Taiwan Trailer project photo]</div>
+              <span class="project-index">03</span>
+            </div>
+            <div class="project-caption">
+              <h3>Taiwan Trailer</h3>
+              <span>Mobile activation</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual">
+              <div class="image-placeholder">[PLACEHOLDER: original NBA Ice Ball project photo]</div>
+              <span class="project-index">04</span>
+            </div>
+            <div class="project-caption">
+              <h3>NBA Ice Ball</h3>
+              <span>Portfolio project</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual">
+              <div class="image-placeholder">[PLACEHOLDER: original YouTube Infinity Mirror project photo]</div>
+              <span class="project-index">05</span>
+            </div>
+            <div class="project-caption">
+              <h3>YouTube Infinity Mirror</h3>
+              <span>Interactive display</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual">
+              <div class="image-placeholder">[PLACEHOLDER: original Amarula project photo]</div>
+              <span class="project-index">06</span>
+            </div>
+            <div class="project-caption">
+              <h3>Amarula</h3>
+              <span>Portfolio project</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual">
+              <div class="image-placeholder">[PLACEHOLDER: original Taylor Swift Guitars project photo]</div>
+              <span class="project-index">07</span>
+            </div>
+            <div class="project-caption">
+              <h3>Taylor Swift Guitars</h3>
+              <span>Portfolio project</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="work-footer">
+          <p>Explore the work. Then let's talk about what you have in mind.</p>
+          <a class="button button--yellow" href="#contact">Discuss Your Project
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap services" id="services">
+      <div class="services-top">
+        <div>
+          <p class="eyebrow">What we do</p>
+          <h2 class="display">Built From<br>Every Angle.</h2>
+        </div>
+        <p>
+          One stop for all your needs. Explore the design, fabrication, print and display services offered by bp3D Creatives.
+        </p>
+      </div>
+
+      <div class="service-list">
+        <article class="service">
+          <span class="service-number">01</span>
+          <h3>Creative 3D Fabrication</h3>
+          <p>Logos, letters and hashtags. Branded environments, billboards, interactive displays, experiential marketing props, trade show props, event theming and film and television props.</p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </article>
+
+        <article class="service">
+          <span class="service-number">02</span>
+          <h3>Creative Design</h3>
+          <p>3D design, 3D scanning, 3D printing, CAD development, graphic design and concept development.</p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </article>
+
+        <article class="service">
+          <span class="service-number">03</span>
+          <h3>Fabrication Materials</h3>
+          <p>Foams, millwork, acrylics, plastics, metals and fabrics.</p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </article>
+
+        <article class="service">
+          <span class="service-number">04</span>
+          <h3>Digital Printing</h3>
+          <p>UV direct print to substrate, large format, stretch and backlit fabric, billboards, posters, building and window graphics, vehicle wraps, POP displays, outdoor signage and 3M Certified Graphic Installation.</p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </article>
+
+        <article class="service">
+          <span class="service-number">05</span>
+          <h3>Digital LED Products</h3>
+          <p>Digital LED displays, digital billboards, LED billboards and full-colour on-premise signs.</p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </article>
+
+        <article class="service">
+          <span class="service-number">06</span>
+          <h3>Kitting &amp; Co-packing</h3>
+          <p>Display assembly, shrink wrapping, flow wrapping, automated labelling, repacking, quality inspection, POS kitting and fulfilment.</p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </article>
+      </div>
+    </section>
+
+    <section class="kitting" id="kitting">
+      <div class="kitting-image">
+        <!-- PLACEHOLDER: replace with a verified original bp3D co-packing photograph. -->
+        <div class="image-placeholder" style="height:100%;min-height:420px">
+          [PLACEHOLDER: original kitting and co-packing photo]
+        </div>
+      </div>
+      <div class="kitting-copy">
+        <p class="eyebrow">Kitting &amp; Co-packing</p>
+        <h2 class="display">The Details<br>Are Built In.</h2>
+        <p>
+          From display assembly to packaging and fulfilment, bp3D offers practical support for the details that bring a project together.
+        </p>
+        <ul>
+          <li>Display assembly</li>
+          <li>Shrink wrapping</li>
+          <li>Flow wrapping</li>
+          <li>Automated labelling</li>
+          <li>Quality inspection</li>
+          <li>POS kitting and fulfilment</li>
+        </ul>
+        <a class="button" href="#contact">Ask About Kitting
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="wrap about" id="about">
+      <div>
+        <p class="eyebrow">About bp3D</p>
+        <h2 class="display">Enough Talk.<br>Let's Build.</h2>
+      </div>
+      <div class="about-copy">
+        <p class="large-copy">Create a VISUAL STIMULUS!</p>
+        <p>
+          bp3D Creatives designs and fabricates experiential displays and structures for brands, events, retail environments, exhibits and more.
+        </p>
+        <p>
+          The work spans creative design, fabrication, digital printing, LED products and kitting and co-packing.
+        </p>
+        <a class="button" href="#contact">Get In Touch
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-grid">
+        <div class="contact-copy">
+          <p class="eyebrow">Have a project in mind?</p>
+          <h2 class="display">Let's Make<br>It Real.</h2>
+          <p>Enough Talk, Let's Build Something Together.</p>
+
+          <div class="contact-details">
+            <div>
+              <small>Phone [CONFIRM]</small>
+              <a href="tel:+14165254788">416-525-4788</a>
+            </div>
+            <div>
+              <small>Website</small>
+              <a href="https://bp3dcreatives.com">bp3dcreatives.com</a>
+            </div>
+            <div>
+              <small>Location [CONFIRM]</small>
+              <span>[PLACEHOLDER: confirm current shop address]</span>
+            </div>
+            <div>
+              <small>Email [CONFIRM]</small>
+              <span>[PLACEHOLDER: confirm current enquiry email]</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="quote-form" id="quoteForm">
+          <h3>Tell Us About It.</h3>
+          <p class="form-note">Share a few details about your project and what you need built.</p>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Name *</label>
+              <input id="name" name="name" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="company">Company</label>
+              <input id="company" name="company" autocomplete="organization">
+            </div>
+
+            <div class="field">
+              <label for="email">Email *</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+
+            <div class="field field--full">
+              <label for="service">What do you need?</label>
+              <select id="service" name="service">
+                <option value="">Select a service</option>
+                <option>Creative 3D Fabrication</option>
+                <option>Creative Design</option>
+                <option>Digital Printing</option>
+                <option>Digital LED Products</option>
+                <option>Kitting &amp; Co-packing</option>
+                <option>Other / Not sure yet</option>
+              </select>
+            </div>
+
+            <div class="field field--full">
+              <label for="details">Project details *</label>
+              <textarea id="details" name="details" required placeholder="Tell us about your project, quantities, timing and requirements."></textarea>
+            </div>
+          </div>
+
+          <button class="button button--yellow" type="submit">
+            Prepare Enquiry
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 12h15M13 5l7 7-7 7"/>
+            </svg>
+          </button>
+
+          <p class="form-status" id="formStatus" aria-live="polite">
+            [PLACEHOLDER: connect this form to the approved bp3D enquiry system before launch.]
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <a class="footer-brand" href="#home">bp<span>3D</span> CREATIVES</a>
+      <p>Experiential Displays &amp; Structures<br>© <span id="year"></span> bp3D Creatives.</p>
+      <div class="footer-links">
+        <a href="#work">Our Work</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const menuButton = document.getElementById("menuToggle");
+      const nav = document.getElementById("siteNav");
+
+      menuButton.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("is-open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+      });
+
+      nav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("is-open");
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.setAttribute("aria-label", "Open navigation");
+        });
+      });
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      /*
+        This is a draft form only. No data is sent or stored.
+        Connect an approved backend or form service before launch.
+        Until connected, the submit handler explains the limitation.
+      */
+      document.getElementById("quoteForm").addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const status = document.getElementById("formStatus");
+        status.textContent =
+          "This draft form is not connected yet. Please connect the approved bp3D enquiry system before accepting submissions.";
+
+        status.focus?.();
+      });
+    })();
+  </script>
+</body>
+</html>
