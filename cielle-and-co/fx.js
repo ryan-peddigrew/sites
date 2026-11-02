@@ -43,6 +43,7 @@
   function frame() {
     ticking = false;
     var vh = window.innerHeight, sy = window.scrollY, max = d.body.scrollHeight - vh;
+    root.classList.toggle('at-top', sy < vh * 0.55);
     if (prog) prog.style.setProperty('--p', max > 0 ? (sy / max).toFixed(4) : 0);
     pars.forEach(function (el) { var r = el.parentNode.getBoundingClientRect(); el.style.transform = 'translate3d(0,' + ((r.top + r.height / 2 - vh / 2) * -parseFloat(el.dataset.par)).toFixed(1) + 'px,0)'; });
     zooms.forEach(function (el) { var r = el.parentNode.getBoundingClientRect(), p = Math.min(1, Math.max(0, 1 - r.top / vh)); el.style.transform = 'scale(' + (1.25 - 0.25 * p).toFixed(3) + ')'; });
