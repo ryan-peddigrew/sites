@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>PdR — Private dining, on one table | Early Access</title>
+<meta name="description" content="PdR is the private-dining marketplace where restaurants list their rooms and hosts and planners discover, compare, and book them. Request early access.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap">
+<style>
+/* MyPDR draft. Brand: ink, gold, cream, bone. Anton / Oswald / Cormorant italic. Arrival sequence first (door, greeter, table), then the site. */
+:root{
+  --ink:#0A0A0A;--ink2:#141312;--ink3:#1C1A17;--gold:#D4AF37;--gold-deep:#B8860B;--cream:#FAF9F6;--bone:#EFE9DD;--clay:#D98E6A;
+  --muted:#A39E93;--line:#2A2824;
+  --f-display:"Anton","Oswald",Impact,sans-serif;--f-body:"Oswald","Arial Narrow",sans-serif;--f-script:"Cormorant Garamond",Georgia,serif;
+  --ease:cubic-bezier(.32,.72,0,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font:16px/1.5 var(--f-body);font-weight:300;margin:0;overflow-x:hidden}
+body.locked{overflow:hidden}
+img{max-width:100%}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.s{font:italic 600 1.05em/1 var(--f-script);color:var(--gold);text-transform:none}
+.lab{font:500 .64rem/1 var(--f-body);letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.lab::before{content:"";width:18px;height:1px;background:currentColor}
+.h2{font:400 clamp(2.4rem,5vw,4rem)/.95 var(--f-display);text-transform:uppercase;margin:0 0 16px;text-wrap:balance}
+.p{font-size:1rem;line-height:1.6;color:#CFC9BD;margin:0;max-width:60ch}
+.btn{display:inline-flex;align-items:center;justify-content:space-between;gap:14px;min-height:52px;padding:0 6px 0 22px;border-radius:99px;font:500 .74rem/1 var(--f-body);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;position:relative}
+.btn .ar{width:40px;height:40px;border-radius:99px;display:grid;place-items:center;font-size:1rem;letter-spacing:0;transition:transform .4s var(--ease)}
+.btn:hover .ar{transform:rotate(45deg)}
+.btn.g{background:var(--gold);color:var(--ink)}.btn.g .ar{background:var(--ink);color:var(--gold)}
+.btn.o{border:1px solid #ffffff40;color:var(--cream);background:none}.btn.o .ar{border:1px solid #ffffff30}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.flag{display:inline-block;font:600 .54rem/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;background:var(--clay);color:var(--ink);padding:4px 6px;border-radius:3px;vertical-align:middle;margin-left:8px}
+body.client .flag{display:none}
+
+/* ===================== ARRIVAL ===================== */
+#arrive{position:fixed;inset:0;z-index:100;background:#050403;overflow:hidden;perspective:1100px;perspective-origin:50% 45%}
+#arrive[hidden]{display:none}
+#arrive .skip{position:absolute;z-index:20;top:max(16px,env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));min-height:44px;display:grid;place-items:center;padding:0 14px;font:500 .62rem/1 var(--f-body);letter-spacing:.2em;text-transform:uppercase;color:#8d877b;background:none;border:1px solid #ffffff1f;border-radius:99px;cursor:pointer}
+#arrive .skip:hover{color:var(--cream)}
+.scene{position:absolute;inset:0;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity 1s ease}
+.scene.on{opacity:1;pointer-events:auto}
+/* the room behind the door */
+.behind{position:absolute;inset:0;background:url(img/room-xl.jpg) center/cover;transform:scale(1.25);filter:brightness(.22) saturate(.7);transition:transform 2.4s var(--ease),filter 2.4s var(--ease)}
+.behind::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 55%,transparent,#000 100%)}
+#arrive.open .behind{transform:scale(1);filter:brightness(.7) saturate(1)}
+/* floor + glow under the door */
+.floor{position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(#0000,#0a0806 40%,#15110c);transform:perspective(600px) rotateX(55deg);transform-origin:50% 100%}
+.glow{position:absolute;left:50%;bottom:12%;width:min(78vw,420px);height:40px;margin-left:min(-39vw,-210px);background:radial-gradient(50% 100% at 50% 100%,#f1c75a 0%,#d4af3799 30%,transparent 70%);filter:blur(10px);opacity:.55;animation:flick 3s ease-in-out infinite}
+@keyframes flick{0%,100%{opacity:.5}50%{opacity:.75}}
+/* door assembly */
+.doorway{position:relative;width:min(78vw,400px);height:min(74vh,600px);transform-style:preserve-3d;margin-top:2vh}
+.jamb{position:absolute;inset:-18px -18px 0;background:#1a140d;border-radius:4px 4px 0 0;box-shadow:inset 0 0 0 2px #2b2113,inset 0 0 0 6px #110d08,0 30px 60px -20px #000;transform:translateZ(-2px)}
+.jamb::before{content:"";position:absolute;inset:4px 4px 0;background:repeating-linear-gradient(180deg,#1d160e 0 3px,#1a130c 3px 6px)}
+.lintel{position:absolute;left:-30px;right:-30px;top:-44px;height:30px;background:linear-gradient(#2a2115,#1a140d);box-shadow:0 8px 14px -6px #000,inset 0 1px 0 #3d3220;border-radius:2px}
+.plaque{position:absolute;z-index:4;left:50%;top:-38px;transform:translateX(-50%);padding:4px 10px;background:linear-gradient(135deg,#f3d77a,#b8860b 60%,#f1cf6a);color:#2b1d05;font:500 .5rem/1 var(--f-body);letter-spacing:.3em;text-transform:uppercase;border-radius:2px;box-shadow:0 2px 4px #000a;white-space:nowrap}
+.dark{position:absolute;inset:0;background:radial-gradient(60% 40% at 50% 30%,#2a1d0e55,#000 90%)}
+.leaf{position:absolute;top:0;bottom:0;left:0;width:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 2.2s cubic-bezier(.6,.05,.25,1);
+  background:
+    linear-gradient(90deg,#0000 0,#0003 6%,#0000 12%,#0000 88%,#0004 94%,#0000 100%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='600'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.012 0.5' numOctaves='3' seed='7'/><feColorMatrix values='0 0 0 0 0.18  0 0 0 0 0.11  0 0 0 0 0.05  0 0 0 0.9 0'/></filter><rect width='400' height='600' filter='url(%23g)'/></svg>"),
+    #2d1d0e;
+  box-shadow:inset 0 0 0 1px #0008,inset 0 0 40px #000a}
+.leaf::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fff2 0,#fff0 3%,#fff0 97%,#0006 100%)}
+.panel{position:absolute;left:11%;right:11%;background:linear-gradient(145deg,#3a2812,#241709);box-shadow:inset 2px 2px 0 #5a3f1b,inset -2px -2px 0 #0d0804,0 0 0 4px #1a1108,0 0 0 6px #4a3415,2px 2px 0 6px #0d0804;border-radius:1px}
+.panel.a{top:7%;height:33%}.panel.b{top:46%;height:44%}
+.handle{position:absolute;right:8%;top:48%;width:10px;height:64px;border-radius:5px;background:linear-gradient(90deg,#8a6a1c,#f3d77a 40%,#b8860b 70%,#6b4f10);box-shadow:2px 3px 6px #000c;transform:translateZ(8px)}
+.handle::before{content:"";position:absolute;right:0;top:26px;width:46px;height:9px;border-radius:5px;background:linear-gradient(#f3d77a,#b8860b 60%,#7a5a0e);box-shadow:2px 4px 6px #000c;transform-origin:right center}
+.knocker{position:absolute;left:50%;top:27%;width:38px;height:38px;margin-left:-19px;border-radius:50%;border:5px solid #c9a23a;box-shadow:0 3px 6px #000c,inset 0 1px 0 #f3d77a;transform-origin:50% 0;transform:translateZ(6px)}
+.knocker::before{content:"";position:absolute;left:50%;top:-11px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f3d77a,#8a6a1c)}
+#arrive.knock .knocker{animation:knock .7s ease-in-out 1}
+@keyframes knock{0%,100%{transform:translateZ(6px) rotateX(0)}30%{transform:translateZ(6px) rotateX(-50deg)}45%{transform:translateZ(6px) rotateX(0)}60%{transform:translateZ(6px) rotateX(-40deg)}75%{transform:translateZ(6px) rotateX(0)}}
+#arrive.knock .doorway{animation:shake .5s ease-out .25s 1}
+@keyframes shake{0%,100%{transform:translateX(0)}30%{transform:translateX(-1.5px)}60%{transform:translateX(1.5px)}}
+#arrive.open .leaf{transform:rotateY(-112deg)}
+.leaf .edge{position:absolute;left:0;top:0;bottom:0;width:14px;background:linear-gradient(90deg,#1a1108,#3a2812);transform:rotateY(-90deg);transform-origin:left center}
+.spill{position:absolute;inset:0;opacity:0;background:linear-gradient(90deg,#f1c75a22,transparent 60%);transition:opacity 2s ease}
+#arrive.open .spill{opacity:1}
+.street-copy{position:absolute;left:0;right:0;bottom:max(28px,env(safe-area-inset-bottom,0px));text-align:center;padding:0 24px;transition:opacity .6s}
+#arrive.open .street-copy{opacity:0}
+.street-copy p{margin:0;font:italic 500 clamp(1.4rem,4vw,2rem)/1.2 var(--f-script);color:var(--bone)}
+.street-copy small{display:block;margin-top:14px;font:500 .6rem/1 var(--f-body);letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+.street-copy small::after{content:"";display:block;width:1px;height:26px;margin:12px auto 0;background:linear-gradient(var(--gold),transparent);animation:drop 1.6s ease-in-out infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.tapzone{position:absolute;inset:0;background:none;border:0;cursor:pointer}
+/* greeter */
+.greet{text-align:center;padding:0 24px;max-width:560px;position:relative}
+.stand{width:160px;height:110px;margin:0 auto 26px;position:relative;transform:perspective(500px) rotateX(18deg)}
+.stand .book{position:absolute;inset:0;background:linear-gradient(90deg,#f1ead9 0 49.5%,#c9bfa8 49.5% 50.5%,#f1ead9 50.5%);border-radius:4px;box-shadow:0 20px 30px -12px #000,inset 0 0 0 1px #0002}
+.stand .book::before,.stand .book::after{content:"";position:absolute;top:18px;height:1px;background:repeating-linear-gradient(90deg,#b9ae95 0 2px,transparent 2px 4px);box-shadow:0 12px 0 #cfc5ad,0 24px 0 #cfc5ad,0 36px 0 #cfc5ad,0 48px 0 #cfc5ad,0 60px 0 #cfc5ad}
+.stand .book::before{left:14px;width:52px}.stand .book::after{right:14px;width:52px}
+.stand .pen{position:absolute;right:28px;top:30px;width:4px;height:70px;background:linear-gradient(#f3d77a,#8a6a1c);transform:rotate(28deg);border-radius:2px;box-shadow:0 2px 3px #0008}
+.stand .base{position:absolute;left:30px;right:30px;bottom:-26px;height:26px;background:linear-gradient(#2d1d0e,#15100a);border-radius:0 0 6px 6px}
+.greet h1{font:italic 500 clamp(1.6rem,4.5vw,2.4rem)/1.2 var(--f-script);color:var(--bone);margin:0;text-wrap:balance}
+.greet h1 b{display:block;font:400 clamp(2.4rem,7vw,3.6rem)/1 var(--f-display);text-transform:uppercase;color:var(--cream);font-style:normal;margin-top:8px}
+.greet .q{margin-top:18px;font-size:1rem;color:#CFC9BD}
+.greet .choice{display:grid;gap:12px;margin-top:26px;width:min(100%,360px);margin-inline:auto}
+.greet .choice button{min-height:56px;border-radius:99px;border:1px solid var(--gold);background:none;color:var(--cream);font:500 .76rem/1 var(--f-body);letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s,transform .3s var(--ease)}
+.greet .choice button:hover{background:var(--gold);color:var(--ink);transform:translateY(-2px)}
+.greet .browse{margin-top:18px;background:none;border:0;color:#8d877b;font:500 .62rem/1 var(--f-body);letter-spacing:.2em;text-transform:uppercase;cursor:pointer;min-height:44px;text-decoration:underline;text-underline-offset:4px}
+/* seated */
+.seat{position:absolute;inset:0}
+.seat .tbl{position:absolute;inset:0;background:url(img/plate-xl.jpg) center/cover;transform:scale(1.4);filter:brightness(.35);transition:transform 3s var(--ease),filter 3s var(--ease)}
+.seat.on .tbl{transform:scale(1.05);filter:brightness(.8)}
+.seat .tbl::after{content:"";position:absolute;inset:0;background:linear-gradient(#000a,transparent 40%,#000b)}
+.seat .card{position:absolute;left:50%;top:50%;width:220px;margin:-70px 0 0 -110px;transform:perspective(600px) rotateX(90deg) translateY(40px);opacity:0;transition:transform 1.2s var(--ease) .9s,opacity .6s .9s}
+.seat.on .card{transform:perspective(600px) rotateX(10deg);opacity:1}
+.seat .card .face{background:var(--cream);border-radius:3px;padding:26px 18px 22px;text-align:center;box-shadow:0 30px 36px -14px #000d;position:relative;color:var(--ink)}
+.seat .card .face::before{content:"";position:absolute;inset:6px;border:1px solid #d4af3766}
+.seat .card small{display:block;font:500 .54rem/1 var(--f-body);letter-spacing:.34em;text-transform:uppercase;color:var(--gold-deep)}
+.seat .card b{display:block;margin:12px 0 6px;font:italic 600 1.9rem/1 var(--f-script)}
+.seat .card i{display:block;font:normal 400 .62rem/1.5 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:#6b6457}
+.seat .card .fold{height:18px;background:linear-gradient(#d9d3c6,#efe9dd);border-radius:0 0 3px 3px;transform:perspective(200px) rotateX(55deg);transform-origin:top}
+.seat .line{position:absolute;left:0;right:0;bottom:max(40px,env(safe-area-inset-bottom,0px));text-align:center;font:italic 500 clamp(1.3rem,4vw,1.9rem)/1.2 var(--f-script);color:var(--bone);opacity:0;transition:opacity 1s 1.6s}
+.seat.on .line{opacity:1}
+.seat .line small{display:block;margin-top:10px;font:500 .6rem/1 var(--f-body);letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+/* the site lifts up like a menu */
+#site{position:relative;z-index:1}
+body.arriving #site{opacity:0;transform:translateY(40px)}
+body.handed #site{opacity:1;transform:none;transition:opacity 1s ease,transform 1.2s var(--ease)}
+#arrive.bye{opacity:0;transition:opacity 1.1s ease;pointer-events:none}
+
+/* ===================== SITE ===================== */
+.nav{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:max(14px,env(safe-area-inset-top,0px)) 0 12px;background:linear-gradient(#0A0A0A 70%,transparent)}
+.nav img{height:24px;width:auto}
+.nav ul{display:none;list-style:none;margin:0;padding:0;gap:28px}
+.nav li a{font:500 .68rem/1 var(--f-body);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:#CFC9BD;min-height:44px;display:inline-flex;align-items:center}
+.nav li a:hover{color:var(--gold)}
+.nav .cta{min-height:44px;display:inline-flex;align-items:center;padding:0 18px;border-radius:99px;background:var(--gold);color:var(--ink);font:500 .62rem/1 var(--f-body);letter-spacing:.18em;text-transform:uppercase;text-decoration:none}
+@media (min-width:860px){.nav ul{display:flex}}
+.hero{position:relative;min-height:88vh;display:grid;align-items:end;border-radius:28px;overflow:hidden;margin-top:6px;isolation:isolate}
+.hero .bg{position:absolute;inset:0;background:url(img/room-xl.jpg) center/cover;z-index:-1;transform:scale(1.08);animation:slow 30s ease-in-out infinite alternate}
+@keyframes slow{to{transform:scale(1) translateX(-1%)}}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0A0A0Af0 0%,#0A0A0Aa0 45%,#0A0A0A33 100%),linear-gradient(transparent 40%,#0A0A0Ad0)}
+.hero .in{padding:60px 24px 40px;max-width:720px}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid #ffffff30;border-radius:99px;padding:8px 12px;font:500 .58rem/1 var(--f-body);letter-spacing:.22em;text-transform:uppercase;margin-bottom:22px}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.hero h1{font:400 clamp(3.4rem,9vw,7.2rem)/.86 var(--f-display);text-transform:uppercase;margin:0}
+.hero h1 span{display:block;font:italic 600 1.05em/1 var(--f-script);color:var(--gold);text-transform:none}
+.hero .p{margin-top:20px;font-size:1.05rem}
+.proof{margin-top:22px;padding-left:14px;border-left:1px solid var(--gold);font-size:.84rem;line-height:1.5;color:#CFC9BD;max-width:48ch}
+.tick{overflow:hidden;border-block:1px solid var(--line);padding:14px 0;white-space:nowrap;font:500 .64rem/1 var(--f-body);letter-spacing:.24em;text-transform:uppercase;color:#8d877b;margin-top:28px}
+.tick div{display:inline-block;animation:tk 36s linear infinite}
+.tick b{color:var(--gold);font-weight:500;margin:0 12px}
+@keyframes tk{to{transform:translateX(-50%)}}
+.sec{padding:clamp(56px,9vw,110px) 0}
+.grid2{display:grid;gap:36px}
+@media (min-width:900px){.grid2{grid-template-columns:1fr 1fr;gap:64px;align-items:start}.grid2>.sticky{position:sticky;top:90px}}
+.why{text-align:center;max-width:46ch;margin:0 auto}
+.why p{font:italic 500 clamp(1.6rem,4vw,2.6rem)/1.25 var(--f-script);color:var(--bone);margin:0}
+.why p b{font:400 1em/1 var(--f-display);text-transform:uppercase;color:var(--cream);font-style:normal}
+.list button{display:block;width:100%;text-align:left;background:none;border:0;padding:4px 0;font:400 clamp(2.4rem,6vw,4rem)/1 var(--f-display);text-transform:uppercase;color:#3B3832;cursor:pointer;transition:color .4s,filter .4s,transform .4s var(--ease);min-height:48px}
+.list button.on{color:var(--cream);transform:translateX(12px)}
+.list button.on::after{content:" ↗";color:var(--gold);font-size:.45em;vertical-align:super}
+.list.has button:not(.on){filter:blur(1.6px)}
+.list.has button:not(.on):hover{filter:none;color:#8d877b}
+.peek{position:relative;height:clamp(200px,40vw,420px);border-radius:20px;overflow:hidden;background:#222 center/cover;transition:background-image .3s}
+.peek::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,#000a)}
+.peek span{position:absolute;z-index:1;left:14px;bottom:14px;font:400 1.4rem/1 var(--f-display);text-transform:uppercase}
+.peek b{position:absolute;z-index:1;right:14px;bottom:16px;font:500 .6rem/1 var(--f-body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.cmp{margin-top:18px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--ink2)}
+.cmp header{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
+.cmp header div{height:110px;background:center/cover;position:relative}
+.cmp header div span{position:absolute;left:10px;bottom:10px;font:400 1.1rem/1 var(--f-display);text-transform:uppercase;text-shadow:0 1px 6px #000}
+.cmp header div:first-child{border-right:1px solid var(--line)}
+.cmp table{width:100%;border-collapse:collapse;font-size:.82rem}
+.cmp td{padding:10px 12px;border-top:1px solid var(--line);color:#CFC9BD}
+.cmp td:first-child{color:var(--muted);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;width:34%}
+.cmp tr:first-child td{border-top:0}
+.cmp .ex{font:500 .56rem/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--clay);padding:9px 12px;border-top:1px solid var(--line)}
+body.client .cmp .ex{color:var(--muted)}
+.pts{list-style:none;margin:22px 0 0;padding:0;display:grid}
+.pts li{display:grid;grid-template-columns:32px 1fr;gap:4px 12px;padding:16px 0;border-top:1px solid var(--line)}
+.pts li b{font:500 1.05rem/1.2 var(--f-body);letter-spacing:.02em;color:var(--cream)}
+.pts li small{grid-column:2;font-size:.86rem;line-height:1.5;color:#ABA597}
+.pts li em{font:normal 500 .72rem/1.7 var(--f-body);color:var(--gold)}
+.brief{border-radius:28px;background:var(--gold);color:var(--ink);padding:clamp(28px,5vw,56px);position:relative;overflow:hidden;display:grid;gap:10px;align-items:center}
+@media (min-width:860px){.brief{grid-template-columns:1.3fr 1fr}}
+.brief::before{content:"PdR";position:absolute;right:-20px;bottom:-60px;font:400 16rem/1 var(--f-display);color:#00000010;pointer-events:none}
+.brief .lab{color:var(--ink)}
+.brief .p{color:#2b2410}
+.brief .h2{margin-bottom:8px}
+.brief .btn{background:var(--ink);color:var(--gold);justify-self:start}
+.brief .btn .ar{background:var(--gold);color:var(--ink)}
+.band{background:var(--ink2);border-radius:28px;padding:clamp(28px,5vw,64px) clamp(20px,4vw,56px)}
+.founder{display:grid;grid-template-columns:120px 1fr;gap:22px;align-items:center}
+.ph-ph{width:120px;height:150px;border:1px dashed var(--gold);border-radius:10px;display:grid;place-items:center;text-align:center;font:500 .56rem/1.5 var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);padding:10px}
+.steps{display:grid;gap:18px;margin-top:10px}
+@media (min-width:760px){.steps{grid-template-columns:1fr 1fr 1fr}}
+.steps div{border-top:1px solid var(--line);padding-top:18px}
+.steps div em{display:block;font:400 3rem/1 var(--f-display);color:#2A2824}
+.steps b{display:block;font:500 1.1rem/1.2 var(--f-body);margin-top:6px}
+.steps small{display:block;font-size:.86rem;color:#ABA597;line-height:1.5;margin-top:6px}
+.form{display:grid;gap:12px;margin-top:22px;max-width:520px}
+.tog{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:99px;padding:4px}
+.tog button{min-height:46px;border:0;border-radius:99px;background:none;color:var(--muted);font:500 .7rem/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:color .3s}
+.tog button.on{background:var(--gold);color:var(--ink)}
+.f{display:grid;gap:5px}
+.f label{font:500 .58rem/1 var(--f-body);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.f input,.f select{min-height:48px;background:#ffffff08;border:1px solid var(--line);border-radius:10px;color:var(--cream);padding:0 14px;font:300 .95rem var(--f-body)}
+.f input:focus{border-color:var(--gold);outline:none}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.note{font-size:.64rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+.ok{display:none;padding:18px;border:1px solid var(--gold);border-radius:12px;color:var(--bone)}
+.faq details{border-top:1px solid var(--line);padding:4px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;min-height:52px;display:flex;justify-content:space-between;align-items:center;gap:16px;font:500 1.05rem var(--f-body);color:var(--cream)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--gold);font-size:1.5rem;font-weight:300;transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{padding:0 0 18px;font-size:.92rem;line-height:1.55;color:#ABA597;margin:0;max-width:62ch}
+.foot{padding:48px 0 calc(100px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);display:grid;gap:24px}
+@media (min-width:760px){.foot{grid-template-columns:1.2fr 1fr 1fr;gap:40px}}
+.foot img{height:26px;width:auto}
+.foot small{font-size:.78rem;color:var(--muted);display:block;line-height:1.5}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.foot li a{font:500 .68rem/1 var(--f-body);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:#CFC9BD;min-height:40px;display:inline-flex;align-items:center}
+.mail{display:flex;gap:8px;margin-top:10px;max-width:360px}
+.mail input{flex:1;min-width:0;min-height:46px;background:#ffffff08;border:1px solid var(--line);border-radius:99px;color:var(--cream);padding:0 14px;font:300 .9rem var(--f-body)}
+.mail button{min-height:46px;padding:0 18px;border-radius:99px;border:0;background:var(--gold);color:var(--ink);font:500 .66rem/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+.replay{background:none;border:0;color:#8d877b;font:500 .62rem/1 var(--f-body);letter-spacing:.2em;text-transform:uppercase;cursor:pointer;min-height:44px;padding:0;text-decoration:underline;text-underline-offset:4px}
+.dock{position:fixed;z-index:50;left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:6px;border-radius:99px;background:#0A0A0Ae8;backdrop-filter:blur(12px);border:1px solid #ffffff1a;transform:translateY(140%);transition:transform .6s var(--ease)}
+.dock.show{transform:none}
+.dock a{min-height:48px;border-radius:99px;display:grid;place-items:center;font:500 .64rem/1.15 var(--f-body);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;text-align:center;padding:0 8px;color:var(--cream);border:1px solid #ffffff30}
+.dock a.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+@media (min-width:860px){.dock{left:auto;right:24px;bottom:24px;width:420px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body class="arriving locked">
+
+<!-- ===================== ARRIVAL ===================== -->
+<div id="arrive" aria-label="Arrival">
+  <button class="skip" id="skip" type="button">Skip to the site</button>
+
+  <!-- 1. The door -->
+  <section class="scene on" id="sc-door">
+    <div class="behind"></div>
+    <div class="floor"></div>
+    <div class="glow"></div>
+    <div class="doorway" id="doorway">
+      <div class="lintel"></div>
+      <div class="plaque">PdR · Private Dining Room</div>
+      <div class="jamb"></div>
+      <div class="dark"></div>
+      <div class="spill"></div>
+      <div class="leaf" id="leaf">
+        <div class="edge"></div>
+        <div class="panel a"></div>
+        <div class="panel b"></div>
+        <div class="knocker"></div>
+        <div class="handle"></div>
+      </div>
+    </div>
+    <div class="street-copy"><p>Good evening.</p><small>Tap the door to knock</small></div>
+    <button class="tapzone" id="knock" type="button" aria-label="Knock on the door"></button>
+  </section>
+
+  <!-- 2. The greeter -->
+  <section class="scene" id="sc-greet">
+    <div class="behind" style="filter:brightness(.4) saturate(.8)"></div>
+    <div class="greet">
+      <div class="stand"><div class="book"></div><div class="pen"></div><div class="base"></div></div>
+      <h1>Welcome to <b>PdR</b></h1>
+      <p class="q">Are you joining us tonight as a restaurant, or planning an event?</p>
+      <div class="choice">
+        <button type="button" data-side="restaurant">I run a restaurant</button>
+        <button type="button" data-side="planner">I host or plan events</button>
+      </div>
+      <button class="browse" type="button" data-side="">Just looking around</button>
+    </div>
+  </section>
+
+  <!-- 3. Seated -->
+  <section class="scene seat" id="sc-seat">
+    <div class="tbl"></div>
+    <div class="card"><div class="face"><small>Reserved</small><b id="cardName">The right room</b><i id="cardSub">Private dining<br>on one table</i></div><div class="fold"></div></div>
+    <div class="line" id="seatLine">Right this way.<small>Your table is ready</small></div>
+  </section>
+</div>
+
+<!-- ===================== SITE ===================== -->
+<div id="site">
+<div class="wrap">
+  <nav class="nav">
+    <a href="#top" aria-label="PdR home"><img src="img/logo.png" alt="PdR Private Dining Room"></a>
+    <ul><li><a href="#restaurants">Restaurants</a></li><li><a href="#planners">Hosts &amp; Planners</a></li><li><a href="#how">How it works</a></li><li><a href="#faq">FAQ</a></li></ul>
+    <a class="cta" href="#access">Request access</a>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="bg"></div>
+    <div class="in">
+      <div class="chip">Early access · founding members</div>
+      <h1>The right room changes <span>everything.</span></h1>
+      <p class="p">PdR is where private dining rooms meet the people who book them. Restaurants publish their rooms; hosts and planners discover, compare, and book — every detail on one table.</p>
+      <div class="btns"><a class="btn g" href="#restaurants">I run a restaurant <span class="ar">↗</span></a><a class="btn o" href="#planners">I host or plan events <span class="ar">↗</span></a></div>
+      <div class="proof">From the team that has sourced private dining for Web Summit, CoinDesk, Hyatt, TD and Pinterest.<span class="flag">E1</span></div>
+    </div>
+  </header>
+
+  <div class="tick" aria-hidden="true"><div>Toronto <b>·</b> Montréal <b>·</b> Edmonton <b>·</b> Markham <b>·</b> PEI <b>·</b> Las Vegas <b>·</b> Richmond, BC <b>·</b> IMEX America <b>·</b> CMEE <b>·</b> CSAE <b>·</b> CSE Live <b>·</b> APC Canada <b>·</b> RC Show <b>·</b> Toronto <b>·</b> Montréal <b>·</b> Edmonton <b>·</b> Markham <b>·</b> PEI <b>·</b> Las Vegas <b>·</b> Richmond, BC <b>·</b> IMEX America <b>·</b> CMEE <b>·</b> CSAE <b>·</b> CSE Live <b>·</b> APC Canada <b>·</b> RC Show <b>·</b> </div></div>
+
+  <section class="sec why">
+    <div class="lab" style="justify-content:center">Why PdR</div>
+    <p>Anyone can book a table. <b>Some nights need a room.</b> The long table, the low light, the door that closes. PdR brings those rooms, and the hosts and planners who fill them, to one table.</p>
+  </section>
+
+  <section class="sec" id="planners">
+    <div class="grid2">
+      <div class="sticky">
+        <div class="lab">For hosts &amp; planners</div>
+        <h2 class="h2">Search the way you <span class="s">brief.</span></h2>
+        <p class="p">Filter by city, date, guest count, seated or standing, cuisine and per-person budget — then compare rooms side by side. Tap a room type.</p>
+        <div class="list" id="list">
+          <button data-img="room" data-n="The long table" data-cap="Seated dinner">Seated</button>
+          <button data-img="cocktail" data-n="The low light" data-cap="Standing reception">Standing</button>
+          <button data-img="patio" data-n="The patio" data-cap="Open air">Patio</button>
+          <button data-img="room" data-n="Private entrance" data-cap="Your own door">Private entrance</button>
+          <button data-img="plate" data-n="The whole house" data-cap="Full buyout">Full buyout</button>
+        </div>
+      </div>
+      <div>
+        <div class="peek" id="peek" style="background-image:url(img/room.jpg)"><span id="peekN">The long table</span><b id="peekCap">Seated dinner</b></div>
+        <div class="cmp">
+          <header><div style="background-image:url(img/room.jpg)"><span>Room A</span></div><div style="background-image:url(img/patio.jpg)"><span>Room B</span></div></header>
+          <table>
+            <tr><td>Seated</td><td>24</td><td>40</td></tr>
+            <tr><td>Standing</td><td>40</td><td>70</td></tr>
+            <tr><td>Private entrance</td><td>Yes</td><td>No</td></tr>
+            <tr><td>Floorplan</td><td>↓ PDF</td><td>↓ PDF</td></tr>
+          </table>
+          <div class="ex">Compare side by side · sample layout</div>
+        </div>
+        <ul class="pts">
+          <li><em>01</em><b>Everything before you ask</b><small>Floorplans, sample menus, capacities and galleries up front. Build a client-ready comparison without a single phone call.</small></li>
+          <li><em>02</em><b>Inquire on your terms</b><small>Reach spaces under your agency while keeping the end client private until the booking is confirmed.</small></li>
+          <li><em>03</em><b>A concierge that does the legwork<span class="flag">E3</span></b><small>For members: shortlist spaces, generate comparison docs, and get expedited, preferred replies.</small></li>
+        </ul>
+        <div class="btns"><a class="btn g" href="#access" data-pick="planner">Find your room <span class="ar">↗</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="brief" id="brief">
+    <div>
+      <div class="lab">Planning something now?<span class="flag" style="background:var(--ink);color:var(--gold)">R1</span></div>
+      <h2 class="h2">Need a room before <span class="s" style="color:var(--ink)">launch?</span></h2>
+      <p class="p">Send your brief and our team will source it.</p>
+    </div>
+    <a class="btn" href="#access" data-pick="planner">Send a brief <span class="ar">↗</span></a>
+  </section>
+
+  <section class="sec" id="restaurants">
+    <div class="grid2">
+      <div class="sticky">
+        <div class="lab">For restaurants</div>
+        <h2 class="h2">Your rooms, <span class="s">working.</span></h2>
+        <p class="p">Publish your private dining rooms and full-buyout under a single umbrella profile — capacity, floorplans, menus and galleries in one place.</p>
+        <div class="btns"><a class="btn g" href="#access" data-pick="restaurant">List your rooms <span class="ar">↗</span></a></div>
+      </div>
+      <ul class="pts" style="margin-top:0">
+        <li><em>01</em><b>One profile, every room</b><small>Publish your private dining rooms and full-buyout under a single umbrella profile — capacity, floorplans, menus and galleries in one place.</small></li>
+        <li><em>02</em><b>Qualified planner leads</b><small>Reach corporate and social planners actively sourcing private dining spaces — not casual diners. Every inquiry arrives with the event brief attached.</small></li>
+        <li><em>03</em><b>Only pay when you get booked</b><small>List your rooms and receive qualified inquiries for free. You pay nothing until a planner actually books with you — see the revenue before you owe a cent.</small></li>
+        <li><em>04</em><b>Concierge setup<span class="flag">R3</span></b><small>Optional PdR advisor support to get your spaces event-ready and presented the way planners expect.</small></li>
+        <li><em>05</em><b>Founding restaurant spots<span class="flag">R2</span></b><small>Founding restaurant spots in Toronto: [number] left.</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec band" id="how">
+    <div class="lab">How it works</div>
+    <h2 class="h2">Three moves to the <span class="s">table.</span></h2>
+    <p class="p">Founding members join in waves. From first hello to first booking, the path is deliberately short.</p>
+    <div class="steps">
+      <div><em>01</em><b>Request early access</b><small>Tell us whether you run a restaurant or plan events. We onboard founding members in waves.</small></div>
+      <div><em>02</em><b>Build or brief</b><small>Restaurants publish their rooms; hosts and planners set up their first event brief in minutes.</small></div>
+      <div><em>03</em><b>Match &amp; book</b><small>Hosts and planners discover and compare; restaurants receive qualified inquiries. Bookings happen on one table.</small></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="lab">Who's behind PdR<span class="flag">E5</span></div>
+    <div class="founder"><div class="ph-ph">Photo of Samantha needed</div><p class="p">Samantha Mele has spent more than 15 years sourcing private dining experiences for clients including Web Summit, CoinDesk, Hyatt, TD and Pinterest. We built the platform we always wished existed.</p></div>
+  </section>
+
+  <section class="sec band" id="access">
+    <div class="grid2">
+      <div>
+        <div class="lab">Early access</div>
+        <h2 class="h2">Hold your <span class="s">seat.</span></h2>
+        <p class="p">We're onboarding founding members in waves. Tell us who you are and we'll be in touch about your place in the next one.</p>
+        <ul class="pts"><li><em>·</em><b>Founding-member pricing</b></li><li><em>·</em><b>Priority onboarding &amp; setup</b></li><li><em>·</em><b>Shape the product before launch</b></li></ul>
+      </div>
+      <form class="form" id="form">
+        <div class="tog" id="tog"><button type="button" class="on" data-side="restaurant">Restaurant</button><button type="button" data-side="planner">Host / Planner</button></div>
+        <div class="two"><div class="f"><label for="city">City</label><input id="city" name="city" placeholder="Toronto"></div><div class="f"><label for="extra" id="extraL">Private rooms<span class="flag">E6</span></label><input id="extra" name="extra" placeholder="e.g. 2"></div></div>
+        <div class="f"><label for="nm" id="nmL">Restaurant name</label><input id="nm" name="name" placeholder="Your restaurant"></div>
+        <div class="f"><label for="contact">Primary contact name</label><input id="contact" name="contact" placeholder="Your name"></div>
+        <div class="f"><label for="em">Contact email</label><input id="em" name="email" type="email" placeholder="you@restaurant.com"></div>
+        <button class="btn g" type="submit">Request early access <span class="ar">↗</span></button>
+        <div class="note">No spam · onboarding details only</div>
+        <div class="ok" id="ok">Thank you. We'll be in touch about your place in the next wave. <small style="display:block;margin-top:6px;color:var(--muted)">Draft note: this form isn't connected yet; it will post to MyPDR's address once they confirm it.</small></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="sec faq" id="faq">
+    <div class="lab">Questions</div>
+    <h2 class="h2">Good to <span class="s">know.</span></h2>
+    <details><summary>Who is PdR for?</summary><p>Built for event planners and event hosts who believe the right restaurant sets the tone for the entire experience. PdR was created by Samantha Mele after more than 15 years sourcing private dining experiences for clients including Web Summit, CoinDesk, Hyatt, TD, Pinterest, and many more. We built the platform we always wished existed.</p></details>
+    <details><summary>What does it cost?</summary><p>Restaurants pay nothing until a planner actually books with them — list your rooms and receive qualified inquiries for free. Hosts and planners can start free with core search, with a membership tier that unlocks advanced filters, the concierge and preferred replies. Founding-member pricing is shared during onboarding.</p></details>
+    <details><summary>When does it launch?</summary><p>We are onboarding founding members now, in waves, ahead of the public launch. Request early access to hold your place in the next wave.</p></details>
+    <details><summary>Is my information safe?</summary><p>Early-access details are used only to contact you about onboarding — never sold or shared. You can ask us to remove your information at any time.</p></details>
+  </section>
+
+  <footer class="foot">
+    <div><img src="img/logo.png" alt="PdR"><small style="margin-top:12px">The private-dining marketplace. List your rooms, or find the perfect one — without the endless email chains.</small><small style="margin-top:14px">© 2026 PdR · The Creative Connoisseur</small></div>
+    <ul><li><a href="#restaurants">Restaurants</a></li><li><a href="#planners">Hosts &amp; Planners</a></li><li><a href="#how">How it works</a></li><li><a href="#faq">FAQ</a></li><li><button class="replay" id="replay" type="button">Replay the arrival</button></li></ul>
+    <div><div class="lab" style="margin-bottom:6px">The Room Report<span class="flag">R5</span></div><small>New rooms in Toronto, once a month.</small><form class="mail" onsubmit="event.preventDefault()"><input aria-label="Email" placeholder="Email address"><button>Join</button></form></div>
+  </footer>
+</div>
+<div class="dock" id="dock"><a href="#restaurants" data-pick="restaurant">I run a restaurant</a><a href="#planners" data-pick="planner">I plan events</a></div>
+</div>
+
+<script>
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var q=new URLSearchParams(location.search);
+  if(q.has('client'))document.body.classList.add('client');
+  var arrive=document.getElementById('arrive'),scenes={door:document.getElementById('sc-door'),greet:document.getElementById('sc-greet'),seat:document.getElementById('sc-seat')};
+  var dock=document.getElementById('dock'),tog=document.getElementById('tog'),side='';
+  function show(k){Object.keys(scenes).forEach(function(x){scenes[x].classList.toggle('on',x===k)})}
+  function setSide(s){side=s;document.querySelectorAll('[data-pick]').forEach(function(a){a.classList.toggle('on',a.dataset.pick===s)});
+    tog.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.side===(s||'restaurant'))});formLabels(s||'restaurant');}
+  function formLabels(s){var r=s==='restaurant';document.getElementById('nmL').childNodes[0].nodeValue=r?'Restaurant name':'Company or agency';document.getElementById('nm').placeholder=r?'Your restaurant':'Your company';document.getElementById('extraL').childNodes[0].nodeValue=r?'Private rooms':'Events per year';document.getElementById('extra').placeholder=r?'e.g. 2':'e.g. 12';document.getElementById('em').placeholder=r?'you@restaurant.com':'you@agency.com';}
+  function hand(target){arrive.classList.add('bye');document.body.classList.remove('arriving','locked');document.body.classList.add('handed');setTimeout(function(){arrive.hidden=true;dock.classList.add('show')},1200);
+    try{localStorage.setItem('pdr-arrived','1')}catch(e){}
+    if(target){setTimeout(function(){var el=document.getElementById(target);if(el)el.scrollIntoView({behavior:reduce?'auto':'smooth'})},900)}}
+  /* 1. knock, then the door opens */
+  var knocked=false;
+  document.getElementById('knock').addEventListener('click',function(){if(knocked)return;knocked=true;arrive.classList.add('knock');
+    setTimeout(function(){arrive.classList.add('open')},reduce?0:800);
+    setTimeout(function(){show('greet')},reduce?300:2600);});
+  /* 2. the greeter asks */
+  document.querySelectorAll('#sc-greet [data-side]').forEach(function(b){b.addEventListener('click',function(){var s=b.dataset.side;setSide(s);
+    var nm=document.getElementById('cardName'),sub=document.getElementById('cardSub');
+    if(s==='restaurant'){nm.textContent='Your rooms';sub.innerHTML='Reserved for<br>restaurants'}else if(s==='planner'){nm.textContent='Your event';sub.innerHTML='Reserved for<br>hosts & planners'}else{nm.textContent='The right room';sub.innerHTML='Private dining<br>on one table'}
+    show('seat');
+    setTimeout(function(){hand(s==='restaurant'?'restaurants':s==='planner'?'planners':'')},reduce?400:3400);});});
+  /* skip + replay + returning visitors */
+  document.getElementById('skip').addEventListener('click',function(){hand('')});
+  document.getElementById('replay').addEventListener('click',function(){try{localStorage.removeItem('pdr-arrived')}catch(e){}location.href=location.pathname+'?replay';});
+  var seen=false;try{seen=localStorage.getItem('pdr-arrived')==='1'}catch(e){}
+  if(seen&&!q.has('replay')){arrive.hidden=true;document.body.classList.remove('arriving','locked');document.body.classList.add('handed');dock.classList.add('show');}
+  /* site: giant list */
+  var list=document.getElementById('list'),peek=document.getElementById('peek'),pn=document.getElementById('peekN'),pc=document.getElementById('peekCap');
+  list.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){list.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});list.classList.add('has');peek.style.backgroundImage='url(img/'+b.dataset.img+'.jpg)';pn.textContent=b.dataset.n;pc.textContent=b.dataset.cap;})});
+  /* form */
+  tog.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){setSide(b.dataset.side)})});
+  document.querySelectorAll('a[data-pick]').forEach(function(a){a.addEventListener('click',function(){setSide(a.dataset.pick)})});
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('ok').style.display='block';});
+  setSide('');
+})();
+</script>
+</body>
+</html>
