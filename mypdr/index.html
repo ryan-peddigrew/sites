@@ -4,358 +4,372 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex">
-<title>PdR — Private dining, on one table | Early Access</title>
+<title>PdR: Private dining, on one table | Early Access</title>
 <meta name="description" content="PdR is the private-dining marketplace where restaurants list their rooms and hosts and planners discover, compare, and book them. Request early access.">
 <link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap">
 <style>
-/* MyPDR draft. Brand: ink, gold, cream, bone. Anton / Oswald / Cormorant italic. Arrival sequence first (door, greeter, table), then the site. */
+/* PdR full redesign. The whole page is a printed tasting menu: bone paper, ink and gold, a tall serif, numbered courses, dotted menu leaders.
+   Kept from the client: name, logo, gold/ink/cream/bone palette, photos, copy. New: layout, type, structure. */
 :root{
-  --ink:#0A0A0A;--ink2:#141312;--ink3:#1C1A17;--gold:#D4AF37;--gold-deep:#B8860B;--cream:#FAF9F6;--bone:#EFE9DD;--clay:#D98E6A;
-  --muted:#A39E93;--line:#2A2824;
-  --f-display:"Anton","Oswald",Impact,sans-serif;--f-body:"Oswald","Arial Narrow",sans-serif;--f-script:"Cormorant Garamond",Georgia,serif;
-  --ease:cubic-bezier(.32,.72,0,1);
-  color-scheme:dark;
+  --ink:#0A0A0A;--ink2:#15130F;--gold:#D4AF37;--gold-deep:#8A6400;--cream:#FAF9F6;--bone:#EFE9DD;--bone2:#E6DECE;--clay:#D98E6A;
+  --text:#1A1712;--muted:#6B6457;--line:#D5CCB8;
+  --f-serif:"Instrument Serif","Cormorant Garamond",Georgia,serif;--f-sans:"Inter Tight","Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.32,.72,0,1);--r:26px;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--cream);font:16px/1.5 var(--f-body);font-weight:300;margin:0;overflow-x:hidden}
-body.locked{overflow:hidden}
-img{max-width:100%}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bone);color:var(--text);font:400 16px/1.55 var(--f-sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
 a{color:inherit}
-.wrap{max-width:1140px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-.s{font:italic 600 1.05em/1 var(--f-script);color:var(--gold);text-transform:none}
-.lab{font:500 .64rem/1 var(--f-body);letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.lab::before{content:"";width:18px;height:1px;background:currentColor}
-.h2{font:400 clamp(2.4rem,5vw,4rem)/.95 var(--f-display);text-transform:uppercase;margin:0 0 16px;text-wrap:balance}
-.p{font-size:1rem;line-height:1.6;color:#CFC9BD;margin:0;max-width:60ch}
-.btn{display:inline-flex;align-items:center;justify-content:space-between;gap:14px;min-height:52px;padding:0 6px 0 22px;border-radius:99px;font:500 .74rem/1 var(--f-body);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;position:relative}
-.btn .ar{width:40px;height:40px;border-radius:99px;display:grid;place-items:center;font-size:1rem;letter-spacing:0;transition:transform .4s var(--ease)}
-.btn:hover .ar{transform:rotate(45deg)}
-.btn.g{background:var(--gold);color:var(--ink)}.btn.g .ar{background:var(--ink);color:var(--gold)}
-.btn.o{border:1px solid #ffffff40;color:var(--cream);background:none}.btn.o .ar{border:1px solid #ffffff30}
-.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
-.flag{display:inline-block;font:600 .54rem/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;background:var(--clay);color:var(--ink);padding:4px 6px;border-radius:3px;vertical-align:middle;margin-left:8px}
+h1,h2,h3{font-family:var(--f-serif);font-weight:400;margin:0;letter-spacing:-.01em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.eyebrow{font:500 .7rem/1 var(--f-sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.dark .eyebrow{color:var(--gold)}
+em,.it{font-style:italic}
+.gold{color:var(--gold-deep)}.dark .gold{color:var(--gold)}
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 24px;border-radius:99px;font:500 .8rem/1 var(--f-sans);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .4s var(--ease),background .3s,color .3s}
+.btn svg{width:16px;height:16px;transition:transform .4s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn.p{background:var(--ink);color:var(--cream)}
+.btn.g{background:var(--gold);color:var(--ink)}
+.btn.o{border-color:currentColor;background:none}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.flag{display:inline-block;font:600 .56rem/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;background:var(--clay);color:var(--ink);padding:4px 6px;border-radius:3px;vertical-align:middle;margin-left:8px;font-style:normal}
 body.client .flag{display:none}
 
-/* ===================== LOADER: the table sets itself ===================== */
-#arrive{position:fixed;inset:0;z-index:100;background:var(--ink);display:grid;place-items:center}
-#arrive[hidden]{display:none}
-.ldr{display:grid;place-items:center;gap:26px;text-align:center}
-.ldr svg{display:block;overflow:visible}
-.ldr .ln{fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.6s ease-in-out forwards}
-.ldr .d2{animation-delay:.15s}.ldr .d3{animation-delay:.35s}.ldr .d4{animation-delay:.5s}.ldr .d5{animation-delay:.65s}.ldr .d6{animation-delay:.8s}
-@keyframes draw{to{stroke-dashoffset:0}}
-.ldr .flame{fill:#F3D77A;transform-box:fill-box;transform-origin:50% 100%;opacity:0;animation:flame .5s ease-out 1.4s forwards,flick 1.2s ease-in-out 1.9s infinite}
-@keyframes flame{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
-@keyframes flick{0%,100%{transform:scale(1)}50%{transform:scale(.9,1.08)}}
-.ldr .glow{fill:url(#gA);opacity:0;animation:fadein .8s ease-out 1.5s forwards}
-@keyframes fadein{to{opacity:1}}
-.ldlogo{width:110px;height:32px;-webkit-mask:url(img/logo.png) center/contain no-repeat;mask:url(img/logo.png) center/contain no-repeat;background:linear-gradient(100deg,#8a6a1c,#f6dd8a 45%,#c9a23a 60%,#7a5a0e);opacity:0;animation:fadein .6s ease-out .4s forwards}
-.ldword{font:italic 500 1.25rem/1 var(--f-script);color:#d9d2c3;opacity:0;animation:fadein .6s ease-out .6s forwards}
-/* the site lifts up like a menu */
-#site{position:relative;z-index:1}
-body.arriving #site{opacity:0;transform:translateY(40px)}
-body.handed #site{opacity:1;transform:none;transition:opacity 1s ease,transform 1.2s var(--ease)}
-#arrive.bye{opacity:0;transition:opacity 1.1s ease;pointer-events:none}
+/* top bar */
+.top{position:sticky;top:0;z-index:50;background:#EFE9DDee;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;min-height:68px;gap:20px}
+.top img{height:26px;width:auto;filter:invert(1)}
+.top ul{display:none;list-style:none;margin:0;padding:0;gap:34px}
+.top li a{font:500 .74rem/1 var(--f-sans);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--muted);min-height:44px;display:inline-flex;align-items:center}
+.top li a:hover{color:var(--ink)}
+.top .cta{min-height:44px;padding:0 20px;font-size:.72rem}
+@media (min-width:880px){.top ul{display:flex}}
 
-/* ===================== SITE ===================== */
-.nav{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:max(14px,env(safe-area-inset-top,0px)) 0 12px;background:linear-gradient(#0A0A0A 70%,transparent)}
-.nav img{height:24px;width:auto}
-.nav ul{display:none;list-style:none;margin:0;padding:0;gap:28px}
-.nav li a{font:500 .68rem/1 var(--f-body);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:#CFC9BD;min-height:44px;display:inline-flex;align-items:center}
-.nav li a:hover{color:var(--gold)}
-.nav .cta{min-height:44px;display:inline-flex;align-items:center;padding:0 18px;border-radius:99px;background:var(--gold);color:var(--ink);font:500 .62rem/1 var(--f-body);letter-spacing:.18em;text-transform:uppercase;text-decoration:none}
-@media (min-width:860px){.nav ul{display:flex}}
-.hero{position:relative;min-height:88vh;display:grid;align-items:end;border-radius:28px;overflow:hidden;margin-top:6px;isolation:isolate}
-.hero .bg{position:absolute;inset:0;background:url(img/room-xl.jpg) center/cover;z-index:-1;transform:scale(1.08);animation:slow 30s ease-in-out infinite alternate}
-@keyframes slow{to{transform:scale(1) translateX(-1%)}}
-.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 20%,#0A0A0Ae6 85%)}
-.hero .in{padding:60px 24px 40px;max-width:720px}
-.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid #ffffff30;border-radius:99px;padding:8px 12px;font:500 .58rem/1 var(--f-body);letter-spacing:.22em;text-transform:uppercase;margin-bottom:22px}
-.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
-.hero h1{font:400 clamp(3.4rem,9vw,7.2rem)/.86 var(--f-display);text-transform:uppercase;margin:0}
-.hero h1 span{display:block;font:italic 600 1.05em/1 var(--f-script);color:var(--gold);text-transform:none}
-.hero .p{margin-top:20px;font-size:1.05rem}
-.proof{margin-top:22px;padding-left:14px;border-left:1px solid var(--gold);font-size:.84rem;line-height:1.5;color:#CFC9BD;max-width:48ch}
-.tick{overflow:hidden;border-block:1px solid var(--line);padding:14px 0;white-space:nowrap;font:500 .64rem/1 var(--f-body);letter-spacing:.24em;text-transform:uppercase;color:#8d877b;margin-top:28px}
-.tick div{display:inline-block;animation:tk 36s linear infinite}
-.tick b{color:var(--gold);font-weight:500;margin:0 12px}
-@keyframes tk{to{transform:translateX(-50%)}}
-.sec{padding:clamp(56px,9vw,110px) 0}
-.grid2{display:grid;gap:36px}
-@media (min-width:900px){.grid2{grid-template-columns:1fr 1fr;gap:64px;align-items:start}.grid2>.sticky{position:sticky;top:90px}}
-.why{text-align:center;max-width:46ch;margin:0 auto}
-.why p{font:italic 500 clamp(1.6rem,4vw,2.6rem)/1.25 var(--f-script);color:var(--bone);margin:0}
-.why p b{font:400 1em/1 var(--f-display);text-transform:uppercase;color:var(--cream);font-style:normal}
-.list button{display:block;width:100%;text-align:left;background:none;border:0;padding:4px 0;font:400 clamp(2.4rem,6vw,4rem)/1 var(--f-display);text-transform:uppercase;color:#3B3832;cursor:pointer;transition:color .4s,filter .4s,transform .4s var(--ease);min-height:48px}
-.list button.on{color:var(--cream);transform:translateX(12px)}
-.list button.on::after{content:" ↗";color:var(--gold);font-size:.45em;vertical-align:super}
-.list.has button:not(.on){filter:blur(1.6px)}
-.list.has button:not(.on):hover{filter:none;color:#8d877b}
-.peek{position:relative;height:clamp(200px,40vw,420px);border-radius:20px;overflow:hidden;background:#222 center/cover;transition:background-image .3s}
-.peek::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,#000a)}
-.peek span{position:absolute;z-index:1;left:14px;bottom:14px;font:400 1.4rem/1 var(--f-display);text-transform:uppercase}
-.peek b{position:absolute;z-index:1;right:14px;bottom:16px;font:500 .6rem/1 var(--f-body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-.cmp{margin-top:18px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--ink2)}
-.cmp header{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
-.cmp header div{height:110px;background:center/cover;position:relative}
-.cmp header div span{position:absolute;left:10px;bottom:10px;font:400 1.1rem/1 var(--f-display);text-transform:uppercase;text-shadow:0 1px 6px #000}
-.cmp header div:first-child{border-right:1px solid var(--line)}
-.cmp table{width:100%;border-collapse:collapse;font-size:.82rem}
-.cmp td{padding:10px 12px;border-top:1px solid var(--line);color:#CFC9BD}
-.cmp td:first-child{color:var(--muted);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;width:34%}
-.cmp tr:first-child td{border-top:0}
-.cmp .ex{font:500 .56rem/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--clay);padding:9px 12px;border-top:1px solid var(--line)}
-body.client .cmp .ex{color:var(--muted)}
-.pts{list-style:none;margin:22px 0 0;padding:0;display:grid}
-.pts li{display:grid;grid-template-columns:32px 1fr;gap:4px 12px;padding:16px 0;border-top:1px solid var(--line)}
-.pts li b{font:500 1.05rem/1.2 var(--f-body);letter-spacing:.02em;color:var(--cream)}
-.pts li small{grid-column:2;font-size:.86rem;line-height:1.5;color:#ABA597}
-.pts li em{font:normal 500 .72rem/1.7 var(--f-body);color:var(--gold)}
-.brief{border-radius:28px;background:var(--gold);color:var(--ink);padding:clamp(28px,5vw,56px);position:relative;overflow:hidden;display:grid;gap:10px;align-items:center}
-@media (min-width:860px){.brief{grid-template-columns:1.3fr 1fr}}
-.brief::before{content:"PdR";position:absolute;right:-20px;bottom:-60px;font:400 16rem/1 var(--f-display);color:#00000010;pointer-events:none}
-.brief .lab{color:var(--ink)}
-.brief .p{color:#2b2410}
-.brief .h2{margin-bottom:8px}
-.brief .btn{background:var(--ink);color:var(--gold);justify-self:start}
-.brief .btn .ar{background:var(--gold);color:var(--ink)}
-.band{background:var(--ink2);border-radius:28px;padding:clamp(28px,5vw,64px) clamp(20px,4vw,56px)}
-.founder{display:grid;grid-template-columns:120px 1fr;gap:22px;align-items:center}
-.ph-ph{width:120px;height:150px;border:1px dashed var(--gold);border-radius:10px;display:grid;place-items:center;text-align:center;font:500 .56rem/1.5 var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);padding:10px}
-.steps{display:grid;gap:18px;margin-top:10px}
-@media (min-width:760px){.steps{grid-template-columns:1fr 1fr 1fr}}
-.steps div{border-top:1px solid var(--line);padding-top:18px}
-.steps div em{display:block;font:400 3rem/1 var(--f-display);color:#2A2824}
-.steps b{display:block;font:500 1.1rem/1.2 var(--f-body);margin-top:6px}
-.steps small{display:block;font-size:.86rem;color:#ABA597;line-height:1.5;margin-top:6px}
-.form{display:grid;gap:12px;margin-top:22px;max-width:520px}
-.tog{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:99px;padding:4px}
-.tog button{min-height:46px;border:0;border-radius:99px;background:none;color:var(--muted);font:500 .7rem/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:color .3s}
+/* hero */
+.hero{padding:clamp(36px,6vw,80px) 0 clamp(48px,7vw,96px)}
+.hero .grid{display:grid;gap:40px}
+@media (min-width:900px){.hero .grid{grid-template-columns:1.15fr .85fr;gap:72px;align-items:end}}
+.hero h1{font-size:clamp(3.4rem,9vw,7.6rem);line-height:.92;margin-top:22px}
+.hero h1 em{color:var(--gold-deep)}
+.hero .lede{font-size:1.1rem;line-height:1.6;color:#3a352c;max-width:46ch;margin-top:26px}
+.arch{position:relative;border-radius:999px 999px var(--r) var(--r);overflow:hidden;aspect-ratio:4/5.2;background:var(--ink) url(img/room-xl.jpg) center/cover;box-shadow:0 40px 80px -40px #000a}
+.arch::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,#0008)}
+.arch .cap{position:absolute;z-index:1;left:0;right:0;bottom:22px;text-align:center;font:italic 400 1.15rem/1 var(--f-serif);color:var(--cream)}
+.proof{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted);max-width:52ch}
+.proof b{font-weight:500;color:var(--text)}
+
+/* statement */
+.statement{padding:clamp(48px,8vw,120px) 0;text-align:center}
+.statement p{font:400 clamp(2rem,5.2vw,4rem)/1.12 var(--f-serif);max-width:20ch;margin:0 auto;text-wrap:balance}
+.statement p em{color:var(--gold-deep)}
+.statement small{display:block;max-width:56ch;margin:28px auto 0;font-size:1rem;color:var(--muted);line-height:1.6}
+
+/* the menu: two cards, dotted leaders */
+.menu{padding:0 0 clamp(56px,8vw,110px)}
+.cards{display:grid;gap:22px}
+@media (min-width:900px){.cards{grid-template-columns:1fr 1fr;gap:28px;align-items:start}}
+.card{background:var(--cream);border-radius:var(--r);padding:clamp(26px,4vw,48px);position:relative}
+.card.in{background:var(--ink);color:var(--cream)}
+.card .eyebrow{margin-bottom:16px}
+.card h2{font-size:clamp(2.3rem,4.6vw,3.6rem);line-height:1}
+.card .lead{margin-top:16px;color:var(--muted);max-width:44ch}
+.card.in .lead{color:#C9C2B3}
+.items{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:22px}
+.items li{display:grid;gap:6px}
+.items .row{display:flex;align-items:baseline;gap:10px}
+.items .row b{font:italic 400 1.5rem/1.1 var(--f-serif);flex:0 1 auto}
+.items .row i{flex:1;border-bottom:1px dotted #8d8573;transform:translateY(-5px);min-width:16px}
+.items .row span{font:500 .7rem/1 var(--f-sans);letter-spacing:.18em;color:var(--gold-deep)}
+.card.in .items .row span{color:var(--gold)}
+.items small{font-size:.92rem;line-height:1.55;color:var(--muted);max-width:52ch}
+.card.in .items small{color:#B9B2A3}
+
+/* filters list + photo */
+.find{padding:clamp(48px,7vw,100px) clamp(20px,5vw,72px);background:var(--ink);color:var(--cream);border-radius:var(--r);margin:0 10px}
+.find .grid{display:grid;gap:36px;max-width:1180px;margin:0 auto}
+@media (min-width:900px){.find .grid{grid-template-columns:1fr 1fr;gap:72px;align-items:center}}
+.find h2{font-size:clamp(2.4rem,5.4vw,4.4rem);line-height:1;margin:16px 0 18px}
+.find p.lead{color:#C9C2B3;max-width:44ch}
+.list{margin-top:26px;display:grid}
+.list button{display:flex;align-items:baseline;justify-content:space-between;gap:16px;width:100%;text-align:left;background:none;border:0;border-top:1px solid #2c2820;padding:12px 0;min-height:56px;color:#6d6657;font:400 clamp(1.8rem,3.6vw,2.6rem)/1.1 var(--f-serif);cursor:pointer;transition:color .3s,padding .4s var(--ease)}
+.list button small{font:500 .62rem/1 var(--f-sans);letter-spacing:.2em;text-transform:uppercase;color:#5f594b}
+.list button.on{color:var(--cream);padding-left:14px}
+.list button.on small{color:var(--gold)}
+.list button:hover{color:var(--cream)}
+.list button:last-child{border-bottom:1px solid #2c2820}
+.peek{aspect-ratio:4/4.4;border-radius:var(--r);overflow:hidden;position:relative;background:#222 center/cover;transition:background-image .3s}
+.peek::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,#000a)}
+.peek span{position:absolute;z-index:1;left:20px;bottom:18px;font:italic 400 1.6rem/1 var(--f-serif)}
+.peek b{position:absolute;z-index:1;right:20px;bottom:22px;font:500 .62rem/1 var(--f-sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+
+/* method: three courses */
+.how{padding:clamp(56px,8vw,120px) 0}
+.how h2{font-size:clamp(2.6rem,6vw,5rem);line-height:1;margin:16px 0 14px}
+.how .lede{color:var(--muted);max-width:50ch}
+.steps{display:grid;gap:0;margin-top:40px;border-top:1px solid var(--line)}
+.steps .s{display:grid;grid-template-columns:70px 1fr;gap:6px 18px;padding:26px 0;border-bottom:1px solid var(--line)}
+.steps .s em{font:italic 400 3.4rem/.9 var(--f-serif);color:var(--gold-deep)}
+.steps .s b{font:400 1.7rem/1.1 var(--f-serif)}
+.steps .s small{grid-column:2;color:var(--muted);max-width:56ch}
+@media (min-width:860px){.steps{grid-template-columns:1fr 1fr 1fr;gap:28px;border-top:0}.steps .s{grid-template-columns:1fr;border:0;border-top:1px solid var(--ink);padding:22px 22px 0 0}.steps .s small{grid-column:1}.steps .s em{font-size:5rem;margin-bottom:10px}}
+
+/* brief band */
+.brief{background:var(--gold);color:var(--ink);border-radius:var(--r);margin:0 10px;padding:clamp(34px,6vw,76px) clamp(24px,5vw,72px);display:grid;gap:22px;position:relative;overflow:hidden}
+@media (min-width:860px){.brief{grid-template-columns:1.4fr 1fr;align-items:center}}
+.brief .eyebrow{color:var(--ink)}
+.brief h2{font-size:clamp(2.4rem,5.6vw,4.6rem);line-height:.98;margin:14px 0 12px}
+.brief p{max-width:42ch;color:#2b2410}
+.brief .btn{justify-self:start}
+@media (min-width:860px){.brief .btn{justify-self:end}}
+
+/* founder */
+.founder{padding:clamp(56px,8vw,110px) 0}
+.founder .grid{display:grid;gap:30px}
+@media (min-width:860px){.founder .grid{grid-template-columns:260px 1fr;gap:64px;align-items:center}}
+.ph{aspect-ratio:4/5;border:1px dashed var(--gold-deep);border-radius:999px 999px 18px 18px;display:grid;place-items:center;align-content:center;text-align:center;font:500 .66rem/1.6 var(--f-sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);padding:20px;max-width:260px;width:100%}
+.founder p.q{font:400 clamp(1.8rem,3.8vw,2.8rem)/1.2 var(--f-serif);max-width:30ch}
+.founder small{display:block;margin-top:18px;color:var(--muted);max-width:56ch}
+
+/* access */
+.access{background:var(--ink);color:var(--cream);border-radius:var(--r);margin:0 10px;padding:clamp(34px,6vw,84px) clamp(22px,5vw,72px)}
+.access .grid{display:grid;gap:40px;max-width:1180px;margin:0 auto}
+@media (min-width:900px){.access .grid{grid-template-columns:1fr 1fr;gap:80px}}
+.access h2{font-size:clamp(2.6rem,6vw,5rem);line-height:1;margin:16px 0 16px}
+.access .lead{color:#C9C2B3;max-width:42ch}
+.perks{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:0}
+.perks li{padding:14px 0;border-top:1px solid #2c2820;font:italic 400 1.35rem/1.2 var(--f-serif)}
+.perks li:last-child{border-bottom:1px solid #2c2820}
+.form{display:grid;gap:14px;align-self:start}
+.tog{display:grid;grid-template-columns:1fr 1fr;border:1px solid #3a352a;border-radius:99px;padding:4px}
+.tog button{min-height:48px;border:0;border-radius:99px;background:none;color:#a39e93;font:500 .74rem/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s}
 .tog button.on{background:var(--gold);color:var(--ink)}
-.f{display:grid;gap:5px}
-.f label{font:500 .58rem/1 var(--f-body);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
-.f input,.f select{min-height:48px;background:#ffffff08;border:1px solid var(--line);border-radius:10px;color:var(--cream);padding:0 14px;font:300 .95rem var(--f-body)}
-.f input:focus{border-color:var(--gold);outline:none}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.note{font-size:.64rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
-.ok{display:none;padding:18px;border:1px solid var(--gold);border-radius:12px;color:var(--bone)}
-.faq details{border-top:1px solid var(--line);padding:4px 0}
+.f{display:grid;gap:6px}
+.f label{font:500 .64rem/1 var(--f-sans);letter-spacing:.16em;text-transform:uppercase;color:#a39e93}
+.f input,.f select{min-height:52px;background:#ffffff0a;border:1px solid #3a352a;border-radius:12px;color:var(--cream);padding:0 16px;font:400 1rem var(--f-sans)}
+.f input:focus,.f select:focus{border-color:var(--gold);outline:none}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.access .grid>*,.form>*,.two>*{min-width:0}.form input,.form select,.form textarea{max-width:100%;min-width:0}
+@media (max-width:520px){.two{grid-template-columns:1fr}}
+.note{font:500 .64rem/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;color:#8d877b}
+.ok{display:none;padding:18px;border:1px solid var(--gold);border-radius:12px}
+.ok small{display:block;margin-top:6px;color:#a39e93}
+
+/* faq */
+.faq{padding:clamp(56px,8vw,110px) 0}
+.faq h2{font-size:clamp(2.4rem,5.4vw,4.4rem);line-height:1;margin:16px 0 30px}
+.faq details{border-top:1px solid var(--line)}
 .faq details:last-child{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;min-height:52px;display:flex;justify-content:space-between;align-items:center;gap:16px;font:500 1.05rem var(--f-body);color:var(--cream)}
+.faq summary{list-style:none;cursor:pointer;min-height:68px;display:flex;justify-content:space-between;align-items:center;gap:20px;font:400 clamp(1.4rem,2.6vw,1.9rem)/1.2 var(--f-serif)}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";color:var(--gold);font-size:1.5rem;font-weight:300;transition:transform .3s}
-.faq details[open] summary::after{transform:rotate(45deg)}
-.faq p{padding:0 0 18px;font-size:.92rem;line-height:1.55;color:#ABA597;margin:0;max-width:62ch}
-.foot{padding:48px 0 calc(100px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);display:grid;gap:24px}
-@media (min-width:760px){.foot{grid-template-columns:1.2fr 1fr 1fr;gap:40px}}
-.foot img{height:26px;width:auto}
-.foot small{font-size:.78rem;color:var(--muted);display:block;line-height:1.5}
-.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
-.foot li a{font:500 .68rem/1 var(--f-body);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:#CFC9BD;min-height:40px;display:inline-flex;align-items:center}
-.mail{display:flex;gap:8px;margin-top:10px;max-width:360px}
-.mail input{flex:1;min-width:0;min-height:46px;background:#ffffff08;border:1px solid var(--line);border-radius:99px;color:var(--cream);padding:0 14px;font:300 .9rem var(--f-body)}
-.mail button{min-height:46px;padding:0 18px;border-radius:99px;border:0;background:var(--gold);color:var(--ink);font:500 .66rem/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
-.replay{background:none;border:0;color:#8d877b;font:500 .62rem/1 var(--f-body);letter-spacing:.2em;text-transform:uppercase;cursor:pointer;min-height:44px;padding:0;text-decoration:underline;text-underline-offset:4px}
-.dock{position:fixed;z-index:50;left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:6px;border-radius:99px;background:#0A0A0Ae8;backdrop-filter:blur(12px);border:1px solid #ffffff1a;transform:translateY(140%);transition:transform .6s var(--ease)}
+.faq summary::after{content:"";width:12px;height:12px;border-right:1.5px solid var(--gold-deep);border-bottom:1.5px solid var(--gold-deep);transform:rotate(45deg);transition:transform .3s;flex:none;margin-right:6px}
+.faq details[open] summary::after{transform:rotate(-135deg)}
+.faq p{padding:0 0 22px;max-width:62ch;color:var(--muted)}
+
+/* footer */
+.foot{background:var(--ink);color:var(--cream);margin-top:30px;padding:56px 0 calc(110px + env(safe-area-inset-bottom,0px))}
+.foot .grid{display:grid;gap:36px}
+@media (min-width:860px){.foot .grid{grid-template-columns:1.4fr 1fr 1fr;gap:56px}}
+.foot img{height:30px;width:auto}
+.foot .big{font:italic 400 clamp(1.8rem,3vw,2.4rem)/1.15 var(--f-serif);margin-top:20px;max-width:22ch}
+.foot small{display:block;color:#8d877b;font-size:.85rem;margin-top:16px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;align-content:start}
+.foot li a{font:500 .74rem/1 var(--f-sans);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:#C9C2B3;min-height:44px;display:inline-flex;align-items:center}
+.foot li a:hover{color:var(--gold)}
+.foot .eyebrow{color:var(--gold);margin-bottom:10px}
+.mail{display:flex;gap:8px;margin-top:14px;max-width:380px}
+.mail input{flex:1;min-width:0;min-height:48px;background:#ffffff0a;border:1px solid #3a352a;border-radius:99px;color:var(--cream);padding:0 18px;font:400 .95rem var(--f-sans)}
+.mail button{min-height:48px;padding:0 22px;border-radius:99px;border:0;background:var(--gold);color:var(--ink);font:500 .72rem/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+
+/* phone dock */
+.dock{position:fixed;z-index:60;left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:6px;border-radius:99px;background:#0A0A0Aee;backdrop-filter:blur(14px);transform:translateY(150%);transition:transform .6s var(--ease)}
 .dock.show{transform:none}
-.dock a{min-height:48px;border-radius:99px;display:grid;place-items:center;font:500 .64rem/1.15 var(--f-body);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;text-align:center;padding:0 8px;color:var(--cream);border:1px solid #ffffff30}
+.dock a{min-height:48px;border-radius:99px;display:grid;place-items:center;font:500 .7rem/1.15 var(--f-sans);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;text-align:center;padding:0 8px;color:var(--cream);border:1px solid #ffffff30}
 .dock a.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
-@media (min-width:860px){.dock{left:auto;right:24px;bottom:24px;width:420px}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}}
-:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media (min-width:900px){.dock{left:auto;right:24px;bottom:24px;width:420px}}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}html{scroll-behavior:auto}}
+:focus-visible{outline:2px solid var(--gold-deep);outline-offset:3px}
+.dark :focus-visible,.access :focus-visible,.find :focus-visible{outline-color:var(--gold)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
 </style>
 </head>
-<body class="arriving locked">
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="arr" viewBox="0 0 16 16"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
 
-<!-- ===================== ARRIVAL ===================== -->
-<div id="arrive" aria-label="Loading">
-  <div class="ldr">
-    <svg width="250" height="200" viewBox="-125 -100 250 200" aria-hidden="true">
-      <defs><radialGradient id="gA"><stop offset="0" stop-color="#f3d77a" stop-opacity=".55"/><stop offset="1" stop-color="#f3d77a" stop-opacity="0"/></radialGradient></defs>
-      <circle class="glow" cx="110" cy="-66" r="38"/>
-      <circle class="ln d1" pathLength="1" cx="0" cy="10" r="58"/>
-      <circle class="ln d2" pathLength="1" cx="0" cy="10" r="42"/>
-      <path class="ln d3" pathLength="1" d="M-86 -40 V60 M-94 -40 V-14 Q-94 -4 -86 -4 Q-78 -4 -78 -14 V-40 M-86 -40 V-16"/>
-      <path class="ln d4" pathLength="1" d="M84 60 V-40 Q96 -26 92 6 L84 8"/>
-      <path class="ln d5" pathLength="1" d="M36 -84 Q34 -60 50 -56 Q66 -60 64 -84 Z M50 -56 V-40 M42 -40 H58"/>
-      <path class="ln d6" pathLength="1" d="M106 -60 H114 V-36 H106 Z"/>
-      <path class="flame" d="M110 -62 Q104 -70 110 -80 Q116 -70 110 -62 Z"/>
-    </svg>
-    <div class="ldlogo" role="img" aria-label="PdR"></div>
-    <div class="ldword">Setting your table</div>
-  </div>
-</div>
-
-<!-- ===================== SITE ===================== -->
-<div id="site">
-<div class="wrap">
-  <nav class="nav">
+<header class="top">
+  <div class="wrap">
     <a href="#top" aria-label="PdR home"><img src="img/logo.png" alt="PdR Private Dining Room"></a>
     <ul><li><a href="#restaurants">Restaurants</a></li><li><a href="#planners">Hosts &amp; Planners</a></li><li><a href="#how">How it works</a></li><li><a href="#faq">FAQ</a></li></ul>
-    <a class="cta" href="#access">Request access</a>
-  </nav>
+    <a class="btn p cta" href="#access">Request access</a>
+  </div>
+</header>
 
-  <header class="hero" id="top">
-    <div class="bg"></div>
-    <div class="in">
-      <h1>The right room changes <span>everything.</span></h1>
-      <p class="p">PdR is where private dining rooms meet the people who book them. Restaurants publish their rooms; hosts and planners discover, compare, and book — every detail on one table.</p>
-      <div class="btns"><a class="btn g" href="#restaurants">I run a restaurant <span class="ar">↗</span></a><a class="btn o" href="#planners">I host or plan events <span class="ar">↗</span></a></div>
+<main id="top">
+<section class="hero"><div class="wrap"><div class="grid">
+  <div>
+    <div class="eyebrow">Early access, founding members</div>
+    <h1>The right room changes <em>everything.</em></h1>
+    <p class="lede">PdR is where private dining rooms meet the people who book them. Restaurants publish their rooms; hosts and planners discover, compare, and book. Every detail on one table.</p>
+    <div class="btns">
+      <a class="btn p" href="#restaurants">I run a restaurant <svg><use href="#arr"/></svg></a>
+      <a class="btn o" href="#planners">I host or plan events <svg><use href="#arr"/></svg></a>
     </div>
-  </header>
+    <p class="proof"><b>From the team that has sourced private dining</b> for Web Summit, CoinDesk, Hyatt, TD and Pinterest.<span class="flag">E1</span></p>
+  </div>
+  <div class="arch rv" role="img" aria-label="A private dining room set for service"><span class="cap">Launching first in Toronto</span></div>
+</div></div></section>
 
-  <p class="proof" style="margin:28px auto 0;max-width:60ch">From the team that has sourced private dining for Web Summit, CoinDesk, Hyatt, TD and Pinterest.<span class="flag">E1</span></p>
+<section class="statement"><div class="wrap rv">
+  <p>Anyone can book a table. Some nights need a <em>room.</em></p>
+  <small>The long table, the low light, the door that closes. PdR brings those rooms, and the hosts and planners who fill them, to one table.</small>
+</div></section>
 
-  <section class="sec why">
-    <div class="lab" style="justify-content:center">Why PdR</div>
-    <p>Anyone can book a table. <b>Some nights need a room.</b> The long table, the low light, the door that closes. PdR brings those rooms, and the hosts and planners who fill them, to one table.</p>
-  </section>
-
-  <section class="sec" id="planners">
-    <div class="grid2">
-      <div class="sticky">
-        <div class="lab">For hosts &amp; planners</div>
-        <h2 class="h2">Search the way you <span class="s">brief.</span></h2>
-        <p class="p">Filter by city, date, guest count, seated or standing, cuisine and per-person budget — then compare rooms side by side. Tap a room type.</p>
-        <div class="list" id="list">
-          <button data-img="room" data-n="The long table" data-cap="Seated dinner">Seated</button>
-          <button data-img="cocktail" data-n="The low light" data-cap="Standing reception">Standing</button>
-          <button data-img="patio" data-n="The patio" data-cap="Open air">Patio</button>
-          <button data-img="room" data-n="Private entrance" data-cap="Your own door">Private entrance</button>
-          <button data-img="plate" data-n="The whole house" data-cap="Full buyout">Full buyout</button>
-        </div>
-      </div>
-      <div>
-        <div class="peek" id="peek" style="background-image:url(img/room.jpg)"><span id="peekN">The long table</span><b id="peekCap">Seated dinner</b></div>
-        <div class="cmp">
-          <header><div style="background-image:url(img/room.jpg)"><span>Room A</span></div><div style="background-image:url(img/patio.jpg)"><span>Room B</span></div></header>
-          <table>
-            <tr><td>Seated</td><td>24</td><td>40</td></tr>
-            <tr><td>Standing</td><td>40</td><td>70</td></tr>
-            <tr><td>Private entrance</td><td>Yes</td><td>No</td></tr>
-            <tr><td>Floorplan</td><td>↓ PDF</td><td>↓ PDF</td></tr>
-          </table>
-          <div class="ex">Compare side by side · sample layout</div>
-        </div>
-        <ul class="pts">
-          <li><em>01</em><b>Everything before you ask</b><small>Floorplans, sample menus, capacities and galleries up front. Build a client-ready comparison without a single phone call.</small></li>
-          <li><em>02</em><b>Inquire on your terms</b><small>Reach spaces under your agency while keeping the end client private until the booking is confirmed.</small></li>
-          <li><em>03</em><b>A concierge that does the legwork<span class="flag">E3</span></b><small>For members: shortlist spaces, generate comparison docs, and get expedited, preferred replies.</small></li>
-        </ul>
-        <div class="btns"><a class="btn g" href="#access" data-pick="planner">Find your room <span class="ar">↗</span></a></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="brief" id="brief">
-    <div>
-      <div class="lab">Planning something now?<span class="flag" style="background:var(--ink);color:var(--gold)">R1</span></div>
-      <h2 class="h2">Need a room before <span class="s" style="color:var(--ink)">launch?</span></h2>
-      <p class="p">Send your brief and our team will source it.</p>
-    </div>
-    <a class="btn" href="#access" data-pick="planner">Send a brief <span class="ar">↗</span></a>
-  </section>
-
-  <section class="sec" id="restaurants">
-    <div class="grid2">
-      <div class="sticky">
-        <div class="lab">For restaurants</div>
-        <h2 class="h2">Your rooms, <span class="s">working.</span></h2>
-        <p class="p">Publish your private dining rooms and full-buyout under a single umbrella profile — capacity, floorplans, menus and galleries in one place.</p>
-        <div class="btns"><a class="btn g" href="#access" data-pick="restaurant">List your rooms <span class="ar">↗</span></a></div>
-      </div>
-      <ul class="pts" style="margin-top:0">
-        <li><em>01</em><b>One profile, every room</b><small>Publish your private dining rooms and full-buyout under a single umbrella profile — capacity, floorplans, menus and galleries in one place.</small></li>
-        <li><em>02</em><b>Qualified planner leads</b><small>Reach corporate and social planners actively sourcing private dining spaces — not casual diners. Every inquiry arrives with the event brief attached.</small></li>
-        <li><em>03</em><b>Only pay when you get booked</b><small>List your rooms and receive qualified inquiries for free. You pay nothing until a planner actually books with you — see the revenue before you owe a cent.</small></li>
-        <li><em>04</em><b>Concierge setup<span class="flag">R3</span></b><small>Optional PdR advisor support to get your spaces event-ready and presented the way planners expect.</small></li>
-        <li><em>05</em><b>Founding restaurant spots<span class="flag">R2</span></b><small>Founding restaurant spots in Toronto: [number] left.</small></li>
+<section class="menu"><div class="wrap">
+  <div class="cards">
+    <article class="card rv" id="restaurants">
+      <div class="eyebrow">For restaurants</div>
+      <h2>Your rooms, <em class="gold">working.</em></h2>
+      <p class="lead">Publish your private dining rooms and full-buyout under a single umbrella profile.</p>
+      <ul class="items">
+        <li><div class="row"><b>One profile, every room</b><i></i><span>01</span></div><small>Capacity, floorplans, menus and galleries in one place.</small></li>
+        <li><div class="row"><b>Qualified planner leads</b><i></i><span>02</span></div><small>Reach corporate and social planners actively sourcing private dining spaces, not casual diners. Every inquiry arrives with the event brief attached.</small></li>
+        <li><div class="row"><b>Only pay when you get booked</b><i></i><span>03</span></div><small>List your rooms and receive qualified inquiries for free. You pay nothing until a planner actually books with you. See the revenue before you owe a cent.</small></li>
+        <li><div class="row"><b>Concierge setup<span class="flag">R3</span></b><i></i><span>04</span></div><small>Optional PdR advisor support to get your spaces event-ready and presented the way planners expect.</small></li>
+        <li><div class="row"><b>Founding restaurant spots<span class="flag">R2</span></b><i></i><span>05</span></div><small>Founding restaurant spots in Toronto: [number] left.</small></li>
       </ul>
+      <div class="btns"><a class="btn p" href="#access" data-pick="restaurant">List your rooms <svg><use href="#arr"/></svg></a></div>
+    </article>
+
+    <article class="card in dark rv" id="planners">
+      <div class="eyebrow">For hosts &amp; planners</div>
+      <h2>Find the right private dining space in <em class="gold">minutes.</em></h2>
+      <p class="lead">Stop chasing availability across a dozen inboxes. Compare options side by side and send thoughtful inquiries with all of your event details already included.</p>
+      <ul class="items">
+        <li><div class="row"><b>Search the way you brief</b><i></i><span>01</span></div><small>Filter by city, date, guest count, seated or standing, cuisine and per-person budget, then compare rooms side by side.</small></li>
+        <li><div class="row"><b>Everything before you ask</b><i></i><span>02</span></div><small>Floorplans, sample menus, capacities and galleries up front. Build a client-ready comparison without a single phone call.</small></li>
+        <li><div class="row"><b>Inquire on your terms</b><i></i><span>03</span></div><small>Reach spaces under your agency while keeping the end client private until the booking is confirmed.</small></li>
+        <li><div class="row"><b>A concierge that does the legwork<span class="flag">E3</span></b><i></i><span>04</span></div><small>For members: shortlist spaces, generate comparison docs, and get expedited, preferred replies.</small></li>
+      </ul>
+      <div class="btns"><a class="btn g" href="#access" data-pick="planner">Find your room <svg><use href="#arr"/></svg></a></div>
+    </article>
+  </div>
+</div></section>
+
+<section class="find dark"><div class="grid">
+  <div>
+    <div class="eyebrow">Search the way you brief</div>
+    <h2>Every room, <em class="gold">before you ask.</em></h2>
+    <p class="lead">Search by city, date, capacity, seated or standing, budget, and the amenities that matter most. Tap a room type.</p>
+    <div class="list" id="list">
+      <button class="on" data-img="room" data-n="The long table" data-cap="Seated dinner">Seated <small>Dinner</small></button>
+      <button data-img="cocktail" data-n="The low light" data-cap="Standing reception">Standing <small>Reception</small></button>
+      <button data-img="patio" data-n="The patio" data-cap="Open air">Patio <small>Open air</small></button>
+      <button data-img="room" data-n="Private entrance" data-cap="Your own door">Private entrance <small>Own door</small></button>
+      <button data-img="plate" data-n="The whole house" data-cap="Full buyout">Full buyout <small>Whole house</small></button>
     </div>
-  </section>
+  </div>
+  <div class="peek rv" id="peek" style="background-image:url(img/room.jpg)"><span id="peekN">The long table</span><b id="peekCap">Seated dinner</b></div>
+</div></section>
 
-  <section class="sec band" id="how">
-    <div class="lab">How it works</div>
-    <h2 class="h2">Three moves to the <span class="s">table.</span></h2>
-    <p class="p">Founding members join in waves. From first hello to first booking, the path is deliberately short.</p>
-    <div class="steps">
-      <div><em>01</em><b>Request early access</b><small>Tell us whether you run a restaurant or plan events. We onboard founding members in waves.</small></div>
-      <div><em>02</em><b>Build or brief</b><small>Restaurants publish their rooms; hosts and planners set up their first event brief in minutes.</small></div>
-      <div><em>03</em><b>Match &amp; book</b><small>Hosts and planners discover and compare; restaurants receive qualified inquiries. Bookings happen on one table.</small></div>
-    </div>
-  </section>
+<section class="brief rv" id="brief" style="margin-top:22px">
+  <div>
+    <div class="eyebrow">Planning something now?<span class="flag" style="background:var(--ink);color:var(--gold)">R1</span></div>
+    <h2>Need a room before <em>launch?</em></h2>
+    <p>Send your brief and our team will source it.</p>
+  </div>
+  <a class="btn p" href="#access" data-pick="planner">Send a brief <svg><use href="#arr"/></svg></a>
+</section>
 
-  <section class="sec">
-    <div class="lab">Who's behind PdR<span class="flag">E5</span></div>
-    <div class="founder"><div class="ph-ph">Photo of Samantha needed</div><p class="p">Samantha Mele has spent more than 15 years sourcing private dining experiences for clients including Web Summit, CoinDesk, Hyatt, TD and Pinterest. We built the platform we always wished existed.</p></div>
-  </section>
+<section class="how" id="how"><div class="wrap">
+  <div class="eyebrow">How it works</div>
+  <h2>Three moves to the <em class="gold">table.</em></h2>
+  <p class="lede">Founding members join in waves. From first hello to first booking, the path is deliberately short.</p>
+  <div class="steps">
+    <div class="s rv"><em>01</em><b>Request early access</b><small>Tell us whether you run a restaurant or plan events. We onboard founding members in waves.</small></div>
+    <div class="s rv"><em>02</em><b>Build or brief</b><small>Restaurants publish their rooms; hosts and planners set up their first event brief in minutes.</small></div>
+    <div class="s rv"><em>03</em><b>Match &amp; book</b><small>Hosts and planners discover and compare; restaurants receive qualified inquiries. Bookings happen on one table.</small></div>
+  </div>
+</div></section>
 
-  <section class="sec band" id="access">
-    <div class="grid2">
-      <div>
-        <div class="lab">Early access</div>
-        <h2 class="h2">Hold your <span class="s">seat.</span></h2>
-        <p class="p">We're onboarding founding members in waves. Tell us who you are and we'll be in touch about your place in the next one.</p>
-        <ul class="pts"><li><em>·</em><b>Founding-member pricing</b></li><li><em>·</em><b>Priority onboarding &amp; setup</b></li><li><em>·</em><b>Shape the product before launch</b></li></ul>
-      </div>
-      <form class="form" id="form">
-        <div class="tog" id="tog"><button type="button" class="on" data-side="restaurant">Restaurant</button><button type="button" data-side="planner">Host / Planner</button></div>
-        <div class="two"><div class="f"><label for="city">City</label><input id="city" name="city" placeholder="Toronto"></div><div class="f"><label for="extra" id="extraL">Private rooms<span class="flag">E6</span></label><input id="extra" name="extra" placeholder="e.g. 2"></div></div>
-        <div class="f"><label for="nm" id="nmL">Restaurant name</label><input id="nm" name="name" placeholder="Your restaurant"></div>
-        <div class="f"><label for="contact">Primary contact name</label><input id="contact" name="contact" placeholder="Your name"></div>
-        <div class="f"><label for="em">Contact email</label><input id="em" name="email" type="email" placeholder="you@restaurant.com"></div>
-        <button class="btn g" type="submit">Request early access <span class="ar">↗</span></button>
-        <div class="note">No spam · onboarding details only</div>
-        <div class="ok" id="ok">Thank you. We'll be in touch about your place in the next wave. <small style="display:block;margin-top:6px;color:var(--muted)">Draft note: this form isn't connected yet; it will post to MyPDR's address once they confirm it.</small></div>
-      </form>
-    </div>
-  </section>
+<section class="founder"><div class="wrap"><div class="grid">
+  <div class="ph"><span>Photo of Samantha Mele needed</span><span class="flag" style="margin:10px auto 0">E5</span></div>
+  <div class="rv">
+    <div class="eyebrow">Who's behind PdR</div>
+    <p class="q" style="margin-top:20px">We built the platform we always wished existed.</p>
+    <small>Samantha Mele has spent more than 15 years sourcing private dining experiences for clients including Web Summit, CoinDesk, Hyatt, TD and Pinterest.</small>
+  </div>
+</div></div></section>
 
-  <section class="sec faq" id="faq">
-    <div class="lab">Questions</div>
-    <h2 class="h2">Good to <span class="s">know.</span></h2>
-    <details><summary>Who is PdR for?</summary><p>Built for event planners and event hosts who believe the right restaurant sets the tone for the entire experience. PdR was created by Samantha Mele after more than 15 years sourcing private dining experiences for clients including Web Summit, CoinDesk, Hyatt, TD, Pinterest, and many more. We built the platform we always wished existed.</p></details>
-    <details><summary>What does it cost?</summary><p>Restaurants pay nothing until a planner actually books with them — list your rooms and receive qualified inquiries for free. Hosts and planners can start free with core search, with a membership tier that unlocks advanced filters, the concierge and preferred replies. Founding-member pricing is shared during onboarding.</p></details>
-    <details><summary>When does it launch?</summary><p>We are onboarding founding members now, in waves, ahead of the public launch. Request early access to hold your place in the next wave.</p></details>
-    <details><summary>Is my information safe?</summary><p>Early-access details are used only to contact you about onboarding — never sold or shared. You can ask us to remove your information at any time.</p></details>
-  </section>
+<section class="access dark" id="access"><div class="grid">
+  <div>
+    <div class="eyebrow">Early access</div>
+    <h2>Hold your <em class="gold">seat.</em></h2>
+    <p class="lead">We're onboarding founding members in waves. Tell us who you are and we'll be in touch about your place in the next one.</p>
+    <ul class="perks"><li>Founding-member pricing</li><li>Priority onboarding &amp; setup</li><li>Shape the product before launch</li></ul>
+  </div>
+  <form class="form" id="form" novalidate>
+    <div class="tog" id="tog"><button type="button" class="on" data-side="restaurant">Restaurant</button><button type="button" data-side="planner">Host / Planner</button></div>
+    <div class="two"><div class="f"><label for="city">City</label><input id="city" name="city" placeholder="Toronto" autocomplete="address-level2"></div><div class="f"><label for="extra" id="extraL"><span id="extraT">Private rooms</span><span class="flag">E6</span></label><input id="extra" name="extra" placeholder="e.g. 2" inputmode="numeric"></div></div>
+    <div class="f"><label for="nm" id="nmL">Restaurant name</label><input id="nm" name="name" placeholder="Your restaurant" autocomplete="organization"></div>
+    <div class="f"><label for="contact">Primary contact name</label><input id="contact" name="contact" placeholder="Your name" autocomplete="name"></div>
+    <div class="f"><label for="em">Contact email</label><input id="em" name="email" type="email" placeholder="you@restaurant.com" autocomplete="email"></div>
+    <button class="btn g" type="submit" style="justify-content:center">Request early access <svg><use href="#arr"/></svg></button>
+    <div class="note">No spam. Onboarding details only.</div>
+    <div class="ok" id="ok">Thank you. We'll be in touch about your place in the next wave.<small>Draft note: this form isn't connected yet. It will post to MyPDR's address once they confirm it.</small></div>
+  </form>
+</div></section>
 
-  <footer class="foot">
-    <div><img src="img/logo.png" alt="PdR"><small style="margin-top:12px">The private-dining marketplace. List your rooms, or find the perfect one — without the endless email chains.</small><small style="margin-top:14px">© 2026 PdR · The Creative Connoisseur</small></div>
-    <ul><li><a href="#restaurants">Restaurants</a></li><li><a href="#planners">Hosts &amp; Planners</a></li><li><a href="#how">How it works</a></li><li><a href="#faq">FAQ</a></li><li><button class="replay" id="replay" type="button">Replay the loader</button></li></ul>
-    <div><div class="lab" style="margin-bottom:6px">The Room Report<span class="flag">R5</span></div><small>New rooms in Toronto, once a month.</small><form class="mail" onsubmit="event.preventDefault()"><input aria-label="Email" placeholder="Email address"><button>Join</button></form></div>
-  </footer>
-</div>
+<section class="faq" id="faq"><div class="wrap">
+  <div class="eyebrow">Questions</div>
+  <h2>Good to <em class="gold">know.</em></h2>
+  <details><summary>Who is PdR for?</summary><p>Built for event planners and event hosts who believe the right restaurant sets the tone for the entire experience. PdR was created by Samantha Mele after more than 15 years sourcing private dining experiences for clients including Web Summit, CoinDesk, Hyatt, TD, Pinterest, and many more. We built the platform we always wished existed.</p></details>
+  <details><summary>What does it cost?</summary><p>Restaurants pay nothing until a planner actually books with them. List your rooms and receive qualified inquiries for free. Hosts and planners can start free with core search, with a membership tier that unlocks advanced filters, the concierge and preferred replies. Founding-member pricing is shared during onboarding.</p></details>
+  <details><summary>When does it launch?</summary><p>We are onboarding founding members now, in waves, ahead of the public launch. Request early access to hold your place in the next wave.</p></details>
+  <details><summary>Is my information safe?</summary><p>Early-access details are used only to contact you about onboarding, never sold or shared. You can ask us to remove your information at any time.</p></details>
+</div></section>
+</main>
+
+<footer class="foot dark"><div class="wrap"><div class="grid">
+  <div><img src="img/logo.png" alt="PdR"><p class="big">The private-dining marketplace.</p><small>List your rooms, or find the perfect one, without the endless email chains.</small><small>&copy; 2026 PdR &middot; The Creative Connoisseur</small></div>
+  <ul><li><a href="#restaurants">Restaurants</a></li><li><a href="#planners">Hosts &amp; Planners</a></li><li><a href="#how">How it works</a></li><li><a href="#faq">FAQ</a></li><li><a href="#access">Request early access</a></li></ul>
+  <div><div class="eyebrow">The Room Report<span class="flag">R5</span></div><small style="margin-top:0">New rooms in Toronto, once a month.</small><form class="mail" onsubmit="event.preventDefault()"><input aria-label="Email address" placeholder="Email address"><button>Join</button></form></div>
+</div></div></footer>
+
 <div class="dock" id="dock"><a href="#restaurants" data-pick="restaurant">I run a restaurant</a><a href="#planners" data-pick="planner">I plan events</a></div>
-</div>
 
 <script>
 (function(){
-  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var q=new URLSearchParams(location.search);
-  if(q.has('client'))document.body.classList.add('client');
-  var arrive=document.getElementById('arrive'),dock=document.getElementById('dock'),tog=document.getElementById('tog'),side='';
-  function setSide(s){side=s;document.querySelectorAll('[data-pick]').forEach(function(a){a.classList.toggle('on',a.dataset.pick===s)});
-    tog.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.side===(s||'restaurant'))});formLabels(s||'restaurant');}
-  function formLabels(s){var r=s==='restaurant';document.getElementById('nmL').childNodes[0].nodeValue=r?'Restaurant name':'Company or agency';document.getElementById('nm').placeholder=r?'Your restaurant':'Your company';document.getElementById('extraL').childNodes[0].nodeValue=r?'Private rooms':'Events per year';document.getElementById('extra').placeholder=r?'e.g. 2':'e.g. 12';document.getElementById('em').placeholder=r?'you@restaurant.com':'you@agency.com';}
-  function done(){arrive.classList.add('bye');document.body.classList.remove('arriving','locked');document.body.classList.add('handed');setTimeout(function(){arrive.hidden=true},1100);try{sessionStorage.setItem('pdr-loaded','1')}catch(e){}}
-  var seen=false;try{seen=sessionStorage.getItem('pdr-loaded')==='1'}catch(e){}
-  if(seen&&!q.has('replay')){arrive.hidden=true;document.body.classList.remove('arriving','locked');document.body.classList.add('handed');}
-  else{var t0=Date.now(),min=reduce?300:2300;function go(){setTimeout(done,Math.max(0,min-(Date.now()-t0)))}if(document.readyState==='complete')go();else addEventListener('load',go);setTimeout(done,5000);}
-  arrive.addEventListener('click',done);
-  document.getElementById('replay').addEventListener('click',function(){try{sessionStorage.removeItem('pdr-loaded')}catch(e){}location.href=location.pathname+'?replay';});
-  /* site: giant list */
-  var list=document.getElementById('list'),peek=document.getElementById('peek'),pn=document.getElementById('peekN'),pc=document.getElementById('peekCap');
-  list.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){list.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});list.classList.add('has');peek.style.backgroundImage='url(img/'+b.dataset.img+'.jpg)';pn.textContent=b.dataset.n;pc.textContent=b.dataset.cap;})});
+  var d=document,q=new URLSearchParams(location.search);
+  if(q.has('client'))d.body.classList.add('client');
+  /* reveal on scroll; everything shows regardless if the observer is missing */
+  var rv=[].slice.call(d.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    rv.forEach(function(el){var r=el.getBoundingClientRect();if(r.top<innerHeight*.95)el.classList.add('in');else io.observe(el)});
+  }else rv.forEach(function(el){el.classList.add('in')});
+  setTimeout(function(){rv.forEach(function(el){el.classList.add('in')})},5000);
+  /* phone dock after the hero, hidden near the footer */
+  var dock=d.getElementById('dock');
+  addEventListener('scroll',function(){dock.classList.toggle('show',scrollY>innerHeight*.85&&scrollY<d.body.scrollHeight-innerHeight*1.6)},{passive:true});
+  /* room types */
+  var list=d.getElementById('list'),peek=d.getElementById('peek'),pn=d.getElementById('peekN'),pc=d.getElementById('peekCap');
+  list.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){list.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});peek.style.backgroundImage='url(img/'+b.dataset.img+'.jpg)';pn.textContent=b.dataset.n;pc.textContent=b.dataset.cap})});
   /* form */
+  var tog=d.getElementById('tog');
+  function labels(s){var r=s==='restaurant';d.getElementById('nmL').textContent=r?'Restaurant name':'Company or agency';d.getElementById('nm').placeholder=r?'Your restaurant':'Your company';d.getElementById('extraT').textContent=r?'Private rooms':'Events per year';d.getElementById('extra').placeholder=r?'e.g. 2':'e.g. 12';d.getElementById('em').placeholder=r?'you@restaurant.com':'you@agency.com'}
+  function setSide(s){d.querySelectorAll('[data-pick]').forEach(function(a){a.classList.toggle('on',a.dataset.pick===s)});tog.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.side===(s||'restaurant'))});labels(s||'restaurant')}
   tog.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){setSide(b.dataset.side)})});
-  document.querySelectorAll('a[data-pick]').forEach(function(a){a.addEventListener('click',function(){setSide(a.dataset.pick)})});
-  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('ok').style.display='block';});
+  d.querySelectorAll('a[data-pick]').forEach(function(a){a.addEventListener('click',function(){setSide(a.dataset.pick)})});
+  d.getElementById('form').addEventListener('submit',function(e){e.preventDefault();d.getElementById('ok').style.display='block'});
   setSide('');
-  addEventListener('scroll',function(){dock.classList.toggle('show',scrollY>innerHeight*.8)},{passive:true});
 })();
 </script>
 </body>
