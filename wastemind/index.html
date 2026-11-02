@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en-CA"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>WasteMind Look Options</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Public+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: three labelled phone-width mockups side by side; wraps to one column on phones. */
+:root{
+  --bg:#f3f4f1; --fg:#171a16; --muted:#5b6159; --line:#d4d7d0; --card:#ffffff;
+  --green:#1e8110; --green-deep:#12560a; --ink:#101410; --paper:#f7f8f4; --sand:#e4e7de;
+  --display:'Big Shoulders Display','Arial Narrow',Impact,sans-serif;
+  --body:'Public Sans',system-ui,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e110d;--fg:#eef1ea;--muted:#a3a99f;--line:#2b312a;--card:#171b16;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e110d;--fg:#eef1ea;--muted:#a3a99f;--line:#2b312a;--card:#171b16;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);margin:0;padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(38px,7vw,64px);line-height:.95;text-transform:uppercase;margin:0 0 10px;text-wrap:balance}
+.intro{max-width:60ch;color:var(--muted);margin:0 0 28px}
+.note{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:34px;max-width:70ch}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:start}
+@media(max-width:980px){.grid{grid-template-columns:minmax(0,420px);justify-content:center}}
+.opt>.tag{display:flex;gap:10px;align-items:baseline;margin-bottom:10px}
+.tag b{font-family:var(--display);font-size:30px;font-weight:900;line-height:1}
+.tag span{font-size:14px;color:var(--muted)}
+.phone{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:var(--paper);color:var(--ink);position:relative;font-size:14px}
+.phone a{color:inherit}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;min-height:52px}
+.logo{font-family:var(--display);font-weight:900;font-size:22px;letter-spacing:.02em;text-transform:uppercase}
+.menu{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;min-height:44px;display:flex;align-items:center}
+.ph{font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+.cta{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;font-weight:600;text-decoration:none;border-radius:4px;background:var(--green);color:#fff;font-size:14px}
+.callnow{position:sticky;bottom:10px;margin:0 12px 12px;display:flex;align-items:center;justify-content:center;min-height:48px;background:var(--green);color:#fff;font-weight:600;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.svc{display:flex;flex-wrap:wrap;gap:6px}
+.svc span{font-size:12px;padding:7px 10px;border:1px solid currentColor;border-radius:999px;min-height:30px}
+.reveal{position:relative;height:150px;overflow:hidden;border-radius:6px;user-select:none}
+.reveal .a,.reveal .b{position:absolute;inset:0;display:flex;align-items:flex-end;padding:10px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.reveal .a{background:repeating-linear-gradient(45deg,#8b8d86,#8b8d86 10px,#7a7c75 10px,#7a7c75 20px);color:#fff}
+.reveal .b{background:linear-gradient(135deg,#d9dcd2,#f4f5ef);color:var(--ink);clip-path:inset(0 0 0 50%);justify-content:flex-end}
+.reveal input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.reveal .knob{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;pointer-events:none}
+.reveal .knob::after{content:"⇄";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font-size:16px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+/* A: Swiss poster grid */
+.A .hero{background:var(--green);color:#fff;padding:18px 16px 20px}
+.A .big{font-family:var(--display);font-weight:900;font-size:150px;line-height:.8;margin:6px 0 4px}
+.A .cap{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;text-transform:uppercase}
+.A .cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;font-size:13px}
+.A .cols div{border-top:2px solid #fff;padding-top:6px}
+.A .sec{padding:18px 16px}
+.A h3{font-family:var(--display);font-size:26px;text-transform:uppercase;margin:0 0 10px;line-height:1}
+/* B: big plain headline, dark */
+.B{background:var(--ink);color:#f2f4ee}
+.B .hero{padding:26px 16px 22px}
+.B h2{font-family:var(--display);font-weight:900;font-size:50px;line-height:.92;text-transform:uppercase;margin:0 0 16px}
+.B h2 em{font-style:normal;color:#5fd14a}
+.B .sec{background:var(--paper);color:var(--ink);padding:18px 16px;border-radius:20px 20px 0 0}
+.B h3{font-family:var(--display);font-size:26px;text-transform:uppercase;margin:0 0 10px;line-height:1}
+/* C: reveal first */
+.C .top{padding:6px 16px 0}
+.C .rev{margin:10px 12px 0}
+.C .rev .reveal{height:240px;border-radius:14px}
+.C h2{font-family:var(--display);font-weight:900;font-size:64px;line-height:.85;text-transform:uppercase;margin:16px 16px 6px;color:var(--green-deep)}
+.C .sec{padding:8px 16px 18px}
+.C .list{border-top:2px solid var(--ink);margin-top:10px}
+.C .list div{display:flex;justify-content:space-between;align-items:center;min-height:44px;border-bottom:1px solid var(--sand);font-family:var(--display);font-size:22px;text-transform:uppercase;font-weight:700}
+.C .list small{font-family:var(--body);font-size:11px;color:#5b6159;text-transform:none;font-weight:400}
+@media (prefers-reduced-motion:no-preference){.opt{animation:in .5s ease both}.opt:nth-child(2){animation-delay:.08s}.opt:nth-child(3){animation-delay:.16s}}
+@keyframes in{from{opacity:.001;transform:translateY(8px)}to{opacity:1;transform:none}}
+</style>
+
+<div class="wrap">
+  <h1>WasteMind: three looks</h1>
+  <p class="intro">All three keep WasteMind's brand green and use only what is already on wastemind.ca. Drag the picture strip in each one. Grey boxes are where the real photos go once I have them. Pick one, or tell me what to mix.</p>
+
+  <div class="grid">
+
+    <section class="opt A">
+      <div class="tag"><b>A</b><span>Poster grid. Big number, green band.</span></div>
+      <div class="phone">
+        <div class="bar"><span class="logo">WasteMind</span><span class="menu">Menu</span></div>
+        <div class="hero">
+          <div class="ph">Headline wording: from current site</div>
+          <div class="big">9</div>
+          <div class="cap">Services,<br>one team</div>
+          <div class="cols"><div>Ottawa</div><div>Toronto / GTA</div><div>Equipment</div><div>Rental</div></div>
+          <p style="margin:16px 0 0"><a class="cta" style="background:#fff;color:var(--green-deep)" href="#a">Get a quote</a></p>
+        </div>
+        <div class="sec">
+          <h3>Before and after</h3>
+          <div class="reveal"><div class="a">Before</div><div class="b">After</div><div class="knob"></div><input type="range" min="0" max="100" value="50" aria-label="Before and after, option A"></div>
+          <div class="ph" style="margin-top:6px">Epoxy floor project</div>
+        </div>
+        <div class="sec" style="background:var(--sand)">
+          <h3>What we do</h3>
+          <div class="svc"><span>Epoxy flooring</span><span>+ 8 more from current site</span></div>
+        </div>
+        <a class="callnow" href="#a">Call now</a>
+      </div>
+    </section>
+
+    <section class="opt B">
+      <div class="tag"><b>B</b><span>Big plain headline on dark.</span></div>
+      <div class="phone B">
+        <div class="bar"><span class="logo">WasteMind</span><span class="menu">Menu</span></div>
+        <div class="hero">
+          <div class="ph">Headline wording: from current site</div>
+          <h2>Your headline <em>goes here</em></h2>
+          <a class="cta" href="#b">Get a quote</a>
+          <span class="ph" style="margin-left:12px">or call now</span>
+        </div>
+        <div class="sec">
+          <h3>Before and after</h3>
+          <div class="reveal"><div class="a">Before</div><div class="b">After</div><div class="knob"></div><input type="range" min="0" max="100" value="50" aria-label="Before and after, option B"></div>
+          <h3 style="margin-top:20px">What we do</h3>
+          <div class="svc"><span>Epoxy flooring</span><span>+ 8 more</span></div>
+          <p class="ph" style="margin-top:14px">Ottawa · Toronto / GTA</p>
+        </div>
+        <a class="callnow" href="#b">Call now</a>
+      </div>
+    </section>
+
+    <section class="opt C">
+      <div class="tag"><b>C</b><span>Picture first, then a type list.</span></div>
+      <div class="phone C">
+        <div class="bar"><span class="logo">WasteMind</span><span class="menu">Menu</span></div>
+        <div class="rev"><div class="reveal"><div class="a">Before</div><div class="b">After</div><div class="knob"></div><input type="range" min="0" max="100" value="50" aria-label="Before and after, option C"></div></div>
+        <h2>Work you can see</h2>
+        <div class="sec">
+          <div class="ph">Headline wording: from current site</div>
+          <div class="list">
+            <div>Epoxy flooring <small>shown above</small></div>
+            <div>+ 8 more services <small>from current site</small></div>
+            <div>Equipment <small>page</small></div>
+            <div>Rental <small>page</small></div>
+          </div>
+          <p style="margin:16px 0 0"><a class="cta" href="#c">Get a quote</a></p>
+        </div>
+        <a class="callnow" href="#c">Call now</a>
+      </div>
+    </section>
+
+  </div>
+
+  <p class="note">Rules I followed: no "AI" wording, no made-up stats (the 9 is the nine services listed on the current site), no stock photos. Each phone keeps the sticky Call now button and has buttons at least 44px tall. Motion is limited to the picture strip and switches off for people who ask for less motion.</p>
+</div>
+
+<script>
+document.querySelectorAll('.reveal').forEach(function(r){
+  var i=r.querySelector('input'),b=r.querySelector('.b'),k=r.querySelector('.knob');
+  function s(){var v=i.value;b.style.clipPath='inset(0 0 0 '+v+'%)';k.style.left=v+'%'}
+  i.addEventListener('input',s);s();
+});
+</script>
+
+</head></html>
