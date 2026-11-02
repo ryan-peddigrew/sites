@@ -229,6 +229,149 @@ footer nav a{min-height:44px;display:inline-flex;align-items:center;text-decorat
   .dir{transition:none}
   .card img{transition:none}
 }
+/* facts strip */
+.facts{background:var(--ink);color:#fff;border-top:1px solid rgba(255,255,255,.08)}
+.facts .wrap{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.1);padding:0}
+.fact{background:var(--ink);padding:22px var(--gut) 24px}
+.fact b{display:block;font:900 clamp(48px,7vw,84px)/.9 var(--display);color:#fff}
+.fact span{display:block;margin-top:8px;color:var(--mute-d);font-size:15px;line-height:1.35}
+@media(min-width:900px){.facts .wrap{grid-template-columns:repeat(4,1fr)}.fact{padding:30px 32px}}
+
+/* explorer */
+.explore{background:var(--ink);color:#fff;padding:clamp(72px,10vw,130px) 0}
+.explore .mono,.brief .ex-head .mono{color:var(--teal)}
+.ex-head{display:grid;gap:16px;margin-bottom:36px}
+.ex-head h2{margin-top:12px}
+.ex-head p{max-width:52ch;color:var(--mute-d)}
+.brief .ex-head p{color:var(--mute)}
+@media(min-width:900px){.ex-head{grid-template-columns:1fr 1fr;align-items:end;gap:64px}}
+.ex-grid{display:grid;gap:28px;grid-template-columns:minmax(0,1fr)}
+.ex-left,.ex-panel{min-width:0}
+.br-grid>*{min-width:0}
+@media(min-width:900px){.ex-grid{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:56px;align-items:start}}
+.zone-pills{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 calc(var(--gut)*-1) 18px;padding:0 var(--gut)}
+.zone-pills::-webkit-scrollbar{display:none}
+.zone-pills button{flex:0 0 auto;min-height:46px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;font:500 14px var(--body);cursor:pointer;white-space:nowrap}
+.zone-pills button[aria-selected="true"]{background:var(--teal);border-color:var(--teal)}
+@media(min-width:900px){.zone-pills{flex-wrap:wrap;margin:0 0 18px;padding:0}}
+.tower{width:100%;max-width:420px;margin:0 auto;display:block;height:auto}
+.tower .zone{cursor:pointer}
+.tower .zf{fill:#161b1f;stroke:#e9ecec;stroke-width:1.4;transition:fill .25s}
+.tower .zf.below{fill:#111518}
+.tower .w{fill:#20272c;stroke:#e9ecec;stroke-width:1;transition:fill .25s}
+.tower .ln,.tower .ground{stroke:#e9ecec;stroke-width:1.4;fill:none}
+.tower .ground{stroke-width:2}
+.tower .ln-frame{fill:#161b1f;stroke:#e9ecec;stroke-width:1.4}
+.tower text{fill:#7d8689;font:500 10px var(--mono);letter-spacing:.1em}
+.tower .zone:hover .zf{fill:#1d2d33}
+.tower .zone.on .zf{fill:rgba(0,136,163,.28);stroke:#3fc7e0}
+.tower .zone.on .w{fill:#0088A3;stroke:#3fc7e0}
+.ex-panel{background:var(--graphite);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:24px clamp(18px,3vw,32px) 26px}
+.ex-tag{color:var(--teal)}
+.ex-name{font-size:clamp(40px,5vw,64px);margin:8px 0 10px}
+.ex-desc{color:#d5d9da;max-width:46ch}
+.ex-ph{margin:18px 0 4px;border-radius:3px;overflow:hidden;position:relative;aspect-ratio:16/10;background:#14181b}
+.ex-ph img{width:100%;height:100%;object-fit:cover}
+.ex-ph figcaption{position:absolute;left:10px;bottom:10px;background:rgba(14,17,19,.85);color:#fff;padding:6px 10px;border-radius:2px}
+.ex-ph[hidden]{display:none}
+.ex-list{display:grid;gap:8px;margin-top:18px}
+.svc-row{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:56px;padding:8px 8px 8px 16px;border:1px solid rgba(255,255,255,.14);border-radius:3px;background:transparent;color:#fff;font:600 clamp(22px,2.6vw,28px)/1 var(--display);text-transform:uppercase;letter-spacing:.02em;cursor:pointer;text-align:left;width:100%}
+.svc-row i{flex:0 0 40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;transition:background .2s,transform .2s}
+.svc-row i svg{width:20px;height:20px}
+.svc-row[aria-pressed="true"]{border-color:var(--teal);background:rgba(0,136,163,.14)}
+.svc-row[aria-pressed="true"] i{background:var(--teal);border-color:var(--teal);transform:rotate(45deg)}
+.ex-actions{display:grid;gap:10px;margin-top:20px}
+@media(min-width:600px){.ex-actions{grid-template-columns:1fr 1fr}}
+.bcount{display:inline-grid;place-items:center;min-width:26px;height:26px;padding:0 6px;border-radius:999px;background:var(--teal);color:#fff;font:500 12px var(--mono)}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink)}
+
+/* brief builder */
+.brief{padding:clamp(72px,10vw,130px) 0;background:var(--paper)}
+.br-grid{display:grid;gap:28px;grid-template-columns:minmax(0,1fr)}
+@media(min-width:960px){.br-grid{grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}.br-card{position:sticky;top:88px}}
+.br-form{display:grid;gap:14px;background:none;border:0;padding:0}
+fieldset{border:1px solid var(--line);border-radius:3px;padding:20px 18px 22px;background:#fff;display:grid;gap:12px;min-width:0}
+legend{float:left;width:100%;display:flex;align-items:center;gap:12px;font:800 clamp(26px,3vw,32px)/1 var(--display);text-transform:uppercase;margin-bottom:6px}
+legend span{flex:0 0 34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font:500 13px var(--mono)}
+legend em{font:500 10px var(--mono);letter-spacing:.08em;color:var(--mute);font-style:normal;margin-left:auto}
+.hint{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{min-height:46px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font:500 15px var(--body);cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.chips button:hover{border-color:var(--ink)}
+.chips button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.chips.svc button[aria-pressed="true"]{background:var(--teal);border-color:var(--teal)}
+.chips button.shake{animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.br-form label{display:grid;gap:8px}
+.range output{font:900 32px/1 var(--display);color:var(--ink);margin-left:6px}
+input[type=range]{-webkit-appearance:none;appearance:none;height:44px;background:transparent;padding:0;border:0;min-height:44px}
+input[type=range]::-webkit-slider-runnable-track{height:6px;background:var(--stone);border-radius:3px}
+input[type=range]::-moz-range-track{height:6px;background:var(--stone);border-radius:3px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:var(--teal);border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.25);margin-top:-12px}
+input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--teal);border:3px solid #fff}
+.br-card{background:#fff;border:1px solid var(--line);border-top:6px solid var(--teal);border-radius:3px;padding:24px 22px 22px;box-shadow:0 20px 50px -30px rgba(14,17,19,.45)}
+.br-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.br-logo{height:30px;width:auto;filter:drop-shadow(0 3px 5px rgba(0,0,0,.18))}
+.br-top .mono{color:var(--mute)}
+.br-card h3{font-size:clamp(36px,4vw,48px)}
+.br-sub{color:var(--mute);margin-top:6px}
+.meter{height:10px;background:var(--stone);border-radius:5px;overflow:hidden;margin:18px 0 8px}
+.meter i{display:block;height:100%;width:0;background:var(--teal);transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.br-tier{color:var(--teal-d)}
+.br-dl{margin-top:16px;border-top:1px solid var(--line)}
+.br-dl div{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.br-dl dt{font:500 10px/1.8 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.br-dl dd{font-size:15px}
+.br-next{margin-top:16px}
+.br-next .mono{color:var(--mute)}
+.br-next ol{margin:8px 0 0 20px;font-size:15px;display:grid;gap:4px}
+.br-note{margin-top:14px;font-size:14px;color:var(--mute);background:var(--paper);padding:12px;border-radius:2px}
+.br-actions{display:grid;gap:8px;margin-top:16px}
+.br-actions .btn{width:100%}
+.toast{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom));transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-size:15px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:90}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* project filters */
+.filters{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 var(--gut) 18px;max-width:var(--max);margin:0 auto}
+.filters::-webkit-scrollbar{display:none}
+.filters button{flex:0 0 auto;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:#fff;font:500 14px var(--body);cursor:pointer;color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.filters button span{font:500 11px var(--mono);opacity:.6;margin-left:6px}
+.card[hidden]{display:none}
+
+/* phone action bar */
+.actbar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:grid;grid-template-columns:1fr 1.4fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(14,17,19,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transform:translateY(110%);transition:transform .35s}
+.actbar.show{transform:none}
+.actbar .btn{min-height:50px;padding:0 12px}
+.actbar .btn-line{color:#fff}
+@media(min-width:960px){.actbar{display:none}}
+@media(max-width:959px){footer{padding-bottom:calc(96px + env(safe-area-inset-bottom))}}
+
+@media (prefers-reduced-motion:reduce){.meter i,.actbar,.toast,.svc-row i{transition:none}.chips button.shake{animation:none}}
+
+@media print{
+  @page{margin:16mm}
+  body{background:#fff}
+  .hdr,.dir,.actbar,.toast,.lb,footer,main>section:not(#brief),.facts,.br-form,.brief .ex-head,.br-actions{display:none!important}
+  .brief{padding:0}
+  .br-grid{display:block}
+  .br-card{box-shadow:none;border:1px solid #999;border-top:6px solid #0088A3;position:static}
+  .br-card::after{content:"Devman Group Inc. · 2651 John St, Unit 6, Markham, ON L3R 2W5 · 905-604-0555 · team@devmaninc.com";display:block;margin-top:18px;font:500 10px var(--mono);color:#555}
+}
+
+.news{background:var(--teal);color:#fff;padding:clamp(56px,8vw,96px) 0}
+.news-in{display:grid;gap:24px}
+.news .mono{color:#d8f3f8}
+.news h2{font-size:clamp(44px,7vw,84px);margin:10px 0 12px}
+.news p{max-width:46ch}
+.news-form{display:grid;gap:10px;background:none;border:0;padding:0}
+.news-form input{background:#fff;border-color:#fff}
+.news-form .btn{background:var(--ink)}
+.news-form .btn:hover{background:#000}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(min-width:900px){.news-in{grid-template-columns:1fr 1fr;align-items:end;gap:64px}.news-form{grid-template-columns:1fr auto}}
+
 </style>
 </head>
 <body>
@@ -238,8 +381,8 @@ footer nav a{min-height:44px;display:inline-flex;align-items:center;text-decorat
     <a class="logo" href="#top" aria-label="Devman Group Inc. home"><img src="img/logo-white.png" alt="Devman Group Incorporated" width="106" height="38"></a>
     <nav class="nav" aria-label="Main">
       <a href="#services">Services</a>
+      <a href="#brief">Project brief</a>
       <a href="#projects">Projects</a>
-      <a href="#how">How we work</a>
       <a href="#reviews">Reviews</a>
       <a href="#about">About us</a>
       <a class="btn btn-teal" href="#contact">Schedule an appointment</a>
@@ -258,11 +401,12 @@ footer nav a{min-height:44px;display:inline-flex;align-items:center;text-decorat
   <p class="dir-head mono">Building directory</p>
   <ol>
     <li><a href="#services"><span>01</span>Services<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-    <li><a href="#projects"><span>02</span>Projects<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-    <li><a href="#how"><span>03</span>How we work<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-    <li><a href="#reviews"><span>04</span>Reviews<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-    <li><a href="#about"><span>05</span>About us<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-    <li><a href="#contact"><span>06</span>Contact<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#brief"><span>02</span>Project brief<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#projects"><span>03</span>Projects<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#how"><span>04</span>How we work<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#reviews"><span>05</span>Reviews<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#about"><span>06</span>About us<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#contact"><span>07</span>Contact<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
   </ol>
   <div class="dir-foot">
     <a class="btn btn-teal" href="#contact">Schedule an appointment</a>
@@ -282,8 +426,8 @@ footer nav a{min-height:44px;display:inline-flex;align-items:center;text-decorat
       <h1>Communication.<b>Quality.</b>Service.</h1>
       <p>Experts in condominium refurbishment and design-build solutions, from corridors to lobbies and amenity spaces.</p>
       <div class="ctas">
-        <a class="btn btn-teal" href="#contact">Schedule an appointment</a>
-        <a class="btn btn-line" href="#projects">See our projects</a>
+        <a class="btn btn-teal" href="#brief">Build your project brief</a>
+        <a class="btn btn-line" href="#services">Tap through a building</a>
       </div>
     </div>
   </div>
@@ -321,66 +465,174 @@ footer nav a{min-height:44px;display:inline-flex;align-items:center;text-decorat
   </div>
 </section>
 
-<section class="board" id="services">
+<section class="facts" aria-label="Quick facts">
   <div class="wrap">
-    <div class="board-head">
+    <div class="fact"><b data-n="12">12</b><span>Interior spaces we refurbish</span></div>
+    <div class="fact"><b data-n="5">5</b><span>Exterior services with our partners</span></div>
+    <div class="fact"><b data-n="1">1</b><span>On-site manager on every project</span></div>
+    <div class="fact"><b data-n="14">14</b><span>Projects in the gallery below</span></div>
+  </div>
+</section>
+
+<section class="explore" id="services">
+  <div class="wrap">
+    <div class="ex-head">
       <div>
         <span class="mono">01 · Services</span>
-        <h2 style="margin-top:12px">Every shared space, one contractor.</h2>
+        <h2>Tap a floor.</h2>
       </div>
-      <p>We offer our knowledge and expertise for your condo refurbishment and are happy to work with you to value-engineer and prepare a budget for any of the services below.</p>
+      <p>Every shared space in your building, inside and out. Tap a floor to see what we refurbish there, then add it to your project brief.</p>
     </div>
-
-    <div class="tabs" role="tablist" aria-label="Service type">
-      <button class="tab" role="tab" id="t-int" aria-selected="true" aria-controls="p-int">Interior</button>
-      <button class="tab" role="tab" id="t-ext" aria-selected="false" aria-controls="p-ext">Exterior</button>
-    </div>
-
-    <div class="panel" id="p-int" role="tabpanel" aria-labelledby="t-int">
-      <div class="dirboard">
-        <ol class="two">
-          <li><span>01</span>Corridors</li>
-          <li><span>02</span>Lobbies and foyers</li>
-          <li><span>03</span>Management offices</li>
-          <li><span>04</span>Guest suites</li>
-          <li><span>05</span>Recreation and party rooms</li>
-          <li><span>06</span>Exercise rooms</li>
-          <li><span>07</span>Squash courts</li>
-          <li><span>08</span>Sauna and pool areas</li>
-          <li><span>09</span>Locker and change rooms</li>
-          <li><span>10</span>Laundry rooms</li>
-          <li><span>11</span>Disposal rooms</li>
-          <li><span>12</span>Stairwells</li>
-        </ol>
+    <div class="ex-grid">
+      <div class="ex-left">
+        <div class="zone-pills" role="tablist" aria-label="Building floors">
+          <button type="button" role="tab" data-zone="res">Residential floors</button>
+          <button type="button" role="tab" data-zone="amen">Amenity floor</button>
+          <button type="button" role="tab" data-zone="lobby" aria-selected="true">Lobby level</button>
+          <button type="button" role="tab" data-zone="lower">Lower level</button>
+          <button type="button" role="tab" data-zone="ext">Outside</button>
+        </div>
+        <svg class="tower" viewBox="0 0 320 540" aria-hidden="true">
+          <g class="zone" data-zone="ext">
+            <rect class="zf" x="70" y="54" width="12" height="396"/><rect class="zf" x="238" y="54" width="12" height="396"/>
+            <path class="zf" d="M118 392h84l10 10H108z"/>
+            <rect class="zf" x="0" y="450" width="70" height="10"/><rect class="zf" x="250" y="450" width="70" height="10"/>
+            <path class="ln" d="M14 450v10M28 450v10M42 450v10M56 450v10M264 450v10M278 450v10M292 450v10M306 450v10"/>
+            <circle class="zf" cx="30" cy="432" r="16"/><rect class="zf" x="26" y="440" width="8" height="10"/>
+            <circle class="zf" cx="290" cy="432" r="16"/><rect class="zf" x="286" y="440" width="8" height="10"/>
+          </g>
+          <rect class="ln-frame" x="96" y="30" width="128" height="24"/>
+          <g class="zone" data-zone="res">
+            <rect class="zf" x="82" y="54" width="156" height="246"/>
+            <g class="win"></g>
+          </g>
+          <g class="zone" data-zone="amen">
+            <rect class="zf" x="82" y="300" width="156" height="60"/>
+            <rect class="w" x="92" y="312" width="40" height="36"/><rect class="w" x="140" y="312" width="40" height="36"/><rect class="w" x="188" y="312" width="40" height="36"/>
+          </g>
+          <g class="zone" data-zone="lobby">
+            <rect class="zf" x="82" y="360" width="156" height="90"/>
+            <rect class="w" x="90" y="406" width="22" height="44"/><rect class="w" x="208" y="406" width="22" height="44"/>
+            <rect class="w" x="140" y="412" width="40" height="38"/><path class="ln" d="M160 412v38"/>
+            <rect class="w" x="90" y="372" width="140" height="16"/>
+          </g>
+          <path class="ground" d="M0 450h320"/>
+          <g class="zone" data-zone="lower">
+            <rect class="zf below" x="70" y="460" width="180" height="62"/>
+            <rect class="w" x="84" y="476" width="34" height="32"/><rect class="w" x="143" y="476" width="34" height="32"/><rect class="w" x="202" y="476" width="34" height="32"/>
+          </g>
+          <g class="tags">
+            <text x="160" y="22" text-anchor="middle">PH</text>
+          </g>
+        </svg>
       </div>
-      <p class="panel-note">Full condo refurbishment, including supply and installation of all interior finishes.</p>
-      <p class="panel-note" style="margin-top:12px">We partner with design firms on a design-build service custom to your building's vision and demographic, and guide you from concept to reality.</p>
-    </div>
-
-    <div class="panel" id="p-ext" role="tabpanel" aria-labelledby="t-ext" hidden>
-      <div class="dirboard">
-        <ol>
-          <li><span>01</span>Concrete repair</li>
-          <li><span>02</span>Interlocking</li>
-          <li><span>03</span>Exterior painting</li>
-          <li><span>04</span>Stucco finishes</li>
-          <li><span>05</span>Caulking</li>
-        </ol>
+      <div class="ex-panel" aria-live="polite">
+        <span class="mono ex-tag"></span>
+        <h3 class="ex-name"></h3>
+        <p class="ex-desc"></p>
+        <figure class="ex-ph"><img alt="" loading="lazy"><figcaption class="mono"></figcaption></figure>
+        <div class="ex-list"></div>
+        <div class="ex-actions">
+          <button type="button" class="btn btn-teal ex-all">Add this floor to my brief</button>
+          <a class="btn btn-line ex-go" href="#brief">Open my brief <span class="bcount">0</span></a>
+        </div>
       </div>
-      <p class="panel-note">Your common areas are seen by visitors and residents. Your exterior is seen by everyone who passes by.</p>
-      <p class="panel-note" style="margin-top:12px">We work with a team of partners on full building refurbishment, value-engineered to suit any budget with the long-lasting quality you expect.</p>
-    </div>
-
-    <div class="ctas">
-      <a class="btn btn-teal" href="#contact">Ask about a budget</a>
     </div>
   </div>
 </section>
 
+<section class="brief" id="brief">
+  <div class="wrap">
+    <div class="ex-head">
+      <div>
+        <span class="mono">02 · Project brief</span>
+        <h2>Build your project brief.</h2>
+      </div>
+      <p>Five quick questions. You get a board-ready summary to share with your board or management team. We get what we need to prepare for a site meeting.</p>
+    </div>
+    <div class="br-grid">
+      <form class="br-form" id="brief-form" onsubmit="return false">
+        <fieldset>
+          <legend><span>1</span>Who's planning this?</legend>
+          <div class="chips" data-name="role" data-single>
+            <button type="button" aria-pressed="false">Property manager</button>
+            <button type="button" aria-pressed="false">Board member</button>
+            <button type="button" aria-pressed="false">Committee member</button>
+            <button type="button" aria-pressed="false">Other</button>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend><span>2</span>Which spaces?</legend>
+          <p class="hint">Inside</p>
+          <div class="chips svc" data-group="Inside"></div>
+          <p class="hint">Outside, with our partners</p>
+          <div class="chips svc" data-group="Outside"></div>
+        </fieldset>
+        <fieldset>
+          <legend><span>3</span>Your building</legend>
+          <label>Building name or address<input id="b-name" autocomplete="off" placeholder="For example, 1 Shaw St"></label>
+          <label class="range">Residential floors <output id="b-floors-out">12</output><input id="b-floors" type="range" min="1" max="50" value="12"></label>
+        </fieldset>
+        <fieldset>
+          <legend><span>4</span>When are you hoping to start?</legend>
+          <div class="chips" data-name="when" data-single>
+            <button type="button" aria-pressed="false">Within 6 months</button>
+            <button type="button" aria-pressed="false">6 to 12 months</button>
+            <button type="button" aria-pressed="false">Over a year</button>
+            <button type="button" aria-pressed="false">Just planning a budget</button>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend><span>5</span>What matters most? <em>Pick up to 3</em></legend>
+          <div class="chips" data-name="prio" data-max="3">
+            <button type="button" aria-pressed="false">Minimal disruption</button>
+            <button type="button" aria-pressed="false">Keeping residents informed</button>
+            <button type="button" aria-pressed="false">Timeless design</button>
+            <button type="button" aria-pressed="false">Staying on budget</button>
+            <button type="button" aria-pressed="false">Staying on schedule</button>
+            <button type="button" aria-pressed="false">Value-engineering options</button>
+          </div>
+        </fieldset>
+      </form>
+
+      <aside class="br-card" id="brief-card" aria-live="polite">
+        <div class="br-top">
+          <img src="img/logo.png" alt="Devman Group Incorporated" class="br-logo">
+          <span class="mono">Project brief</span>
+        </div>
+        <h3 id="c-name">Your building</h3>
+        <p class="br-sub" id="c-sub">Pick your spaces to start.</p>
+        <div class="meter" aria-hidden="true"><i id="c-bar"></i></div>
+        <p class="mono br-tier" id="c-tier">Scope: not started</p>
+        <dl class="br-dl">
+          <div><dt>Spaces</dt><dd id="c-spaces">None yet</dd></div>
+          <div><dt>Timing</dt><dd id="c-when">Not set</dd></div>
+          <div><dt>Priorities</dt><dd id="c-prio">Not set</dd></div>
+        </dl>
+        <div class="br-next">
+          <span class="mono">What happens next</span>
+          <ol>
+            <li>Site meeting with your management team</li>
+            <li>We value-engineer and prepare your budget</li>
+            <li>Design with our partner design firms</li>
+          </ol>
+        </div>
+        <p class="br-note">No prices here on purpose. Every building is different, so we prepare your budget after the site meeting.</p>
+        <div class="br-actions">
+          <button type="button" class="btn btn-teal" id="c-send">Request a site meeting</button>
+          <button type="button" class="btn btn-ghost" id="c-print"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3"/><rect x="7" y="14" width="10" height="7"/></svg>Save as PDF for your board</button>
+          <button type="button" class="btn btn-ghost" id="c-copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="8" y="8" width="12" height="13" rx="1"/><path d="M16 8V4H4v13h4"/></svg><span>Copy brief</span></button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
 <section class="projects" id="projects">
   <div class="wrap proj-head">
     <div>
-      <span class="mono" style="color:var(--teal-d)">02 · Projects</span>
+      <span class="mono" style="color:var(--teal-d)">03 · Projects</span>
       <h2 style="margin-top:12px">Recent work</h2>
     </div>
     <p>Corridors, lobbies and entrances refurbished for condominium communities across the Greater Toronto Area.</p>
@@ -389,21 +641,28 @@ footer nav a{min-height:44px;display:inline-flex;align-items:center;text-decorat
       <button type="button" data-dir="1" aria-label="Next projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
     </div>
   </div>
+  <div class="filters" role="group" aria-label="Filter projects">
+    <button type="button" data-f="all" aria-pressed="true">All</button>
+    <button type="button" data-f="lobby" aria-pressed="false">Lobbies</button>
+    <button type="button" data-f="corridor" aria-pressed="false">Corridors</button>
+    <button type="button" data-f="elev" aria-pressed="false">Elevators</button>
+    <button type="button" data-f="entr" aria-pressed="false">Entrances</button>
+  </div>
   <div class="rail" id="rail">
-    <button class="card" type="button" data-src="img/maison-lobby.jpg" data-cap="1 Maison Parc Crt · Lobby"><div class="ph"><img src="img/maison-lobby.jpg" alt="Refurbished lobby with lounge seating at 1 Maison Parc Crt" loading="lazy"></div><div class="plaque"><strong>1 Maison Parc Crt</strong><span class="mono">Lobby</span></div></button>
-    <button class="card" type="button" data-src="img/shaw-lobby.jpg" data-cap="1 Shaw St · Lobby"><div class="ph"><img src="img/shaw-lobby.jpg" alt="Lobby with patterned tile floor at 1 Shaw St" loading="lazy"></div><div class="plaque"><strong>1 Shaw St</strong><span class="mono">Lobby</span></div></button>
-    <button class="card" type="button" data-src="img/bayview-stair.jpg" data-cap="1818 Bayview · Stair and foyer"><div class="ph"><img src="img/bayview-stair.jpg" alt="Foyer with crystal chandelier and staircase at 1818 Bayview" loading="lazy"></div><div class="plaque"><strong>1818 Bayview</strong><span class="mono">Foyer</span></div></button>
-    <button class="card" type="button" data-src="img/yonge.jpg" data-cap="3900 Yonge St · Corridor"><div class="ph"><img src="img/yonge.jpg" alt="Corridor with marble floor and wood panelling at 3900 Yonge St" loading="lazy"></div><div class="plaque"><strong>3900 Yonge St</strong><span class="mono">Corridor</span></div></button>
-    <button class="card" type="button" data-src="img/antibes-lobby.jpg" data-cap="80 Antibes Dr · Lobby"><div class="ph"><img src="img/antibes-lobby.jpg" alt="Lobby concierge desk at 80 Antibes Dr" loading="lazy"></div><div class="plaque"><strong>80 Antibes Dr</strong><span class="mono">Lobby</span></div></button>
-    <button class="card" type="button" data-src="img/randolph.jpg" data-cap="211 Randolph Rd · Elevator lobby"><div class="ph"><img src="img/randolph.jpg" alt="Elevator lobby at 211 Randolph Rd" loading="lazy"></div><div class="plaque"><strong>211 Randolph Rd</strong><span class="mono">Elevators</span></div></button>
-    <button class="card" type="button" data-src="img/richmond-lobby.jpg" data-cap="670 Richmond St W · Lobby"><div class="ph"><img src="img/richmond-lobby.jpg" alt="Lobby with wood slat wall and stair at 670 Richmond St W" loading="lazy"></div><div class="plaque"><strong>670 Richmond St W</strong><span class="mono">Lobby</span></div></button>
-    <button class="card" type="button" data-src="img/bayview-entrance.jpg" data-cap="1818 Bayview · Entrance"><div class="ph"><img src="img/bayview-entrance.jpg" alt="Building entrance canopy at 1818 Bayview" loading="lazy"></div><div class="plaque"><strong>1818 Bayview</strong><span class="mono">Entrance</span></div></button>
-    <button class="card" type="button" data-src="img/stadium-lobby.jpg" data-cap="90 Stadium · Lobby"><div class="ph"><img src="img/stadium-lobby.jpg" alt="Lobby reception desk at 90 Stadium" loading="lazy"></div><div class="plaque"><strong>90 Stadium</strong><span class="mono">Lobby</span></div></button>
-    <button class="card" type="button" data-src="img/maison-corridor.jpg" data-cap="1 Maison Parc Crt · Corridor"><div class="ph"><img src="img/maison-corridor.jpg" alt="Corridor at 1 Maison Parc Crt" loading="lazy"></div><div class="plaque"><strong>1 Maison Parc Crt</strong><span class="mono">Corridor</span></div></button>
-    <button class="card" type="button" data-src="img/birchmount.jpg" data-cap="8110–8130 Birchmount Rd · Corridor"><div class="ph"><img src="img/birchmount.jpg" alt="Corridor at 8110 to 8130 Birchmount Rd" loading="lazy"></div><div class="plaque"><strong>Birchmount Rd</strong><span class="mono">Corridor</span></div></button>
-    <button class="card" type="button" data-src="img/shaw-elevators.jpg" data-cap="1 Shaw St · Elevator lobby"><div class="ph"><img src="img/shaw-elevators.jpg" alt="Elevator lobby with patterned floor at 1 Shaw St" loading="lazy"></div><div class="plaque"><strong>1 Shaw St</strong><span class="mono">Elevators</span></div></button>
-    <button class="card" type="button" data-src="img/atherley.jpg" data-cap="354 Atherley · Corridor"><div class="ph"><img src="img/atherley.jpg" alt="Corridor with stone and wood details at 354 Atherley" loading="lazy"></div><div class="plaque"><strong>354 Atherley</strong><span class="mono">Corridor</span></div></button>
-    <button class="card" type="button" data-src="img/baffin.jpg" data-cap="51 Baffin Crt · Corridor"><div class="ph"><img src="img/baffin.jpg" alt="Corridor at 51 Baffin Crt" loading="lazy"></div><div class="plaque"><strong>51 Baffin Crt</strong><span class="mono">Corridor</span></div></button>
+    <button class="card" data-type="lobby" type="button" data-src="img/maison-lobby.jpg" data-cap="1 Maison Parc Crt · Lobby"><div class="ph"><img src="img/maison-lobby.jpg" alt="Refurbished lobby with lounge seating at 1 Maison Parc Crt" loading="lazy"></div><div class="plaque"><strong>1 Maison Parc Crt</strong><span class="mono">Lobby</span></div></button>
+    <button class="card" data-type="lobby" type="button" data-src="img/shaw-lobby.jpg" data-cap="1 Shaw St · Lobby"><div class="ph"><img src="img/shaw-lobby.jpg" alt="Lobby with patterned tile floor at 1 Shaw St" loading="lazy"></div><div class="plaque"><strong>1 Shaw St</strong><span class="mono">Lobby</span></div></button>
+    <button class="card" data-type="lobby" type="button" data-src="img/bayview-stair.jpg" data-cap="1818 Bayview · Stair and foyer"><div class="ph"><img src="img/bayview-stair.jpg" alt="Foyer with crystal chandelier and staircase at 1818 Bayview" loading="lazy"></div><div class="plaque"><strong>1818 Bayview</strong><span class="mono">Foyer</span></div></button>
+    <button class="card" data-type="corridor" type="button" data-src="img/yonge.jpg" data-cap="3900 Yonge St · Corridor"><div class="ph"><img src="img/yonge.jpg" alt="Corridor with marble floor and wood panelling at 3900 Yonge St" loading="lazy"></div><div class="plaque"><strong>3900 Yonge St</strong><span class="mono">Corridor</span></div></button>
+    <button class="card" data-type="lobby" type="button" data-src="img/antibes-lobby.jpg" data-cap="80 Antibes Dr · Lobby"><div class="ph"><img src="img/antibes-lobby.jpg" alt="Lobby concierge desk at 80 Antibes Dr" loading="lazy"></div><div class="plaque"><strong>80 Antibes Dr</strong><span class="mono">Lobby</span></div></button>
+    <button class="card" data-type="elev" type="button" data-src="img/randolph.jpg" data-cap="211 Randolph Rd · Elevator lobby"><div class="ph"><img src="img/randolph.jpg" alt="Elevator lobby at 211 Randolph Rd" loading="lazy"></div><div class="plaque"><strong>211 Randolph Rd</strong><span class="mono">Elevators</span></div></button>
+    <button class="card" data-type="lobby" type="button" data-src="img/richmond-lobby.jpg" data-cap="670 Richmond St W · Lobby"><div class="ph"><img src="img/richmond-lobby.jpg" alt="Lobby with wood slat wall and stair at 670 Richmond St W" loading="lazy"></div><div class="plaque"><strong>670 Richmond St W</strong><span class="mono">Lobby</span></div></button>
+    <button class="card" data-type="entr" type="button" data-src="img/bayview-entrance.jpg" data-cap="1818 Bayview · Entrance"><div class="ph"><img src="img/bayview-entrance.jpg" alt="Building entrance canopy at 1818 Bayview" loading="lazy"></div><div class="plaque"><strong>1818 Bayview</strong><span class="mono">Entrance</span></div></button>
+    <button class="card" data-type="lobby" type="button" data-src="img/stadium-lobby.jpg" data-cap="90 Stadium · Lobby"><div class="ph"><img src="img/stadium-lobby.jpg" alt="Lobby reception desk at 90 Stadium" loading="lazy"></div><div class="plaque"><strong>90 Stadium</strong><span class="mono">Lobby</span></div></button>
+    <button class="card" data-type="corridor" type="button" data-src="img/maison-corridor.jpg" data-cap="1 Maison Parc Crt · Corridor"><div class="ph"><img src="img/maison-corridor.jpg" alt="Corridor at 1 Maison Parc Crt" loading="lazy"></div><div class="plaque"><strong>1 Maison Parc Crt</strong><span class="mono">Corridor</span></div></button>
+    <button class="card" data-type="corridor" type="button" data-src="img/birchmount.jpg" data-cap="8110–8130 Birchmount Rd · Corridor"><div class="ph"><img src="img/birchmount.jpg" alt="Corridor at 8110 to 8130 Birchmount Rd" loading="lazy"></div><div class="plaque"><strong>Birchmount Rd</strong><span class="mono">Corridor</span></div></button>
+    <button class="card" data-type="elev" type="button" data-src="img/shaw-elevators.jpg" data-cap="1 Shaw St · Elevator lobby"><div class="ph"><img src="img/shaw-elevators.jpg" alt="Elevator lobby with patterned floor at 1 Shaw St" loading="lazy"></div><div class="plaque"><strong>1 Shaw St</strong><span class="mono">Elevators</span></div></button>
+    <button class="card" data-type="corridor" type="button" data-src="img/atherley.jpg" data-cap="354 Atherley · Corridor"><div class="ph"><img src="img/atherley.jpg" alt="Corridor with stone and wood details at 354 Atherley" loading="lazy"></div><div class="plaque"><strong>354 Atherley</strong><span class="mono">Corridor</span></div></button>
+    <button class="card" data-type="corridor" type="button" data-src="img/baffin.jpg" data-cap="51 Baffin Crt · Corridor"><div class="ph"><img src="img/baffin.jpg" alt="Corridor at 51 Baffin Crt" loading="lazy"></div><div class="plaque"><strong>51 Baffin Crt</strong><span class="mono">Corridor</span></div></button>
   </div>
   <p class="rail-hint mono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Swipe for more · tap to enlarge</p>
 </section>
@@ -412,7 +671,7 @@ footer nav a{min-height:44px;display:inline-flex;align-items:center;text-decorat
   <div class="wrap onsite-grid">
     <figure class="rv"><img src="img/on-site.jpg" alt="Devman Group team member finishing a stairwell wall" loading="lazy"></figure>
     <div class="rv">
-      <span class="mono">03 · How we work</span>
+      <span class="mono">04 · How we work</span>
       <h2>An on-site manager on every project.</h2>
       <p>Our experience helps management minimize disruption and lets residents know what to expect.</p>
       <p>That flow of communication builds trust and keeps us accountable for a smooth transition.</p>
@@ -429,7 +688,7 @@ footer nav a{min-height:44px;display:inline-flex;align-items:center;text-decorat
 
 <section class="reviews" id="reviews">
   <div class="wrap">
-    <span class="mono" style="color:var(--teal-d)">04 · Reviews</span>
+    <span class="mono" style="color:var(--teal-d)">05 · Reviews</span>
     <h2 style="margin-top:12px">What property managers say</h2>
     <div class="quotes">
       <figure class="q rv">
@@ -459,7 +718,7 @@ footer nav a{min-height:44px;display:inline-flex;align-items:center;text-decorat
 <section class="about" id="about">
   <div class="wrap about-grid">
     <div class="rv">
-      <span class="mono">05 · About us</span>
+      <span class="mono">06 · About us</span>
       <h2 style="margin:12px 0 22px">Built on passion.</h2>
       <p>Devman Group was founded on a passion for an industry that blends residential and commercial construction.</p>
       <p>Enhancing a building's beauty through innovative, custom design, and making that shared space real for residents, is what drives us.</p>
@@ -475,7 +734,7 @@ footer nav a{min-height:44px;display:inline-flex;align-items:center;text-decorat
 <section class="contact" id="contact">
   <div class="wrap contact-grid">
     <div>
-      <span class="mono" style="color:var(--teal-d)">06 · Contact</span>
+      <span class="mono" style="color:var(--teal-d)">07 · Contact</span>
       <h2 style="margin-top:12px">Let's create a <em>beautiful</em> space.</h2>
       <p style="margin-top:18px;max-width:44ch">We would love to hear from you. Schedule an appointment today.</p>
       <div class="lines">
@@ -495,6 +754,21 @@ footer nav a{min-height:44px;display:inline-flex;align-items:center;text-decorat
   </div>
 </section>
 
+<section class="news" aria-label="Newsletter">
+  <div class="wrap news-in">
+    <div>
+      <span class="mono">Newsletter</span>
+      <h2>Stay in the loop.</h2>
+      <p>New projects and services for property managers and condo boards, straight to your inbox.</p>
+    </div>
+    <form id="news" class="news-form" novalidate>
+      <label class="sr" for="news-email">Email address</label>
+      <input id="news-email" type="email" autocomplete="email" placeholder="Your email" required>
+      <button class="btn btn-teal" type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -509,6 +783,12 @@ footer nav a{min-height:44px;display:inline-flex;align-items:center;text-decorat
     </nav>
   </div>
 </footer>
+
+<div class="actbar" aria-label="Quick actions">
+  <a class="btn btn-line" href="tel:+19056040555">Call</a>
+  <a class="btn btn-teal" href="#brief">Your brief <span class="bcount">0</span></a>
+</div>
+<div class="toast" role="status"></div>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Project photo">
   <button class="x" type="button" aria-label="Close photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
@@ -572,6 +852,144 @@ footer nav a{min-height:44px;display:inline-flex;align-items:center;text-decorat
 
   // preview form
   document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('form-msg').classList.add('show')});
+})();
+</script>
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var PLUS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
+  var Z={
+    res:{name:'Residential floors',tag:'Floors 2 and up',desc:'The corridors residents walk every day, from the elevator to their front door.',ph:'img/yonge.jpg',cap:'3900 Yonge St · Corridor',svc:['Corridors','Stairwells']},
+    amen:{name:'Amenity floor',tag:'Shared amenities',desc:'Spaces that meet the needs of current residents and appeal to future ones.',ph:null,svc:['Recreation and party rooms','Exercise rooms','Squash courts','Sauna and pool areas','Guest suites']},
+    lobby:{name:'Lobby level',tag:'Ground floor',desc:'The first thing residents and visitors see. We supply and install every interior finish.',ph:'img/shaw-lobby.jpg',cap:'1 Shaw St · Lobby',svc:['Lobbies and foyers','Management offices']},
+    lower:{name:'Lower level',tag:'Service rooms',desc:'The rooms residents use every week, refurbished with the same care as the lobby.',ph:null,svc:['Locker and change rooms','Laundry rooms','Disposal rooms']},
+    ext:{name:'Outside',tag:'Exterior · with our partners',desc:'Your exterior is seen by everyone who passes by. Value-engineered to suit any budget.',ph:'img/bayview-entrance.jpg',cap:'1818 Bayview · Entrance',svc:['Concrete repair','Interlocking','Exterior painting','Stucco finishes','Caulking']}
+  };
+  var OUT=Z.ext.svc;
+  var sel=new Set();
+
+  // windows on the tower
+  var wg=document.querySelector('.tower .win'),h='';
+  for(var f=0;f<8;f++){for(var i=0;i<4;i++){h+='<rect class="w" x="'+(92+i*36)+'" y="'+(64+f*29.5)+'" width="28" height="18"/>'}}
+  wg.innerHTML=h;
+
+  var panel=document.querySelector('.ex-panel'),cur='lobby';
+  function showZone(k){
+    cur=k;var z=Z[k];
+    document.querySelectorAll('.zone-pills button').forEach(function(b){b.setAttribute('aria-selected',b.dataset.zone===k)});
+    document.querySelectorAll('.tower .zone').forEach(function(g){g.classList.toggle('on',g.dataset.zone===k)});
+    panel.querySelector('.ex-tag').textContent=z.tag;
+    panel.querySelector('.ex-name').textContent=z.name;
+    panel.querySelector('.ex-desc').textContent=z.desc;
+    var fig=panel.querySelector('.ex-ph');
+    if(z.ph){fig.hidden=false;fig.querySelector('img').src=z.ph;fig.querySelector('img').alt=z.cap;fig.querySelector('figcaption').textContent=z.cap}else{fig.hidden=true}
+    panel.querySelector('.ex-list').innerHTML=z.svc.map(function(s){return '<button type="button" class="svc-row" data-svc="'+s+'" aria-pressed="'+sel.has(s)+'"><span>'+s+'</span><i>'+PLUS+'</i></button>'}).join('');
+    syncAll();
+  }
+  document.querySelectorAll('.zone-pills button,.tower .zone').forEach(function(el){el.addEventListener('click',function(){showZone(el.dataset.zone)})});
+  panel.addEventListener('click',function(e){var b=e.target.closest('.svc-row');if(b)toggle(b.dataset.svc)});
+  panel.querySelector('.ex-all').addEventListener('click',function(){var all=Z[cur].svc.every(function(s){return sel.has(s)});Z[cur].svc.forEach(function(s){all?sel.delete(s):sel.add(s)});syncAll();if(!all)toast(Z[cur].name+' added to your brief')});
+
+  // brief service chips
+  ['Inside','Outside'].forEach(function(g){
+    var box=document.querySelector('.chips.svc[data-group="'+g+'"]'),list=[];
+    Object.keys(Z).forEach(function(k){Z[k].svc.forEach(function(s){if((OUT.indexOf(s)>-1)===(g==='Outside'))list.push(s)})});
+    box.innerHTML=list.map(function(s){return '<button type="button" data-svc="'+s+'" aria-pressed="false">'+s+'</button>'}).join('');
+    box.addEventListener('click',function(e){var b=e.target.closest('button');if(b)toggle(b.dataset.svc)});
+  });
+  function toggle(s){sel.has(s)?sel.delete(s):sel.add(s);syncAll()}
+
+  // single / multi chips
+  var state={role:'',when:'',prio:[]};
+  document.querySelectorAll('.chips[data-name]').forEach(function(box){
+    var name=box.dataset.name,single=box.hasAttribute('data-single'),max=+box.dataset.max||99;
+    box.addEventListener('click',function(e){
+      var b=e.target.closest('button');if(!b)return;
+      var on=b.getAttribute('aria-pressed')==='true';
+      if(single){box.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed',String(!on));state[name]=on?'':b.textContent}
+      else{
+        if(!on&&state[name].length>=max){b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');toast('Pick up to '+max);return}
+        b.setAttribute('aria-pressed',String(!on));
+        state[name]=[].map.call(box.querySelectorAll('[aria-pressed="true"]'),function(x){return x.textContent});
+      }
+      render();
+    });
+  });
+  var nameIn=document.getElementById('b-name'),fl=document.getElementById('b-floors'),flo=document.getElementById('b-floors-out');
+  nameIn.addEventListener('input',render);
+  fl.addEventListener('input',function(){flo.textContent=fl.value;render()});
+
+  function syncAll(){
+    document.querySelectorAll('[data-svc]').forEach(function(b){b.setAttribute('aria-pressed',sel.has(b.dataset.svc))});
+    document.querySelectorAll('.bcount').forEach(function(c){c.textContent=sel.size});
+    render();
+  }
+  function render(){
+    var n=sel.size,floors=+fl.value,arr=Array.from(sel);
+    document.getElementById('c-name').textContent=nameIn.value.trim()||'Your building';
+    var sub=[];if(state.role)sub.push(state.role);sub.push(floors+' residential floor'+(floors>1?'s':''));
+    if(sel.has('Corridors'))sub.push('about '+floors+' corridor'+(floors>1?'s':''));
+    document.getElementById('c-sub').textContent=n?sub.join(' · '):'Pick your spaces to start.';
+    var tier=n===0?'Scope: not started':n<=2?'Scope: focused refurbishment':n<=5?'Scope: multi-space refurbishment':'Scope: full common-area refurbishment';
+    document.getElementById('c-tier').textContent=tier;
+    document.getElementById('c-bar').style.width=Math.min(100,n/17*100+(n?12:0))+'%';
+    var ins=arr.filter(function(s){return OUT.indexOf(s)<0}),out=arr.filter(function(s){return OUT.indexOf(s)>-1});
+    document.getElementById('c-spaces').textContent=n?[ins.length?'Inside: '+ins.join(', '):'',out.length?'Outside: '+out.join(', '):''].filter(Boolean).join('. '):'None yet';
+    document.getElementById('c-when').textContent=state.when||'Not set';
+    document.getElementById('c-prio').textContent=state.prio.length?state.prio.join(', '):'Not set';
+  }
+  function briefText(){
+    return ['Project brief for '+(nameIn.value.trim()||'our building'),
+      'Role: '+(state.role||'Not set'),
+      'Residential floors: '+fl.value,
+      'Spaces: '+(Array.from(sel).join(', ')||'None yet'),
+      'Timing: '+(state.when||'Not set'),
+      'Priorities: '+(state.prio.join(', ')||'Not set')].join('\n');
+  }
+  document.getElementById('c-print').addEventListener('click',function(){window.print()});
+  document.getElementById('c-copy').addEventListener('click',function(){
+    var t=briefText();
+    (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){toast('Brief copied')},function(){toast('Copy not available on this device')});
+  });
+  document.getElementById('c-send').addEventListener('click',function(){
+    if(!sel.size){toast('Add at least one space first');return}
+    var ta=document.querySelector('#form textarea'),sj=document.querySelector('#form input[name="subject"]');
+    ta.value=briefText();if(nameIn.value.trim())sj.value=nameIn.value.trim();
+    document.getElementById('contact').scrollIntoView({behavior:reduce?'auto':'smooth'});
+    setTimeout(function(){document.querySelector('#form input[name="name"]').focus({preventScroll:true})},reduce?0:700);
+  });
+
+  // project filters
+  var cards=[].slice.call(document.querySelectorAll('#rail .card'));
+  var fb=document.querySelector('.filters');
+  fb.querySelectorAll('button').forEach(function(b){
+    var t=b.dataset.f,c=t==='all'?cards.length:cards.filter(function(x){return x.dataset.type===t}).length;
+    b.insertAdjacentHTML('beforeend','<span>'+c+'</span>');
+  });
+  fb.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    fb.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+    cards.forEach(function(c){c.hidden=!(b.dataset.f==='all'||c.dataset.type===b.dataset.f)});
+    document.getElementById('rail').scrollTo({left:0});
+  });
+
+  // counters
+  var facts=document.querySelectorAll('.fact b[data-n]');
+  function count(el){var n=+el.dataset.n;if(reduce){el.textContent=n;return}var t0=null;function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/900);el.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){count(e.target);io.unobserve(e.target)}})});facts.forEach(function(f){io.observe(f)})}else facts.forEach(count);
+
+  // phone action bar
+  var bar=document.querySelector('.actbar'),hero=document.querySelector('.hero');
+  function barCheck(){bar.classList.toggle('show',hero.getBoundingClientRect().bottom<window.innerHeight*0.6)}
+  window.addEventListener('scroll',barCheck,{passive:true});barCheck();
+
+  // newsletter
+  document.getElementById('news').addEventListener('submit',function(e){e.preventDefault();toast('Thanks. Preview only: sign-up not connected yet.')});
+
+  var tEl=document.querySelector('.toast'),tT;
+  function toast(m){tEl.textContent=m;tEl.classList.add('show');clearTimeout(tT);tT=setTimeout(function(){tEl.classList.remove('show')},2200)}
+
+  showZone('lobby');
 })();
 </script>
 </body>

@@ -18,6 +18,13 @@ Everything on the page comes from devmaninc.com (copy, testimonials, project add
 8. **Newsletter sign-up** from their footer was dropped. Add back if they still send one.
 9. **Photo sizes**: photos are from their site at up to 900px. Ask for originals for sharper images.
 
+## Version 2 (2026-11-02, about 8:00 AM ET)
+
+Added: tap-a-floor building explorer, project brief builder (board-ready PDF, copy, sends brief into the contact form; no prices), project filters, quick facts, phone action bar, newsletter sign-up. Version 1 archived at archive/devman-group-v1-2026-11-02/.
+
+10. **Newsletter and brief "Request a site meeting"** are preview only. Connect to Devman's email or mailing tool.
+11. **Ideas from competitor sites still to add:** before/after slider (needs before photos from Devman), FAQ, downloadable insurance/WSIB/bonding documents for tenders, Google reviews feed.
+
 ## Design picks (so other client sites differ)
 
 - Opener: walk down the corridor (hero photo zooms as you scroll; off for reduced motion).
