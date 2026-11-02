@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>bp3D Creatives | Experiential Displays &amp; Structures</title>
+<meta name="description" content="bp3D Creatives designs and fabricates 3D displays, props, branded environments and printed graphics for agencies, event producers and retail. Main shop in Vaughan, Ontario.">
+<meta name="theme-color" content="#121212">
+<link rel="icon" href="img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* bp3D Creatives preview. Concept: "the shop floor". Charcoal workshop, bp3D yellow as the tape and tag colour, a pile of real builds as the hero object. Picks: hero object pile with tags, giant type list, image wall, numbered spec sheet. Motion: the pile fans out as you scroll. */
+:root{
+  --ink:#121212; --ink2:#1b1b1b; --ink3:#242424; --line:#2f2f2f;
+  --paper:#f4f1ea; --paper2:#e9e4d8; --grey:#8d8d8d; --mute:#a9a6a0;
+  --y:#f2c121; --y2:#ffd54a;
+  --r:22px; --gut:clamp(16px,4vw,48px);
+  --disp:'Unbounded',system-ui,sans-serif; --body:'Manrope',system-ui,sans-serif; --mono:'Space Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:var(--paper);font:400 17px/1.6 var(--body);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1320px;margin:0 auto;padding:0 var(--gut)}
+.tag{font:700 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.kicker{display:inline-flex;align-items:center;gap:10px;font:700 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--y)}
+.kicker::before{content:"";width:22px;height:2px;background:currentColor}
+h2.big{font:900 clamp(38px,7.4vw,104px)/.92 var(--disp);letter-spacing:-.035em;text-transform:uppercase}
+.about h2.big,.cp h2.big,.ct h2.big{font-size:clamp(36px,5.2vw,78px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font:700 15px/1 var(--body);text-decoration:none;border:2px solid transparent;transition:transform .2s,background .2s,color .2s}
+.btn svg{width:20px;height:20px}
+.btn-y{background:var(--y);color:var(--ink)}
+.btn-y:hover{background:var(--y2);transform:translateY(-2px)}
+.btn-o{border-color:#4a4a4a;color:var(--paper)}
+.btn-o:hover{border-color:var(--paper)}
+
+/* header */
+.hd{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,backdrop-filter .3s}
+.hd.on{background:rgba(18,18,18,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hd .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo img{height:26px;width:auto}
+.nav{display:flex;gap:4px;align-items:center}
+.nav a{min-height:44px;display:inline-flex;align-items:center;padding:0 14px;text-decoration:none;font:500 15px var(--body);color:var(--mute);border-radius:999px}
+.nav a:hover{color:var(--paper)}
+.nav .btn{margin-left:10px;min-height:44px;padding:0 20px;color:var(--ink)}
+.burger{display:none;width:48px;height:48px;border-radius:50%;border:1px solid #3a3a3a;background:none;color:var(--paper);align-items:center;justify-content:center}
+.burger svg{width:24px;height:24px}
+@media (max-width:900px){
+  .nav{position:fixed;inset:76px 0 auto 0;flex-direction:column;align-items:stretch;padding:14px var(--gut) 26px;background:var(--ink);border-bottom:1px solid var(--line);transform:translateY(-130%);transition:transform .35s}
+  .nav.open{transform:none}
+  .nav a{font:700 22px var(--disp);color:var(--paper);min-height:56px;text-transform:uppercase;letter-spacing:-.01em}
+  .nav .btn{margin:12px 0 0;font:700 16px var(--body);text-transform:none}
+  .burger{display:inline-flex}
+}
+
+/* hero */
+.hero{position:relative;padding:136px 0 70px;min-height:100svh;display:flex;align-items:center;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0/48px 48px,
+  linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px) 0 0/48px 48px;mask-image:radial-gradient(ellipse at 70% 45%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 70% 45%,#000 20%,transparent 75%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;width:100%}
+.hero h1{font:900 clamp(46px,8.4vw,128px)/.88 var(--disp);letter-spacing:-.045em;text-transform:uppercase;margin:22px 0 26px}
+.hero h1 .y{color:var(--y);display:block}
+.hero p.lede{font-size:clamp(18px,1.6vw,21px);color:var(--mute);max-width:30ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero .phone{margin-top:26px;font:700 13px var(--mono);letter-spacing:.08em;color:var(--grey)}
+.hero .phone a{color:var(--paper);text-decoration:none;border-bottom:2px solid var(--y);padding-bottom:2px}
+
+.pile{position:relative;height:min(68vh,640px);min-height:440px}
+.pc{position:absolute;margin:0;background:var(--paper);padding:8px 8px 0;border-radius:14px;box-shadow:0 30px 60px -20px rgba(0,0,0,.7),0 0 0 1px rgba(0,0,0,.2);transform:translate(var(--x,0),var(--yy,0)) rotate(var(--rot,0deg));transition:transform .2s linear;will-change:transform}
+.pc img{width:100%;height:100%;object-fit:cover;border-radius:8px}
+.pc .im{height:calc(100% - 40px)}
+.pc figcaption{height:40px;display:flex;align-items:center;justify-content:space-between;color:var(--ink);font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:0 6px}
+.pc figcaption b{background:var(--y);padding:5px 7px;border-radius:4px}
+.pc.a{width:44%;height:62%;left:2%;top:4%;--r0:-8deg}
+.pc.b{width:40%;height:56%;left:50%;top:0;--r0:6deg}
+.pc.c{width:38%;height:50%;left:30%;top:38%;--r0:-2deg;z-index:3}
+.pc.d{width:34%;height:44%;left:0;top:56%;--r0:9deg}
+.pc.e{width:34%;height:46%;left:64%;top:50%;--r0:-7deg}
+
+/* marquee */
+.ticker{border-block:1px solid var(--line);overflow:hidden;padding:26px 0;background:var(--ink2)}
+.ticker .lbl{padding:0 var(--gut);margin-bottom:16px}
+.track{display:flex;width:max-content;animation:tick 48s linear infinite}
+.track span{font:700 clamp(28px,4.4vw,58px)/1 var(--disp);text-transform:uppercase;letter-spacing:-.03em;white-space:nowrap;padding-right:.6em;display:inline-flex;align-items:center;gap:.6em}
+.track span::after{content:"";width:.34em;height:.34em;background:var(--y);border-radius:50%}
+.track span:nth-child(even){color:transparent;-webkit-text-stroke:1.5px var(--paper)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* section heads */
+section{position:relative}
+.sec{padding:clamp(80px,11vw,150px) 0}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:clamp(36px,5vw,64px)}
+.sh h2{margin-top:18px}
+.sh p{max-width:38ch;color:var(--mute)}
+
+/* work wall */
+.wall{display:grid;grid-auto-flow:dense;grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(120px,13vw,190px);gap:12px}
+.w{position:relative;overflow:hidden;border-radius:16px;background:var(--ink3);grid-column:span 3;grid-row:span 2;border:0;padding:0;cursor:pointer;text-align:left;color:var(--paper)}
+.w img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .4s}
+.w:hover img,.w:focus-visible img{transform:scale(1.05)}
+.w .cap{position:absolute;left:10px;bottom:10px;right:10px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.w .cap b{background:var(--ink);color:var(--paper);font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:8px 10px;border-radius:6px}
+.w .cap i{width:34px;height:34px;border-radius:50%;background:var(--y);color:var(--ink);display:grid;place-items:center;flex:none;opacity:0;transform:scale(.6);transition:.3s}
+.w .cap i svg{width:18px;height:18px}
+.w:hover .cap i,.w:focus-visible .cap i{opacity:1;transform:none}
+.w.L{grid-column:span 6;grid-row:span 3}
+.w.T{grid-row:span 3}
+.w.W{grid-column:span 6}
+@media (max-width:900px){
+  .wall{grid-template-columns:repeat(2,1fr);grid-auto-rows:44vw;gap:10px}
+  .w,.w.T,.w.W{grid-column:span 1;grid-row:span 1}
+  .w.L{grid-column:span 2;grid-row:span 2}
+  .w .cap i{opacity:1;transform:none;width:30px;height:30px}
+  .w .cap b{font-size:10px;padding:7px 8px}
+}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:90;background:rgba(10,10,10,.94);display:none;align-items:center;justify-content:center;padding:70px 16px 30px}
+.lb.on{display:flex}
+.lb img{max-height:78vh;max-width:min(1100px,100%);border-radius:14px;object-fit:contain}
+.lb .lt{position:absolute;top:18px;left:var(--gut);font:700 13px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--y);max-width:calc(100% - 120px)}
+.lb button{position:absolute;width:52px;height:52px;border-radius:50%;border:1px solid #444;background:#1b1b1b;color:var(--paper);display:grid;place-items:center;cursor:pointer}
+.lb button svg{width:22px;height:22px}
+.lb .x{top:12px;right:var(--gut)}
+.lb .pv{left:var(--gut);bottom:24px}.lb .nx{right:var(--gut);bottom:24px}
+@media (min-width:901px){.lb .pv,.lb .nx{top:50%;bottom:auto;transform:translateY(-50%)}}
+
+/* services spec sheet */
+.svc{background:var(--paper);color:var(--ink);border-radius:var(--r);margin:0 clamp(8px,1.4vw,18px)}
+.svc .kicker{color:var(--ink)}
+.svc .sh p{color:#55524c}
+.spec{display:grid;grid-template-columns:minmax(260px,.9fr) 1.4fr;gap:clamp(24px,4vw,70px);align-items:start}
+.tabs{display:flex;flex-direction:column;border-top:2px solid var(--ink)}
+.tabs button{all:unset;cursor:pointer;display:grid;grid-template-columns:52px 1fr 28px;align-items:center;min-height:72px;border-bottom:1px solid #cfc9bb;font:700 clamp(17px,1.7vw,22px)/1.15 var(--disp);text-transform:uppercase;letter-spacing:-.02em;padding:8px 0}
+.tabs button .n{font:700 12px var(--mono);letter-spacing:.1em;color:#77736b}
+.tabs button svg{width:24px;height:24px;transition:transform .3s}
+.tabs button[aria-selected=true]{color:var(--ink)}
+.tabs button[aria-selected=true] .n{color:var(--ink);background:var(--y);justify-self:start;padding:5px 7px;border-radius:4px}
+.tabs button[aria-selected=true] svg{transform:rotate(-45deg)}
+.tabs button:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+.panel{background:var(--ink);color:var(--paper);border-radius:18px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;min-height:470px}
+.panel[hidden]{display:none}
+.panel .pi{position:relative}
+.panel .pi img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.panel .pt{padding:clamp(24px,3vw,40px)}
+.panel h3{font:900 clamp(24px,2.4vw,34px)/1 var(--disp);text-transform:uppercase;letter-spacing:-.03em;margin:14px 0 22px}
+.panel ul{list-style:none;columns:1}
+.panel li{display:flex;gap:12px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line);font-weight:500}
+.panel li::before{content:"";flex:none;width:8px;height:8px;background:var(--y);border-radius:2px;transform:translateY(-2px)}
+.onestop{margin-top:clamp(36px,5vw,60px);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:2px solid var(--ink);padding-top:24px}
+.onestop strong{font:900 clamp(26px,4vw,52px)/.95 var(--disp);text-transform:uppercase;letter-spacing:-.04em}
+.onestop .btn-o{border-color:var(--ink);color:var(--ink)}
+@media (max-width:900px){
+  .spec{grid-template-columns:1fr}
+  .panel{grid-template-columns:1fr;min-height:0}
+  .panel .pi{height:220px}
+}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:s}
+.st{background:var(--ink2);border:1px solid var(--line);border-radius:18px;padding:22px 20px 24px;min-height:230px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.st .num{font:900 clamp(56px,6vw,88px)/.8 var(--disp);color:transparent;-webkit-text-stroke:1.5px #4b4b4b;letter-spacing:-.05em}
+.st h3{font:700 clamp(19px,1.7vw,24px)/1.05 var(--disp);text-transform:uppercase;letter-spacing:-.02em}
+.st svg{width:40px;height:40px;color:var(--paper);margin-bottom:auto;align-self:flex-end}
+.st:last-child{background:var(--y);color:var(--ink);border-color:var(--y)}
+.st:last-child .num{-webkit-text-stroke-color:rgba(18,18,18,.35)}
+.st:last-child svg{color:var(--ink)}
+@media (max-width:900px){
+  .steps{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--gut)*-1);padding:0 var(--gut) 6px;scrollbar-width:none}
+  .steps::-webkit-scrollbar{display:none}
+  .st{flex:0 0 66%;scroll-snap-align:start;min-height:210px}
+}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(30px,5vw,80px);align-items:center}
+.ab-img{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5}
+.ab-img img{width:100%;height:100%;object-fit:cover}
+.ab-img .stamp{position:absolute;left:16px;bottom:16px;background:var(--y);color:var(--ink);border-radius:12px;padding:14px 16px;font:700 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.about h2{margin:18px 0 26px}
+.about p{color:var(--mute);margin-bottom:16px;max-width:56ch}
+.about p.lead{color:var(--paper);font-size:clamp(19px,1.7vw,23px);line-height:1.45;font-weight:500}
+.founder{margin-top:30px;border-top:1px solid var(--line);padding-top:24px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}
+.founder .ini{width:64px;height:64px;border-radius:50%;border:2px solid var(--y);display:grid;place-items:center;font:900 20px var(--disp);color:var(--y)}
+.founder h3{font:700 20px/1.2 var(--disp);text-transform:uppercase;letter-spacing:-.02em}
+.founder .role{font:700 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--grey);margin:6px 0 12px}
+.founder p{margin:0;font-size:16px}
+@media (max-width:900px){.about{grid-template-columns:1fr}.ab-img{aspect-ratio:4/3}}
+
+/* brands */
+.brands{border-top:1px solid var(--line)}
+.bl{display:flex;flex-wrap:wrap;gap:0;border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.bl span{flex:1 1 180px;min-height:92px;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font:700 clamp(15px,1.4vw,19px) var(--disp);text-transform:uppercase;letter-spacing:-.01em;color:#cfcbc3;transition:background .25s,color .25s;padding:10px;text-align:center}
+.bl span:hover{background:var(--y);color:var(--ink)}
+.fine{margin-top:16px;color:var(--grey);font-size:14px;max-width:70ch}
+
+@media (max-width:900px){.bl span{flex:1 1 50%;min-height:64px;font-size:13px}}
+/* quotes */
+.quotes{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:thin;scrollbar-color:#444 transparent}
+.q{flex:0 0 min(440px,84%);scroll-snap-align:start;background:var(--paper);color:var(--ink);border-radius:20px;padding:30px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:30px;min-height:300px}
+.q:nth-child(2n){background:var(--ink3);color:var(--paper)}
+.q svg{width:40px;height:40px;color:var(--y)}
+.q blockquote{font:500 clamp(18px,1.6vw,21px)/1.45 var(--body)}
+.q cite{font:700 12px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;font-style:normal;opacity:.75}
+.qnav{display:flex;gap:10px}
+.qnav button{width:52px;height:52px;border-radius:50%;border:1px solid #444;background:none;color:var(--paper);display:grid;place-items:center;cursor:pointer}
+.qnav button svg{width:22px;height:22px}
+.qnav button:hover{border-color:var(--y);color:var(--y)}
+
+/* co-packing */
+.cp{background:var(--y);color:var(--ink);border-radius:var(--r);margin:0 clamp(8px,1.4vw,18px);overflow:hidden}
+.cp .kicker{color:var(--ink)}
+.cp-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(30px,5vw,80px)}
+.cp h2{margin:18px 0 24px}
+.cp p{max-width:52ch;margin-bottom:14px;color:#2a2618}
+.cp p.lead{font-size:clamp(19px,1.7vw,23px);font-weight:500;color:var(--ink);line-height:1.45}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 30px}
+.chips span{background:var(--ink);color:var(--y);font:700 13px/1 var(--mono);letter-spacing:.08em;padding:11px 14px;border-radius:999px}
+.cp-box{background:var(--ink);color:var(--paper);border-radius:18px;padding:clamp(22px,3vw,34px)}
+.cp-box h3{font:700 15px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--y);margin-bottom:14px}
+.cp-box ul{list-style:none;margin-bottom:26px}
+.cp-box li{padding:10px 0;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start}
+.cp-box li svg{width:22px;height:22px;flex:none;color:var(--y);margin-top:2px}
+.cp-box ul:last-child{margin-bottom:0}
+.cp .btn-d{background:var(--ink);color:var(--y)}
+.cp .btn-d:hover{transform:translateY(-2px)}
+@media (max-width:900px){.cp-grid{grid-template-columns:1fr}}
+
+/* safeguards */
+.sg{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;border:1px solid var(--line);border-radius:20px;padding:24px 28px;background:var(--ink2)}
+.sg svg.ic{width:44px;height:44px;color:var(--paper)}
+.sg h3{font:700 clamp(18px,1.8vw,24px) var(--disp);text-transform:uppercase;letter-spacing:-.02em;margin:8px 0 6px}
+.sg p{color:var(--mute);font-size:16px;max-width:70ch}
+@media (max-width:900px){.sg{grid-template-columns:1fr;gap:12px}}
+
+/* contact */
+.ct{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,5vw,80px);align-items:start}
+.ct h2{margin:18px 0 24px}
+.ct .hi{width:min(260px,60%);margin:0 0 26px -8px}
+.ct p{color:var(--mute);max-width:44ch}
+.lines{margin-top:30px;display:grid;gap:10px}
+.lines a{display:flex;align-items:center;gap:16px;min-height:64px;padding:0 20px;border:1px solid var(--line);border-radius:16px;text-decoration:none;font:700 clamp(17px,1.7vw,21px) var(--disp);letter-spacing:-.01em;transition:border-color .2s,background .2s}
+.lines a:hover{border-color:var(--y);background:var(--ink2)}
+.lines a svg{width:26px;height:26px;color:var(--y);flex:none}
+form{background:var(--paper);color:var(--ink);border-radius:var(--r);padding:clamp(22px,3vw,36px);display:grid;gap:14px}
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:grid;gap:6px;font:700 12px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+input,textarea{font:500 17px var(--body);color:var(--ink);background:#fff;border:1.5px solid #cfc9bb;border-radius:12px;padding:14px;min-height:52px;width:100%}
+textarea{min-height:140px;resize:vertical}
+input:focus,textarea:focus{outline:none;border-color:var(--ink)}
+form .btn{background:var(--ink);color:var(--y);border:0;cursor:pointer;margin-top:6px}
+form small{font-size:13px;color:#6d6a63}
+@media (max-width:900px){.ct{grid-template-columns:1fr}form .row{grid-template-columns:1fr}}
+
+/* footer */
+footer{border-top:1px solid var(--line);margin-top:20px}
+.ft{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:34px 0 calc(34px + env(safe-area-inset-bottom))}
+.ft .logo img{height:22px}
+.ft nav{display:flex;flex-wrap:wrap;gap:4px}
+.ft nav a{min-height:44px;display:inline-flex;align-items:center;padding:0 12px;text-decoration:none;color:var(--mute);font-size:15px}
+.ft nav a:hover{color:var(--paper)}
+.ft .cities{font:700 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+.ft .cr{width:100%;color:#6f6c66;font-size:13px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .hero{padding-top:110px;min-height:0}
+  .hero .wrap{grid-template-columns:1fr;gap:20px}
+  .pile{height:430px;min-height:0;margin:10px -6px 0}
+  .pc.a{width:52%;height:58%}
+  .pc.b{width:48%;height:52%;left:50%}
+  .pc.c{width:46%;height:48%;left:27%;top:40%}
+  .pc.d{width:40%;height:42%;top:56%}
+  .pc.e{width:40%;height:44%;left:59%;top:52%}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="arrl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="quote" viewBox="0 0 24 24" fill="currentColor"><path d="M10 7H6a3 3 0 0 0-3 3v4h4v4h3v-8H6v0a1 1 0 0 1 1-1h3zM21 7h-4a3 3 0 0 0-3 3v4h4v4h3v-8h-4a1 1 0 0 1 1-1h3z"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+  <symbol id="i-ruler" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17 17 3l4 4L7 21z"/><path d="m7 13 2 2M10 10l2 2M13 7l2 2"/></symbol>
+  <symbol id="i-hammer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.4 8.4a2.1 2.1 0 0 1-3-3L12 9"/><path d="M17.6 15 22 10.6M20.9 11.7l-2-2a2 2 0 0 1-.6-1.4V7.1l-2.3-2.2A6 6 0 0 0 11.9 3H9l.9.8A6.2 6.2 0 0 1 12 8.4V10l2 2h1.2a2 2 0 0 1 1.4.6l2 2"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4M4 4h13l-2 4 2 4H4"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+</svg>
+
+<header class="hd" id="hd">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="bp3D Creatives home"><img src="img/logo.png" alt="bp3D Creatives" width="1000" height="149"></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><svg><use href="#plus"/></svg></button>
+    <nav class="nav" id="nav">
+      <a href="#work">Our work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#copacking">Co-packing</a>
+      <a class="btn btn-y" href="#contact">Let's build</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Experiential displays &amp; structures</span>
+      <h1>Create a <span class="y">visual stimulus.</span></h1>
+      <p class="lede">Promote your brand, attract and engage your customers. We design and fabricate the 3D pieces people stop to look at.</p>
+      <div class="ctas">
+        <a class="btn btn-y" href="#work">See the work <svg><use href="#arr"/></svg></a>
+        <a class="btn btn-o" href="#contact">Start a project</a>
+      </div>
+      <p class="phone">Call or text <a href="tel:+14165254788">416-525-4788</a></p>
+    </div>
+    <div class="pile" id="pile" aria-label="A few recent builds">
+      <figure class="pc a" data-f="-1.1,-.6"><div class="im"><img src="img/nfl-100.jpg" alt="Giant NFL 100th season football" fetchpriority="high"></div><figcaption><b>NFL 100</b><span>No. 01</span></figcaption></figure>
+      <figure class="pc b" data-f="1.2,-.8"><div class="im"><img src="img/spongebob.jpg" alt="Life-size SpongeBob character"></div><figcaption><b>SpongeBob</b><span>No. 02</span></figcaption></figure>
+      <figure class="pc d" data-f="-1.2,.9"><div class="im"><img src="img/youtube-mirror.jpg" alt="YouTube infinity mirror display lit up"></div><figcaption><b>YouTube</b><span>No. 03</span></figcaption></figure>
+      <figure class="pc e" data-f="1.1,1"><div class="im"><img src="img/guitar-goldfish.jpg" alt="Oversized painted guitar display"></div><figcaption><b>Guitars</b><span>No. 04</span></figcaption></figure>
+      <figure class="pc c" data-f="0,.25"><div class="im"><img src="img/nba-ice-ball.jpg" alt="NBA ice ball display"></div><figcaption><b>NBA</b><span>No. 05</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-label="Who we design and fabricate for">
+  <p class="lbl tag" style="color:var(--grey)">We design and fabricate for</p>
+  <div class="track" aria-hidden="true">
+    <span>Event planners &amp; producers</span><span>Marketing agencies</span><span>Retail agencies</span><span>Creative directors</span><span>Set decorators, film &amp; TV</span><span>Experiential activations</span><span>Audio visual productions</span><span>Retail environments</span><span>Exhibits &amp; trade shows</span><span>Architectural interiors</span>
+    <span>Event planners &amp; producers</span><span>Marketing agencies</span><span>Retail agencies</span><span>Creative directors</span><span>Set decorators, film &amp; TV</span><span>Experiential activations</span><span>Audio visual productions</span><span>Retail environments</span><span>Exhibits &amp; trade shows</span><span>Architectural interiors</span>
+  </div>
+  <p class="sr" style="position:absolute;left:-9999px">Event planners and producers, marketing agencies, retail agencies, creative directors, set decorators for film and television, experiential marketing activations, audio visual productions, retail environments, exhibits and trade shows, architectural interiors.</p>
+</div>
+
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="sh rv">
+      <div><span class="kicker">Our work</span><h2 class="big">We build<br>excitement.</h2></div>
+      <p>Logos, characters, trailers, displays and full environments. Tap any build to see it bigger.</p>
+    </div>
+    <div class="wall" id="wall">
+      <button class="w L" data-t="Taylor Swift guitars"><img loading="lazy" src="img/guitar-blue.jpg" alt="Oversized blue guitar display in an exhibition hall"><span class="cap"><b>Taylor Swift guitars</b><i><svg><use href="#plus"/></svg></i></span></button>
+      <button class="w T" data-t="Escape room trailer"><img loading="lazy" src="img/escape-room.jpg" alt="Circus-themed escape room trailer"><span class="cap"><b>Escape room trailer</b><i><svg><use href="#plus"/></svg></i></span></button>
+      <button class="w T" data-t="TD globe"><img loading="lazy" src="img/td-globe.jpg" alt="Large globe sculpture at a TD activation"><span class="cap"><b>TD globe</b><i><svg><use href="#plus"/></svg></i></span></button>
+      <button class="w W" data-t="Taiwan trailer"><img loading="lazy" src="img/taiwan-trailer.jpg" alt="Red Taiwan pavilion trailer surrounded by plants"><span class="cap"><b>Taiwan trailer</b><i><svg><use href="#plus"/></svg></i></span></button>
+      <button class="w W" data-t="NOW letters"><img loading="lazy" src="img/now-letters.jpg" alt="Giant 3D NOW letters on a convention floor"><span class="cap"><b>NOW letters</b><i><svg><use href="#plus"/></svg></i></span></button>
+      <button class="w" data-t="Nike shoes"><img loading="lazy" src="img/nike-shoes.jpg" alt="Oversized carved Nike shoe"><span class="cap"><b>Nike shoes</b><i><svg><use href="#plus"/></svg></i></span></button>
+      <button class="w" data-t="Fisherman's Friend"><img loading="lazy" src="img/fishermans-friend.jpg" alt="Fisherman's Friend boat build in the snow"><span class="cap"><b>Fisherman's Friend</b><i><svg><use href="#plus"/></svg></i></span></button>
+      <button class="w" data-t="Amarula"><img loading="lazy" src="img/amarula.jpg" alt="Amarula tree and bar display"><span class="cap"><b>Amarula</b><i><svg><use href="#plus"/></svg></i></span></button>
+      <button class="w" data-t="IGNITE TO"><img loading="lazy" src="img/ignite-to.jpg" alt="Large IGNITE TO letters outdoors"><span class="cap"><b>IGNITE TO</b><i><svg><use href="#plus"/></svg></i></span></button>
+      <button class="w T" data-t="Boots"><img loading="lazy" src="img/boots.jpg" alt="Giant blue boots in the shop"><span class="cap"><b>Boots</b><i><svg><use href="#plus"/></svg></i></span></button>
+      <button class="w W" data-t="OVO Summit"><img loading="lazy" src="img/ovo-summit.jpg" alt="OVO Summit stage set"><span class="cap"><b>OVO Summit</b><i><svg><use href="#plus"/></svg></i></span></button>
+      <button class="w T" data-t="Back to school pencils"><img loading="lazy" src="img/pencils.jpg" alt="Giant pencil retail display"><span class="cap"><b>Back to school pencils</b><i><svg><use href="#plus"/></svg></i></span></button>
+      <button class="w" data-t="Pilsner Urquell / Kozel"><img loading="lazy" src="img/kozel.jpg" alt="Kozel goat cut-out and bar outdoors"><span class="cap"><b>Kozel</b><i><svg><use href="#plus"/></svg></i></span></button>
+      <button class="w" data-t="Axe throwing trailer"><img loading="lazy" src="img/axe-throwing.jpg" alt="Axe throwing trailer cage"><span class="cap"><b>Axe throwing trailer</b><i><svg><use href="#plus"/></svg></i></span></button>
+      <button class="w W" data-t="Christmas displays"><img loading="lazy" src="img/christmas.jpg" alt="Christmas display in a shopping centre atrium"><span class="cap"><b>Christmas displays</b><i><svg><use href="#plus"/></svg></i></span></button>
+      <button class="w W" data-t="MNRF"><img loading="lazy" src="img/mnrf.jpg" alt="MNRF indoor nature display with pond"><span class="cap"><b>MNRF</b><i><svg><use href="#plus"/></svg></i></span></button>
+      <button class="w" data-t="AXE van"><img loading="lazy" src="img/axe-van.jpg" alt="Branded AXE van"><span class="cap"><b>AXE van</b><i><svg><use href="#plus"/></svg></i></span></button>
+      <button class="w" data-t="Nike shoes, paint detail"><img loading="lazy" src="img/nike-detail.jpg" alt="Close-up of painted shoe surface"><span class="cap"><b>Paint detail</b><i><svg><use href="#plus"/></svg></i></span></button>
+    </div>
+  </div>
+</section>
+
+<section class="svc sec" id="services">
+  <div class="wrap">
+    <div class="sh rv">
+      <div><span class="kicker">Our services</span><h2 class="big">From idea<br>to install.</h2></div>
+      <p>Design, fabrication, print, LED and packing under one roof. Pick a department.</p>
+    </div>
+    <div class="spec">
+      <div class="tabs" role="tablist" aria-label="Services">
+        <button role="tab" id="t1" aria-controls="p1" aria-selected="true"><span class="n">01</span>Creative 3D fabrication<svg><use href="#arr"/></svg></button>
+        <button role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1"><span class="n">02</span>Creative design<svg><use href="#arr"/></svg></button>
+        <button role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1"><span class="n">03</span>Fabrication materials<svg><use href="#arr"/></svg></button>
+        <button role="tab" id="t4" aria-controls="p4" aria-selected="false" tabindex="-1"><span class="n">04</span>Digital printing<svg><use href="#arr"/></svg></button>
+        <button role="tab" id="t5" aria-controls="p5" aria-selected="false" tabindex="-1"><span class="n">05</span>Digital LED products<svg><use href="#arr"/></svg></button>
+        <button role="tab" id="t6" aria-controls="p6" aria-selected="false" tabindex="-1"><span class="n">06</span>Kitting &amp; co-packing<svg><use href="#arr"/></svg></button>
+      </div>
+      <div>
+        <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+          <div class="pi"><img loading="lazy" src="img/now-letters-2.jpg" alt="Giant NOW letters in a stadium"></div>
+          <div class="pt"><span class="tag" style="color:var(--y)">01 / Fabrication</span><h3>Creative 3D fabrication</h3>
+          <ul><li>Logos, letters &amp; hashtags</li><li>Branded environments</li><li>Billboards</li><li>Interactive displays</li><li>Experiential marketing props</li><li>Trade show exhibit props</li><li>Event props &amp; theming</li><li>Film &amp; television props</li></ul></div>
+        </div>
+        <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+          <div class="pi"><img loading="lazy" src="img/youtube-shop.jpg" alt="Infinity mirror display being built in the shop"></div>
+          <div class="pt"><span class="tag" style="color:var(--y)">02 / Design</span><h3>Creative design</h3>
+          <ul><li>3D design</li><li>3D scanning</li><li>3D printing</li><li>CAD development</li><li>Graphic design</li><li>Concept development</li></ul></div>
+        </div>
+        <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+          <div class="pi"><img loading="lazy" src="img/boots.jpg" alt="Foam boots in the shop"></div>
+          <div class="pt"><span class="tag" style="color:var(--y)">03 / Materials</span><h3>Fabrication materials</h3>
+          <ul><li>Foams</li><li>Millwork</li><li>Acrylics</li><li>Plastics</li><li>Metals</li><li>Fabrics</li></ul></div>
+        </div>
+        <div class="panel" role="tabpanel" id="p4" aria-labelledby="t4" hidden>
+          <div class="pi"><img loading="lazy" src="img/axe-van.jpg" alt="Wrapped AXE van"></div>
+          <div class="pt"><span class="tag" style="color:var(--y)">04 / Print</span><h3>Digital printing</h3>
+          <ul><li>UV direct print to substrate</li><li>Large format</li><li>Stretch &amp; backlit fabric</li><li>Billboards &amp; posters</li><li>Building &amp; window graphics</li><li>Vehicle wraps &amp; decals</li><li>POP displays</li><li>Outdoor signage</li><li>3M certified graphic installation</li></ul></div>
+        </div>
+        <div class="panel" role="tabpanel" id="p5" aria-labelledby="t5" hidden>
+          <div class="pi"><img loading="lazy" src="img/youtube-mirror.jpg" alt="Lit YouTube infinity mirror"></div>
+          <div class="pt"><span class="tag" style="color:var(--y)">05 / LED</span><h3>Digital LED products</h3>
+          <ul><li>Digital LED displays</li><li>Digital billboards</li><li>LED billboards</li><li>Full colour on-premise signs</li></ul></div>
+        </div>
+        <div class="panel" role="tabpanel" id="p6" aria-labelledby="t6" hidden>
+          <div class="pi"><img loading="lazy" src="img/pencils.jpg" alt="Retail pencil display"></div>
+          <div class="pt"><span class="tag" style="color:var(--y)">06 / Packing</span><h3>Kitting &amp; co-packing</h3>
+          <ul><li>In-house structure design studio</li><li>Display assembly</li><li>Shrink wrapping</li><li>Flow wrapping</li><li>Automated labelling</li><li>Repacking</li><li>Quality inspection</li><li>POS kitting &amp; fulfilment</li><li>Distribution, repair &amp; packaging</li></ul></div>
+        </div>
+      </div>
+    </div>
+    <div class="onestop rv"><strong>One stop for<br>all your needs.</strong><a class="btn btn-o" href="#contact">Tell us what you need <svg><use href="#arr"/></svg></a></div>
+  </div>
+</section>
+
+<section class="sec" id="process">
+  <div class="wrap">
+    <div class="sh rv">
+      <div><span class="kicker">Our process</span><h2 class="big">Five steps.<br>One team.</h2></div>
+      <p>Our mission is to be an extension of your team and create the best experience for your brands.</p>
+    </div>
+    <div class="steps rv">
+      <div class="st"><svg><use href="#i-bulb"/></svg><span class="num">01</span><h3>Brainstorm</h3></div>
+      <div class="st"><svg><use href="#i-search"/></svg><span class="num">02</span><h3>Research</h3></div>
+      <div class="st"><svg><use href="#i-ruler"/></svg><span class="num">03</span><h3>Prepare design</h3></div>
+      <div class="st"><svg><use href="#i-hammer"/></svg><span class="num">04</span><h3>Build</h3></div>
+      <div class="st"><svg><use href="#i-flag"/></svg><span class="num">05</span><h3>Execute</h3></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="about" style="padding-top:0">
+  <div class="wrap about">
+    <div class="ab-img rv"><img loading="lazy" src="img/youtube-shop.jpg" alt="A display being built in the bp3D shop"><span class="stamp">Main shop<br>Vaughan, Ontario</span></div>
+    <div class="rv">
+      <span class="kicker">About us</span>
+      <h2 class="big">Small business.<br>Huge capabilities.</h2>
+      <p class="lead">From our main shop in Vaughan, we produce assets and provide installation and logistics support across North America.</p>
+      <p>Through years of producing 3D elements, from logos and exhibits to characters and displays, we go to great lengths to bring our clients' visions to life.</p>
+      <div class="founder">
+        <span class="ini" aria-hidden="true">BP</span>
+        <div>
+          <h3>Bruce Playfoot</h3>
+          <p class="role">President &amp; founder</p>
+          <p>Over 20 years in 3D fabrication for experiential and event marketing. Great projects go beyond visuals: seamless logistics and on-site excellence.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec brands" id="brands">
+  <div class="wrap">
+    <div class="sh rv">
+      <div><span class="kicker">We've worked with</span><h2 class="big">Brands you<br>know.</h2></div>
+      <p>Just some of the major brands promoted by our work, through our great clients.</p>
+    </div>
+    <div class="bl rv">
+      <span>Microsoft</span><span>Google</span><span>Netflix</span><span>Amazon Prime</span><span>Nike</span><span>NFL</span><span>Dior</span><span>Intel</span><span>Nickelodeon</span><span>Fairmont</span><span>Rogers</span><span>Bell</span><span>Telus</span><span>McDonald's</span><span>Costco</span><span>Loblaws</span><span>LCBO</span><span>Bulk Barn</span><span>Blue Moon</span><span>Axe</span><span>Fisherman's Friend</span><span>JTI</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="words" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh rv">
+      <div><span class="kicker">In their words</span><h2 class="big">A real extension<br>of the team.</h2></div>
+      <div class="qnav"><button id="qp" aria-label="Previous quote"><svg><use href="#arrl"/></svg></button><button id="qn" aria-label="Next quote"><svg><use href="#arr"/></svg></button></div>
+    </div>
+    <div class="quotes" id="quotes">
+      <figure class="q"><svg><use href="#quote"/></svg><blockquote>BP3D is my one stop shop for my XM and trade show needs. Their quick action and endless resources had gotten me out of countless binds. We've used them for custom foam, wood and metal displays; stationary and mobile!</blockquote><cite>Senior production manager<br>Experiential marketing agency</cite></figure>
+      <figure class="q"><svg><use href="#quote"/></svg><blockquote>bp3D's ability to take an idea, walk through the process, design and build to present a concept to my client is invaluable to my business. They are a real extension to my team.</blockquote><cite>President<br>Marketing agency</cite></figure>
+      <figure class="q"><svg><use href="#quote"/></svg><blockquote>I should have contacted bp3D sooner! Their attention to details and ability to see the finished product through the process showed their experience. Will definitely work with them again!</blockquote><cite>Project manager<br>Retail environments</cite></figure>
+      <figure class="q"><svg><use href="#quote"/></svg><blockquote>bp3D's attention to detail and ability to work with my crazy deadline was amazing. I look forward to our next project together.</blockquote><cite>Experiential events coordinator</cite></figure>
+      <figure class="q"><svg><use href="#quote"/></svg><blockquote>It was a pleasure working with bp3D. The team was creative, efficient and responsive to our budget concerns. In the end, we have two superior products we are very happy with.</blockquote><cite>Client</cite></figure>
+    </div>
+  </div>
+</section>
+
+<section class="cp sec" id="copacking">
+  <div class="wrap cp-grid">
+    <div class="rv">
+      <span class="kicker">Kitting &amp; co-packing</span>
+      <h2 class="big">Your product,<br>front of mind.</h2>
+      <p class="lead">We kit and co-pack food, liquor, health care, housewares and hardware products in Etobicoke, near Toronto Pearson.</p>
+      <p>With over 25 years of combined experience, we're vertically integrated: full packaging design for a more modular pack that handles multiple products while reducing cost.</p>
+      <div class="chips" aria-label="Certifications"><span>SQF</span><span>DEL</span><span>SFCR</span><span>LNHPD</span><span>Full GMP</span></div>
+      <a class="btn btn-d" href="#contact">What can we pack for you? <svg><use href="#arr"/></svg></a>
+    </div>
+    <div class="cp-box rv">
+      <h3>What we pack</h3>
+      <ul>
+        <li><svg><use href="#check"/></svg>Kitting, gift boxes &amp; influencer boxes</li>
+        <li><svg><use href="#check"/></svg>Corrugated pre-packed displays</li>
+        <li><svg><use href="#check"/></svg>Pallet displays</li>
+        <li><svg><use href="#check"/></svg>Shrink wrapping</li>
+      </ul>
+      <h3>Live view with Nulogy</h3>
+      <ul>
+        <li><svg><use href="#check"/></svg>Online inventory portal for customers</li>
+        <li><svg><use href="#check"/></svg>Live reporting on inventory, production, shipping and receiving</li>
+        <li><svg><use href="#check"/></svg>Full traceability, with inventory by rack location</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="sg rv">
+      <svg class="ic"><use href="#i-shield"/></svg>
+      <div><span class="tag" style="color:var(--y)">Also from bp3D</span><h3>SAFEGUARDS</h3><p>A durable, clear cover fitted to payment terminals, keyboards and office phones. Clean it with bleach as often as you like, with no harm to the electronics and no interference with tap payments.</p></div>
+      <a class="btn btn-o" href="https://bp3dcreatives.com/safeguards/">Learn more</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contact">
+  <div class="wrap ct">
+    <div class="rv">
+      <img class="hi" loading="lazy" src="img/hi.png" alt="Illuminated Hi sign built by bp3D">
+      <span class="kicker">Contact us</span>
+      <h2 class="big">Enough talk.<br>Let's build.</h2>
+      <p>Let's discuss your idea by email, text or phone. Or leave a message and we'll get back to you shortly.</p>
+      <div class="lines">
+        <a href="tel:+14165254788"><svg><use href="#phone"/></svg>416-525-4788</a>
+        <a href="mailto:hi@bp3dcreatives.com"><svg><use href="#mail"/></svg>hi@bp3dcreatives.com</a>
+      </div>
+    </div>
+    <form class="rv" id="form">
+      <div class="row">
+        <label>Your name*<input name="name" required autocomplete="name"></label>
+        <label>Email*<input name="email" type="email" required autocomplete="email"></label>
+      </div>
+      <div class="row">
+        <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+        <label>Company name<input name="company" autocomplete="organization"></label>
+      </div>
+      <label>Message<textarea name="message" placeholder="What are we building?"></textarea></label>
+      <button class="btn" type="submit">Send message <svg><use href="#arr"/></svg></button>
+      <small>Opens your email app with your message ready to send to hi@bp3dcreatives.com.</small>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap ft">
+    <a class="logo" href="#top"><img src="img/logo.png" alt="bp3D Creatives" width="1000" height="149"></a>
+    <nav><a href="#work">Our work</a><a href="#services">Services</a><a href="#about">About</a><a href="#copacking">Co-packing</a><a href="#contact">Contact</a></nav>
+    <span class="cities">Toronto · Vancouver · Montreal</span>
+    <p class="cr">&copy; 2026 bp3D Creatives. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Project photo">
+  <span class="lt" id="lbt"></span>
+  <button class="x" id="lbx" aria-label="Close"><svg><use href="#close"/></svg></button>
+  <img id="lbi" alt="">
+  <button class="pv" id="lbp" aria-label="Previous"><svg><use href="#arrl"/></svg></button>
+  <button class="nx" id="lbn" aria-label="Next"><svg><use href="#arr"/></svg></button>
+</div>
+
+<script>
+(()=>{
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const hd=document.getElementById('hd');
+const onS=()=>hd.classList.toggle('on',scrollY>20);onS();addEventListener('scroll',onS,{passive:true});
+
+// menu
+const b=document.getElementById('burger'),nav=document.getElementById('nav');
+b.onclick=()=>{const o=nav.classList.toggle('open');b.setAttribute('aria-expanded',o);b.style.transform=o?'rotate(45deg)':''};
+nav.querySelectorAll('a').forEach(a=>a.onclick=()=>{nav.classList.remove('open');b.setAttribute('aria-expanded',false);b.style.transform=''});
+
+// pile: fans out as you scroll, leans toward the pointer on desktop
+const cards=[...document.querySelectorAll('.pc')];
+let px=0,py=0;
+const draw=()=>{
+  const p=rm?0:Math.min(scrollY/500,1);
+  cards.forEach(c=>{
+    const [fx,fy]=c.dataset.f.split(',').map(Number);
+    const r0=parseFloat(getComputedStyle(c).getPropertyValue('--r0'))||0;
+    c.style.setProperty('--x',(fx*p*40+px*fx*8)+'px');
+    c.style.setProperty('--yy',(fy*p*40+py*fy*8)+'px');
+    c.style.setProperty('--rot',(r0*(1+p*.6))+'deg');
+  });
+};
+draw();
+if(!rm){
+  addEventListener('scroll',()=>requestAnimationFrame(draw),{passive:true});
+  if(matchMedia('(hover:hover)').matches) addEventListener('pointermove',e=>{px=e.clientX/innerWidth-.5;py=e.clientY/innerHeight-.5;requestAnimationFrame(draw)});
+}
+
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// tabs
+const tabs=[...document.querySelectorAll('[role=tab]')];
+const sel=t=>{tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on});};
+tabs.forEach((t,i)=>{t.onclick=()=>{sel(t);if(innerWidth<901)document.getElementById(t.getAttribute('aria-controls')).scrollIntoView({behavior:rm?'auto':'smooth',block:'nearest'})};
+  t.onkeydown=e=>{let j=e.key==='ArrowDown'||e.key==='ArrowRight'?i+1:e.key==='ArrowUp'||e.key==='ArrowLeft'?i-1:null;if(j==null)return;e.preventDefault();j=(j+tabs.length)%tabs.length;tabs[j].focus();sel(tabs[j])}});
+
+// quotes
+const q=document.getElementById('quotes');
+const step=()=>q.querySelector('.q').offsetWidth+14;
+document.getElementById('qn').onclick=()=>q.scrollBy({left:step(),behavior:'smooth'});
+document.getElementById('qp').onclick=()=>q.scrollBy({left:-step(),behavior:'smooth'});
+
+// lightbox
+const items=[...document.querySelectorAll('.w')],lb=document.getElementById('lb'),li=document.getElementById('lbi'),lt=document.getElementById('lbt');
+let k=0,last;
+const show=i=>{k=(i+items.length)%items.length;const im=items[k].querySelector('img');li.src=im.src;li.alt=im.alt;lt.textContent=items[k].dataset.t};
+items.forEach((it,i)=>it.onclick=()=>{last=it;show(i);lb.classList.add('on');document.body.style.overflow='hidden';document.getElementById('lbx').focus()});
+const close=()=>{lb.classList.remove('on');document.body.style.overflow='';last&&last.focus()};
+document.getElementById('lbx').onclick=close;
+document.getElementById('lbn').onclick=()=>show(k+1);
+document.getElementById('lbp').onclick=()=>show(k-1);
+lb.onclick=e=>{if(e.target===lb)close()};
+addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')show(k+1);if(e.key==='ArrowLeft')show(k-1)});
+let sx=0;lb.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+lb.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)show(k+(d<0?1:-1))});
+
+// form: opens the visitor's email app with the message filled in
+document.getElementById('form').onsubmit=e=>{
+  e.preventDefault();const f=new FormData(e.target);
+  const body=`Name: ${f.get('name')}\nEmail: ${f.get('email')}\nPhone: ${f.get('phone')}\nCompany: ${f.get('company')}\n\n${f.get('message')}`;
+  location.href='mailto:hi@bp3dcreatives.com?subject='+encodeURIComponent('Project enquiry from '+f.get('name'))+'&body='+encodeURIComponent(body);
+};
+})();
+</script>
+</body>
+</html>
