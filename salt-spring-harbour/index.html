@@ -31,8 +31,7 @@ a{color:inherit}
 .bar{position:fixed;inset:0 0 auto;z-index:40;display:flex;align-items:center;gap:12px;padding:10px 14px;background:linear-gradient(rgba(11,12,13,.82),rgba(11,12,13,0));transition:background .3s}
 .bar.solid{background:var(--black)}
 .logo{position:relative;display:block;width:132px;flex:none}
-.logo img{width:100%;height:auto;border:1px solid rgba(255,255,255,.5)}
-.logo .refl{position:absolute;left:0;top:100%;width:100%;transform:scaleY(-1);opacity:.38;filter:url(#ripple) blur(.3px);-webkit-mask-image:linear-gradient(to top,#000,transparent 70%);mask-image:linear-gradient(to top,#000,transparent 70%);pointer-events:none}
+.logo img{width:100%;height:auto;border:1px solid rgba(255,255,255,.5);box-shadow:0 6px 18px rgba(0,0,0,.35)}
 .bar .sp{flex:1}
 .vhf{display:none;color:#fff;font-size:.8rem;letter-spacing:.08em;border:1px solid var(--line);padding:9px 12px;min-height:44px;align-items:center}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:0 18px;border:2px solid #fff;background:#fff;color:var(--black);font:inherit;font-weight:700;text-decoration:none;cursor:pointer;font-size:.95rem}
@@ -193,24 +192,15 @@ footer p{color:var(--mist);font-size:.9rem}
 
 .rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
 .rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.logo .refl{filter:blur(.3px)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 <a class="skip" href="#harbours">Skip to the harbours</a>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <filter id="ripple" x="0" y="0" width="100%" height="100%">
-    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.09" numOctaves="2" seed="4" result="n">
-      <animate attributeName="baseFrequency" dur="9s" values="0.012 0.09;0.014 0.11;0.012 0.09" repeatCount="indefinite"/>
-    </feTurbulence>
-    <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
-  </filter>
-</svg>
 
 <header class="bar" id="bar">
   <a class="logo" href="#top" aria-label="Harbour Authority of Salt Spring Island, home">
     <img src="img/HASSI.webp" width="1130" height="406" alt="HASSI, Harbour Authority Salt Spring Island">
-    <img class="refl" src="img/HASSI.webp" width="1130" height="406" alt="" aria-hidden="true">
   </a>
   <span class="sp"></span>
   <span class="vhf mono">VHF CH 9</span>
