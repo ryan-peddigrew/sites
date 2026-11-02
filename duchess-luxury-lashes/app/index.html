@@ -1,0 +1,85 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Crown Fitting app · preview</title><meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#141110;color:#F3ECE2;font:300 15px/1.5 Jost,sans-serif;-webkit-font-smoothing:antialiased;padding:48px 16px 64px}
+.hd{text-align:center;max-width:640px;margin:0 auto 40px}
+.hd .ey,.lab small{font:400 10px Jost;letter-spacing:.4em;text-transform:uppercase;color:#A39589}
+.hd h1{font:300 clamp(34px,6vw,58px)/1 'Cormorant Garamond',serif;text-transform:uppercase;letter-spacing:.05em;margin-top:12px}
+.hd p{color:#A39589;margin-top:12px}
+.row{display:flex;gap:36px;justify-content:center;flex-wrap:wrap}
+.col{display:flex;flex-direction:column;align-items:center;gap:16px}
+.lab{text-align:center}.lab b{display:block;font:italic 300 26px 'Cormorant Garamond',serif;margin-top:4px}
+.ph{width:300px;height:640px;border-radius:50px;background:#000;padding:10px;box-shadow:0 0 0 2px #2b2522,0 0 0 4px #0d0b0a,0 40px 80px rgba(0,0,0,.6);position:relative}
+.sc{position:relative;width:100%;height:100%;border-radius:40px;overflow:hidden;background:#000}
+.sb{position:absolute;top:0;left:0;right:0;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 26px;z-index:5;font:500 13px -apple-system,Jost,sans-serif}
+.isl{position:absolute;left:50%;top:10px;width:92px;height:26px;border-radius:20px;background:#000;transform:translateX(-50%)}
+.sig{display:flex;gap:2px;align-items:end}.sig i{width:3px;background:#fff;border-radius:1px}.sig i:nth-child(1){height:4px}.sig i:nth-child(2){height:6px}.sig i:nth-child(3){height:8px}.sig i:nth-child(4){height:10px}
+.cr{color:#F3ECE2}
+.tb{position:absolute;left:0;right:0;bottom:0;height:78px;display:flex;justify-content:space-around;padding:10px 8px 0;background:rgba(0,0,0,.88);border-top:1px solid rgba(243,236,226,.12);backdrop-filter:blur(10px)}
+.tb a{display:flex;flex-direction:column;align-items:center;gap:4px;font:400 8px Jost;letter-spacing:.2em;text-transform:uppercase;color:#7d7168}
+.tb a.on{color:#F3ECE2}.tb svg{width:24px;height:24px}
+.bt{display:flex;align-items:center;justify-content:center;min-height:48px;font:400 9px Jost;letter-spacing:.34em;text-transform:uppercase}
+.bt.l{background:#F3ECE2;color:#000}.bt.o{border:1px solid rgba(243,236,226,.3)}
+/* screen 1 */
+.s1 .top{text-align:center;padding-top:52px}
+.s1 .cr{width:46px;margin:0 auto}
+.s1 .ey2{font:400 8px Jost;letter-spacing:.4em;text-transform:uppercase;color:#A39589;margin-top:14px}
+.s1 h2{font:300 34px/.95 'Cormorant Garamond',serif;text-transform:uppercase;letter-spacing:.04em;margin-top:8px}
+.s1 .it{font:italic 300 19px 'Cormorant Garamond',serif;margin-top:6px}
+.s1 .hero{margin:14px 16px 0;height:200px;position:relative;overflow:hidden}
+.s1 .hero img{width:100%;height:100%;object-fit:cover;object-position:55% 25%}
+.s1 .hero span{position:absolute;left:0;right:0;bottom:0;padding:24px 12px 10px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.8));font:italic 300 20px 'Cormorant Garamond',serif;text-align:right}
+.s1 .bt{margin:14px 16px 0}
+/* screen 2 */
+.s2 .cam{position:absolute;inset:0}
+.s2 .cam img{width:100%;height:100%;object-fit:cover;object-position:52% 22%}
+.s2 .cam::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),transparent 22%,transparent 55%,rgba(0,0,0,.92))}
+.s2 .guide{position:absolute;left:50%;top:92px;width:190px;height:250px;border:1px solid rgba(255,255,255,.55);border-radius:50%;transform:translateX(-50%);z-index:2}
+.s2 .t2{position:absolute;top:50px;left:0;right:0;text-align:center;z-index:3;font:400 8px Jost;letter-spacing:.4em;text-transform:uppercase}
+.s2 .t2 b{display:block;font:italic 300 22px 'Cormorant Garamond',serif;letter-spacing:0;text-transform:none;margin-top:2px}
+.s2 .rail{position:absolute;left:0;right:0;bottom:150px;display:flex;gap:8px;padding:0 14px;z-index:3;overflow:hidden}
+.s2 .rail div{flex:0 0 62px;text-align:center;font:400 6.5px Jost;letter-spacing:.16em;text-transform:uppercase;color:#cfc5ba}
+.s2 .rail img{width:62px;height:62px;object-fit:contain;background:#E8E2D9;padding:6px;border:1px solid transparent;margin-bottom:5px}
+.s2 .rail .on img{outline:1px solid #fff;outline-offset:2px}.s2 .rail .on{color:#fff}
+.s2 .fit{position:absolute;left:24px;right:24px;bottom:120px;height:1px;background:rgba(255,255,255,.3);z-index:3}
+.s2 .fit i{position:absolute;left:55%;top:-5px;width:11px;height:11px;border-radius:50%;background:#fff}
+.s2 .shut{position:absolute;left:50%;bottom:24px;width:70px;height:70px;border-radius:50%;border:2px solid #fff;transform:translateX(-50%);z-index:3}
+.s2 .shut::after{content:"";position:absolute;inset:6px;border-radius:50%;background:#F3ECE2}
+.s2 .flip,.s2 .lib{position:absolute;bottom:42px;z-index:3;font:400 7.5px Jost;letter-spacing:.3em;text-transform:uppercase}
+.s2 .lib{left:26px}.s2 .flip{right:26px}
+/* screen 3 */
+.s3 .res{position:absolute;left:0;right:0;top:0;height:290px}
+.s3 .res img{width:100%;height:100%;object-fit:cover;object-position:55% 25%}
+.s3 .res::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5),transparent 25%,transparent 70%,#000)}
+.s3 .nfo{position:absolute;left:0;right:0;top:250px;padding:0 18px;z-index:3}
+.s3 .nfo small{font:400 8px Jost;letter-spacing:.4em;text-transform:uppercase;color:#A39589}
+.s3 .nfo h3{font:300 30px/1 'Cormorant Garamond',serif;text-transform:uppercase;letter-spacing:.04em;margin-top:6px}
+.s3 .nfo .pr{display:flex;justify-content:space-between;font-size:12px;color:#A39589;margin-top:6px;padding-bottom:14px;border-bottom:1px solid rgba(243,236,226,.14)}
+.s3 .bt{margin-top:12px}
+.s3 .two{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.note{max-width:640px;margin:44px auto 0;text-align:center;color:#A39589;font-size:14px}
+</style></head><body>
+<div class="hd"><div class="ey">Duchess · iPhone app preview</div><h1>The Crown Fitting</h1><p>How the try-on looks as its own app. Three screens: start, fitting, your look.</p></div>
+<div class="row">
+<div class="col"><div class="ph"><div class="sc s1"><div class="sb"><b>9:41</b><i class="isl"></i><span class="sig"><i></i><i></i><i></i><i></i></span></div>
+  <div class="top"><svg class="cr" viewBox="95 180 410 210" aria-hidden="true"><path d="M187.24 354.81 L183.89 348.58 L180.46 342.55 L176.96 336.71 L173.37 331.07 L169.71 325.64 L165.97 320.40 L162.15 315.36 L158.25 310.52 L154.28 305.89 L150.23 301.45 L146.10 297.22 L141.91 293.18 L137.64 289.35 L133.29 285.72 L128.88 282.29 L124.40 279.07 L119.84 276.04 L115.22 273.21 L115.22 273.21 L119.60 276.39 L123.88 279.75 L128.07 283.30 L132.16 287.02 L136.17 290.93 L140.08 295.01 L143.90 299.28 L147.64 303.72 L151.28 308.35 L154.84 313.16 L158.32 318.15 L161.70 323.32 L165.01 328.67 L168.22 334.21 L171.36 339.93 L174.41 345.83 L177.38 351.92 L180.26 358.19Z" fill="currentColor"/><circle cx="115.22" cy="267.01" r="5.27" fill="currentColor"/><path d="M216.47 361.99 L214.56 357.35 L212.60 352.82 L210.60 348.42 L208.56 344.14 L206.46 339.98 L204.32 335.95 L202.14 332.04 L199.91 328.26 L197.64 324.60 L195.33 321.06 L192.97 317.65 L190.56 314.37 L188.12 311.21 L185.63 308.18 L183.11 305.28 L180.54 302.50 L177.94 299.85 L175.29 297.33 L175.29 297.33 L177.62 300.14 L179.88 303.06 L182.10 306.08 L184.26 309.22 L186.37 312.46 L188.42 315.81 L190.42 319.27 L192.37 322.84 L194.27 326.51 L196.12 330.30 L197.92 334.19 L199.67 338.20 L201.38 342.32 L203.03 346.54 L204.63 350.88 L206.19 355.33 L207.70 359.89 L209.16 364.57Z" fill="currentColor"/><path d="M245.65 367.26 L243.37 358.50 L241.02 349.93 L238.62 341.55 L236.16 333.36 L233.63 325.37 L231.05 317.57 L228.41 309.96 L225.70 302.55 L222.94 295.33 L220.12 288.30 L217.24 281.47 L214.31 274.83 L211.31 268.39 L208.26 262.14 L205.15 256.09 L201.98 250.24 L198.76 244.58 L195.48 239.12 L195.48 239.12 L198.38 244.78 L201.21 250.63 L203.99 256.66 L206.70 262.87 L209.34 269.26 L211.92 275.83 L214.44 282.58 L216.90 289.52 L219.30 296.64 L221.63 303.94 L223.90 311.43 L226.11 319.10 L228.26 326.95 L230.35 334.99 L232.38 343.21 L234.35 351.62 L236.25 360.21 L238.10 368.99Z" fill="currentColor"/><circle cx="195.48" cy="232.92" r="5.27" fill="currentColor"/><path d="M274.79 370.60 L273.92 365.01 L273.04 359.53 L272.13 354.16 L271.21 348.90 L270.27 343.75 L269.30 338.71 L268.32 333.78 L267.32 328.97 L266.30 324.26 L265.26 319.67 L264.20 315.19 L263.12 310.81 L262.03 306.55 L260.91 302.41 L259.78 298.37 L258.63 294.45 L257.45 290.64 L256.26 286.94 L256.26 286.94 L257.04 290.75 L257.79 294.65 L258.52 298.66 L259.23 302.78 L259.92 307.00 L260.59 311.32 L261.24 315.75 L261.87 320.29 L262.48 324.93 L263.07 329.67 L263.64 334.53 L264.19 339.49 L264.73 344.55 L265.24 349.72 L265.73 355.00 L266.20 360.38 L266.65 365.87 L267.09 371.47Z" fill="currentColor"/><path d="M303.88 372.00 L303.66 360.74 L303.44 349.69 L303.23 338.85 L303.01 328.22 L302.80 317.80 L302.58 307.59 L302.37 297.59 L302.15 287.80 L301.94 278.23 L301.72 268.86 L301.51 259.70 L301.29 250.76 L301.08 242.02 L300.86 233.50 L300.65 225.18 L300.43 217.08 L300.22 209.18 L300.00 201.50 L300.00 201.50 L299.78 209.18 L299.57 217.08 L299.35 225.18 L299.14 233.50 L298.92 242.02 L298.71 250.76 L298.49 259.70 L298.28 268.86 L298.06 278.23 L297.85 287.80 L297.63 297.59 L297.42 307.59 L297.20 317.80 L296.99 328.22 L296.77 338.85 L296.56 349.69 L296.34 360.74 L296.12 372.00Z" fill="currentColor"/><circle cx="300.00" cy="195.30" r="6.82" fill="currentColor"/><path d="M332.91 371.47 L333.35 365.87 L333.80 360.38 L334.27 355.00 L334.76 349.72 L335.27 344.55 L335.81 339.49 L336.36 334.53 L336.93 329.67 L337.52 324.93 L338.13 320.29 L338.76 315.75 L339.41 311.32 L340.08 307.00 L340.77 302.78 L341.48 298.66 L342.21 294.65 L342.96 290.75 L343.74 286.94 L343.74 286.94 L342.55 290.64 L341.37 294.45 L340.22 298.37 L339.09 302.41 L337.97 306.55 L336.88 310.81 L335.80 315.19 L334.74 319.67 L333.70 324.26 L332.68 328.97 L331.68 333.78 L330.70 338.71 L329.73 343.75 L328.79 348.90 L327.87 354.16 L326.96 359.53 L326.08 365.01 L325.21 370.60Z" fill="currentColor"/><path d="M361.90 368.99 L363.75 360.21 L365.65 351.62 L367.62 343.21 L369.65 334.99 L371.74 326.95 L373.89 319.10 L376.10 311.43 L378.37 303.94 L380.70 296.64 L383.10 289.52 L385.56 282.58 L388.08 275.83 L390.66 269.26 L393.30 262.87 L396.01 256.66 L398.79 250.63 L401.62 244.78 L404.52 239.12 L404.52 239.12 L401.24 244.58 L398.02 250.24 L394.85 256.09 L391.74 262.14 L388.69 268.39 L385.69 274.83 L382.76 281.47 L379.88 288.30 L377.06 295.33 L374.30 302.55 L371.59 309.96 L368.95 317.57 L366.37 325.37 L363.84 333.36 L361.38 341.55 L358.98 349.93 L356.63 358.50 L354.35 367.26Z" fill="currentColor"/><circle cx="404.52" cy="232.92" r="5.27" fill="currentColor"/><path d="M390.84 364.57 L392.30 359.89 L393.81 355.33 L395.37 350.88 L396.97 346.54 L398.62 342.32 L400.33 338.20 L402.08 334.19 L403.88 330.30 L405.73 326.51 L407.63 322.84 L409.58 319.27 L411.58 315.81 L413.63 312.46 L415.74 309.22 L417.90 306.08 L420.12 303.06 L422.38 300.14 L424.71 297.33 L424.71 297.33 L422.06 299.85 L419.46 302.50 L416.89 305.28 L414.37 308.18 L411.88 311.21 L409.44 314.37 L407.03 317.65 L404.67 321.06 L402.36 324.60 L400.09 328.26 L397.86 332.04 L395.68 335.95 L393.54 339.98 L391.44 344.14 L389.40 348.42 L387.40 352.82 L385.44 357.35 L383.53 361.99Z" fill="currentColor"/><path d="M419.74 358.19 L422.62 351.92 L425.59 345.83 L428.64 339.93 L431.78 334.21 L434.99 328.67 L438.30 323.32 L441.68 318.15 L445.16 313.16 L448.72 308.35 L452.36 303.72 L456.10 299.28 L459.92 295.01 L463.83 290.93 L467.84 287.02 L471.93 283.30 L476.12 279.75 L480.40 276.39 L484.78 273.21 L484.78 273.21 L480.16 276.04 L475.60 279.07 L471.12 282.29 L466.71 285.72 L462.36 289.35 L458.09 293.18 L453.90 297.22 L449.77 301.45 L445.72 305.89 L441.75 310.52 L437.85 315.36 L434.03 320.40 L430.29 325.64 L426.63 331.07 L423.04 336.71 L419.54 342.55 L416.11 348.58 L412.76 354.81Z" fill="currentColor"/><circle cx="484.78" cy="267.01" r="5.27" fill="currentColor"/><path d="M172.54 380.65 L186.70 382.61 L200.86 384.34 L215.03 385.83 L229.19 387.10 L243.35 388.14 L257.51 388.94 L271.67 389.52 L285.84 389.86 L300.00 389.98 L314.16 389.86 L328.33 389.52 L342.49 388.94 L356.65 388.14 L370.81 387.10 L384.97 385.83 L399.14 384.34 L413.30 382.61 L427.46 380.65 L426.74 375.75 L412.66 377.69 L398.58 379.41 L384.49 380.90 L370.41 382.16 L356.33 383.19 L342.25 383.99 L328.16 384.56 L314.08 384.91 L300.00 385.02 L285.92 384.91 L271.84 384.56 L257.75 383.99 L243.67 383.19 L229.59 382.16 L215.51 380.90 L201.42 379.41 L187.34 377.69 L173.26 375.75Z" fill="currentColor"/></svg><div class="ey2">Duchess presents</div><h2>The Crown<br>Fitting</h2><div class="it">Find your crown.</div></div>
+  <div class="hero"><img src="../tryon/demo-amore.jpg" alt=""><span>Amore</span></div>
+  <div class="bt l">Start your fitting</div>
+  <nav class="tb"><a class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 15l3-7 3 4 2-6 2 6 3-4 3 7z"/><path d="M4 18h16"/></svg>Fitting</a><a class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 016 0"/></svg>Shop</a><a class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>Saved</a><a class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="5" y="7" width="14" height="13"/><path d="M9 7V5h6v2"/></svg>Bag</a></nav></div></div><div class="lab"><small>Screen 1</small><b>Start</b></div></div>
+<div class="col"><div class="ph"><div class="sc s2"><div class="sb"><b>9:41</b><i class="isl"></i><span class="sig"><i></i><i></i><i></i><i></i></span></div>
+  <div class="cam"><img src="../tryon/demo-royal-wedding.jpg" alt=""></div>
+  <div class="t2">Live fitting<b>Royal Wedding</b></div>
+  <div class="rail"><div><img src="../p/amore.jpg" alt="">Amore</div><div><img src="../p/velvet.jpg" alt="">Velvet</div><div class="on"><img src="../p/royal-wedding.jpg" alt="">Royal Wedding</div><div><img src="../p/boudoir.jpg" alt="">Boudoir</div></div>
+  <div class="fit"><i></i></div>
+  <span class="lib">Photos</span><div class="shut"></div><span class="flip">Flip</span>
+  </div></div><div class="lab"><small>Screen 2</small><b>Fitting</b></div></div>
+<div class="col"><div class="ph"><div class="sc s3"><div class="sb"><b>9:41</b><i class="isl"></i><span class="sig"><i></i><i></i><i></i><i></i></span></div>
+  <div class="res"><img src="../tryon/demo-royal-wedding.jpg" alt=""></div>
+  <div class="nfo"><small>Your crown</small><h3>Royal Wedding</h3><div class="pr"><span>Glamorous · Medium to large eyes</span><span>$25.00</span></div>
+  <div class="bt l">Add to bag</div><div class="two"><div class="bt o">Save look</div><div class="bt o">Share</div></div></div>
+  <nav class="tb"><a class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 15l3-7 3 4 2-6 2 6 3-4 3 7z"/><path d="M4 18h16"/></svg>Fitting</a><a class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 016 0"/></svg>Shop</a><a class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>Saved</a><a class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="5" y="7" width="14" height="13"/><path d="M9 7V5h6v2"/></svg>Bag</a></nav></div></div><div class="lab"><small>Screen 3</small><b>Your look</b></div></div>
+</div>
+<p class="note">Today it already works like an app: open the fitting link on an iPhone, tap Share, then Add to Home Screen. It gets the crown icon and opens full screen.</p>
+</body></html>
