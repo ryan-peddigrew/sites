@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>E.I. Williams | Noise and emission control</title>
+<meta name="description" content="Industrial silencers, emission products, exhaust accessories and noise barriers, designed and built in Ajax, Ontario and Sarepta, Louisiana since 1992.">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#113352;--deep:#0b2236;--green:#44AE4D;--green-d:#2f8238;
+  --paper:#eef2f4;--white:#fff;--text:#16283a;--muted:#55677a;--line:#cfd8df;
+  --display:'Big Shoulders Display',Impact,sans-serif;--body:'Manrope',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
+  --pad:clamp(16px,4vw,48px);--max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--paper);color:var(--text);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:2px;font:700 15px var(--body);text-decoration:none;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s;cursor:pointer}
+.btn svg{width:18px;height:18px}
+.btn-green{background:var(--green);color:#06210c}
+.btn-green:hover{background:#56c25f}
+.btn-line{border-color:currentColor;color:var(--navy)}
+.btn-line:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.on-dark .btn-line{color:#fff}
+.on-dark .btn-line:hover{background:#fff;color:var(--navy);border-color:#fff}
+
+/* top strip */
+.strip{background:var(--deep);color:#c9d6e1;font-size:13px}
+.strip .wrap{display:flex;gap:24px;justify-content:flex-end;align-items:center;min-height:36px}
+.strip a{text-decoration:none;display:inline-flex;align-items:center;gap:7px;min-height:36px}
+.strip a:hover{color:#fff}
+.strip svg{width:14px;height:14px;color:var(--green)}
+@media(max-width:720px){.strip{display:none}}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(238,242,244,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;min-height:72px;gap:20px}
+.logo img{height:34px;width:auto}
+nav.main{display:flex;gap:4px;align-items:center}
+nav.main a{text-decoration:none;font-weight:600;font-size:15px;padding:0 12px;min-height:44px;display:inline-flex;align-items:center;position:relative}
+nav.main a:not(.btn)::after{content:"";position:absolute;left:12px;right:12px;bottom:8px;height:2px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+nav.main a:not(.btn):hover::after{transform:scaleX(1)}
+nav.main .btn{margin-left:10px;min-height:44px}
+.menu-btn{display:none;background:none;border:0;width:48px;height:48px;align-items:center;justify-content:center;cursor:pointer;color:var(--navy)}
+.menu-btn svg{width:30px;height:30px}
+@media(max-width:960px){
+  nav.main{position:fixed;inset:72px 0 0 0;background:var(--navy);flex-direction:column;align-items:stretch;padding:24px var(--pad);gap:0;transform:translateX(100%);transition:transform .3s ease;visibility:hidden}
+  nav.main.open{transform:none;visibility:visible}
+  nav.main a{color:#fff;font:800 34px/1 var(--display);text-transform:uppercase;letter-spacing:.01em;min-height:64px;border-bottom:1px solid rgba(255,255,255,.12);padding:0}
+  nav.main a:not(.btn)::after{display:none}
+  nav.main .btn{margin:24px 0 0;font:700 16px var(--body);text-transform:none;min-height:54px;border-bottom:0}
+  .menu-btn{display:inline-flex}
+}
+
+/* hero */
+.hero{padding:clamp(36px,6vw,80px) 0 0;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,56px);align-items:end}
+.tag{display:inline-flex;align-items:center;gap:10px;color:var(--muted)}
+.tag::before{content:"";width:26px;height:3px;background:var(--green)}
+h1{font:900 clamp(64px,11.5vw,168px)/.84 var(--display);text-transform:uppercase;color:var(--navy);letter-spacing:-.005em;margin:18px 0 26px}
+h1 span{display:block}
+h1 span:nth-child(2){color:transparent;-webkit-text-stroke:2px var(--navy)}
+h1 span:nth-child(3){color:var(--green-d)}
+.lead{font-size:clamp(17px,1.6vw,20px);max-width:34em;color:#2b3e51}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero-photo{position:relative;aspect-ratio:4/5;border:1px solid var(--line);background:#dfe6eb}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.tick{position:absolute;width:22px;height:22px;border-color:var(--navy);border-style:solid;border-width:0}
+.tick.tl{top:-8px;left:-8px;border-top-width:2px;border-left-width:2px}
+.tick.tr{top:-8px;right:-8px;border-top-width:2px;border-right-width:2px}
+.tick.bl{bottom:-8px;left:-8px;border-bottom-width:2px;border-left-width:2px}
+.tick.br{bottom:-8px;right:-8px;border-bottom-width:2px;border-right-width:2px}
+.photo-label{position:absolute;left:0;bottom:0;background:var(--navy);color:#fff;padding:10px 14px}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-photo{aspect-ratio:16/11}}
+
+/* wave band */
+.wave{margin-top:clamp(36px,5vw,64px);position:relative}
+.wave canvas{display:block;width:100%;height:150px}
+.wave-labels{display:flex;justify-content:space-between;color:var(--muted);padding-top:8px}
+.wave-labels b{color:var(--navy);font-weight:500}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--navy);margin-top:36px}
+.facts div{padding:20px 18px 22px 0;border-right:1px solid var(--line)}
+.facts div+div{padding-left:18px}
+.facts div:last-child{border-right:0}
+.facts strong{display:block;font:800 clamp(30px,3.2vw,44px)/1 var(--display);color:var(--navy);text-transform:uppercase}
+.facts span{display:block;margin-top:8px;color:var(--muted);font-size:14px;line-height:1.45}
+@media(max-width:860px){.facts{grid-template-columns:1fr 1fr}.facts div:nth-child(2){border-right:0}.facts div:nth-child(3){padding-left:0}.facts div:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* section heads */
+section{padding:clamp(64px,9vw,120px) 0}
+.sec-head{display:grid;grid-template-columns:200px 1fr;gap:24px;margin-bottom:clamp(32px,4vw,56px);align-items:start}
+.sec-no{color:var(--muted);padding-top:12px;border-top:2px solid var(--navy)}
+.sec-no b{color:var(--green-d);font-weight:500}
+h2{font:900 clamp(44px,6.4vw,92px)/.9 var(--display);text-transform:uppercase;color:var(--navy);letter-spacing:-.005em}
+.sec-head p{margin-top:18px;max-width:40em;color:#2b3e51;font-size:17px}
+.on-dark .sec-no{border-color:var(--green);color:#9fb3c6}
+.on-dark .sec-no b{color:var(--green)}
+.on-dark h2{color:#fff}
+.on-dark .sec-head p{color:#c5d3df}
+@media(max-width:760px){.sec-head{grid-template-columns:1fr;gap:14px}.sec-no{padding-top:10px;width:max-content;min-width:120px}}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px)}
+.about-grid .big{font:600 clamp(22px,2.3vw,30px)/1.35 var(--body);color:var(--navy);letter-spacing:-.01em}
+.about-grid .big + p{margin-top:18px;color:#2b3e51}
+.why{display:grid;gap:0;border-top:1px solid var(--line)}
+.why div{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
+.why svg{width:40px;height:40px;color:var(--navy)}
+.why h3{font:800 24px/1.1 var(--display);text-transform:uppercase;color:var(--navy);letter-spacing:.01em}
+.why p{color:#3a4c5e;margin-top:6px;font-size:15.5px}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr}}
+
+/* products */
+.products{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.prod{display:flex;flex-direction:column;text-decoration:none;background:var(--paper);border:1px solid var(--line);transition:transform .25s,box-shadow .25s}
+.prod:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(17,51,82,.45)}
+.prod .ph{aspect-ratio:4/3;overflow:hidden;background:#dfe6eb}
+.prod .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.prod:hover .ph img{transform:scale(1.05)}
+.prod .tx{padding:18px 18px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.prod .tx .mono{color:var(--green-d)}
+.prod h3{font:800 30px/1 var(--display);text-transform:uppercase;color:var(--navy)}
+.prod p{color:#3a4c5e;font-size:15px}
+.prod .go{margin-top:auto;padding-top:10px;display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--navy);min-height:44px}
+.prod .go svg{width:18px;height:18px;transition:transform .2s}
+.prod:hover .go svg{transform:translateX(4px)}
+@media(max-width:1060px){.prod-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.prod-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 calc(-1*var(--pad));padding:0 var(--pad) 8px}.prod{flex:0 0 82%;scroll-snap-align:start}}
+
+/* silencer index */
+.index{margin-top:clamp(56px,7vw,96px)}
+.index-head{display:flex;justify-content:space-between;align-items:end;gap:20px;border-bottom:2px solid var(--navy);padding-bottom:14px;flex-wrap:wrap}
+.index-head h3{font:900 clamp(34px,4vw,54px)/.95 var(--display);text-transform:uppercase;color:var(--navy)}
+.index-head p{color:var(--muted);max-width:30em;font-size:15px}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;display:grid;grid-template-columns:56px 1fr 44px;align-items:center;gap:12px;min-height:68px;cursor:pointer;padding:8px 0}
+summary::-webkit-details-marker{display:none}
+summary .n{color:var(--muted)}
+summary .t{font:800 clamp(24px,3vw,38px)/1.05 var(--display);text-transform:uppercase;color:var(--navy);transition:color .2s,transform .25s}
+summary:hover .t{color:var(--green-d);transform:translateX(6px)}
+summary .pl{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;transition:transform .25s,background .2s}
+summary .pl svg{width:18px;height:18px;color:var(--navy)}
+details[open] summary .pl{transform:rotate(45deg);background:var(--navy)}
+details[open] summary .pl svg{color:#fff}
+details p{padding:0 56px 22px 68px;color:#3a4c5e;max-width:62em}
+@media(max-width:600px){summary{grid-template-columns:36px 1fr 44px}details p{padding:0 0 20px 48px}}
+
+/* emissions band */
+.dark{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.dark::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
+.dark .wrap{position:relative}
+.em-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,56px);align-items:start}
+.em-list{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.16)}
+.em-list div{background:var(--navy);padding:24px 20px 26px;min-height:150px;display:flex;flex-direction:column;gap:8px}
+.em-list b{font:900 clamp(52px,6vw,76px)/.9 var(--display);color:var(--green)}
+.em-list span{color:#dbe5ee;font-size:15px}
+.em-copy p{color:#c5d3df;font-size:17px}
+.em-copy p+p{margin-top:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 26px}
+.chips span{border:1px solid rgba(255,255,255,.3);padding:8px 12px;color:#fff}
+.em-photo{margin-top:28px;position:relative;aspect-ratio:16/10;overflow:hidden;border:1px solid rgba(255,255,255,.2)}
+.em-photo img{width:100%;height:100%;object-fit:cover}
+@media(max-width:860px){.em-grid{grid-template-columns:1fr}}
+
+/* accessories */
+.acc-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,56px);align-items:start}
+.acc-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:sticky;top:96px}
+.acc-photos img{width:100%;aspect-ratio:1;object-fit:cover;border:1px solid var(--line)}
+.acc-photos img:first-child{grid-column:span 2;aspect-ratio:16/10}
+.parts{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--navy)}
+.parts div{padding:18px 18px 20px 0;border-bottom:1px solid var(--line)}
+.parts div:nth-child(odd){border-right:1px solid var(--line)}
+.parts div:nth-child(even){padding-left:18px}
+.parts h4{font:800 22px/1.1 var(--display);text-transform:uppercase;color:var(--navy);display:flex;align-items:center;gap:10px}
+.parts h4::before{content:"";width:10px;height:10px;background:var(--green);flex:0 0 auto}
+.parts p{color:#3a4c5e;font-size:14.5px;margin-top:6px}
+.barrier{margin-top:28px;background:#fff;border:1px solid var(--line);padding:26px 24px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.barrier h3{font:900 34px/1 var(--display);text-transform:uppercase;color:var(--navy);grid-column:1/-1}
+.barrier ul{list-style:none;display:grid;gap:10px}
+.barrier li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:15px;color:#2b3e51}
+.barrier li svg{width:22px;height:22px;color:var(--green-d);margin-top:1px}
+.barrier .mono{color:var(--muted);margin-bottom:4px}
+@media(max-width:860px){.acc-grid{grid-template-columns:1fr}.acc-photos{position:static}.parts{grid-template-columns:1fr}.parts div:nth-child(odd){border-right:0}.parts div:nth-child(even){padding-left:0}.barrier{grid-template-columns:1fr}}
+
+/* industries */
+.ind{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--navy);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:0 0 auto;background:none;border:0;font:800 clamp(22px,2.4vw,30px)/1 var(--display);text-transform:uppercase;color:#8a9aaa;padding:0 18px;min-height:60px;cursor:pointer;position:relative;display:inline-flex;align-items:center;gap:10px}
+.tabs button svg{width:28px;height:28px}
+.tabs button[aria-selected="true"]{color:var(--navy)}
+.tabs button[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:6px;background:var(--green)}
+.tabs button:hover{color:var(--navy)}
+.panel{display:none;grid-template-columns:1fr 1.2fr;gap:clamp(24px,4vw,56px);padding-top:clamp(28px,4vw,44px)}
+.panel.on{display:grid;animation:fade .4s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.panel .intro h3{font:900 clamp(40px,5vw,64px)/.92 var(--display);text-transform:uppercase;color:var(--navy)}
+.panel .intro p{margin-top:16px;color:#2b3e51}
+.panel .intro ul{list-style:none;margin-top:18px;display:grid;gap:8px}
+.panel .intro li{font-size:15px;color:#2b3e51;padding-left:18px;position:relative}
+.panel .intro li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:2px;background:var(--green-d)}
+.spec{background:var(--paper);border:1px solid var(--line)}
+.spec-top{display:flex;justify-content:space-between;gap:12px;padding:12px 18px;border-bottom:1px solid var(--line);color:var(--muted)}
+.spec-cols{display:grid;grid-template-columns:1fr 1fr}
+.spec-cols div{padding:16px 18px 20px}
+.spec-cols div+div{border-left:1px solid var(--line)}
+.spec-cols h4{font:800 20px/1 var(--display);text-transform:uppercase;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.spec-cols h4 i{font-style:normal;font-family:var(--mono);font-size:11px;color:#fff;background:var(--navy);padding:3px 6px;letter-spacing:.06em}
+.spec-cols ul{list-style:none;display:grid;gap:8px}
+.spec-cols li{font-family:var(--mono);font-size:13px;line-height:1.45;color:#22364a;padding-bottom:8px;border-bottom:1px dashed var(--line)}
+.spec-cols li:last-child{border-bottom:0}
+.other{margin-top:36px;padding:22px 24px;border-left:6px solid var(--green);background:var(--paper);color:#2b3e51}
+@media(max-width:860px){.panel{grid-template-columns:1fr}}
+@media(max-width:520px){.spec-cols{grid-template-columns:1fr}.spec-cols div+div{border-left:0;border-top:1px solid var(--line)}}
+
+/* gallery rail */
+.rail-wrap{position:relative}
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--pad) 12px;scrollbar-width:thin;cursor:grab}
+.rail.drag{cursor:grabbing;scroll-snap-type:none}
+.rail figure{flex:0 0 clamp(250px,30vw,400px);scroll-snap-align:start;position:relative}
+.rail figure:nth-child(3n+2){flex-basis:clamp(250px,24vw,320px)}
+.rail img{width:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid rgba(255,255,255,.15);pointer-events:none;user-select:none}
+.rail figure:nth-child(3n+2) img{aspect-ratio:4/6}
+.rail figcaption{color:#9fb3c6;margin-top:10px}
+.rail-ctrl{display:flex;gap:8px}
+.rail-ctrl button{width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:none;color:#fff;cursor:pointer;display:grid;place-items:center}
+.rail-ctrl button:hover{background:#fff;color:var(--navy)}
+.rail-ctrl svg{width:22px;height:22px}
+.gal-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.gal-head .sec-head{margin-bottom:0;flex:1}
+.gal-gap{height:clamp(28px,4vw,44px)}
+
+/* story */
+.story-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,72px)}
+.story-side{position:sticky;top:96px;align-self:start}
+.story-side img{width:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid var(--line)}
+.story-side .mono{margin-top:10px;color:var(--muted)}
+.tl{list-style:none;position:relative}
+.tl::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:2px;background:var(--line)}
+.tl li{position:relative;padding:0 0 34px 34px}
+.tl li::before{content:"";position:absolute;left:-5px;top:12px;width:12px;height:12px;background:var(--paper);border:2px solid var(--navy)}
+.tl li.hl::before{background:var(--green);border-color:var(--green)}
+.tl .yr{font:900 clamp(40px,4.4vw,58px)/1 var(--display);color:var(--navy)}
+.tl p{color:#2b3e51;margin-top:4px;max-width:36em}
+@media(max-width:860px){.story-grid{grid-template-columns:1fr}.story-side{position:static}.story-side img{aspect-ratio:16/10}}
+
+/* mission */
+.mission{padding:0 0 clamp(64px,9vw,120px)}
+.mv{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mv div{background:#fff;border:1px solid var(--line);padding:clamp(24px,3vw,40px)}
+.mv .mono{color:var(--green-d)}
+.mv blockquote{font:600 clamp(20px,2vw,26px)/1.4 var(--body);color:var(--navy);margin-top:14px;letter-spacing:-.01em}
+.values{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:16px;border:1px solid var(--line);background:#fff}
+.values div{padding:20px 18px;border-right:1px solid var(--line)}
+.values div:last-child{border-right:0}
+.values h4{font:800 20px/1.05 var(--display);text-transform:uppercase;color:var(--navy)}
+.values p{font-size:14px;color:#3a4c5e;margin-top:6px}
+@media(max-width:960px){.mv{grid-template-columns:1fr}.values{grid-template-columns:1fr 1fr}.values div{border-bottom:1px solid var(--line)}.values div:nth-child(2n){border-right:0}.values div:last-child{grid-column:1/-1;border-bottom:0}}
+
+/* news */
+.news{background:#fff;border-top:1px solid var(--line)}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.news-grid a{display:flex;flex-direction:column;gap:12px;text-decoration:none;padding:24px 22px;border:1px solid var(--line);background:var(--paper);min-height:230px;transition:border-color .2s,transform .25s}
+.news-grid a:hover{border-color:var(--navy);transform:translateY(-3px)}
+.news-grid .mono{color:var(--green-d)}
+.news-grid h3{font:800 26px/1.05 var(--display);text-transform:uppercase;color:var(--navy)}
+.news-grid p{font-size:15px;color:#3a4c5e}
+.news-grid .go{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--navy);min-height:44px}
+.news-grid .go svg{width:18px;height:18px}
+@media(max-width:860px){.news-grid{grid-template-columns:1fr}.news-grid a{min-height:0}}
+
+/* contact */
+.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px)}
+.loc{display:grid;gap:12px}
+.loc div{border:1px solid rgba(255,255,255,.2);padding:22px 22px 24px;background:rgba(255,255,255,.03)}
+.loc .mono{color:var(--green)}
+.loc h3{font:800 32px/1 var(--display);text-transform:uppercase;margin:8px 0 10px}
+.loc p{color:#c5d3df}
+.loc .links{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:10px}
+.loc a{display:inline-flex;align-items:center;gap:8px;min-height:44px;text-decoration:none;font-weight:600}
+.loc a svg{width:18px;height:18px;color:var(--green)}
+.loc a:hover{text-decoration:underline}
+form{background:#fff;color:var(--text);padding:clamp(22px,3vw,36px);display:grid;grid-template-columns:1fr 1fr;gap:14px}
+form h3{grid-column:1/-1;font:900 34px/1 var(--display);text-transform:uppercase;color:var(--navy)}
+form .hint{grid-column:1/-1;color:var(--muted);font-size:14.5px;margin-top:-4px}
+label{display:grid;gap:6px;font-size:13px;font-weight:700;color:var(--navy)}
+label.full{grid-column:1/-1}
+input,textarea{font:400 16px var(--body);color:var(--text);border:1px solid #b8c5cf;background:var(--paper);padding:12px 14px;min-height:48px;border-radius:2px;width:100%}
+textarea{min-height:120px;resize:vertical}
+input:focus,textarea:focus{outline:2px solid var(--green);outline-offset:1px;border-color:var(--navy)}
+form .btn{grid-column:1/-1;justify-self:start}
+.preview-note{grid-column:1/-1;background:#fff6d6;border:1px dashed #c9a400;color:#5a4a00;padding:10px 12px;font-size:13.5px}
+.sent{grid-column:1/-1;color:var(--green-d);font-weight:700;display:none}
+@media(max-width:860px){.ct-grid{grid-template-columns:1fr}}
+@media(max-width:520px){form{grid-template-columns:1fr}}
+
+/* footer */
+footer{background:var(--deep);color:#a9bccc;padding:56px 0 30px;font-size:14.5px}
+.ft{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.ft img{height:34px;width:auto;margin-bottom:16px}
+.ft h4{font:800 18px var(--display);text-transform:uppercase;color:#fff;letter-spacing:.04em;margin-bottom:10px}
+.ft ul{list-style:none;display:grid;gap:0}
+.ft a{text-decoration:none;display:inline-flex;min-height:40px;align-items:center}
+.ft a:hover{color:#fff}
+.ft-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:13px}
+.ft-bottom a{text-decoration:none}
+@media(max-width:860px){.ft{grid-template-columns:1fr 1fr}.ft>div:first-child{grid-column:1/-1}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="6"/><path d="M24 4v6M24 38v6M4 24h6M38 24h6M9.9 9.9l4.2 4.2M33.9 33.9l4.2 4.2M9.9 38.1l4.2-4.2M33.9 14.1l4.2-4.2"/><circle cx="24" cy="24" r="14"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h26v20H3zM29 20h9l7 7v5H29z"/><circle cx="12" cy="36" r="4"/><circle cx="37" cy="36" r="4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="19"/><path d="M24 12v12l8 5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4 7 10v12c0 11 7.5 18.5 17 22 9.5-3.5 17-11 17-22V10z"/></symbol>
+  <symbol id="i-anchor" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="9" r="4"/><path d="M24 13v31M14 22h20M6 28c0 9 8 16 18 16s18-7 18-16"/></symbol>
+  <symbol id="i-train" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="4" width="28" height="32" rx="6"/><path d="M10 22h28M17 30h.01M31 30h.01M16 36l-5 8M32 36l5 8"/></symbol>
+  <symbol id="i-pick" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 14c10-8 22-8 32 0M24 10v34"/><path d="M18 44h12"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M27 4 9 28h14l-3 16 19-25H25z"/></symbol>
+  <symbol id="i-server" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="6" width="34" height="14" rx="2"/><rect x="7" y="28" width="34" height="14" rx="2"/><path d="M14 13h.01M14 35h.01M22 13h12M22 35h12"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+</svg>
+
+<div class="strip">
+  <div class="wrap">
+    <a href="tel:+19054280950"><svg><use href="#i-phone"/></svg>(905) 428-0950</a>
+    <a href="tel:+18778403347"><svg><use href="#i-phone"/></svg>Toll-free 1-877-840-3347</a>
+    <a href="mailto:info@eiwilliams.com"><svg><use href="#i-mail"/></svg>info@eiwilliams.com</a>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="E.I. Williams home"><img src="img/logo.png" alt="E.I. Williams" width="484" height="126"></a>
+    <nav class="main" id="nav">
+      <a href="#products">Products</a>
+      <a href="#industries">Industries</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#story">Our story</a>
+      <a href="#news">News</a>
+      <a class="btn btn-green" href="#contact">Request a quote</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><svg><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="tag mono">Noise &amp; emission control &middot; since 1992</span>
+        <h1><span>Smarter.</span><span>Cleaner.</span><span>Quieter.</span></h1>
+        <p class="lead">Industrial silencers, emission products, exhaust accessories and noise barriers. Designed and built in our own plants in Ajax, Ontario and Sarepta, Louisiana.</p>
+        <div class="cta">
+          <a class="btn btn-green" href="#contact">Request a quote <svg><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-line" href="#products">See our products</a>
+        </div>
+      </div>
+      <div class="hero-photo rv">
+        <img src="img/datacentre-stacks.jpg" alt="Row of tall exhaust stacks along the side of an industrial building" width="1333" height="1333" fetchpriority="high">
+        <i class="tick tl"></i><i class="tick tr"></i><i class="tick bl"></i><i class="tick br"></i>
+        <span class="photo-label mono">Built in Canada &amp; the USA</span>
+      </div>
+    </div>
+
+    <div class="wave" aria-hidden="true">
+      <canvas id="wave"></canvas>
+      <div class="wave-labels mono"><span>Noise &amp; emissions in</span><b>Smarter. Cleaner. Quieter. out</b></div>
+    </div>
+
+    <div class="facts">
+      <div><strong>1992</strong><span>Founded in Markham, Ontario by Jim Williams and partners</span></div>
+      <div><strong>30+ years</strong><span>Designing and building noise and emission control</span></div>
+      <div><strong>2 plants</strong><span>Ajax, ON and Sarepta, LA, for faster lead times</span></div>
+      <div><strong>In-house</strong><span>CNC and automatic welding in our own fabrication shops</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-no mono"><b>01</b> / Who we are</div>
+      <div><h2>Your partner in noise and emission control</h2></div>
+    </div>
+    <div class="about-grid">
+      <div class="rv">
+        <p class="big">We design and manufacture industrial exhaust systems, components and accessories: one source for every part of your exhaust.</p>
+        <p>Our silencers are trusted across the fan, vent, blower, engine and industrial machinery markets. Our emission control products serve power generation, off-road, marine, defence, and oil and gas.</p>
+      </div>
+      <div class="why rv">
+        <div><svg><use href="#i-gear"/></svg><div><h3>Innovative solutions</h3><p>Standard and custom systems engineered to be lighter and more compact, with less restriction on engines, blowers and fan motors.</p></div></div>
+        <div><svg><use href="#i-truck"/></svg><div><h3>Short lead times</h3><p>With plants in both Canada and the U.S., we keep delivery times as short as possible.</p></div></div>
+        <div><svg><use href="#i-clock"/></svg><div><h3>Decades of expertise</h3><p>Over 30 years of reliable, efficient noise and emission reduction.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-no mono"><b>02</b> / Products</div>
+      <div><h2>Four product lines. One source.</h2><p>From the silencer to the rain cap, standard or custom-designed for your equipment.</p></div>
+    </div>
+    <div class="prod-grid">
+      <a class="prod rv" href="#silencers"><div class="ph"><img src="img/silencer-shop.jpg" alt="Large silver industrial silencer in the fabrication shop" loading="lazy"></div><div class="tx"><span class="mono">01 &middot; Silencers</span><h3>Silencers</h3><p>High-performance industrial silencers, precision-engineered for a wide range of applications.</p><span class="go">See all types <svg><use href="#i-arrow"/></svg></span></div></a>
+      <a class="prod rv" href="#emissions"><div class="ph"><img src="img/emission-unit.jpg" alt="Emission control unit" loading="lazy"></div><div class="tx"><span class="mono">02 &middot; Emissions</span><h3>Emission products</h3><p>DOCs, DPFs and SCRs that cut emissions for cleaner operations.</p><span class="go">Tier 4 solutions <svg><use href="#i-arrow"/></svg></span></div></a>
+      <a class="prod rv" href="#accessories"><div class="ph"><img src="img/bellows.jpg" alt="Stainless steel exhaust bellows and flanges" loading="lazy"></div><div class="tx"><span class="mono">03 &middot; Accessories</span><h3>Exhaust accessories</h3><p>Every exhaust component, from engine flanges to rain caps.</p><span class="go">See components <svg><use href="#i-arrow"/></svg></span></div></a>
+      <a class="prod rv" href="#barriers"><div class="ph"><img src="img/enclosure-interior.jpg" alt="Inside an acoustic enclosure with sound-absorbing panels" loading="lazy"></div><div class="tx"><span class="mono">04 &middot; Barriers</span><h3>Noise barriers</h3><p>Durable barriers for effective noise reduction in demanding environments.</p><span class="go">Learn more <svg><use href="#i-arrow"/></svg></span></div></a>
+    </div>
+
+    <div class="index" id="silencers">
+      <div class="index-head rv">
+        <h3>Silencer types</h3>
+        <p>Compact, durable silencers for a diverse range of applications. Tap any type for details.</p>
+      </div>
+      <div id="silList"></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark on-dark" id="emissions">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-no mono"><b>03</b> / Emission products</div>
+      <div><h2>Built for Tier 4</h2><p>Our emissions line addresses Tier 4 requirements in the U.S. and Canada, including compliance with CARB, EPA and local regulations.</p></div>
+    </div>
+    <div class="em-grid">
+      <div class="em-list rv">
+        <div><b>DOC</b><span>Diesel oxidation catalysts</span></div>
+        <div><b>DPF</b><span>Diesel particulate filters</span></div>
+        <div><b>SCR</b><span>Selective catalytic reduction</span></div>
+        <div><b>3WC</b><span>Three-way catalysts</span></div>
+      </div>
+      <div class="em-copy rv">
+        <p>Emission control for power generation, off-road, marine, defence, and oil and gas, from backup generators to fans, blowers, vents and compressors.</p>
+        <p>Through our partnership with Industrial &amp; Marine Silencers (IMS), we bring Tier 4 Final SCR solutions to the North American market.</p>
+        <div class="chips mono"><span>Tier 4</span><span>CARB</span><span>EPA</span><span>U.S. &amp; Canada</span></div>
+        <a class="btn btn-line" href="https://tier4final.com/" target="_blank" rel="noopener">Visit our Tier 4 Final SCR site <svg><use href="#i-arrow"/></svg></a>
+        <div class="em-photo"><img src="img/scr-render.jpg" alt="Drawing of an engine aftertreatment system with SCR reactor and silencers" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="accessories">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-no mono"><b>04</b> / Exhaust accessories</div>
+      <div><h2>Flange to rain cap</h2><p>A single source for every exhaust accessory. Gaskets and hardware come in kits to make ordering easy.</p></div>
+    </div>
+    <div class="acc-grid">
+      <div class="acc-photos rv">
+        <img src="img/flatbed-load.jpg" alt="Exhaust components strapped on a flatbed trailer" loading="lazy">
+        <img src="img/flanges.jpg" alt="Stack of steel flanges" loading="lazy">
+        <img src="img/wrapped.jpg" alt="Wrapped silencer sections on pallets" loading="lazy">
+      </div>
+      <div class="rv">
+        <div class="parts">
+          <div><h4>Engine flanges</h4><p>A tight, reliable seal between engine and exhaust. Many thicknesses and materials.</p></div>
+          <div><h4>Elbows</h4><p>Short radius, long radius and multi-piece, to change direction without hurting flow.</p></div>
+          <div><h4>Gaskets &amp; hardware</h4><p>Sealing and fastening for leak-proof connections, available in kits.</p></div>
+          <div><h4>Y-connectors</h4><p>Merge or split exhaust flow paths for better routing.</p></div>
+          <div><h4>Flexes</h4><p>Absorb movement and vibration to reduce stress on components.</p></div>
+          <div><h4>Bellows</h4><p>Take up thermal expansion and contraction to protect the system.</p></div>
+          <div><h4>Stacks</h4><p>Vertical exhaust pipes for generator and industrial applications.</p></div>
+          <div><h4>Rain caps</h4><p>Keep water out while letting exhaust gases escape.</p></div>
+          <div><h4>Thimbles</h4><p>Reinforced sections where pipes pass through walls or barriers.</p></div>
+          <div><h4>Mounting bands</h4><p>Clamps and bands that securely support exhaust components.</p></div>
+        </div>
+        <div class="barrier" id="barriers">
+          <h3>Noise barriers</h3>
+          <div><p class="mono">Key features</p><ul>
+            <li><svg><use href="#i-check"/></svg>Robust construction for harsh industrial and outdoor settings</li>
+            <li><svg><use href="#i-check"/></svg>Proven sound absorption and transmission loss</li>
+            <li><svg><use href="#i-check"/></svg>Many sizes, finishes and configurations</li></ul></div>
+          <div><p class="mono">Benefits</p><ul>
+            <li><svg><use href="#i-check"/></svg>Less noise pollution</li>
+            <li><svg><use href="#i-check"/></svg>Safer, more productive workplaces</li>
+            <li><svg><use href="#i-check"/></svg>Better community relations</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ind" id="industries">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-no mono"><b>05</b> / Industries</div>
+      <div><h2>Designed to the standard</h2><p>Every industry has its own rules. Pick yours to see the standards our products are designed to meet.</p></div>
+    </div>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div id="panels"></div>
+    <p class="other rv">We also serve agriculture, construction, oil and gas, bulk and paper, material handling, utilities and medical, with spare and replacement parts kept in stock.</p>
+  </div>
+</section>
+
+<section class="dark on-dark" id="gallery" style="padding-bottom:clamp(56px,8vw,100px)">
+  <div class="wrap gal-head">
+    <div class="sec-head rv">
+      <div class="sec-no mono"><b>06</b> / Gallery</div>
+      <div><h2>Built here. Shipped there.</h2></div>
+    </div>
+    <div class="rail-ctrl"><button id="prev" aria-label="Previous photos"><svg><use href="#i-left"/></svg></button><button id="next" aria-label="Next photos"><svg><use href="#i-arrow"/></svg></button></div>
+  </div>
+  <div class="gal-gap"></div>
+  <div class="rail" id="rail">
+    <figure><img src="img/vent-silencer.jpg" alt="Black vent silencer loaded for shipping" loading="lazy"><figcaption class="mono">Loaded and strapped</figcaption></figure>
+    <figure><img src="img/vertical-silencer.jpg" alt="Tall vertical silencer installed at an industrial site" loading="lazy"><figcaption class="mono">On site</figcaption></figure>
+    <figure><img src="img/plasma-cut.jpg" alt="Plasma table cutting steel plate in the shop" loading="lazy"><figcaption class="mono">Cut in-house</figcaption></figure>
+    <figure><img src="img/field-install.jpg" alt="Silencers installed on piping at an industrial plant" loading="lazy"><figcaption class="mono">In service</figcaption></figure>
+    <figure><img src="img/black-silencers.jpg" alt="Row of black silencers with nameplates" loading="lazy"><figcaption class="mono">Ready to ship</figcaption></figure>
+    <figure><img src="img/shipment-j.jpg" alt="Stainless silencer bodies on a flatbed" loading="lazy"><figcaption class="mono">Out the door</figcaption></figure>
+    <figure><img src="img/plant.jpg" alt="Industrial plant with tanks and pipe racks" loading="lazy"><figcaption class="mono">On site</figcaption></figure>
+    <figure><img src="img/pair.jpg" alt="Pair of stainless steel silencers with mesh inlets" loading="lazy"><figcaption class="mono">Stainless</figcaption></figure>
+    <figure><img src="img/black-vessel.jpg" alt="Large black silencer with flanged inlet" loading="lazy"><figcaption class="mono">Custom built</figcaption></figure>
+    <figure><img src="img/shipment-c.jpg" alt="Silencers and fittings packed on a trailer" loading="lazy"><figcaption class="mono">Out the door</figcaption></figure>
+    <figure><img src="img/enclosure-render.jpg" alt="Drawing of an acoustic enclosure on a skid" loading="lazy"><figcaption class="mono">Designed first</figcaption></figure>
+    <figure><img src="img/crated.jpg" alt="Silencers crated on pallets" loading="lazy"><figcaption class="mono">Crated</figcaption></figure>
+  </div>
+</section>
+
+<section id="story">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-no mono"><b>07</b> / Our story</div>
+      <div><h2>Two people in Markham to two countries</h2></div>
+    </div>
+    <div class="story-grid">
+      <div class="story-side rv">
+        <img src="img/silencer-shop.jpg" alt="Finished silencer under the overhead crane in the shop" loading="lazy">
+        <p class="mono">Lean manufacturing since 1992</p>
+      </div>
+      <ol class="tl">
+        <li class="rv hl"><div class="yr">1992</div><p>Jim Williams and his partners found E.I. Williams in Markham, Ontario, with two employees.</p></li>
+        <li class="rv"><div class="yr">1999</div><p>Outgrows the first location and moves to Ajax, Ontario: 7,000 square feet and five employees.</p></li>
+        <li class="rv"><div class="yr">2006</div><p>A new site in Ajax grows production and office space to 21,000 square feet, with new steel forming and welding equipment.</p></li>
+        <li class="rv"><div class="yr">2012</div><p>Larger shears, brake presses and roll-form equipment.</p></li>
+        <li class="rv"><div class="yr">2013</div><p>A new paint booth for higher volumes and larger silencers.</p></li>
+        <li class="rv"><div class="yr">2016</div><p>New production processes and a team of 15.</p></li>
+        <li class="rv hl"><div class="yr">2019</div><p>Expansion into the U.S. with a newly built facility in Sarepta, Louisiana: 50,000 square feet, with room for 50,000 more.</p></li>
+        <li class="rv"><div class="yr">2020</div><p>Ajax grows past 20 employees, and the Louisiana plant is running by December.</p></li>
+        <li class="rv"><div class="yr">2023</div><p>Investment in research and new emission products, including 3WCs, DOCs and DPFs.</p></li>
+        <li class="rv hl"><div class="yr">2024</div><p>Partnership with IMS to bring SCR solutions to North America.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<div class="mission">
+  <div class="wrap">
+    <div class="mv">
+      <div class="rv"><span class="mono">Our mission</span><blockquote>To deliver the highest quality products and services through a collaborative team approach, creating a lasting positive impact on a global scale.</blockquote></div>
+      <div class="rv"><span class="mono">Our vision</span><blockquote>To be the most trusted and reliable name in noise and emission control.</blockquote></div>
+    </div>
+    <div class="values rv">
+      <div><h4>Team collaboration</h4><p>A positive team approach to every objective.</p></div>
+      <div><h4>Growth</h4><p>Personal and company growth, always improving.</p></div>
+      <div><h4>Respect &amp; integrity</h4><p>Every client and employee, treated with respect.</p></div>
+      <div><h4>Innovation</h4><p>Pushing what's possible, continuously.</p></div>
+      <div><h4>Customer satisfaction</h4><p>Solutions that truly make a difference.</p></div>
+    </div>
+  </div>
+</div>
+
+<section class="news" id="news">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-no mono"><b>08</b> / News</div>
+      <div><h2>Latest news</h2></div>
+    </div>
+    <div class="news-grid">
+      <a class="rv" href="https://recruiting.paylocity.com/recruiting/jobs/All/20e02e5e-d00f-4182-a3a1-8c8a2ea68208/EI-Williams-Industries-LLC" target="_blank" rel="noopener"><span class="mono">March 5, 2026</span><h3>Careers at E.I. Williams Industries, LLC</h3><p>See current employment opportunities.</p><span class="go">View openings <svg><use href="#i-arrow"/></svg></span></a>
+      <a class="rv" href="https://mongoosepowersolutions.com/strategic-partnership-expands-access-to-advanced-emissions-and-noise-reduction-solutions-to-northeastern-us/" target="_blank" rel="noopener"><span class="mono">January 5, 2026</span><h3>Partnership brings our solutions to the Northeastern U.S.</h3><p>Advanced emissions and noise reduction, now easier to get in the Northeast.</p><span class="go">Read more <svg><use href="#i-arrow"/></svg></span></a>
+      <a class="rv" href="#top"><span class="mono">November 5, 2025</span><h3>Announcing our new visual identity</h3><p>A refined E, I and W, with segmented blue and green lines for our layered, methodical approach to environmental responsibility.</p><span class="go">Back to top <svg><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="dark on-dark" id="contact">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-no mono"><b>09</b> / Contact</div>
+      <div><h2>Let's talk about your project</h2><p>Call, email or send a request. The more detail you share (dimensions, part numbers, application), the faster we can quote.</p></div>
+    </div>
+    <div class="ct-grid">
+      <div class="loc rv">
+        <div><span class="mono">Canada</span><h3>Ajax, Ontario</h3><p>264 Fairall St., Ajax, ON L1S 1R6</p>
+          <div class="links"><a href="tel:+19054280950"><svg><use href="#i-phone"/></svg>(905) 428-0950</a><a href="https://maps.app.goo.gl/nwphND1JidoAyZ7w5" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>Map</a></div></div>
+        <div><span class="mono">United States</span><h3>Sarepta, Louisiana</h3><p>110 Tri State Dr., Sarepta, LA 71071</p>
+          <div class="links"><a href="tel:+13188478900"><svg><use href="#i-phone"/></svg>(318) 847-8900</a><a href="https://maps.app.goo.gl/wik1U8gV6DCFuQfg6" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>Map</a></div></div>
+        <div><span class="mono">Anywhere</span><h3>Toll-free &amp; email</h3>
+          <div class="links"><a href="tel:+18778403347"><svg><use href="#i-phone"/></svg>1-877-840-3347</a><a href="mailto:info@eiwilliams.com"><svg><use href="#i-mail"/></svg>info@eiwilliams.com</a></div></div>
+      </div>
+      <form class="rv" id="quote" novalidate>
+        <h3>Request a quote</h3>
+        <p class="hint">Share as much detail as you have: dimensions, part numbers, application.</p>
+        <label>Full name<input name="name" autocomplete="name" required></label>
+        <label>Company<input name="company" autocomplete="organization"></label>
+        <label>Email<input name="email" type="email" autocomplete="email" required></label>
+        <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+        <label class="full">Product or industry<input name="product" placeholder="e.g. vent silencer, data centre"></label>
+        <label class="full">Message<textarea name="message"></textarea></label>
+        <p class="preview-note">PREVIEW: this form isn't connected yet. It will send to info@eiwilliams.com once the site goes live.</p>
+        <button class="btn btn-green" type="submit">Send request <svg><use href="#i-arrow"/></svg></button>
+        <p class="sent" id="sent">Thanks. In the live site, this request would now be on its way to our team.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div><img src="img/logo-reverse.png" alt="E.I. Williams" width="484" height="126"><p>Noise and emission control. Designed and built in Canada and the USA since 1992.</p></div>
+      <div><h4>Products</h4><ul><li><a href="#silencers">Silencers</a></li><li><a href="#emissions">Emission products</a></li><li><a href="#accessories">Exhaust accessories</a></li><li><a href="#barriers">Noise barriers</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#story">Our story</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#news">News</a></li><li><a href="https://recruiting.paylocity.com/recruiting/jobs/All/20e02e5e-d00f-4182-a3a1-8c8a2ea68208/EI-Williams-Industries-LLC" target="_blank" rel="noopener">Careers</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:+19054280950">(905) 428-0950</a></li><li><a href="tel:+18778403347">1-877-840-3347</a></li><li><a href="mailto:info@eiwilliams.com">info@eiwilliams.com</a></li><li><a href="https://www.linkedin.com/company/eiw-industries/" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="ft-bottom"><span>&copy; E.I. Williams. All rights reserved.</span><span>Member of EGSA and CME</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // menu
+  var nav=document.getElementById('nav'),mb=document.getElementById('menuBtn');
+  function setMenu(o){nav.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);mb.setAttribute('aria-label',o?'Close menu':'Open menu');mb.innerHTML='<svg><use href="#i-'+(o?'close':'menu')+'"/></svg>';document.body.style.overflow=o?'hidden':''}
+  mb.addEventListener('click',function(){setMenu(!nav.classList.contains('open'))});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+
+  // silencer types (wording from eiwilliams.com)
+  var sil=[
+    ['Rotary positive blower intake & discharge','Available in different sizes, including reference chamber absorption silencers for blowers above the transition speed and chamber silencers for blowers below it. Catalogue configurations for nozzle orientation and installation are also available.'],
+    ['Pod silencers for rotary positive blowers','Designed for quick assembly of blower packages.'],
+    ['Combination silencers for rotary positive blowers','A two-in-one design for blowers with horizontal air flow: the discharge and intake silencers combined in one unit.'],
+    ['Engine silencers','For turbocharged or naturally aspirated engines, in residential, industrial and hospital grades.'],
+    ['Fan silencers','Forced or induced draft industrial fan silencers with an absorptive, low pressure drop design, in many sizes.'],
+    ['Vent silencers','For high pressure vents, safety relief valve outlets, steam vents and purge outlets.'],
+    ['Centrifugal compressor silencers','Absorptive, low pressure drop designs for noisy centrifugal compressors.'],
+    ['Positive displacement blower silencers','For blowers with two or three rotors that trap and move air.'],
+    ['Centrifugal fan silencers','Carefully matched to the fan inlet or outlet air profile for the most effective result.'],
+    ['Axial fan silencers','For a wide range of industrial and commercial systems.'],
+    ['Blow off silencers','For highly compressed vapour or gas released into open air.'],
+    ['Industrial enclosures','A wide selection of enclosures built to your design requirements.'],
+    ['Blower enclosures','Removable acoustic steel sound enclosures for blowers.']
+  ];
+  var sl=document.getElementById('silList');
+  sl.innerHTML=sil.map(function(s,i){return '<details class="rv"><summary><span class="n mono">'+String(i+1).padStart(2,'0')+'</span><span class="t">'+s[0].replace('&','&amp;')+'</span><span class="pl"><svg><use href="#i-plus"/></svg></span></summary><p>'+s[1]+'</p></details>'}).join('');
+
+  // industries (wording and standards from eiwilliams.com)
+  var ind=[
+    {k:'Defence',i:'shield',d:'High-performance noise and emission reduction designed to meet strict military standards, while improving efficiency, safety and environmental stewardship.',f:['Custom designs for tight spaces','Durable materials for challenging environments','Tested for compliance with military standards','Modular, pre-assembled options for quick deployment','Thermally managed to meet target skin temperature'],us:['MIL-STD-1474','MIL-HDBK-1908','29 CFR 1910.95','MIL-STD-461','EPA Military Noise and Emissions Guidelines','NSPS (New Source Performance Standards)'],ca:['CAN/CSA-Z107.56-06','DND Noise Exposure Standards','CAN/CSA-ISO 2631-1','Canadian Environmental Protection Act (CEPA)','Defence Environmental and Emissions Directive (DEED)']},
+    {k:'Marine',i:'anchor',d:'Silencers and emission products tailored for marine engines, built to rigorous marine standards and Coast Guard compliance.',f:['Custom designs for tight spaces','Built for water and salt exposure','Tested for compliance with marine standards','Modular, pre-assembled options','Thermally managed to meet target skin temperature'],us:['IMO MARPOL Annex VI','33 CFR Part 151','46 CFR Part 62','EPA Clean Air Act: Marine Engine Emissions Standards','US Navy MIL-STD-740'],ca:['IMO MARPOL Annex VI','CSA TP 14472 E','Canadian Environmental Protection Act (CEPA)','Workplace Noise Regulations, Canada Labour Code','Transport Canada Marine Safety Regulations']},
+    {k:'Transportation',i:'train',d:'Compact exhaust and aftertreatment products built to rigorous on and off-highway standards.',f:[],us:['EPA Tier Standards for Nonroad Engines (40 CFR Parts 89, 1039)','FTA Noise and Vibration Manual','49 CFR Part 210','SAE J1169','FHWA Noise Standards (23 CFR Part 772)'],ca:['CSA Z107.10','Canadian Environmental Protection Act (CEPA)','Railway Noise Measurement and Reporting Standards (Transport Canada)','Canada Motor Vehicle Safety Standards (CMVSS)','Provincial Transportation Noise Guidelines']},
+    {k:'Mining',i:'pick',d:'Working closely with mining equipment manufacturers and fleet operators, we have learned what it takes to build robust noise and emission solutions for tight spaces.',f:[],us:['MSHA Part 62','EPA NSPS Subpart OOO','40 CFR Part 60','OSHA 29 CFR 1910.95'],ca:['Canadian Environmental Protection Act (CEPA)','Mining Regulations, Canada Labour Code','National Ambient Air Quality Standards (NAAQS)','Occupational Health and Safety Regulations (OHSR)']},
+    {k:'Energy',i:'bolt',d:'Custom noise and emission control for power generation: durable in harsh environments, easy to install, and built for compliance.',f:[],us:['EPA NSPS Subpart KKKK','40 CFR Part 60','40 CFR Part 75','OSHA 29 CFR 1910.95','ANSI/ISO 3744'],ca:['Canadian Environmental Protection Act (CEPA)','National Energy Board (NEB) Regulations','Occupational Health and Safety Regulations (OHSR)','CSA Z107.5']},
+    {k:'Data centres',i:'server',d:'Precision-engineered silencing and emission control that protects critical equipment in sensitive data centre environments.',f:[],us:['ASHRAE Standard 90.1','EPA Clean Air Act','ANSI S12.60','UL 1778','NFPA 75'],ca:['CSA Z107.10','Canadian Environmental Protection Act (CEPA)','Occupational Health and Safety Regulations (OHSR)','National Building Code of Canada (NBCC)']}
+  ];
+  var tabs=document.getElementById('tabs'),panels=document.getElementById('panels');
+  ind.forEach(function(x,n){
+    var b=document.createElement('button');b.setAttribute('role','tab');b.id='tab'+n;b.setAttribute('aria-controls','p'+n);b.setAttribute('aria-selected',n===0);b.innerHTML='<svg><use href="#i-'+x.i+'"/></svg>'+x.k;tabs.appendChild(b);
+    var p=document.createElement('div');p.className='panel'+(n===0?' on':'');p.id='p'+n;p.setAttribute('role','tabpanel');p.setAttribute('aria-labelledby','tab'+n);
+    p.innerHTML='<div class="intro"><h3>'+x.k+'</h3><p>'+x.d+'</p>'+(x.f.length?'<ul>'+x.f.map(function(f){return '<li>'+f+'</li>'}).join('')+'</ul>':'')+'</div>'+
+      '<div class="spec"><div class="spec-top mono"><span>Standards we design to</span><span>'+x.k+'</span></div><div class="spec-cols"><div><h4><i>US</i>United States</h4><ul>'+x.us.map(function(s){return '<li>'+s+'</li>'}).join('')+'</ul></div><div><h4><i>CA</i>Canada</h4><ul>'+x.ca.map(function(s){return '<li>'+s+'</li>'}).join('')+'</ul></div></div></div>';
+    panels.appendChild(p);
+    b.addEventListener('click',function(){
+      tabs.querySelectorAll('button').forEach(function(t){t.setAttribute('aria-selected','false')});
+      panels.querySelectorAll('.panel').forEach(function(t){t.classList.remove('on')});
+      b.setAttribute('aria-selected','true');p.classList.add('on');
+      b.scrollIntoView({block:'nearest',inline:'nearest',behavior:reduce?'auto':'smooth'});
+    });
+  });
+
+  // gallery rail
+  var rail=document.getElementById('rail');
+  function step(d){rail.scrollBy({left:d*Math.min(rail.clientWidth*.8,820),behavior:reduce?'auto':'smooth'})}
+  document.getElementById('prev').onclick=function(){step(-1)};
+  document.getElementById('next').onclick=function(){step(1)};
+  var down=false,sx=0,sl0=0,moved=false;
+  rail.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;down=true;moved=false;sx=e.clientX;sl0=rail.scrollLeft;rail.classList.add('drag')});
+  window.addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(Math.abs(dx)>3)moved=true;rail.scrollLeft=sl0-dx});
+  window.addEventListener('pointerup',function(){if(!down)return;down=false;rail.classList.remove('drag')});
+
+  // reveal
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+  // form (preview only)
+  document.getElementById('quote').addEventListener('submit',function(e){e.preventDefault();document.getElementById('sent').style.display='block'});
+
+  // wave: noisy segmented lines on the left settle into calm parallel lines on the right (nod to the logo's striped W)
+  var c=document.getElementById('wave'),ctx=c.getContext('2d'),W,H,dpr,t=0,visible=true,scrollP=0;
+  function size(){dpr=Math.min(window.devicePixelRatio||1,2);W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);draw()}
+  function n(x,s){return Math.sin(x*.021+s)*.5+Math.sin(x*.057+s*1.7)*.3+Math.sin(x*.131+s*2.3)*.2}
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    var lines=7,gap=H/(lines+1),calm=.42+scrollP*.3;
+    for(var l=0;l<lines;l++){
+      var y0=gap*(l+1);
+      ctx.beginPath();
+      for(var x=0;x<=W;x+=3){
+        var p=x/W,k=Math.max(0,1-p/calm);k=k*k*(3-2*k);
+        var amp=gap*1.6*k;
+        var y=y0+n(x+l*40,t*(1.2+l*.08)+l)*amp;
+        if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+      }
+      ctx.strokeStyle=l%2?'#44AE4D':'#113352';
+      ctx.lineWidth=l%2?3:2;
+      ctx.globalAlpha=.35+.65*(1-Math.abs(l-3)/4);
+      ctx.stroke();
+    }
+    ctx.globalAlpha=1;
+  }
+  function loop(){if(visible){t+=.012;draw()}requestAnimationFrame(loop)}
+  window.addEventListener('resize',size);
+  window.addEventListener('scroll',function(){scrollP=Math.min(1,window.scrollY/600);if(reduce)draw()},{passive:true});
+  new IntersectionObserver(function(es){visible=es[0].isIntersecting}).observe(c);
+  size();
+  if(!reduce)loop();
+})();
+</script>
+</body>
+</html>
