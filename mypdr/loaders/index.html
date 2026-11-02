@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>PdR loader options</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap">
+<style>
+:root{--ink:#0A0A0A;--gold:#D4AF37;--gold2:#F3D77A;--cream:#FAF9F6;--muted:#A39E93;--line:#2A2824;
+  --f-display:"Anton",Impact,sans-serif;--f-body:"Oswald","Arial Narrow",sans-serif;--f-script:"Cormorant Garamond",Georgia,serif;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:#050505;color:var(--cream);font:16px/1.5 var(--f-body);font-weight:300}
+.wrap{max-width:1240px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px))}
+h1{font:400 clamp(2rem,6vw,3.4rem)/.95 var(--f-display);text-transform:uppercase;margin:0}
+h1 em{font:italic 600 1.05em/1 var(--f-script);color:var(--gold);text-transform:none}
+.top p{color:var(--muted);margin:10px 0 0;max-width:60ch}
+.row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:26px}
+@media (max-width:1000px){.row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding-bottom:10px}.opt{flex:0 0 min(86vw,360px);scroll-snap-align:center}}
+.opt{display:grid;gap:10px;min-width:0}
+.cap b{display:block;font:400 1.4rem/1 var(--f-display);text-transform:uppercase}
+.cap b i{font-style:normal;color:var(--gold)}
+.cap span{font-size:.88rem;color:var(--muted)}
+.cap .pick{color:var(--ink);font:500 .6rem/1 var(--f-body);letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:5px 8px;border-radius:99px;vertical-align:middle;margin-left:8px}
+.phone{position:relative;height:640px;max-width:360px;width:100%;margin:0 auto;border-radius:36px;border:8px solid #1A1816;background:var(--ink);overflow:hidden;display:grid;place-items:center;box-shadow:0 30px 70px -30px #000}
+.stage{display:grid;place-items:center;gap:26px;text-align:center}
+.word{font:italic 500 1.25rem/1 var(--f-script);color:#d9d2c3}
+.logo{width:110px;height:32px;margin:0 auto;-webkit-mask:url(../img/logo.png) center/contain no-repeat;mask:url(../img/logo.png) center/contain no-repeat;background:linear-gradient(100deg,#8a6a1c,#f6dd8a 45%,#c9a23a 60%,#7a5a0e)}
+.bar{width:140px;height:1px;background:#2A2824;margin:0 auto;position:relative;overflow:hidden}
+.bar::after{content:"";position:absolute;inset:0;background:var(--gold);transform-origin:left;animation:bar 4.5s ease-in-out infinite}
+@keyframes bar{0%{transform:scaleX(0)}80%,100%{transform:scaleX(1)}}
+svg{display:block;overflow:visible}
+.ln{fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+
+/* A: the table sets itself */
+.A .ln{animation:draw 4.5s ease-in-out infinite}
+.A .d1{animation-delay:0s}.A .d2{animation-delay:.25s}.A .d3{animation-delay:.6s}.A .d4{animation-delay:.9s}.A .d5{animation-delay:1.2s}.A .d6{animation-delay:1.5s}
+@keyframes draw{0%{stroke-dashoffset:1;opacity:1}40%{stroke-dashoffset:0}85%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+.A .flame{fill:var(--gold2);transform-origin:50% 100%;opacity:0;animation:flame 4.5s ease-in-out infinite}
+@keyframes flame{0%,38%{opacity:0;transform:scale(.3)}48%{opacity:1;transform:scale(1)}60%{transform:scale(.92,1.06)}72%{transform:scale(1.04,.96)}85%{opacity:1}100%{opacity:0}}
+.A .glow{fill:url(#gA);opacity:0;animation:glow 4.5s ease-in-out infinite}
+@keyframes glow{0%,40%{opacity:0}55%,85%{opacity:1}100%{opacity:0}}
+
+/* B: guests take their seats */
+.B .table{fill:none;stroke:var(--gold);stroke-width:1.4}
+.B .chair{fill:#141312;stroke:#4a3f28;stroke-width:1.2;animation:seat 4.5s ease-in-out infinite}
+@keyframes seat{0%,8%{fill:#141312;stroke:#4a3f28}22%,85%{fill:var(--gold);stroke:var(--gold)}100%{fill:#141312;stroke:#4a3f28}}
+.B .cdl{fill:var(--gold2);opacity:.15;animation:cdl 4.5s ease-in-out infinite}
+@keyframes cdl{0%,10%{opacity:.15}25%,85%{opacity:1}100%{opacity:.15}}
+.B .halo{fill:url(#gB);opacity:0;animation:halo 4.5s ease-in-out infinite}
+@keyframes halo{0%,10%{opacity:0}30%,85%{opacity:.9}100%{opacity:0}}
+
+/* C: the pour */
+.C .glass{fill:none;stroke:#e9dcb4;stroke-width:1.5;stroke-linejoin:round}
+.C .wine{fill:url(#wC);transform-origin:50% 100%;animation:pour 4.5s cubic-bezier(.5,0,.3,1) infinite}
+@keyframes pour{0%,6%{transform:translateY(64px)}70%,88%{transform:translateY(0)}100%{transform:translateY(0);opacity:0}}
+.C .stream{stroke:var(--gold2);stroke-width:2;stroke-linecap:round;stroke-dasharray:1;animation:stream 4.5s ease-in-out infinite}
+@keyframes stream{0%{stroke-dashoffset:1}8%{stroke-dashoffset:0}66%{stroke-dashoffset:0;opacity:1}74%,100%{stroke-dashoffset:-1;opacity:0}}
+.C .bub{fill:#fff7d6;opacity:0;animation:bub 1.6s ease-in infinite}
+@keyframes bub{0%{transform:translateY(0);opacity:0}20%{opacity:.8}100%{transform:translateY(-40px);opacity:0}}
+.C .bub:nth-of-type(2){animation-delay:.5s}.C .bub:nth-of-type(3){animation-delay:1s}
+.legend{margin-top:30px;color:var(--muted);font-size:.9rem;max-width:70ch}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.ln{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <h1>Pick a <em>loader.</em></h1>
+    <p>Each one plays for about two seconds while the site loads, then fades into the homepage. Gold line work on black, in PdR's own colours and fonts. They loop here so you can watch them.</p>
+  </div>
+  <div class="row">
+    <section class="opt">
+      <div class="cap"><b><i>A</i> · The table sets itself <span class="pick">My pick</span></b><span>A place setting draws itself in gold: plate, fork, knife, glass, then the candle lights.</span></div>
+      <div class="phone A"><div class="stage">
+        <svg width="250" height="200" viewBox="-125 -100 250 200" aria-hidden="true">
+          <defs><radialGradient id="gA"><stop offset="0" stop-color="#f3d77a" stop-opacity=".55"/><stop offset="1" stop-color="#f3d77a" stop-opacity="0"/></radialGradient></defs>
+          <circle class="glow" cx="110" cy="-66" r="38"/>
+          <circle class="ln d1" pathLength="1" cx="0" cy="10" r="58"/>
+          <circle class="ln d2" pathLength="1" cx="0" cy="10" r="42"/>
+          <path class="ln d3" pathLength="1" d="M-86 -40 V60 M-94 -40 V-14 Q-94 -4 -86 -4 Q-78 -4 -78 -14 V-40 M-86 -40 V-16"/>
+          <path class="ln d4" pathLength="1" d="M84 60 V-40 Q96 -26 92 6 L84 8"/>
+          <path class="ln d5" pathLength="1" d="M36 -84 Q34 -60 50 -56 Q66 -60 64 -84 Z M50 -56 V-40 M42 -40 H58"/>
+          <path class="ln d6" pathLength="1" d="M106 -60 H114 V-36 H106 Z"/>
+          <path class="flame" d="M110 -62 Q104 -70 110 -80 Q116 -70 110 -62 Z"/>
+        </svg>
+        <div class="logo" role="img" aria-label="PdR"></div>
+        <div class="word">Setting your table</div>
+      </div></div>
+    </section>
+
+    <section class="opt">
+      <div class="cap"><b><i>B</i> · Guests take their seats</b><span>A long private-dining table from above. Chairs fill one by one around it and the candles come on down the middle.</span></div>
+      <div class="phone B"><div class="stage">
+        <svg width="260" height="170" viewBox="0 0 260 170" aria-hidden="true">
+          <defs><radialGradient id="gB"><stop offset="0" stop-color="#f3d77a" stop-opacity=".35"/><stop offset="1" stop-color="#f3d77a" stop-opacity="0"/></radialGradient></defs>
+          <ellipse class="halo" cx="130" cy="85" rx="120" ry="50"/>
+          <rect class="table" x="30" y="62" width="200" height="46" rx="4"/>
+          <g id="chairs"></g>
+          <g id="candles"></g>
+        </svg>
+        <div class="logo" role="img" aria-label="PdR"></div>
+        <div class="word">Your guests are arriving</div>
+      </div></div>
+    </section>
+
+    <section class="opt">
+      <div class="cap"><b><i>C</i> · The pour</b><span>A wine glass fills with gold as the page loads, with a few rising bubbles. Simple and quick.</span></div>
+      <div class="phone C"><div class="stage">
+        <svg width="160" height="220" viewBox="0 0 160 220" aria-hidden="true">
+          <defs>
+            <clipPath id="bowl"><path d="M44 30 Q40 104 80 112 Q120 104 116 30 Z"/></clipPath>
+            <linearGradient id="wC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6dd8a"/><stop offset="1" stop-color="#b8860b"/></linearGradient>
+          </defs>
+          <line class="stream" pathLength="1" x1="80" y1="-30" x2="80" y2="96"/>
+          <g clip-path="url(#bowl)">
+            <rect class="wine" x="30" y="48" width="100" height="70"/>
+            <circle class="bub" cx="70" cy="100" r="1.6"/><circle class="bub" cx="88" cy="104" r="1.3"/><circle class="bub" cx="78" cy="98" r="1.1"/>
+          </g>
+          <path class="glass" d="M44 30 Q40 104 80 112 Q120 104 116 30 M80 112 V184 M54 190 Q80 180 106 190"/>
+        </svg>
+        <div class="logo" role="img" aria-label="PdR"></div>
+        <div class="bar"></div>
+      </div></div>
+    </section>
+  </div>
+  <p class="legend">Pick one and it goes on the homepage in place of the old arrival. It shows once per visit and never blocks the page for more than about two seconds.</p>
+</div>
+<script>
+(function(){
+  var ns='http://www.w3.org/2000/svg',ch=document.getElementById('chairs'),cd=document.getElementById('candles'),i=0;
+  function chair(x,y){var r=document.createElementNS(ns,'rect');r.setAttribute('x',x-9);r.setAttribute('y',y-7);r.setAttribute('width',18);r.setAttribute('height',14);r.setAttribute('rx',4);r.setAttribute('class','chair');r.style.animationDelay=(i++*0.12)+'s';ch.appendChild(r)}
+  for(var k=0;k<6;k++){chair(50+k*32,48)}
+  for(var k=5;k>=0;k--){chair(50+k*32,122)}
+  chair(16,85);chair(244,85);
+  for(var k=0;k<5;k++){var c=document.createElementNS(ns,'circle');c.setAttribute('cx',62+k*34);c.setAttribute('cy',85);c.setAttribute('r',3);c.setAttribute('class','cdl');c.style.animationDelay=(0.5+k*0.18)+'s';cd.appendChild(c)}
+})();
+</script>
+</body>
+</html>

@@ -39,60 +39,21 @@ a{color:inherit}
 .flag{display:inline-block;font:600 .54rem/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;background:var(--clay);color:var(--ink);padding:4px 6px;border-radius:3px;vertical-align:middle;margin-left:8px}
 body.client .flag{display:none}
 
-/* ===================== ARRIVAL ===================== */
-#arrive{position:fixed;inset:0;z-index:100;background:#050403;overflow:hidden;perspective:1100px;perspective-origin:50% 45%}
+/* ===================== LOADER: the table sets itself ===================== */
+#arrive{position:fixed;inset:0;z-index:100;background:var(--ink);display:grid;place-items:center}
 #arrive[hidden]{display:none}
-#arrive .skip{position:absolute;z-index:20;top:max(16px,env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));min-height:44px;display:grid;place-items:center;padding:0 14px;font:500 .62rem/1 var(--f-body);letter-spacing:.2em;text-transform:uppercase;color:#8d877b;background:none;border:1px solid #ffffff1f;border-radius:99px;cursor:pointer}
-#arrive .skip:hover{color:var(--cream)}
-.scene{position:absolute;inset:0;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity 1s ease}
-.scene.on{opacity:1;pointer-events:auto}
-/* ---- the entrance: no drawn door. Darkness, one seam of warm light, then the real room opens from the centre ---- */
-.entry{position:absolute;inset:0;background:#030303}
-.beyond{position:absolute;inset:0;clip-path:inset(0 50% 0 50%);transition:clip-path 2.4s cubic-bezier(.65,0,.2,1)}
-.beyond i{position:absolute;inset:0;background:url(img/room-xl.jpg) center/cover;transform:scale(1.25);filter:brightness(.35) sepia(.2);transition:transform 3.2s var(--ease),filter 3.2s var(--ease)}
-#arrive.open .beyond{clip-path:inset(0 0 0 0)}
-#arrive.open .beyond i{transform:scale(1.02);filter:brightness(.75) sepia(.05)}
-.seam{position:absolute;left:50%;top:18%;bottom:18%;width:2px;margin-left:-1px;background:linear-gradient(transparent,#f6dd8a 20%,#fff4cf 50%,#f6dd8a 80%,transparent);box-shadow:0 0 24px 6px #f1c75a55,0 0 90px 30px #f1c75a1f;animation:breathe 3.5s ease-in-out infinite;transition:opacity .5s}
-#arrive.open .seam{opacity:0}
-@keyframes breathe{0%,100%{opacity:.75}50%{opacity:1}}
-.pool{position:absolute;left:50%;bottom:10%;width:60vw;max-width:520px;height:60px;transform:translateX(-50%);background:radial-gradient(50% 50% at 50% 50%,#f1c75a26,transparent 70%);transition:opacity .5s}
-#arrive.open .pool{opacity:0}
-.sign{position:absolute;left:50%;top:9%;width:96px;height:28px;transform:translateX(-50%);-webkit-mask:url(img/logo.png) center/contain no-repeat;mask:url(img/logo.png) center/contain no-repeat;background:linear-gradient(100deg,#8a6a1c,#f6dd8a 45%,#c9a23a 60%,#7a5a0e);opacity:.9;transition:opacity .6s}
-#arrive.open .sign{opacity:0}
-.behind{position:absolute;inset:0;background:url(img/room-xl.jpg) center/cover}
-.behind::after{content:"";position:absolute;inset:0;background:#000a}
-.street-copy{position:absolute;left:0;right:0;bottom:max(28px,env(safe-area-inset-bottom,0px));text-align:center;padding:0 24px;transition:opacity .6s}
-#arrive.open .street-copy{opacity:0}
-.street-copy p{margin:0;font:italic 500 clamp(1.4rem,4vw,2rem)/1.2 var(--f-script);color:var(--bone)}
-.street-copy small{display:block;margin-top:14px;font:500 .6rem/1 var(--f-body);letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
-.street-copy small::after{content:"";display:block;width:1px;height:26px;margin:12px auto 0;background:linear-gradient(var(--gold),transparent);animation:drop 1.6s ease-in-out infinite}
-@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-.tapzone{position:absolute;inset:0;background:none;border:0;cursor:pointer}
-/* greeter */
-.greet{text-align:center;padding:0 24px;max-width:560px;position:relative}
-.greet h1{font:italic 500 clamp(1.6rem,4.5vw,2.4rem)/1.2 var(--f-script);color:var(--bone);margin:0;text-wrap:balance}
-.greet h1 b{display:block;font:400 clamp(2.4rem,7vw,3.6rem)/1 var(--f-display);text-transform:uppercase;color:var(--cream);font-style:normal;margin-top:8px}
-.greet .q{margin-top:18px;font-size:1rem;color:#CFC9BD}
-.greet .choice{display:grid;gap:12px;margin-top:26px;width:min(100%,360px);margin-inline:auto}
-.greet .choice button{min-height:56px;border-radius:99px;border:1px solid var(--gold);background:none;color:var(--cream);font:500 .76rem/1 var(--f-body);letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s,transform .3s var(--ease)}
-.greet .choice button:hover{background:var(--gold);color:var(--ink);transform:translateY(-2px)}
-.greet .browse{margin-top:18px;background:none;border:0;color:#8d877b;font:500 .62rem/1 var(--f-body);letter-spacing:.2em;text-transform:uppercase;cursor:pointer;min-height:44px;text-decoration:underline;text-underline-offset:4px}
-/* seated */
-.seat{position:absolute;inset:0}
-.seat .tbl{position:absolute;inset:0;background:url(img/plate-xl.jpg) center/cover;transform:scale(1.4);filter:brightness(.35);transition:transform 3s var(--ease),filter 3s var(--ease)}
-.seat.on .tbl{transform:scale(1.05);filter:brightness(.8)}
-.seat .tbl::after{content:"";position:absolute;inset:0;background:linear-gradient(#000a,transparent 40%,#000b)}
-.seat .card{position:absolute;left:50%;top:50%;width:220px;margin:-70px 0 0 -110px;transform:perspective(600px) rotateX(90deg) translateY(40px);opacity:0;transition:transform 1.2s var(--ease) .9s,opacity .6s .9s}
-.seat.on .card{transform:perspective(600px) rotateX(10deg);opacity:1}
-.seat .card .face{background:var(--cream);border-radius:3px;padding:26px 18px 22px;text-align:center;box-shadow:0 30px 36px -14px #000d;position:relative;color:var(--ink)}
-.seat .card .face::before{content:"";position:absolute;inset:6px;border:1px solid #d4af3766}
-.seat .card small{display:block;font:500 .54rem/1 var(--f-body);letter-spacing:.34em;text-transform:uppercase;color:var(--gold-deep)}
-.seat .card b{display:block;margin:12px 0 6px;font:italic 600 1.9rem/1 var(--f-script)}
-.seat .card i{display:block;font:normal 400 .62rem/1.5 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:#6b6457}
-.seat .card .fold{height:18px;background:linear-gradient(#d9d3c6,#efe9dd);border-radius:0 0 3px 3px;transform:perspective(200px) rotateX(55deg);transform-origin:top}
-.seat .line{position:absolute;left:0;right:0;bottom:max(40px,env(safe-area-inset-bottom,0px));text-align:center;font:italic 500 clamp(1.3rem,4vw,1.9rem)/1.2 var(--f-script);color:var(--bone);opacity:0;transition:opacity 1s 1.6s}
-.seat.on .line{opacity:1}
-.seat .line small{display:block;margin-top:10px;font:500 .6rem/1 var(--f-body);letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.ldr{display:grid;place-items:center;gap:26px;text-align:center}
+.ldr svg{display:block;overflow:visible}
+.ldr .ln{fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.6s ease-in-out forwards}
+.ldr .d2{animation-delay:.15s}.ldr .d3{animation-delay:.35s}.ldr .d4{animation-delay:.5s}.ldr .d5{animation-delay:.65s}.ldr .d6{animation-delay:.8s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.ldr .flame{fill:#F3D77A;transform-box:fill-box;transform-origin:50% 100%;opacity:0;animation:flame .5s ease-out 1.4s forwards,flick 1.2s ease-in-out 1.9s infinite}
+@keyframes flame{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+@keyframes flick{0%,100%{transform:scale(1)}50%{transform:scale(.9,1.08)}}
+.ldr .glow{fill:url(#gA);opacity:0;animation:fadein .8s ease-out 1.5s forwards}
+@keyframes fadein{to{opacity:1}}
+.ldlogo{width:110px;height:32px;-webkit-mask:url(img/logo.png) center/contain no-repeat;mask:url(img/logo.png) center/contain no-repeat;background:linear-gradient(100deg,#8a6a1c,#f6dd8a 45%,#c9a23a 60%,#7a5a0e);opacity:0;animation:fadein .6s ease-out .4s forwards}
+.ldword{font:italic 500 1.25rem/1 var(--f-script);color:#d9d2c3;opacity:0;animation:fadein .6s ease-out .6s forwards}
 /* the site lifts up like a menu */
 #site{position:relative;z-index:1}
 body.arriving #site{opacity:0;transform:translateY(40px)}
@@ -210,40 +171,22 @@ body.client .cmp .ex{color:var(--muted)}
 <body class="arriving locked">
 
 <!-- ===================== ARRIVAL ===================== -->
-<div id="arrive" aria-label="Arrival">
-  <button class="skip" id="skip" type="button">Skip to the site</button>
-
-  <!-- 1. The entrance -->
-  <section class="scene on" id="sc-door">
-    <div class="entry">
-      <div class="beyond"><i></i></div>
-      <div class="sign" role="img" aria-label="PdR"></div>
-      <div class="seam"></div><div class="pool"></div>
-    </div>
-    <div class="street-copy"><p>Good evening.</p><small>Tap to enter</small></div>
-    <button class="tapzone" id="knock" type="button" aria-label="Enter"></button>
-  </section>
-
-  <!-- 2. The greeter -->
-  <section class="scene" id="sc-greet">
-    <div class="behind"></div>
-    <div class="greet">
-      <h1>Welcome to <b>PdR</b></h1>
-      <p class="q">Are you joining us tonight as a restaurant, or planning an event?</p>
-      <div class="choice">
-        <button type="button" data-side="restaurant">I run a restaurant</button>
-        <button type="button" data-side="planner">I host or plan events</button>
-      </div>
-      <button class="browse" type="button" data-side="">Just looking around</button>
-    </div>
-  </section>
-
-  <!-- 3. Seated -->
-  <section class="scene seat" id="sc-seat">
-    <div class="tbl"></div>
-    <div class="card"><div class="face"><small>Reserved</small><b id="cardName">The right room</b><i id="cardSub">Private dining<br>on one table</i></div><div class="fold"></div></div>
-    <div class="line" id="seatLine">Right this way.<small>Your table is ready</small></div>
-  </section>
+<div id="arrive" aria-label="Loading">
+  <div class="ldr">
+    <svg width="250" height="200" viewBox="-125 -100 250 200" aria-hidden="true">
+      <defs><radialGradient id="gA"><stop offset="0" stop-color="#f3d77a" stop-opacity=".55"/><stop offset="1" stop-color="#f3d77a" stop-opacity="0"/></radialGradient></defs>
+      <circle class="glow" cx="110" cy="-66" r="38"/>
+      <circle class="ln d1" pathLength="1" cx="0" cy="10" r="58"/>
+      <circle class="ln d2" pathLength="1" cx="0" cy="10" r="42"/>
+      <path class="ln d3" pathLength="1" d="M-86 -40 V60 M-94 -40 V-14 Q-94 -4 -86 -4 Q-78 -4 -78 -14 V-40 M-86 -40 V-16"/>
+      <path class="ln d4" pathLength="1" d="M84 60 V-40 Q96 -26 92 6 L84 8"/>
+      <path class="ln d5" pathLength="1" d="M36 -84 Q34 -60 50 -56 Q66 -60 64 -84 Z M50 -56 V-40 M42 -40 H58"/>
+      <path class="ln d6" pathLength="1" d="M106 -60 H114 V-36 H106 Z"/>
+      <path class="flame" d="M110 -62 Q104 -70 110 -80 Q116 -70 110 -62 Z"/>
+    </svg>
+    <div class="ldlogo" role="img" aria-label="PdR"></div>
+    <div class="ldword">Setting your table</div>
+  </div>
 </div>
 
 <!-- ===================== SITE ===================== -->
@@ -382,7 +325,7 @@ body.client .cmp .ex{color:var(--muted)}
 
   <footer class="foot">
     <div><img src="img/logo.png" alt="PdR"><small style="margin-top:12px">The private-dining marketplace. List your rooms, or find the perfect one — without the endless email chains.</small><small style="margin-top:14px">© 2026 PdR · The Creative Connoisseur</small></div>
-    <ul><li><a href="#restaurants">Restaurants</a></li><li><a href="#planners">Hosts &amp; Planners</a></li><li><a href="#how">How it works</a></li><li><a href="#faq">FAQ</a></li><li><button class="replay" id="replay" type="button">Replay the arrival</button></li></ul>
+    <ul><li><a href="#restaurants">Restaurants</a></li><li><a href="#planners">Hosts &amp; Planners</a></li><li><a href="#how">How it works</a></li><li><a href="#faq">FAQ</a></li><li><button class="replay" id="replay" type="button">Replay the loader</button></li></ul>
     <div><div class="lab" style="margin-bottom:6px">The Room Report<span class="flag">R5</span></div><small>New rooms in Toronto, once a month.</small><form class="mail" onsubmit="event.preventDefault()"><input aria-label="Email" placeholder="Email address"><button>Join</button></form></div>
   </footer>
 </div>
@@ -394,31 +337,16 @@ body.client .cmp .ex{color:var(--muted)}
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   var q=new URLSearchParams(location.search);
   if(q.has('client'))document.body.classList.add('client');
-  var arrive=document.getElementById('arrive'),scenes={door:document.getElementById('sc-door'),greet:document.getElementById('sc-greet'),seat:document.getElementById('sc-seat')};
-  var dock=document.getElementById('dock'),tog=document.getElementById('tog'),side='';
-  function show(k){Object.keys(scenes).forEach(function(x){scenes[x].classList.toggle('on',x===k)})}
+  var arrive=document.getElementById('arrive'),dock=document.getElementById('dock'),tog=document.getElementById('tog'),side='';
   function setSide(s){side=s;document.querySelectorAll('[data-pick]').forEach(function(a){a.classList.toggle('on',a.dataset.pick===s)});
     tog.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.side===(s||'restaurant'))});formLabels(s||'restaurant');}
   function formLabels(s){var r=s==='restaurant';document.getElementById('nmL').childNodes[0].nodeValue=r?'Restaurant name':'Company or agency';document.getElementById('nm').placeholder=r?'Your restaurant':'Your company';document.getElementById('extraL').childNodes[0].nodeValue=r?'Private rooms':'Events per year';document.getElementById('extra').placeholder=r?'e.g. 2':'e.g. 12';document.getElementById('em').placeholder=r?'you@restaurant.com':'you@agency.com';}
-  function hand(target){arrive.classList.add('bye');document.body.classList.remove('arriving','locked');document.body.classList.add('handed');setTimeout(function(){arrive.hidden=true},1200);
-    try{localStorage.setItem('pdr-arrived','1')}catch(e){}
-    if(target){setTimeout(function(){var el=document.getElementById(target);if(el)el.scrollIntoView({behavior:reduce?'auto':'smooth'})},900)}}
-  /* 1. knock, then the door opens */
-  var knocked=false;
-  document.getElementById('knock').addEventListener('click',function(){if(knocked)return;knocked=true;arrive.classList.add('open');
-    0;
-    setTimeout(function(){show('greet')},reduce?300:2700);});
-  /* 2. the greeter asks */
-  document.querySelectorAll('#sc-greet [data-side]').forEach(function(b){b.addEventListener('click',function(){var s=b.dataset.side;setSide(s);
-    var nm=document.getElementById('cardName'),sub=document.getElementById('cardSub');
-    if(s==='restaurant'){nm.textContent='Your rooms';sub.innerHTML='Reserved for<br>restaurants'}else if(s==='planner'){nm.textContent='Your event';sub.innerHTML='Reserved for<br>hosts & planners'}else{nm.textContent='The right room';sub.innerHTML='Private dining<br>on one table'}
-    show('seat');
-    setTimeout(function(){hand(s==='restaurant'?'restaurants':s==='planner'?'planners':'')},reduce?400:3400);});});
-  /* skip + replay + returning visitors */
-  document.getElementById('skip').addEventListener('click',function(){hand('')});
-  document.getElementById('replay').addEventListener('click',function(){try{localStorage.removeItem('pdr-arrived')}catch(e){}location.href=location.pathname+'?replay';});
-  var seen=false;try{seen=localStorage.getItem('pdr-arrived')==='1'}catch(e){}
+  function done(){arrive.classList.add('bye');document.body.classList.remove('arriving','locked');document.body.classList.add('handed');setTimeout(function(){arrive.hidden=true},1100);try{sessionStorage.setItem('pdr-loaded','1')}catch(e){}}
+  var seen=false;try{seen=sessionStorage.getItem('pdr-loaded')==='1'}catch(e){}
   if(seen&&!q.has('replay')){arrive.hidden=true;document.body.classList.remove('arriving','locked');document.body.classList.add('handed');}
+  else{var t0=Date.now(),min=reduce?300:2300;function go(){setTimeout(done,Math.max(0,min-(Date.now()-t0)))}if(document.readyState==='complete')go();else addEventListener('load',go);setTimeout(done,5000);}
+  arrive.addEventListener('click',done);
+  document.getElementById('replay').addEventListener('click',function(){try{sessionStorage.removeItem('pdr-loaded')}catch(e){}location.href=location.pathname+'?replay';});
   /* site: giant list */
   var list=document.getElementById('list'),peek=document.getElementById('peek'),pn=document.getElementById('peekN'),pc=document.getElementById('peekCap');
   list.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){list.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});list.classList.add('has');peek.style.backgroundImage='url(img/'+b.dataset.img+'.jpg)';pn.textContent=b.dataset.n;pc.textContent=b.dataset.cap;})});
