@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 570"><rect width="760" height="570" fill="#121c16"/>
+<g fill="none" stroke="#2b3b30"><path d="M0 95h760M0 190h760M0 285h760M0 380h760M0 475h760M127 0v570M253 0v570M380 0v570M507 0v570M633 0v570"/></g>
+<path d="M60 460h640" stroke="#3a4d40" stroke-width="3"/>
+<path d="M270 190h330l-20 230H300z" fill="#1d3a22" stroke="#8ac95d" stroke-width="3" stroke-linejoin="round"/>
+<path d="M260 190h350l-12-34H272z" fill="#24482a" stroke="#8ac95d" stroke-width="3" stroke-linejoin="round"/>
+<path d="M300 250h270M305 300h260M310 350h250" stroke="#2f5a35" stroke-width="2"/>
+<circle cx="325" cy="440" r="18" fill="#121c16" stroke="#8ac95d" stroke-width="3"/><circle cx="555" cy="440" r="18" fill="#121c16" stroke="#8ac95d" stroke-width="3"/>
+<rect x="120" y="360" width="130" height="70" rx="12" fill="#1f3326" stroke="#b9e08f" stroke-width="3"/>
+<rect x="138" y="378" width="40" height="34" rx="4" fill="#8ac95d"/><rect x="186" y="378" width="40" height="34" rx="4" fill="#8ac95d"/>
+<path d="M250 395h50" stroke="#b9e08f" stroke-width="6" stroke-linecap="round"/>
+<path d="M150 360l-40-150h-30" fill="none" stroke="#b9e08f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="155" cy="442" r="20" fill="#121c16" stroke="#b9e08f" stroke-width="3"/><circle cx="220" cy="442" r="20" fill="#121c16" stroke="#b9e08f" stroke-width="3"/>
+<g font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="700" font-size="20" fill="#9dafa2" letter-spacing="2" text-anchor="middle"><text x="170" y="510">DUAL BATTERY</text><text x="440" y="510">FEL CONTAINER</text></g>
+</svg>

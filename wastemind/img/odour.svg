@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 570"><rect width="760" height="570" fill="#121c16"/>
+<g fill="none" stroke="#2b3b30" stroke-width="1"><path d="M0 95h760M0 190h760M0 285h760M0 380h760M0 475h760M127 0v570M253 0v570M380 0v570M507 0v570M633 0v570"/></g>
+<rect x="150" y="190" width="460" height="190" rx="22" fill="#18261d" stroke="#8ac95d" stroke-width="3"/>
+<circle cx="225" cy="285" r="52" fill="none" stroke="#8ac95d" stroke-width="3"/>
+<g stroke="#8ac95d" stroke-width="3" fill="none" stroke-linecap="round"><path d="M225 285c-10-26 8-44 26-40M225 285c26-10 44 8 40 26M225 285c10 26-8 44-26 40M225 285c-26 10-44-8-40-26"/></g>
+<rect x="320" y="222" width="110" height="126" rx="10" fill="#1f3326" stroke="#b9e08f" stroke-width="2"/>
+<g stroke="#b9e08f" stroke-width="5" stroke-linecap="round"><path d="M345 240v90M375 240v90M405 240v90"/></g>
+<rect x="455" y="222" width="110" height="126" rx="10" fill="#1f3326" stroke="#b9e08f" stroke-width="2"/>
+<g stroke="#5d7a64" stroke-width="2"><path d="M470 232v106M485 232v106M500 232v106M515 232v106M530 232v106M545 232v106"/></g>
+<g fill="none" stroke-linecap="round" stroke-width="4"><path d="M20 250c40-14 70 14 110 0" stroke="#7d8b6a" stroke-dasharray="2 12"/><path d="M20 285c40-14 70 14 110 0" stroke="#7d8b6a" stroke-dasharray="2 12"/><path d="M20 320c40-14 70 14 110 0" stroke="#7d8b6a" stroke-dasharray="2 12"/>
+<path d="M630 250h110M630 285h110M630 320h110" stroke="#8ac95d"/><path d="M725 236l15 14-15 14M725 271l15 14-15 14M725 306l15 14-15 14" stroke="#8ac95d"/></g>
+<g font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="700" font-size="20" fill="#eef3ea" text-anchor="middle" letter-spacing="2"><text x="225" y="420">FAN</text><text x="375" y="420">UV LIGHT</text><text x="510" y="420">HEPA</text><text x="75" y="210" fill="#9dafa2">ROOM AIR</text><text x="685" y="210" fill="#8ac95d">CLEANER AIR</text></g>
+</svg>

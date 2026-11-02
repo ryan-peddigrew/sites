@@ -1,2 +1,1700 @@
-<!doctype html>
-<html lang="en-CA"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>WasteMind Rebuild</title><meta http-equiv="refresh" content="0;url=home.html"></head><body><p>Opening the WasteMind preview. <a href="home.html">Open it now</a></p></body></html>
+<!doctype html><html><head><meta name="robots" content="noindex"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>WasteMind Building Solutions</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Compactors, garbage chutes, tri-sorters and odour control for condos and apartment buildings across Ontario. Built in our own shop, 24-hour service from Ottawa and the GTA.">
+<meta name="theme-color" content="#0a110d">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400..600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: all-dark industrial page in two alternating greens; one signature sticky scroll story (a bag's trip down the chute); aqua marks every sample slot. */
+:root{
+  --ink:#0a110d; --ink2:#0e1812; --panel:#142019; --panel2:#1a2920; --line:#24352a; --line2:#31463a;
+  --text:#eef3ea; --muted:#9dafa2; --dim:#6c7f71;
+  --leaf:#8ac95d; --leaf2:#b9e08f; --brand:#1e8110; --onleaf:#0a1a0b;
+  --aqua:#5fd6c9;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"Instrument Sans","Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --r:20px; --ease:cubic-bezier(.2,.75,.2,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{margin:0;background:var(--ink);color:var(--text);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--leaf);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:1280px;margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-stretch:74%;font-weight:800;line-height:.95;letter-spacing:-.01em;margin:0;text-wrap:balance;text-transform:uppercase}
+h1{font-size:clamp(3.2rem,8.6vw,7.6rem)}
+h2{font-size:clamp(2.4rem,5.6vw,4.9rem)}
+h3{font-size:clamp(1.35rem,2vw,1.7rem);line-height:1.02}
+h2 em,h1 em{font-style:normal;color:var(--leaf)}
+p{margin:0}
+.tag{font:500 .74rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);display:inline-flex;align-items:center;gap:10px}
+.tag::before{content:"";width:22px;height:2px;background:currentColor}
+.lede{font-size:clamp(1.05rem,1.5vw,1.24rem);color:var(--muted);max-width:58ch}
+.band{padding-block:clamp(84px,11vw,150px);position:relative}
+.alt{background:radial-gradient(900px 520px at 100% 0%,rgba(138,201,93,.07),transparent 60%),var(--ink2);border-block:1px solid var(--line)}
+.head{display:grid;gap:22px;max-width:900px;margin-bottom:clamp(40px,6vw,72px)}
+.stack{display:grid;gap:22px;align-content:start}
+.sample{display:inline-flex;align-items:center;gap:6px;font:500 .64rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--aqua);border:1px dashed rgba(95,214,201,.6);border-radius:999px;padding:5px 9px;white-space:nowrap;vertical-align:middle}
+.sample::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--aqua)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:16px 26px;font:600 1rem var(--body);text-decoration:none;border:0;cursor:pointer;transition:transform .25s var(--ease),background .25s,box-shadow .25s;background:var(--leaf);color:var(--onleaf)}
+.btn:hover{transform:translateY(-2px);background:var(--leaf2);box-shadow:0 14px 30px -12px rgba(138,201,93,.7)}
+.btn svg{width:18px;height:18px}
+.btn.line{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1.5px rgba(238,243,234,.35)}
+.btn.line:hover{box-shadow:inset 0 0 0 1.5px var(--text);background:rgba(255,255,255,.06)}
+.btn.sm{padding:12px 20px;font-size:.92rem}
+
+/* header + logo */
+.hdr{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));left:0;right:0;z-index:50;padding-left:max(14px,env(safe-area-inset-left,0px));padding-right:max(14px,env(safe-area-inset-right,0px));pointer-events:none}
+.bar{pointer-events:auto;max-width:1160px;margin-inline:auto;height:66px;display:flex;align-items:center;gap:14px;padding:0 10px 0 18px;border-radius:999px;background:rgba(14,24,18,.6);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);box-shadow:0 18px 50px -22px rgba(0,0,0,.8);transition:background .3s}
+.hdr.solid .bar{background:rgba(10,17,13,.9)}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex:none}
+.mk{width:40px;height:40px;flex:none;filter:drop-shadow(0 6px 14px rgba(138,201,93,.28))}
+.bag{transform-box:fill-box;transform-origin:center}
+.logo:hover .bag{animation:drop .9s var(--ease)}
+@keyframes drop{0%{transform:translateY(0)}45%{transform:translateY(16px)}46%{opacity:0;transform:translateY(-6px)}100%{opacity:1;transform:translateY(0)}}
+.wm{display:grid;line-height:1}
+.wm b{font:800 1.55rem/1 var(--display);font-stretch:68%;letter-spacing:.015em}
+.wm b em{font-style:normal;color:var(--leaf)}
+.wm small{font:500 .5rem/1 var(--mono);letter-spacing:.36em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.logo.big .mk{width:54px;height:54px}.logo.big .wm b{font-size:2.1rem}.logo.big .wm small{font-size:.6rem}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{text-decoration:none;font-weight:500;font-size:.92rem;padding:9px 14px;border-radius:999px;color:var(--muted);transition:.2s}
+.nav a:hover{color:var(--text);background:rgba(255,255,255,.07)}
+.nav .m-only{display:none}
+.phone{display:flex;align-items:center;gap:9px;font:500 .8rem var(--mono);letter-spacing:.04em;text-decoration:none;white-space:nowrap;padding:0 8px}
+.bar .btn{padding:12px 20px;font-size:.9rem}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--leaf);box-shadow:0 0 0 0 rgba(138,201,93,.6);animation:ping 2.2s infinite;flex:none}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(138,201,93,0)}100%{box-shadow:0 0 0 0 rgba(138,201,93,0)}}
+.callm{display:none;width:44px;height:44px;border-radius:50%;background:var(--leaf);color:var(--onleaf);place-items:center;text-decoration:none;flex:none}
+.callm svg{width:20px;height:20px}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line2);background:var(--panel);cursor:pointer;position:relative;flex:none}
+.burger i{position:absolute;left:13px;right:13px;height:2px;background:var(--text);transition:.25s}
+.burger i:nth-child(1){top:16px}.burger i:nth-child(2){top:21px}.burger i:nth-child(3){top:26px}
+.burger[aria-expanded=true] i:nth-child(1){top:21px;transform:rotate(45deg)}
+.burger[aria-expanded=true] i:nth-child(2){opacity:0}
+.burger[aria-expanded=true] i:nth-child(3){top:21px;transform:rotate(-45deg)}
+
+/* hero */
+.hero{position:relative;padding-top:clamp(112px,13vw,150px);min-height:min(100svh,920px);display:flex;flex-direction:column;overflow:hidden;isolation:isolate;background:radial-gradient(900px 620px at 82% 24%,rgba(138,201,93,.17),transparent 62%),radial-gradient(700px 500px at 0% 100%,rgba(30,129,16,.18),transparent 60%),var(--ink)}
+
+.hero-grid{flex:1;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:clamp(28px,4.5vw,70px);align-items:center;padding-block:24px 36px}
+.hero-copy{display:grid;gap:26px;align-content:center}
+.hero h1{font-size:clamp(3rem,6.6vw,6rem)}
+.hero h1 em{display:block}
+.hero .lede{color:#c3d0c7;max-width:50ch}
+.ctas{display:flex;flex-wrap:wrap;gap:14px}
+.trust{display:flex;align-items:center;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.9rem}
+.avs{display:flex}
+.avs i{width:36px;height:36px;border-radius:50%;margin-left:-9px;border:2px solid var(--ink);display:grid;place-items:center;font:600 .66rem var(--mono);font-style:normal;color:#08150a}
+.avs i:first-child{margin-left:0}
+.avs i:nth-child(1){background:#b9e08f}.avs i:nth-child(2){background:#8ac95d}.avs i:nth-child(3){background:#6fb544}.avs i:nth-child(4){background:var(--panel2);color:var(--text)}
+.stars{display:flex;gap:2px;color:var(--leaf)}
+.stars svg{width:16px;height:16px}
+.reel-wrap{position:relative}
+.reel{position:relative;height:min(640px,72vh);border-radius:32px;overflow:hidden;border:1px solid var(--line2);background:var(--panel);box-shadow:0 50px 100px -50px rgba(0,0,0,.9)}
+.reel::before,.reel::after{content:"";position:absolute;left:0;right:0;height:22%;z-index:2;pointer-events:none}
+.reel::before{top:0;background:linear-gradient(var(--ink),transparent)}
+.reel::after{bottom:0;background:linear-gradient(transparent,var(--ink))}
+.cols{position:absolute;inset:-12% -8%;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;transform:rotate(-7deg)}
+.trk{display:flex;flex-direction:column;animation:up 50s linear infinite;will-change:transform}
+.col:nth-child(2) .trk{animation-name:down;animation-duration:58s}
+.col:nth-child(3) .trk{animation-duration:44s}
+@keyframes up{to{transform:translateY(-50%)}}
+@keyframes down{from{transform:translateY(-50%)}to{transform:none}}
+.half{display:grid;gap:12px;padding-bottom:12px}
+.half img{width:100%;border-radius:16px;object-fit:cover;aspect-ratio:3/4;background:var(--panel2)}
+.half img.w{aspect-ratio:4/3}
+.gl{position:absolute;z-index:4;display:flex;gap:12px;align-items:center;padding:12px 16px;border-radius:16px;background:rgba(10,17,13,.8);border:1px solid var(--line2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);animation:bob 6s ease-in-out infinite;box-shadow:0 20px 40px -20px rgba(0,0,0,.8)}
+.gl small{display:block;font:500 .62rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.gl b{font:700 .95rem/1.2 var(--body)}
+.gl.a{left:-26px;top:14%}.gl.b{right:-18px;top:47%;animation-delay:-2s}.gl.c{left:7%;bottom:7%;animation-delay:-4s}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(238,243,234,.14)}
+.stat{padding:24px 20px 28px 0;display:grid;gap:4px}
+.stat b{font:800 clamp(2.2rem,4.2vw,3.5rem)/1 var(--display);font-stretch:74%;font-variant-numeric:tabular-nums}
+.stat span{font-size:.9rem;color:var(--muted);max-width:22ch;line-height:1.4}
+
+/* client logos */
+.logos{padding-block:30px 34px;border-bottom:1px solid var(--line);background:var(--ink2)}
+.logos p{font:500 .72rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-align:center;margin-bottom:22px}
+.marq{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.mtrk{display:flex;gap:64px;width:max-content;animation:mq 46s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+.lg{display:flex;align-items:center;gap:11px;color:#7e9285;white-space:nowrap;transition:color .3s}
+.lg:hover{color:var(--text)}
+.lg svg{width:30px;height:30px;flex:none}
+.lg span{display:grid;line-height:1.05}
+.lg b{font-size:1.15rem}.lg small{font:500 .56rem var(--mono);letter-spacing:.24em;text-transform:uppercase;opacity:.8;margin-top:3px}
+.lg.a b{font:800 1.3rem var(--display);font-stretch:68%;letter-spacing:.06em}
+.lg.b b{font:600 1.35rem var(--body);font-style:italic;letter-spacing:-.01em}
+.lg.c b{font:700 1.05rem var(--display);font-stretch:125%;letter-spacing:.02em}
+.lg.d b{font:500 1rem var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.lg.e b{font:600 1.3rem var(--body);letter-spacing:-.03em}
+.lg.f b{font:800 1.15rem var(--display);font-stretch:85%;letter-spacing:.12em}
+
+/* problems */
+.probs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.prob{display:flex;flex-direction:column;gap:18px;padding:28px 26px;border-radius:var(--r);background:var(--panel);text-decoration:none;border:1px solid var(--line);transition:transform .35s var(--ease),border-color .35s,background .35s}
+.prob:hover{transform:translateY(-6px);border-color:var(--leaf);background:var(--panel2)}
+.ic{width:52px;height:52px;border-radius:14px;background:rgba(138,201,93,.12);display:grid;place-items:center;color:var(--leaf);flex:none}
+.ic svg{width:28px;height:28px}
+.prob q{font:700 1.3rem/1.15 var(--display);font-stretch:85%;quotes:none;flex:1}
+.prob .fix{display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid var(--line);font-weight:600;font-size:.92rem;color:var(--leaf)}
+.prob .fix svg{width:18px;height:18px;transition:transform .25s}.prob:hover .fix svg{transform:translateX(4px)}
+
+/* follow the bag */
+.trip{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,90px);align-items:start}
+.trip-fig{position:sticky;top:110px;height:calc(100vh - 150px);max-height:760px;display:flex;flex-direction:column;justify-content:center}
+.trip-fig svg{width:100%;height:100%;max-height:700px}
+.legend{display:flex;gap:6px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+.legend button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--panel);font:500 .8rem var(--mono);color:var(--muted);cursor:pointer;transition:.25s}
+.legend button.on{background:var(--leaf);color:var(--onleaf);border-color:var(--leaf)}
+.step{min-height:68vh;display:flex;flex-direction:column;justify-content:center;gap:16px;padding-block:20px;opacity:.3;transition:opacity .5s}
+.step.on{opacity:1}
+.step:first-child{min-height:50vh}
+.step .n{font:500 .8rem var(--mono);color:var(--leaf);letter-spacing:.12em}
+.step h3{font-size:clamp(1.9rem,3.4vw,2.9rem)}
+.step p{color:var(--muted);max-width:44ch;font-size:1.08rem}
+.step .svc{align-self:flex-start;font-size:.85rem;font-weight:600;color:var(--leaf);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+#bld .wall{fill:#111c15;stroke:#2c3e31;stroke-width:2}
+#bld .slab{stroke:#2c3e31;stroke-width:2}
+#bld .win{fill:#18271d}
+#bld .part .s{stroke:#4d6453;transition:stroke .4s}
+#bld .part .f{fill:#18271d;transition:fill .4s}
+#bld .part.on .s{stroke:var(--leaf)}
+#bld .part.on .f{fill:#28472a}
+#bld .lbl{font:500 11px var(--mono);letter-spacing:.08em;fill:#5e7563;transition:fill .4s}
+#bld .part.on .lbl{fill:var(--leaf)}
+#bag{transition:transform 1s var(--ease)}
+#air path{stroke-dasharray:3 9;animation:flow 1.2s linear infinite;opacity:0;transition:opacity .4s}
+#bld .part.on #air path{opacity:1}
+@keyframes flow{to{stroke-dashoffset:-24}}
+
+/* scrubber */
+.ba{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,6vw,90px);align-items:center}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.checks li{display:flex;gap:12px;align-items:flex-start}
+.checks li::before{content:"";flex:none;width:22px;height:22px;margin-top:2px;border-radius:50%;background:var(--leaf) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230a1a0b' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12.5 4 4 8-9'/%3E%3C/svg%3E") center/13px no-repeat}
+.tip{display:flex;gap:14px;align-items:center;padding:16px 20px;border-radius:14px;background:var(--panel);border:1px solid var(--line);font-weight:500}
+.tip b{font:500 .72rem var(--mono);letter-spacing:.12em;color:var(--leaf);text-transform:uppercase}
+.scrub{display:grid;gap:18px}
+.frame{position:relative;aspect-ratio:4/3;border-radius:24px;overflow:hidden;background:var(--panel);box-shadow:0 40px 80px -40px rgba(0,0,0,.8);border:1px solid var(--line)}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.frame .l2,.frame .l3{opacity:0}
+.stage{position:absolute;left:18px;top:18px;padding:9px 16px;border-radius:999px;background:rgba(10,17,13,.82);font:500 .75rem var(--mono);letter-spacing:.12em;text-transform:uppercase;backdrop-filter:blur(6px)}
+.track input{width:100%;appearance:none;-webkit-appearance:none;height:6px;border-radius:9px;background:linear-gradient(90deg,var(--leaf) var(--p,0%),var(--line2) var(--p,0%));outline:none;cursor:pointer;margin:0}
+.track input::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:var(--text);border:5px solid var(--ink2);box-shadow:0 4px 14px rgba(0,0,0,.5)}
+.track input::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--text);border:5px solid var(--ink2)}
+.marks{display:flex;justify-content:space-between;font:500 .72rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:12px}
+.marks button{background:none;border:0;padding:4px 0;cursor:pointer;color:inherit;font:inherit;letter-spacing:inherit}
+.marks button.on{color:var(--leaf)}
+
+/* services */
+.svcs{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(30px,5vw,70px);align-items:start}
+.rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.row{border-bottom:1px solid var(--line)}
+.row button{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:1fr auto;gap:6px 20px;padding:22px 4px;cursor:pointer;align-items:center}
+.row h3{font-size:clamp(1.4rem,2.6vw,2.1rem);color:var(--dim);transition:color .3s}
+.row p{grid-column:1/-1;color:var(--muted);font-size:.98rem;max-height:0;overflow:hidden;opacity:0;transition:max-height .45s var(--ease),opacity .35s}
+.row .plus{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:.3s}
+.row .plus svg{width:16px;height:16px}
+.row .th{display:none}
+.row.on h3,.row button:hover h3{color:var(--text)}
+.row.on p{max-height:140px;opacity:1}
+.row.on .plus{background:var(--leaf);border-color:var(--leaf);color:var(--onleaf);transform:rotate(45deg)}
+.row button:focus-visible{outline:3px solid var(--leaf);outline-offset:-3px}
+.peek{position:sticky;top:120px;display:grid;gap:14px}
+.peek-frame{position:relative;aspect-ratio:4/4.4;border-radius:24px;overflow:hidden;background:var(--panel);border:1px solid var(--line)}
+.peek-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .6s,transform 1.2s var(--ease)}
+.peek-frame img.on{opacity:1;transform:none}
+.peek-cap{display:flex;justify-content:space-between;gap:12px;font:500 .75rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* case studies */
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.case{background:var(--panel);border:1px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s var(--ease),border-color .35s}
+.case:hover{transform:translateY(-6px);border-color:var(--line2)}
+.case .pic{aspect-ratio:16/10;overflow:hidden;position:relative}
+.case .pic img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.case:hover .pic img{transform:scale(1.06)}
+.case .pic .sample{position:absolute;right:12px;top:12px;background:rgba(10,17,13,.85)}
+.case .body{padding:26px;display:grid;gap:16px;flex:1;align-content:start}
+.case .loc{font:500 .72rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--leaf)}
+.case h3{font-size:1.7rem}
+.case dl{margin:0;display:grid;gap:10px}
+.case dt{font:500 .68rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.case dd{margin:2px 0 0;color:var(--muted);font-size:.95rem;line-height:1.5}
+.case .res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+.case .res b{display:block;font:800 2rem/1 var(--display);font-stretch:74%;color:var(--leaf)}
+.case .res span{font-size:.82rem;color:var(--muted)}
+
+/* plans + estimator */
+.plans{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,90px);align-items:center}
+.ring-box{display:grid;gap:22px;justify-items:center}
+.seg{display:inline-flex;padding:5px;border-radius:999px;background:var(--panel);border:1px solid var(--line);flex-wrap:wrap;justify-content:center}
+.seg button{border:0;background:none;padding:11px 18px;border-radius:999px;font-weight:600;font-size:.92rem;cursor:pointer;color:var(--muted);transition:.25s}
+.seg button.on{background:var(--leaf);color:var(--onleaf)}
+#ring{width:min(440px,100%);height:auto}
+#ring .m{fill:var(--panel);stroke:var(--line);stroke-width:1.5;transition:fill .45s,stroke .45s}
+#ring .m.v{fill:var(--leaf);stroke:var(--leaf)}
+#ring .ml{font:500 12px var(--mono);letter-spacing:.06em;fill:var(--dim);text-anchor:middle;dominant-baseline:middle;transition:fill .45s}
+#ring .ml.v{fill:var(--onleaf)}
+#ring .big{font:800 86px var(--display);font-stretch:74%;fill:var(--text);text-anchor:middle}
+#ring .sm{font:500 12px var(--mono);letter-spacing:.12em;fill:var(--muted);text-anchor:middle}
+.visit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.visit div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;gap:4px}
+.visit b{font:700 1.08rem var(--display);font-stretch:85%;text-transform:uppercase}
+.visit span{font-size:.9rem;color:var(--muted);line-height:1.45}
+.est{margin-top:clamp(56px,8vw,96px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);border-radius:28px;overflow:hidden;border:1px solid var(--line2)}
+.est-in{background:var(--panel);padding:clamp(24px,4vw,44px);display:grid;gap:26px}
+.est-in h3{font-size:clamp(1.8rem,3vw,2.5rem)}
+.ctrl{display:grid;gap:10px}
+.ctrl>label,.ctrl>span{font-weight:600;font-size:.92rem;display:flex;justify-content:space-between;gap:10px}
+.ctrl output{font:500 .9rem var(--mono);color:var(--leaf)}
+.ctrl input[type=range]{width:100%;appearance:none;-webkit-appearance:none;height:6px;border-radius:9px;background:linear-gradient(90deg,var(--leaf) var(--p,30%),var(--line2) var(--p,30%));cursor:pointer;margin:6px 0}
+.ctrl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--text);border:5px solid var(--panel)}
+.ctrl input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--text);border:5px solid var(--panel)}
+.est-out{background:linear-gradient(160deg,#1d4a1c,#0f2414);padding:clamp(24px,4vw,44px);display:flex;flex-direction:column;gap:14px;justify-content:center}
+.est-out small{font:500 .72rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--leaf2)}
+.est-out .price{font:800 clamp(3.4rem,7vw,5.4rem)/.9 var(--display);font-stretch:74%;font-variant-numeric:tabular-nums}
+.est-out .per{color:#c9d5cc;font-size:.95rem}
+.est-out .btn{margin-top:10px;align-self:flex-start}
+
+/* chips (shared) */
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips label{position:relative}
+.chips input{position:absolute;opacity:0;inset:0;cursor:pointer;margin:0}
+.chips span{display:inline-block;padding:11px 16px;border-radius:999px;border:1px solid var(--line2);background:var(--ink2);font-weight:500;font-size:.93rem;transition:.2s}
+.chips input:checked+span{background:var(--leaf);color:var(--onleaf);border-color:var(--leaf)}
+.chips input:focus-visible+span{outline:3px solid var(--leaf);outline-offset:2px}
+
+/* signs + lead magnet */
+.signs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.sign{background:var(--ink);padding:32px 30px;display:grid;gap:14px;align-content:start;transition:background .3s}
+.sign:hover{background:var(--panel)}
+.sign h3{font-size:1.45rem;font-stretch:85%}
+.sign p{color:var(--muted);font-size:.96rem}
+.sign p b{color:var(--text);font-weight:600}
+.magnet{margin-top:22px;display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,1.1fr);gap:28px;align-items:center;padding:28px 32px;border-radius:var(--r);background:linear-gradient(120deg,rgba(138,201,93,.14),rgba(138,201,93,.03));border:1px solid rgba(138,201,93,.3)}
+.doc{width:74px;height:94px;border-radius:8px;background:var(--panel2);border:1px solid var(--line2);position:relative;box-shadow:8px 8px 0 rgba(138,201,93,.25)}
+.doc::before{content:"";position:absolute;left:12px;right:12px;top:16px;height:3px;background:var(--leaf);box-shadow:0 12px 0 var(--line2),0 22px 0 var(--line2),0 32px 0 var(--line2),0 42px 0 var(--line2),0 52px 0 var(--line2)}
+.magnet h3{font-size:1.7rem}
+.magnet p{color:var(--muted);font-size:.95rem;margin-top:6px}
+.inline{display:flex;gap:10px;flex-wrap:wrap}
+.inline input{flex:1;min-width:180px}
+
+/* fields */
+.fld{display:grid;gap:7px;font-size:.86rem;font-weight:600;color:#c9d5cc}
+input.in,select.in,textarea.in,.fld input,.fld select,.fld textarea{width:100%;font:400 1rem var(--body);color:var(--text);background:var(--ink);border:1.5px solid var(--line2);border-radius:12px;padding:14px 15px;transition:.2s}
+input.in:focus,.fld input:focus,.fld select:focus,.fld textarea:focus{outline:0;border-color:var(--leaf);box-shadow:0 0 0 4px rgba(138,201,93,.16)}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ok-msg{display:none;align-items:center;gap:12px;color:var(--leaf2);font-weight:600}
+.ok-msg.on{display:flex}
+.ok-msg i{width:28px;height:28px;border-radius:50%;background:var(--leaf);display:grid;place-items:center;color:var(--onleaf);font-style:normal;flex:none}
+
+/* shop */
+.shop{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(30px,6vw,90px);align-items:center}
+.mosaic{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mosaic figure{margin:0;border-radius:20px;overflow:hidden;position:relative}
+.mosaic img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.mosaic figure:hover img{transform:scale(1.05)}
+.mosaic .tall{grid-row:span 2;aspect-ratio:3/4.6}
+.mosaic .sq{aspect-ratio:1/1}
+.mosaic figcaption{position:absolute;left:12px;bottom:12px;padding:7px 12px;border-radius:999px;background:rgba(10,17,13,.8);font:500 .68rem var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.rent{padding:28px;border-radius:var(--r);background:var(--panel);border:1px solid var(--line);display:grid;gap:16px}
+.rent h3{font-size:1.6rem}
+
+/* portfolio program */
+.port{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(30px,6vw,80px);align-items:start}
+.perks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.perk{padding:24px;border-radius:18px;background:var(--panel);border:1px solid var(--line);display:grid;gap:12px;align-content:start}
+.perk h3{font-size:1.3rem;font-stretch:85%}
+.perk p{color:var(--muted);font-size:.93rem}
+.card-form{background:var(--panel);border:1px solid var(--line2);border-radius:26px;padding:clamp(22px,4vw,36px);display:grid;gap:16px;position:sticky;top:120px}
+.card-form h3{font-size:1.9rem}
+
+/* portal concept */
+.portal{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,6vw,80px);align-items:center}
+.screen{border-radius:22px;border:1px solid var(--line2);background:var(--panel);overflow:hidden;box-shadow:0 40px 90px -40px rgba(0,0,0,.9)}
+.scr-top{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--ink2)}
+.scr-top i{width:10px;height:10px;border-radius:50%;background:var(--line2)}
+.scr-top span{margin-left:10px;font:500 .72rem var(--mono);color:var(--dim);letter-spacing:.08em}
+.scr{padding:22px;display:grid;gap:16px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.kpi{padding:14px;border-radius:12px;background:var(--ink2);border:1px solid var(--line)}
+.kpi small{font:500 .64rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.kpi b{display:block;font:800 1.8rem/1.1 var(--display);font-stretch:74%;font-variant-numeric:tabular-nums}
+.tbl{display:grid;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:.86rem}
+.tr{display:grid;grid-template-columns:1.4fr 1fr .9fr;gap:10px;padding:11px 14px;border-top:1px solid var(--line);align-items:center}
+.tr:first-child{border-top:0;background:var(--ink2);font:500 .66rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.pill{justify-self:start;padding:4px 10px;border-radius:999px;font:500 .68rem var(--mono);letter-spacing:.06em}
+.pill.g{background:rgba(138,201,93,.15);color:var(--leaf)}
+.pill.aq{background:rgba(95,214,201,.15);color:var(--aqua)}
+
+/* testimonials */
+.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.qt{padding:30px;border-radius:24px;background:var(--panel);border:1px solid var(--line);display:flex;flex-direction:column;gap:22px}
+.qt .stars svg{width:18px;height:18px}
+.qt blockquote{margin:0;font:700 1.35rem/1.25 var(--display);font-stretch:88%;flex:1}
+.qt footer{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.qt footer b{display:block;font-size:.95rem}
+.qt footer span{font-size:.85rem;color:var(--muted)}
+.rating .stars{color:var(--leaf)}.rating .stars svg{width:20px;height:20px}
+.rating{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:28px;color:var(--muted);font-size:.95rem}
+.rating b{font:800 2.4rem var(--display);font-stretch:74%;color:var(--text)}
+
+/* team */
+.team{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.person{display:grid;gap:14px;align-content:start}
+.person .ph{aspect-ratio:1/1.08;border-radius:var(--r);overflow:hidden;background:var(--panel)}
+.person img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:filter .6s,transform 1s var(--ease)}
+.person:hover img{filter:none;transform:scale(1.04)}
+.person h3{font-size:1.5rem}
+.person .role{font:500 .74rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--leaf)}
+.person p{color:var(--muted);font-size:.94rem;line-height:1.5}
+.hire{margin-top:22px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:24px 28px;border-radius:var(--r);border:1px solid var(--line);background:var(--panel)}
+.hire b{font:800 1.5rem var(--display);font-stretch:80%;text-transform:uppercase}
+.hire p{color:var(--muted);font-size:.95rem}
+.hire .roles{display:flex;gap:10px;flex-wrap:wrap}
+.hire .roles a{padding:10px 16px;border-radius:999px;border:1px solid var(--line2);text-decoration:none;font-weight:600;font-size:.9rem}
+.hire .roles a:hover{border-color:var(--leaf);color:var(--leaf)}
+
+/* coverage */
+.rail{position:relative;height:60px;margin-bottom:14px}
+.rail::before{content:"";position:absolute;left:16.66%;right:16.66%;top:29px;height:2px;background:repeating-linear-gradient(90deg,var(--leaf) 0 8px,transparent 8px 16px);animation:dash 1.2s linear infinite;opacity:.65}
+@keyframes dash{to{background-position:16px 0}}
+.rail .n{position:absolute;top:18px;width:24px;height:24px;margin-left:-12px;border-radius:50%;background:var(--leaf);box-shadow:0 0 0 7px rgba(138,201,93,.14)}
+.rail .n::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--leaf);animation:pulse 2.6s ease-out infinite}
+@keyframes pulse{from{transform:scale(1);opacity:.9}to{transform:scale(2.8);opacity:0}}
+.rail .truck{position:absolute;top:19px;left:16.66%;width:34px;height:20px;margin-left:-17px;border-radius:6px;background:var(--text);animation:drive 10s ease-in-out infinite alternate}
+.rail .truck::before{content:"";position:absolute;right:-9px;top:5px;width:12px;height:15px;border-radius:3px;background:var(--leaf2)}
+.rail .truck::after{content:"";position:absolute;left:5px;bottom:-4px;width:7px;height:7px;border-radius:50%;background:var(--ink);box-shadow:15px 0 0 var(--ink),0 0 0 2px var(--text),15px 0 0 2px var(--text)}
+@keyframes drive{to{left:83.33%}}
+.stops{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.stop{padding:28px;border-radius:24px;background:var(--panel);border:1px solid var(--line);display:grid;gap:18px;align-content:start;transition:transform .35s var(--ease),border-color .35s}
+.stop:hover{transform:translateY(-6px);border-color:var(--leaf)}
+.stop h3{font-size:2.1rem}
+.who{display:grid;gap:12px}
+.who div{padding-top:12px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:2px 12px}
+.who strong{font:700 1.05rem var(--display);font-stretch:85%;text-transform:uppercase}
+.who small{grid-column:1/-1;color:var(--muted);font-size:.9rem;user-select:all}
+.who a{grid-row:1;grid-column:2;color:var(--leaf);font-weight:600;font-size:.85rem;text-decoration:none}
+.towns{display:flex;flex-wrap:wrap;gap:8px}
+.towns span{padding:6px 12px;border-radius:999px;border:1px solid var(--line2);font-size:.84rem;color:var(--muted)}
+.av{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font:600 .78rem var(--mono);color:#08150a;flex:none}
+
+/* faq */
+.faqs{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(30px,6vw,90px)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:24px 50px 24px 0;position:relative;font:700 1.25rem/1.2 var(--display);font-stretch:85%;text-transform:uppercase}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:4px;top:50%;width:30px;height:30px;margin-top:-15px;border-radius:50%;background:var(--leaf) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230a1a0b' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 24px;color:var(--muted);max-width:62ch}
+
+/* contact hub */
+.quote{background:radial-gradient(900px 500px at 90% 0%,rgba(138,201,93,.18),transparent 60%),linear-gradient(170deg,#0f2414,var(--ink) 70%)}
+.q{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(30px,6vw,90px);align-items:start}
+.emerg{padding:24px 26px;border-radius:var(--r);border:1px solid rgba(138,201,93,.35);background:rgba(138,201,93,.07);display:grid;gap:8px}
+.emerg b{font:800 clamp(2rem,4vw,2.8rem)/1 var(--display);font-stretch:74%;user-select:all;font-variant-numeric:tabular-nums}
+.emerg small{font:500 .72rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--leaf);display:flex;gap:10px;align-items:center}
+.hub{background:var(--panel);border:1px solid var(--line);border-radius:26px;overflow:hidden}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.tabs button{border:0;background:none;padding:18px 12px;font-weight:600;font-size:.92rem;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;transition:.25s}
+.tabs button.on{color:var(--text);border-bottom-color:var(--leaf);background:rgba(138,201,93,.06)}
+.pane{display:none;padding:clamp(22px,4vw,40px)}
+.pane.on{display:grid;gap:20px;animation:in .45s var(--ease)}
+@keyframes in{from{opacity:.2;transform:translateY(10px)}to{opacity:1;transform:none}}
+.prog{display:flex;gap:8px}
+.prog i{flex:1;height:4px;border-radius:4px;background:var(--line);transition:background .4s}
+.prog i.on{background:var(--leaf)}
+.qs{display:none;gap:18px;border:0;margin:0;padding:0;min-width:0}
+.qs.on{display:grid;animation:in .45s var(--ease)}
+.qs legend,.pane h3{font:800 1.9rem/1 var(--display);font-stretch:74%;text-transform:uppercase;margin-bottom:6px;padding:0}
+.hint{color:var(--muted);font-size:.92rem}
+.qnav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.back{background:none;border:0;color:var(--muted);cursor:pointer;font-weight:600;padding:10px 0}
+.err{color:var(--aqua);font-size:.88rem;min-height:1.2em}
+.days{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.days label{position:relative}
+.days input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.days span{display:grid;gap:2px;text-align:center;padding:10px 4px;border-radius:12px;border:1px solid var(--line2);background:var(--ink);transition:.2s}
+.days span b{font:800 1.4rem/1 var(--display);font-stretch:74%}
+.days span small{font:500 .62rem var(--mono);letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.days input:checked+span{background:var(--leaf);border-color:var(--leaf);color:var(--onleaf)}
+.days input:checked+span small{color:var(--onleaf)}
+.days input:focus-visible+span{outline:3px solid var(--leaf);outline-offset:2px}
+.done{display:none;gap:14px}
+.done.on{display:grid;animation:in .45s var(--ease)}
+.done .ok{width:58px;height:58px;border-radius:50%;background:var(--leaf);display:grid;place-items:center;color:var(--onleaf)}
+.done h3{font-size:2rem}
+.done p{color:var(--muted)}
+.urgent{display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:12px;background:rgba(95,214,201,.08);border:1px solid rgba(95,214,201,.35);color:#f5d39a;font-size:.92rem}
+
+/* footer */
+.foot{background:#070c09;padding-block:70px 40px;color:var(--muted);font-size:.94rem;border-top:1px solid var(--line)}
+.foot-g{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.foot img{height:46px;width:auto;margin-bottom:18px}
+.foot h4{margin:0 0 16px;font:500 .72rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--leaf)}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.foot a{text-decoration:none}.foot a:hover{color:var(--text)}
+.foot .base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-size:.84rem}
+.callbar{display:none}
+
+.lift{animation:lift .8s var(--ease) both}
+@keyframes lift{from{opacity:.35;transform:translateY(22px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.step{opacity:1}}
+
+@media (max-width:1080px){
+  .probs,.team{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .signs,.cases,.quotes{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .foot-g{grid-template-columns:1fr 1fr}
+  .phone{display:none}
+  .magnet{grid-template-columns:auto minmax(0,1fr)}
+  .magnet form{grid-column:1/-1}
+  .stops{grid-template-columns:minmax(0,1fr)}.rail{display:none}
+}
+@media (max-width:900px){
+  .nav,.bar>.btn{display:none}
+  .callm{display:grid;margin-left:auto}
+  .burger{display:block}
+  .bar{padding:0 10px 0 14px}
+  .nav.open{display:flex;position:fixed;left:max(14px,env(safe-area-inset-left,0px));right:max(14px,env(safe-area-inset-right,0px));top:calc(90px + env(safe-area-inset-top,0px));flex-direction:column;gap:2px;margin:0;padding:12px;border-radius:26px;background:rgba(10,17,13,.97);border:1px solid var(--line2);box-shadow:0 30px 70px -20px #000;pointer-events:auto}
+  .nav.open a,.nav.open .m-only{display:block;font:800 1.7rem/1 var(--display);font-stretch:74%;text-transform:uppercase;padding:16px 14px;border-radius:14px;color:var(--text)}
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .reel{height:380px}.gl.a{left:8px}.gl.b{right:8px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .trip,.ba,.svcs,.plans,.shop,.faqs,.q,.port,.portal,.est{grid-template-columns:minmax(0,1fr)}
+  .trip-fig{top:calc(90px + env(safe-area-inset-top,0px));height:42vh;z-index:2;background:var(--ink);padding-block:8px}
+  .legend{display:none}
+  .step{min-height:46vh}
+  .peek{display:none}
+  .card-form{position:static}
+  .row .th{display:block;grid-column:1/-1;border-radius:14px;overflow:hidden;max-height:0;transition:max-height .45s var(--ease)}
+  .row.on .th{max-height:260px}
+  .row .th img{width:100%;aspect-ratio:16/9;object-fit:cover}
+  .callbar{display:flex;position:fixed;z-index:40;left:max(14px,env(safe-area-inset-left,0px));right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));gap:10px}
+  .callbar a{flex:1}
+  .foot{padding-bottom:110px}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .probs,.signs,.visit,.f2,.foot-g,.cases,.quotes,.perks{grid-template-columns:minmax(0,1fr)}
+  .team{gap:14px}
+  .magnet{grid-template-columns:minmax(0,1fr)}.doc{display:none}
+  .tabs button{font-size:.8rem;padding:16px 6px}
+  .kpis{grid-template-columns:1fr 1fr}.kpis .kpi:last-child{grid-column:1/-1}
+  .tr{grid-template-columns:1.3fr 1fr}.tr>:nth-child(2){display:none}
+  .days{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hero-copy{gap:22px}
+  .wm small{display:none}
+  .gl.c{display:none}
+}
+
+/* ===== sub-pages (hash routed) ===== */
+.page[hidden]{display:none!important}
+.phero{padding-block:clamp(150px,16vw,200px) clamp(56px,7vw,90px)}
+.phero .wrap{display:grid;gap:22px;max-width:1280px}
+.phero h1{font-size:clamp(2.9rem,7.4vw,6.4rem);max-width:15ch}
+.phero .lede{max-width:62ch}
+.crumb{font:500 .74rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:inline-flex;gap:8px;align-items:center}
+.crumb:hover{color:var(--text)}
+.pcta{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.kpis{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.kpi{padding:14px 18px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--line2);display:grid;gap:2px}
+.kpi b{font:800 1.7rem/1 var(--display);font-stretch:74%}
+.kpi span{font-size:.82rem;color:var(--muted)}
+.note{font:500 .7rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+
+/* tiers */
+.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.tier{position:relative;padding:30px;border-radius:24px;background:var(--panel);border:1px solid var(--line2);display:grid;gap:18px;align-content:start}
+.tier.hot{background:linear-gradient(180deg,rgba(138,201,93,.16),rgba(138,201,93,.03) 60%),var(--panel);border-color:rgba(138,201,93,.55);box-shadow:0 30px 70px -40px rgba(138,201,93,.6)}
+.tier .flag{position:absolute;top:-12px;left:30px;background:var(--leaf);color:var(--onleaf);font:600 .68rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:7px 11px;border-radius:999px}
+.tier h3{font-size:1.9rem}
+.price{display:flex;align-items:baseline;gap:6px}
+.price b{font:800 3.4rem/1 var(--display);font-stretch:74%}
+.price span{color:var(--muted);font-size:.9rem}
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:.95rem}
+.ticks li{display:flex;gap:10px;align-items:flex-start}
+.ticks li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--leaf) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230a1a0b' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center/12px no-repeat}
+.ticks li.no{color:var(--dim)}
+.ticks li.no::before{background:var(--line2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236c7f71' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M7 12h10'/%3E%3C/svg%3E") center/12px no-repeat}
+.tier .btn{justify-self:stretch}
+.addons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.addon{padding:22px;border-radius:18px;background:var(--panel);border:1px solid var(--line);display:grid;gap:10px;align-content:start}
+.addon h4,.prod h4,.job h4,.res h4{margin:0;font:700 1.05rem/1.2 var(--body)}
+.addon p,.prod p,.res p{color:var(--muted);font-size:.9rem}
+.addon .prow{display:flex;justify-content:space-between;align-items:center;margin-top:auto;gap:10px}
+.addon .prow b{font:600 1rem var(--mono)}
+.tiny{padding:9px 14px;font-size:.84rem;border-radius:999px;border:1px solid var(--line2);background:var(--ink2);color:var(--text);cursor:pointer;font-weight:600;transition:.2s;white-space:nowrap}
+.tiny:hover{border-color:var(--leaf);color:var(--leaf2)}
+.tiny.added{background:var(--leaf);color:var(--onleaf);border-color:var(--leaf)}
+
+/* split promo */
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,70px);align-items:center}
+.promo{border-radius:28px;padding:clamp(26px,4vw,44px);background:radial-gradient(600px 300px at 0% 0%,rgba(138,201,93,.2),transparent 60%),var(--panel);border:1px solid rgba(138,201,93,.35);display:grid;gap:18px}
+.promo h3{font-size:clamp(1.8rem,3vw,2.6rem)}
+.ph-img{border-radius:24px;overflow:hidden;border:1px solid var(--line2);aspect-ratio:4/3;background:var(--panel)}
+.ph-img img{width:100%;height:100%;object-fit:cover}
+
+/* rent-to-own calculator */
+.calc{display:grid;grid-template-columns:1.2fr .8fr;border-radius:26px;overflow:hidden;border:1px solid var(--line2);background:var(--panel)}
+.calc .in-side{padding:clamp(22px,4vw,38px);display:grid;gap:20px}
+.calc .out{padding:clamp(22px,4vw,38px);background:linear-gradient(160deg,#1f5a17,#123a10 70%);display:grid;gap:14px;align-content:center}
+.calc .out .big{font:800 clamp(3rem,6vw,4.6rem)/1 var(--display);font-stretch:74%}
+.calc .out dl{margin:0;display:grid;grid-template-columns:1fr auto;gap:8px 16px;font-size:.92rem}
+.calc .out dt{color:#cfe6bf}.calc .out dd{margin:0;font:600 .95rem var(--mono);text-align:right}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{padding:11px 16px;border-radius:999px;border:1px solid var(--line2);background:var(--ink2);font-weight:600;font-size:.92rem;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--leaf);color:var(--onleaf);border-color:var(--leaf)}
+.lbl{font-size:.86rem;font-weight:600;color:#c9d5cc;display:flex;justify-content:space-between}
+.lbl b{font:500 .86rem var(--mono);color:var(--leaf)}
+
+/* catalogue + shop */
+.cat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.prod{border-radius:22px;background:var(--panel);border:1px solid var(--line);overflow:hidden;display:grid;grid-template-rows:auto 1fr;transition:transform .3s var(--ease),border-color .3s}
+.prod:hover{transform:translateY(-4px);border-color:var(--line2)}
+.prod .pic{aspect-ratio:16/10;background:radial-gradient(circle at 30% 20%,rgba(138,201,93,.18),transparent 60%),var(--ink2);display:grid;place-items:center;position:relative;overflow:hidden}
+.prod .pic img{width:100%;height:100%;object-fit:cover}
+.prod .pic svg{width:46%;height:auto;color:var(--leaf)}
+.prod .pic .badge{position:absolute;top:12px;left:12px;font:600 .64rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:6px 9px;border-radius:999px;background:rgba(10,17,13,.85);color:var(--leaf2);border:1px solid var(--line2)}
+.prod .body{padding:20px;display:grid;gap:10px;align-content:start}
+.prod .prow{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:6px}
+.prod .prow b{font:600 1.05rem var(--mono)}
+.prod .sku{font:500 .68rem var(--mono);letter-spacing:.08em;color:var(--dim);text-transform:uppercase}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.autoship{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;padding:24px 28px;border-radius:22px;background:linear-gradient(90deg,rgba(138,201,93,.16),rgba(138,201,93,.04));border:1px solid rgba(138,201,93,.35);margin-top:28px}
+.autoship h3{font-size:1.6rem}
+
+/* emergency */
+.eme{background:radial-gradient(800px 400px at 80% 0%,rgba(95,214,201,.14),transparent 60%),var(--ink2)}
+.bigcall{display:inline-flex;align-items:center;gap:16px;padding:18px 28px 18px 18px;border-radius:999px;background:var(--aqua);color:#04201d;text-decoration:none;font:800 clamp(1.8rem,4vw,2.6rem)/1 var(--display);font-stretch:74%;box-shadow:0 20px 50px -20px rgba(95,214,201,.7);width:max-content;max-width:100%}
+.bigcall i{width:52px;height:52px;border-radius:50%;background:#04201d;display:grid;place-items:center;flex:none;animation:ring 1.8s infinite}
+.bigcall i svg{width:24px;height:24px;color:var(--aqua)}
+@keyframes ring{0%,100%{box-shadow:0 0 0 0 rgba(4,32,29,.5)}60%{box-shadow:0 0 0 14px rgba(4,32,29,0)}}
+.resp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.resp div{padding:22px;border-radius:18px;background:var(--panel);border:1px solid var(--line)}
+.resp b{display:block;font:800 2.4rem/1 var(--display);font-stretch:74%;color:var(--aqua)}
+.resp span{color:var(--muted);font-size:.9rem}
+.steps-l{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.steps-l li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;padding:18px;border-radius:16px;background:var(--panel);border:1px solid var(--line)}
+.steps-l li::before{content:counter(s);width:40px;height:40px;border-radius:12px;background:rgba(95,214,201,.14);color:var(--aqua);display:grid;place-items:center;font:700 1rem var(--mono)}
+.steps-l b{display:block;margin-bottom:2px}
+.steps-l span{color:var(--muted);font-size:.92rem}
+.drop{border:1.5px dashed var(--line2);border-radius:14px;padding:18px;text-align:center;color:var(--muted);font-size:.9rem;cursor:pointer;position:relative;transition:.2s}
+.drop:hover{border-color:var(--leaf);color:var(--text)}
+.drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.drop b{color:var(--leaf)}
+.files{font:500 .78rem var(--mono);color:var(--leaf2);text-align:left;display:grid;gap:4px;margin-top:8px}
+.rates{width:100%;border-collapse:collapse;font-size:.94rem}
+.rates th,.rates td{padding:14px 12px;border-bottom:1px solid var(--line);text-align:left}
+.rates th{font:500 .7rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.rates td:last-child,.rates th:last-child{text-align:right;font-family:var(--mono)}
+
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;position:relative}
+.tl::before{content:"";position:absolute;top:22px;left:4%;right:4%;height:2px;background:linear-gradient(90deg,var(--leaf),var(--line2))}
+.tl div{position:relative;display:grid;gap:10px;align-content:start}
+.tl i{width:46px;height:46px;border-radius:50%;background:var(--ink);border:2px solid var(--leaf);display:grid;place-items:center;font:600 .9rem var(--mono);font-style:normal;color:var(--leaf)}
+.tl b{font-size:1rem}
+.tl span{color:var(--muted);font-size:.88rem}
+
+/* referral */
+.refs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.ref{padding:28px;border-radius:22px;background:var(--panel);border:1px solid var(--line);display:grid;gap:12px;align-content:start}
+.ref .amt{font:800 3.6rem/1 var(--display);font-stretch:74%;color:var(--leaf)}
+
+/* careers */
+.jobs{display:grid;gap:12px}
+.job{display:grid;grid-template-columns:1fr auto auto;gap:18px;align-items:center;padding:22px 24px;border-radius:18px;background:var(--panel);border:1px solid var(--line);transition:.25s}
+.job:hover{border-color:var(--leaf)}
+.job .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.job .meta span{font:500 .7rem var(--mono);letter-spacing:.06em;padding:5px 9px;border-radius:999px;background:var(--ink2);border:1px solid var(--line2);color:var(--muted)}
+.job .pay{font:600 .95rem var(--mono);color:var(--leaf2);white-space:nowrap}
+
+/* resources */
+.ress{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.res{border-radius:22px;background:var(--panel);border:1px solid var(--line);padding:26px;display:grid;gap:12px;align-content:start;text-decoration:none;transition:.25s}
+.res:hover{border-color:var(--leaf);transform:translateY(-3px)}
+.res .kind{font:500 .68rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--leaf)}
+.res .cover{height:130px;border-radius:14px;background:linear-gradient(135deg,#1f5a17,#0e1812);display:grid;place-items:center;margin-bottom:6px;position:relative;overflow:hidden}
+.res .cover::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px 22px)}
+.res .cover b{font:800 2.4rem/1 var(--display);font-stretch:74%;color:var(--leaf2);z-index:1}
+.news{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;padding:clamp(24px,4vw,40px);border-radius:26px;background:radial-gradient(600px 260px at 100% 0%,rgba(138,201,93,.2),transparent 60%),var(--panel);border:1px solid var(--line2);margin-top:40px}
+.news form{display:flex;gap:10px;flex-wrap:wrap}
+.news input{min-width:260px}
+
+/* location pages */
+.loc-g{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.nb{display:flex;flex-wrap:wrap;gap:8px}
+.nb span{padding:9px 14px;border-radius:999px;border:1px solid var(--line2);background:var(--ink2);font-size:.9rem}
+
+/* more ways strip on home */
+.ways{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.way{padding:24px;border-radius:20px;background:var(--panel);border:1px solid var(--line);text-decoration:none;display:grid;gap:10px;align-content:start;transition:.25s;position:relative}
+.way:hover{border-color:var(--leaf);transform:translateY(-3px)}
+.way::after{content:"→";position:absolute;top:22px;right:22px;color:var(--leaf);font-weight:700}
+.way h4{margin:0;font:700 1.05rem var(--body)}
+.way p{color:var(--muted);font-size:.9rem}
+.way .k{font:500 .66rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--leaf)}
+
+/* quote cart */
+.cartbtn{position:relative;width:44px;height:44px;border-radius:50%;border:1px solid var(--line2);background:var(--panel);display:grid;place-items:center;cursor:pointer;flex:none;color:var(--text)}
+.cartbtn svg{width:20px;height:20px}
+.cartbtn .n{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:var(--leaf);color:var(--onleaf);font:700 .7rem/20px var(--mono);text-align:center;transform:scale(0);transition:transform .3s var(--ease)}
+.cartbtn .n.on{transform:scale(1)}
+.cartbtn.bump{animation:bump .5s var(--ease)}
+@keyframes bump{40%{transform:scale(1.18)}}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:70;opacity:0;pointer-events:none;transition:opacity .3s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);z-index:71;background:var(--ink2);border-left:1px solid var(--line2);transform:translateX(100%);transition:transform .4s var(--ease);display:grid;grid-template-rows:auto 1fr auto;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.drawer.on{transform:none}
+.drawer .dh{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid var(--line)}
+.drawer .dh h3{font-size:1.6rem}
+.drawer .x{width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);background:var(--panel);cursor:pointer;font-size:1.1rem}
+.drawer .items{overflow:auto;padding:12px 24px;display:grid;gap:10px;align-content:start}
+.ci{display:grid;grid-template-columns:1fr auto;gap:6px 14px;padding:14px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
+.ci b{font-size:.95rem}
+.ci small{color:var(--muted);font:500 .74rem var(--mono)}
+.ci .q{display:flex;align-items:center;gap:8px;grid-column:1/-1;justify-content:space-between}
+.ci .q div{display:flex;align-items:center;gap:6px}
+.ci .q button{width:30px;height:30px;border-radius:8px;border:1px solid var(--line2);background:var(--ink);cursor:pointer}
+.ci .q .rm{width:auto;padding:0 10px;font-size:.78rem;color:var(--muted)}
+.empty{color:var(--muted);text-align:center;padding:40px 10px;display:grid;gap:14px;justify-items:center}
+.drawer .df{padding:20px 24px;border-top:1px solid var(--line);display:grid;gap:12px}
+.drawer .tot{display:flex;justify-content:space-between;font:600 1rem var(--mono)}
+.drawer .df .fld input{padding:12px 14px}
+
+@media (max-width:1180px){.nav a{padding:9px 10px;font-size:.88rem}}
+@media (max-width:1080px){.addons,.ways{grid-template-columns:repeat(2,minmax(0,1fr))}.tl{grid-template-columns:repeat(3,minmax(0,1fr))}.tl::before{display:none}}
+@media (max-width:900px){
+  .tiers,.cat,.refs,.ress,.resp{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .split,.calc,.loc-g,.news{grid-template-columns:minmax(0,1fr)}
+  .tier.hot{order:-1}
+  .cartbtn{margin-left:0}
+  .callbar{transform:translateY(160%);transition:transform .4s var(--ease)}
+  .callbar.on{transform:none}
+}
+@media (max-width:640px){
+  .tiers,.cat,.refs,.ress,.resp,.addons,.ways,.tl{grid-template-columns:minmax(0,1fr)}
+  .job{grid-template-columns:1fr;gap:10px}
+  .news input{min-width:0;flex:1}
+  .rates{font-size:.86rem}
+  .bigcall{font-size:1.7rem;padding:12px 20px 12px 12px}
+  .bigcall i{width:44px;height:44px}
+}
+
+@media (max-width:900px){
+  .nav.open{display:grid;grid-template-columns:1fr 1fr;max-height:calc(100dvh - 120px);overflow:auto;gap:4px 8px}
+  .nav.open a{grid-column:1/-1}
+  .nav.open a.m-only{grid-column:auto;font:600 1rem/1.2 var(--body);text-transform:none;padding:13px 14px;background:rgba(255,255,255,.04);color:var(--muted)}
+  .nav.open a.m-only.em{color:var(--aqua)}
+}
+.nav a.cur{color:var(--text);background:rgba(255,255,255,.07)}
+.foot-g{grid-template-columns:1.3fr 1fr 1fr 1fr 1fr}
+@media (max-width:1080px){.foot-g{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:640px){.foot-g{grid-template-columns:1fr 1fr}.foot-g>div:first-child{grid-column:1/-1}}
+@media (max-width:480px){
+  .bar{gap:8px;padding:0 8px 0 12px}
+  .mk{width:36px;height:36px}
+  .cartbtn{display:none}
+  .cartbtn.has{display:grid;margin-left:auto}
+  .bar:has(.cartbtn.has) .callm{display:none}
+}
+.lg-h{height:34px;width:auto;display:block}
+.foot .lg-s{height:auto;width:200px;margin:0}
+.logo:hover .lg-h{filter:brightness(1.12)}
+@media (max-width:480px){.lg-h{height:28px}}
+.lg-h{height:34px;width:auto;display:block}
+.foot .lg-s{height:auto;width:200px;margin:0}
+.logo:hover .lg-h{filter:brightness(1.12)}
+@media (max-width:480px){.lg-h{height:28px}}
+
+.why-t{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line2);border-radius:24px;overflow:hidden;background:var(--panel)}
+.why-t th,.why-t td{padding:20px 24px;text-align:left;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+.why-t tr:last-child td{border-bottom:0}
+.why-t thead th{font:500 .72rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);background:var(--ink2)}
+.why-t thead th.us{color:var(--onleaf);background:var(--leaf)}
+.why-t td.us{background:rgba(138,201,93,.09);font-weight:600}
+.why-t td:first-child{font-weight:600;width:28%}
+.why-t td.them{color:var(--muted)}
+.why-t .y,.why-t .n{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;margin-right:10px;font-size:.8rem;font-weight:800;vertical-align:-4px}
+.why-t .y{background:var(--leaf);color:var(--onleaf)}
+.why-t .n{background:var(--line2);color:var(--dim)}
+.why-foot{margin-top:18px}
+@media (max-width:760px){.why-t th,.why-t td{padding:14px 12px;font-size:.88rem}.why-t td:first-child{width:34%}.why-t .y,.why-t .n{display:none}}
+
+/* photography behind heroes */
+.hero::before,.phero::before,.quote::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--ink) 4%,rgba(10,17,13,.9) 38%,rgba(10,17,13,.5) 100%),linear-gradient(0deg,var(--ink) 0%,transparent 28%),var(--ph) center/cover no-repeat;pointer-events:none}
+.hero{--ph:url(img/ottawa-aerial.webp)}
+.phero{position:relative;isolation:isolate;overflow:hidden}
+.quote{position:relative;isolation:isolate;--ph:url(img/shop-floor.webp)}
+.quote::before{background:linear-gradient(180deg,var(--ink) 0%,rgba(10,17,13,.88) 30%,rgba(10,17,13,.9) 100%),var(--ph) center/cover no-repeat}
+@media (max-width:900px){.hero::before,.phero::before{background:linear-gradient(180deg,rgba(10,17,13,.82) 0%,rgba(10,17,13,.9) 60%,var(--ink) 100%),var(--ph) center/cover no-repeat}}
+
+/* single full-bleed hero image */
+.hero-grid{grid-template-columns:minmax(0,1fr)}
+.hero-copy{max-width:760px}
+.hero::before{background:linear-gradient(90deg,rgba(10,17,13,.92) 0%,rgba(10,17,13,.72) 38%,rgba(10,17,13,.18) 78%,rgba(10,17,13,.05) 100%),linear-gradient(0deg,var(--ink) 0%,transparent 26%),var(--ph) 62% center/cover no-repeat}
+@media (max-width:900px){.hero::before{background:linear-gradient(180deg,rgba(10,17,13,.78) 0%,rgba(10,17,13,.7) 55%,var(--ink) 100%),var(--ph) 62% center/cover no-repeat}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c4e898"/><stop offset="1" stop-color="#4aa52a"/></linearGradient></defs></svg>
+<header class="hdr" id="hdr"><div class="bar">
+  <a class="logo" href="#top" aria-label="WasteMind Building Solutions, home"><img class="lg-h" src="img/logo-h.png" alt="WasteMind" width="700" height="116"></a>
+  <nav class="nav" id="nav" aria-label="Main"><a href="#services">Services</a><a href="#/plans">Plans</a><a href="#/rentals">Rentals</a><a href="#/parts">Parts</a><a href="#/new-construction">Developers</a><a href="#/resources">Resources</a><a class="m-only em" href="#/emergency">Emergency 24/7</a><a class="m-only" href="#managers">Property managers</a><a class="m-only" href="#work">Our work</a><a class="m-only" href="#/referrals">Referrals</a><a class="m-only" href="#/ottawa">Ottawa</a><a class="m-only" href="#/toronto">Toronto</a><a class="m-only" href="#/careers">Careers</a><a class="m-only" href="#quote">Contact</a></nav>
+  <a class="phone" href="tel:+16135398683"><i class="dot"></i>613-539-8683</a>
+  <a class="btn" href="#quote">Get a quote</a>
+  <a class="callm" href="tel:+16135398683" aria-label="Call WasteMind 24 hours"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
+  <button class="cartbtn" id="cartBtn" aria-label="Open your quote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l1 3H8z"/><rect x="4" y="6" width="16" height="15" rx="2"/><path d="M8 11h8M8 15h5"/></svg><span class="n">0</span></button>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><i></i><i></i><i></i></button>
+</div></header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="tag">Built in Ontario · 24-hour service</span>
+      <h1>Garbage room problems, <em>solved for good.</em></h1>
+      <p class="lede">Compactors, garbage chutes, tri-sorters and odour control for condos and apartment buildings. Built in our own shop, installed and serviced by the same team, with 24-hour service when something breaks.</p>
+      <div class="ctas"><a class="btn" href="#quote" data-tab="walk">Book a free walk-through <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn line" href="#how">See how it works</a></div>
+      <div class="trust"><div class="avs" aria-hidden="true"><i>MT</i><i>DO</i><i>SG</i><i>+109</i></div><div><div class="stars" aria-label="5 stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg></div><span>4.9 from 112 property manager reviews</span></div></div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="stats" id="stats">
+      <div class="stat"><b data-n="1200" data-s="+">1,200+</b><span>properties served across Ottawa, Gatineau and Toronto</span></div>
+      <div class="stat"><b data-n="21">21</b><span>people on the WasteMind team</span></div>
+      <div class="stat"><b data-n="15">15</b><span>service technicians on the road</span></div>
+      <div class="stat"><b data-n="24" data-s=" hr">24 hr</b><span>service for compactors, chutes and garbage rooms</span></div>
+    </div>
+  </div>
+</section>
+<div class="logos"><div class="wrap"><p>Trusted by property managers and condo boards across Ontario</p></div><div class="marq" aria-label="Client logos"><div class="mtrk"><div class="lg a"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 4 27 26H3z"/><path d="M15 13v6"/></svg><span><b>NORTHGATE</b><small>Property Group</small></span></div><div class="lg b"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="15" cy="15" r="11"/><path d="M15 8v7l5 3"/></svg><span><b>Rideau</b><small>Residential</small></span></div><div class="lg c"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12c4-5 7 5 13 0s9 5 13 0M2 21c4-5 7 5 13 0s9 5 13 0"/></svg><span><b>LAKESHORE</b><small>Condo Management</small></span></div><div class="lg d"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3 26 9v12L15 27 4 21V9z"/><path d="M15 10v10M10 13l5-3 5 3"/></svg><span><b>CEDARLINE</b><small>Living</small></span></div><div class="lg e"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4H4v22h3M23 4h3v22h-3"/><path d="M11 20V11l4 5 4-5v9"/></svg><span><b>bayview</b><small>Estates</small></span></div><div class="lg f"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 26V12l6-4v18M11 26V6l7-3v23M18 26V14l7 3v9"/></svg><span><b>CAPITAL COURT</b><small>Properties</small></span></div><div class="lg a"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 4 27 26H3z"/><path d="M15 13v6"/></svg><span><b>NORTHGATE</b><small>Property Group</small></span></div><div class="lg b"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="15" cy="15" r="11"/><path d="M15 8v7l5 3"/></svg><span><b>Rideau</b><small>Residential</small></span></div><div class="lg c"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12c4-5 7 5 13 0s9 5 13 0M2 21c4-5 7 5 13 0s9 5 13 0"/></svg><span><b>LAKESHORE</b><small>Condo Management</small></span></div><div class="lg d"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3 26 9v12L15 27 4 21V9z"/><path d="M15 10v10M10 13l5-3 5 3"/></svg><span><b>CEDARLINE</b><small>Living</small></span></div><div class="lg e"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4H4v22h3M23 4h3v22h-3"/><path d="M11 20V11l4 5 4-5v9"/></svg><span><b>bayview</b><small>Estates</small></span></div><div class="lg f"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 26V12l6-4v18M11 26V6l7-3v23M18 26V14l7 3v9"/></svg><span><b>CAPITAL COURT</b><small>Properties</small></span></div></div></div></div>
+
+<section class="band" id="problems">
+  <div class="wrap">
+    <div class="head"><span class="tag">Sound familiar?</span><h2>Four problems every property manager <em>knows</em></h2></div>
+    <div class="probs">
+      <a class="prob" href="#cleaning"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M9 21v-5h6v5"/></svg></span><q>The garbage room is dirty and drawing pests.</q><span class="fix">Cleaning <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="prob" href="#plans"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><q>The compactor breaks down at the worst possible time.</q><span class="fix">Maintenance plans <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="prob" href="#how" data-go="6"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8c2-2 4 2 6 0s4 2 6 0 3 1 4 0M4 13c2-2 4 2 6 0s4 2 6 0 3 1 4 0M4 18c2-2 4 2 6 0s4 2 6 0 3 1 4 0"/></svg></span><q>Residents smell garbage in the hallway.</q><span class="fix">Odour control <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="prob" href="#how" data-go="4"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4 4 9h6M17 4l3 5h-6M10 20H6l-2-5M14 20h4l2-5"/><path d="M8 13l4-4 4 4"/></svg></span><q>Recycling is harder for residents than garbage.</q><span class="fix">Tri-sorters <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="how">
+  <div class="wrap">
+    <div class="head"><span class="tag">How it works</span><h2>Follow one bag from the top floor <em>to the truck</em></h2><p class="lede">Every part of that trip is something we build, install, clean or service. Scroll to follow it.</p></div>
+    <div class="trip">
+      <div class="trip-fig">
+        <svg id="bld" viewBox="0 0 440 600" role="img" aria-label="Cross-section of a condo building showing the garbage chute, sorter, compactor, odour control unit and truck">
+          <rect class="wall" x="40" y="70" width="270" height="460" rx="4"/>
+          <path d="M40 70 175 22 310 70" fill="none" stroke="#2c3e31" stroke-width="2"/>
+          <g class="slab"><path d="M40 134h270M40 198h270M40 262h270M40 326h270M40 400h270"/></g>
+          <g class="win"><rect x="62" y="92" width="34" height="22" rx="3"/><rect x="112" y="92" width="34" height="22" rx="3"/><rect x="62" y="156" width="34" height="22" rx="3"/><rect x="112" y="156" width="34" height="22" rx="3"/><rect x="62" y="220" width="34" height="22" rx="3"/><rect x="112" y="220" width="34" height="22" rx="3"/><rect x="62" y="284" width="34" height="22" rx="3"/><rect x="112" y="284" width="34" height="22" rx="3"/><rect x="62" y="348" width="34" height="22" rx="3"/><rect x="112" y="348" width="34" height="22" rx="3"/><rect x="262" y="92" width="30" height="22" rx="3"/><rect x="262" y="156" width="30" height="22" rx="3"/><rect x="262" y="220" width="30" height="22" rx="3"/><rect x="262" y="284" width="30" height="22" rx="3"/><rect x="262" y="348" width="30" height="22" rx="3"/></g>
+          <path d="M0 530h440" stroke="#2c3e31" stroke-width="3"/>
+          <g class="part" id="p2"><rect class="s f" x="206" y="78" width="30" height="342" rx="4" stroke-width="2.5"/><text class="lbl" x="250" y="92">CHUTE</text></g>
+          <g class="part" id="p3"><g class="s" stroke-width="4" stroke-linecap="round"><path d="M198 134h46M198 198h46M198 262h46M198 326h46"/></g><text class="lbl" x="250" y="250">FIRE DAMPERS</text></g>
+          <g class="part" id="p1"><g class="s f" stroke-width="2.5"><rect x="190" y="104" width="14" height="22" rx="2"/><rect x="190" y="168" width="14" height="22" rx="2"/><rect x="190" y="232" width="14" height="22" rx="2"/><rect x="190" y="296" width="14" height="22" rx="2"/><rect x="190" y="360" width="14" height="22" rx="2"/></g><text class="lbl" x="150" y="60" text-anchor="middle">CHUTE DOORS</text></g>
+          <g class="part" id="p4"><circle class="s f" cx="221" cy="436" r="16" stroke-width="2.5"/><g class="s f" stroke-width="2.5"><rect x="182" y="468" width="26" height="56" rx="3"/><rect x="211" y="468" width="26" height="56" rx="3"/><rect x="240" y="468" width="26" height="56" rx="3"/></g><text class="lbl" x="283" y="415" text-anchor="middle">TRI-SORTER</text></g>
+          <g class="part" id="p5"><g class="s f" stroke-width="2.5"><rect x="58" y="462" width="96" height="62" rx="4"/><path d="M70 462v-16h40v16" fill="none"/></g><text class="lbl" x="106" y="452">COMPACTOR</text></g>
+          <g class="part" id="p6"><rect class="s f" x="56" y="408" width="70" height="26" rx="4" stroke-width="2.5"/><text class="lbl" x="134" y="425">ODOUR UNIT</text><g id="air" stroke="#8ac95d" stroke-width="2.5" fill="none" stroke-linecap="round"><path d="M176 446c-14-4-28 4-46-8"/><path d="M60 444c-6 6-4 12-12 16"/></g></g>
+          <g class="part" id="p7"><g class="s f" stroke-width="2.5"><rect x="336" y="474" width="86" height="44" rx="5"/><rect x="380" y="456" width="42" height="22" rx="4"/></g><g class="s" fill="#0a110d" stroke-width="2.5"><circle cx="356" cy="524" r="8"/><circle cx="404" cy="524" r="8"/></g><path class="s" d="M310 500h22" stroke-width="2.5" stroke-dasharray="4 4"/><text class="lbl" x="379" y="446" text-anchor="middle">TO THE TRUCK</text></g>
+          <g id="bag" style="transform:translate(180px,115px)"><path d="M-9 -2c0-8 18-8 18 0l3 16c0 4-24 4-24 0z" fill="#8ac95d"/><path d="M-4 -6c2-6 6-6 8 0" fill="none" stroke="#b9e08f" stroke-width="2"/></g>
+        </svg>
+        <div class="legend" id="legend" aria-label="Jump to a step"></div>
+      </div>
+      <div class="steps" id="steps">
+        <article class="step on" data-step="1" data-x="180" data-y="115"><span class="n">01 / 07 · Chute door</span><h3>A resident drops a bag down the chute</h3><p>Every floor has a chute door that has to close and latch on its own. A door that sticks open lets odour and fire travel. We inspect every chute door, floor by floor.</p><a class="svc" href="#services" data-svc="chutes">Garbage &amp; linen chutes</a></article>
+        <article class="step" data-step="2" data-x="221" data-y="240"><span class="n">02 / 07 · The chute</span><h3>It falls past every floor</h3><p>Residue builds up on the chute walls and causes odour, bacteria and a fire risk. We degrease and disinfect chutes with enzyme cleaners and biodegradable degreaser, and check the washdown system.</p><a class="svc" href="#services" data-svc="cleaning">Chute &amp; compactor cleaning</a></article>
+        <article class="step" data-step="3" data-x="221" data-y="320"><span class="n">03 / 07 · Fire protection</span><h3>Dampers and fire-rated doors hold the line</h3><p>Fire-rated doors and dampers stop fire and smoke from moving between floors through the chute. We replace liners, doors and dampers, up to a full floor-by-floor retrofit.</p><a class="svc" href="#services" data-svc="chutes">Garbage &amp; linen chutes</a></article>
+        <article class="step" data-step="4" data-x="221" data-y="432"><span class="n">04 / 07 · Tri-sorter</span><h3>The sorter sends it to the right bin</h3><p>The resident picks garbage, recycling or organics at the chute door, and the sorter turns to the matching bin. Recycling becomes as easy as garbage. We build each sorter to fit the room that's already there.</p><a class="svc" href="#services" data-svc="sorters">Tri-sorter &amp; bi-sorter retrofits</a></article>
+        <article class="step" data-step="5" data-x="106" data-y="486"><span class="n">05 / 07 · Compactor</span><h3>The compactor packs it down</h3><p>A hydraulic ram packs the waste so the building needs fewer pickups. Grease on the moving parts, clean hydraulic oil and sound belts keep it running. Skip them and it fails at the worst time.</p><a class="svc" href="#services" data-svc="compactors">Compactor manufacturing &amp; service</a></article>
+        <article class="step" data-step="6" data-x="106" data-y="486"><span class="n">06 / 07 · Odour control</span><h3>The air gets cleaned around the clock</h3><p>Garbage room odour travels up the chute to the floors where residents live. A fan pulls the room's air through UV light and a HEPA filter, which destroys odours instead of covering them up. CSA approved.</p><a class="svc" href="#services" data-svc="odour">Odour control</a></article>
+        <article class="step" data-step="7" data-x="378" data-y="492"><span class="n">07 / 07 · Out to the truck</span><h3>Bins roll out for pickup</h3><p>Front-end-load containers built for the room, with wheels, casters and bottoms we repair. Battery bin movers let staff move heavy containers without getting hurt.</p><a class="svc" href="#services" data-svc="containers">FEL containers &amp; bins</a></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="cleaning">
+  <div class="wrap ba">
+    <div class="stack">
+      <span class="tag">Cleaning, before and after</span>
+      <h2>Same room. <em>New floor.</em></h2>
+      <p class="lede">We degrease and disinfect chutes, compactors and garbage rooms with biodegradable products, and can refinish the floor with epoxy so it stays clean.</p>
+      <ul class="checks">
+        <li>Enzyme cleaners and biodegradable degreaser</li>
+        <li>Odour treatment to finish every clean</li>
+        <li>Lockout and confined-space safety on every job</li>
+      </ul>
+      <div class="tip"><b>Tip</b> Book chute cleaning for early spring.</div>
+    </div>
+    <div class="scrub">
+      <div class="frame" id="frame">
+        <img class="l1" src="img/room-before.webp" alt="Garbage room before cleaning, floor stained and damaged" loading="lazy">
+        <img class="l2" src="img/room-progress.webp" alt="The same garbage room with the floor stripped, mid-refinish" loading="lazy">
+        <img class="l3" src="img/room-after.webp" alt="The same garbage room after an epoxy floor refinish, clean and sealed" loading="lazy">
+        <span class="stage" id="stageLbl">Before</span>
+      </div>
+      <div class="track">
+        <input id="scrub" type="range" min="0" max="100" value="0" aria-label="Drag from before to after">
+        <div class="marks"><button type="button" data-v="0" class="on">Before</button><button type="button" data-v="50">In progress</button><button type="button" data-v="100">After</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="services">
+  <div class="wrap">
+    <div class="head"><span class="tag">Services</span><h2>Everything from the chute door <em>to the truck</em></h2><p class="lede">One team manufactures, installs, cleans and maintains every part of a building's waste system.</p></div>
+    <div class="svcs">
+      <ul class="rows" id="rows"></ul>
+      <div class="peek" aria-hidden="true"><div class="peek-frame" id="peek"></div><div class="peek-cap"><span id="peekCap"></span><span>WasteMind</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="work">
+  <div class="wrap">
+    <div class="head"><span class="tag">Our work</span><h2>Recent projects, <em>start to finish</em></h2><p class="lede">What the building was dealing with, what we did, and what changed.</p></div>
+    <div class="cases">
+      <article class="case"><div class="pic"><img src="img/room-after.webp" alt="Garbage room after an epoxy floor refinish" loading="lazy"></div><div class="body"><span class="loc">Condo garbage room · Ontario</span><h3>Garbage room floor retrofit</h3><dl><div><dt>The problem</dt><dd>A stained, damaged floor that held residue and odour no matter how often staff cleaned.</dd></div><div><dt>What we did</dt><dd>Degreased and disinfected the room, stripped the floor and refinished it with epoxy.</dd></div></dl><div class="res"><div><b>2 days</b><span>on site</span></div><div><b>0</b><span>odour complaints since</span></div></div></div></article>
+      <article class="case"><div class="pic"><img src="img/trisorter-room.webp" alt="Tri-sorter and bins installed in a garbage room" loading="lazy"></div><div class="body"><span class="loc">220-unit condo · Ottawa</span><h3>Tri-sorter retrofit</h3><dl><div><dt>The problem</dt><dd>Residents had to carry recycling and organics down to the garbage room, so most of it went down the chute as garbage.</dd></div><div><dt>What we did</dt><dd>Built a tri-sorter in our shop to fit the existing room and installed it under the chute.</dd></div></dl><div class="res"><div><b>3</b><span>streams at every chute door</span></div><div><b>+40%</b><span>recycling diverted</span></div></div></div></article>
+      <article class="case"><div class="pic"><img src="img/compactor.webp" alt="Compactor installed in a garbage room" loading="lazy"></div><div class="body"><span class="loc">Rental portfolio · GTA</span><h3>Compactors on a maintenance plan</h3><dl><div><dt>The problem</dt><dd>Compactors across several buildings failed without warning, and every call was an emergency.</dd></div><div><dt>What we did</dt><dd>Put every building on a quarterly visit plan, with a written report after each visit.</dd></div></dl><div class="res"><div><b>4</b><span>visits a year, per building</span></div><div><b>−60%</b><span>emergency calls</span></div></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="plans">
+  <div class="wrap">
+    <div class="plans">
+      <div class="ring-box">
+        <div class="seg" role="group" aria-label="Visits per year"><button type="button" data-k="1">Annual</button><button type="button" data-k="2" class="on">Semi-annual</button><button type="button" data-k="4">Quarterly</button></div>
+        <svg id="ring" viewBox="0 0 440 440" aria-label="Example yearly visit schedule"></svg>
+      </div>
+      <div class="stack">
+        <span class="tag">Service plans, not just service calls</span>
+        <h2>Fix it <em>before</em> it breaks</h2>
+        <p class="lede">Most service in this industry happens after something fails. A plan puts visits on the calendar instead, one, two or four times a year, matched to how each building runs. One visit covers the whole system:</p>
+        <div class="visit">
+          <div><b>Compactor</b><span>Grease, oil, belts and hydraulic oil. Cleaned and disinfected.</span></div>
+          <div><b>Garbage chute</b><span>Cleaned and disinfected. Washdown system checked.</span></div>
+          <div><b>Chute doors</b><span>Inspected floor by floor.</span></div>
+          <div><b>Bins</b><span>Holes, rust, wheels and casters checked. Cleaned.</span></div>
+          <div><b>Odour control</b><span>Unit and filters checked.</span></div>
+          <div><b>Garbage room</b><span>Cleaned and disinfected.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="est" id="estimator">
+      <div class="est-in">
+        <div class="stack" style="gap:12px"><span class="tag">Plan estimator</span><h3>Price your building's plan in 30 seconds</h3></div>
+        <div class="ctrl"><label for="units">Residential units <output id="unitsOut">180</output></label><input type="range" id="units" min="20" max="600" step="10" value="180"></div>
+        <div class="ctrl"><span>Equipment in the room</span>
+          <div class="chips">
+            <label><input type="checkbox" id="e1" checked><span>Compactor</span></label>
+            <label><input type="checkbox" id="e2"><span>Tri-sorter</span></label>
+            <label><input type="checkbox" id="e3" checked><span>Odour control unit</span></label>
+            <label><input type="checkbox" id="e4"><span>Second chute</span></label>
+          </div></div>
+        <div class="ctrl"><span>Visits a year</span>
+          <div class="chips" id="freq">
+            <label><input type="radio" name="freq" value="1" id="f1"><span>1 · Annual</span></label>
+            <label><input type="radio" name="freq" value="2" id="f2" checked><span>2 · Semi-annual</span></label>
+            <label><input type="radio" name="freq" value="4" id="f4"><span>4 · Quarterly</span></label>
+          </div></div>
+      </div>
+      <div class="est-out">
+        <small>Estimated plan</small>
+        <div class="price" id="price">$0</div>
+        <p class="per" id="per">per year</p>
+        <a class="btn" href="#quote" id="lockPlan">Get this plan quoted</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="signs">
+  <div class="wrap">
+    <div class="head"><span class="tag">For superintendents</span><h2>Six warning signs to spot on a <em>walk-through</em></h2><p class="lede">Catch these early and a service call stays a service call, not an emergency.</p></div>
+    <div class="signs">
+      <div class="sign"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M15 12h.01M5 3l6 3v15"/></svg></span><h3>A chute door won't close on its own</h3><p><b>We check:</b> every chute door, floor by floor.</p></div>
+      <div class="sign"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8c2-2 4 2 6 0s4 2 6 0 3 1 4 0M4 13c2-2 4 2 6 0s4 2 6 0 3 1 4 0M4 18c2-2 4 2 6 0s4 2 6 0 3 1 4 0"/></svg></span><h3>Residents notice a smell in the halls</h3><p><b>We check:</b> the odour control unit and its filters, and clean the chute.</p></div>
+      <div class="sign"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s5 6 5 10a5 5 0 0 1-10 0c0-4 5-10 5-10z"/></svg></span><h3>The compactor is slow, loud or leaking oil</h3><p><b>We check:</b> the hydraulic oil, belts and grease.</p></div>
+      <div class="sign"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16l-2 11H6z"/><circle cx="8" cy="21" r="1.5"/><circle cx="16" cy="21" r="1.5"/><path d="M3 4h18"/></svg></span><h3>Bins are hard to roll, rusted or leaking</h3><p><b>We check:</b> for holes, rust, and worn wheels and casters.</p></div>
+      <div class="sign"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v6M8 7l4 4 4-4M5 14c1 2 2 2 3 0s2-2 3 0 2 2 3 0 2-2 3 0 2 2 3 0M5 19c1 2 2 2 3 0s2-2 3 0 2 2 3 0 2-2 3 0 2 2 3 0"/></svg></span><h3>The chute washdown doesn't run</h3><p><b>We check:</b> the washdown system.</p></div>
+      <div class="sign"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14" rx="5" ry="6"/><path d="M12 8V4M9 5l3 3 3-3M7 12H3M21 12h-4M7 17l-3 2M17 17l3 2"/></svg></span><h3>A dirty garbage room, or pests</h3><p><b>We check:</b> and clean the room, bins, chute and compactor.</p></div>
+    </div>
+    <div class="magnet">
+      <span class="doc" aria-hidden="true"></span>
+      <div><h3>The garbage room checklist</h3><p>A one-page printable for superintendents: the six warning signs, plus everything a maintenance visit should cover.</p></div>
+      <form class="mini" data-msg="Checklist on its way. (Preview only, nothing was sent.)" novalidate>
+        <div class="inline"><input class="in" type="email" id="mEmail" placeholder="Work email" aria-label="Work email" required><button class="btn" type="submit">Email me the checklist</button></div>
+        <p class="ok-msg"><i>✓</i><span></span></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="shop">
+  <div class="wrap shop">
+    <div class="mosaic">
+      <figure class="tall"><img src="img/shop-team.webp" alt="WasteMind fabricators at work in the shop" loading="lazy"><figcaption>Our shop</figcaption></figure>
+      <figure class="sq"><img src="img/shop-chutes.webp" alt="Fabricated chute sections lined up in the WasteMind shop" loading="lazy"><figcaption>Built to fit</figcaption></figure>
+      <figure class="sq"><img src="img/shop-floor.webp" alt="Equipment being fabricated on the WasteMind shop floor" loading="lazy"><figcaption>In production</figcaption></figure>
+    </div>
+    <div class="stack">
+      <span class="tag">Made in Ontario</span>
+      <h2>Built in our own shop. <em>Serviced by the same team.</em></h2>
+      <p class="lede">Our compactors and tri-sorters are manufactured in our own shop by fabricators with more than 25 years of experience. Each one is built to fit the garbage room it's going into, and the people who service it later are the team that built it.</p>
+      <div class="rent">
+        <span class="tag">Buy or rent</span>
+        <h3>Or put it on a full-maintenance rental</h3>
+        <ul class="checks"><li>No capital required</li><li>Guaranteed fixed monthly rate</li><li>Repairs and maintenance included</li><li>Self-contained, stationary and LoPro compactors and vertical balers, new or certified pre-owned</li></ul>
+        <div><a class="btn" href="#quote" data-need="Equipment or rental">Price a rental</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="managers">
+  <div class="wrap port">
+    <div class="stack">
+      <span class="tag">For property management companies</span>
+      <h2>One partner for <em>every building</em> you manage</h2>
+      <p class="lede">Managing a portfolio? We set up a plan for each building, give you one point of contact, and keep every visit on record so your board reports write themselves.</p>
+      <div class="perks">
+        <div class="perk"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></span><h3>One point of contact</h3><p>A named regional manager for your whole portfolio.</p></div>
+        <div class="perk"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><h3>A record for every visit</h3><p>Each visit written up for your maintenance history.</p></div>
+        <div class="perk"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9h4v12M10 21V4h4v17M15 21v-8h4v8"/></svg></span><h3>Portfolio pricing</h3><p>Lower per-building rates as you add buildings.</p></div>
+        <div class="perk"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Priority 24-hour response</h3><p>Plan customers go to the front of the line.</p></div>
+      </div>
+    </div>
+    <form class="card-form mini" data-msg="Thanks. A regional manager will reach out to set up your review. (Preview only, nothing was sent.)" novalidate>
+      <h3>Request a portfolio review</h3>
+      <p class="hint">We walk a sample of your buildings and come back with a plan for each one.</p>
+      <label class="fld">Company<input id="pCo" autocomplete="organization" required></label>
+      <div class="f2"><label class="fld">Buildings<select id="pBld"><option>2 to 5</option><option>6 to 20</option><option>21 or more</option></select></label><label class="fld">Region<select id="pReg"><option>Ottawa &amp; Gatineau</option><option>Toronto &amp; GTA</option><option>Both</option></select></label></div>
+      <label class="fld">Work email<input type="email" id="pEm" autocomplete="email" required></label>
+      <button class="btn" type="submit">Request my review</button>
+      <p class="ok-msg"><i>✓</i><span></span></p>
+    </form>
+  </div>
+</section>
+
+<section class="band alt" id="portal">
+  <div class="wrap portal">
+    <div class="stack">
+      <span class="tag">Client portal</span>
+      <h2>Every building, <em>one screen</em></h2>
+      <p class="lede">Service history, upcoming visits, open repairs and invoices for every building, in one login. Book a visit or report a breakdown without picking up the phone.</p>
+      <ul class="checks"><li>Visit reports and photos, stored per building</li><li>Upcoming visits on a shared calendar</li><li>Open work orders with live status</li></ul>
+    </div>
+    <div class="screen" aria-label="Concept mock-up of a client portal">
+      <div class="scr-top"><i></i><i></i><i></i><span>portal.wastemind.ca · Sample data</span></div>
+      <div class="scr">
+        <div class="kpis"><div class="kpi"><small>Buildings</small><b>12</b></div><div class="kpi"><small>Next visit</small><b>Apr 8</b></div><div class="kpi"><small>Open repairs</small><b>1</b></div></div>
+        <div class="tbl">
+          <div class="tr"><span>Building</span><span>Last visit</span><span>Status</span></div>
+          <div class="tr"><span>Riverside Towers</span><span>Mar 12</span><span class="pill g">On plan</span></div>
+          <div class="tr"><span>Laperriere Court</span><span>Mar 3</span><span class="pill g">On plan</span></div>
+          <div class="tr"><span>Kanata Lofts</span><span>Feb 21</span><span class="pill aq">Repair open</span></div>
+          <div class="tr"><span>Elgin Place</span><span>Feb 14</span><span class="pill g">On plan</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="reviews">
+  <div class="wrap">
+    <div class="head"><span class="tag">What clients say</span><h2>Property managers <em>on WasteMind</em></h2></div>
+    <div class="quotes"><figure class="qt"><div class="stars" aria-label="5 stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg></div><blockquote>“We used to get a call about the compactor every other week. Since we moved to quarterly visits it has been quiet, and every visit comes with a report I can hand straight to the board.”</blockquote><footer><span class="av" style="background:#b9e08f">MT</span><div><b>Marie Tremblay</b><span>Property Manager, Rideau Residential, Ottawa</span></div></footer></figure><figure class="qt"><div class="stars" aria-label="5 stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg></div><blockquote>“A chute door jammed on a Saturday night. Someone was on site within two hours and it was fixed before residents woke up. That is what 24-hour service should mean.”</blockquote><footer><span class="av" style="background:#8ac95d">DO</span><div><b>Daniel Okafor</b><span>Board President, Lakeshore Towers, Toronto</span></div></footer></figure><figure class="qt"><div class="stars" aria-label="5 stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg></div><blockquote>“The tri-sorter changed how our residents recycle. We went from reminder notices to nothing at all, and the garbage room has never looked cleaner.”</blockquote><footer><span class="av" style="background:#6fb544">SG</span><div><b>Sophie Gagnon</b><span>Superintendent, Place Cedarline, Gatineau</span></div></footer></figure></div>
+    <div class="rating"><b>4.9</b><div class="stars" aria-label="4.9 out of 5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7 7 .6-5.3 4.6L18.4 22 12 18l-6.4 4 1.7-7.8L2 9.6 9 9z"/></svg></div><span>average from 112 client reviews</span></div>
+  </div>
+</section>
+
+<section class="band alt" id="team">
+  <div class="wrap">
+    <div class="head"><span class="tag">The team</span><h2>The people you'll <em>actually deal with</em></h2></div>
+    <div class="team">
+      <div class="person"><div class="ph"><img src="img/shane.webp" alt="Shane Fagan" loading="lazy"></div><div><span class="role">President &amp; CEO</span><h3>Shane Fagan</h3></div><p>Founded WasteMind after building Miller Waste's Ottawa market.</p></div>
+      <div class="person"><div class="ph"><img src="img/michael.webp" alt="Michael Luongo" loading="lazy"></div><div><span class="role">Chief Financial Officer</span><h3>Michael Luongo</h3></div><p>Leads finance, reporting and the commercial side of the business.</p></div>
+      <div class="person"><div class="ph"><img src="img/trevor.webp" alt="Trevor Lewis" loading="lazy"></div><div><span class="role">VP of Operations</span><h3>Trevor Lewis</h3></div><p>Compactor and chute maintenance and repair. Your Ottawa service contact.</p></div>
+      <div class="person"><div class="ph"><img src="img/zach.webp" alt="Zach Burke-Fagan" loading="lazy"></div><div><span class="role">Regional Manager, GTA West</span><h3>Zach Burke-Fagan</h3></div><p>Leads business development and client partnerships.</p></div>
+    </div>
+    <div class="hire"><div><b>We're hiring</b><p>Competitive pay, group life and health benefits, uniforms and training.</p></div><div class="roles"><a href="https://wastemind.ca/documents/service-technician.pdf" rel="noopener">Service Technician</a><a href="https://wastemind.ca/documents/executive-assistant-administration.pdf" rel="noopener">Executive Assistant</a></div></div>
+  </div>
+</section>
+
+<section class="band" id="areas">
+  <div class="wrap">
+    <div class="head"><span class="tag">Where we work</span><h2>One team, <em>Ottawa to Niagara</em></h2><p class="lede">Local technicians and a regional contact in every area, with equipment built in our own Ontario shop.</p></div>
+    <div class="rail" aria-hidden="true"><i class="n" style="left:16.66%"></i><i class="n" style="left:50%;animation-delay:.6s"></i><i class="n" style="left:83.33%"></i><i class="truck"></i></div>
+    <div class="stops">
+      <article class="stop"><span class="tag">Head office</span><h3>Ottawa &amp; Gatineau</h3>
+        <div class="towns"><span>Ottawa</span><span>Gatineau</span><span>Kanata</span><span>Orleans</span><span>Nepean</span><span>Barrhaven</span><span>Eastern Ontario</span></div>
+        <div class="who"><div><strong>Trevor Lewis</strong><a href="tel:+16135398683">Call</a><small>VP of Operations · 613-539-8683</small></div><div><strong>Ottawa office</strong><small>Suite 203 - 1550 Laperriere Ave, Ottawa, ON K1Z 7T2</small></div></div></article>
+      <article class="stop"><span class="tag">Shop + GTA East &amp; West</span><h3>Toronto &amp; the GTA</h3>
+        <div class="towns"><span>Toronto</span><span>North York</span><span>East York</span><span>Scarborough</span><span>Etobicoke</span><span>Markham</span><span>Vaughan</span><span>Mississauga</span><span>Brampton</span><span>Oakville</span></div>
+        <div class="who"><div><strong>Peter Pettit</strong><a href="tel:+14189337354">Call</a><small>GTA East / Toronto · 418-933-7354</small></div><div><strong>Zach Burke-Fagan</strong><a href="tel:+16476499224">Call</a><small>GTA West · 647-649-9224</small></div></div></article>
+      <article class="stop"><span class="tag">Served from GTA West</span><h3>Niagara &amp; beyond</h3>
+        <div class="towns"><span>St. Catharines</span><span>Niagara Falls</span><span>Welland</span><span>Niagara-on-the-Lake</span><span>Communities in between</span></div>
+        <div class="who"><div><strong>Zach Burke-Fagan</strong><a href="tel:+16476499224">Call</a><small>Regional Manager · 647-649-9224</small></div><div><strong>24-hour service</strong><a href="tel:+16135398683">Call</a><small>613-539-8683 · any hour, any region</small></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="why">
+  <div class="wrap">
+    <div class="head"><span class="tag">Why WasteMind</span><h2>What others <em>don't put in writing</em></h2><p class="lede">We looked at how regional waste-equipment companies present themselves online. Most hide pricing, skip response times and show no reviews. We do the opposite.</p></div>
+    <table class="why-t"><thead><tr><th>What property managers ask</th><th class="us">WasteMind</th><th>Typical regional provider</th></tr></thead><tbody><tr><td>Prices you can see before you call</td><td class="us"><span class="y">&#10003;</span>Plans from $129/mo, and a 30-second estimator</td><td class="them"><span class="n">&ndash;</span>Not published. "Call for a quote"</td></tr><tr><td>Response time in writing</td><td class="us"><span class="y">&#10003;</span>2 hr Ottawa &amp; Gatineau, 3 hr Toronto &amp; GTA</td><td class="them"><span class="n">&ndash;</span>"24/7" with no timeframe</td></tr><tr><td>Proof after every visit</td><td class="us"><span class="y">&#10003;</span>Written report with photos, in your client portal</td><td class="them"><span class="n">&ndash;</span>Report offered; no portal</td></tr><tr><td>Customer reviews on the site</td><td class="us"><span class="y">&#10003;</span>4.9 from 112 property managers</td><td class="them"><span class="n">&ndash;</span>None shown</td></tr><tr><td>Built in our own shop</td><td class="us"><span class="y">&#10003;</span>Yes, and serviced by the same team</td><td class="them"><span class="n">&ndash;</span>Mostly resold or outsourced</td></tr><tr><td>Tri-sorter retrofit, cleaning, odour control, rentals</td><td class="us"><span class="y">&#10003;</span>One team, one point of contact</td><td class="them"><span class="n">&ndash;</span>Often split across vendors</td></tr><tr><td>Board-ready paperwork</td><td class="us"><span class="y">&#10003;</span>Reserve fund equipment report and annual summary</td><td class="them"><span class="n">&ndash;</span>Rarely offered</td></tr></tbody></table>
+    <p class="note why-foot">Based on a review of public websites of three Ontario competitors, Nov 2026. WasteMind column shows proposed commitments and sample figures to confirm before launch.</p>
+    <div class="pcta" style="margin-top:30px"><a class="btn" href="#quote">Book a free walk-through</a><a class="btn line" href="#/plans">See plans and prices</a></div>
+  </div>
+</section>
+<section class="band" id="more" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="head"><span class="tag">More ways to work with us</span><h2>Plans, rentals, parts <em>and more</em></h2></div>
+    <div class="ways">
+      <a class="way" href="#/plans"><span class="k">From $129/mo</span><h4>CarePlans</h4><p>Scheduled visits, cleaning and priority response for one monthly price.</p></a>
+      <a class="way" href="#/rentals"><span class="k">No capital</span><h4>Rent or rent-to-own</h4><p>Compactors, sorters and balers on a fixed monthly rate.</p></a>
+      <a class="way" href="#/parts"><span class="k">Ships this week</span><h4>Parts &amp; supplies</h4><p>Filters, latches, casters, oil and cleaners. Auto-ship and save.</p></a>
+      <a class="way" href="#/emergency"><span class="k">24/7</span><h4>Emergency service</h4><p>A live person day or night, with photo upload for faster fixes.</p></a>
+      <a class="way" href="#/new-construction"><span class="k">48-hr specs</span><h4>New construction</h4><p>Drawings to handover for developers and architects.</p></a>
+      <a class="way" href="#/referrals"><span class="k">Up to $1,000</span><h4>Referral program</h4><p>Introduce a building and get a credit or a cheque.</p></a>
+      <a class="way" href="#/resources"><span class="k">Free</span><h4>Guides &amp; newsletter</h4><p>Checklists and how-tos for supers and condo boards.</p></a>
+      <a class="way" href="#/careers"><span class="k">Hiring</span><h4>Careers</h4><p>Technicians, fabricators and account managers.</p></a>
+    </div>
+  </div>
+</section>
+<section class="band alt" id="faq">
+  <div class="wrap faqs">
+    <div class="stack"><span class="tag">Questions</span><h2>Straight <em>answers</em></h2><p class="lede">Don't see yours? Call 613-539-8683 and talk to a person.</p></div>
+    <div class="faq">
+      <details open><summary>What does a full-maintenance rental cover?</summary><p>Equipment repairs are covered, except damage from negligence or improper operation, including damage during transportation.</p></details>
+      <details><summary>Can the equipment be built for our room?</summary><p>Yes. Our full production shop fabricates custom installations designed to your garbage room and your requirements.</p></details>
+      <details><summary>Can we change the plan or buy the equipment later?</summary><p>Yes. We work with you on a plan that fits, with the flexibility to modify it or start an equipment buyout.</p></details>
+      <details><summary>Do you handle portfolios with many buildings?</summary><p>Yes. For organizations with multiple sites we set up a plan for each location, matched to how that building runs.</p></details>
+      <details><summary>Which parts of the GTA do you cover?</summary><p>Both sides of the city. Zach Burke-Fagan handles GTA West and Peter Pettit handles GTA East and Toronto, including North York, East York, Markham and Mississauga.</p></details>
+      <details><summary>Is your equipment made locally?</summary><p>Yes. Our compactors and tri-sorter and bi-sorter systems are manufactured in our own Ontario shop.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="quote band" id="quote">
+  <div class="wrap q">
+    <div class="stack">
+      <span class="tag">Contact</span>
+      <h2>Tell us what's <em>going on</em></h2>
+      <p class="lede">Get a quote, book a free walk-through, or report a breakdown. We reply during business hours, usually the same day.</p>
+      <div class="emerg"><small><i class="dot"></i>Emergency? 24-hour service</small><b>613-539-8683</b><span style="color:var(--muted);font-size:.92rem">Compactors, chutes and garbage rooms, any time.</span></div>
+    </div>
+    <div class="hub">
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" class="on" data-pane="quote" id="t-quote" aria-selected="true">Get a quote</button>
+        <button type="button" role="tab" data-pane="walk" id="t-walk" aria-selected="false">Free walk-through</button>
+        <button type="button" role="tab" data-pane="fix" id="t-fix" aria-selected="false">Report a breakdown</button>
+      </div>
+
+      <form class="pane on" id="pane-quote" name="quote" method="POST" data-netlify="true" novalidate>
+        <input type="hidden" name="form-name" value="quote">
+        <div class="prog" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+        <fieldset class="qs on" data-q="1">
+          <legend>What do you need help with?</legend>
+          <p class="hint">Pick as many as apply.</p>
+          <div class="chips" id="needs">
+            <label><input type="checkbox" name="need" value="Compactor problem" id="n1"><span>Compactor problem</span></label>
+            <label><input type="checkbox" name="need" value="Chute or chute doors" id="n2"><span>Chute or chute doors</span></label>
+            <label><input type="checkbox" name="need" value="Smell in the halls" id="n3"><span>Smell in the halls</span></label>
+            <label><input type="checkbox" name="need" value="Dirty room or pests" id="n4"><span>Dirty room or pests</span></label>
+            <label><input type="checkbox" name="need" value="Recycling / tri-sorter" id="n5"><span>Recycling / tri-sorter</span></label>
+            <label><input type="checkbox" name="need" value="Maintenance plan" id="n6"><span>Maintenance plan</span></label>
+            <label><input type="checkbox" name="need" value="Equipment or rental" id="n7"><span>Equipment or rental</span></label>
+            <label><input type="checkbox" name="need" value="New construction" id="n8"><span>New construction</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="qs" data-q="2">
+          <legend>About the building</legend>
+          <div class="f2"><label class="fld">Building or company<input name="company" id="company" autocomplete="organization"></label><label class="fld">City<input name="city" id="city" autocomplete="address-level2"></label></div>
+          <div class="f2"><label class="fld">How many buildings?<select name="buildings" id="buildings"><option>1</option><option>2 to 5</option><option>6 or more</option></select></label><label class="fld">Units (approx.)<input name="units" id="unitsQ" inputmode="numeric"></label></div>
+        </fieldset>
+        <fieldset class="qs" data-q="3">
+          <legend>How do we reach you?</legend>
+          <div class="f2"><label class="fld">Name *<input name="name" id="name" autocomplete="name"></label><label class="fld">Email *<input type="email" name="email" id="email" autocomplete="email"></label></div>
+          <label class="fld">Phone<input type="tel" name="phone" id="phone" autocomplete="tel"></label>
+          <label class="fld">Anything else we should know?<textarea name="message" id="message" rows="3"></textarea></label>
+        </fieldset>
+        <div class="done"><span class="ok"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 12.5 4 4 8-9"/></svg></span><h3>Request ready</h3><p>This is a preview, so nothing was sent. On the live site, this request goes straight to the WasteMind team.</p></div>
+        <p class="err" role="alert"></p>
+        <div class="qnav"><button type="button" class="back" hidden>Back</button><button type="button" class="btn next">Next</button></div>
+      </form>
+
+      <form class="pane mini" id="pane-walk" data-msg="Walk-through requested. Trevor or Zach will confirm the time. (Preview only, nothing was sent.)" novalidate>
+        <h3>Book a free garbage room walk-through</h3>
+        <p class="hint">We walk the room, note every piece of equipment and its condition, and leave you a written summary.</p>
+        <div class="ctrl"><span>Pick a day</span><div class="days" id="days"></div></div>
+        <div class="chips"><label><input type="radio" name="slot" value="Morning" id="s1" checked><span>Morning</span></label><label><input type="radio" name="slot" value="Afternoon" id="s2"><span>Afternoon</span></label></div>
+        <div class="f2"><label class="fld">Building address<input id="wAddr" autocomplete="street-address"></label><label class="fld">Work email *<input type="email" id="wEm" autocomplete="email" required></label></div>
+        <button class="btn" type="submit">Request walk-through</button>
+        <p class="ok-msg"><i>✓</i><span></span></p>
+      </form>
+
+      <form class="pane mini" id="pane-fix" data-msg="Breakdown logged. For anything urgent, call 613-539-8683 now. (Preview only, nothing was sent.)" novalidate>
+        <h3>Report a breakdown</h3>
+        <div class="urgent"><span class="dot" style="background:var(--aqua)"></span><span>Is it urgent? Call <b style="user-select:all">613-539-8683</b> now. This form is for non-urgent repairs.</span></div>
+        <div class="chips"><label><input type="radio" name="eq" value="Compactor" id="q1" checked><span>Compactor</span></label><label><input type="radio" name="eq" value="Chute or door" id="q2"><span>Chute or door</span></label><label><input type="radio" name="eq" value="Sorter" id="q3"><span>Sorter</span></label><label><input type="radio" name="eq" value="Odour unit" id="q4"><span>Odour unit</span></label><label><input type="radio" name="eq" value="Bins" id="q5"><span>Bins</span></label></div>
+        <label class="fld">What's happening?<textarea id="fWhat" rows="3" placeholder="e.g. The compactor stops halfway and leaks oil"></textarea></label>
+        <div class="f2"><label class="fld">Building address<input id="fAddr" autocomplete="street-address"></label><label class="fld">Callback number *<input type="tel" id="fTel" autocomplete="tel" required></label></div>
+        <button class="btn" type="submit">Log the breakdown</button>
+        <p class="ok-msg"><i>✓</i><span></span></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= SUB-PAGES ================= -->
+
+<!-- PLANS -->
+<div class="page" id="p-plans" hidden>
+  <section class="phero alt" style="--ph:url(img/compactor.webp)"><div class="wrap">
+    <a class="crumb" href="#top">← Home</a>
+    <span class="tag">CarePlans · Service plans</span>
+    <h1>One monthly price. <em>No surprise breakdowns.</em></h1>
+    <p class="lede">Pick a plan for each building. Visits, cleaning and priority response are booked for you, with a written report after every visit for your board.</p>
+    <div class="kpis"><div class="kpi"><b>−60%</b><span>emergency calls on plan</span></div><div class="kpi"><b>$0</b><span>setup when you sign before Dec 31</span></div><div class="kpi"><b>30 days</b><span>cancel any time after year one</span></div></div>
+  </div></section>
+  <section class="band"><div class="wrap">
+    <div class="tiers">
+      <div class="tier"><span class="tag">Essential</span><h3>Keep it running</h3><div class="price"><b>$129</b><span>/ month per building</span></div>
+        <ul class="ticks"><li>1 full-system visit a year</li><li>Compactor grease, oil and belts</li><li>Chute door inspection, every floor</li><li>Written visit report</li><li class="no">Chute and room cleaning</li><li class="no">Priority 24-hour response</li></ul>
+        <button class="btn line" data-add="plan-essential" data-name="CarePlan Essential" data-price="129" data-unit="/mo">Add to quote</button></div>
+      <div class="tier hot"><span class="flag">Most picked</span><span class="tag">Plus</span><h3>Clean and covered</h3><div class="price"><b>$219</b><span>/ month per building</span></div>
+        <ul class="ticks"><li>2 full-system visits a year</li><li>Annual chute and compactor cleaning</li><li>Odour unit filter changes</li><li>Priority 24-hour response</li><li>10% off parts and repairs</li><li class="no">Garbage room epoxy refresh</li></ul>
+        <button class="btn" data-add="plan-plus" data-name="CarePlan Plus" data-price="219" data-unit="/mo">Add to quote</button></div>
+      <div class="tier"><span class="tag">Total Care</span><h3>Hands off</h3><div class="price"><b>$349</b><span>/ month per building</span></div>
+        <ul class="ticks"><li>4 visits a year, quarterly</li><li>Twice-yearly chute cleaning</li><li>Odour unit included and monitored</li><li>2-hour emergency response target</li><li>Parts and labour included</li><li>Floor epoxy refresh every 3 years</li></ul>
+        <button class="btn line" data-add="plan-total" data-name="CarePlan Total Care" data-price="349" data-unit="/mo">Add to quote</button></div>
+    </div>
+    <p class="note" style="margin-top:18px">Sample pricing for a 150 to 250 unit building. Portfolio rates apply from 3 buildings.</p>
+  </div></section>
+  <section class="band alt"><div class="wrap">
+    <div class="head"><span class="tag">Add-ons</span><h2>Build out <em>your plan</em></h2></div>
+    <div class="addons">
+      <div class="addon"><h4>Reserve fund equipment report</h4><p>Condition, remaining life and replacement cost for every piece of waste equipment. Ready for your reserve fund study.</p><div class="prow"><b>$495</b><button class="tiny" data-add="reserve-report" data-name="Reserve fund equipment report" data-price="495">Add</button></div></div>
+      <div class="addon"><h4>Smart odour monitoring</h4><p>A sensor in the garbage room alerts us before residents notice a smell.</p><div class="prow"><b>$29/mo</b><button class="tiny" data-add="odour-monitor" data-name="Smart odour monitoring" data-price="29" data-unit="/mo">Add</button></div></div>
+      <div class="addon"><h4>Compactor fill sensor</h4><p>Tells your hauler when to come. Fewer pickups, lower hauling bills.</p><div class="prow"><b>$39/mo</b><button class="tiny" data-add="fill-sensor" data-name="Compactor fill sensor" data-price="39" data-unit="/mo">Add</button></div></div>
+      <div class="addon"><h4>Resident recycling kit</h4><p>Lobby posters, chute-door decals and a move-in flyer that teach the tri-sorter.</p><div class="prow"><b>$190</b><button class="tiny" data-add="recycle-kit" data-name="Resident recycling kit" data-price="190">Add</button></div></div>
+    </div>
+  </div></section>
+  <section class="band"><div class="wrap split">
+    <div class="stack"><span class="tag">For condo boards</span><h2>AGM-ready, <em>every year</em></h2><p class="lede">Each plan comes with an annual summary your property manager can drop into the board package: visits done, issues fixed, what to budget for next year.</p><div class="pcta"><a class="btn" href="#quote">Talk to us about a plan</a><a class="btn line" href="#estimator">Price my building</a></div></div>
+    <div class="ph-img"><img src="img/room-after.webp" alt="Clean garbage room after a WasteMind service visit" loading="lazy"></div>
+  </div></section>
+</div>
+
+<!-- RENTALS -->
+<div class="page" id="p-rentals" hidden>
+  <section class="phero alt" style="--ph:url(img/shop-floor.webp)"><div class="wrap">
+    <a class="crumb" href="#top">← Home</a>
+    <span class="tag">Rent · Rent-to-own · Buy</span>
+    <h1>New equipment, <em>no capital ask.</em></h1>
+    <p class="lede">Put a compactor, tri-sorter or baler on a full-maintenance rental with a fixed monthly rate. Repairs are included, and you can buy it out whenever you want.</p>
+    <div class="pcta"><a class="btn" href="#rto">Run the numbers</a><a class="btn line" href="#catalogue">See equipment</a></div>
+  </div></section>
+  <section class="band" id="rto"><div class="wrap">
+    <div class="head"><span class="tag">Rent-to-own calculator</span><h2>What it costs <em>per month</em></h2></div>
+    <div class="calc">
+      <div class="in-side">
+        <div><div class="lbl">Equipment</div><div class="seg" id="rtoEq" style="margin-top:10px"><button aria-pressed="true" data-v="38000">Stationary compactor</button><button aria-pressed="false" data-v="46000">Self-contained</button><button aria-pressed="false" data-v="29000">Tri-sorter</button><button aria-pressed="false" data-v="18500">Vertical baler</button></div></div>
+        <div class="ctrl"><div class="lbl">Term <b id="rtoTv">48 months</b></div><input type="range" id="rtoT" min="24" max="72" step="12" value="48"></div>
+        <div><div class="lbl">Condition</div><div class="seg" id="rtoC" style="margin-top:10px"><button aria-pressed="true" data-v="1">New</button><button aria-pressed="false" data-v=".72">Certified pre-owned</button></div></div>
+        <label class="fld" style="display:flex;gap:10px;align-items:center;font-weight:500"><input type="checkbox" id="rtoM" checked style="width:20px;height:20px;accent-color:#8ac95d"> Include full maintenance</label>
+      </div>
+      <div class="out">
+        <span class="tag" style="color:#d6f0b4">Estimated monthly</span>
+        <div class="big" id="rtoOut">$0</div>
+        <dl><dt>Equipment value</dt><dd id="rtoV">$0</dd><dt>Buyout at end of term</dt><dd id="rtoB">$0</dd><dt>Maintenance</dt><dd id="rtoMv">Included</dd></dl>
+        <button class="btn" id="rtoAdd" style="background:#eef3ea">Add this to my quote</button>
+        <p class="note" style="color:#a9c79a">Sample figures for illustration only. Final pricing depends on your room and credit approval.</p>
+      </div>
+    </div>
+  </div></section>
+  <section class="band alt" id="catalogue"><div class="wrap">
+    <div class="head"><span class="tag">Equipment</span><h2>Built in Ontario, <em>sized to your room</em></h2></div>
+    <div class="cat" id="eqCat"></div>
+  </div></section>
+</div>
+
+<!-- PARTS -->
+<div class="page" id="p-parts" hidden>
+  <section class="phero alt" style="--ph:url(img/shop-chutes.webp)"><div class="wrap">
+    <a class="crumb" href="#top">← Home</a>
+    <span class="tag">Parts &amp; supplies</span>
+    <h1>The parts your super <em>actually needs.</em></h1>
+    <p class="lede">Filters, cleaners, casters, latches and hydraulic oil, shipped from our shop or brought on your next visit. Plan customers save 10%.</p>
+  </div></section>
+  <section class="band"><div class="wrap">
+    <div class="filters seg" id="pFil"><button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="odour">Odour control</button><button aria-pressed="false" data-f="chute">Chutes</button><button aria-pressed="false" data-f="compactor">Compactors</button><button aria-pressed="false" data-f="bins">Bins</button><button aria-pressed="false" data-f="clean">Cleaning</button></div>
+    <div class="cat" id="pCat"></div>
+    <div class="autoship"><div class="stack" style="gap:8px"><span class="tag">Auto-ship</span><h3>Filters and cleaner every quarter, 10% off</h3><p class="hint">We ship before you run out. Skip or cancel any time.</p></div><button class="btn" data-add="autoship" data-name="Quarterly auto-ship: filters + enzyme cleaner" data-price="168" data-unit="/qtr">Start auto-ship · $168/qtr</button></div>
+  </div></section>
+</div>
+
+<!-- EMERGENCY -->
+<div class="page" id="p-emergency" hidden>
+  <section class="phero eme" style="--ph:url(img/room-before.webp)"><div class="wrap">
+    <a class="crumb" href="#top">← Home</a>
+    <span class="tag" style="color:var(--aqua)">24-hour emergency service</span>
+    <h1>Something broke? <em style="color:var(--aqua)">Call now.</em></h1>
+    <p class="lede">A live person answers day or night. Tell us the building and what happened, and a technician is dispatched from the closest region.</p>
+    <a class="bigcall" href="tel:+16135398683"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></i>613-539-8683</a>
+    <div class="resp" style="margin-top:20px"><div><b>2 hr</b><span>Ottawa &amp; Gatineau response target</span></div><div><b>3 hr</b><span>Toronto &amp; GTA response target</span></div><div><b>24/7</b><span>365 days, holidays included</span></div></div>
+  </div></section>
+  <section class="band"><div class="wrap split" style="align-items:start">
+    <div class="stack">
+      <span class="tag">While you wait</span><h2>Keep the room <em>safe</em></h2>
+      <ol class="steps-l">
+        <li><div><b>Lock out the compactor</b><span>Hit the emergency stop and turn the key off. Don't reach into the hopper.</span></div></li>
+        <li><div><b>Close the chute on the affected floors</b><span>Post a sign so residents use the next floor's chute or bring bags down.</span></div></li>
+        <li><div><b>Take two photos</b><span>One of the equipment, one of the control panel. Add them to the form.</span></div></li>
+        <li><div><b>Keep the fire door shut</b><span>Never prop a garbage room door open, even to air it out.</span></div></li>
+      </ol>
+      <div style="margin-top:20px"><span class="tag">After-hours rates</span>
+      <table class="rates" style="margin-top:12px"><tr><th>Call type</th><th>Plan customers</th><th>Non-plan</th></tr><tr><td>Weekday after 5 pm</td><td>Included</td><td>$185/hr</td></tr><tr><td>Weekend</td><td>Included</td><td>$225/hr</td></tr><tr><td>Statutory holiday</td><td>$95 flat</td><td>$275/hr</td></tr></table>
+      <p class="note" style="margin-top:10px">Sample rates. Plus and Total Care plans include after-hours labour.</p></div>
+    </div>
+    <form class="card-form mini" data-msg="Breakdown logged. Dispatch will call you within 15 minutes. (Preview only, nothing was sent.)" novalidate>
+      <h3>Report a breakdown</h3>
+      <p class="hint">Not urgent tonight? Log it here and we'll book the first slot.</p>
+      <label class="fld">Building address<input required autocomplete="street-address"></label>
+      <div class="f2"><label class="fld">What's wrong<select><option>Compactor stopped</option><option>Chute door jammed</option><option>Chute blocked</option><option>Strong odour</option><option>Bin or caster broken</option><option>Other</option></select></label><label class="fld">How urgent<select><option>Today</option><option>This week</option><option>Next visit is fine</option></select></label></div>
+      <label class="fld">Your phone<input type="tel" required autocomplete="tel"></label>
+      <div class="drop"><input type="file" accept="image/*" multiple class="fileup"><b>Add photos</b> or drop them here<div class="files"></div></div>
+      <button class="btn" type="submit" style="background:var(--aqua);color:#04201d">Send to dispatch</button>
+      <p class="ok-msg"><i>✓</i><span></span></p>
+    </form>
+  </div></section>
+</div>
+
+<!-- NEW CONSTRUCTION -->
+<div class="page" id="p-build" hidden>
+  <section class="phero alt" style="--ph:url(img/shop-chutes.webp)"><div class="wrap">
+    <a class="crumb" href="#top">← Home</a>
+    <span class="tag">Developers · Architects · Builders</span>
+    <h1>Spec the waste room <em>once, right.</em></h1>
+    <p class="lede">We work from your drawings to size chutes, compactors and sorters, coordinate with mechanical and fire, and install on your schedule, then service the building for life.</p>
+    <div class="kpis"><div class="kpi"><b>40+</b><span>new buildings fitted</span></div><div class="kpi"><b>48 hr</b><span>spec turnaround</span></div><div class="kpi"><b>1</b><span>team from drawings to handover</span></div></div>
+  </div></section>
+  <section class="band"><div class="wrap">
+    <div class="head"><span class="tag">How a project runs</span><h2>From drawings <em>to occupancy</em></h2></div>
+    <div class="tl">
+      <div><i>01</i><b>Drawing review</b><span>We size the system from your plans and unit count.</span></div>
+      <div><i>02</i><b>Spec &amp; quote</b><span>CAD details, cut sheets and a fixed quote in 48 hours.</span></div>
+      <div><i>03</i><b>Coordination</b><span>Fire dampers, sprinklers, power and venting sorted with your trades.</span></div>
+      <div><i>04</i><b>Build &amp; install</b><span>Built in our shop, installed floor by floor.</span></div>
+      <div><i>05</i><b>Handover</b><span>Training for the super and a first-year plan included.</span></div>
+    </div>
+  </div></section>
+  <section class="band alt"><div class="wrap split">
+    <div class="ph-img"><img src="img/shop-chutes.webp" alt="Chute sections being built in the WasteMind shop" loading="lazy"></div>
+    <form class="card-form mini" data-msg="Request received. Specs and cut sheets are on their way. (Preview only, nothing was sent.)" novalidate>
+      <h3>Request specs &amp; a project quote</h3>
+      <p class="hint">Upload drawings for a sized system and a fixed price.</p>
+      <div class="f2"><label class="fld">Company<input required autocomplete="organization"></label><label class="fld">Project city<input></label></div>
+      <div class="f2"><label class="fld">Storeys<input inputmode="numeric"></label><label class="fld">Units<input inputmode="numeric"></label></div>
+      <label class="fld">Work email<input type="email" required autocomplete="email"></label>
+      <div class="drop"><input type="file" multiple class="fileup" accept=".pdf,.dwg,.dxf,.rvt,image/*"><b>Upload drawings</b> PDF, DWG or RVT<div class="files"></div></div>
+      <button class="btn" type="submit">Send my project</button>
+      <p class="ok-msg"><i>✓</i><span></span></p>
+    </form>
+  </div></section>
+</div>
+
+<!-- REFERRALS -->
+<div class="page" id="p-refer" hidden>
+  <section class="phero alt" style="--ph:url(img/trisorter-room.webp)"><div class="wrap">
+    <a class="crumb" href="#top">← Home</a>
+    <span class="tag">Referral &amp; partner program</span>
+    <h1>Send us a building. <em>Get paid.</em></h1>
+    <p class="lede">Know a building with a cranky compactor or a smelly garbage room? Introduce us. When they sign a plan or a project, you get a credit or a cheque.</p>
+  </div></section>
+  <section class="band"><div class="wrap">
+    <div class="refs">
+      <div class="ref"><span class="tag">Property managers &amp; supers</span><div class="amt">$250</div><p class="hint">Service credit for every building that signs a CarePlan.</p></div>
+      <div class="ref"><span class="tag">Haulers &amp; contractors</span><div class="amt">5%</div><p class="hint">Of the first-year contract value, paid when the job closes.</p></div>
+      <div class="ref"><span class="tag">Architects &amp; developers</span><div class="amt">$1,000</div><p class="hint">For every new-construction project that goes ahead with us.</p></div>
+    </div>
+  </div></section>
+  <section class="band alt"><div class="wrap split" style="align-items:start">
+    <div class="stack"><span class="tag">How it works</span><h2>Three steps, <em>no paperwork</em></h2>
+      <ol class="steps-l"><li><div><b>Send the intro</b><span>Fill in the form with the building and a contact.</span></div></li><li><div><b>We do the walk-through</b><span>Free, and we keep you posted.</span></div></li><li><div><b>You get paid</b><span>Credit or cheque within 30 days of signing.</span></div></li></ol></div>
+    <form class="card-form mini" data-msg="Thanks for the intro. We'll keep you posted on the walk-through. (Preview only, nothing was sent.)" novalidate>
+      <h3>Refer a building</h3>
+      <div class="f2"><label class="fld">Your name<input required autocomplete="name"></label><label class="fld">Your email<input type="email" required autocomplete="email"></label></div>
+      <label class="fld">Building name or address<input required></label>
+      <label class="fld">Who should we talk to?<input placeholder="Name, role, phone or email"></label>
+      <button class="btn" type="submit">Send referral</button>
+      <p class="ok-msg"><i>✓</i><span></span></p>
+    </form>
+  </div></section>
+</div>
+
+<!-- CAREERS -->
+<div class="page" id="p-careers" hidden>
+  <section class="phero alt" style="--ph:url(img/shop-team.webp)"><div class="wrap">
+    <a class="crumb" href="#top">← Home</a>
+    <span class="tag">Careers</span>
+    <h1>Build it. Fix it. <em>Own it.</em></h1>
+    <p class="lede">We're a 21-person Ontario team that builds and services equipment for hundreds of buildings. We hire people who like solving problems with their hands.</p>
+    <div class="kpis"><div class="kpi"><b>Day 1</b><span>group health and dental</span></div><div class="kpi"><b>Truck</b><span>and tools for technicians</span></div><div class="kpi"><b>Paid</b><span>certification and training</span></div></div>
+  </div></section>
+  <section class="band"><div class="wrap">
+    <div class="head"><span class="tag">Open roles</span><h2>Join <em>the crew</em></h2></div>
+    <div class="jobs">
+      <div class="job"><div><h4>Service Technician</h4><div class="meta"><span>Ottawa</span><span>Full time</span><span>On call rotation</span></div></div><span class="pay">$28–36/hr</span><a class="tiny" href="#apply" data-role="Service Technician">Apply</a></div>
+      <div class="job"><div><h4>Service Technician, GTA West</h4><div class="meta"><span>Mississauga</span><span>Full time</span></div></div><span class="pay">$30–38/hr</span><a class="tiny" href="#apply" data-role="Service Technician, GTA West">Apply</a></div>
+      <div class="job"><div><h4>Fabricator / Welder</h4><div class="meta"><span>Shop</span><span>Full time</span><span>Days</span></div></div><span class="pay">$27–34/hr</span><a class="tiny" href="#apply" data-role="Fabricator / Welder">Apply</a></div>
+      <div class="job"><div><h4>Executive Assistant</h4><div class="meta"><span>Ottawa office</span><span>Hybrid</span></div></div><span class="pay">$55–62k</span><a class="tiny" href="#apply" data-role="Executive Assistant">Apply</a></div>
+      <div class="job"><div><h4>Account Manager, Property Management</h4><div class="meta"><span>Toronto</span><span>Base + commission</span></div></div><span class="pay">$70k + comm.</span><a class="tiny" href="#apply" data-role="Account Manager">Apply</a></div>
+    </div>
+  </div></section>
+  <section class="band alt" id="apply"><div class="wrap split" style="align-items:start">
+    <div class="ph-img"><img src="img/shop-team.webp" alt="WasteMind fabricators working in the shop" loading="lazy"></div>
+    <form class="card-form mini" data-msg="Application received. We reply to every applicant within a week. (Preview only, nothing was sent.)" novalidate>
+      <h3>Apply</h3>
+      <label class="fld">Role<select id="roleSel"><option>Service Technician</option><option>Service Technician, GTA West</option><option>Fabricator / Welder</option><option>Executive Assistant</option><option>Account Manager</option><option>Something else</option></select></label>
+      <div class="f2"><label class="fld">Name<input required autocomplete="name"></label><label class="fld">Email<input type="email" required autocomplete="email"></label></div>
+      <div class="drop"><input type="file" class="fileup" accept=".pdf,.doc,.docx"><b>Attach résumé</b> PDF or Word<div class="files"></div></div>
+      <button class="btn" type="submit">Send application</button>
+      <p class="ok-msg"><i>✓</i><span></span></p>
+    </form>
+  </div></section>
+</div>
+
+<!-- RESOURCES -->
+<div class="page" id="p-resources" hidden>
+  <section class="phero alt" style="--ph:url(img/room-progress.webp)"><div class="wrap">
+    <a class="crumb" href="#top">← Home</a>
+    <span class="tag">Resources</span>
+    <h1>Guides for people <em>who run buildings.</em></h1>
+    <p class="lede">Free, practical guides for property managers, superintendents and condo boards. No fluff, written by the technicians who do the work.</p>
+  </div></section>
+  <section class="band"><div class="wrap">
+    <div class="ress">
+      <a class="res" href="#signs"><div class="cover"><b>CHECKLIST</b></div><span class="kind">Free download</span><h4>The garbage room checklist</h4><p>Six warning signs and what every maintenance visit should cover.</p></a>
+      <a class="res" href="#nl"><div class="cover"><b>FIRE</b></div><span class="kind">Guide</span><h4>Chute fire safety for superintendents</h4><p>Dampers, fire-rated doors and sprinklers: what to check each month.</p></a>
+      <a class="res" href="#nl"><div class="cover"><b>SORT</b></div><span class="kind">Buyer's guide</span><h4>Tri-sorter or bi-sorter?</h4><p>How to choose, what it costs, and how fast residents adapt.</p></a>
+      <a class="res" href="#nl"><div class="cover"><b>$ / YR</b></div><span class="kind">Calculator</span><h4>Cut your hauling bill</h4><p>How compaction and fill sensors reduce pickups per month.</p></a>
+      <a class="res" href="#nl"><div class="cover"><b>BOARD</b></div><span class="kind">Template</span><h4>Reserve fund line items</h4><p>A spreadsheet of waste equipment lifespans and replacement costs.</p></a>
+      <a class="res" href="#nl"><div class="cover"><b>ODOUR</b></div><span class="kind">Article</span><h4>Why the 12th floor smells</h4><p>How garbage room air moves up a chute and how to stop it.</p></a>
+    </div>
+    <div class="news" id="nl"><div class="stack" style="gap:8px"><span class="tag">The Chute, monthly</span><h3 style="font-size:2rem">One useful email a month</h3><p class="hint">Seasonal maintenance tips, new guides and code changes. 2,400 property managers read it.</p></div>
+      <form class="mini" data-msg="You're subscribed. First issue lands next month. (Preview only.)" novalidate><input class="in" type="email" placeholder="Work email" required autocomplete="email"><button class="btn" type="submit">Subscribe</button><p class="ok-msg" style="flex-basis:100%"><i>✓</i><span></span></p></form></div>
+  </div></section>
+</div>
+
+<!-- LOCATION (template filled by JS) -->
+<div class="page" id="p-loc" hidden>
+  <section class="phero alt" style="--ph:url(img/ottawa-aerial.webp)"><div class="wrap">
+    <a class="crumb" href="#top">← Home</a>
+    <span class="tag" id="locTag"></span>
+    <h1 id="locH"></h1>
+    <p class="lede" id="locP"></p>
+    <div class="pcta"><a class="btn" href="#quote">Book a free walk-through</a><a class="btn line" id="locCall" href="#"></a></div>
+    <div class="kpis" id="locK"></div>
+  </div></section>
+  <section class="band"><div class="wrap loc-g">
+    <div class="stack"><span class="tag">Neighbourhoods we cover</span><div class="nb" id="locN"></div>
+      <span class="tag" style="margin-top:20px">Your regional contact</span><div class="perk" id="locC"></div></div>
+    <div class="ph-img"><img id="locImg" src="img/compactor.webp" alt="" loading="lazy"></div>
+  </div></section>
+  <section class="band alt"><div class="wrap">
+    <div class="head"><span class="tag">Services here</span><h2>Everything, <em>locally</em></h2></div>
+    <div class="ways">
+      <a class="way" href="#services"><span class="k">Equipment</span><h4>Compactors &amp; tri-sorters</h4><p>Built in our shop, installed by local crews.</p></a>
+      <a class="way" href="#cleaning"><span class="k">Cleaning</span><h4>Chute &amp; room cleaning</h4><p>Degrease, disinfect and epoxy floors.</p></a>
+      <a class="way" href="#/plans"><span class="k">Plans</span><h4>CarePlans</h4><p>Scheduled visits with priority response.</p></a>
+      <a class="way" href="#/emergency"><span class="k">24/7</span><h4>Emergency service</h4><p>Day or night, any day of the year.</p></a>
+    </div>
+  </div></section>
+</div>
+
+<!-- QUOTE CART -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Your quote" aria-hidden="true">
+  <div class="dh"><h3>Your quote</h3><button class="x" id="dx" aria-label="Close">✕</button></div>
+  <div class="items" id="ditems"></div>
+  <form class="df mini" id="dform" data-msg="Quote request sent. A specialist will reply within one business day. (Preview only, nothing was sent.)" novalidate>
+    <div class="tot"><span>Estimated</span><span id="dtot">$0</span></div>
+    <div class="f2"><label class="fld">Name<input required autocomplete="name"></label><label class="fld">Email<input type="email" required autocomplete="email"></label></div>
+    <label class="fld">Building<input placeholder="Name or address"></label>
+    <button class="btn" type="submit">Request this quote</button>
+    <p class="ok-msg"><i>✓</i><span></span></p>
+  </form>
+</aside>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-g">
+      <div><a class="logo big" href="#top" aria-label="WasteMind Building Solutions"><img class="lg-s" src="img/logo-stacked.png" alt="WasteMind" width="527" height="196" loading="lazy"></a><p style="max-width:34ch;margin-top:20px">A community-centric waste equipment company. We manufacture, install and service the systems that keep multi-residential buildings clean, safe and compliant.</p></div>
+      <div><h4>Ottawa office</h4><p>Suite 203 - 1550 Laperriere Ave<br>Ottawa, ON K1Z 7T2<br><span style="user-select:all">613-539-8683</span><br><span style="user-select:all">info@wastemind.ca</span></p></div>
+      <div><h4>Explore</h4><ul><li><a href="#how">How it works</a></li><li><a href="#services">Services</a></li><li><a href="#work">Our work</a></li><li><a href="#managers">Property managers</a></li><li><a href="#/ottawa">Ottawa &amp; Gatineau</a></li><li><a href="#/toronto">Toronto &amp; GTA</a></li></ul></div><div><h4>Work with us</h4><ul><li><a href="#/plans">CarePlans</a></li><li><a href="#/rentals">Rentals</a></li><li><a href="#/parts">Parts shop</a></li><li><a href="#/emergency">Emergency 24/7</a></li><li><a href="#/new-construction">New construction</a></li><li><a href="#/referrals">Referrals</a></li><li><a href="#/resources">Resources</a></li><li><a href="#/careers">Careers</a></li></ul></div>
+      <div><h4>Follow</h4><ul><li><a href="https://www.facebook.com/wastemindbuildingsolutions" rel="noopener">Facebook</a></li><li><a href="https://www.instagram.com/wastemindottawa/" rel="noopener">Instagram</a></li><li><a href="https://www.linkedin.com/company/wastemind-building-solutions/" rel="noopener">LinkedIn</a></li><li><span style="user-select:all">careers@wastemind.ca</span></li></ul></div>
+    </div>
+    <div class="base"><span>© 2026 WasteMind Building Solutions · Concept mockup: client names, reviews, case-study results, pricing and ratings are sample content.</span><span>Serving Ottawa, Gatineau, Toronto &amp; the GTA, Niagara and communities across Ontario.</span></div>
+  </div>
+</footer>
+<div class="callbar"><a class="btn" href="tel:+16135398683">Call 24/7</a><a class="btn line" href="#quote" style="background:rgba(10,17,13,.92)">Get a quote</a></div>
+
+<script>
+(function(){
+  var $=function(s,c){return (c||document).querySelector(s)}, $$=function(s,c){return [].slice.call((c||document).querySelectorAll(s))};
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var hdr=$('#hdr');function onScroll(){hdr.classList.toggle('solid',scrollY>40)}addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var bur=$('#burger'),nav=$('#nav');
+  bur.addEventListener('click',function(){var o=nav.classList.toggle('open');bur.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''});
+  nav.addEventListener('click',function(e){if(e.target.closest('a')){nav.classList.remove('open');bur.setAttribute('aria-expanded','false');document.body.style.overflow=''}});
+
+  if('IntersectionObserver' in window&&!reduce){
+    var lo=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('lift');lo.unobserve(e.target)}})},{rootMargin:'0px 0px -6% 0px'});
+    $$('.prob,.sign,.person,.visit div,.rep,.mosaic figure,.case,.qt,.perk').forEach(function(el,i){if(el.getBoundingClientRect().top>innerHeight){el.style.animationDelay=(i%4)*80+'ms';lo.observe(el)}});
+  }
+
+  /* stats */
+  if(!reduce)setTimeout(function(){$$('#stats b').forEach(function(b){var t=+b.dataset.n,s=b.dataset.s||'',t0=null;function f(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/1600),e=1-Math.pow(1-p,3);b.textContent=Math.round(t*e).toLocaleString('en-CA')+s;if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)})},450);
+
+  /* follow the bag */
+  var steps=$$('.step'),bag=$('#bag'),leg=$('#legend'),cur=0;
+  steps.forEach(function(s,i){var b=document.createElement('button');b.type='button';b.textContent=i+1;b.setAttribute('aria-label','Step '+(i+1));b.onclick=function(){go(i+1,true)};leg.appendChild(b)});
+  function set(n){if(n===cur)return;cur=n;var s=steps[n-1];steps.forEach(function(x,i){x.classList.toggle('on',i===n-1)});
+    $$('#bld .part').forEach(function(p){p.classList.toggle('on',p.id==='p'+n)});
+    bag.style.transform='translate('+s.dataset.x+'px,'+s.dataset.y+'px)';
+    $$('button',leg).forEach(function(b,i){b.classList.toggle('on',i===n-1)})}
+  function go(n,scroll){if(scroll){var s=steps[n-1];scrollTo({top:s.getBoundingClientRect().top+scrollY-innerHeight/2+s.offsetHeight/2,behavior:reduce?'auto':'smooth'})}set(n)}
+  set(1);
+  if('IntersectionObserver' in window){var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)set(+e.target.dataset.step)})},{rootMargin:'-48% 0px -48% 0px'});steps.forEach(function(s){so.observe(s)})}
+  $$('[data-go]').forEach(function(a){a.addEventListener('click',function(ev){ev.preventDefault();go(+a.dataset.go,true)})});
+
+  /* before / after */
+  var sc=$('#scrub'),l2=$('#frame .l2'),l3=$('#frame .l3'),lbl=$('#stageLbl'),mk=$$('.marks button');
+  function scrub(){var v=+sc.value;l2.style.opacity=Math.min(1,v/50);l3.style.opacity=Math.max(0,(v-50)/50);sc.style.setProperty('--p',v+'%');var t=v<34?'Before':v<67?'In progress':'After';lbl.textContent=t;mk.forEach(function(m){m.classList.toggle('on',m.textContent===t)})}
+  function animTo(t){var f=+sc.value,t0=null;if(reduce){sc.value=t;scrub();return}function s(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/900),e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;sc.value=f+(t-f)*e;scrub();if(p<1)requestAnimationFrame(s)}requestAnimationFrame(s)}
+  sc.addEventListener('input',scrub);mk.forEach(function(m){m.onclick=function(){animTo(+m.dataset.v)}});scrub();
+  if('IntersectionObserver' in window){var played=false,bo=new IntersectionObserver(function(es){if(es[0].isIntersecting&&!played){played=true;setTimeout(function(){animTo(100)},500);bo.disconnect()}},{threshold:.5});bo.observe($('#frame'))}
+
+  /* services */
+  var S=[
+   ['compactors','Compactor Manufacturing & Service','Custom-built compactors sized to your garbage room, plus repair and service for existing units.','img/compactor.webp','Compactor, installed'],
+   ['cleaning','Chute & Compactor Cleaning','Deep cleaning and sanitizing for garbage chutes, compactors and garbage rooms, with epoxy floor refinishing.','img/room-after.webp','Garbage room, after'],
+   ['chutes','Garbage & Linen Chutes','Chute liner and door replacements, fire-rated doors, dampers and full floor-by-floor retrofits.','img/shop-chutes.webp','Chute sections, in our shop'],
+   ['odour','Odour Control','UV and HEPA systems that destroy garbage room odours. CSA approved, with a one-year manufacturer’s warranty.','img/odour.svg','Fan, UV light, HEPA filter'],
+   ['sorters','Trisorter & Bisorter Retrofits','Chute-fed sorting that makes recycling and organics as easy as garbage, built to fit the existing room.','img/trisorter-room.webp','Sorter and bins, installed'],
+   ['containers','FEL Containers & Bins','Standard and custom front-end-load containers, plus wheel, caster and container-bottom repairs.','img/trisorter-room.webp','Containers in the room'],
+   ['maintenance','Preventative Maintenance','Annual, semi-annual or quarterly visits that keep compactors, chutes and bins running.','img/shop-team.webp','The WasteMind team'],
+   ['movers','Container Moving Equipment','Dual-battery bin movers that let staff move heavy containers safely on ground-floor applications.','img/bin-mover.svg','Battery bin mover'],
+   ['construction','New Construction','Chute and waste equipment design, manufacturing and installation for developers and design firms.','img/shop-floor.webp','Fabrication, in our shop']
+  ];
+  var rows=$('#rows'),peek=$('#peek'),cap=$('#peekCap'),imgs={};
+  S.forEach(function(s,i){
+    var li=document.createElement('li');li.className='row';li.id='svc-'+s[0];
+    li.innerHTML='<button type="button" aria-expanded="false"><h3></h3><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><p></p><span class="th"><img alt="" loading="lazy"></span></button>';
+    $('h3',li).textContent=s[1];$('p',li).textContent=s[2];$('.th img',li).src=s[3];$('.th img',li).alt=s[4];
+    $('button',li).addEventListener('click',function(){pick(i)});
+    $('button',li).addEventListener('mouseenter',function(){if(matchMedia('(hover:hover)').matches)pick(i)});
+    rows.appendChild(li);
+    if(!imgs[s[3]]){var im=document.createElement('img');im.src=s[3];im.alt='';peek.appendChild(im);imgs[s[3]]=im}
+  });
+  function pick(i){$$('.row',rows).forEach(function(r,j){r.classList.toggle('on',j===i);$('button',r).setAttribute('aria-expanded',j===i)});Object.keys(imgs).forEach(function(k){imgs[k].classList.toggle('on',k===S[i][3])});cap.textContent=S[i][4]}
+  pick(0);
+  $$('[data-svc]').forEach(function(a){a.addEventListener('click',function(){var i=S.findIndex(function(s){return s[0]===a.dataset.svc});if(i>-1)pick(i)})});
+
+  /* plan ring */
+  var ring=$('#ring'),NS='http://www.w3.org/2000/svg',M=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],segs=[],labs=[];
+  function pt(a,r){return [220+r*Math.cos(a),220+r*Math.sin(a)]}
+  function el(n,a,t){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(t)e.textContent=t;ring.appendChild(e);return e}
+  M.forEach(function(m,i){var a0=(i/12)*2*Math.PI-Math.PI/2+.025,a1=((i+1)/12)*2*Math.PI-Math.PI/2-.025,R=200,r=138,p0=pt(a0,R),p1=pt(a1,R),p2=pt(a1,r),p3=pt(a0,r);
+    segs.push(el('path',{d:'M'+p0+' A'+R+' '+R+' 0 0 1 '+p1+' L'+p2+' A'+r+' '+r+' 0 0 0 '+p3+'Z','class':'m'}));
+    var c=pt((a0+a1)/2,169);labs.push(el('text',{x:c[0],y:c[1],'class':'ml'},m))});
+  var big=el('text',{x:220,y:240,'class':'big'}),sm=el('text',{x:220,y:272,'class':'sm'});el('text',{x:220,y:292,'class':'sm'},'EXAMPLE SCHEDULE');
+  var V={1:[3],2:[3,9],4:[0,3,6,9]};
+  function plan(k){var v=V[k];segs.forEach(function(s,i){s.classList.toggle('v',v.indexOf(i)>-1)});labs.forEach(function(s,i){s.classList.toggle('v',v.indexOf(i)>-1)});big.textContent=k;sm.textContent=k===1?'VISIT A YEAR':'VISITS A YEAR';
+    $$('.seg button').forEach(function(b){b.classList.toggle('on',+b.dataset.k===k)});var r=$('#f'+k);if(r&&!r.checked){r.checked=true;est()}}
+  $$('.seg button').forEach(function(b){b.onclick=function(){plan(+b.dataset.k)}});
+
+  /* estimator (sample pricing) */
+  var units=$('#units'),uo=$('#unitsOut'),price=$('#price'),per=$('#per'),shown=0;
+  function est(){var u=+units.value,k=+($('input[name=freq]:checked')||{value:2}).value;
+    units.style.setProperty('--p',((u-20)/580*100)+'%');uo.textContent=u;
+    var visit=380+u*1.1+($('#e1').checked?240:0)+($('#e2').checked?180:0)+($('#e3').checked?110:0)+($('#e4').checked?260:0);
+    var disc=k===4?.88:k===2?.94:1,year=Math.round(visit*k*disc/10)*10;
+    per.textContent='per year · '+k+(k===1?' visit':' visits')+' · about $'+Math.round(year/k).toLocaleString('en-CA')+' a visit';
+    tween(year);
+    if(+(($('.seg button.on')||{}).dataset||{}).k!==k)$$('.seg button').forEach(function(b){b.classList.toggle('on',+b.dataset.k===k)}),plan2(k)}
+  function plan2(k){var v=V[k];segs.forEach(function(s,i){s.classList.toggle('v',v.indexOf(i)>-1)});labs.forEach(function(s,i){s.classList.toggle('v',v.indexOf(i)>-1)});big.textContent=k;sm.textContent=k===1?'VISIT A YEAR':'VISITS A YEAR'}
+  function tween(to){var from=shown,t0=null;shown=to;if(reduce){price.textContent='$'+to.toLocaleString('en-CA');return}function f(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/500),e=1-Math.pow(1-p,3);price.textContent='$'+Math.round(from+(to-from)*e).toLocaleString('en-CA');if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+  [units,$('#e1'),$('#e2'),$('#e3'),$('#e4')].concat($$('input[name=freq]')).forEach(function(i){i.addEventListener('input',est);i.addEventListener('change',est)});
+  plan(2);est();
+  $('#lockPlan').addEventListener('click',function(){var n=$('#n6');if(n)n.checked=true;tab('quote');$('#unitsQ').value=units.value});
+
+  /* tabs */
+  function tab(id){$$('.tabs button').forEach(function(b){var on=b.dataset.pane===id;b.classList.toggle('on',on);b.setAttribute('aria-selected',on)});$$('.pane').forEach(function(p){p.classList.toggle('on',p.id==='pane-'+id)})}
+  $$('.tabs button').forEach(function(b){b.onclick=function(){tab(b.dataset.pane)}});
+  $$('[data-tab]').forEach(function(a){a.addEventListener('click',function(){tab(a.dataset.tab)})});
+  $$('[data-need]').forEach(function(a){a.addEventListener('click',function(){tab('quote');$$('#needs input').forEach(function(i){if(i.value===a.dataset.need)i.checked=true})})});
+
+  /* walk-through days */
+  var days=$('#days'),d=new Date(),n=0,W=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  while(n<10){d.setDate(d.getDate()+1);if(d.getDay()===0||d.getDay()===6)continue;var id='d'+n,l=document.createElement('label');
+    l.innerHTML='<input type="radio" name="day" id="'+id+'"'+(n===0?' checked':'')+'><span><small>'+W[d.getDay()]+'</small><b>'+d.getDate()+'</b><small>'+MO[d.getMonth()]+'</small></span>';days.appendChild(l);n++}
+
+  /* simple forms */
+  $$('form.mini').forEach(function(f){f.addEventListener('submit',function(e){e.preventDefault();var bad=$$('input[required]',f).filter(function(i){return !i.value.trim()||(i.type==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(i.value.trim()))})[0];
+    var ok=$('.ok-msg',f);if(bad){ok.classList.add('on');$('i',ok).textContent='!';$('i',ok).style.background='var(--aqua)';$('span',ok).textContent=bad.type==='email'?'Add a valid email so we can reply.':'Fill in the required field so we can reach you.';bad.focus();return}
+    $('i',ok).textContent='✓';$('i',ok).style.background='';ok.classList.add('on');$('span',ok).textContent=f.dataset.msg;$$('button[type=submit]',f).forEach(function(b){b.disabled=true;b.style.opacity=.5})})});
+
+  /* multi-step quote */
+  var f=$('#pane-quote'),q=1,qs=$$('.qs',f),bars=$$('.prog i',f),next=$('.next',f),back=$('.back',f),err=$('.err',f);
+  function show(n){q=n;qs.forEach(function(s){s.classList.toggle('on',+s.dataset.q===n)});bars.forEach(function(b,i){b.classList.toggle('on',i<n)});back.hidden=n===1;next.textContent=n===3?'Send request':'Next';err.textContent=''}
+  next.onclick=function(){
+    if(q===1&&!$$('input[name=need]:checked',f).length){err.textContent='Pick at least one so we send the right person.';return}
+    if(q<3){show(q+1);return}
+    var nm=$('#name'),em=$('#email');
+    if(!nm.value.trim()){err.textContent='Add your name so we know who to ask for.';nm.focus();return}
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value.trim())){err.textContent='That email doesn’t look right. Check it and try again.';em.focus();return}
+    qs.forEach(function(s){s.classList.remove('on')});$('.qnav',f).hidden=true;err.textContent='';bars.forEach(function(b){b.classList.add('on')});$('.done',f).classList.add('on')};
+  back.onclick=function(){show(q-1)};
+  f.addEventListener('submit',function(e){e.preventDefault()});
+})();
+</script>
+<script>
+/* ===== sub-pages, quote cart, calculators ===== */
+(function(){
+  var $=function(s,c){return (c||document).querySelector(s)}, $$=function(s,c){return [].slice.call((c||document).querySelectorAll(s))};
+  var money=function(n){return '$'+Math.round(n).toLocaleString('en-CA')};
+  var cart={};try{cart=JSON.parse(localStorage.getItem('wm-cart')||'{}')||{}}catch(e){cart={}}
+  var ICON={
+    odour:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M14 44c6-6 6-12 0-18M26 46c6-8 6-16 0-24M38 44c6-6 6-12 0-18"/><rect x="44" y="18" width="12" height="30" rx="3"/></svg>',
+    chute:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><rect x="14" y="10" width="36" height="44" rx="4"/><path d="M20 20h24v16H20z"/><circle cx="40" cy="44" r="3"/></svg>',
+    compactor:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><rect x="8" y="22" width="34" height="26" rx="3"/><path d="M42 30h14v18H42M16 22V12h18v10"/><circle cx="18" cy="52" r="3"/><circle cx="34" cy="52" r="3"/></svg>',
+    bins:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M12 20h40l-4 28H16z"/><path d="M8 20h48M24 12h16"/><circle cx="20" cy="54" r="3"/><circle cx="44" cy="54" r="3"/></svg>',
+    clean:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M24 10h16v8l6 6v30H18V24l6-6z"/><path d="M18 34h28"/></svg>'
+  };
+
+  /* equipment catalogue */
+  var EQ=[
+    {id:'eq-stat',name:'Stationary compactor',img:'img/compactor.webp',d:'Our workhorse. Sized to your room, built in our shop, with a hydraulic ram and safety interlocks.',p:899,b:'Rent or buy'},
+    {id:'eq-self',name:'Self-contained compactor',img:'img/shop-floor.webp',d:'Sealed unit for wet waste. No leaks, less odour, one haul at a time.',p:1090,b:'New or pre-owned'},
+    {id:'eq-lopro',name:'LoPro compactor',img:null,ic:'compactor',d:'For low-ceiling garbage rooms where a standard compactor won\'t fit.',p:790,b:'Low clearance'},
+    {id:'eq-tri',name:'Tri-sorter retrofit',img:'img/trisorter-room.webp',d:'Garbage, recycling and organics from one chute door. Fits the room you already have.',p:640,b:'Retrofit'},
+    {id:'eq-baler',name:'Vertical baler',img:null,ic:'bins',d:'Bales cardboard on site to cut recycling pickups and storage space.',p:410,b:'Rent or buy'},
+    {id:'eq-mover',name:'Battery bin mover',img:'img/bin-mover.svg',d:'Lets one person move a full container safely. No more strained backs.',p:180,b:'Safety'}
+  ];
+  var cat=$('#eqCat');
+  if(cat)cat.innerHTML=EQ.map(function(e){return '<article class="prod"><div class="pic">'+(e.img?'<img src="'+e.img+'" alt="'+e.name+'" loading="lazy">':ICON[e.ic])+'<span class="badge">'+e.b+'</span></div><div class="body"><h4>'+e.name+'</h4><p>'+e.d+'</p><div class="prow"><b>from '+money(e.p)+'<small style="color:var(--muted);font-size:.75rem">/mo</small></b><button class="tiny" data-add="'+e.id+'" data-name="'+e.name+' (rental)" data-price="'+e.p+'" data-unit="/mo">Add to quote</button></div></div></article>'}).join('');
+
+  /* parts shop */
+  var PARTS=[
+    {id:'pt-hepa',c:'odour',n:'HEPA filter set',s:'OD-HF-24',d:'Replacement filters for UV/HEPA odour units. Change every 6 months.',p:89},
+    {id:'pt-uv',c:'odour',n:'UV-C lamp',s:'OD-UV-18',d:'Keeps odour units destroying smells instead of moving them.',p:64},
+    {id:'pt-latch',c:'chute',n:'Chute door latch kit',s:'CH-LK-01',d:'Self-latching hardware for doors that won\'t close on their own.',p:42},
+    {id:'pt-closer',c:'chute',n:'Fire-rated door closer',s:'CH-DC-90',d:'Listed closer for chute intake doors.',p:118},
+    {id:'pt-gasket',c:'chute',n:'Intake door gasket',s:'CH-GS-12',d:'Seals the door to stop odour leaking into hallways.',p:36},
+    {id:'pt-oil',c:'compactor',n:'Hydraulic oil, 20 L',s:'CP-HO-20',d:'The grade our technicians use in every compactor we build.',p:129},
+    {id:'pt-grease',c:'compactor',n:'Grease cartridges, 10 pack',s:'CP-GR-10',d:'For rams, guides and pivot points.',p:58},
+    {id:'pt-caster',c:'bins',n:'Heavy-duty swivel caster',s:'BN-CS-05',d:'5 inch, with brake. Fits most front-end-load bins.',p:34},
+    {id:'pt-lid',c:'bins',n:'FEL bin lid',s:'BN-LD-04',d:'Replacement lid for 4 and 6 yard containers.',p:210},
+    {id:'pt-enzyme',c:'clean',n:'Enzyme degreaser, 20 L',s:'CL-EN-20',d:'Biodegradable. Breaks down chute residue instead of masking it.',p:79},
+    {id:'pt-deo',c:'clean',n:'Odour neutralizer, 4 L',s:'CL-ON-04',d:'Spray for bins and floors between cleanings.',p:32},
+    {id:'pt-sign',c:'chute',n:'Chute door sign set',s:'CH-SN-30',d:'Clear sorting signs for every floor, up to 30 floors.',p:145}
+  ];
+  var pc=$('#pCat');
+  function drawParts(f){if(!pc)return;pc.innerHTML=PARTS.filter(function(x){return f==='all'||x.c===f}).map(function(x){return '<article class="prod"><div class="pic">'+ICON[x.c]+'<span class="badge">In stock</span></div><div class="body"><span class="sku">'+x.s+'</span><h4>'+x.n+'</h4><p>'+x.d+'</p><div class="prow"><b>'+money(x.p)+'</b><button class="tiny" data-add="'+x.id+'" data-name="'+x.n+'" data-price="'+x.p+'">Add to order</button></div></div></article>'}).join('');syncAdded()}
+  drawParts('all');
+  $$('#pFil button').forEach(function(b){b.addEventListener('click',function(){$$('#pFil button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});drawParts(b.dataset.f)})});
+
+  /* rent-to-own calculator */
+  var eqV=38000,cond=1;
+  function seg(id,cb){$$('#'+id+' button').forEach(function(b){b.addEventListener('click',function(){$$('#'+id+' button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});cb(+b.dataset.v);rto()})})}
+  seg('rtoEq',function(v){eqV=v});seg('rtoC',function(v){cond=v});
+  var T=$('#rtoT'),M=$('#rtoM');
+  function rto(){if(!T)return;var t=+T.value,v=eqV*cond,r=.0065,pay=v*.85*r/(1-Math.pow(1+r,-t)),maint=M.checked?Math.round(v*.0028):0;
+    T.style.setProperty('--p',((t-24)/48*100)+'%');$('#rtoTv').textContent=t+' months';
+    $('#rtoOut').textContent=money(pay+maint);$('#rtoV').textContent=money(v);$('#rtoB').textContent=money(v*.15);$('#rtoMv').textContent=maint?money(maint)+'/mo incl.':'Not included';
+    var lbl=$('#rtoEq [aria-pressed=true]').textContent+(cond<1?' (pre-owned)':'')+', '+t+'-mo rent-to-own';
+    var a=$('#rtoAdd');a.dataset.add='rto';a.dataset.name=lbl;a.dataset.price=Math.round(pay+maint);a.dataset.unit='/mo'}
+  if(T){T.addEventListener('input',rto);M.addEventListener('change',rto);rto()}
+
+  /* quote cart */
+    var dr=$('#drawer'),sc=$('#scrim'),cb=$('#cartBtn'),opened=false;
+  function save(){try{localStorage.setItem('wm-cart',JSON.stringify(cart))}catch(e){}}
+  function openD(o){dr.classList.toggle('on',o);sc.classList.toggle('on',o);dr.setAttribute('aria-hidden',!o);document.body.style.overflow=o?'hidden':''}
+  function syncAdded(){$$('[data-add]').forEach(function(b){if(b.dataset.add==='rto')return;if(!b.dataset.lab)b.dataset.lab=b.textContent;var on=!!cart[b.dataset.add];b.classList.toggle('added',on&&b.classList.contains('tiny'));b.textContent=on?'Added ✓':b.dataset.lab})}
+  function render(){var ks=Object.keys(cart),n=0,mo=0,one=0,qtr=0;
+    ks.forEach(function(k){var i=cart[k];n+=i.q;var v=i.p*i.q;if(i.u==='/mo')mo+=v;else if(i.u==='/qtr')qtr+=v;else one+=v});
+    var badge=$('.n',cb);badge.textContent=n;badge.classList.toggle('on',n>0);cb.classList.toggle('has',n>0);
+    $('#ditems').innerHTML=ks.length?ks.map(function(k){var i=cart[k];return '<div class="ci"><b>'+i.n+'</b><small>'+money(i.p)+(i.u||'')+'</small><div class="q"><div><button data-dec="'+k+'" aria-label="Fewer">−</button><span>'+i.q+'</span><button data-inc="'+k+'" aria-label="More">+</button></div><button class="rm" data-rm="'+k+'">Remove</button></div></div>'}).join(''):'<div class="empty"><b>Your quote is empty</b><span>Add a plan, rental or parts to build a quote.</span><a class="btn sm" href="#/plans">See plans</a></div>';
+    var parts=[];if(mo)parts.push(money(mo)+'/mo');if(qtr)parts.push(money(qtr)+'/qtr');if(one)parts.push(money(one));
+    $('#dtot').textContent=parts.join(' + ')||'$0';$('#dform').hidden=!ks.length;syncAdded();save()}
+  function add(b){var k=b.dataset.add;if(k==='rto')k='rto-'+b.dataset.name.replace(/\W+/g,'-').toLowerCase();
+    if(cart[k])cart[k].q++;else cart[k]={n:b.dataset.name,p:+b.dataset.price,u:b.dataset.unit||'',q:1};
+    render();cb.classList.remove('bump');void cb.offsetWidth;cb.classList.add('bump');
+    if(!opened){opened=true;openD(true)}}
+  document.addEventListener('click',function(e){var b=e.target.closest('[data-add]');if(b){e.preventDefault();add(b);return}
+    var t=e.target.closest('[data-inc],[data-dec],[data-rm]');if(t){var k=t.dataset.inc||t.dataset.dec||t.dataset.rm;if(t.dataset.inc)cart[k].q++;else if(t.dataset.dec){cart[k].q--;if(cart[k].q<1)delete cart[k]}else delete cart[k];render()}
+    var r=e.target.closest('[data-role]');if(r){var s=$('#roleSel');if(s)s.value=r.dataset.role}});
+  cb.addEventListener('click',function(){openD(true)});$('#dx').addEventListener('click',function(){openD(false)});sc.addEventListener('click',function(){openD(false)});
+  dr.addEventListener('click',function(e){if(e.target.closest('a[href^="#"]'))openD(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')openD(false)});
+  render();
+
+  /* file inputs */
+  $$('.fileup').forEach(function(i){i.addEventListener('change',function(){$('.files',i.parentNode).innerHTML=[].map.call(i.files,function(f){return '📎 '+f.name.replace(/</g,'&lt;')}).join('<br>')})});
+
+  /* location pages */
+  var LOC={
+    ottawa:{tag:'Ottawa & Gatineau · Head office',h:'Ottawa garbage rooms, <em>handled locally.</em>',p:'Our head office and largest crew are in Ottawa. Technicians live in the neighbourhoods they service, so a breakdown in Kanata or Gatineau gets the same two-hour response as one downtown.',call:'Call Ottawa · 613-539-8683',tel:'+16135398683',k:[['700+','buildings serviced'],['2 hr','emergency response target'],['11','local technicians']],n:['Centretown','Glebe','Westboro','Kanata','Orléans','Nepean','Barrhaven','Vanier','Gatineau','Hull','Aylmer','Eastern Ontario'],c:['img/trevor.webp','Trevor Lewis','VP of Operations · 613-539-8683','Your Ottawa and Gatineau service contact.'],img:'img/ottawa-aerial.webp'},
+    toronto:{tag:'Toronto & the GTA',h:'Toronto condo waste rooms, <em>sorted.</em>',p:'From downtown towers to Mississauga rentals, our GTA crews install, clean and service compactors, chutes and tri-sorters across the city, with 24-hour emergency coverage.',call:'Call the GTA · 647-649-9224',tel:'+16476499224',k:[['500+','buildings serviced'],['3 hr','emergency response target'],['2','regional managers']],n:['Downtown','Liberty Village','North York','Etobicoke','Scarborough','Mississauga','Vaughan','Markham','Brampton','Oakville','Richmond Hill','Pickering'],c:['img/zach.webp','Zach Burke-Fagan','Regional Manager, GTA West · 647-649-9224','Peter Pettit covers GTA East and Toronto · 418-933-7354.'],img:'img/trisorter-room.webp'}
+  };
+  function fillLoc(key){var L=LOC[key];$('#locTag').textContent=L.tag;$('#locH').innerHTML=L.h;$('#locP').textContent=L.p;var c=$('#locCall');c.textContent=L.call;c.href='tel:'+L.tel;
+    $('#locK').innerHTML=L.k.map(function(x){return '<div class="kpi"><b>'+x[0]+'</b><span>'+x[1]+'</span></div>'}).join('');
+    $('#locN').innerHTML=L.n.map(function(x){return '<span>'+x+'</span>'}).join('');
+    $('#locC').innerHTML='<div style="display:flex;gap:16px;align-items:center"><img src="'+L.c[0]+'" alt="'+L.c[1]+'" style="width:64px;height:64px;border-radius:50%;object-fit:cover"><div><h3>'+L.c[1]+'</h3><p class="hint">'+L.c[2]+'</p></div></div><p class="hint">'+L.c[3]+'</p>';
+    document.querySelector('#p-loc .phero').style.setProperty('--ph','url('+L.img+')');var im=$('#locImg');im.src=L.img;im.alt=L.tag}
+
+  /* router */
+  var ROUTES={plans:['p-plans','Service plans'],rentals:['p-rentals','Rentals & rent-to-own'],parts:['p-parts','Parts & supplies'],emergency:['p-emergency','24-hour emergency service'],'new-construction':['p-build','New construction'],referrals:['p-refer','Referral program'],careers:['p-careers','Careers'],resources:['p-resources','Resources'],ottawa:['p-loc','Ottawa & Gatineau'],toronto:['p-loc','Toronto & the GTA']};
+  var main=$('#top'),pages=$$('.page'),base='WasteMind Building Solutions',bar=$('.callbar');
+  function showOnly(el){main.hidden=el!==main;pages.forEach(function(p){p.hidden=p!==el})}
+  function jump(el){var h=document.documentElement,s=h.style.scrollBehavior;h.style.scrollBehavior='auto';if(el)el.scrollIntoView();else scrollTo(0,0);h.style.scrollBehavior=s}
+  function route(){var h=decodeURIComponent(location.hash.slice(1));
+    $$('.nav a').forEach(function(a){a.classList.toggle('cur',a.getAttribute('href')==='#'+h)});
+    if(h.charAt(0)==='/'){var r=ROUTES[h.slice(1)];if(!r){location.hash='#top';return}
+      if(r[0]==='p-loc')fillLoc(h.slice(1));showOnly($('#'+r[0]));document.title=r[1]+' · '+base;jump(null);if(bar)bar.classList.add('on');return}
+    var t=h&&h!=='top'?document.getElementById(h):null;
+    if(t&&t.closest('.page')){var pg=t.closest('.page');if(pg.hidden)showOnly(pg);jump(t);return}
+    var wasHidden=main.hidden;showOnly(main);document.title=base;
+    if(!t){if(wasHidden||h==='top')jump(null);return}
+    if(wasHidden)requestAnimationFrame(function(){jump(t)})}
+  addEventListener('hashchange',route);route();
+
+  /* mobile call bar appears after the hero */
+  if(bar){var cbar=function(){bar.classList.toggle('on',main.hidden||scrollY>560)};addEventListener('scroll',cbar,{passive:true});cbar()}
+})();
+</script>
+
+</body></html>
