@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cielle & Co | Option C</title>
+<meta name="description" content="Cielle &amp; Co is where strategy meets execution. Preview option C.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Work+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fx.css">
+<style>
+:root{--char:#15181d;--slate:#3f4b5c;--dusty:#8da3c0;--mist:#e6edf5;--blue:#b2c7e2}
+body{font-family:'Work Sans',sans-serif;color:var(--fg);background:var(--bg);line-height:1.5}
+.pg{overflow-x:clip}
+h1,h2,h3{margin:0;line-height:1.05}
+.hd{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:20px;padding:12px 20px;background:var(--hd,#000);color:#fff}
+.hd-logo img{width:150px;height:50px;object-fit:contain;object-position:left}
+.hd-nav{display:none;gap:28px;margin-left:auto}
+.hd-nav a{color:#fff;text-decoration:none;font-weight:600;font-size:15px;letter-spacing:1px;text-transform:uppercase;min-height:44px;display:inline-flex;align-items:center;position:relative}
+.hd-nav a::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:2px;background:#b2c7e2;transform:scaleX(0);transform-origin:right;transition:transform .35s}
+.hd-nav a:hover::after{transform:scaleX(1);transform-origin:left}
+.hd-cta{margin-left:auto;background:#b2c7e2;color:#000;--sweep:#fff;min-height:44px;padding:0 20px;font-size:13px}
+@media(min-width:900px){.hd-nav{display:flex}.hd-cta{margin-left:0}.hd{padding:14px 40px}}
+.wrap{padding:0 20px}
+@media(min-width:900px){.wrap{padding:0 40px}}
+.eyebrow{font:600 12px/1 'Work Sans',sans-serif;letter-spacing:3px;text-transform:uppercase;color:#b2c7e2;margin:0 0 18px}
+.sv{padding:72px 0}
+.sv .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.sv h2{font:800 clamp(56px,12vw,120px)/0.9 'Fraunces',serif;letter-spacing:-1px}
+.sv .hint{font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.7;display:flex;align-items:center;gap:8px}
+.card{flex:0 0 min(84vw,420px);min-height:420px;padding:28px 24px;display:flex;flex-direction:column;gap:12px;position:relative}
+.card .num{font:600 14px 'Work Sans',sans-serif;letter-spacing:2px;color:#b2c7e2}
+.card h3{font-size:26px;font-weight:700;line-height:1.1}
+.card p{margin:0;font-size:15.5px;line-height:1.55}
+.card .inc{margin-top:auto;font-size:12px;letter-spacing:2px;text-transform:uppercase;opacity:.75;padding-top:12px}
+.card ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:14.5px}
+.card li{padding-left:16px;position:relative}
+.card li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;background:#b2c7e2}
+.track{gap:14px;padding:0 20px}
+@media(min-width:900px){.track{padding:0 40px}}
+.pin-stick .wrap{margin-bottom:28px}
+.pinbar{height:2px;background:rgba(255,255,255,.18);margin:28px 20px 0}
+.pinbar i{display:block;height:100%;background:#b2c7e2;transform-origin:left;transform:scaleX(0)}
+.man{padding:96px 20px;max-width:980px;margin:0 auto}
+.scrub{font:600 clamp(24px,5.2vw,44px)/1.25 'Work Sans',sans-serif;margin:0 0 40px;letter-spacing:-0.3px}
+.man-big{font:800 clamp(30px,6.5vw,64px)/1.05 'Fraunces',serif;margin:0}
+.ab{display:grid;gap:32px;padding:80px 20px 96px}
+.ab-eye{grid-column:1/-1;margin:0}
+@media(min-width:900px){.ab{grid-template-columns:5fr 6fr;align-items:center;gap:24px 64px;padding:96px 40px 120px}}
+.ab-ph{overflow:hidden;aspect-ratio:3/4;max-height:620px}
+.ab-ph img{width:100%;height:100%;object-fit:cover;object-position:center 15%;transform-origin:center}
+.ab-tx{display:grid;gap:22px}
+.ab h2{font:700 clamp(28px,5vw,46px)/1.1 'Work Sans',sans-serif;letter-spacing:-0.5px}
+.ab p{margin:0;font-size:17px;line-height:1.65}
+.ab mark{background:var(--mark,#fff);color:var(--markfg,#000);padding:0 5px;font-weight:600}
+.ab-lead{font:600 clamp(22px,3.5vw,30px)/1.2 'Fraunces',serif!important}
+.ct{display:grid;gap:40px;padding:80px 20px 96px}
+@media(min-width:900px){.ct{grid-template-columns:1fr 1fr;gap:72px;padding:120px 40px;align-items:start}}
+.ct h2{font:800 clamp(52px,11vw,110px)/0.9 'Fraunces',serif;margin-bottom:22px}
+.ct p{margin:0 0 14px;font-size:17px;line-height:1.6}
+.ct-b{font-weight:700;font-size:19px!important}
+.ct-note{font-size:14px!important;opacity:.8;max-width:420px}
+.new{display:inline-block;background:#b2c7e2;color:#000;font:700 10px/1 'Work Sans',sans-serif;letter-spacing:2px;text-transform:uppercase;padding:5px 8px;margin-right:8px;vertical-align:middle}
+.ct-form{padding:28px 22px;background:#000;color:#fff}
+@media(min-width:600px){.ct-form{padding:40px}}
+.ft{padding:40px 20px 110px;display:grid;gap:22px;background:#000;color:#fff;border-top:1px solid #222}
+.ft img{width:150px;height:50px;object-fit:contain;object-position:left}
+.ft nav{display:flex;flex-wrap:wrap;gap:4px 24px}
+.ft a{color:#fff;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.soc{display:flex;gap:10px}.soc a{width:48px;height:48px;justify-content:center;color:#fff}
+.ft p{margin:0;font-size:13px;color:#9a9a9a}
+@media(min-width:900px){.ft{grid-template-columns:auto 1fr auto;align-items:center;padding:40px 40px 48px}.ft p{grid-column:1/-1}}
+.fab{position:fixed;right:16px;bottom:16px;z-index:40;background:#b2c7e2;color:#000;--sweep:#fff;box-shadow:0 8px 28px rgba(0,0,0,.45);min-height:52px;padding:0 20px;font-size:13px;transform:translateY(120px);transition:transform .6s cubic-bezier(.2,.8,.2,1) 1.2s}
+.ready .fab{transform:none}
+@media(min-width:900px){.fab{display:none}}
+.opt-tag{position:fixed;left:12px;bottom:12px;z-index:70;background:#fff;color:#000;font:700 11px/1 'Work Sans',sans-serif;letter-spacing:1.5px;text-transform:uppercase;padding:8px 10px;border:1px solid #000;pointer-events:none}
+.mq{padding:18px 0;font:800 clamp(28px,5vw,48px)/1 'Fraunces',serif}
+.mq span{padding-right:.6em;white-space:pre}
+.ld-logo{filter:none}
+
+/* ---- v4 additions, shared ---- */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.pr,.fm,.pp,.fq,.nt{position:relative}
+.pr{padding:88px 20px}.pr-h{max-width:980px;margin:0 auto 40px}.pr h2{font:800 clamp(34px,7vw,72px)/1 'Fraunces',serif;margin:0}
+.pr-l{list-style:none;margin:0 auto;padding:0;max-width:980px;display:grid;gap:14px}
+.pr-l li{display:grid;grid-template-columns:56px 1fr;gap:4px 16px;padding:22px 0;border-top:1px solid currentColor;--bc:currentColor}
+.pr-n{font:500 12px 'JetBrains Mono',monospace;letter-spacing:1px;grid-row:1/3;padding-top:6px;opacity:.7}
+.pr-l h3{margin:0;font:700 clamp(22px,4.6vw,34px)/1.1 'Work Sans',sans-serif;letter-spacing:-.5px}
+.pr-l p{margin:0;font-size:16px;line-height:1.55;max-width:60ch}
+@media(min-width:900px){.pr{padding:120px 40px}.pr-l{grid-template-columns:1fr 1fr;gap:24px 48px}.pr-l li{grid-template-columns:72px 1fr;padding:28px 0}}
+.fm{padding:88px 0}.fm-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:32px}.fm-h h2{flex:1 1 320px;min-width:0;text-align:right}@media(max-width:899px){.fm-h h2{text-align:left}}.fm h2{font:800 clamp(34px,7vw,72px)/1 'Fraunces',serif;margin:0}
+.fm-l{list-style:none;margin:0;padding:0 20px;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}.fm-l::-webkit-scrollbar{display:none}
+.fm-l li{position:relative;flex:0 0 72vw;max-width:320px;aspect-ratio:4/5;scroll-snap-align:start;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;color:#fff;isolation:isolate}
+.fm-l img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);z-index:-1;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.fm-l li::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.85))}
+.fm-l li:hover img{transform:scale(1.06)}
+.fm-n{font:500 11px 'JetBrains Mono',monospace;letter-spacing:2px;opacity:.75;margin-bottom:6px}
+.fm-l h3{margin:0;font:700 clamp(18px,4vw,24px)/1.15 'Work Sans',sans-serif;letter-spacing:-.3px}
+@media(min-width:900px){.fm{padding:120px 0}.fm-l{padding:0 40px;gap:20px}.fm-l li{flex-basis:280px}}
+.pp{padding:72px 0}.pp-l{list-style:none;margin:0;padding:0 20px;display:grid;gap:12px}
+.pp-l li{padding:26px 22px;display:grid;gap:10px}.pp-l h3{margin:0;font:800 clamp(34px,8vw,64px)/.95 'Fraunces',serif;letter-spacing:-.5px}.pp-l p{margin:0;font-size:15.5px;line-height:1.5}
+@media(min-width:900px){.pp{padding:110px 0}.pp-l{grid-template-columns:repeat(4,1fr);padding:0 40px;gap:16px}}
+.fq{padding:88px 20px}.fq-h{max-width:820px;margin:0 auto 32px}.fq h2{font:800 clamp(34px,7vw,72px)/1 'Fraunces',serif;margin:0}
+.fq-l{max-width:820px;margin:0 auto}
+.fq-i{border-top:1px solid currentColor}.fq-i:last-child{border-bottom:1px solid currentColor}
+.fq-i summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:64px;padding:16px 0;font:700 clamp(17px,3.9vw,21px)/1.25 'Work Sans',sans-serif}
+.fq-i summary::-webkit-details-marker{display:none}
+.fq-i summary i{flex:0 0 28px;height:28px;position:relative}.fq-i summary i::before,.fq-i summary i::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:2px;background:currentColor;transform:translate(-50%,-50%);transition:transform .35s}
+.fq-i summary i::after{transform:translate(-50%,-50%) rotate(90deg)}.fq-i[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.fq-i p{margin:0 0 22px;font-size:16px;line-height:1.55;max-width:62ch;animation:fqin .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes fqin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media(min-width:900px){.fq{padding:120px 40px}}
+.nt{padding:72px 20px}.nt-in{max-width:760px;margin:0 auto;display:grid;gap:18px;text-align:left}.nt h2{margin:0;font:700 clamp(22px,4.6vw,34px)/1.2 'Work Sans',sans-serif;letter-spacing:-.4px}
+.nt-f{display:grid;gap:10px;position:relative}.nt-f input{min-height:52px;padding:0 16px;font:500 16px 'Work Sans',sans-serif;border:1.5px solid currentColor;background:transparent;color:inherit;border-radius:0}
+.nt-f .btn{justify-self:start}.nt-ok{display:none;margin:0;font-weight:600}.nt-f.sent input,.nt-f.sent .btn{display:none}.nt-f.sent .nt-ok{display:block}
+.nt-s{margin:0;font-size:13px;opacity:.7}
+@media(min-width:700px){.nt-f{grid-template-columns:1fr auto}.nt-f .nt-ok{grid-column:1/-1}}
+@media(min-width:900px){.nt{padding:110px 40px}}
+
+/* ---- A: black editorial ---- */
+.pr-a{background:#000;color:#fff}.pr-a .pr-l li{border-color:#2a3140}.pr-a .pr-n{color:#8da3c0}
+.fm-a{background:linear-gradient(180deg,#000,#0b0d11)}.fm-a h2,.fm-a .eyebrow{color:#fff}
+.pp-a{background:#000;color:#fff}.pp-a .pp-l li{background:linear-gradient(160deg,#1a1f28,#0f1218);border:1px solid #2a3140}.pp-a .pp-l li:nth-child(even){background:linear-gradient(160deg,#4a5668,#3f4b5c)}
+.fq-a{background:#0b0d11;color:#fff}.fq-a .fq-i{border-color:#2a3140}
+.nt-a{background:#000;color:#fff}.nt-a .btn{background:#b2c7e2;color:#000;--sweep:#fff}.nt-a input{border-color:#3f4b5c}
+
+/* ---- B: off-white edition ---- */
+.pr-b{background:#f6f4ef;color:#111}.pr-b .pr-n{font:800 clamp(44px,9vw,88px)/1 'Fraunces',serif;opacity:1;padding:0;color:#111;letter-spacing:-2px}.pr-b .pr-l li{grid-template-columns:90px 1fr;border-color:#111}
+@media(min-width:900px){.pr-b .pr-l{grid-template-columns:1fr}.pr-b .pr-l li{grid-template-columns:150px 1fr}}
+.fm-b{background:#111;color:#f6f4ef;padding-bottom:0}.fm-b .fm-h{padding-bottom:0}.fm-b h2,.fm-b .eyebrow{color:#f6f4ef}
+.fm-b .fm-l{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:0;overflow:visible}.fm-b .fm-l li{flex:none;max-width:none;aspect-ratio:1;padding:14px}
+.fm-b .fm-l li:nth-child(3n+1){aspect-ratio:auto;grid-row:span 2}
+@media(min-width:900px){.fm-b .fm-l{grid-template-columns:repeat(4,1fr)}.fm-b .fm-l li{padding:22px}}
+.pp-b{background:#f6f4ef;color:#111}.pp-b .pp-l li{border-top:3px solid #111;padding-left:0;padding-right:0}.pp-b .pp-l h3{font-size:clamp(44px,10vw,84px)}@media(min-width:900px){.pp-b .pp-l{grid-template-columns:1fr 1fr}.pp-b .pp-l h3{font-size:clamp(44px,4.8vw,72px)}}
+.fq-b{background:#fff;color:#111}
+.nt-b{background:#111;color:#f6f4ef}.nt-b .btn{background:#b2c7e2;color:#000;--sweep:#fff}
+
+/* ---- C: slate & mist ---- */
+.pr-c{background:#fff;color:#0b0f16}.pr-c .pr-l li{border-color:#cfd8e4}.pr-c .pr-n{color:#3f4b5c}.pr-c h2,.fq-c h2,.fm-c h2{font:800 clamp(34px,7vw,72px)/1 'Work Sans',sans-serif;text-transform:uppercase;letter-spacing:-1.5px}
+.fm-c{background:#15181d;color:#fff}.fm-c .fm-l li{clip-path:polygon(0 0,100% 0,100% 92%,92% 100%,0 100%)}
+.pp-c{background:#e6edf5;color:#0b0f16}.pp-c .pp-l li{background:#fff;border-left:4px solid #15181d}.pp-c .pp-l h3{font:800 clamp(30px,7vw,52px)/1 'Work Sans',sans-serif;text-transform:uppercase;letter-spacing:-1px}
+.fq-c{background:#fff;color:#0b0f16}.fq-c .fq-i{border-color:#cfd8e4}.fq-c summary span{font-family:'Work Sans'}
+.nt-c{background:#15181d;color:#fff}.nt-c .btn{background:#b2c7e2;color:#000;--sweep:#fff}.nt-c input{border-color:#3f4b5c}
+.nt-c .eyebrow,.fm-c .eyebrow{color:#8da3c0}
+
+.man .eyebrow{color:#3f4b5c}
+:root{--fg:#0b0f16;--bg:#e6edf5;--hd:#15181d}
+body{background:linear-gradient(180deg,#e6edf5,#d7dfe9)}
+.hd{background:#15181d}
+.vnav{display:none}
+@media(min-width:1000px){.vnav{display:flex;position:fixed;left:0;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;gap:28px;padding:20px 10px;z-index:40;font:600 12px 'JetBrains Mono',monospace;letter-spacing:3px;text-transform:uppercase}.vnav a{color:#3f4b5c;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}.vnav a.on{color:#0b0f16;border-right:2px solid #0b0f16}}
+.hero{position:relative;min-height:100svh;display:grid;align-content:center;gap:24px;padding:110px 20px 96px;overflow:hidden}
+.frame{position:relative;width:min(84vw,520px);aspect-ratio:905/1038;justify-self:center;filter:drop-shadow(0 30px 60px rgba(15,24,40,.35))}
+.frame svg{position:absolute;inset:0;width:100%;height:100%}
+.frame img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);clip-path:url(#cclip)}
+.frame .stat{position:absolute;left:0;bottom:-28px;font:500 11px 'JetBrains Mono',monospace;letter-spacing:1px;color:#3f4b5c}
+.hero h1{font:800 clamp(38px,8.6vw,96px)/0.98 'Work Sans',sans-serif;letter-spacing:-2px;text-transform:uppercase;max-width:14ch}
+.hero .btn{background:#15181d;color:#fff;--sweep:#b2c7e2;justify-self:start}.hero .btn:hover{color:#000}
+@media(min-width:900px){.hero{grid-template-columns:1fr 1fr;align-items:center;padding:120px 80px 96px 120px;gap:48px}.frame{justify-self:end;width:min(36vw,520px)}}
+.mq{background:#15181d;color:#e6edf5;font:500 clamp(14px,2vw,18px)/1 'JetBrains Mono',monospace;letter-spacing:3px;text-transform:uppercase;padding:14px 0}
+.ab{background:#fff;color:#0b0f16}.ab-eye{color:#3f4b5c}.ab mark{background:#15181d;color:#fff}
+.man{background:linear-gradient(180deg,#cfd8e4,#e6edf5)}
+.type{font:500 clamp(18px,3.4vw,28px)/1.45 'JetBrains Mono',monospace;color:#0b0f16;min-height:12em;margin:0 0 32px}
+.type .cur{display:inline-block;width:.6ch;height:1.1em;background:#0b0f16;vertical-align:-.15em;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+/* sortable table */
+.tbl{padding:80px 20px 96px;background:#15181d;color:#fff}
+.tbl .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:0;margin-bottom:20px;flex-wrap:wrap}
+.tbl h2{font:800 clamp(48px,11vw,110px)/0.9 'Work Sans',sans-serif;text-transform:uppercase;letter-spacing:-2px}
+.sort{display:flex;gap:6px}
+.sort button{min-height:44px;padding:0 14px;background:transparent;color:#e6edf5;border:1px solid #3f4b5c;font:600 12px 'JetBrains Mono',monospace;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
+.sort button[aria-pressed="true"]{background:#b2c7e2;color:#000;border-color:#b2c7e2}
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th{font:500 11px 'JetBrains Mono',monospace;letter-spacing:2px;text-transform:uppercase;color:#8da3c0;text-align:left;padding:10px 12px;border-bottom:1px solid #3f4b5c}
+td{padding:18px 12px;border-bottom:1px solid #2a3140;vertical-align:top;font-size:15px;line-height:1.5}
+td.mono{font:500 13px 'JetBrains Mono',monospace;color:#8da3c0;width:48px}
+td.tt{font:700 20px/1.15 'Work Sans',sans-serif;min-width:200px}
+.tp{display:block;font:400 14px/1.5 'Work Sans',sans-serif;color:#c8d2de;margin-top:6px;max-width:42ch}
+td.tk{text-align:center;width:72px;font:600 18px 'JetBrains Mono',monospace}
+td.ti{color:#e6edf5;max-width:34ch}
+tbody tr{transition:background .25s}tbody tr:hover{background:#1d2430}
+@media(min-width:900px){.tbl{padding:96px 80px 120px 120px}}
+.ct{background:linear-gradient(180deg,#e6edf5,#cfd8e4);color:#0b0f16}
+.ct-form{background:#15181d;color:#fff}
+@media(min-width:900px){.ct{padding-left:120px}}
+</style>
+</head>
+<body id="top">
+<div class="ld ld--lift" role="presentation" title="Tap to skip">
+  <div class="ld-half ld-l"><div class="ld-bg"><img src="img/hero-hall.jpg" alt="" width="1920" height="1280"></div></div><div class="ld-half ld-r"><div class="ld-bg"><img src="img/hero-hall.jpg" alt="" width="1920" height="1280"></div></div>
+  <div class="ld-in"><svg class="cmark cmark--fill " viewBox="-60 -60 1026 1159" aria-hidden="true"><defs><mask id="mld" maskUnits="userSpaceOnUse" x="-100" y="-100" width="1200" height="1300"><rect class="cm-rise" x="-100" y="-100" width="1200" height="1300" fill="#fff"/></mask><linearGradient id="mldg" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="0.55" stop-color="#e6edf5"/><stop offset="1" stop-color="#b2c7e2"/></linearGradient><filter id="mlds" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="28"/></filter><filter id="mldi" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6" result="b"/><feComposite in="SourceGraphic" in2="b" operator="over"/></filter></defs><path class="cm-ghost" d="M662.23,0c-55.95,0-129.76,38.57-219.4,114.63-81.29,68.36-281.45,252.13-384.24,481.58C19.71,683.77,0,761.86,0,828.33c0,60.67,16.5,112.66,49.03,154.52,28.74,36.97,70.67,55.72,124.61,55.72,105.42,0,256.51-72.17,449.08-214.49,135.23-99.95,246.68-202.15,277.62-231.09l3.43-2.93.95-3.15c1.02-3.39,1.02-6.06,1.02-7.83,0-13.8-10.92-23.82-25.97-23.82-6.64,0-16.94,2.16-28.32,12.42l-1.19,1.22c-25.93,29.14-463.24,427.06-679.06,427.06-38.96,0-67.58-12.52-87.5-38.28-25.05-31.97-37.23-70.99-37.23-119.3,0-60.79,19.99-135.25,61.11-227.63,100.42-224.34,307.48-399.78,385.42-465.83l5.19-4.4c89.29-75.52,138.81-91.37,164.63-91.37,21.16,0,56.67,13.03,56.67,100.3,0,52.98-13.85,120.51-37.04,180.65-23.82,61.78-47.88,88.8-57.44,91.32l-.32.08-.31-.12c-.22-.09-.44-.18-.66-.28-.18-.08-.37-.16-.56-.24l-14.13-5.84-5.82,12.02c-3.09,6.38-4.65,12.4-4.65,17.87,0,18.17,18.33,31.35,43.59,31.35,22.16,0,48.17-9.98,55-29.05l.04-.1c45.05-92.35,73.03-203.33,73.03-289.63,0-101.55-38.36-157.48-108.01-157.48Z M171.21,994.96c-38.63,0-66.97-12.37-86.71-37.89-23.15-29.54-35.24-65.15-36.83-108.61H-.37c3.29,52.34,19.6,97.68,48.61,135.01,28.94,37.23,71.13,56.11,125.4,56.11,99.65,0,239.91-64.28,417.26-191.12h-88.35c-118.67,80.33-243.43,146.51-331.35,146.51Z" fill="none" stroke="#fff" stroke-width="3"/><g mask="url(#mld)"><path d="M662.23,0c-55.95,0-129.76,38.57-219.4,114.63-81.29,68.36-281.45,252.13-384.24,481.58C19.71,683.77,0,761.86,0,828.33c0,60.67,16.5,112.66,49.03,154.52,28.74,36.97,70.67,55.72,124.61,55.72,105.42,0,256.51-72.17,449.08-214.49,135.23-99.95,246.68-202.15,277.62-231.09l3.43-2.93.95-3.15c1.02-3.39,1.02-6.06,1.02-7.83,0-13.8-10.92-23.82-25.97-23.82-6.64,0-16.94,2.16-28.32,12.42l-1.19,1.22c-25.93,29.14-463.24,427.06-679.06,427.06-38.96,0-67.58-12.52-87.5-38.28-25.05-31.97-37.23-70.99-37.23-119.3,0-60.79,19.99-135.25,61.11-227.63,100.42-224.34,307.48-399.78,385.42-465.83l5.19-4.4c89.29-75.52,138.81-91.37,164.63-91.37,21.16,0,56.67,13.03,56.67,100.3,0,52.98-13.85,120.51-37.04,180.65-23.82,61.78-47.88,88.8-57.44,91.32l-.32.08-.31-.12c-.22-.09-.44-.18-.66-.28-.18-.08-.37-.16-.56-.24l-14.13-5.84-5.82,12.02c-3.09,6.38-4.65,12.4-4.65,17.87,0,18.17,18.33,31.35,43.59,31.35,22.16,0,48.17-9.98,55-29.05l.04-.1c45.05-92.35,73.03-203.33,73.03-289.63,0-101.55-38.36-157.48-108.01-157.48Z M171.21,994.96c-38.63,0-66.97-12.37-86.71-37.89-23.15-29.54-35.24-65.15-36.83-108.61H-.37c3.29,52.34,19.6,97.68,48.61,135.01,28.94,37.23,71.13,56.11,125.4,56.11,99.65,0,239.91-64.28,417.26-191.12h-88.35c-118.67,80.33-243.43,146.51-331.35,146.51Z" fill="#000" opacity=".55" filter="url(#mlds)" transform="translate(26,38)"/><path d="M662.23,0c-55.95,0-129.76,38.57-219.4,114.63-81.29,68.36-281.45,252.13-384.24,481.58C19.71,683.77,0,761.86,0,828.33c0,60.67,16.5,112.66,49.03,154.52,28.74,36.97,70.67,55.72,124.61,55.72,105.42,0,256.51-72.17,449.08-214.49,135.23-99.95,246.68-202.15,277.62-231.09l3.43-2.93.95-3.15c1.02-3.39,1.02-6.06,1.02-7.83,0-13.8-10.92-23.82-25.97-23.82-6.64,0-16.94,2.16-28.32,12.42l-1.19,1.22c-25.93,29.14-463.24,427.06-679.06,427.06-38.96,0-67.58-12.52-87.5-38.28-25.05-31.97-37.23-70.99-37.23-119.3,0-60.79,19.99-135.25,61.11-227.63,100.42-224.34,307.48-399.78,385.42-465.83l5.19-4.4c89.29-75.52,138.81-91.37,164.63-91.37,21.16,0,56.67,13.03,56.67,100.3,0,52.98-13.85,120.51-37.04,180.65-23.82,61.78-47.88,88.8-57.44,91.32l-.32.08-.31-.12c-.22-.09-.44-.18-.66-.28-.18-.08-.37-.16-.56-.24l-14.13-5.84-5.82,12.02c-3.09,6.38-4.65,12.4-4.65,17.87,0,18.17,18.33,31.35,43.59,31.35,22.16,0,48.17-9.98,55-29.05l.04-.1c45.05-92.35,73.03-203.33,73.03-289.63,0-101.55-38.36-157.48-108.01-157.48Z M171.21,994.96c-38.63,0-66.97-12.37-86.71-37.89-23.15-29.54-35.24-65.15-36.83-108.61H-.37c3.29,52.34,19.6,97.68,48.61,135.01,28.94,37.23,71.13,56.11,125.4,56.11,99.65,0,239.91-64.28,417.26-191.12h-88.35c-118.67,80.33-243.43,146.51-331.35,146.51Z" fill="#2a3140" transform="translate(10,14)"/><path d="M662.23,0c-55.95,0-129.76,38.57-219.4,114.63-81.29,68.36-281.45,252.13-384.24,481.58C19.71,683.77,0,761.86,0,828.33c0,60.67,16.5,112.66,49.03,154.52,28.74,36.97,70.67,55.72,124.61,55.72,105.42,0,256.51-72.17,449.08-214.49,135.23-99.95,246.68-202.15,277.62-231.09l3.43-2.93.95-3.15c1.02-3.39,1.02-6.06,1.02-7.83,0-13.8-10.92-23.82-25.97-23.82-6.64,0-16.94,2.16-28.32,12.42l-1.19,1.22c-25.93,29.14-463.24,427.06-679.06,427.06-38.96,0-67.58-12.52-87.5-38.28-25.05-31.97-37.23-70.99-37.23-119.3,0-60.79,19.99-135.25,61.11-227.63,100.42-224.34,307.48-399.78,385.42-465.83l5.19-4.4c89.29-75.52,138.81-91.37,164.63-91.37,21.16,0,56.67,13.03,56.67,100.3,0,52.98-13.85,120.51-37.04,180.65-23.82,61.78-47.88,88.8-57.44,91.32l-.32.08-.31-.12c-.22-.09-.44-.18-.66-.28-.18-.08-.37-.16-.56-.24l-14.13-5.84-5.82,12.02c-3.09,6.38-4.65,12.4-4.65,17.87,0,18.17,18.33,31.35,43.59,31.35,22.16,0,48.17-9.98,55-29.05l.04-.1c45.05-92.35,73.03-203.33,73.03-289.63,0-101.55-38.36-157.48-108.01-157.48Z M171.21,994.96c-38.63,0-66.97-12.37-86.71-37.89-23.15-29.54-35.24-65.15-36.83-108.61H-.37c3.29,52.34,19.6,97.68,48.61,135.01,28.94,37.23,71.13,56.11,125.4,56.11,99.65,0,239.91-64.28,417.26-191.12h-88.35c-118.67,80.33-243.43,146.51-331.35,146.51Z" fill="url(#mldg)" filter="url(#mldi)"/><path d="M662.23,0c-55.95,0-129.76,38.57-219.4,114.63-81.29,68.36-281.45,252.13-384.24,481.58C19.71,683.77,0,761.86,0,828.33c0,60.67,16.5,112.66,49.03,154.52,28.74,36.97,70.67,55.72,124.61,55.72,105.42,0,256.51-72.17,449.08-214.49,135.23-99.95,246.68-202.15,277.62-231.09l3.43-2.93.95-3.15c1.02-3.39,1.02-6.06,1.02-7.83,0-13.8-10.92-23.82-25.97-23.82-6.64,0-16.94,2.16-28.32,12.42l-1.19,1.22c-25.93,29.14-463.24,427.06-679.06,427.06-38.96,0-67.58-12.52-87.5-38.28-25.05-31.97-37.23-70.99-37.23-119.3,0-60.79,19.99-135.25,61.11-227.63,100.42-224.34,307.48-399.78,385.42-465.83l5.19-4.4c89.29-75.52,138.81-91.37,164.63-91.37,21.16,0,56.67,13.03,56.67,100.3,0,52.98-13.85,120.51-37.04,180.65-23.82,61.78-47.88,88.8-57.44,91.32l-.32.08-.31-.12c-.22-.09-.44-.18-.66-.28-.18-.08-.37-.16-.56-.24l-14.13-5.84-5.82,12.02c-3.09,6.38-4.65,12.4-4.65,17.87,0,18.17,18.33,31.35,43.59,31.35,22.16,0,48.17-9.98,55-29.05l.04-.1c45.05-92.35,73.03-203.33,73.03-289.63,0-101.55-38.36-157.48-108.01-157.48Z M171.21,994.96c-38.63,0-66.97-12.37-86.71-37.89-23.15-29.54-35.24-65.15-36.83-108.61H-.37c3.29,52.34,19.6,97.68,48.61,135.01,28.94,37.23,71.13,56.11,125.4,56.11,99.65,0,239.91-64.28,417.26-191.12h-88.35c-118.67,80.33-243.43,146.51-331.35,146.51Z" fill="none" stroke="#fff" stroke-width="2" opacity=".7" transform="translate(-3,-4)"/></g></svg></div>
+  <span class="ld-tag">Tap to skip</span>
+</div>
+<div class="prog" aria-hidden="true"></div>
+<div class="pg">
+<header class="hd ">
+  <a class="hd-logo" href="#top" aria-label="Cielle &amp; Co home"><img src="img/logo.png" alt="Cielle &amp; Co" width="168" height="56"></a>
+  <nav class="hd-nav" aria-label="Main"><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  <a class="btn hd-cta" href="#contact">Contact</a>
+</header>
+<nav class="vnav" aria-label="Sections"><a href="#about" data-chap="about">About</a><a href="#story" data-chap="story">Story</a><a href="#services" data-chap="services">Services</a><a href="#process" data-chap="process">Process</a><a href="#faq" data-chap="faq">Questions</a><a href="#contact" data-chap="contact">Contact</a></nav>
+<section class="hero">
+  <div class="frame ph-in"><svg viewBox="0 0 905.75 1038.57" aria-hidden="true"><defs><clipPath id="cclip" clipPathUnits="objectBoundingBox" transform="scale(0.0011041,0.00096286)"><path d="M662.23,0c-55.95,0-129.76,38.57-219.4,114.63-81.29,68.36-281.45,252.13-384.24,481.58C19.71,683.77,0,761.86,0,828.33c0,60.67,16.5,112.66,49.03,154.52,28.74,36.97,70.67,55.72,124.61,55.72,105.42,0,256.51-72.17,449.08-214.49,135.23-99.95,246.68-202.15,277.62-231.09l3.43-2.93.95-3.15c1.02-3.39,1.02-6.06,1.02-7.83,0-13.8-10.92-23.82-25.97-23.82-6.64,0-16.94,2.16-28.32,12.42l-1.19,1.22c-25.93,29.14-463.24,427.06-679.06,427.06-38.96,0-67.58-12.52-87.5-38.28-25.05-31.97-37.23-70.99-37.23-119.3,0-60.79,19.99-135.25,61.11-227.63,100.42-224.34,307.48-399.78,385.42-465.83l5.19-4.4c89.29-75.52,138.81-91.37,164.63-91.37,21.16,0,56.67,13.03,56.67,100.3,0,52.98-13.85,120.51-37.04,180.65-23.82,61.78-47.88,88.8-57.44,91.32l-.32.08-.31-.12c-.22-.09-.44-.18-.66-.28-.18-.08-.37-.16-.56-.24l-14.13-5.84-5.82,12.02c-3.09,6.38-4.65,12.4-4.65,17.87,0,18.17,18.33,31.35,43.59,31.35,22.16,0,48.17-9.98,55-29.05l.04-.1c45.05-92.35,73.03-203.33,73.03-289.63,0-101.55-38.36-157.48-108.01-157.48Z M171.21,994.96c-38.63,0-66.97-12.37-86.71-37.89-23.15-29.54-35.24-65.15-36.83-108.61H-.37c3.29,52.34,19.6,97.68,48.61,135.01,28.94,37.23,71.13,56.11,125.4,56.11,99.65,0,239.91-64.28,417.26-191.12h-88.35c-118.67,80.33-243.43,146.51-331.35,146.51Z"/></clipPath></defs><path d="M662.23,0c-55.95,0-129.76,38.57-219.4,114.63-81.29,68.36-281.45,252.13-384.24,481.58C19.71,683.77,0,761.86,0,828.33c0,60.67,16.5,112.66,49.03,154.52,28.74,36.97,70.67,55.72,124.61,55.72,105.42,0,256.51-72.17,449.08-214.49,135.23-99.95,246.68-202.15,277.62-231.09l3.43-2.93.95-3.15c1.02-3.39,1.02-6.06,1.02-7.83,0-13.8-10.92-23.82-25.97-23.82-6.64,0-16.94,2.16-28.32,12.42l-1.19,1.22c-25.93,29.14-463.24,427.06-679.06,427.06-38.96,0-67.58-12.52-87.5-38.28-25.05-31.97-37.23-70.99-37.23-119.3,0-60.79,19.99-135.25,61.11-227.63,100.42-224.34,307.48-399.78,385.42-465.83l5.19-4.4c89.29-75.52,138.81-91.37,164.63-91.37,21.16,0,56.67,13.03,56.67,100.3,0,52.98-13.85,120.51-37.04,180.65-23.82,61.78-47.88,88.8-57.44,91.32l-.32.08-.31-.12c-.22-.09-.44-.18-.66-.28-.18-.08-.37-.16-.56-.24l-14.13-5.84-5.82,12.02c-3.09,6.38-4.65,12.4-4.65,17.87,0,18.17,18.33,31.35,43.59,31.35,22.16,0,48.17-9.98,55-29.05l.04-.1c45.05-92.35,73.03-203.33,73.03-289.63,0-101.55-38.36-157.48-108.01-157.48Z M171.21,994.96c-38.63,0-66.97-12.37-86.71-37.89-23.15-29.54-35.24-65.15-36.83-108.61H-.37c3.29,52.34,19.6,97.68,48.61,135.01,28.94,37.23,71.13,56.11,125.4,56.11,99.65,0,239.91-64.28,417.26-191.12h-88.35c-118.67,80.33-243.43,146.51-331.35,146.51Z" fill="none" stroke="#15181d" stroke-width="3"/></svg><img class="kb" src="img/hero-hall.jpg" alt="" width="1920" height="1280"><span class="stat" data-clock aria-label="Local time in Toronto">Toronto · <b data-clock-out>--:--</b> · 43.65° N, 79.38° W</span></div>
+  <div class="hero-in" style="display:grid;gap:28px">
+    <h1 data-split>Cielle &amp; Co is where strategy meets execution.</h1>
+    <a class="btn" href="#about" data-reveal style="--d:700ms">Learn More<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+<div class="mq" aria-hidden="true" style="--mq:40s"><div class="mq-t"><span>Event strategy · Production · Consulting · Experience design · Amplification · Fractional leadership · · Event strategy · Production · Consulting · Experience design · Amplification · Fractional leadership · · Event strategy · Production · Consulting · Experience design · Amplification · Fractional leadership · · Event strategy · Production · Consulting · Experience design · Amplification · Fractional leadership · · Event strategy · Production · Consulting · Experience design · Amplification · Fractional leadership · · Event strategy · Production · Consulting · Experience design · Amplification · Fractional leadership · · </span></div><div class="mq-t"><span>Event strategy · Production · Consulting · Experience design · Amplification · Fractional leadership · · Event strategy · Production · Consulting · Experience design · Amplification · Fractional leadership · · Event strategy · Production · Consulting · Experience design · Amplification · Fractional leadership · · Event strategy · Production · Consulting · Experience design · Amplification · Fractional leadership · · Event strategy · Production · Consulting · Experience design · Amplification · Fractional leadership · · Event strategy · Production · Consulting · Experience design · Amplification · Fractional leadership · · </span></div></div>
+<section class="ab" id="about">
+  <p class="eyebrow ab-eye" data-reveal>about</p>
+  <div class="ab-ph" data-reveal="clip"><img src="img/carly.jpg" alt="Carly Silberstein, founder of Cielle &amp; Co" width="768" height="1102" data-zoom></div>
+  <div class="ab-tx">
+    <h2 data-split>Cielle &amp; Co is built to scale vision, accelerate momentum, and deliver world-class experiences.</h2>
+    <p data-reveal style="--d:120ms">Led by <mark>Carly Silberstein</mark>, a proven entrepreneur and industry force, Cielle &amp; Co exists for one purpose: to bring big ideas to life. From event design to strategic consulting, we operate at the intersection of business acumen and creative precision. Founder-led but built to scale, we partner with brands, entrepreneurs, and organizations that are ready to grow—and unwilling to settle for ordinary.</p>
+    <p class="ab-lead" data-reveal style="--d:200ms">From startup to scale, this isn't our first chapter—it's the next one.</p>
+  </div>
+</section>
+<section class="man" id="story">
+  <p class="eyebrow" data-reveal>our story</p>
+  <p class="type" data-type>Cielle &amp; Co was born from a decade of entrepreneurial leadership, creative problem solving, and doing things differently. Founded by Carly Silberstein after growing one of Canada's leading event agencies, Cielle &amp; Co represents the next evolution in how event services are delivered: bold, boutique, strategic, and scalable.</p>
+  <p class="man-big" data-reveal>We're not here to follow tradition. We're here to build what's next—with intention, edge, and excellence.</p>
+</section>
+<section class="pp pp-c" id="principles">
+  <div class="wrap"><p class="eyebrow" data-reveal><span class="new">Added</span> four words we mean</p></div>
+  <ul class="pp-l"><li data-reveal style="--d:0ms"><h3>Bold</h3><p>We'd rather build something people talk about than something that's safe.</p></li><li data-reveal style="--d:90ms"><h3>Boutique</h3><p>Senior people on every project. You work with the team you met.</p></li><li data-reveal style="--d:180ms"><h3>Strategic</h3><p>Every decision traces back to a business goal, not a mood board.</p></li><li data-reveal style="--d:270ms"><h3>Scalable</h3><p>From an intimate leadership retreat to a multi-day, multi-city program, the standard doesn't change.</p></li></ul>
+</section>
+<section class="tbl" id="services">
+  <div class="wrap"><h2 data-split>services</h2>
+    <div class="sort" role="group" aria-label="Sort services"><button type="button" data-sort="n" aria-pressed="true">Order</button><button type="button" data-sort="t">A to Z</button><button type="button" data-sort="k">Most included</button></div></div>
+  <div class="tbl-wrap"><table data-table><thead><tr><th>#</th><th>Service</th><th>Items</th><th>Services include</th></tr></thead><tbody><tr data-n="1" data-t="event &amp; innovation" data-k="3"><td class="mono">01</td><td class="tt">Event &amp; Innovation<span class="tp">As experts in the business of events, we support organizations looking to elevate their event strategy, integrate tech, or launch innovative experiences that drive results.</span></td><td class="tk">3</td><td class="ti">Event business consulting, Productized service creation, Tech stack audits &amp; sourcing</td></tr><tr data-n="2" data-t="event management &amp; production" data-k="5"><td class="mono">02</td><td class="tt">Event Management &amp; Production<span class="tp">From ideation to execution, we create meaningful, high-impact events (virtual, hybrid, and in-person) that connect, convert, and leave a lasting impression.</span></td><td class="tk">5</td><td class="ti">Project management &amp; logistics, Vendor &amp; venue sourcing, Staffing and execution, Speaker &amp; content curation, Partnership &amp; content curation</td></tr><tr data-n="3" data-t="strategic consulting" data-k="4"><td class="mono">03</td><td class="tt">Strategic Consulting<span class="tp">We offer sharp, actionable advice for businesses and entrepreneurs who are ready to grow with clarity and intention.</span></td><td class="tk">4</td><td class="ti">Business model refinement, Scaling &amp; systems strategy, Pricing &amp; productization, Client experience design</td></tr><tr data-n="4" data-t="experience design" data-k="4"><td class="mono">04</td><td class="tt">Experience Design<span class="tp">We don't do cookie-cutter. Every experience we craft is purpose-built to elevate your brand and engage your audience.</span></td><td class="tk">4</td><td class="ti">Concept development, Program architecture, Branded moments, Immersive elements</td></tr><tr data-n="5" data-t="influence &amp; industry amplification" data-k="4"><td class="mono">05</td><td class="tt">Influence &amp; Industry Amplification<span class="tp">With deep roots in the business of events, an unmatched network, and a founder-led platform, we help brands scale faster by plugging into the right people, conversations, and opportunities.</span></td><td class="tk">4</td><td class="ti">Strategic introductions &amp; deal matchmaking, Industry visibility &amp; media alignment, Founder-led influence campaigns (content, podcast, speaking), Distribution across a high-trust, high-reach network</td></tr><tr data-n="6" data-t="fractional executive leadership" data-k="3"><td class="mono">06</td><td class="tt">Fractional Executive Leadership<span class="tp">For growing companies not ready to hire a full C-suite, we offer seasoned, hands-on leadership to drive progress without the overhead. You'll get more than advice—you'll get action.</span></td><td class="tk">3</td><td class="ti">Fractional CEO / CRO, Interim leadership during transitions, Board &amp; advisory participation</td></tr></tbody></table></div>
+</section>
+<section class="pr pr-c" id="process">
+  <div class="pr-h"><p class="eyebrow" data-reveal><span class="new">Added</span> how we work</p><h2 data-split>From brief to debrief.</h2></div>
+  <ol class="pr-l"><li data-reveal style="--d:0ms"><span class="pr-n">01</span><h3>Listen</h3><p>Every engagement starts with the brief behind the brief: your goals, your audience, your constraints, and what success actually looks like.</p></li><li data-reveal style="--d:90ms"><span class="pr-n">02</span><h3>Shape</h3><p>Strategy, creative concept, budget architecture and run of show, built together before a single vendor is booked.</p></li><li data-reveal style="--d:180ms"><span class="pr-n">03</span><h3>Build</h3><p>Venues, partners, production, technology and talent, managed with the discipline of an agency and the care of a boutique.</p></li><li data-reveal style="--d:270ms"><span class="pr-n">04</span><h3>Run &amp; review</h3><p>On-site leadership from load-in to strike, then a candid debrief so the next one starts further ahead.</p></li></ol>
+</section>
+<section class="fm fm-c" id="formats">
+  <div class="fm-h wrap"><p class="eyebrow" data-reveal><span class="new">Added</span> what we bring to life</p><h2 data-split>Any room. Any scale.</h2></div>
+  <ul class="fm-l cards--swipe"><li data-reveal style="--d:0ms"><img src="img/hero-keynote.jpg" alt="" loading="lazy" width="640" height="800"><span class="fm-n">01</span><h3>Conferences &amp; summits</h3></li><li data-reveal style="--d:80ms"><img src="img/hero-stage.jpg" alt="" loading="lazy" width="640" height="800"><span class="fm-n">02</span><h3>Product launches</h3></li><li data-reveal style="--d:160ms"><img src="img/hero-drape.jpg" alt="" loading="lazy" width="640" height="800"><span class="fm-n">03</span><h3>Incentive trips &amp; retreats</h3></li><li data-reveal style="--d:240ms"><img src="img/hero-beams.jpg" alt="" loading="lazy" width="640" height="800"><span class="fm-n">04</span><h3>Galas &amp; awards</h3></li><li data-reveal style="--d:0ms"><img src="img/hero-hands.jpg" alt="" loading="lazy" width="640" height="800"><span class="fm-n">05</span><h3>Brand activations</h3></li><li data-reveal style="--d:80ms"><img src="img/hero-lights.jpg" alt="" loading="lazy" width="640" height="800"><span class="fm-n">06</span><h3>Hybrid &amp; virtual</h3></li><li data-reveal style="--d:160ms"><img src="img/hero-hall.jpg" alt="" loading="lazy" width="640" height="800"><span class="fm-n">07</span><h3>Town halls &amp; internal events</h3></li><li data-reveal style="--d:240ms"><img src="img/hero-stagewide.jpg" alt="" loading="lazy" width="640" height="800"><span class="fm-n">08</span><h3>Trade shows &amp; exhibitions</h3></li></ul>
+</section>
+<section class="fq fq-c" id="faq">
+  <div class="fq-h"><p class="eyebrow" data-reveal><span class="new">Added</span> good questions</p><h2 data-split>Before we talk.</h2></div>
+  <div class="fq-l"><details class="fq-i" data-reveal style="--d:0ms"><summary><span>Do you take on single events or ongoing work?</span><i></i></summary><p>Both. Some clients bring us one flagship moment. Others keep us on as a fractional events team or an executive seat at the table.</p></details><details class="fq-i" data-reveal style="--d:60ms"><summary><span>When should we reach out?</span><i></i></summary><p>Earlier than you think. Strategy has the most leverage before venues, dates and budgets are locked, but we've joined mid-stream plenty of times.</p></details><details class="fq-i" data-reveal style="--d:120ms"><summary><span>Do you work alongside in-house teams?</span><i></i></summary><p>Yes. We slot in beside marketing, sales and leadership teams, and we're comfortable leading, supporting or advising.</p></details><details class="fq-i" data-reveal style="--d:180ms"><summary><span>Where do you work?</span><i></i></summary><p>Based in Toronto and built to travel. Wherever the event is, so are we.</p></details><details class="fq-i" data-reveal style="--d:240ms"><summary><span>What does fractional executive leadership look like?</span><i></i></summary><p>A senior events leader embedded in your business for a set number of days a month, without the full-time hire.</p></details></div>
+</section>
+<section class="nt nt-c" id="notes">
+  <div class="nt-in" data-reveal>
+    <p class="eyebrow"><span class="new">Added</span> notes from Cielle &amp; Co</p>
+    <h2>Occasional thinking on events, strategy and what's next. No noise.</h2>
+    <form class="nt-f" data-notes><label class="sr" for="nt-e-c">Email</label><input id="nt-e-c" type="email" required placeholder="you@company.com"><button class="btn" type="submit">Subscribe<svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><p class="nt-ok">Thanks. You're on the list.</p></form>
+    <p class="nt-s">One email now and then. Unsubscribe any time.</p>
+  </div>
+</section>
+<section class="ct " id="contact">
+  <div class="ct-tx">
+    <h2 data-split>Let's talk</h2>
+    <p data-reveal>Have a project in mind? Looking for a strategic partner? Just want to connect?</p>
+    <p class="ct-b" data-reveal style="--d:100ms">Drop us a note—we'd love to meet you.</p>
+    <p class="ct-note" data-reveal style="--d:160ms"><span class="new">New</span> Tell us about the project in a few taps and Carly's team gets the full picture before the first call.</p>
+  </div>
+  <div class="ct-form" data-reveal style="--d:120ms">
+<form class="st" data-starter novalidate>
+  <div class="st-body">
+    <div class="st-top"><span class="st-count">Step 1 of 4</span><span>Start a project</span></div>
+    <div class="st-bar"><i></i></div>
+    <fieldset class="st-step">
+      <legend>What can we help with?</legend>
+      <div class="st-chips">
+        <label class="st-chip"><input type="checkbox" name="service" value="Event &amp; Innovation"><span>Event &amp; Innovation</span></label>
+        <label class="st-chip"><input type="checkbox" name="service" value="Event Management &amp; Production"><span>Event Management &amp; Production</span></label>
+        <label class="st-chip"><input type="checkbox" name="service" value="Strategic Consulting"><span>Strategic Consulting</span></label>
+        <label class="st-chip"><input type="checkbox" name="service" value="Experience Design"><span>Experience Design</span></label>
+        <label class="st-chip"><input type="checkbox" name="service" value="Influence &amp; Industry Amplification"><span>Influence &amp; Industry Amplification</span></label>
+        <label class="st-chip"><input type="checkbox" name="service" value="Fractional Executive Leadership"><span>Fractional Executive Leadership</span></label>
+      </div>
+    </fieldset>
+    <fieldset class="st-step" hidden>
+      <legend>What kind of project?</legend>
+      <div class="st-chips">
+        <label class="st-chip"><input type="radio" name="format" value="In-person"><span>In-person</span></label>
+        <label class="st-chip"><input type="radio" name="format" value="Hybrid"><span>Hybrid</span></label>
+        <label class="st-chip"><input type="radio" name="format" value="Virtual"><span>Virtual</span></label>
+        <label class="st-chip"><input type="radio" name="format" value="Business growth"><span>Business growth</span></label>
+      </div>
+    </fieldset>
+    <fieldset class="st-step" hidden>
+      <legend>When are you hoping to start?</legend>
+      <div class="st-chips">
+        <label class="st-chip"><input type="radio" name="when" value="Right away"><span>Right away</span></label>
+        <label class="st-chip"><input type="radio" name="when" value="In the next 3 months"><span>In the next 3 months</span></label>
+        <label class="st-chip"><input type="radio" name="when" value="Later this year"><span>Later this year</span></label>
+        <label class="st-chip"><input type="radio" name="when" value="Just want to connect"><span>Just want to connect</span></label>
+      </div>
+    </fieldset>
+    <fieldset class="st-step" hidden>
+      <legend>Drop us a note—we'd love to meet you.</legend>
+      <p class="st-sum"></p>
+      <div class="st-fields">
+        <label>First Name *<input name="first" autocomplete="given-name" required></label>
+        <label>Email Address *<input name="email" type="email" autocomplete="email" required></label>
+        <label>Phone Number<input name="phone" type="tel" autocomplete="tel"></label>
+        <label>Company *<input name="company" autocomplete="organization" required></label>
+        <label>Message *<textarea name="message" rows="3" maxlength="1000" required></textarea></label>
+      </div>
+    </fieldset>
+    <div class="st-nav">
+      <button type="button" class="st-back" data-go="-1">Back</button>
+      <button type="button" class="btn st-go" data-go="1">Next<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <button type="submit" class="btn st-go st-submit">Submit<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+  <div class="st-done" role="status">
+    <p>Thank you.</p>
+    <span>Your note is on its way to Cielle &amp; Co. (Preview: nothing was sent.)</span>
+  </div>
+</form>
+</div>
+</section>
+<footer class="ft" data-reveal>
+  <img src="img/logo.png" alt="Cielle &amp; Co" width="168" height="56">
+  <nav aria-label="Footer"><a href="#top">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  <div class="soc"><a href="https://www.linkedin.com/company/cielle-co/" aria-label="LinkedIn"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-7M11 13.5c0-2 1.2-3.5 3-3.5s3 1.2 3 3.5V17"/></svg></a><a href="https://www.instagram.com/cielle_co" aria-label="Instagram"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5v.01"/></svg></a></div>
+  <p>© 2026 Cielle &amp; Co. All Rights Reserved.</p>
+</footer>
+<a class="fab btn" href="#contact" aria-label="Contact"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Contact</a>
+</div>
+<div class="wm" aria-hidden="true"></div>
+<div class="opt-tag">C · Preview by Chairlift</div>
+<script src="fx.js" defer></script>
+</body>
+</html>
