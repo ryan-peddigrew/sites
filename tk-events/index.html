@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>TK Events | Experiential event agency, Toronto, Vancouver and London</title>
+<meta name="description" content="An award-winning experiential agency producing live, hybrid and virtual events. Toronto, Vancouver and London, UK.">
+<meta name="theme-color" content="#04202b">
+<link rel="icon" href="img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero-1.jpg">
+<style>
+:root{
+  --ink:#04202b; --teal:#004259; --teal2:#0b5470; --lime:#c5d201; --silver:#b2bfcc;
+  --paper:#eef1ec; --paper2:#e2e7e1; --white:#fff; --mut:#8fa3ae; --line:rgba(178,191,204,.22);
+  --disp:'Bricolage Grotesque',system-ui,sans-serif; --mono:'DM Mono',ui-monospace,monospace;
+  --pad:clamp(16px,4vw,56px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:var(--white);font:400 17px/1.55 var(--disp);font-variation-settings:"opsz" 16;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.wrap{padding:0 var(--pad);max-width:1440px;margin:0 auto}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;font:600 15px var(--disp);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn svg{width:18px;height:18px}
+.btn-lime{background:var(--lime);color:var(--ink)}
+.btn-lime:hover{transform:translateY(-2px)}
+.btn-line{border-color:rgba(255,255,255,.45);color:#fff;background:rgba(4,32,43,.25);backdrop-filter:blur(6px)}
+.btn-line:hover{background:#fff;color:var(--ink)}
+.btn-ink{background:var(--teal);color:#fff}
+.btn-ink:hover{background:var(--ink)}
+
+/* ---------- top bar ---------- */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px var(--pad);padding-top:max(12px,env(safe-area-inset-top));transition:background .3s,backdrop-filter .3s}
+.top.solid{background:rgba(4,32,43,.82);backdrop-filter:blur(12px)}
+.top .logo{display:flex;align-items:center;min-height:44px}
+.top .logo img{height:40px;width:auto}
+.top .status{display:none;gap:22px;color:var(--silver)}
+.top .status b{color:#fff;font-weight:500}
+.top .right{display:flex;gap:10px;align-items:center}
+.menu-btn{min-height:44px;min-width:44px;display:inline-flex;align-items:center;gap:10px;padding:0 18px;border-radius:999px;background:#fff;color:var(--ink);border:0;font:600 15px var(--disp);cursor:pointer}
+.menu-btn i{display:block;width:16px;height:2px;background:currentColor;position:relative;transition:.3s}
+.menu-btn i::before,.menu-btn i::after{content:"";position:absolute;left:0;width:16px;height:2px;background:currentColor;transition:.3s}
+.menu-btn i::before{top:-5px}.menu-btn i::after{top:5px}
+.open .menu-btn i{background:transparent}
+.open .menu-btn i::before{top:0;transform:rotate(45deg)}
+.open .menu-btn i::after{top:0;transform:rotate(-45deg)}
+.top .plan{display:none}
+@media(min-width:980px){.top .status{display:flex}.top .plan{display:inline-flex}}
+
+/* menu overlay */
+.menu{position:fixed;inset:0;z-index:40;background:var(--teal);display:flex;flex-direction:column;justify-content:center;padding:96px var(--pad) 40px;clip-path:circle(0% at calc(100% - 60px) 34px);transition:clip-path .6s cubic-bezier(.7,0,.2,1);visibility:hidden}
+.open .menu{clip-path:circle(150% at calc(100% - 60px) 34px);visibility:visible}
+.menu ol{list-style:none;counter-reset:c}
+.menu li a{display:flex;align-items:baseline;gap:18px;text-decoration:none;padding:4px 0;min-height:48px}
+.menu li a span{font:500 12px var(--mono);color:var(--lime);letter-spacing:.12em;min-width:56px}
+.menu li a strong{font:800 clamp(34px,8vw,92px)/1 var(--disp);font-variation-settings:"wdth" 78,"opsz" 96;text-transform:uppercase;letter-spacing:-.01em;transition:color .2s,transform .3s}
+.menu li a:hover strong{color:var(--lime);transform:translateX(10px)}
+.menu .foot{margin-top:36px;display:flex;flex-wrap:wrap;gap:12px 28px;color:var(--silver)}
+.menu .foot a{min-height:44px;display:inline-flex;align-items:center}
+
+/* ---------- cue HUD (show-caller) ---------- */
+.hud{position:fixed;left:var(--pad);bottom:max(16px,env(safe-area-inset-bottom));z-index:30;display:none;align-items:center;gap:12px;padding:10px 16px;border-radius:999px;background:rgba(4,32,43,.78);backdrop-filter:blur(10px);border:1px solid var(--line);color:var(--silver);opacity:0;transform:translateY(10px);transition:.4s}
+.hud.on{opacity:1;transform:none}
+.hud .dot{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 rgba(197,210,1,.6);animation:pulse 2s infinite}
+.hud b{color:#fff;font-weight:500}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(197,210,1,0)}100%{box-shadow:0 0 0 0 rgba(197,210,1,0)}}
+@media(min-width:760px){.hud{display:flex}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;isolation:isolate}
+.slides{position:absolute;inset:0;z-index:-2}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.6s ease,transform 7s linear}
+.slides img.on{opacity:1;transform:scale(1)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(4,32,43,.55) 0%,rgba(4,32,43,0) 28%,rgba(4,32,43,.25) 55%,rgba(4,32,43,.95) 100%)}
+.hero .wrap{width:100%;padding-bottom:28px}
+.hero .cue{color:var(--lime);margin-bottom:18px;display:flex;gap:12px;align-items:center}
+.hero .cue::before{content:"";width:28px;height:2px;background:var(--lime)}
+.hero h1{font:800 clamp(52px,13.5vw,196px)/.86 var(--disp);font-variation-settings:"wdth" 75,"opsz" 96;text-transform:uppercase;letter-spacing:-.015em}
+.hero h1 em{font-style:normal;color:var(--lime)}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln>span{display:block;transform:translateY(105%);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 .ln:nth-child(2)>span{animation-delay:.12s}
+.hero h1 .ln:nth-child(3)>span{animation-delay:.24s}
+@keyframes rise{to{transform:none}}
+.hero .lede{max-width:34ch;font-size:clamp(18px,2vw,22px);line-height:1.4;margin:22px 0 26px;color:#e8eef2}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:10px}
+.hero .strip{margin-top:34px;border-top:1px solid var(--line);padding-top:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;color:var(--silver)}
+.hero .strip b{color:#fff;font-weight:500}
+.hero .now{min-height:1.4em}
+.hero .clocks{display:flex;gap:18px}
+
+/* ---------- section scaffolding ---------- */
+section{position:relative}
+.head{display:flex;flex-direction:column;gap:14px;margin-bottom:clamp(28px,5vw,56px)}
+.tag{display:inline-flex;gap:12px;align-items:center;color:var(--lime)}
+.tag::before{content:"";width:28px;height:2px;background:currentColor}
+.h2{font:800 clamp(40px,8vw,112px)/.9 var(--disp);font-variation-settings:"wdth" 75,"opsz" 96;text-transform:uppercase;letter-spacing:-.01em}
+.sub{max-width:52ch;color:var(--silver);font-size:18px}
+.pad{padding:clamp(72px,11vw,150px) 0}
+
+/* ---------- moment ---------- */
+.moment .big{font:600 clamp(28px,4.6vw,64px)/1.08 var(--disp);font-variation-settings:"opsz" 72;letter-spacing:-.015em;max-width:22ch}
+.moment .big .w{color:rgba(255,255,255,.18);transition:color .4s}
+.moment .big .w.lit{color:#fff}
+.moment .big .w.hl.lit{color:var(--lime)}
+.moment .row{display:grid;grid-template-columns:1fr;gap:28px;margin-top:clamp(40px,6vw,80px);align-items:end}
+.moment .row p{max-width:44ch;color:var(--silver)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden;margin-top:clamp(40px,6vw,72px)}
+.stat{background:var(--ink);padding:22px 18px 20px}
+.stat strong{display:block;font:800 clamp(44px,7vw,96px)/.9 var(--disp);font-variation-settings:"wdth" 75,"opsz" 96;color:#fff}
+.stat span{display:block;margin-top:10px;color:var(--silver)}
+@media(min-width:760px){.stats{grid-template-columns:repeat(4,1fr)}.moment .row{grid-template-columns:1fr 1fr}}
+
+/* ---------- services: cue list ---------- */
+.services{background:var(--teal)}
+.cues{border-top:1px solid rgba(255,255,255,.25)}
+.cues details{border-bottom:1px solid rgba(255,255,255,.25)}
+.cues summary{list-style:none;display:grid;grid-template-columns:56px 1fr 44px;align-items:center;gap:10px;padding:20px 0;cursor:pointer;min-height:64px}
+.cues summary::-webkit-details-marker{display:none}
+.cues .n{color:var(--lime)}
+.cues .t{font:800 clamp(28px,6vw,84px)/.95 var(--disp);font-variation-settings:"wdth" 75,"opsz" 96;text-transform:uppercase;transition:transform .35s,color .3s}
+.cues summary:hover .t{transform:translateX(12px)}
+.cues .pm{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.4);display:grid;place-items:center;transition:transform .3s,background .3s}
+.cues .pm svg{width:18px;height:18px}
+.cues details[open] .pm{transform:rotate(45deg);background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.cues .body{display:grid;grid-template-columns:1fr;gap:22px;padding:0 0 30px 0}
+.cues .body img{border-radius:18px;aspect-ratio:16/10;object-fit:cover;width:100%}
+.cues .body p{color:#dce6ea;max-width:52ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;list-style:none}
+.chips li{padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.3);font-size:14px}
+@media(min-width:900px){.cues .body{grid-template-columns:1.1fr 1fr;padding-left:66px}.cues summary{grid-template-columns:66px 1fr 44px}}
+.peek{position:fixed;left:0;top:0;width:340px;aspect-ratio:4/3;border-radius:16px;overflow:hidden;pointer-events:none;z-index:20;opacity:0;transform:translate(-50%,-50%) scale(.85) rotate(-3deg);transition:opacity .25s,transform .25s;box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.peek.on{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-3deg)}
+.peek img{width:100%;height:100%;object-fit:cover}
+@media(hover:none),(max-width:899px){.peek{display:none}}
+
+/* ---------- work reel ---------- */
+.reel-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.arrows{display:flex;gap:8px}
+.arrows button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer}
+.arrows button:hover{background:#fff;color:var(--ink)}
+.arrows svg{width:20px;height:20px}
+.reel{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px var(--pad) 18px;scrollbar-width:none;scroll-padding-left:var(--pad)}
+.reel::-webkit-scrollbar{display:none}
+.frame{flex:0 0 auto;width:min(78vw,420px);scroll-snap-align:start;position:relative}
+.frame.wide{width:min(88vw,640px)}
+.frame figure{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/5;background:var(--teal)}
+.frame.wide figure{aspect-ratio:16/12}
+.frame img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.frame:hover img{transform:scale(1.05)}
+.frame figcaption{position:absolute;left:0;right:0;bottom:0;padding:48px 18px 16px;background:linear-gradient(transparent,rgba(4,32,43,.92))}
+.frame figcaption .mono{color:var(--lime)}
+.frame figcaption strong{display:block;font:700 22px/1.15 var(--disp);margin-top:6px}
+
+/* ---------- clients ticker ---------- */
+.ticker{border-block:1px solid var(--line);overflow:hidden;padding:22px 0}
+.ticker .lbl{color:var(--silver);padding:0 var(--pad) 14px}
+.ticker .track{display:flex;width:max-content;animation:tick 60s linear infinite}
+.ticker ul{display:flex;list-style:none}
+.ticker li{font:700 clamp(26px,4vw,48px)/1 var(--disp);font-variation-settings:"wdth" 80;white-space:nowrap;padding:0 26px;color:#fff;display:flex;align-items:center;gap:52px}
+.ticker li::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--lime);margin-left:0}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- virtual ---------- */
+.virtual{background:linear-gradient(180deg,var(--ink),#062f3f)}
+.vgrid{display:grid;grid-template-columns:1fr;gap:28px}
+.screen{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/9;background:#000;border:1px solid var(--line)}
+.screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s}
+.screen img.on{opacity:1}
+.screen .live{position:absolute;top:14px;left:14px;display:flex;gap:8px;align-items:center;padding:7px 12px;border-radius:999px;background:rgba(4,32,43,.8);color:#fff}
+.screen .live i{width:8px;height:8px;border-radius:50%;background:var(--lime)}
+.vtabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.vtabs button{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--silver);font:500 14px var(--disp);cursor:pointer}
+.vtabs button[aria-selected=true]{background:#fff;color:var(--ink);border-color:#fff}
+.vlist{list-style:none;margin-top:22px;border-top:1px solid var(--line)}
+.vlist li{padding:14px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:30px 1fr;gap:6px}
+.vlist li b{display:block;font-weight:700;color:#fff}
+.vlist li span{color:var(--silver);font-size:15px}
+.vlist svg{width:22px;height:22px;color:var(--lime);margin-top:2px}
+@media(min-width:980px){.vgrid{grid-template-columns:1.35fr 1fr;align-items:start}.vsticky{position:sticky;top:96px}}
+
+/* ---------- light sections ---------- */
+.light{background:var(--paper);color:var(--ink)}
+.light .tag{color:var(--teal)}
+.light .sub{color:#45606b}
+.yrs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.yrs button{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid #b8c4c1;background:transparent;font:600 14px var(--disp);color:var(--ink);cursor:pointer}
+.yrs button[aria-pressed=true]{background:var(--teal);color:#fff;border-color:var(--teal)}
+.awards{width:100%;border-collapse:collapse}
+.awards th{text-align:left;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#5d7680;padding:0 10px 12px 0;border-bottom:2px solid var(--ink)}
+.awards td{padding:16px 10px 16px 0;border-bottom:1px solid #cdd6d3;vertical-align:top}
+.awards td:first-child{font:800 26px/1 var(--disp);font-variation-settings:"wdth" 75;width:80px}
+.awards td:nth-child(2){font-weight:700;width:38%}
+.awards tr{transition:background .2s}
+.awards tbody tr:hover{background:var(--paper2)}
+.awards tr.hide{display:none}
+@media(max-width:620px){.awards thead{display:none}.awards tr{display:grid;grid-template-columns:70px 1fr;padding:14px 0;border-bottom:1px solid #cdd6d3}.awards td{border:0;padding:0 0 2px}.awards td:first-child{grid-row:span 2;width:auto}.awards td:nth-child(2){width:auto}.awards td:nth-child(3){color:#45606b}}
+.alongside{display:grid;grid-template-columns:1fr;gap:28px;margin-top:40px}
+.badge{display:flex;gap:18px;align-items:center;padding:20px;border-radius:20px;background:#fff}
+.badge svg{width:40px;height:40px;flex:0 0 auto;color:var(--teal)}
+.badge p{font-size:16px}
+@media(min-width:900px){.alongside{grid-template-columns:1fr 1fr}}
+
+/* ---------- words ---------- */
+.words{background:var(--lime);color:var(--ink);overflow:hidden}
+.words .tag{color:var(--ink)}
+.quote{min-height:clamp(320px,40vw,420px);position:relative}
+.quote blockquote{position:absolute;inset:0;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s;pointer-events:none}
+.quote blockquote.on{opacity:1;transform:none;pointer-events:auto}
+.quote p{font:700 clamp(24px,3.6vw,48px)/1.12 var(--disp);font-variation-settings:"opsz" 72;letter-spacing:-.01em;max-width:28ch}
+.quote cite{display:block;margin-top:22px;font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;font-style:normal}
+.qnav{display:flex;align-items:center;gap:14px;margin-top:18px}
+.qnav button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.qnav button:hover{background:var(--ink);color:var(--lime)}
+.qnav svg{width:20px;height:20px}
+.qnav .count{font:500 13px var(--mono);letter-spacing:.1em}
+
+/* ---------- team ---------- */
+.crew{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 14px}
+.mate figure{border-radius:18px;overflow:hidden;aspect-ratio:1;background:#cfd8d5}
+.mate img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:filter .5s,transform .6s}
+.mate:hover img{filter:none;transform:scale(1.04)}
+.mate h3{font:800 22px/1.05 var(--disp);font-variation-settings:"wdth" 80;text-transform:uppercase;margin-top:12px}
+.mate .role{color:var(--teal);margin-top:4px;font-size:11px}
+.mate p{font-size:15px;color:#45606b;margin-top:8px}
+@media(min-width:760px){.crew{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1100px){.crew{grid-template-columns:repeat(5,1fr)}}
+.groupshot{margin-top:clamp(40px,6vw,72px);border-radius:24px;overflow:hidden;position:relative}
+.groupshot img{width:100%;aspect-ratio:16/8;object-fit:cover}
+.groupshot figcaption{position:absolute;left:16px;bottom:16px;right:16px;color:#fff;font:800 clamp(26px,4.4vw,60px)/.95 var(--disp);font-variation-settings:"wdth" 75;text-transform:uppercase;text-shadow:0 2px 24px rgba(0,0,0,.4)}
+@media(max-width:620px){.groupshot img{aspect-ratio:4/3}}
+
+/* ---------- impact ---------- */
+.impact{background:var(--teal)}
+.igrid{display:grid;grid-template-columns:1fr;gap:36px;align-items:center}
+.impact .bc{width:110px;height:auto}
+.impact .say{font:800 clamp(36px,6vw,84px)/.92 var(--disp);font-variation-settings:"wdth" 75,"opsz" 96;text-transform:uppercase}
+.impact .say span{color:var(--lime)}
+.vals{list-style:none;display:grid;gap:1px;background:rgba(255,255,255,.2);border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.2)}
+.vals li{background:var(--teal);padding:20px;display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start}
+.vals svg{width:40px;height:40px;color:#fff}
+.vals b{display:block;font-size:18px}
+.vals span{color:#d3dfe4;font-size:15px}
+@media(min-width:980px){.igrid{grid-template-columns:1fr 1fr}}
+
+/* ---------- contact ---------- */
+.contact .h2{font-size:clamp(52px,12vw,180px)}
+.offices{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden;margin:clamp(32px,5vw,56px) 0}
+.office{background:var(--ink);padding:22px 20px}
+.office .time{font:800 clamp(40px,5vw,64px)/1 var(--disp);font-variation-settings:"wdth" 75;color:#fff;margin:10px 0 6px}
+.office .mono{color:var(--silver)}
+.office .city{color:var(--lime)}
+@media(min-width:760px){.offices{grid-template-columns:repeat(3,1fr)}}
+.mails{display:grid;grid-template-columns:1fr;gap:12px}
+.mail{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px 22px;border-radius:20px;background:var(--teal);text-decoration:none;min-height:72px;transition:background .25s,color .25s}
+.mail:hover{background:var(--lime);color:var(--ink)}
+.mail small{display:block;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+.mail strong{font:700 clamp(19px,2.4vw,28px)/1.2 var(--disp);word-break:break-word}
+.mail svg{width:24px;height:24px;flex:0 0 auto}
+@media(min-width:760px){.mails{grid-template-columns:1fr 1fr}}
+footer{border-top:1px solid var(--line);padding:28px 0 calc(90px + env(safe-area-inset-bottom));color:var(--silver)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 22px}
+footer a{min-height:44px;display:inline-flex;align-items:center;text-decoration:none}
+footer a:hover{color:#fff}
+footer img{height:34px;width:auto}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .hero h1 .ln>span{transform:none}
+  .slides img{transform:none}
+  .rv{opacity:1;transform:none}
+  .moment .big .w{color:#fff}
+  .ticker .track{flex-wrap:wrap;width:auto}
+  .ticker ul+ul{display:none}
+  .ticker ul{flex-wrap:wrap;row-gap:14px}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <a class="logo" href="#home" aria-label="TK Events home"><img src="img/logo.png" alt="TK Events" width="155" height="90"></a>
+  <div class="status mono" aria-hidden="true">
+    <span>Toronto <b data-tz="America/Toronto">--:--</b></span>
+    <span>Vancouver <b data-tz="America/Vancouver">--:--</b></span>
+    <span>London <b data-tz="Europe/London">--:--</b></span>
+  </div>
+  <div class="right">
+    <a class="btn btn-lime plan" href="#contact">Plan your next event</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu"><i></i><span>Menu</span></button>
+  </div>
+</header>
+
+<nav class="menu" id="menu" aria-label="Main">
+  <ol>
+    <li><a href="#moment"><span>Cue 01</span><strong>The moment</strong></a></li>
+    <li><a href="#services"><span>Cue 02</span><strong>What we do</strong></a></li>
+    <li><a href="#work"><span>Cue 03</span><strong>Our work</strong></a></li>
+    <li><a href="#virtual"><span>Cue 04</span><strong>Virtual venues</strong></a></li>
+    <li><a href="#awards"><span>Cue 05</span><strong>Awards</strong></a></li>
+    <li><a href="#team"><span>Cue 06</span><strong>Our team</strong></a></li>
+    <li><a href="#contact"><span>Cue 07</span><strong>Let's collaborate</strong></a></li>
+  </ol>
+  <div class="foot mono">
+    <a href="mailto:info@tkevents.ca">info@tkevents.ca</a>
+    <a href="mailto:info@tkevents.co.uk">info@tkevents.co.uk</a>
+    <a href="https://www.instagram.com/tkeventsinc/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.linkedin.com/company/tk-events-inc./" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</nav>
+
+<div class="hud mono" id="hud" aria-hidden="true"><span class="dot"></span><span>Now on <b id="hudCue">Cue 01</b></span><span id="hudName">The moment</span></div>
+<div class="peek" id="peek" aria-hidden="true"><img alt="" id="peekImg"></div>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="home" data-cue="Cue 00" data-name="House lights down">
+  <div class="slides" id="slides">
+    <img class="on" src="img/hero-1.jpg" alt="Main stage of a summit at the Royal Conservatory of Music" data-cap="Facebook Summit, Royal Conservatory of Music">
+    <img src="img/hero-2.jpg" alt="Keynote stage lit in green at D2L Fusion" data-cap="D2L Fusion 2024" loading="lazy">
+    <img src="img/hero-3.jpg" alt="Evening reception with colourful lighting and lounge seating" data-cap="Evening reception" loading="lazy">
+    <img src="img/hero-4.jpg" alt="Live band on a stage wall of lights" data-cap="Live production" loading="lazy">
+    <img src="img/hero-5.jpg" alt="Aerial performers above a reception" data-cap="Entertainment and activations" loading="lazy">
+  </div>
+  <div class="wrap">
+    <p class="cue mono">Live, hybrid and virtual events</p>
+    <h1><span class="ln"><span>Dreamers.</span></span><span class="ln"><span>Doers.</span></span><span class="ln"><span><em>Event makers.</em></span></span></h1>
+    <p class="lede">An award-winning experiential agency producing live, hybrid and virtual events.</p>
+    <div class="ctas">
+      <a class="btn btn-lime" href="#contact">Plan your next event <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-line" href="#work">See the work</a>
+    </div>
+    <div class="strip mono">
+      <span class="now">Now showing: <b id="nowCap">Facebook Summit, Royal Conservatory of Music</b></span>
+      <span class="clocks"><span>TOR <b data-tz="America/Toronto">--:--</b></span><span>VAN <b data-tz="America/Vancouver">--:--</b></span><span>LDN <b data-tz="Europe/London">--:--</b></span></span>
+    </div>
+  </div>
+</section>
+
+<!-- MOMENT -->
+<section class="moment pad" id="moment" data-cue="Cue 01" data-name="The moment">
+  <div class="wrap">
+    <div class="head"><span class="tag mono">Cue 01 / The moment</span></div>
+    <p class="big" id="big">There's a certain kind of undefinable moment when an event becomes more than just a gathering and transforms into one of those 'remember when' moments.</p>
+    <div class="row">
+      <p class="rv">Something your audience shares and talks about for days afterwards. We are a bunch of creators, event planners, designers and tech nerds who live and breathe dreaming up and creating those moments.</p>
+      <p class="rv">We call Canada and the UK home, with core teams in Toronto, Vancouver and London, UK, and event professionals spread across the globe, ready to execute wherever you are.</p>
+    </div>
+    <div class="stats rv">
+      <div class="stat"><strong>30</strong><span>Years of event experience</span></div>
+      <div class="stat"><strong>250+</strong><span>Successful events organized</span></div>
+      <div class="stat"><strong>500k+</strong><span>Attendees engaged</span></div>
+      <div class="stat"><strong>50+</strong><span>Cities with experience and partners</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services pad" id="services" data-cue="Cue 02" data-name="What we do">
+  <div class="wrap">
+    <div class="head">
+      <span class="tag mono">Cue 02 / What we do</span>
+      <h2 class="h2">Six ways<br>we run the show</h2>
+      <p class="sub" style="color:#d3dfe4">It all starts with understanding what you're really trying to achieve. From there, we bring the ideas, the unexpected and the wonder.</p>
+    </div>
+    <div class="cues" id="cues">
+      <details data-img="img/s-conferences.jpg">
+        <summary><span class="n mono">02.1</span><span class="t">Conferences &amp; experiential</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="body"><img src="img/s-conferences.jpg" alt="Conference stage at D2L Fusion" loading="lazy"><div><p>From complex business events and multi-day conferences to high-touch incentive programs in remote locations. Every interaction leaves audiences emotionally connected to your brand.</p><ul class="chips"><li>Event concepts and design</li><li>Industry-leading conferences</li><li>Networking and engagement</li><li>Immersive experiences</li><li>Entertainment and activations</li><li>Venue sourcing and negotiation</li><li>Incentive programs</li><li>Personalized gifting</li></ul></div></div>
+      </details>
+      <details data-img="img/s-production.jpg">
+        <summary><span class="n mono">02.2</span><span class="t">Event production</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="body"><img src="img/s-production.jpg" alt="Keynote stage with large screens" loading="lazy"><div><p>We believe in the power of storytelling. From pre-production and rehearsals to on-site show-calling and load-out, we own the entire production lifecycle, so each moment is on brand, on budget and impossible to forget.</p><ul class="chips"><li>Creative event production</li><li>Digital storytelling</li><li>Video production</li><li>Executive-level management</li><li>Stage design</li><li>Showtime excellence</li></ul></div></div>
+      </details>
+      <details data-img="img/s-design.jpg">
+        <summary><span class="n mono">02.3</span><span class="t">Design &amp; creative</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="body"><img src="img/s-design.jpg" alt="Sculptural red heart installation on a red carpet" loading="lazy"><div><p>Our producers, designers and storytellers shape themes, identities and multimedia that captivate live and digital audiences and keep your brand top of mind long after the event ends.</p><ul class="chips"><li>Brand strategy</li><li>Logo and identity design</li><li>Environment design</li><li>Creative themes</li><li>Storytelling and content</li><li>3D design and animation</li></ul></div></div>
+      </details>
+      <details data-img="img/s-tradeshows.jpg">
+        <summary><span class="n mono">02.4</span><span class="t">Tradeshows &amp; exhibitions</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="body"><img src="img/s-tradeshows.jpg" alt="Samsung trade show booth" loading="lazy"><div><p>A booth that stops traffic and tells your brand story in seconds. From the first sketch through fabrication, install and teardown, every square foot works hard.</p><ul class="chips"><li>Concept and 3D visualization</li><li>Custom fabrication</li><li>Brand integration and graphics</li><li>Logistics and installation</li><li>Sponsorship zones</li><li>Lead capture and analytics</li></ul></div></div>
+      </details>
+      <details data-img="img/s-tech.jpg">
+        <summary><span class="n mono">02.5</span><span class="t">Registration &amp; event tech</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="body"><img src="img/s-tech.jpg" alt="Event registration desk" loading="lazy"><div><p>Registration that makes a flawless first impression and captures the data you need. Ticketing, payments, on-site check-in and post-event insights, run by our own customer-experience team.</p><ul class="chips"><li>Online registration</li><li>Name badge design</li><li>Session builders</li><li>Attendance management</li><li>Mobile app</li><li>Hotel and travel</li><li>Event evaluations</li><li>CRM integration</li></ul></div></div>
+      </details>
+      <details data-img="img/s-virtual.jpg">
+        <summary><span class="n mono">02.6</span><span class="t">Virtual events</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="body"><img src="img/s-virtual.jpg" alt="Illustrated virtual event island venue" loading="lazy"><div><p>Fully produced, immersive virtual and hybrid experiences for global brands, from strategy and venue design to broadcast-level production, in photo-real 3D environments.</p><ul class="chips"><li>Virtual venues</li><li>Virtual networking</li><li>Gamification</li><li>Live stream and broadcast</li><li>Analytics and reporting</li></ul></div></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="pad" id="work" data-cue="Cue 03" data-name="Our work" style="padding-bottom:clamp(40px,6vw,80px)">
+  <div class="wrap">
+    <div class="head reel-head">
+      <div style="display:flex;flex-direction:column;gap:14px"><span class="tag mono">Cue 03 / Our work</span><h2 class="h2">Remember<br>when</h2></div>
+      <div class="arrows"><button id="rPrev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button id="rNext" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+    </div>
+  </div>
+  <div class="reel" id="reel">
+    <div class="frame wide"><figure><img src="img/w-dell.jpg" alt="Blue-lit tunnel entrance at the Dell SIGGRAPH Experience" loading="lazy"><figcaption><span class="mono">Experiential</span><strong>Dell SIGGRAPH Experience</strong></figcaption></figure></div>
+    <div class="frame"><figure><img src="img/w-wattpad.jpg" alt="Rooftop retreat with long tables in Toronto" loading="lazy"><figcaption><span class="mono">Design &amp; decor</span><strong>Wattpad Retreat</strong></figcaption></figure></div>
+    <div class="frame wide"><figure><img src="img/w-porsche.jpg" alt="Porsche under laser lighting" loading="lazy"><figcaption><span class="mono">Brand activation</span><strong>Porsche Experience Centre</strong></figcaption></figure></div>
+    <div class="frame"><figure><img src="img/w-michelin.jpg" alt="Performers on stage at the Michelin Guide ceremony" loading="lazy"><figcaption><span class="mono">Production</span><strong>Michelin Guide Awards 2024</strong></figcaption></figure></div>
+    <div class="frame wide"><figure><img src="img/w-d2l.jpg" alt="D2L Fusion main stage" loading="lazy"><figcaption><span class="mono">Conference</span><strong>D2L Fusion 2024</strong></figcaption></figure></div>
+    <div class="frame"><figure><img src="img/w-samsung.jpg" alt="Samsung booth at KBB" loading="lazy"><figcaption><span class="mono">Tradeshow</span><strong>Samsung at KBB 2024</strong></figcaption></figure></div>
+    <div class="frame wide"><figure><img src="img/w-garden.jpg" alt="Garden-themed entrance arch" loading="lazy"><figcaption><span class="mono">Environment design</span><strong>Facebook Summit Community Garden</strong></figcaption></figure></div>
+    <div class="frame"><figure><img src="img/w-omc.jpg" alt="Guests on a stadium field with the team mascot" loading="lazy"><figcaption><span class="mono">Experiential</span><strong>Stadium experience, Vancouver 2025</strong></figcaption></figure></div>
+    <div class="frame wide"><figure><img src="img/w-cority.jpg" alt="Cority conference stage" loading="lazy"><figcaption><span class="mono">Conference</span><strong>Cority main stage</strong></figcaption></figure></div>
+    <div class="frame"><figure><img src="img/w-epcot.jpg" alt="Concert under a dome at Epcot" loading="lazy"><figcaption><span class="mono">Incentive</span><strong>D2L at Epcot</strong></figcaption></figure></div>
+    <div class="frame wide"><figure><img src="img/w-manchester.jpg" alt="Branded exterior at Manchester Central Convention Centre" loading="lazy"><figcaption><span class="mono">Conference, UK</span><strong>Information Security Forum, Manchester</strong></figcaption></figure></div>
+    <div class="frame"><figure><img src="img/w-cority-exp.jpg" alt="Evening reception with string lights" loading="lazy"><figcaption><span class="mono">Networking</span><strong>Cority experiential evening</strong></figcaption></figure></div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<div class="ticker" aria-label="Clients we have created with">
+  <p class="lbl mono">Clients we have created with</p>
+  <div class="track">
+    <ul><li>AWS</li><li>Dell Technologies</li><li>Samsung</li><li>D2L</li><li>Porsche</li><li>The Michelin Guide</li><li>ServiceNow</li><li>Loblaw</li><li>Information Security Forum</li><li>PointClickCare</li><li>Quadient</li><li>Axonify</li><li>Cority</li><li>University of Toronto</li><li>Destination Canada</li><li>FIFA</li></ul>
+    <ul aria-hidden="true"><li>AWS</li><li>Dell Technologies</li><li>Samsung</li><li>D2L</li><li>Porsche</li><li>The Michelin Guide</li><li>ServiceNow</li><li>Loblaw</li><li>Information Security Forum</li><li>PointClickCare</li><li>Quadient</li><li>Axonify</li><li>Cority</li><li>University of Toronto</li><li>Destination Canada</li><li>FIFA</li></ul>
+  </div>
+</div>
+
+<!-- VIRTUAL -->
+<section class="virtual pad" id="virtual" data-cue="Cue 04" data-name="Virtual venues">
+  <div class="wrap vgrid">
+    <div class="vsticky">
+      <div class="screen" id="screen">
+        <img class="on" src="img/v-isf.jpg" alt="Virtual lobby for ISF World Congress" loading="lazy">
+        <img src="img/v-dell.jpg" alt="Virtual island venue for Dell Technologies" loading="lazy">
+        <img src="img/v-d2l.jpg" alt="Virtual venue for D2L Fusion" loading="lazy">
+        <img src="img/v-channel.jpg" alt="Virtual courtyard venue called Channel House" loading="lazy">
+        <img src="img/v-world.jpg" alt="Virtual street venue with lounge, patio and rooftop" loading="lazy">
+        <span class="live mono"><i></i>Virtual venue</span>
+      </div>
+      <div class="vtabs" role="tablist" id="vtabs">
+        <button role="tab" aria-selected="true">ISF World Congress</button>
+        <button role="tab" aria-selected="false">Dell island</button>
+        <button role="tab" aria-selected="false">D2L Fusion</button>
+        <button role="tab" aria-selected="false">Channel House</button>
+        <button role="tab" aria-selected="false">Dell World</button>
+      </div>
+    </div>
+    <div>
+      <div class="head" style="margin-bottom:10px">
+        <span class="tag mono">Cue 04 / Virtual venues</span>
+        <h2 class="h2">Venues<br>without walls</h2>
+        <p class="sub">Photo-real 3D environments that mirror real-world spaces, custom-branded and ready for live, virtual or hybrid delivery.</p>
+      </div>
+      <ul class="vlist">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg><div><b>Bespoke 3D venues</b><span>Lobbies, main stages, breakouts, exhibit halls and resource centres.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M2 20c.8-3 3.2-5 6-5s5.2 2 6 5M14 15.3c.6-.2 1.3-.3 2-.3 2.8 0 5.2 2 6 5"/></svg><div><b>Virtual networking</b><span>Roundtables that show who's seated before you join, plus 1-to-1 video chats.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="13" rx="2"/><path d="M8 22h8M12 18v4M10 9l5 2.5-5 2.5z"/></svg><div><b>Live stream and broadcast</b><span>Studio-quality, multi-language streaming run by our global producer team.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><div><b>Analytics and reporting</b><span>A personal event dashboard with sponsor insights and attendee experience.</span></div></li>
+      </ul>
+      <p style="margin-top:22px"><a class="btn btn-line" href="https://www.virtualcreatorstudio.com/" target="_blank" rel="noopener">Try the Virtual Creator Studio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a></p>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section class="light pad" id="awards" data-cue="Cue 05" data-name="Awards">
+  <div class="wrap">
+    <div class="head">
+      <span class="tag mono">Cue 05 / Recent awards and recognition</span>
+      <h2 class="h2">Standing<br>ovations</h2>
+    </div>
+    <div class="yrs" id="yrs">
+      <button aria-pressed="true" data-y="all">All years</button>
+      <button aria-pressed="false" data-y="2025">2025</button>
+      <button aria-pressed="false" data-y="2024">2024</button>
+      <button aria-pressed="false" data-y="2023">2023</button>
+      <button aria-pressed="false" data-y="2022">2022</button>
+      <button aria-pressed="false" data-y="2021">2021</button>
+    </div>
+    <table class="awards" id="awardTable">
+      <thead><tr><th>Year</th><th>Awarded by</th><th>Category</th></tr></thead>
+      <tbody>
+        <tr data-y="2025"><td>2025</td><td>Canadian Event Awards</td><td>Best Conference, Innovation in Industry</td></tr>
+        <tr data-y="2025"><td>2025</td><td>Esprit Awards</td><td>Best Multi-Day Event; Best Event Logistics</td></tr>
+        <tr data-y="2025"><td>2025</td><td>ILEA Vancouver Awards</td><td>Best Corporate Event; Best Public Experiential</td></tr>
+        <tr data-y="2024"><td>2024</td><td>Canadian Event Awards</td><td>Best Tradeshow Booth; Best Virtual Corporate Event</td></tr>
+        <tr data-y="2024"><td>2024</td><td>Esprit Awards</td><td>Best Event Design/Decor; Best Scenic Design/Installation</td></tr>
+        <tr data-y="2024"><td>2024</td><td>ILEA Vancouver Awards</td><td>Best Corporate Event</td></tr>
+        <tr data-y="2023"><td>2023</td><td>Canadian Event Awards</td><td>Best Tradeshow Booth; Best Virtual Corporate Event</td></tr>
+        <tr data-y="2023"><td>2023</td><td>Esprit Awards</td><td>Best Virtual Event</td></tr>
+        <tr data-y="2023"><td>2023</td><td>ILEA Vancouver Awards</td><td>Best Corporate Event</td></tr>
+        <tr data-y="2022"><td>2022</td><td>Canadian Event Awards</td><td>Best Virtual Event</td></tr>
+        <tr data-y="2022"><td>2022</td><td>ILEA Vancouver Awards</td><td>Best Virtual Event</td></tr>
+        <tr data-y="2021"><td>2021</td><td>Canadian Event Awards</td><td>Best Virtual Conference</td></tr>
+        <tr data-y="2021"><td>2021</td><td>BizBash</td><td>Best Virtual Event Platform</td></tr>
+      </tbody>
+    </table>
+    <div class="alongside">
+      <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg><p><b>Trish Knox</b> was named one of the BizBash Top 250 Event Designers and Producers in Canada.</p></div>
+      <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg><p><b>Certified B Corporation.</b> Events that are socially responsible, accessible, inclusive and environmentally sustainable.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORDS -->
+<section class="words pad" id="words" data-cue="Cue 05" data-name="In their words">
+  <div class="wrap">
+    <div class="head"><span class="tag mono">In their words</span></div>
+    <div class="quote" id="quote">
+      <blockquote class="on"><p>"We challenged TK to reimagine our keynote experience, and they delivered something truly unforgettable."</p><cite>Director, Canada Marketing, tech sector</cite></blockquote>
+      <blockquote><p>"We always had to do so much work and you just managed everything and made it so easy for us. You've taken all the stress away from me."</p><cite>Retail Marketing Manager, tech sector</cite></blockquote>
+      <blockquote><p>"The look on our members' faces when they walked into the venue said it all!"</p><cite>Manager, Member Services, Canadian association</cite></blockquote>
+      <blockquote><p>"They worked with us on very tight budget constraints and delivered an exceptional client and guest experience."</p><cite>CEO, tourism sector</cite></blockquote>
+      <blockquote><p>"Without them, we could not have pulled off another amazing event. I recommend this team to everyone I bump into."</p><cite>Senior Marketing Officer, education sector</cite></blockquote>
+      <blockquote><p>"Having such trusted partners is truly rare and precious, and TK has consistently proven to be a key partner in our success."</p><cite>Marketing Lead, tech sector</cite></blockquote>
+      <blockquote><p>"They have become part of our team, and we love working with them."</p><cite>Event Director, information security</cite></blockquote>
+    </div>
+    <div class="qnav">
+      <button id="qPrev" aria-label="Previous quote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+      <button id="qNext" aria-label="Next quote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <span class="count" id="qCount">01 / 07</span>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="light pad" id="team" data-cue="Cue 06" data-name="Our team">
+  <div class="wrap">
+    <div class="head">
+      <span class="tag mono">Cue 06 / Our leadership team</span>
+      <h2 class="h2">The crew<br>behind the cues</h2>
+      <p class="sub">Our leadership spans the breadth of the event industry, so you have subject matter experts delivering your event with creativity and attention to detail.</p>
+    </div>
+    <div class="crew">
+      <article class="mate rv"><figure><img src="img/p-trish.jpg" alt="Trish Knox" loading="lazy"></figure><h3>Trish Knox</h3><p class="role mono">Founder &amp; CEO</p><p>A recognized industry thought leader who blends enterprise-level strategy with bold creative thinking.</p></article>
+      <article class="mate rv"><figure><img src="img/p-claire.jpg" alt="Claire Duncan" loading="lazy"></figure><h3>Claire Duncan</h3><p class="role mono">President</p><p>25 years shaping world-class events, transforming complex programs into award-winning experiences.</p></article>
+      <article class="mate rv"><figure><img src="img/p-jill.jpg" alt="Jill Knox Boswell" loading="lazy"></figure><h3>Jill Knox Boswell</h3><p class="role mono">Account Director, UK</p><p>Leads the UK office, regional operations and major accounts.</p></article>
+      <article class="mate rv"><figure><img src="img/p-piph.jpg" alt="Epiphany Bourque" loading="lazy"></figure><h3>Epiphany Bourque</h3><p class="role mono">Senior Director</p><p>Leads major accounts and the client relations team.</p></article>
+      <article class="mate rv"><figure><img src="img/p-liz.jpg" alt="Elizabeth Nutting" loading="lazy"></figure><h3>Elizabeth Nutting</h3><p class="role mono">Account Director</p><p>A driven producer who sits on the ILEA International board.</p></article>
+      <article class="mate rv"><figure><img src="img/p-meghan.jpg" alt="Meghan Singlehurst" loading="lazy"></figure><h3>Meghan Singlehurst</h3><p class="role mono">Account Director</p><p>Leads TK's B Corp initiatives while guiding major accounts.</p></article>
+      <article class="mate rv"><figure><img src="img/p-lewis.jpg" alt="Lewis Field" loading="lazy"></figure><h3>Lewis Field</h3><p class="role mono">Head, Design</p><p>Leads visual direction across 3D environments, trade shows and activations.</p></article>
+      <article class="mate rv"><figure><img src="img/p-pete.jpg" alt="Peter Christidis" loading="lazy"></figure><h3>Peter Christidis</h3><p class="role mono">Head, Product and Event Tech</p><p>Oversees TK's virtual and live event platforms.</p></article>
+      <article class="mate rv"><figure><img src="img/p-linda.jpg" alt="Linda McGuigan" loading="lazy"></figure><h3>Linda McGuigan</h3><p class="role mono">Accounting Manager</p><p>The financial engine behind TK Events.</p></article>
+      <article class="mate rv"><figure><img src="img/p-alexis.jpg" alt="Alexis Cooper" loading="lazy"></figure><h3>Alexis Cooper</h3><p class="role mono">Events</p><p>Two decades of meeting, incentive, sponsorship and brand activation experience.</p></article>
+    </div>
+    <figure class="groupshot rv"><img src="img/team.jpg" alt="The TK Events team on an outing" loading="lazy"><figcaption>Do more is our motto.</figcaption></figure>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact pad" id="impact" data-cue="Cue 06" data-name="Our impact">
+  <div class="wrap igrid">
+    <div>
+      <img class="bc" src="img/bcorp.png" alt="Certified B Corporation" width="110" height="185" loading="lazy">
+      <p class="say" style="margin-top:28px">Sustainability isn't a statement. <span>It's a standard.</span></p>
+      <p class="sub" style="color:#d3dfe4;margin-top:20px">We care for each other, our community and the environment. Understanding our impact is essential to who we are and core to our values.</p>
+    </div>
+    <ul class="vals">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3.5"/><path d="M5 21c.9-4 3.6-6.5 7-6.5s6.1 2.5 7 6.5"/></svg><div><b>Empowered people empower change.</b><span>Going above and beyond is a state of mind. So is fun.</span></div></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="17" rx="2"/><path d="M8 2v4M16 2v4M4 10h16M8 14h3M8 17h6"/></svg><div><b>Relentless planning.</b><span>The foundation of great events. But serendipity is what defines an event.</span></div></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><div><b>Technology with purpose.</b><span>Technology should connect humans, not distract from them. Talk nerdy to us!</span></div></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v1M12 12v5"/><circle cx="12" cy="10" r=".6" fill="currentColor"/></svg><div><b>Asking "why?" is our north star.</b><span>30 years of trusted suppliers and deep event relationships.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact pad" id="contact" data-cue="Cue 07" data-name="Let's collaborate">
+  <div class="wrap">
+    <span class="tag mono">Cue 07 / Curtain up</span>
+    <h2 class="h2" style="margin-top:14px">Let's<br><span style="color:var(--lime)">collaborate.</span></h2>
+    <p class="sub" style="margin-top:18px">Reach out to plan your next successful corporate event. We service clients globally.</p>
+    <div class="offices">
+      <div class="office"><span class="city mono">Office 01</span><div class="time" data-tz="America/Toronto">--:--</div><span class="mono">Toronto, ON</span></div>
+      <div class="office"><span class="city mono">Office 02</span><div class="time" data-tz="America/Vancouver">--:--</div><span class="mono">Vancouver, BC</span></div>
+      <div class="office"><span class="city mono">Office 03</span><div class="time" data-tz="Europe/London">--:--</div><span class="mono">London, UK</span></div>
+    </div>
+    <div class="mails">
+      <a class="mail" href="mailto:info@tkevents.ca?subject=Inquiry%20to%20TK%20Events"><span><small>Canada and USA</small><strong>info@tkevents.ca</strong></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+      <a class="mail" href="mailto:info@tkevents.co.uk?subject=Inquiry%20to%20TK%20Events"><span><small>UK and Europe</small><strong>info@tkevents.co.uk</strong></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo.png" alt="TK Events" width="155" height="90" loading="lazy">
+    <nav aria-label="Footer">
+      <a href="#services">What we do</a><a href="#work">Our work</a><a href="#team">Our team</a><a href="#contact">Contact</a>
+      <a href="https://www.instagram.com/tkeventsinc/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/company/tk-events-inc./" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+    <span class="mono">&copy; TK Events Inc.</span>
+  </div>
+</footer>
+
+<script>
+(()=>{
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+
+/* clocks */
+const fmt={};
+function tick(){ $$('[data-tz]').forEach(el=>{const tz=el.dataset.tz; fmt[tz]=fmt[tz]||new Intl.DateTimeFormat('en-CA',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:tz}); el.textContent=fmt[tz].format(new Date());}); }
+tick(); setInterval(tick,15000);
+
+/* top bar + menu */
+const top=$('#top'), btn=$('#menuBtn');
+addEventListener('scroll',()=>top.classList.toggle('solid',scrollY>40),{passive:true});
+function setMenu(o){document.body.classList.toggle('open',o);btn.setAttribute('aria-expanded',o);btn.querySelector('span').textContent=o?'Close':'Menu';document.body.style.overflow=o?'hidden':'';}
+btn.addEventListener('click',()=>setMenu(!document.body.classList.contains('open')));
+$$('#menu a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+
+/* hero slides */
+const slides=$$('#slides img'), cap=$('#nowCap'); let si=0;
+if(!RM) setInterval(()=>{slides[si].classList.remove('on'); si=(si+1)%slides.length; slides[si].classList.add('on'); cap.textContent=slides[si].dataset.cap;},5200);
+
+/* scroll-lit words */
+const big=$('#big');
+const hl=['remember','when\''];
+big.innerHTML=big.textContent.split(' ').map(w=>`<span class="w${/remember|when'/.test(w)?' hl':''}">${w}</span>`).join(' ');
+const words=$$('.w',big);
+function lite(){const r=big.getBoundingClientRect(); const p=Math.min(1,Math.max(0,(innerHeight*.85-r.top)/(r.height+innerHeight*.35))); const n=Math.round(p*words.length); words.forEach((w,i)=>w.classList.toggle('lit',i<n));}
+if(!RM){addEventListener('scroll',lite,{passive:true});lite();}
+
+/* reveal + HUD */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+$$('.rv').forEach(el=>io.observe(el));
+const hud=$('#hud'), hc=$('#hudCue'), hn=$('#hudName');
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const s=e.target; hud.classList.toggle('on',s.id!=='home'); hc.textContent=s.dataset.cue; hn.textContent=s.dataset.name;}}),{rootMargin:'-45% 0px -50% 0px'});
+$$('section[data-cue]').forEach(s=>so.observe(s));
+
+/* services: one open at a time + hover peek */
+const ds=$$('#cues details');
+ds.forEach(d=>d.addEventListener('toggle',()=>{if(d.open)ds.forEach(o=>{if(o!==d)o.open=false})}));
+const peek=$('#peek'), pimg=$('#peekImg');
+if(matchMedia('(hover:hover) and (min-width:900px)').matches){
+  let x=0,y=0,cx=0,cy=0,raf;
+  const loop=()=>{cx+=(x-cx)*.18;cy+=(y-cy)*.18;peek.style.left=cx+'px';peek.style.top=cy+'px';raf=requestAnimationFrame(loop)};
+  ds.forEach(d=>{const s=d.querySelector('summary');
+    s.addEventListener('mouseenter',e=>{if(d.open)return;pimg.src=d.dataset.img;peek.classList.add('on');x=cx=e.clientX;y=cy=e.clientY;cancelAnimationFrame(raf);loop()});
+    s.addEventListener('mousemove',e=>{x=e.clientX+40;y=e.clientY});
+    s.addEventListener('mouseleave',()=>{peek.classList.remove('on');setTimeout(()=>cancelAnimationFrame(raf),300)});
+    s.addEventListener('click',()=>peek.classList.remove('on'));
+  });
+}
+
+/* reel arrows */
+const reel=$('#reel');
+const step=()=>Math.min(reel.clientWidth*.8,520);
+$('#rPrev').onclick=()=>reel.scrollBy({left:-step(),behavior:RM?'auto':'smooth'});
+$('#rNext').onclick=()=>reel.scrollBy({left:step(),behavior:RM?'auto':'smooth'});
+
+/* virtual tabs */
+const vt=$$('#vtabs button'), vi=$$('#screen img');
+vt.forEach((b,i)=>b.onclick=()=>{vt.forEach((x,j)=>x.setAttribute('aria-selected',i===j));vi.forEach((x,j)=>x.classList.toggle('on',i===j));});
+
+/* awards filter */
+const yb=$$('#yrs button'), rows=$$('#awardTable tbody tr');
+yb.forEach(b=>b.onclick=()=>{yb.forEach(x=>x.setAttribute('aria-pressed',x===b));rows.forEach(r=>r.classList.toggle('hide',b.dataset.y!=='all'&&r.dataset.y!==b.dataset.y));});
+
+/* quotes */
+const qs=$$('#quote blockquote'), qc=$('#qCount'); let qi=0, qt;
+function q(n){qs[qi].classList.remove('on');qi=(n+qs.length)%qs.length;qs[qi].classList.add('on');qc.textContent=String(qi+1).padStart(2,'0')+' / '+String(qs.length).padStart(2,'0');}
+$('#qPrev').onclick=()=>{q(qi-1);clearInterval(qt)}; $('#qNext').onclick=()=>{q(qi+1);clearInterval(qt)};
+if(!RM) qt=setInterval(()=>q(qi+1),7000);
+})();
+</script>
+</body>
+</html>
