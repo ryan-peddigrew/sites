@@ -113,6 +113,8 @@ h1,h2,h3{margin:0;font-family:'Unbounded',sans-serif;font-weight:700;letter-spac
 .scrub .sw{color:rgba(244,241,255,.14);transition:color .35s}
 .scrub .sw.on{color:var(--ink)}
 .scrub .sw.on.k{color:var(--ice)}
+.trio{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:56px 0 0}.trio figure{margin:0;border-radius:20px;overflow:hidden;aspect-ratio:4/5}.trio figure:first-child{grid-column:1/-1;aspect-ratio:16/9}.trio img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:filter .6s,transform .9s}.trio figure:hover img{filter:none;transform:scale(1.04)}
+@media(min-width:900px){.trio{grid-template-columns:1.4fr 1fr 1fr;gap:18px}.trio figure:first-child{grid-column:auto;aspect-ratio:4/5}.trio figure:nth-child(2){margin-top:60px}}
 .big{margin:60px 0 0;font:800 clamp(30px,6.6vw,84px)/1.02 'Unbounded',sans-serif;letter-spacing:-.03em;text-transform:uppercase}
 
 /* four words */
@@ -122,6 +124,9 @@ h1,h2,h3{margin:0;font-family:'Unbounded',sans-serif;font-weight:700;letter-spac
 .fw-rot{position:relative;display:inline-grid;overflow:hidden;height:1.05em;vertical-align:bottom}
 .ww{grid-area:1/1;transform:translateY(105%);transition:transform .8s cubic-bezier(.77,0,.18,1)}
 .ww.on{transform:none}.ww.off{transform:translateY(-105%)}.ww:not(.on):not(.off){transition:none}
+.fw-img{position:relative;aspect-ratio:16/10;border-radius:22px;overflow:hidden;background:#111}.fw-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:0;transform:scale(1.08);transition:opacity .9s,transform 2.6s ease-out}.fw-img img.on{opacity:1;transform:scale(1)}
+.fw-img::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(124,92,255,.35),transparent 50%,rgba(243,217,168,.2))}
+@media(min-width:900px){.fw-in{grid-template-columns:1.2fr 1fr;align-items:center;column-gap:60px}.fw-in>.eyebrow,.fw-line,.fw-desc{grid-column:1}.fw-img{grid-column:2;grid-row:1/4;aspect-ratio:4/5}}
 .fw-desc{min-height:3.2em;margin:0;max-width:44ch;font-size:18px;color:#d4cfe8;transition:opacity .4s}
 @media(min-width:900px){.fw{padding:120px 40px}}
 
@@ -149,9 +154,11 @@ h1,h2,h3{margin:0;font-family:'Unbounded',sans-serif;font-weight:700;letter-spac
 
 /* formats horizontal */
 .hz{position:relative;padding:90px 0 70px}
-.stmt{padding:110px 18px 90px;max-width:1200px;margin:0 auto;display:grid;gap:18px}
+.stmt{position:relative;overflow:hidden;isolation:isolate;padding:140px 18px 120px}.stmt-in{max-width:1200px;margin:0 auto;display:grid;gap:18px}
+.stmt-bg{position:absolute;inset:0;z-index:-1}.stmt-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.68) contrast(1.1);animation:kb 22s ease-in-out infinite alternate}
+.stmt-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,var(--bg) 0%,rgba(7,6,12,.35) 30%,rgba(43,31,110,.35) 60%,var(--bg) 100%)}
 .stmt-t{font:800 clamp(34px,8vw,110px)/1 'Unbounded',sans-serif;letter-spacing:-.035em;text-transform:uppercase}
-@media(min-width:900px){.stmt{padding:160px 40px 120px}}
+@media(min-width:900px){.stmt{padding:200px 40px 180px}}
 .hz-st{display:flex;flex-direction:column;gap:28px}
 .hz-h{padding:0 18px;display:grid;gap:12px}
 .hz-h h2{font-size:clamp(34px,8vw,96px);line-height:.95;text-transform:uppercase;letter-spacing:-.03em}
@@ -180,10 +187,12 @@ h1,h2,h3{margin:0;font-family:'Unbounded',sans-serif;font-weight:700;letter-spac
 .ps h3{font-size:clamp(24px,5vw,40px);opacity:.35;transition:opacity .5s}
 .ps.on h3{opacity:1}
 .ps p{margin:0;color:#d4cfe8;max-width:52ch}
+.ps-img{margin-top:10px;border-radius:18px;overflow:hidden;aspect-ratio:16/9;max-width:560px}.ps-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.7);transform:scale(1.08);transition:filter .8s,transform 1.4s cubic-bezier(.2,.8,.2,1)}.ps.on .ps-img img{filter:grayscale(.2) brightness(.95);transform:none}
 
 /* faq */
 .fq{padding:80px 18px 100px;max-width:900px;margin:0 auto}
 .fq h2{font-size:clamp(32px,7vw,72px);text-transform:uppercase;letter-spacing:-.03em;margin:14px 0 30px}
+.fq-ph{border-radius:22px;overflow:hidden;aspect-ratio:16/7;margin:0 0 30px}.fq-ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05) brightness(.85)}
 .fq-i{border-top:1px solid var(--line)}.fq-i:last-child{border-bottom:1px solid var(--line)}
 .fq-i summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:68px;padding:16px 0;font:600 clamp(16px,3.8vw,20px)/1.3 'Manrope',sans-serif}
 .fq-i summary::-webkit-details-marker{display:none}
@@ -284,8 +293,11 @@ h1,h2,h3{margin:0;font-family:'Unbounded',sans-serif;font-weight:700;letter-spac
 </section>
 
 <section class="stmt" aria-label="Cielle &amp; Co is where strategy meets execution.">
+  <div class="stmt-bg"><img src="img/ev-gala.jpg" alt="" loading="lazy" width="1600" height="1067"></div>
+  <div class="stmt-in">
   <span class="eyebrow mono" data-rv>cielle &amp; co</span>
   <h2 class="stmt-t" data-rv>Cielle &amp; Co is where <span class="grad">strategy</span> meets <span class="grad">execution.</span></h2>
+  </div>
 </section>
 
 
@@ -303,6 +315,7 @@ h1,h2,h3{margin:0;font-family:'Unbounded',sans-serif;font-weight:700;letter-spac
 <section class="st-sec" id="story">
   <span class="eyebrow mono" data-rv>our story</span>
   <p class="scrub" data-scrub data-keys="bold,boutique,strategic,scalable">Cielle &amp; Co was born from a decade of entrepreneurial leadership, creative problem solving, and doing things differently. Founded by Carly Silberstein after growing one of Canada's leading event agencies, Cielle &amp; Co represents the next evolution in how event services are delivered: bold, boutique, strategic, and scalable.</p>
+  <div class="trio"><figure data-rv><img src="img/ev-table.jpg" alt="" loading="lazy" width="1600" height="1067"></figure><figure data-rv style="--d:120ms"><img src="img/ev-speaker.jpg" alt="" loading="lazy" width="1600" height="1067"></figure><figure data-rv style="--d:240ms"><img src="img/ev-network.jpg" alt="" loading="lazy" width="1600" height="1068"></figure></div>
   <p class="big grad" data-rv>We're not here to follow tradition. We're here to build what's next—with intention, edge, and excellence.</p>
 </section>
 
@@ -311,6 +324,7 @@ h1,h2,h3{margin:0;font-family:'Unbounded',sans-serif;font-weight:700;letter-spac
     <span class="eyebrow mono">four words we mean <span class="add">Added</span></span>
     <div class="fw-line" aria-live="polite"><span>We are</span><span class="fw-rot"><span class="ww grad" data-desc="We'd rather build something people talk about than something that's safe.">Bold</span><span class="ww grad" data-desc="Senior people on every project. You work with the team you met.">Boutique</span><span class="ww grad" data-desc="Every decision traces back to a business goal, not a mood board.">Strategic</span><span class="ww grad" data-desc="From an intimate leadership retreat to a multi-day, multi-city program, the standard doesn't change.">Scalable</span></span></div>
     <p class="fw-desc"></p>
+    <div class="fw-img"><img src="img/ev-stage-speaker.jpg" alt="" loading="lazy" width="1067" height="1600"><img src="img/ev-table.jpg" alt="" loading="lazy" width="1600" height="1067"><img src="img/ev-brainstorm.jpg" alt="" loading="lazy" width="1600" height="900"><img src="img/ev-audience.jpg" alt="" loading="lazy" width="1600" height="1067"></div>
   </div>
 </section>
 
@@ -348,12 +362,13 @@ h1,h2,h3{margin:0;font-family:'Unbounded',sans-serif;font-weight:700;letter-spac
 <section class="pr" id="process">
   <span class="eyebrow mono" data-rv>how we work <span class="add">Added</span></span>
   <h2 data-rv>From brief<br>to <span class="grad">debrief.</span></h2>
-  <ol><span class="pr-line" aria-hidden="true"><i></i></span><li class="ps" data-step><span class="ps-dot"></span><span class="ps-n">01</span><h3>Listen</h3><p>Every engagement starts with the brief behind the brief: your goals, your audience, your constraints, and what success actually looks like.</p></li><li class="ps" data-step><span class="ps-dot"></span><span class="ps-n">02</span><h3>Shape</h3><p>Strategy, creative concept, budget architecture and run of show, built together before a single vendor is booked.</p></li><li class="ps" data-step><span class="ps-dot"></span><span class="ps-n">03</span><h3>Build</h3><p>Venues, partners, production, technology and talent, managed with the discipline of an agency and the care of a boutique.</p></li><li class="ps" data-step><span class="ps-dot"></span><span class="ps-n">04</span><h3>Run &amp; review</h3><p>On-site leadership from load-in to strike, then a candid debrief so the next one starts further ahead.</p></li></ol>
+  <ol><span class="pr-line" aria-hidden="true"><i></i></span><li class="ps" data-step><span class="ps-dot"></span><span class="ps-n">01</span><h3>Listen</h3><p>Every engagement starts with the brief behind the brief: your goals, your audience, your constraints, and what success actually looks like.</p><div class="ps-img"><img src="img/ev-network.jpg" alt="" loading="lazy" width="1600" height="1067"></div></li><li class="ps" data-step><span class="ps-dot"></span><span class="ps-n">02</span><h3>Shape</h3><p>Strategy, creative concept, budget architecture and run of show, built together before a single vendor is booked.</p><div class="ps-img"><img src="img/ev-plan.jpg" alt="" loading="lazy" width="1600" height="1067"></div></li><li class="ps" data-step><span class="ps-dot"></span><span class="ps-n">03</span><h3>Build</h3><p>Venues, partners, production, technology and talent, managed with the discipline of an agency and the care of a boutique.</p><div class="ps-img"><img src="img/hero-drape.jpg" alt="" loading="lazy" width="1600" height="1067"></div></li><li class="ps" data-step><span class="ps-dot"></span><span class="ps-n">04</span><h3>Run &amp; review</h3><p>On-site leadership from load-in to strike, then a candid debrief so the next one starts further ahead.</p><div class="ps-img"><img src="img/ev-keynote2.jpg" alt="" loading="lazy" width="1600" height="1067"></div></li></ol>
 </section>
 
 <section class="fq" id="faq">
   <span class="eyebrow mono" data-rv>good questions <span class="add">Added</span></span>
   <h2 data-rv>Before we talk.</h2>
+  <div class="fq-ph" data-rv><img src="img/ev-audience.jpg" alt="" loading="lazy" width="1600" height="1067"></div>
   <div><details class="fq-i"><summary><span>Do you take on single events or ongoing work?</span><i></i></summary><p>Both. Some clients bring us one flagship moment. Others keep us on as a fractional events team or an executive seat at the table.</p></details><details class="fq-i"><summary><span>When should we reach out?</span><i></i></summary><p>Earlier than you think. Strategy has the most leverage before venues, dates and budgets are locked, but we've joined mid-stream plenty of times.</p></details><details class="fq-i"><summary><span>Do you work alongside in-house teams?</span><i></i></summary><p>Yes. We slot in beside marketing, sales and leadership teams, and we're comfortable leading, supporting or advising.</p></details><details class="fq-i"><summary><span>Where do you work?</span><i></i></summary><p>Based in Toronto and built to travel. Wherever the event is, so are we.</p></details><details class="fq-i"><summary><span>What does fractional executive leadership look like?</span><i></i></summary><p>A senior events leader embedded in your business for a set number of days a month, without the full-time hire.</p></details></div>
 </section>
 
@@ -539,7 +554,7 @@ if(card&&!reduce){card.addEventListener('pointermove',function(e){var r=card.get
 
 /* rotating words */
 var ws=$$('.ww'),desc=d.querySelector('.fw-desc'),wi=0;
-function showW(i){ws.forEach(function(w,k){var was=w.classList.contains('on');w.classList.remove('off');w.classList.toggle('on',k===i);if(was&&k!==i)w.classList.add('off')});if(desc){desc.style.opacity=0;setTimeout(function(){desc.textContent=ws[i].dataset.desc;desc.style.opacity=1},250)}}
+var fims=$$('.fw-img img');function showW(i){fims.forEach(function(im,k){im.classList.toggle('on',k===i)});ws.forEach(function(w,k){var was=w.classList.contains('on');w.classList.remove('off');w.classList.toggle('on',k===i);if(was&&k!==i)w.classList.add('off')});if(desc){desc.style.opacity=0;setTimeout(function(){desc.textContent=ws[i].dataset.desc;desc.style.opacity=1},250)}}
 if(ws.length){showW(0);if(!reduce)setInterval(function(){wi=(wi+1)%ws.length;showW(wi)},2600)}
 
 /* cursor + magnetic */
