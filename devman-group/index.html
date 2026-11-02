@@ -478,6 +478,21 @@ label{color:#9aa1a4}
 .dk.fly{opacity:0}
 @media (prefers-reduced-motion:reduce){.dk{transition:none}}
 
+/* hero mosaic */
+.mosaic{position:absolute;inset:-6% -4%;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:6px}
+.tile{position:relative;overflow:hidden;border-radius:4px;background:#12171A}
+.tile i{position:absolute;inset:-8%;background:center/cover no-repeat;opacity:0;transform:scale(1.08);transition:opacity 1.2s ease,transform 6s ease}
+.tile i.on{opacity:1;transform:scale(1)}
+@media(min-width:900px){
+  .mosaic{grid-template-columns:repeat(4,1fr);grid-template-rows:1fr;gap:10px;inset:-10% -2%}
+  .tile:nth-child(odd){animation:drift 14s ease-in-out infinite alternate}
+  .tile:nth-child(even){animation:drift 14s ease-in-out infinite alternate-reverse}
+}
+@keyframes drift{from{transform:translateY(-4%)}to{transform:translateY(4%)}}
+.hero-shade{background:linear-gradient(180deg,rgba(11,14,16,.55) 0%,rgba(11,14,16,.25) 30%,rgba(11,14,16,.92) 82%)}
+@media(min-width:900px){.hero-shade{background:linear-gradient(90deg,rgba(11,14,16,.92) 0%,rgba(11,14,16,.55) 45%,rgba(11,14,16,.15) 100%),linear-gradient(0deg,rgba(11,14,16,.7),transparent 40%)}}
+@media (prefers-reduced-motion:reduce){.tile{animation:none!important}.tile i{transition:none}}
+
 </style>
 </head>
 <body>
@@ -532,15 +547,10 @@ label{color:#9aa1a4}
 
 <section class="hero" aria-label="Introduction">
   <div class="hero-stick">
-    <div class="hero-img" role="img" aria-label="Devman Group refurbishment projects">
-      <div class="sl on" style="background-image:url(img/h1.jpg)" data-a="1 Maison Parc" data-t="Corridor"></div>
-      <div class="sl" data-bg="img/h2.jpg" data-a="1 Maison Parc" data-t="Lobby"></div>
-      <div class="sl" data-bg="img/h3.jpg" data-a="3900 Yonge St" data-t="Corridor"></div>
-      <div class="sl" data-bg="img/h4.jpg" data-a="211 Randolph Rd" data-t="Elevators"></div>
-      <div class="sl" data-bg="img/h5.jpg" data-a="51 Baffin Crt" data-t="Corridor"></div>
+    <div class="hero-img" role="img" aria-label="Lobbies and corridors refurbished by Devman Group">
+      <div class="mosaic"><div class="tile"><i class="on" style="background-image:url(img/t1.jpg)"></i><i data-bg="img/t5.jpg"></i></div><div class="tile"><i class="on" style="background-image:url(img/t2.jpg)"></i><i data-bg="img/t6.jpg"></i></div><div class="tile"><i class="on" style="background-image:url(img/t3.jpg)"></i><i data-bg="img/t7.jpg"></i></div><div class="tile"><i class="on" style="background-image:url(img/t4.jpg)"></i><i data-bg="img/t8.jpg"></i></div></div>
     </div>
     <div class="hero-shade"></div>
-    <div class="floor mono">Now showing<b id="fl-a">1 Maison Parc</b><span id="fl-t">Corridor</span><div class="dots" id="dots"></div></div>
     <div class="hero-in">
       <div class="kicker mono"><i></i>Communication. Quality. Service.</div>
       <h1><span class="hw"><span>Beautiful</span></span><span class="hw rot" aria-live="polite"><span><em id="rot">lobbies.</em></span></span></h1>
@@ -1137,14 +1147,13 @@ label{color:#9aa1a4}
     var im=new Image();im.onload=function(){ld.classList.add('run');setTimeout(go,2150)};im.src='img/h1.jpg';
     setTimeout(go,4200);
   }
-  // hero slideshow
-  var sl=[].slice.call(document.querySelectorAll('.sl')),dots=document.getElementById('dots'),cur=0;
-  sl.forEach(function(){dots.appendChild(document.createElement('i'))});
-  function show(i){sl[cur].classList.remove('on');cur=i;sl[cur].classList.add('on');
-    document.getElementById('fl-a').textContent=sl[cur].dataset.a;document.getElementById('fl-t').textContent=sl[cur].dataset.t;
-    [].forEach.call(dots.children,function(d,j){d.classList.toggle('on',j===cur)})}
-  show(0);
-  window.addEventListener('load',function(){sl.forEach(function(x){if(x.dataset.bg)x.style.backgroundImage='url('+x.dataset.bg+')'});if(!reduce)setInterval(function(){show((cur+1)%sl.length)},4500)});
+  // mosaic: tiles swap photos one at a time
+  var tiles=[].slice.call(document.querySelectorAll('.tile'));
+  window.addEventListener('load',function(){
+    document.querySelectorAll('.tile i[data-bg]').forEach(function(x){x.style.backgroundImage='url('+x.dataset.bg+')'});
+    if(reduce)return;var k=0;
+    setInterval(function(){var t=tiles[k%tiles.length];t.querySelectorAll('i').forEach(function(x){x.classList.toggle('on')});k+=3},1900);
+  });
 })();
 </script>
 
