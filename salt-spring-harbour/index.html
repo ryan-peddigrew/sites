@@ -1,0 +1,363 @@
+<!--
+OPEN FIXES BEFORE PUBLISHING (draft, not approved for launch):
+- Confirm the office hours. The Sunday closure appears in both News and Contact; pick one and check it.
+- Change the headline "Eight docks" to "Eight facilities" to match the current site.
+- Confirm the fish sale species, the border services number and the live cam links on the current site.
+- Connect the waitlist and contact forms to an approved destination.
+- Remove the "Draft redesign" footer note before publishing.
+Original site: https://saltspringharbours.com
+Image sources (from the current site):
+Logo: https://saltspringharbours.com/wp-content/uploads/2025/09/HASSI.webp
+https://saltspringharbours.com/wp-content/uploads/2025/09/Breakwater.jpg
+https://saltspringharbours.com/wp-content/uploads/2025/09/Fulford-harbour.jpg
+https://saltspringharbours.com/wp-content/uploads/2025/09/Reflections.jpg
+https://saltspringharbours.com/wp-content/uploads/2025/09/riggin-against-sky.jpg
+https://saltspringharbours.com/wp-content/uploads/2025/09/centenial-docks4.jpg
+https://saltspringharbours.com/wp-content/uploads/2025/09/Burgoyne-Bay-dock.jpg
+-->
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harbour Authority of Salt Spring Island - 8 facilities in 5 harbours</title>
+<meta name="description" content="Harbour Authority of Salt Spring Island. Eight facilities in five harbours: moorage, rates, fish sales, live cams and membership.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#12395b;--deep:#0b2438;--teal:#177e70;--sand:#f4efe6;--paper:#fffdf8;--ink:#1e2a32;--line:#d8d2c4;--red:#b3402a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Public Sans",Arial,sans-serif;font-size:17px;line-height:1.55}
+a{color:var(--navy)}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.08;color:var(--deep)}
+h1{font-size:clamp(2.6rem,13vw,5.5rem);margin:.2em 0 .3em;letter-spacing:-.02em}
+h2{font-size:clamp(1.7rem,8vw,2.6rem);margin:0 0 .4em}
+h3{font-size:1.25rem;margin:0 0 .3em}
+p{margin:0 0 1em;max-width:62ch}
+.wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+.skip{position:absolute;left:-999px;top:0;background:#fff;padding:10px}
+.skip:focus{left:10px;top:10px;z-index:50}
+header{background:var(--deep);color:#fff;padding:14px 0 10px;position:sticky;top:0;z-index:20}
+.head{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{filter:drop-shadow(0 4px 8px rgba(0,0,0,.45));-webkit-box-reflect:below 2px linear-gradient(transparent 70%,rgba(255,255,255,.25))}
+.logo img{height:52px;width:auto;background:#fff;border-radius:6px;padding:4px}
+.brand{line-height:1.15}
+.brand strong{font-family:Fraunces,Georgia,serif;font-size:1.15rem;display:block}
+.brand span{font-size:.85rem;opacity:.9}
+nav{width:100%;display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+nav a{color:#fff;text-decoration:none;padding:10px 12px;min-height:44px;display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.35);border-radius:999px;font-weight:600;font-size:.95rem}
+nav a:focus,nav a:hover{background:#fff;color:var(--deep);outline:none}
+.call{margin-left:auto;background:var(--teal);border-color:var(--teal)}
+.hero{background:var(--navy);color:#fff;padding:28px 0 8px;overflow:hidden}
+.hero p.lede{font-size:1.15rem;max-width:52ch}
+.hero .bigword{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:clamp(3rem,16vw,8rem);line-height:.95;letter-spacing:-.03em;text-transform:uppercase;margin:.1em 0}
+.hero .bigword span{color:#9fd8cf}
+.rollwrap{position:relative;margin:18px 0 0}
+.rollrail{height:10px;background:repeating-linear-gradient(90deg,#0b2438 0 22px,#f4efe6 22px 34px);border-top:2px solid #0b2438;border-bottom:2px solid #0b2438}
+.roll{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:16px 18px 20px;background:var(--sand)}
+.roll figure{flex:0 0 82%;max-width:520px;margin:0;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.roll img{width:100%;height:230px;object-fit:cover}
+.roll figcaption{padding:10px 12px;font-weight:600}
+.rollbtns{display:flex;gap:10px;padding:0 0 18px;background:var(--sand)}
+.btn{appearance:none;border:2px solid var(--deep);background:var(--deep);color:#fff;font:inherit;font-weight:700;min-height:46px;padding:11px 18px;border-radius:999px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn.light{background:#fff;color:var(--deep)}
+.btn.teal{background:var(--teal);border-color:var(--teal)}
+.btn:focus,.btn:hover{outline:3px solid #ffd166;outline-offset:2px}
+.icon{width:20px;height:20px;flex:none}
+section{padding:34px 0}
+section.alt{background:var(--sand)}
+.kicker{font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);font-size:.85rem;margin:0 0 .4em}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 0}
+.grid{display:grid;gap:14px}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr}.roll figure{flex-basis:46%}}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
+.card h3{margin-top:0}
+.tag{display:inline-block;background:var(--sand);border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:.85rem;font-weight:600;margin:0 6px 6px 0}
+details.card summary{cursor:pointer;font-weight:700;font-size:1.15rem;list-style:none}
+details.card summary::-webkit-details-marker{display:none}
+details.card summary:after{content:" +";float:right;color:var(--teal)}
+details.card[open] summary:after{content:" -"}
+details.card summary:focus{outline:3px solid #ffd166;outline-offset:2px;border-radius:8px}
+.serv{margin:10px 0 0;padding-left:18px}
+.serv li{margin-bottom:4px}
+table{width:100%;border-collapse:collapse;background:#fff}
+th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--deep);color:#fff}
+.price{font-weight:700;white-space:nowrap}
+.note{background:#fff;border-left:5px solid var(--teal);padding:12px 14px;margin:14px 0}
+.warn{background:#fff;border-left:5px solid var(--red);padding:12px 14px;margin:14px 0}
+label{display:block;font-weight:600;margin:12px 0 4px}
+input,select,textarea{width:100%;font:inherit;padding:12px;border:1px solid #9aa5ab;border-radius:8px;min-height:46px;background:#fff}
+textarea{min-height:110px}
+.cambox{background:var(--deep);color:#fff;border-radius:12px;padding:22px;text-align:center}
+.cambox .icon{vertical-align:-4px}
+footer{background:var(--deep);color:#fff;padding:28px 0}
+footer a{color:#fff}
+.small{font-size:.9rem;opacity:.9}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#docks">Skip to dock directory</a>
+<header>
+<div class="wrap head">
+<a class="logo" href="#top" aria-label="Harbour Authority of Salt Spring Island home"><img src="https://saltspringharbours.com/wp-content/uploads/2025/09/HASSI.webp" alt="Harbour Authority of Salt Spring Island logo"></a>
+<div class="brand"><strong>Harbour Authority of Salt Spring Island</strong><span>8 facilities in 5 harbours</span></div>
+<a class="btn teal call" href="tel:+12505375711"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>Call the office</a>
+<nav aria-label="Main">
+<a href="#docks">Docks</a>
+<a href="#rates">Rates</a>
+<a href="#moorage">Long-term moorage</a>
+<a href="#fish">Fish sales</a>
+<a href="#cams">Live cams</a>
+<a href="#news">News</a>
+<a href="#membership">Membership</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
+</header>
+
+<main id="top">
+<section class="hero">
+<div class="wrap">
+<p class="kicker">Salt Spring Island, British Columbia</p>
+<div class="bigword">Eight facilities.<br><span>Five harbours.</span></div>
+<p class="lede">HASSI runs eight facilities in five harbours: Ganges, Fulford, Vesuvius, Burgoyne Bay and Musgrave Landing. Transient moorage is offered at all harbours, to varying degrees.</p>
+<p>The Harbour Manager office is at Centennial Dock in Ganges. It is open daily in business hours, except Sundays in the winter season.</p>
+<div class="actions">
+<a class="btn light" href="#docks">Find a dock</a>
+<a class="btn light" href="#rates">See rates</a>
+<a class="btn teal" href="#moorage">Join the waitlist</a>
+</div>
+</div>
+<div class="rollwrap" aria-label="Harbour photos">
+<div class="rollrail" aria-hidden="true"></div>
+<div class="roll" id="roll">
+<figure><img src="https://saltspringharbours.com/wp-content/uploads/2025/09/Breakwater.jpg" alt="Breakwater Dock, Ganges"><figcaption>Breakwater Dock, Ganges</figcaption></figure>
+<figure><img src="https://saltspringharbours.com/wp-content/uploads/2025/09/Fulford-harbour.jpg" alt="Fulford Harbour"><figcaption>Fulford Harbour</figcaption></figure>
+<figure><img src="https://saltspringharbours.com/wp-content/uploads/2025/09/centenial-docks4.jpg" alt="Centennial Docks, Ganges"><figcaption>Centennial Docks, Ganges</figcaption></figure>
+<figure><img src="https://saltspringharbours.com/wp-content/uploads/2025/09/Burgoyne-Bay-dock.jpg" alt="Burgoyne Bay Dock"><figcaption>Burgoyne Bay Dock</figcaption></figure>
+<figure><img src="https://saltspringharbours.com/wp-content/uploads/2025/09/Reflections.jpg" alt="Harbour reflections"><figcaption>Harbour reflections</figcaption></figure>
+<figure><img src="https://saltspringharbours.com/wp-content/uploads/2025/09/riggin-against-sky.jpg" alt="Rigging against the sky"><figcaption>Rigging against the sky</figcaption></figure>
+</div>
+<div class="rollbtns wrap">
+<button class="btn light" type="button" onclick="document.getElementById('roll').scrollBy({left:-320,behavior:'smooth'})">Earlier photos</button>
+<button class="btn light" type="button" onclick="document.getElementById('roll').scrollBy({left:320,behavior:'smooth'})">More photos</button>
+<span class="small" style="color:#fff">Swipe the roll on a phone.</span>
+</div>
+</div>
+</section>
+
+<section id="docks">
+<div class="wrap">
+<p class="kicker">Dock directory</p>
+<h2>Pick a harbour first</h2>
+<p>Tap a dock to open its details. Ganges has the full set of services. The outer harbours are simpler: honour pay boxes, a wharfinger who visits, and help from the Harbour Office when you need it.</p>
+<div class="grid">
+<details class="card" open>
+<summary>Ganges - Centennial</summary>
+<p>The largest HASSI facility. It is mainly homeport for fishing, commercial and recreational vessels with permanent contracts.</p>
+<p>No transient tourist use without staff approval first.</p>
+<ul class="serv"><li>Potable water</li><li>Wi-Fi</li><li>30-amp shore power</li><li>Lighting</li><li>Garbage disposal</li><li>Waste oil disposal</li><li>Shower and washroom facilities</li><li>Boat launching ramp</li></ul>
+</details>
+<details class="card">
+<summary>Ganges - Kanaka</summary>
+<p>Mainly for daily transient vessels from May 1 to September 30.</p>
+<p>From October 1 to April 30, some longer-term space may open, with a waiting list. The south side stays open for daily transient use all year.</p>
+<ul class="serv"><li>Potable water</li><li>Wi-Fi</li><li>30-amp shore power</li><li>Lighting</li><li>Garbage, waste oil, showers, washrooms and ramp through Centennial</li></ul>
+</details>
+<details class="card">
+<summary>Ganges - Breakwater</summary>
+<p>Former transport facility, in HASSI care since May 1, 1998. Commercial use, with the Coast Guard building, reserved slips and parking.</p>
+<p>The float is used for loading and offloading, and by larger transient commercial vessels. No monthly moorage without special Board approval.</p>
+<ul class="serv"><li>Potable water</li><li>Wi-Fi</li><li>30-amp shore power on the centre finger only</li><li>Lighting</li><li>Other services through Centennial</li><li>Black water pump-out station here</li></ul>
+<p>Two outer finger floats are reserved for float planes. The innermost is for RCMP and Coast Guard use.</p>
+</details>
+<details class="card">
+<summary>Vesuvius Bay</summary>
+<p>On the northwest side of the island, just north of the Vesuvius ferry terminal. Mainly transient boaters, and busy in summer.</p>
+<ul class="serv"><li>Honour pay box with envelopes</li><li>Wharfinger visits</li><li>No services</li><li>Emergency power through the Harbour Office</li><li>Night lighting, bus service and parking</li></ul>
+<p>A licensed restaurant with take-out and a coffee shop are within walking distance. Short hiking trails start from the parking lot.</p>
+</details>
+<details class="card">
+<summary>Burgoyne Bay</summary>
+<p>On the west side, at the north end of Sansum Narrows across from Maple Bay. The small bay is sheltered from south and east wind and waves.</p>
+<ul class="serv"><li>No services</li><li>Some parking and road access</li><li>Honour pay box, wharfinger visits</li><li>Solar beacon marks the float end at night</li></ul>
+<p>Half the float is reserved for the Burgoyne Bay Residents Association, marked by a yellow tie-up rail. The other half is short-term transient use, up to 48 hours.</p>
+</details>
+<details class="card">
+<summary>Musgrave Landing</summary>
+<p>On the west side, at the south end of Sansum Narrows across from Cowichan Bay. Mainly transient boaters, and busy in summer.</p>
+<ul class="serv"><li>Honour pay box, wharfinger visits</li><li>No services</li><li>A few parking spots and road access</li></ul>
+<p>The road is unsurfaced and can be hard for low-clearance vehicles in bad weather.</p>
+</details>
+<details class="card">
+<summary>Fulford Outer</summary>
+<p>Just south of the ferry terminal in downtown Fulford. A transient-use facility.</p>
+<ul class="serv"><li>Honour pay box, wharfinger visits</li><li>No services</li><li>Emergency power through the Harbour Office</li><li>Washrooms usually on the adjoining ferry dock in working hours</li><li>Bus service</li><li>Night lighting</li></ul>
+<p>There is a marked area for water ambulance, loading and water taxis. A public derrick with an electric winch sits on the wharfhead. It is locked, and access is through the Harbour Office.</p>
+</details>
+<details class="card">
+<summary>Fulford Inner</summary>
+<p>Just north of the ferry terminal. Homeport for fishing and recreation boats.</p>
+<ul class="serv"><li>Potable water, isolated in winter</li><li>Lighting and shore power</li><li>No garbage facilities</li></ul>
+<p>A waiting list for long-term assignments is kept at the Harbour Office. HASSI policy does not allow liveaboards here. There is no room for transient users.</p>
+</details>
+</div>
+<p class="note">In Ganges, 30-amp power, water, Wi-Fi, shower facilities and garbage disposal are offered for customers paying for moorage on vessels over 12 feet in length.</p>
+</div>
+</section>
+
+<section id="rates" class="alt">
+<div class="wrap">
+<p class="kicker">Rates</p>
+<h2>Rates, in Canadian dollars</h2>
+<p>All moorage fees are payable in advance, for transient and long-term customers.</p>
+<table aria-label="Moorage rates">
+<tr><th>Item</th><th>Rate</th></tr>
+<tr><td>Transient moorage, year round, per foot per day (length overall, including swim grids and bowsprits)</td><td class="price">$1.60, taxes in</td></tr>
+<tr><td>Transient moorage, vessels over 65 feet, per foot per day</td><td class="price">$2.25, taxes in</td></tr>
+<tr><td>Daily service fee, all vessels</td><td class="price">$5.00 per day</td></tr>
+<tr><td>30-amp power, per plug, per day</td><td class="price">$10.00</td></tr>
+<tr><td>30-amp power, per plug, per month (monthly or quarterly agreements)</td><td class="price">$63.00 plus tax</td></tr>
+<tr><td>Monthly moorage, recreational vessels, per foot</td><td class="price">$4.50 plus tax</td></tr>
+<tr><td>Quarterly moorage, recreational vessels, per foot</td><td class="price">$12.25 plus tax</td></tr>
+<tr><td>Garbage, regular bag</td><td class="price">$6.00</td></tr>
+<tr><td>Garbage, large bag</td><td class="price">$8.00</td></tr>
+<tr><td>Boat ramp, single use each way</td><td class="price">$10.00</td></tr>
+<tr><td>Boat ramp, annual sticker (calendar year)</td><td class="price">$60.00</td></tr>
+<tr><td>Hydraulic crane, per use</td><td class="price">$30.00 plus tax</td></tr>
+<tr><td>Wharfhead use over 3 hours</td><td class="price">$80.00 plus tax</td></tr>
+<tr><td>Black water pump-out, per cycle (about 7 minutes)</td><td class="price">$10.00</td></tr>
+</table>
+<p>Transient moorage is limited to 72 hours, except where the Harbour Manager authorizes more. Check-out is 10:00 AM the next morning.</p>
+<p>From 8:00 AM to 4:00 PM, two hours of moorage are free. After 2 hours, half the daily rate applies. After 4:00 PM, the full daily rate applies.</p>
+<p>Ganges is a zero-discharge harbour. Vessels with holding tanks are asked to use the pump-out station at the Breakwater Float. Water is free for vessels paying for moorage, with no wash-downs. Water is turned off in winter to prevent freezing.</p>
+<p>Monthly and quarterly moorage are offered only at Centennial year round, Fulford Inner year round, and Kanaka from October 1 to April 30.</p>
+<p>Centennial reserve fees: dinghy float $61.90 per month plus tax; small boat floats $21.00 per month plus tax, charged quarterly, plus the moorage fee; first float commercial $525.00 per year plus tax, plus the moorage fee.</p>
+<p class="note">Power: 30-amp connections are at Centennial, Kanaka and the Breakwater. Proper twist-lock marine connectors are required. No pig tails are permitted.</p>
+</div>
+</section>
+
+<section id="moorage">
+<div class="wrap">
+<p class="kicker">Long-term moorage</p>
+<h2>Join the waitlist</h2>
+<p>Applications are being accepted for long-term moorage. Numbers on file already cover more than 5 years at the current turnover rate. Salt Spring Island residents get top priority.</p>
+<p>The list is long and slow moving. If you have an application on file, check in from time to time to keep it up to date.</p>
+<form id="waitlist" onsubmit="document.getElementById('waitmsg').hidden=false;return false;">
+<label for="wname">Full name</label>
+<input id="wname" name="name" autocomplete="name" required>
+<label for="wemail">Email</label>
+<input id="wemail" name="email" type="email" autocomplete="email" required>
+<label for="wphone">Phone</label>
+<input id="wphone" name="phone" type="tel" autocomplete="tel">
+<label for="wvessel">Vessel name and length in feet</label>
+<input id="wvessel" name="vessel" placeholder="Example: Sea Star, 32 feet">
+<label for="wplace">Preferred facility</label>
+<select id="wplace" name="facility">
+<option>Centennial, Ganges</option>
+<option>Fulford Inner</option>
+<option>Kanaka, Ganges (October to April)</option>
+<option>Not sure yet</option>
+</select>
+<label for="wres">Salt Spring Island resident?</label>
+<select id="wres" name="resident"><option>Yes</option><option>No</option></select>
+<label for="wnote">Anything else</label>
+<textarea id="wnote" name="note"></textarea>
+<button class="btn teal" type="submit">Send waitlist request</button>
+<p id="waitmsg" hidden class="note">Draft form only. [PLACEHOLDER: form destination - this form is not connected to the Harbour Office yet.]</p>
+</form>
+</div>
+</section>
+
+<section id="fish" class="alt">
+<div class="wrap">
+<p class="kicker">Fish sales</p>
+<h2>Fresh from the dock</h2>
+<p>The Harbour Authority manages a fish sales dock at the main Centennial Dock, by the harbour office at 127 Fulford-Ganges Road.</p>
+<p>Commercial fishers use this dock to sell direct to the public. Products have included shrimp, tuna, salmon and crab.</p>
+<p>As much advance notice as possible is given, and signage is posted when sales occur.</p>
+<p class="note">[PLACEHOLDER: next fish sale date and time - confirm before publishing.]</p>
+</div>
+</section>
+
+<section id="cams">
+<div class="wrap">
+<p class="kicker">Live cams</p>
+<h2>Look at the harbour</h2>
+<p>The Ganges live cam shows Ganges Harbour live. Dock cameras are also listed for Breakwater, Kanaka, Fulford Outer and Fulford Inner.</p>
+<div class="grid">
+<div class="cambox"><p><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> <strong>Ganges live cam</strong></p><p>Live view of Ganges Harbour.</p><a class="btn light" href="https://saltspringharbours.com/ganges-live-cam/">Open the live cam</a></div>
+<div class="cambox"><p><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> <strong>Breakwater Dock cam</strong></p><p>[PLACEHOLDER: live cam embed]</p><a class="btn light" href="https://saltspringharbours.com/web-cameras-at-breakwater-dock/">Open this cam</a></div>
+<div class="cambox"><p><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> <strong>Kanaka Dock cam</strong></p><p>[PLACEHOLDER: live cam embed]</p><a class="btn light" href="https://saltspringharbours.com/web-cameras-at-kanaka-dock/">Open this cam</a></div>
+<div class="cambox"><p><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> <strong>Fulford Outer and Inner cams</strong></p><p>[PLACEHOLDER: live cam embeds]</p><a class="btn light" href="https://saltspringharbours.com/fulford-outer-dock/">Open Fulford Outer cam</a></div>
+</div>
+<p class="note">Fulford Outer Dock cameras update about every 5 minutes. Continuous 24-hour recordings are saved elsewhere.</p>
+</div>
+</section>
+
+<section id="news" class="alt">
+<div class="wrap">
+<p class="kicker">News</p>
+<h2>Notices for boaters</h2>
+<div class="grid">
+<div class="card"><h3>Winter moorage and hours</h3><p>Winter moorage runs October 1 to May 1 inside Kanaka Dock. Office hours change to 9:00 AM to 4:00 PM on October 1, and the office is closed on Sundays in winter.</p></div>
+<div class="card"><h3>Rates now in effect</h3><p>Transient moorage is $1.60 per foot per night on all Salt Spring Island docks. 30-amp power is $10.00 per night. See Rates for full pricing.</p></div>
+<div class="card"><h3>Pump-out and used oil</h3><p>The pump-out is open after repairs. Used motor oil is accepted from vessels only, and containers are not accepted.</p></div>
+</div>
+<p class="note">[PLACEHOLDER: current notices feed - notices change often, confirm the latest list before publishing.]</p>
+</div>
+</section>
+
+<section id="membership">
+<div class="wrap">
+<p class="kicker">Membership</p>
+<h2>Have a say in the harbours</h2>
+<p>To take part in running the Harbour Authority of Salt Spring Island, membership is required in the Harbour Authority of Salt Spring Island Association.</p>
+<p>Membership is approved by the Board of Directors. Membership applications are available at the main harbour office.</p>
+<p>Members pages on the current site cover Members News, Audit Reports and Minutes.</p>
+<p class="note">[PLACEHOLDER: membership fee, form and meeting details - not stated on the public site pages checked.]</p>
+<a class="btn" href="#contact">Ask about membership</a>
+</div>
+</section>
+
+<section id="contact" class="alt">
+<div class="wrap">
+<p class="kicker">Contact [CONFIRM]</p>
+<h2>Harbour Office</h2>
+<p>Office address: 127 Fulford-Ganges Road, Salt Spring Island, B.C., V8K 2T9 [CONFIRM]</p>
+<p>Phone: (250) 537-5711 [CONFIRM]</p>
+<p>Email for the Board of Directors or Harbour Manager: harbour@hassi.ca [CONFIRM]</p>
+<p>After hours emergency: (250) 537-7530 [CONFIRM]</p>
+<p>Monitoring: VHF Channel 9 [CONFIRM]</p>
+<p>Office hours: Monday to Sunday, 09:00 to 16:00 [CONFIRM]. In summer, 9:00 AM to 5:00 PM, 7 days a week until the fall [CONFIRM]. The office is by the ramp to the Centennial Wharfhead, adjacent to Centennial Park [CONFIRM].</p>
+<p>Payments: e-transfers to harbour@hassi.ca and credit card payments over the phone [CONFIRM]. Please state the dock location and your vessel name on any e-transfer [CONFIRM].</p>
+<p>Canada Border Services Agency is available in Ganges through prior arrangement. Call 1-888-226-7277 for details [CONFIRM].</p>
+<form onsubmit="document.getElementById('cmsg').hidden=false;return false;">
+<label for="cname">Full name</label>
+<input id="cname" name="name" autocomplete="name" required>
+<label for="cemail">Email</label>
+<input id="cemail" name="email" type="email" autocomplete="email" required>
+<label for="cmsg2">Message</label>
+<textarea id="cmsg2" name="message" required></textarea>
+<button class="btn teal" type="submit">Send message</button>
+<p id="cmsg" hidden class="note">Draft form only. [PLACEHOLDER: form destination - this form is not connected to the Harbour Office yet.]</p>
+</form>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<p><strong>Harbour Authority of Salt Spring Island</strong></p>
+<p>Eight facilities in five harbours on Salt Spring Island, British Columbia, operated by the Harbour Authority of Salt Spring Island.</p>
+<p class="warn" style="color:#fff">Do not use this website for navigation.</p>
+<p class="small">HASSI was incorporated by Letters Patent on May 23, 1990. It is a not-for-profit body corporate under Canada's Corporation Act. Its purpose is to operate, maintain and manage public fishing harbours, and to provide facilities and services to community and marine stakeholders.</p>
+</div>
+</footer>
+</body>
+</html>
