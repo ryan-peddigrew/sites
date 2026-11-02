@@ -13,7 +13,7 @@
 <style>
 :root{
   --ink:#0E1113; --graphite:#1A1F23; --paper:#F3F1EC; --stone:#E3DFD6; --line:#CFCAC0;
-  --teal:#0088A3; --teal-d:#006B80; --mute:#5E625F; --mute-d:#A7ADAF;
+  --teal:#0088A3; --teal-d:#22B3CF; --mute:#9AA1A4; --mute-d:#A7ADAF;
   --display:'Big Shoulders Display',Impact,sans-serif;
   --body:'Schibsted Grotesk',system-ui,sans-serif;
   --mono:'Martian Mono',ui-monospace,monospace;
@@ -66,7 +66,33 @@ h2{font-size:clamp(44px,8vw,96px)}
 /* hero: walk down the corridor */
 .hero{position:relative;height:190vh;background:var(--ink)}
 .hero-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;color:#fff}
-.hero-img{position:absolute;inset:0;background:url(img/hero.jpg) center 55%/cover no-repeat;transform-origin:50% 48%;will-change:transform}
+.hero-img{position:absolute;inset:0;transform-origin:50% 48%;will-change:transform;background:#0E1113}
+.sl{position:absolute;inset:0;background:center 55%/cover no-repeat;opacity:0;transform:scale(1.12);transition:opacity 1.4s ease,transform 7s linear}
+.sl.on{opacity:1;transform:scale(1)}
+.hw{display:block;overflow:hidden}
+.hw>span{display:block;transform:translateY(105%);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.hero.go .hw>span{transform:none}
+.hero.go .hw:nth-child(2)>span{transition-delay:.12s}.hero.go .hw:nth-child(3)>span{transition-delay:.24s}
+.hero h1 b.hw>span{color:transparent;-webkit-text-stroke:2px #fff}
+.hero .kicker,.hero p,.hero .ctas{opacity:0;transform:translateY(16px);transition:opacity .8s .35s,transform .8s .35s}
+.hero.go .kicker,.hero.go p,.hero.go .ctas{opacity:1;transform:none}
+.dots{display:flex;gap:6px;justify-content:flex-end;margin-top:10px}
+.dots i{width:22px;height:3px;background:rgba(255,255,255,.35)}
+.dots i.on{background:#0088A3}
+@media(max-width:600px){.floor{display:block;top:84px;right:16px}.floor b{font-size:34px}}
+/* loader */
+.ld{position:fixed;inset:0;z-index:100;background:#0E1113;display:grid;place-items:center;transition:transform .8s cubic-bezier(.7,0,.2,1)}
+.ld.out{transform:translateY(-100%)}
+.ld-in{display:grid;justify-items:center;gap:22px;width:min(78vw,320px)}
+.ld img{width:100%;height:auto;filter:drop-shadow(0 8px 14px rgba(0,0,0,.6))}
+.ld-bld{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;width:120px}
+.ld-bld i{aspect-ratio:1;background:#1d2428}
+.ld-bld i.on{background:#0088A3;box-shadow:0 0 10px rgba(0,136,163,.7)}
+.ld-row{display:flex;justify-content:space-between;width:100%;color:#a7adaf;font:500 11px 'Martian Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+.ld-row b{color:#fff;font-weight:500}
+.ld-bar{width:100%;height:3px;background:#1d2428}
+.ld-bar i{display:block;height:100%;width:0;background:#0088A3}
+@media (prefers-reduced-motion:reduce){.sl{transition:opacity .01s}.hw>span{transform:none;transition:none}.hero .kicker,.hero p,.hero .ctas{opacity:1;transform:none;transition:none}.ld{transition:none}}
 .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,17,19,.55) 0%,rgba(14,17,19,.15) 38%,rgba(14,17,19,.82) 100%)}
 .hero-in{position:absolute;inset:auto 0 0 0;padding:0 var(--gut) clamp(28px,6vh,64px);max-width:var(--max);margin:0 auto;will-change:opacity,transform}
 .hero .kicker{display:flex;align-items:center;gap:10px;margin-bottom:16px;color:#d8f3f8}
@@ -372,10 +398,74 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media(min-width:900px){.news-in{grid-template-columns:1fr 1fr;align-items:end;gap:64px}.news-form{grid-template-columns:1fr auto}}
 
+/* ===== dark flip ===== */
+body{background:#0B0E10;color:#E9ECEC}
+.intro,.projects,.reviews,.contact,.brief{background:#0B0E10;color:#E9ECEC}
+.intro{background:radial-gradient(60% 80% at 100% 0%,rgba(0,136,163,.18),transparent 60%),#0B0E10}
+.brief{background:radial-gradient(50% 60% at 0% 10%,rgba(0,136,163,.16),transparent 60%),#0B0E10}
+.contact{background:radial-gradient(60% 70% at 100% 100%,rgba(0,136,163,.2),transparent 60%),#0B0E10}
+.pillars{background:#232a2f;border-color:#232a2f}
+.pillar{background:#0F1315;transition:background .3s}
+.pillar:hover{background:#12191d}
+.pillar p{color:#c3c9cb}.pillar svg{stroke:#3fc7e0}
+.onsite{background:#12171A;color:#E9ECEC}
+.onsite p,.steps li p{color:#c3c9cb}
+.steps,.steps li{border-color:#2A3136}
+.q{background:#12171A;border-color:#2A3136}
+.q figcaption{border-color:#2A3136}.q figcaption span{color:#9aa1a4}
+.fs{border:1px solid #2A3136;border-radius:3px;padding:20px 18px 22px;background:#12171A;display:grid;gap:12px;min-width:0}
+.lg{display:flex;align-items:center;flex-wrap:wrap;gap:12px;font:800 clamp(26px,3vw,32px)/1 var(--display);text-transform:uppercase;margin-bottom:4px;color:#fff}
+.lg span{flex:0 0 34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font:500 13px var(--mono)}
+.lg em{flex-basis:100%;font:500 10px var(--mono);letter-spacing:.08em;color:#9aa1a4;font-style:normal;padding-left:46px}
+.chips button{background:#0B0E10;border-color:#2A3136;color:#E9ECEC}
+.chips button:hover{border-color:#fff}
+.chips button[aria-pressed="true"]{background:#fff;border-color:#fff;color:#0E1113}
+.chips.svc button[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.hint{color:#9aa1a4}
+input,textarea{background:#0B0E10;color:#fff;border-color:#2A3136}
+.range output{color:#fff}
+input[type=range]::-webkit-slider-runnable-track{background:#2A3136}
+input[type=range]::-moz-range-track{background:#2A3136}
+.br-card{background:#12171A;border-color:#2A3136;border-top-color:var(--teal);box-shadow:0 30px 60px -30px rgba(0,136,163,.45)}
+.meter{background:#2A3136}
+.br-dl,.br-dl div{border-color:#2A3136}
+.br-note{background:#0B0E10;color:#9aa1a4}
+.btn-ghost{color:#fff;border-color:#2A3136}.btn-ghost:hover{border-color:#fff}
+.filters button{background:#12171A;color:#fff;border-color:#2A3136}
+.filters button[aria-pressed="true"]{background:#fff;color:#0E1113;border-color:#fff}
+.plaque{border:1px solid #2A3136;background:#12171A}
+.card .ph{background:#12171A}
+.arrows button{border-color:#fff;color:#fff}
+.arrows button:hover{background:#fff;color:#0E1113}
+.proj-head p,.rail-hint{color:#9aa1a4}
+form{background:#12171A;border-color:#2A3136}
+label{color:#9aa1a4}
+.lines,.lines a,.lines div{border-color:#2A3136}
+.form-msg{background:#1b2226}
+.btn-line:hover{background:#fff;color:#0E1113}
+/* ticker */
+.ticker{background:var(--teal);color:#fff;overflow:hidden;white-space:nowrap;border-block:1px solid #00a3c2}
+.tk{display:inline-flex;align-items:center;gap:22px;padding:14px 0;animation:tk 38s linear infinite}
+.tk span{font:800 26px/1 var(--display);text-transform:uppercase;letter-spacing:.03em}
+.tk i{width:10px;height:10px;background:#0E1113;display:inline-block}
+@keyframes tk{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.tk{animation:none}}
+/* pixel grid texture from the logo */
+.explore,.about{background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:32px 32px}
+@media print{body,.brief{background:#fff;color:#000}.br-card{background:#fff;color:#000}.br-card h3{color:#000}.br-note{background:#f3f3f3;color:#333}}
+
 </style>
 </head>
 <body>
 
+<div class="ld" id="ld" aria-hidden="true">
+  <div class="ld-in">
+    <img src="img/logo-white.png" alt="">
+    <div class="ld-bld" id="ld-bld"></div>
+    <div class="ld-bar"><i id="ld-bar"></i></div>
+    <div class="ld-row"><span id="ld-msg">Preparing the site</span><b id="ld-pct">0%</b></div>
+  </div>
+</div>
 <header class="hdr">
   <div class="wrap">
     <a class="logo" href="#top" aria-label="Devman Group Inc. home"><img src="img/logo-white.png" alt="Devman Group Incorporated" width="106" height="38"></a>
@@ -418,12 +508,18 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 
 <section class="hero" aria-label="Introduction">
   <div class="hero-stick">
-    <div class="hero-img" role="img" aria-label="Refurbished corridor at 1 Shaw St, Toronto"></div>
+    <div class="hero-img" role="img" aria-label="Devman Group refurbishment projects">
+      <div class="sl on" style="background-image:url(img/hero.jpg)" data-a="1 Shaw St" data-t="Corridor"></div>
+      <div class="sl" style="background-image:url(img/maison-lobby.jpg)" data-a="1 Maison Parc" data-t="Lobby"></div>
+      <div class="sl" style="background-image:url(img/yonge.jpg)" data-a="3900 Yonge St" data-t="Corridor"></div>
+      <div class="sl" style="background-image:url(img/bayview-stair.jpg)" data-a="1818 Bayview" data-t="Foyer"></div>
+      <div class="sl" style="background-image:url(img/antibes-lobby.jpg)" data-a="80 Antibes Dr" data-t="Lobby"></div>
+    </div>
     <div class="hero-shade"></div>
-    <div class="floor mono">Now showing<b>1 Shaw St</b>Corridor</div>
+    <div class="floor mono">Now showing<b id="fl-a">1 Shaw St</b><span id="fl-t">Corridor</span><div class="dots" id="dots"></div></div>
     <div class="hero-in">
       <div class="kicker mono"><i></i>Condominium refurbishment · Greater Toronto Area</div>
-      <h1>Communication.<b>Quality.</b>Service.</h1>
+      <h1><span class="hw"><span>Communication.</span></span><b class="hw"><span>Quality.</span></b><span class="hw"><span>Service.</span></span></h1>
       <p>Experts in condominium refurbishment and design-build solutions, from corridors to lobbies and amenity spaces.</p>
       <div class="ctas">
         <a class="btn btn-teal" href="#brief">Build your project brief</a>
@@ -433,6 +529,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   </div>
 </section>
 
+<div class="ticker" aria-hidden="true"><div class="tk"><span>1 Shaw St</span><i></i><span>Corridors</span><i></i><span>1818 Bayview</span><i></i><span>Lobbies and foyers</span><i></i><span>3900 Yonge St</span><i></i><span>Amenity spaces</span><i></i><span>80 Antibes Dr</span><i></i><span>Exterior refurbishment</span><i></i><span>211 Randolph Rd</span><i></i><span>Guest suites</span><i></i><span>670 Richmond St W</span><i></i><span>Stairwells</span><i></i><span>51 Baffin Crt</span><i></i><span>1 Shaw St</span><i></i><span>Corridors</span><i></i><span>1818 Bayview</span><i></i><span>Lobbies and foyers</span><i></i><span>3900 Yonge St</span><i></i><span>Amenity spaces</span><i></i><span>80 Antibes Dr</span><i></i><span>Exterior refurbishment</span><i></i><span>211 Randolph Rd</span><i></i><span>Guest suites</span><i></i><span>670 Richmond St W</span><i></i><span>Stairwells</span><i></i><span>51 Baffin Crt</span><i></i></div></div>
 <section class="intro">
   <div class="wrap intro-grid">
     <h2 class="rv">Interiors residents are <em>proud</em> to call home.</h2>
@@ -552,38 +649,38 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     </div>
     <div class="br-grid">
       <form class="br-form" id="brief-form" onsubmit="return false">
-        <fieldset>
-          <legend><span>1</span>Who's planning this?</legend>
+        <div class="fs" role="group">
+          <div class="lg"><span>1</span>Who's planning this?</div>
           <div class="chips" data-name="role" data-single>
             <button type="button" aria-pressed="false">Property manager</button>
             <button type="button" aria-pressed="false">Board member</button>
             <button type="button" aria-pressed="false">Committee member</button>
             <button type="button" aria-pressed="false">Other</button>
           </div>
-        </fieldset>
-        <fieldset>
-          <legend><span>2</span>Which spaces?</legend>
+        </div>
+        <div class="fs" role="group">
+          <div class="lg"><span>2</span>Which spaces?</div>
           <p class="hint">Inside</p>
           <div class="chips svc" data-group="Inside"></div>
           <p class="hint">Outside, with our partners</p>
           <div class="chips svc" data-group="Outside"></div>
-        </fieldset>
-        <fieldset>
-          <legend><span>3</span>Your building</legend>
+        </div>
+        <div class="fs" role="group">
+          <div class="lg"><span>3</span>Your building</div>
           <label>Building name or address<input id="b-name" autocomplete="off" placeholder="For example, 1 Shaw St"></label>
           <label class="range">Residential floors <output id="b-floors-out">12</output><input id="b-floors" type="range" min="1" max="50" value="12"></label>
-        </fieldset>
-        <fieldset>
-          <legend><span>4</span>When are you hoping to start?</legend>
+        </div>
+        <div class="fs" role="group">
+          <div class="lg"><span>4</span>When are you hoping to start?</div>
           <div class="chips" data-name="when" data-single>
             <button type="button" aria-pressed="false">Within 6 months</button>
             <button type="button" aria-pressed="false">6 to 12 months</button>
             <button type="button" aria-pressed="false">Over a year</button>
             <button type="button" aria-pressed="false">Just planning a budget</button>
           </div>
-        </fieldset>
-        <fieldset>
-          <legend><span>5</span>What matters most? <em>Pick up to 3</em></legend>
+        </div>
+        <div class="fs" role="group">
+          <div class="lg"><span>5</span>What matters most? <em>Pick up to 3</em></div>
           <div class="chips" data-name="prio" data-max="3">
             <button type="button" aria-pressed="false">Minimal disruption</button>
             <button type="button" aria-pressed="false">Keeping residents informed</button>
@@ -592,12 +689,12 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
             <button type="button" aria-pressed="false">Staying on schedule</button>
             <button type="button" aria-pressed="false">Value-engineering options</button>
           </div>
-        </fieldset>
+        </div>
       </form>
 
       <aside class="br-card" id="brief-card" aria-live="polite">
         <div class="br-top">
-          <img src="img/logo.png" alt="Devman Group Incorporated" class="br-logo">
+          <img src="img/logo-white.png" alt="Devman Group Incorporated" class="br-logo">
           <span class="mono">Project brief</span>
         </div>
         <h3 id="c-name">Your building</h3>
@@ -990,6 +1087,38 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   function toast(m){tEl.textContent=m;tEl.classList.add('show');clearTimeout(tT);tT=setTimeout(function(){tEl.classList.remove('show')},2200)}
 
   showZone('lobby');
+})();
+</script>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hero=document.querySelector('.hero');
+  // loader: floors light up bottom to top
+  var ld=document.getElementById('ld'),bld=document.getElementById('ld-bld'),cells=[];
+  for(var i=0;i<36;i++){var c=document.createElement('i');bld.appendChild(c);cells.push(c)}
+  var order=cells.map(function(c,i){return i}).reverse();
+  var msgs=['Preparing the site','Reviewing the corridors','Lighting the lobby','Ready'];
+  var dur=reduce?300:1900,t0=null,done=false;
+  document.documentElement.style.overflow='hidden';
+  function step(t){
+    if(!t0)t0=t;var p=Math.min(1,(t-t0)/dur);
+    var n=Math.round(p*cells.length);for(var k=0;k<n;k++)cells[order[k]].classList.add('on');
+    document.getElementById('ld-bar').style.width=(p*100)+'%';
+    document.getElementById('ld-pct').textContent=Math.round(p*100)+'%';
+    document.getElementById('ld-msg').textContent=msgs[Math.min(3,Math.floor(p*3.999))];
+    if(p<1)requestAnimationFrame(step);else finish();
+  }
+  function finish(){if(done)return;done=true;setTimeout(function(){ld.classList.add('out');document.documentElement.style.overflow='';hero.classList.add('go');setTimeout(function(){ld.remove()},900)},200)}
+  requestAnimationFrame(step);setTimeout(finish,4000);
+  // hero slideshow
+  var sl=[].slice.call(document.querySelectorAll('.sl')),dots=document.getElementById('dots'),cur=0;
+  sl.forEach(function(){dots.appendChild(document.createElement('i'))});
+  function show(i){sl[cur].classList.remove('on');cur=i;sl[cur].classList.add('on');
+    document.getElementById('fl-a').textContent=sl[cur].dataset.a;document.getElementById('fl-t').textContent=sl[cur].dataset.t;
+    [].forEach.call(dots.children,function(d,j){d.classList.toggle('on',j===cur)})}
+  show(0);
+  if(!reduce)setInterval(function(){show((cur+1)%sl.length)},4500);
 })();
 </script>
 </body>
