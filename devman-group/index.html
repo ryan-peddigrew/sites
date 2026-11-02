@@ -455,6 +455,18 @@ label{color:#9aa1a4}
 .explore,.about{background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:32px 32px}
 @media print{body,.brief{background:#fff;color:#000}.br-card{background:#fff;color:#000}.br-card h3{color:#000}.br-note{background:#f3f3f3;color:#333}}
 
+/* hero v4 */
+.hero h1{font-size:clamp(64px,17vw,210px);line-height:.84;letter-spacing:-.01em}
+.hero h1 .rot em{font-style:normal;display:inline-block;color:#fff;background:linear-gradient(90deg,#3fe0ff,#0088A3);-webkit-background-clip:text;background-clip:text;color:transparent;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .5s}
+.hero h1 .rot em.out{transform:translateY(-100%);opacity:0}
+.hero h1 .rot em.in{transform:translateY(100%);opacity:0;transition:none}
+.hero h1 .rot{min-height:.9em}
+.hero .kicker{color:#fff;opacity:.9}
+.hero-shade{background:linear-gradient(180deg,rgba(11,14,16,.6) 0%,rgba(11,14,16,.1) 35%,rgba(11,14,16,.88) 100%)}
+.hero-stick::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(63,224,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(63,224,255,.07) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(180deg,#000,transparent 55%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 55%)}
+.hero-in{z-index:2}.floor{z-index:2}
+@media(max-width:600px){.hero h1{font-size:clamp(56px,17.5vw,90px)}}
+
 </style>
 </head>
 <body>
@@ -516,13 +528,12 @@ label{color:#9aa1a4}
       <div class="sl" data-bg="img/h4.jpg" data-a="1 Shaw St" data-t="Corridor"></div>
       <div class="sl" data-bg="img/h5.jpg" data-a="80 Antibes Dr" data-t="Lobby"></div>
     </div>
-    </div>
     <div class="hero-shade"></div>
     <div class="floor mono">Now showing<b id="fl-a">1 Shaw St</b><span id="fl-t">Corridor</span><div class="dots" id="dots"></div></div>
     <div class="hero-in">
-      <div class="kicker mono"><i></i>Condominium refurbishment · Greater Toronto Area</div>
-      <h1><span class="hw"><span>Communication.</span></span><b class="hw"><span>Quality.</span></b><span class="hw"><span>Service.</span></span></h1>
-      <p>Experts in condominium refurbishment and design-build solutions, from corridors to lobbies and amenity spaces.</p>
+      <div class="kicker mono"><i></i>Communication. Quality. Service.</div>
+      <h1><span class="hw"><span>Beautiful</span></span><span class="hw rot" aria-live="polite"><span><em id="rot">lobbies.</em></span></span></h1>
+      <p>Design-build refurbishment for condominium common areas, from concept to reality.</p>
       <div class="ctas">
         <a class="btn btn-teal" href="#brief">Build your project brief</a>
         <a class="btn btn-line" href="#services">Tap through a building</a>
@@ -1122,6 +1133,17 @@ label{color:#9aa1a4}
     [].forEach.call(dots.children,function(d,j){d.classList.toggle('on',j===cur)})}
   show(0);
   window.addEventListener('load',function(){sl.forEach(function(x){if(x.dataset.bg)x.style.backgroundImage='url('+x.dataset.bg+')'});if(!reduce)setInterval(function(){show((cur+1)%sl.length)},4500)});
+})();
+</script>
+
+<script>
+(function(){
+  var w=['lobbies.','corridors.','amenity spaces.','entrances.','stairwells.','party rooms.','guest suites.'],i=0,el=document.getElementById('rot');
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  setInterval(function(){
+    el.classList.add('out');
+    setTimeout(function(){i=(i+1)%w.length;el.textContent=w[i];el.classList.remove('out');el.classList.add('in');void el.offsetWidth;el.classList.remove('in')},450);
+  },2200);
 })();
 </script>
 </body>
