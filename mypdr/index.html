@@ -46,72 +46,21 @@ body.client .flag{display:none}
 #arrive .skip:hover{color:var(--cream)}
 .scene{position:absolute;inset:0;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity 1s ease}
 .scene.on{opacity:1;pointer-events:auto}
-/* ---- the entrance: front-on, modern private-dining double doors ---- */
-.entry{--dh:min(66vh,660px);--dw:calc(var(--dh)*.62);position:absolute;inset:0;transform-origin:50% 52%;transition:transform 2.6s cubic-bezier(.55,0,.2,1)}
-#arrive.open .entry{transform:scale(2.6)}
-/* wall: dark fluted walnut with warm wash */
-.wall{position:absolute;inset:0;background:
-  radial-gradient(28% 40% at 16% 34%,#f2b95a2e,transparent 70%),
-  radial-gradient(28% 40% at 84% 34%,#f2b95a2e,transparent 70%),
-  repeating-linear-gradient(90deg,#140d07 0 6px,#22160c 6px 9px,#2b1c0f 9px 12px,#170f08 12px 16px),
-  #160e07}
-.wall::after{content:"";position:absolute;inset:0;background:linear-gradient(#000c,transparent 22%,transparent 60%,#000e 100%)}
-/* polished stone floor with reflection */
-.floor{position:absolute;left:0;right:0;bottom:0;height:20%;background:linear-gradient(#0d0b09,#1b1712 60%,#0b0907);border-top:1px solid #3b2d18}
-.floor::before{content:"";position:absolute;left:50%;top:0;width:var(--dw);height:70%;transform:translateX(-50%);background:linear-gradient(#f1c75a40,transparent);filter:blur(6px)}
-.floor::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 23%,#ffffff08 23% 23.3%)}
-/* doorway sizing */
-.door-set{position:absolute;left:50%;bottom:20%;width:var(--dw);height:var(--dh);transform:translateX(-50%);perspective:1400px;perspective-origin:50% 40%}
-@media (max-aspect-ratio:3/4){.entry{--dh:min(52vh,520px)}}
-.casing{position:absolute;inset:-16px -16px 0;border:16px solid #0c0907;border-bottom:0;box-shadow:inset 0 0 0 1px #c9a23a,0 0 0 1px #c9a23a55,0 30px 60px -20px #000;border-radius:2px 2px 0 0}
-.casing::before{content:"";position:absolute;inset:-16px -16px 0;border:1px solid #c9a23a33;border-bottom:0}
-/* backlit brass logo above the door */
-.sign{position:absolute;left:50%;top:calc(-16px - 64px);width:120px;height:36px;transform:translateX(-50%);
-  -webkit-mask:url(img/logo.png) center/contain no-repeat;mask:url(img/logo.png) center/contain no-repeat;
-  background:linear-gradient(100deg,#8a6a1c,#f6dd8a 45%,#c9a23a 60%,#7a5a0e);filter:drop-shadow(0 0 10px #f1c75a88)}
-.halo{position:absolute;left:50%;top:calc(-16px - 82px);width:200px;height:72px;transform:translateX(-50%);background:radial-gradient(50% 50% at 50% 50%,#f1c75a33,transparent 70%)}
-/* what's behind: the room, lit */
-.beyond{position:absolute;inset:0;overflow:hidden;background:#000}
-.beyond i{position:absolute;inset:-20%;background:url(img/room-xl.jpg) center/cover;filter:brightness(.55) saturate(1.05) sepia(.15);transform:scale(1.05)}
-.beyond::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 45%,#f1c75a22,#000a 100%)}
-/* the two leaves: black lacquer, brass inlay, long pulls; they swing inward */
-.leaf{position:absolute;top:0;bottom:0;width:50%;transform-style:preserve-3d;transition:transform 2.1s cubic-bezier(.6,.04,.25,1);
-  background:linear-gradient(100deg,#060607 0%,#18181b 30%,#0b0b0d 55%,#1c1c20 80%,#09090a 100%);
-  box-shadow:inset 0 0 0 1px #000,inset 0 0 60px #000c}
-.leaf.l{left:0;transform-origin:0 50%}
-.leaf.r{right:0;transform-origin:100% 50%}
-#arrive.open .leaf.l{transform:rotateY(-104deg)}
-#arrive.open .leaf.r{transform:rotateY(104deg)}
-.leaf .inlay{position:absolute;inset:7% 13% 7% 13%;border:1px solid #c9a23aaa;box-shadow:inset 0 0 0 6px #0000,inset 0 0 0 7px #c9a23a44}
-.leaf .inlay::after{content:"";position:absolute;left:0;right:0;top:38%;border-top:1px solid #c9a23a66}
-.leaf .sheen{position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,#ffffff10 42%,transparent 50%);mix-blend-mode:screen}
-.pull{position:absolute;top:28%;height:44%;width:8px;border-radius:4px;background:linear-gradient(90deg,#6b4f10,#f6dd8a 35%,#d4af37 55%,#7a5a0e);box-shadow:3px 4px 8px #000d}
-.pull::before,.pull::after{content:"";position:absolute;left:50%;width:10px;height:6px;margin-left:-5px;background:#a8862a;box-shadow:0 1px 2px #000}
-.pull::before{top:8%}.pull::after{bottom:8%}
-.leaf.l .pull{right:10%}.leaf.r .pull{left:10%}
-.seamlight{position:absolute;left:50%;top:2%;bottom:0;width:2px;margin-left:-1px;background:linear-gradient(transparent,#f6dd8a 30%,#fff3c4 60%,#f1c75a);box-shadow:0 0 18px 4px #f1c75a66;transition:opacity .4s}
-#arrive.open .seamlight{opacity:0}
-.underglow{position:absolute;left:4%;right:4%;bottom:-2px;height:3px;background:#f6dd8a;box-shadow:0 0 22px 8px #f1c75a77;border-radius:2px;transition:opacity .6s}
-#arrive.open .underglow{opacity:0}
-/* modern brass sconces */
-.sconce{position:absolute;bottom:calc(20% + var(--dh)*.55);width:22px;height:96px}
-.sconce.l{right:calc(50% + var(--dw)/2 + 46px)}.sconce.r{left:calc(50% + var(--dw)/2 + 46px)}
-.sconce .plate{position:absolute;left:8px;top:6px;width:6px;height:84px;border-radius:3px;background:linear-gradient(90deg,#6b4f10,#e8c869,#8a6a1c)}
-.sconce .glass{position:absolute;left:0;top:18px;width:22px;height:46px;border-radius:11px;background:linear-gradient(90deg,#f4dfa8,#fff7dc 50%,#e9c97a);box-shadow:0 0 22px 8px #f1c75a66,0 0 70px 26px #f1c75a22;animation:breathe 4s ease-in-out infinite}
-@keyframes breathe{0%,100%{opacity:.92}50%{opacity:1}}
-.sconce::after{content:"";position:absolute;left:-60px;right:-60px;top:-120px;bottom:-140px;background:radial-gradient(30% 50% at 50% 50%,#f1c75a26,transparent 70%);pointer-events:none}
-/* velvet rope on brass stanchions; it unhooks as you enter */
-.rope{position:absolute;left:50%;bottom:calc(20% - 4px);width:calc(var(--dw) + 120px);height:70px;transform:translateX(-50%);transition:opacity .8s .2s}
-#arrive.open .rope{opacity:0}
-.post{position:absolute;bottom:0;width:8px;height:62px;background:linear-gradient(90deg,#6b4f10,#f6dd8a,#8a6a1c);border-radius:3px}
-.post::before{content:"";position:absolute;left:50%;top:-12px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff1c0,#c9a23a 50%,#6b4f10)}
-.post::after{content:"";position:absolute;left:50%;bottom:-3px;width:34px;height:6px;margin-left:-17px;border-radius:50%;background:linear-gradient(#e8c869,#6b4f10)}
-.post.a{left:0}.post.b{right:0}
-.cord{position:absolute;left:8px;right:8px;top:2px;height:34px;border-bottom:7px solid #4a0f1a;border-radius:0 0 50% 50%/0 0 100% 100%;box-shadow:0 6px 8px -4px #000c;filter:drop-shadow(0 1px 0 #7a2232)}
-#arrive.lift .cord{transform-origin:100% 0;transform:rotate(26deg);transition:transform .6s ease-in}
-.dark{display:none}
+/* ---- the entrance: no drawn door. Darkness, one seam of warm light, then the real room opens from the centre ---- */
+.entry{position:absolute;inset:0;background:#030303}
+.beyond{position:absolute;inset:0;clip-path:inset(0 50% 0 50%);transition:clip-path 2.4s cubic-bezier(.65,0,.2,1)}
+.beyond i{position:absolute;inset:0;background:url(img/room-xl.jpg) center/cover;transform:scale(1.25);filter:brightness(.35) sepia(.2);transition:transform 3.2s var(--ease),filter 3.2s var(--ease)}
+#arrive.open .beyond{clip-path:inset(0 0 0 0)}
+#arrive.open .beyond i{transform:scale(1.02);filter:brightness(.75) sepia(.05)}
+.seam{position:absolute;left:50%;top:18%;bottom:18%;width:2px;margin-left:-1px;background:linear-gradient(transparent,#f6dd8a 20%,#fff4cf 50%,#f6dd8a 80%,transparent);box-shadow:0 0 24px 6px #f1c75a55,0 0 90px 30px #f1c75a1f;animation:breathe 3.5s ease-in-out infinite;transition:opacity .5s}
+#arrive.open .seam{opacity:0}
+@keyframes breathe{0%,100%{opacity:.75}50%{opacity:1}}
+.pool{position:absolute;left:50%;bottom:10%;width:60vw;max-width:520px;height:60px;transform:translateX(-50%);background:radial-gradient(50% 50% at 50% 50%,#f1c75a26,transparent 70%);transition:opacity .5s}
+#arrive.open .pool{opacity:0}
+.sign{position:absolute;left:50%;top:9%;width:96px;height:28px;transform:translateX(-50%);-webkit-mask:url(img/logo.png) center/contain no-repeat;mask:url(img/logo.png) center/contain no-repeat;background:linear-gradient(100deg,#8a6a1c,#f6dd8a 45%,#c9a23a 60%,#7a5a0e);opacity:.9;transition:opacity .6s}
+#arrive.open .sign{opacity:0}
 .behind{position:absolute;inset:0;background:url(img/room-xl.jpg) center/cover}
-.behind::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 55%,transparent,#000 100%)}
+.behind::after{content:"";position:absolute;inset:0;background:#000a}
 .street-copy{position:absolute;left:0;right:0;bottom:max(28px,env(safe-area-inset-bottom,0px));text-align:center;padding:0 24px;transition:opacity .6s}
 #arrive.open .street-copy{opacity:0}
 .street-copy p{margin:0;font:italic 500 clamp(1.4rem,4vw,2rem)/1.2 var(--f-script);color:var(--bone)}
@@ -121,12 +70,6 @@ body.client .flag{display:none}
 .tapzone{position:absolute;inset:0;background:none;border:0;cursor:pointer}
 /* greeter */
 .greet{text-align:center;padding:0 24px;max-width:560px;position:relative}
-.stand{width:160px;height:110px;margin:0 auto 26px;position:relative;transform:perspective(500px) rotateX(18deg)}
-.stand .book{position:absolute;inset:0;background:linear-gradient(90deg,#f1ead9 0 49.5%,#c9bfa8 49.5% 50.5%,#f1ead9 50.5%);border-radius:4px;box-shadow:0 20px 30px -12px #000,inset 0 0 0 1px #0002}
-.stand .book::before,.stand .book::after{content:"";position:absolute;top:18px;height:1px;background:repeating-linear-gradient(90deg,#b9ae95 0 2px,transparent 2px 4px);box-shadow:0 12px 0 #cfc5ad,0 24px 0 #cfc5ad,0 36px 0 #cfc5ad,0 48px 0 #cfc5ad,0 60px 0 #cfc5ad}
-.stand .book::before{left:14px;width:52px}.stand .book::after{right:14px;width:52px}
-.stand .pen{position:absolute;right:28px;top:30px;width:4px;height:70px;background:linear-gradient(#f3d77a,#8a6a1c);transform:rotate(28deg);border-radius:2px;box-shadow:0 2px 3px #0008}
-.stand .base{position:absolute;left:30px;right:30px;bottom:-26px;height:26px;background:linear-gradient(#2d1d0e,#15100a);border-radius:0 0 6px 6px}
 .greet h1{font:italic 500 clamp(1.6rem,4.5vw,2.4rem)/1.2 var(--f-script);color:var(--bone);margin:0;text-wrap:balance}
 .greet h1 b{display:block;font:400 clamp(2.4rem,7vw,3.6rem)/1 var(--f-display);text-transform:uppercase;color:var(--cream);font-style:normal;margin-top:8px}
 .greet .q{margin-top:18px;font-size:1rem;color:#CFC9BD}
@@ -167,7 +110,7 @@ body.handed #site{opacity:1;transform:none;transition:opacity 1s ease,transform 
 .hero{position:relative;min-height:88vh;display:grid;align-items:end;border-radius:28px;overflow:hidden;margin-top:6px;isolation:isolate}
 .hero .bg{position:absolute;inset:0;background:url(img/room-xl.jpg) center/cover;z-index:-1;transform:scale(1.08);animation:slow 30s ease-in-out infinite alternate}
 @keyframes slow{to{transform:scale(1) translateX(-1%)}}
-.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0A0A0Af0 0%,#0A0A0Aa0 45%,#0A0A0A33 100%),linear-gradient(transparent 40%,#0A0A0Ad0)}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 20%,#0A0A0Ae6 85%)}
 .hero .in{padding:60px 24px 40px;max-width:720px}
 .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid #ffffff30;border-radius:99px;padding:8px 12px;font:500 .58rem/1 var(--f-body);letter-spacing:.22em;text-transform:uppercase;margin-bottom:22px}
 .chip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
@@ -270,32 +213,21 @@ body.client .cmp .ex{color:var(--muted)}
 <div id="arrive" aria-label="Arrival">
   <button class="skip" id="skip" type="button">Skip to the site</button>
 
-  <!-- 1. The door -->
+  <!-- 1. The entrance -->
   <section class="scene on" id="sc-door">
     <div class="entry">
-      <div class="wall"></div>
-      <div class="floor"></div>
-      <div class="door-set" id="doorway">
-        <div class="halo"></div><div class="sign" role="img" aria-label="PdR"></div>
-        <div class="beyond"><i></i></div>
-        <div class="leaf l"><div class="inlay"></div><div class="sheen"></div><div class="pull"></div></div>
-        <div class="leaf r"><div class="inlay"></div><div class="sheen"></div><div class="pull"></div></div>
-        <div class="seamlight"></div><div class="underglow"></div>
-        <div class="casing"></div>
-      </div>
-      <div class="sconce l"><div class="plate"></div><div class="glass"></div></div>
-      <div class="sconce r"><div class="plate"></div><div class="glass"></div></div>
-      <div class="rope"><div class="post a"></div><div class="cord"></div><div class="post b"></div></div>
+      <div class="beyond"><i></i></div>
+      <div class="sign" role="img" aria-label="PdR"></div>
+      <div class="seam"></div><div class="pool"></div>
     </div>
-    <div class="street-copy"><p>Good evening. You're on the list.</p><small>Tap the doors to enter</small></div>
-    <button class="tapzone" id="knock" type="button" aria-label="Enter through the doors"></button>
+    <div class="street-copy"><p>Good evening.</p><small>Tap to enter</small></div>
+    <button class="tapzone" id="knock" type="button" aria-label="Enter"></button>
   </section>
 
   <!-- 2. The greeter -->
   <section class="scene" id="sc-greet">
-    <div class="behind" style="filter:brightness(.4) saturate(.8)"></div>
+    <div class="behind"></div>
     <div class="greet">
-      <div class="stand"><div class="book"></div><div class="pen"></div><div class="base"></div></div>
       <h1>Welcome to <b>PdR</b></h1>
       <p class="q">Are you joining us tonight as a restaurant, or planning an event?</p>
       <div class="choice">
@@ -326,15 +258,13 @@ body.client .cmp .ex{color:var(--muted)}
   <header class="hero" id="top">
     <div class="bg"></div>
     <div class="in">
-      <div class="chip">Early access · founding members</div>
       <h1>The right room changes <span>everything.</span></h1>
       <p class="p">PdR is where private dining rooms meet the people who book them. Restaurants publish their rooms; hosts and planners discover, compare, and book — every detail on one table.</p>
       <div class="btns"><a class="btn g" href="#restaurants">I run a restaurant <span class="ar">↗</span></a><a class="btn o" href="#planners">I host or plan events <span class="ar">↗</span></a></div>
-      <div class="proof">From the team that has sourced private dining for Web Summit, CoinDesk, Hyatt, TD and Pinterest.<span class="flag">E1</span></div>
     </div>
   </header>
 
-  <div class="tick" aria-hidden="true"><div>Toronto <b>·</b> Montréal <b>·</b> Edmonton <b>·</b> Markham <b>·</b> PEI <b>·</b> Las Vegas <b>·</b> Richmond, BC <b>·</b> IMEX America <b>·</b> CMEE <b>·</b> CSAE <b>·</b> CSE Live <b>·</b> APC Canada <b>·</b> RC Show <b>·</b> Toronto <b>·</b> Montréal <b>·</b> Edmonton <b>·</b> Markham <b>·</b> PEI <b>·</b> Las Vegas <b>·</b> Richmond, BC <b>·</b> IMEX America <b>·</b> CMEE <b>·</b> CSAE <b>·</b> CSE Live <b>·</b> APC Canada <b>·</b> RC Show <b>·</b> </div></div>
+  <p class="proof" style="margin:28px auto 0;max-width:60ch">From the team that has sourced private dining for Web Summit, CoinDesk, Hyatt, TD and Pinterest.<span class="flag">E1</span></p>
 
   <section class="sec why">
     <div class="lab" style="justify-content:center">Why PdR</div>
@@ -470,13 +400,13 @@ body.client .cmp .ex{color:var(--muted)}
   function setSide(s){side=s;document.querySelectorAll('[data-pick]').forEach(function(a){a.classList.toggle('on',a.dataset.pick===s)});
     tog.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.side===(s||'restaurant'))});formLabels(s||'restaurant');}
   function formLabels(s){var r=s==='restaurant';document.getElementById('nmL').childNodes[0].nodeValue=r?'Restaurant name':'Company or agency';document.getElementById('nm').placeholder=r?'Your restaurant':'Your company';document.getElementById('extraL').childNodes[0].nodeValue=r?'Private rooms':'Events per year';document.getElementById('extra').placeholder=r?'e.g. 2':'e.g. 12';document.getElementById('em').placeholder=r?'you@restaurant.com':'you@agency.com';}
-  function hand(target){arrive.classList.add('bye');document.body.classList.remove('arriving','locked');document.body.classList.add('handed');setTimeout(function(){arrive.hidden=true;dock.classList.add('show')},1200);
+  function hand(target){arrive.classList.add('bye');document.body.classList.remove('arriving','locked');document.body.classList.add('handed');setTimeout(function(){arrive.hidden=true},1200);
     try{localStorage.setItem('pdr-arrived','1')}catch(e){}
     if(target){setTimeout(function(){var el=document.getElementById(target);if(el)el.scrollIntoView({behavior:reduce?'auto':'smooth'})},900)}}
   /* 1. knock, then the door opens */
   var knocked=false;
-  document.getElementById('knock').addEventListener('click',function(){if(knocked)return;knocked=true;arrive.classList.add('lift');
-    setTimeout(function(){arrive.classList.add('open')},reduce?0:600);
+  document.getElementById('knock').addEventListener('click',function(){if(knocked)return;knocked=true;arrive.classList.add('open');
+    0;
     setTimeout(function(){show('greet')},reduce?300:2700);});
   /* 2. the greeter asks */
   document.querySelectorAll('#sc-greet [data-side]').forEach(function(b){b.addEventListener('click',function(){var s=b.dataset.side;setSide(s);
@@ -488,7 +418,7 @@ body.client .cmp .ex{color:var(--muted)}
   document.getElementById('skip').addEventListener('click',function(){hand('')});
   document.getElementById('replay').addEventListener('click',function(){try{localStorage.removeItem('pdr-arrived')}catch(e){}location.href=location.pathname+'?replay';});
   var seen=false;try{seen=localStorage.getItem('pdr-arrived')==='1'}catch(e){}
-  if(seen&&!q.has('replay')){arrive.hidden=true;document.body.classList.remove('arriving','locked');document.body.classList.add('handed');dock.classList.add('show');}
+  if(seen&&!q.has('replay')){arrive.hidden=true;document.body.classList.remove('arriving','locked');document.body.classList.add('handed');}
   /* site: giant list */
   var list=document.getElementById('list'),peek=document.getElementById('peek'),pn=document.getElementById('peekN'),pc=document.getElementById('peekCap');
   list.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){list.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});list.classList.add('has');peek.style.backgroundImage='url(img/'+b.dataset.img+'.jpg)';pn.textContent=b.dataset.n;pc.textContent=b.dataset.cap;})});
@@ -497,6 +427,7 @@ body.client .cmp .ex{color:var(--muted)}
   document.querySelectorAll('a[data-pick]').forEach(function(a){a.addEventListener('click',function(){setSide(a.dataset.pick)})});
   document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('ok').style.display='block';});
   setSide('');
+  addEventListener('scroll',function(){dock.classList.toggle('show',scrollY>innerHeight*.8)},{passive:true});
 })();
 </script>
 </body>
