@@ -81,19 +81,18 @@ h2{font-size:clamp(44px,8vw,96px)}
 .dots i{width:22px;height:3px;background:rgba(255,255,255,.35)}
 .dots i.on{background:#0088A3}
 @media(max-width:600px){.floor{display:block;top:84px;right:16px}.floor b{font-size:34px}}
-/* loader */
-.ld{position:fixed;inset:0;z-index:100;background:#0E1113;display:grid;place-items:center;transition:transform .6s cubic-bezier(.7,0,.2,1)}
-.ld.out{transform:translateY(-100%)}
-.ld-in{display:grid;justify-items:center;gap:22px;width:min(78vw,320px)}
-.ld img{width:100%;height:auto;filter:drop-shadow(0 8px 14px rgba(0,0,0,.6))}
-.ld-bld{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;width:120px}
-.ld-bld i{aspect-ratio:1;background:#1d2428}
-.ld-bld i.on{background:#0088A3;box-shadow:0 0 10px rgba(0,136,163,.7)}
-.ld-row{display:flex;justify-content:space-between;width:100%;color:#a7adaf;font:500 11px 'Martian Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
-.ld-row b{color:#fff;font-weight:500}
-.ld-bar{width:100%;height:3px;background:#1d2428}
-.ld-bar i{display:block;height:100%;width:0;background:#0088A3}
-@media (prefers-reduced-motion:reduce){.sl{transition:opacity .01s}.hw>span{transform:none;transition:none}.hero .kicker,.hero p,.hero .ctas{opacity:1;transform:none;transition:none}.ld{transition:none}}
+/* loader: walk down the hallway */
+.ld{position:fixed;inset:0;z-index:100;background:#0B0E10;overflow:hidden;transition:opacity .7s ease}
+.ld.out{opacity:0;pointer-events:none}
+.ld-img{position:absolute;inset:0;background:url(img/h1.jpg) center 55%/cover no-repeat;transform-origin:50% 46%;transform:scale(1);animation:walk 2.1s cubic-bezier(.55,0,.35,1) .2s forwards}
+@keyframes walk{0%{transform:scale(1);filter:brightness(.75)}70%{filter:brightness(.95)}100%{transform:scale(3.4);filter:brightness(1.4) blur(3px)}}
+.ld-shade{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 46%,transparent 30%,rgba(11,14,16,.75) 100%)}
+.ld-in{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:14px;animation:ldin 2.1s ease .2s forwards}
+@keyframes ldin{0%{opacity:0;transform:translateY(10px)}25%{opacity:1;transform:none}70%{opacity:1}100%{opacity:0;transform:scale(1.15)}}
+.ld-in img{width:min(62vw,300px);height:auto;filter:drop-shadow(0 8px 18px rgba(0,0,0,.7))}
+.ld:not(.run) .ld-img,.ld:not(.run) .ld-in{animation-play-state:paused}
+.ld-cap{font:500 11px 'Martian Mono',monospace;letter-spacing:.24em;text-transform:uppercase;color:#fff}
+@media (prefers-reduced-motion:reduce){.sl{transition:opacity .01s}.hw>span{transform:none;transition:none}.hero .kicker,.hero p,.hero .ctas{opacity:1;transform:none;transition:none}.ld{transition:none}.ld-img,.ld-in{animation:none}}
 .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,17,19,.55) 0%,rgba(14,17,19,.15) 38%,rgba(14,17,19,.82) 100%)}
 .hero-in{position:absolute;inset:auto 0 0 0;padding:0 var(--gut) clamp(28px,6vh,64px);max-width:var(--max);margin:0 auto;will-change:opacity,transform}
 .hero .kicker{display:flex;align-items:center;gap:10px;margin-bottom:16px;color:#d8f3f8}
@@ -484,11 +483,11 @@ label{color:#9aa1a4}
 <body>
 
 <div class="ld" id="ld" aria-hidden="true">
+  <div class="ld-img"></div>
+  <div class="ld-shade"></div>
   <div class="ld-in">
     <img src="img/logo-white.png" alt="">
-    <div class="ld-bld" id="ld-bld"></div>
-    <div class="ld-bar"><i id="ld-bar"></i></div>
-    <div class="ld-row"><span id="ld-msg">Preparing the site</span><b id="ld-pct">0%</b></div>
+    <span class="ld-cap">Welcome in</span>
   </div>
 </div>
 <header class="hdr">
@@ -534,14 +533,14 @@ label{color:#9aa1a4}
 <section class="hero" aria-label="Introduction">
   <div class="hero-stick">
     <div class="hero-img" role="img" aria-label="Devman Group refurbishment projects">
-      <div class="sl on" style="background-image:url(img/h1.jpg)" data-a="1 Maison Parc" data-t="Lobby"></div>
-      <div class="sl" data-bg="img/h2.jpg" data-a="3900 Yonge St" data-t="Corridor"></div>
-      <div class="sl" data-bg="img/h3.jpg" data-a="1818 Bayview" data-t="Foyer"></div>
-      <div class="sl" data-bg="img/h4.jpg" data-a="1 Shaw St" data-t="Corridor"></div>
-      <div class="sl" data-bg="img/h5.jpg" data-a="80 Antibes Dr" data-t="Lobby"></div>
+      <div class="sl on" style="background-image:url(img/h1.jpg)" data-a="1 Maison Parc" data-t="Corridor"></div>
+      <div class="sl" data-bg="img/h2.jpg" data-a="1 Maison Parc" data-t="Lobby"></div>
+      <div class="sl" data-bg="img/h3.jpg" data-a="3900 Yonge St" data-t="Corridor"></div>
+      <div class="sl" data-bg="img/h4.jpg" data-a="211 Randolph Rd" data-t="Elevators"></div>
+      <div class="sl" data-bg="img/h5.jpg" data-a="51 Baffin Crt" data-t="Corridor"></div>
     </div>
     <div class="hero-shade"></div>
-    <div class="floor mono">Now showing<b id="fl-a">1 Shaw St</b><span id="fl-t">Corridor</span><div class="dots" id="dots"></div></div>
+    <div class="floor mono">Now showing<b id="fl-a">1 Maison Parc</b><span id="fl-t">Corridor</span><div class="dots" id="dots"></div></div>
     <div class="hero-in">
       <div class="kicker mono"><i></i>Communication. Quality. Service.</div>
       <h1><span class="hw"><span>Beautiful</span></span><span class="hw rot" aria-live="polite"><span><em id="rot">lobbies.</em></span></span></h1>
@@ -1129,24 +1128,15 @@ label{color:#9aa1a4}
 (function(){
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hero=document.querySelector('.hero');
-  // loader: floors light up bottom to top
-  var ld=document.getElementById('ld'),bld=document.getElementById('ld-bld'),cells=[];
-  for(var i=0;i<36;i++){var c=document.createElement('i');bld.appendChild(c);cells.push(c)}
-  var order=cells.map(function(c,i){return i}).reverse();
-  var msgs=['Preparing the site','Reviewing the corridors','Lighting the lobby','Ready'];
+  // loader: walk down the hallway into the site (once per visit)
+  var ld=document.getElementById('ld');
   var seen=false;try{seen=sessionStorage.getItem('dmld')==='1';sessionStorage.setItem('dmld','1')}catch(e){}
-  if(seen){ld.remove();hero.classList.add('go')}
-  var dur=reduce?200:750,t0=null,done=seen;
-  function step(t){
-    if(!t0)t0=t;var p=Math.min(1,(t-t0)/dur);
-    var n=Math.round(p*cells.length);for(var k=0;k<n;k++)cells[order[k]].classList.add('on');
-    document.getElementById('ld-bar').style.width=(p*100)+'%';
-    document.getElementById('ld-pct').textContent=Math.round(p*100)+'%';
-    document.getElementById('ld-msg').textContent=msgs[Math.min(3,Math.floor(p*3.999))];
-    if(p<1)requestAnimationFrame(step);else finish();
+  if(seen||reduce){ld.remove();hero.classList.add('go')}
+  else{
+    var go=function(){ld.classList.add('out');hero.classList.add('go');setTimeout(function(){ld.remove()},750)};
+    var im=new Image();im.onload=function(){ld.classList.add('run');setTimeout(go,2150)};im.src='img/h1.jpg';
+    setTimeout(go,4200);
   }
-  function finish(){if(done)return;done=true;ld.classList.add('out');hero.classList.add('go');setTimeout(function(){ld.remove()},850)}
-  if(!seen){requestAnimationFrame(step);setTimeout(finish,1500)}
   // hero slideshow
   var sl=[].slice.call(document.querySelectorAll('.sl')),dots=document.getElementById('dots'),cur=0;
   sl.forEach(function(){dots.appendChild(document.createElement('i'))});
