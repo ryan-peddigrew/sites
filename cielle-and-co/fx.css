@@ -154,3 +154,11 @@ img{max-width:100%;display:block}
 [data-chap].on,[data-chap].on i{opacity:1}
 .ix-float.on{opacity:1}
 @media(prefers-reduced-motion:reduce){.ring{transform:none!important}.rc{position:relative;transform:none!important;margin-bottom:12px}}
+
+/* v5: stage-beam hero + letter build */
+.beams{position:absolute;inset:0;width:100%;height:100%;z-index:1;mix-blend-mode:screen;pointer-events:none}
+[data-chars] .w{display:inline-block;white-space:nowrap}
+[data-chars] .ch{display:inline-block;transform:translateY(100%) rotate(6deg);opacity:0;transition:transform 1s cubic-bezier(.2,.8,.2,1),opacity .6s,color .3s,text-shadow .3s;transition-delay:calc(var(--k)*26ms + .15s)}
+.ready [data-chars].in .ch{transform:none;opacity:1}
+[data-chars] .ch.hot{color:var(--hot,#b2c7e2);text-shadow:0 0 28px var(--hotglow,rgba(178,199,226,.75));transition-delay:0s}
+@media(prefers-reduced-motion:reduce){[data-chars] .ch{transform:none!important;opacity:1!important}}

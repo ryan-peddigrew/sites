@@ -129,9 +129,9 @@ h1,h2,h3{margin:0;font-family:'Unbounded',sans-serif;font-weight:700;letter-spac
 .sv{padding:90px 18px 40px}
 .sv-h{max-width:1200px;margin:0 auto 40px;display:grid;gap:14px}
 .sv-h h2{font-size:clamp(44px,11vw,150px);line-height:.9;text-transform:uppercase;letter-spacing:-.04em}
-.stack{max-width:1200px;margin:0 auto;padding-bottom:12vh}
-.sc{position:sticky;top:calc(84px + var(--i)*12px);height:auto;margin-bottom:6vh;transform-origin:50% 0}
-.sc-in{border-radius:28px;overflow:hidden;display:grid;min-height:min(78svh,640px);border:1px solid rgba(255,255,255,.14);box-shadow:0 -20px 60px rgba(0,0,0,.5);transform:scale(var(--sk,1));filter:brightness(var(--sb,1));transition:transform .1s linear,filter .1s linear;transform-origin:50% 0}
+.stack{max-width:1200px;margin:0 auto;padding-bottom:4vh}
+.sc{position:sticky;top:calc(84px + var(--i)*12px);height:auto;margin-bottom:3vh;transform-origin:50% 0}
+.sc-in{border-radius:28px;overflow:hidden;display:grid;min-height:min(66svh,560px);border:1px solid rgba(255,255,255,.14);box-shadow:0 -20px 60px rgba(0,0,0,.5);transform:scale(var(--sk,1));filter:brightness(var(--sb,1));transition:transform .1s linear,filter .1s linear;transform-origin:50% 0}
 .g1{background:linear-gradient(150deg,#1a1240 0%,#2b1f6e 45%,#0f0b24 100%)}
 .g2{background:linear-gradient(150deg,#0e2233 0%,#1b4560 50%,#0a1420 100%)}
 .g3{background:linear-gradient(150deg,#2a2014 0%,#4d3a22 45%,#16110b 100%)}
@@ -148,14 +148,19 @@ h1,h2,h3{margin:0;font-family:'Unbounded',sans-serif;font-weight:700;letter-spac
 @media(min-width:900px){.sv{padding:140px 40px 60px}.sc-in{grid-template-columns:1.1fr 1fr}.sc-tx{padding:48px 44px}.sc{top:calc(100px + var(--i)*16px)}}
 
 /* formats horizontal */
-.hz{position:relative;height:340vh}
-.hz-st{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:28px}
+.hz{position:relative;padding:90px 0 70px}
+.stmt{padding:110px 18px 90px;max-width:1200px;margin:0 auto;display:grid;gap:18px}
+.stmt-t{font:800 clamp(34px,8vw,110px)/1 'Unbounded',sans-serif;letter-spacing:-.035em;text-transform:uppercase}
+@media(min-width:900px){.stmt{padding:160px 40px 120px}}
+.hz-st{display:flex;flex-direction:column;gap:28px}
 .hz-h{padding:0 18px;display:grid;gap:12px}
 .hz-h h2{font-size:clamp(34px,8vw,96px);line-height:.95;text-transform:uppercase;letter-spacing:-.03em}
-.hz-track{display:flex;gap:16px;padding:0 18px;will-change:transform;list-style:none;margin:0}
-.fc{position:relative;flex:0 0 min(68vw,340px);aspect-ratio:3/4;border-radius:22px;overflow:hidden;transform:skewX(var(--sk,0deg));transition:transform .2s ease-out;isolation:isolate}
-.fc-ph{position:absolute;inset:-10% -20%;z-index:-1}
-.fc-ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);transform:translateX(var(--px,0))}
+.hz-track{display:flex;gap:16px;padding:0 18px 10px;list-style:none;margin:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}.hz-track::-webkit-scrollbar{display:none}
+.hz-hint{padding:0 18px;color:var(--mute)}@media(min-width:900px){.hz-hint{padding:0 40px}}
+.fc{position:relative;flex:0 0 min(68vw,340px);aspect-ratio:3/4;border-radius:22px;overflow:hidden;isolation:isolate;scroll-snap-align:start}
+.fc img{transition:transform .9s cubic-bezier(.2,.7,.2,1)}.fc:hover img{transform:scale(1.06)}
+.fc-ph{position:absolute;inset:0;z-index:-1}
+.fc-ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1)}
 .fc::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(124,92,255,.15),rgba(7,6,12,.85))}
 .fc{display:flex;flex-direction:column;justify-content:flex-end;padding:20px}
 .fc-n{font:500 11px 'JetBrains Mono',monospace;letter-spacing:2px;color:var(--champ)}
@@ -278,18 +283,12 @@ h1,h2,h3{margin:0;font-family:'Unbounded',sans-serif;font-weight:700;letter-spac
   <div class="scroll-cue mono" aria-hidden="true"><i></i>Scroll</div>
 </section>
 
-<section class="portal" aria-label="Cielle &amp; Co is where strategy meets execution.">
-  <div class="portal-st">
-    <div class="portal-win"><img src="img/hero-stagewide.jpg" alt="" loading="lazy" width="1920" height="1158"></div>
-    <div class="portal-w" aria-hidden="true"><span class="pw l">Strategy</span><span class="pw m">meets</span><span class="pw r">Execution</span></div>
-    <div class="portal-msg"><p>Cielle &amp; Co is where strategy meets execution.</p></div>
-  </div>
+<section class="stmt" aria-label="Cielle &amp; Co is where strategy meets execution.">
+  <span class="eyebrow mono" data-rv>cielle &amp; co</span>
+  <h2 class="stmt-t" data-rv>Cielle &amp; Co is where <span class="grad">strategy</span> meets <span class="grad">execution.</span></h2>
 </section>
 
-<div class="vm" aria-hidden="true">
-  <div class="vm-row o"><span>bold</span><span>boutique</span><span>strategic</span><span>scalable</span><span>bold</span><span>boutique</span><span>strategic</span><span>scalable</span></div>
-  <div class="vm-row f"><span>strategy</span><span>production</span><span>consulting</span><span>experience</span><span>strategy</span><span>production</span><span>consulting</span><span>experience</span></div>
-</div>
+
 
 <section class="ab" id="about">
   <div class="ab-card" data-rv><img src="img/carly.jpg" alt="Carly Silberstein, founder of Cielle &amp; Co" width="768" height="1102" loading="lazy"><span class="ab-glare"></span></div>
@@ -342,6 +341,7 @@ h1,h2,h3{margin:0;font-family:'Unbounded',sans-serif;font-weight:700;letter-spac
   <div class="hz-st">
     <div class="hz-h"><span class="eyebrow mono">what we bring to life <span class="add">Added</span></span><h2>Any room.<br><span class="grad">Any scale.</span></h2></div>
     <ul class="hz-track"><li class="fc"><div class="fc-ph"><img src="img/hero-keynote.jpg" alt="" loading="lazy" width="1920" height="1280"></div><span class="fc-n">01</span><h3>Conferences &amp; summits</h3></li><li class="fc"><div class="fc-ph"><img src="img/hero-stage.jpg" alt="" loading="lazy" width="1920" height="1280"></div><span class="fc-n">02</span><h3>Product launches</h3></li><li class="fc"><div class="fc-ph"><img src="img/hero-drape.jpg" alt="" loading="lazy" width="1920" height="1280"></div><span class="fc-n">03</span><h3>Incentive trips &amp; retreats</h3></li><li class="fc"><div class="fc-ph"><img src="img/hero-beams.jpg" alt="" loading="lazy" width="1920" height="1280"></div><span class="fc-n">04</span><h3>Galas &amp; awards</h3></li><li class="fc"><div class="fc-ph"><img src="img/hero-hands.jpg" alt="" loading="lazy" width="1920" height="1280"></div><span class="fc-n">05</span><h3>Brand activations</h3></li><li class="fc"><div class="fc-ph"><img src="img/hero-lights.jpg" alt="" loading="lazy" width="1920" height="1280"></div><span class="fc-n">06</span><h3>Hybrid &amp; virtual</h3></li><li class="fc"><div class="fc-ph"><img src="img/hero-hall.jpg" alt="" loading="lazy" width="1920" height="1280"></div><span class="fc-n">07</span><h3>Town halls &amp; internal events</h3></li><li class="fc"><div class="fc-ph"><img src="img/hero-stagewide.jpg" alt="" loading="lazy" width="1920" height="1280"></div><span class="fc-n">08</span><h3>Trade shows &amp; exhibitions</h3></li></ul>
+    <p class="hz-hint mono">Swipe to see more →</p>
   </div>
 </section>
 
@@ -508,7 +508,7 @@ var hd=d.querySelector('.hd'),lastY=0,vel=0,prog=d.querySelector('.prog');
 var portal=d.querySelector('.portal'),pst=d.querySelector('.portal-st');
 var vrows=$$('.vm-row'),voff=0;
 var cards=$$('.sc');
-var hz=d.querySelector('.hz'),track=d.querySelector('.hz-track'),fcs=$$('.fc');
+var hz=null,track=d.querySelector('.hz-track'),fcs=$$('.fc');
 var prl=d.querySelector('.pr-line'),pol=d.querySelector('.pr ol'),pss=$$('[data-step]');
 function clamp(v){return Math.max(0,Math.min(1,v))}
 function frame(){
