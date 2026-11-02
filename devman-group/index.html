@@ -7,6 +7,7 @@
 <title>Devman Group Inc. | Condominium refurbishment, Greater Toronto Area</title>
 <meta name="description" content="Design-build refurbishment for condominium corridors, lobbies and amenity spaces across the Greater Toronto Area. Communication. Quality. Service.">
 <meta name="theme-color" content="#0E1113">
+<link rel="preload" as="image" href="img/h1.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Schibsted+Grotesk:wght@400;500;700&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -81,7 +82,7 @@ h2{font-size:clamp(44px,8vw,96px)}
 .dots i.on{background:#0088A3}
 @media(max-width:600px){.floor{display:block;top:84px;right:16px}.floor b{font-size:34px}}
 /* loader */
-.ld{position:fixed;inset:0;z-index:100;background:#0E1113;display:grid;place-items:center;transition:transform .8s cubic-bezier(.7,0,.2,1)}
+.ld{position:fixed;inset:0;z-index:100;background:#0E1113;display:grid;place-items:center;transition:transform .6s cubic-bezier(.7,0,.2,1)}
 .ld.out{transform:translateY(-100%)}
 .ld-in{display:grid;justify-items:center;gap:22px;width:min(78vw,320px)}
 .ld img{width:100%;height:auto;filter:drop-shadow(0 8px 14px rgba(0,0,0,.6))}
@@ -509,11 +510,12 @@ label{color:#9aa1a4}
 <section class="hero" aria-label="Introduction">
   <div class="hero-stick">
     <div class="hero-img" role="img" aria-label="Devman Group refurbishment projects">
-      <div class="sl on" style="background-image:url(img/hero.jpg)" data-a="1 Shaw St" data-t="Corridor"></div>
-      <div class="sl" style="background-image:url(img/maison-lobby.jpg)" data-a="1 Maison Parc" data-t="Lobby"></div>
-      <div class="sl" style="background-image:url(img/yonge.jpg)" data-a="3900 Yonge St" data-t="Corridor"></div>
-      <div class="sl" style="background-image:url(img/bayview-stair.jpg)" data-a="1818 Bayview" data-t="Foyer"></div>
-      <div class="sl" style="background-image:url(img/antibes-lobby.jpg)" data-a="80 Antibes Dr" data-t="Lobby"></div>
+      <div class="sl on" style="background-image:url(img/h1.jpg)" data-a="1 Maison Parc" data-t="Lobby"></div>
+      <div class="sl" data-bg="img/h2.jpg" data-a="3900 Yonge St" data-t="Corridor"></div>
+      <div class="sl" data-bg="img/h3.jpg" data-a="1818 Bayview" data-t="Foyer"></div>
+      <div class="sl" data-bg="img/h4.jpg" data-a="1 Shaw St" data-t="Corridor"></div>
+      <div class="sl" data-bg="img/h5.jpg" data-a="80 Antibes Dr" data-t="Lobby"></div>
+    </div>
     </div>
     <div class="hero-shade"></div>
     <div class="floor mono">Now showing<b id="fl-a">1 Shaw St</b><span id="fl-t">Corridor</span><div class="dots" id="dots"></div></div>
@@ -1099,8 +1101,9 @@ label{color:#9aa1a4}
   for(var i=0;i<36;i++){var c=document.createElement('i');bld.appendChild(c);cells.push(c)}
   var order=cells.map(function(c,i){return i}).reverse();
   var msgs=['Preparing the site','Reviewing the corridors','Lighting the lobby','Ready'];
-  var dur=reduce?300:1900,t0=null,done=false;
-  document.documentElement.style.overflow='hidden';
+  var seen=false;try{seen=sessionStorage.getItem('dmld')==='1';sessionStorage.setItem('dmld','1')}catch(e){}
+  if(seen){ld.remove();hero.classList.add('go')}
+  var dur=reduce?200:750,t0=null,done=seen;
   function step(t){
     if(!t0)t0=t;var p=Math.min(1,(t-t0)/dur);
     var n=Math.round(p*cells.length);for(var k=0;k<n;k++)cells[order[k]].classList.add('on');
@@ -1109,8 +1112,8 @@ label{color:#9aa1a4}
     document.getElementById('ld-msg').textContent=msgs[Math.min(3,Math.floor(p*3.999))];
     if(p<1)requestAnimationFrame(step);else finish();
   }
-  function finish(){if(done)return;done=true;setTimeout(function(){ld.classList.add('out');document.documentElement.style.overflow='';hero.classList.add('go');setTimeout(function(){ld.remove()},900)},200)}
-  requestAnimationFrame(step);setTimeout(finish,4000);
+  function finish(){if(done)return;done=true;ld.classList.add('out');hero.classList.add('go');setTimeout(function(){ld.remove()},850)}
+  if(!seen){requestAnimationFrame(step);setTimeout(finish,1500)}
   // hero slideshow
   var sl=[].slice.call(document.querySelectorAll('.sl')),dots=document.getElementById('dots'),cur=0;
   sl.forEach(function(){dots.appendChild(document.createElement('i'))});
@@ -1118,7 +1121,7 @@ label{color:#9aa1a4}
     document.getElementById('fl-a').textContent=sl[cur].dataset.a;document.getElementById('fl-t').textContent=sl[cur].dataset.t;
     [].forEach.call(dots.children,function(d,j){d.classList.toggle('on',j===cur)})}
   show(0);
-  if(!reduce)setInterval(function(){show((cur+1)%sl.length)},4500);
+  window.addEventListener('load',function(){sl.forEach(function(x){if(x.dataset.bg)x.style.backgroundImage='url('+x.dataset.bg+')'});if(!reduce)setInterval(function(){show((cur+1)%sl.length)},4500)});
 })();
 </script>
 </body>
