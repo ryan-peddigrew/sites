@@ -46,42 +46,72 @@ body.client .flag{display:none}
 #arrive .skip:hover{color:var(--cream)}
 .scene{position:absolute;inset:0;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity 1s ease}
 .scene.on{opacity:1;pointer-events:auto}
-/* the room behind the door */
-.behind{position:absolute;inset:0;background:url(img/room-xl.jpg) center/cover;transform:scale(1.25);filter:brightness(.22) saturate(.7);transition:transform 2.4s var(--ease),filter 2.4s var(--ease)}
+/* ---- the entrance: front-on, modern private-dining double doors ---- */
+.entry{--dh:min(66vh,660px);--dw:calc(var(--dh)*.62);position:absolute;inset:0;transform-origin:50% 52%;transition:transform 2.6s cubic-bezier(.55,0,.2,1)}
+#arrive.open .entry{transform:scale(2.6)}
+/* wall: dark fluted walnut with warm wash */
+.wall{position:absolute;inset:0;background:
+  radial-gradient(28% 40% at 16% 34%,#f2b95a2e,transparent 70%),
+  radial-gradient(28% 40% at 84% 34%,#f2b95a2e,transparent 70%),
+  repeating-linear-gradient(90deg,#140d07 0 6px,#22160c 6px 9px,#2b1c0f 9px 12px,#170f08 12px 16px),
+  #160e07}
+.wall::after{content:"";position:absolute;inset:0;background:linear-gradient(#000c,transparent 22%,transparent 60%,#000e 100%)}
+/* polished stone floor with reflection */
+.floor{position:absolute;left:0;right:0;bottom:0;height:20%;background:linear-gradient(#0d0b09,#1b1712 60%,#0b0907);border-top:1px solid #3b2d18}
+.floor::before{content:"";position:absolute;left:50%;top:0;width:var(--dw);height:70%;transform:translateX(-50%);background:linear-gradient(#f1c75a40,transparent);filter:blur(6px)}
+.floor::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 23%,#ffffff08 23% 23.3%)}
+/* doorway sizing */
+.door-set{position:absolute;left:50%;bottom:20%;width:var(--dw);height:var(--dh);transform:translateX(-50%);perspective:1400px;perspective-origin:50% 40%}
+@media (max-aspect-ratio:3/4){.entry{--dh:min(52vh,520px)}}
+.casing{position:absolute;inset:-16px -16px 0;border:16px solid #0c0907;border-bottom:0;box-shadow:inset 0 0 0 1px #c9a23a,0 0 0 1px #c9a23a55,0 30px 60px -20px #000;border-radius:2px 2px 0 0}
+.casing::before{content:"";position:absolute;inset:-16px -16px 0;border:1px solid #c9a23a33;border-bottom:0}
+/* backlit brass logo above the door */
+.sign{position:absolute;left:50%;top:calc(-16px - 64px);width:120px;height:36px;transform:translateX(-50%);
+  -webkit-mask:url(img/logo.png) center/contain no-repeat;mask:url(img/logo.png) center/contain no-repeat;
+  background:linear-gradient(100deg,#8a6a1c,#f6dd8a 45%,#c9a23a 60%,#7a5a0e);filter:drop-shadow(0 0 10px #f1c75a88)}
+.halo{position:absolute;left:50%;top:calc(-16px - 82px);width:200px;height:72px;transform:translateX(-50%);background:radial-gradient(50% 50% at 50% 50%,#f1c75a33,transparent 70%)}
+/* what's behind: the room, lit */
+.beyond{position:absolute;inset:0;overflow:hidden;background:#000}
+.beyond i{position:absolute;inset:-20%;background:url(img/room-xl.jpg) center/cover;filter:brightness(.55) saturate(1.05) sepia(.15);transform:scale(1.05)}
+.beyond::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 45%,#f1c75a22,#000a 100%)}
+/* the two leaves: black lacquer, brass inlay, long pulls; they swing inward */
+.leaf{position:absolute;top:0;bottom:0;width:50%;transform-style:preserve-3d;transition:transform 2.1s cubic-bezier(.6,.04,.25,1);
+  background:linear-gradient(100deg,#060607 0%,#18181b 30%,#0b0b0d 55%,#1c1c20 80%,#09090a 100%);
+  box-shadow:inset 0 0 0 1px #000,inset 0 0 60px #000c}
+.leaf.l{left:0;transform-origin:0 50%}
+.leaf.r{right:0;transform-origin:100% 50%}
+#arrive.open .leaf.l{transform:rotateY(-104deg)}
+#arrive.open .leaf.r{transform:rotateY(104deg)}
+.leaf .inlay{position:absolute;inset:7% 13% 7% 13%;border:1px solid #c9a23aaa;box-shadow:inset 0 0 0 6px #0000,inset 0 0 0 7px #c9a23a44}
+.leaf .inlay::after{content:"";position:absolute;left:0;right:0;top:38%;border-top:1px solid #c9a23a66}
+.leaf .sheen{position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,#ffffff10 42%,transparent 50%);mix-blend-mode:screen}
+.pull{position:absolute;top:28%;height:44%;width:8px;border-radius:4px;background:linear-gradient(90deg,#6b4f10,#f6dd8a 35%,#d4af37 55%,#7a5a0e);box-shadow:3px 4px 8px #000d}
+.pull::before,.pull::after{content:"";position:absolute;left:50%;width:10px;height:6px;margin-left:-5px;background:#a8862a;box-shadow:0 1px 2px #000}
+.pull::before{top:8%}.pull::after{bottom:8%}
+.leaf.l .pull{right:10%}.leaf.r .pull{left:10%}
+.seamlight{position:absolute;left:50%;top:2%;bottom:0;width:2px;margin-left:-1px;background:linear-gradient(transparent,#f6dd8a 30%,#fff3c4 60%,#f1c75a);box-shadow:0 0 18px 4px #f1c75a66;transition:opacity .4s}
+#arrive.open .seamlight{opacity:0}
+.underglow{position:absolute;left:4%;right:4%;bottom:-2px;height:3px;background:#f6dd8a;box-shadow:0 0 22px 8px #f1c75a77;border-radius:2px;transition:opacity .6s}
+#arrive.open .underglow{opacity:0}
+/* modern brass sconces */
+.sconce{position:absolute;bottom:calc(20% + var(--dh)*.55);width:22px;height:96px}
+.sconce.l{right:calc(50% + var(--dw)/2 + 46px)}.sconce.r{left:calc(50% + var(--dw)/2 + 46px)}
+.sconce .plate{position:absolute;left:8px;top:6px;width:6px;height:84px;border-radius:3px;background:linear-gradient(90deg,#6b4f10,#e8c869,#8a6a1c)}
+.sconce .glass{position:absolute;left:0;top:18px;width:22px;height:46px;border-radius:11px;background:linear-gradient(90deg,#f4dfa8,#fff7dc 50%,#e9c97a);box-shadow:0 0 22px 8px #f1c75a66,0 0 70px 26px #f1c75a22;animation:breathe 4s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.92}50%{opacity:1}}
+.sconce::after{content:"";position:absolute;left:-60px;right:-60px;top:-120px;bottom:-140px;background:radial-gradient(30% 50% at 50% 50%,#f1c75a26,transparent 70%);pointer-events:none}
+/* velvet rope on brass stanchions; it unhooks as you enter */
+.rope{position:absolute;left:50%;bottom:calc(20% - 4px);width:calc(var(--dw) + 120px);height:70px;transform:translateX(-50%);transition:opacity .8s .2s}
+#arrive.open .rope{opacity:0}
+.post{position:absolute;bottom:0;width:8px;height:62px;background:linear-gradient(90deg,#6b4f10,#f6dd8a,#8a6a1c);border-radius:3px}
+.post::before{content:"";position:absolute;left:50%;top:-12px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff1c0,#c9a23a 50%,#6b4f10)}
+.post::after{content:"";position:absolute;left:50%;bottom:-3px;width:34px;height:6px;margin-left:-17px;border-radius:50%;background:linear-gradient(#e8c869,#6b4f10)}
+.post.a{left:0}.post.b{right:0}
+.cord{position:absolute;left:8px;right:8px;top:2px;height:34px;border-bottom:7px solid #4a0f1a;border-radius:0 0 50% 50%/0 0 100% 100%;box-shadow:0 6px 8px -4px #000c;filter:drop-shadow(0 1px 0 #7a2232)}
+#arrive.lift .cord{transform-origin:100% 0;transform:rotate(26deg);transition:transform .6s ease-in}
+.dark{display:none}
+.behind{position:absolute;inset:0;background:url(img/room-xl.jpg) center/cover}
 .behind::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 55%,transparent,#000 100%)}
-#arrive.open .behind{transform:scale(1);filter:brightness(.7) saturate(1)}
-/* floor + glow under the door */
-.floor{position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(#0000,#0a0806 40%,#15110c);transform:perspective(600px) rotateX(55deg);transform-origin:50% 100%}
-.glow{position:absolute;left:50%;bottom:12%;width:min(78vw,420px);height:40px;margin-left:min(-39vw,-210px);background:radial-gradient(50% 100% at 50% 100%,#f1c75a 0%,#d4af3799 30%,transparent 70%);filter:blur(10px);opacity:.55;animation:flick 3s ease-in-out infinite}
-@keyframes flick{0%,100%{opacity:.5}50%{opacity:.75}}
-/* door assembly */
-.doorway{position:relative;width:min(78vw,400px);height:min(74vh,600px);transform-style:preserve-3d;margin-top:2vh}
-.jamb{position:absolute;inset:-18px -18px 0;background:#1a140d;border-radius:4px 4px 0 0;box-shadow:inset 0 0 0 2px #2b2113,inset 0 0 0 6px #110d08,0 30px 60px -20px #000;transform:translateZ(-2px)}
-.jamb::before{content:"";position:absolute;inset:4px 4px 0;background:repeating-linear-gradient(180deg,#1d160e 0 3px,#1a130c 3px 6px)}
-.lintel{position:absolute;left:-30px;right:-30px;top:-44px;height:30px;background:linear-gradient(#2a2115,#1a140d);box-shadow:0 8px 14px -6px #000,inset 0 1px 0 #3d3220;border-radius:2px}
-.plaque{position:absolute;z-index:4;left:50%;top:-38px;transform:translateX(-50%);padding:4px 10px;background:linear-gradient(135deg,#f3d77a,#b8860b 60%,#f1cf6a);color:#2b1d05;font:500 .5rem/1 var(--f-body);letter-spacing:.3em;text-transform:uppercase;border-radius:2px;box-shadow:0 2px 4px #000a;white-space:nowrap}
-.dark{position:absolute;inset:0;background:radial-gradient(60% 40% at 50% 30%,#2a1d0e55,#000 90%)}
-.leaf{position:absolute;top:0;bottom:0;left:0;width:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 2.2s cubic-bezier(.6,.05,.25,1);
-  background:
-    linear-gradient(90deg,#0000 0,#0003 6%,#0000 12%,#0000 88%,#0004 94%,#0000 100%),
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='600'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.012 0.5' numOctaves='3' seed='7'/><feColorMatrix values='0 0 0 0 0.18  0 0 0 0 0.11  0 0 0 0 0.05  0 0 0 0.9 0'/></filter><rect width='400' height='600' filter='url(%23g)'/></svg>"),
-    #2d1d0e;
-  box-shadow:inset 0 0 0 1px #0008,inset 0 0 40px #000a}
-.leaf::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fff2 0,#fff0 3%,#fff0 97%,#0006 100%)}
-.panel{position:absolute;left:11%;right:11%;background:linear-gradient(145deg,#3a2812,#241709);box-shadow:inset 2px 2px 0 #5a3f1b,inset -2px -2px 0 #0d0804,0 0 0 4px #1a1108,0 0 0 6px #4a3415,2px 2px 0 6px #0d0804;border-radius:1px}
-.panel.a{top:7%;height:33%}.panel.b{top:46%;height:44%}
-.handle{position:absolute;right:8%;top:48%;width:10px;height:64px;border-radius:5px;background:linear-gradient(90deg,#8a6a1c,#f3d77a 40%,#b8860b 70%,#6b4f10);box-shadow:2px 3px 6px #000c;transform:translateZ(8px)}
-.handle::before{content:"";position:absolute;right:0;top:26px;width:46px;height:9px;border-radius:5px;background:linear-gradient(#f3d77a,#b8860b 60%,#7a5a0e);box-shadow:2px 4px 6px #000c;transform-origin:right center}
-.knocker{position:absolute;left:50%;top:27%;width:38px;height:38px;margin-left:-19px;border-radius:50%;border:5px solid #c9a23a;box-shadow:0 3px 6px #000c,inset 0 1px 0 #f3d77a;transform-origin:50% 0;transform:translateZ(6px)}
-.knocker::before{content:"";position:absolute;left:50%;top:-11px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f3d77a,#8a6a1c)}
-#arrive.knock .knocker{animation:knock .7s ease-in-out 1}
-@keyframes knock{0%,100%{transform:translateZ(6px) rotateX(0)}30%{transform:translateZ(6px) rotateX(-50deg)}45%{transform:translateZ(6px) rotateX(0)}60%{transform:translateZ(6px) rotateX(-40deg)}75%{transform:translateZ(6px) rotateX(0)}}
-#arrive.knock .doorway{animation:shake .5s ease-out .25s 1}
-@keyframes shake{0%,100%{transform:translateX(0)}30%{transform:translateX(-1.5px)}60%{transform:translateX(1.5px)}}
-#arrive.open .leaf{transform:rotateY(-112deg)}
-.leaf .edge{position:absolute;left:0;top:0;bottom:0;width:14px;background:linear-gradient(90deg,#1a1108,#3a2812);transform:rotateY(-90deg);transform-origin:left center}
-.spill{position:absolute;inset:0;opacity:0;background:linear-gradient(90deg,#f1c75a22,transparent 60%);transition:opacity 2s ease}
-#arrive.open .spill{opacity:1}
 .street-copy{position:absolute;left:0;right:0;bottom:max(28px,env(safe-area-inset-bottom,0px));text-align:center;padding:0 24px;transition:opacity .6s}
 #arrive.open .street-copy{opacity:0}
 .street-copy p{margin:0;font:italic 500 clamp(1.4rem,4vw,2rem)/1.2 var(--f-script);color:var(--bone)}
@@ -242,25 +272,23 @@ body.client .cmp .ex{color:var(--muted)}
 
   <!-- 1. The door -->
   <section class="scene on" id="sc-door">
-    <div class="behind"></div>
-    <div class="floor"></div>
-    <div class="glow"></div>
-    <div class="doorway" id="doorway">
-      <div class="lintel"></div>
-      <div class="plaque">PdR · Private Dining Room</div>
-      <div class="jamb"></div>
-      <div class="dark"></div>
-      <div class="spill"></div>
-      <div class="leaf" id="leaf">
-        <div class="edge"></div>
-        <div class="panel a"></div>
-        <div class="panel b"></div>
-        <div class="knocker"></div>
-        <div class="handle"></div>
+    <div class="entry">
+      <div class="wall"></div>
+      <div class="floor"></div>
+      <div class="door-set" id="doorway">
+        <div class="halo"></div><div class="sign" role="img" aria-label="PdR"></div>
+        <div class="beyond"><i></i></div>
+        <div class="leaf l"><div class="inlay"></div><div class="sheen"></div><div class="pull"></div></div>
+        <div class="leaf r"><div class="inlay"></div><div class="sheen"></div><div class="pull"></div></div>
+        <div class="seamlight"></div><div class="underglow"></div>
+        <div class="casing"></div>
       </div>
+      <div class="sconce l"><div class="plate"></div><div class="glass"></div></div>
+      <div class="sconce r"><div class="plate"></div><div class="glass"></div></div>
+      <div class="rope"><div class="post a"></div><div class="cord"></div><div class="post b"></div></div>
     </div>
-    <div class="street-copy"><p>Good evening.</p><small>Tap the door to knock</small></div>
-    <button class="tapzone" id="knock" type="button" aria-label="Knock on the door"></button>
+    <div class="street-copy"><p>Good evening. You're on the list.</p><small>Tap the doors to enter</small></div>
+    <button class="tapzone" id="knock" type="button" aria-label="Enter through the doors"></button>
   </section>
 
   <!-- 2. The greeter -->
@@ -447,9 +475,9 @@ body.client .cmp .ex{color:var(--muted)}
     if(target){setTimeout(function(){var el=document.getElementById(target);if(el)el.scrollIntoView({behavior:reduce?'auto':'smooth'})},900)}}
   /* 1. knock, then the door opens */
   var knocked=false;
-  document.getElementById('knock').addEventListener('click',function(){if(knocked)return;knocked=true;arrive.classList.add('knock');
-    setTimeout(function(){arrive.classList.add('open')},reduce?0:800);
-    setTimeout(function(){show('greet')},reduce?300:2600);});
+  document.getElementById('knock').addEventListener('click',function(){if(knocked)return;knocked=true;arrive.classList.add('lift');
+    setTimeout(function(){arrive.classList.add('open')},reduce?0:600);
+    setTimeout(function(){show('greet')},reduce?300:2700);});
   /* 2. the greeter asks */
   document.querySelectorAll('#sc-greet [data-side]').forEach(function(b){b.addEventListener('click',function(){var s=b.dataset.side;setSide(s);
     var nm=document.getElementById('cardName'),sub=document.getElementById('cardSub');
