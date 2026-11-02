@@ -1,1 +1,49 @@
-<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><title>Sites</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Site previews</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f5f2;--fg:#141B2A;--mu:#6b6f78;--line:#dfe0dc;--card:#fff;--neon:#3DFFC1}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f131c;--fg:#f1f2f5;--mu:#9aa0ab;--line:#262c38;--card:#171c27}}
+:root[data-theme="dark"]{--bg:#0f131c;--fg:#f1f2f5;--mu:#9aa0ab;--line:#262c38;--card:#171c27}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font:400 16px/1.5 'Hanken Grotesk',system-ui,sans-serif;padding:32px 16px 60px}
+.wrap{max-width:980px;margin:0 auto}
+.bar{width:40px;height:4px;background:var(--neon);margin-bottom:14px}
+h1{font:800 clamp(30px,6vw,44px)/1.05 'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:-.01em}
+.sub{color:var(--mu);margin-top:8px;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:28px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 20px 16px;display:flex;flex-direction:column;gap:10px}
+.card h2{font:600 22px/1.15 'Hanken Grotesk',sans-serif}
+.card p{color:var(--mu);font-size:14px}
+.st{display:inline-flex;align-items:center;gap:8px;font:600 12px 'Hanken Grotesk',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--mu)}
+.st::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--neon)}
+.st.soon::before{background:var(--line)}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+.links a{min-height:44px;display:inline-flex;align-items:center;padding:0 16px;border-radius:999px;background:var(--fg);color:var(--bg);text-decoration:none;font:600 14px 'Hanken Grotesk',sans-serif}
+.links a.alt{background:transparent;color:var(--fg);border:1px solid var(--line)}
+.note{margin-top:30px;color:var(--mu);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar"></div>
+  <h1>Site previews</h1>
+  <p class="sub">Draft websites for review. Each link stays the same as the site is updated.</p>
+  <div class="grid">
+    <div class="card"><span class="st">Draft</span><h2>Duchess Luxury Lashes</h2><p>Lash shop with a virtual try-on and lash finder.</p><div class="links"><a href="duchess-luxury-lashes/">Open site</a></div></div>
+    <div class="card"><span class="st">Draft</span><h2>Kara Granger</h2><p>Landing page.</p><div class="links"><a href="kara-granger/">Open site</a></div></div>
+    <div class="card"><span class="st">Options</span><h2>Cielle &amp; Co</h2><p>Three homepage directions.</p><div class="links"><a href="cielle-and-co/">All options</a><a class="alt" href="cielle-and-co/a.html">A</a><a class="alt" href="cielle-and-co/b.html">B</a><a class="alt" href="cielle-and-co/c.html">C</a></div></div>
+    <div class="card"><span class="st">Options</span><h2>WasteMind</h2><p>Three looks to choose from.</p><div class="links"><a href="wastemind/">Open preview</a></div></div>
+    <div class="card"><span class="st soon">Coming soon</span><h2>MyPDR</h2><p>Private dining marketplace redesign.</p><div class="links"><a class="alt" href="mypdr/">Open preview</a></div></div>
+  </div>
+  <p class="note">Private review links. Not indexed by search engines.</p>
+</div>
+</body>
+</html>
