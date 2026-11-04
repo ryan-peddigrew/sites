@@ -1,273 +1,464 @@
-<!--
-OPEN FIXES BEFORE PUBLISHING (draft, not approved for launch):
-- Confirm every claim against courtney-stanley.com word for word: "award-winning changemaker", "youngest member ever inducted", "10 years", and the degree details.
-- Confirm the Trevor Lui testimonial word for word from the current site.
-- Check the social links and the Wix logo and photo links.
-- Connect the booking and speaker-kit forms to an approved destination.
-- Remove the [PLACEHOLDER] and [CONFIRM] notes once checked.
-Original site: https://www.courtney-stanley.com
-Image sources (from the current site):
-Logo: https://static.wixstatic.com/media/d6340a_9ca7e5bc1ca841b0bdc26aa6b1d8c3cd~mv2.png
--->
-<!DOCTYPE html>
-<html lang="en-US">
+<!doctype html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Courtney Stanley - Keynote Speaker, Event Emcee and Coach</title>
-<meta name="description" content="Courtney Stanley: keynote speaker, event emcee and coach. Break barriers. Honest. Unfiltered. Real.">
+<meta name="robots" content="noindex, nofollow">
+<title>Courtney Stanley | Keynote Speaker, Event Emcee and Coach</title>
+<meta name="description" content="Courtney Stanley: keynote speaker, event emcee and coach. Changing culture, building trust and empowering leaders, one conversation at a time.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
 <style>
-:root{--charcoal:#2f2e2e;--steel:#2b5672;--steel-light:#e8f0f5;--white:#ffffff;--grey:#f2f2f0;--ink:#1d1d1d}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--white);color:var(--ink);font-family:Inter,Arial,sans-serif;font-size:17px;line-height:1.55}
-a{color:var(--steel)}
-img{max-width:100%;display:block}
-h1,h2,h3{line-height:1.05}
-h2{font-family:Anton,Arial,sans-serif;font-weight:400;font-size:clamp(2rem,10vw,3.4rem);letter-spacing:.01em;margin:0 0 .4em;text-transform:uppercase}
-h3{font-size:1.25rem;margin:0 0 .3em}
-p{margin:0 0 1em;max-width:62ch}
-.wrap{max-width:1100px;margin:0 auto;padding:0 18px}
-.skip{position:absolute;left:-999px;top:0;background:#fff;padding:10px}
-.skip:focus{left:10px;top:10px;z-index:50}
-header{background:var(--white);border-bottom:3px solid var(--charcoal);padding:12px 0;position:sticky;top:0;z-index:20}
-.head{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.logo{filter:drop-shadow(0 4px 6px rgba(0,0,0,.25))}
-.logo img{height:46px;width:auto}
-nav{width:100%;display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-nav a{color:var(--charcoal);text-decoration:none;padding:10px 12px;min-height:44px;display:inline-flex;align-items:center;border:2px solid var(--charcoal);border-radius:999px;font-weight:800;font-size:.95rem}
-nav a:focus,nav a:hover{background:var(--charcoal);color:#fff;outline:none}
-.btn{appearance:none;border:2px solid var(--charcoal);background:var(--charcoal);color:#fff;font:inherit;font-weight:800;min-height:46px;padding:11px 20px;border-radius:999px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}
-.btn.steel{background:var(--steel);border-color:var(--steel)}
-.btn.white{background:#fff;color:var(--charcoal)}
-.btn:focus,.btn:hover{outline:3px solid #f5c518;outline-offset:2px}
-.icon{width:20px;height:20px;flex:none}
-.hero{background:var(--charcoal);color:#fff;padding:30px 0 26px}
-.hero .giant{font-family:Anton,Arial,sans-serif;font-size:clamp(3.2rem,17vw,8.5rem);line-height:.92;letter-spacing:.01em;text-transform:uppercase;margin:.1em 0}
-.hero .giant span{color:#9fc3d8}
-.hero .lede{font-size:1.15rem;max-width:52ch}
-.hero img{border:3px solid #fff;margin-top:20px;width:100%;max-width:720px}
-.actions{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 0}
-section{padding:36px 0}
-section.grey{background:var(--grey)}
-section.steelbg{background:var(--steel);color:#fff}
-section.steelbg a{color:#fff}
-.kicker{font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);font-size:.85rem;margin:0 0 .4em}
-.steelbg .kicker{color:#cfe2ee}
-.grid{display:grid;gap:14px}
-@media(min-width:700px){.grid{grid-template-columns:1fr 1fr}}
-.card{background:#fff;border:2px solid var(--charcoal);border-radius:12px;padding:16px}
-.steelbg .card{background:var(--charcoal);border-color:#fff;color:#fff}
-.keylist{border-top:3px solid var(--charcoal)}
-.keynote{border-bottom:3px solid var(--charcoal)}
-.keynote-btn{width:100%;background:#fff;color:var(--charcoal);border:0;font-family:Anton,Arial,sans-serif;font-size:clamp(1.9rem,9vw,3.8rem);line-height:1;text-transform:uppercase;text-align:left;padding:18px 16px;min-height:64px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.keynote-btn:focus{outline:3px solid #f5c518;outline-offset:-3px}
-.keynote-btn .num{font-family:Inter,Arial,sans-serif;font-size:1rem;font-weight:800}
-.keynote.active .keynote-btn{background:var(--steel);color:#fff}
-.keynote:not(.active) .keynote-btn{opacity:.55}
-.keynote-panel{display:none;padding:0 16px 20px;background:var(--steel-light)}
-.keynote.active .keynote-panel{display:block}
-.keynote-panel img{width:100%;max-width:520px;border:3px solid var(--charcoal);margin-bottom:14px}
-.tag{display:inline-block;background:#fff;border:2px solid var(--charcoal);border-radius:999px;padding:4px 10px;font-size:.85rem;font-weight:800;margin:0 6px 6px 0}
-.note{background:#fff;border-left:5px solid var(--steel);padding:12px 14px;margin:14px 0;color:var(--ink)}
-label{display:block;font-weight:800;margin:12px 0 4px}
-input,select,textarea{width:100%;font:inherit;padding:12px;border:2px solid var(--charcoal);border-radius:8px;min-height:46px;background:#fff}
-textarea{min-height:110px}
-.checkline{display:flex;gap:10px;align-items:flex-start;margin:12px 0}
-.checkline input{width:auto;min-height:22px;margin-top:4px}
-footer{background:var(--charcoal);color:#fff;padding:28px 0}
-footer a{color:#fff}
-.small{font-size:.9rem;opacity:.9}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+:root{--ink:#0c0c0d;--ink2:#18181a;--red:#d42847;--red-d:#a81c37;--bone:#f4efe9;--char:#2f2e2e;--mu:#8d8a87;--line:rgba(255,255,255,.14)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:#fff;font:400 17px/1.6 'Bricolage Grotesque',system-ui,sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+.display{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.005em;line-height:.9}
+.kick{font:800 12px/1.2 'Bricolage Grotesque',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:10px}
+.kick::before{content:"";width:28px;height:3px;background:var(--red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font:800 15px 'Bricolage Grotesque',sans-serif;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn svg{width:20px;height:20px}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-d)}
+.btn-line{border-color:rgba(255,255,255,.5);color:#fff;background:transparent}
+.btn-line:hover{background:#fff;color:var(--ink)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn:active{transform:scale(.97)}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:40;transition:background .3s,backdrop-filter .3s}
+.top.solid{background:rgba(12,12,13,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.top{background:linear-gradient(180deg,rgba(12,12,13,.7),rgba(12,12,13,0))}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo img{height:34px;width:auto}
+.menu{display:flex;gap:4px;align-items:center}
+.menu a{min-height:44px;display:inline-flex;align-items:center;padding:0 14px;text-decoration:none;font-weight:600;font-size:15px;border-radius:999px}
+.menu a:hover{background:rgba(255,255,255,.08)}
+.menu .btn{margin-left:8px;min-height:46px}
+.burger{display:none;width:48px;height:48px;border:0;background:transparent;color:#fff;cursor:pointer}
+.burger svg{width:30px;height:30px}
+@media(max-width:900px){
+  .menu{position:fixed;inset:0;background:var(--ink);flex-direction:column;justify-content:center;gap:6px;opacity:0;pointer-events:none;transition:opacity .25s}
+  .menu.open{opacity:1;pointer-events:auto}
+  .menu a{font-family:Anton,sans-serif;font-size:40px;text-transform:uppercase;font-weight:400;min-height:60px}
+  .menu .btn{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;margin:18px 0 0}
+  .burger{display:inline-flex;align-items:center;justify-content:center;position:relative;z-index:50}
+}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:110px 0 0;overflow:hidden}
+.hero-photo{position:absolute;top:0;right:0;width:min(46vw,620px);height:100%;}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,12,13,.85) 0%,rgba(12,12,13,0) 22%),linear-gradient(90deg,var(--ink) 0%,rgba(12,12,13,.15) 30%,rgba(12,12,13,0) 60%),linear-gradient(0deg,var(--ink) 0%,rgba(12,12,13,0) 35%)}
+.hero-copy{position:relative;z-index:2;width:100%;padding-bottom:48px}
+.hero h1{font-size:clamp(84px,15.5vw,230px);margin:18px 0 22px}
+.hero h1 .r{color:var(--red)}
+.hero .lede{font-size:clamp(18px,2vw,22px);max-width:30ch;line-height:1.4}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.roles{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.roles span{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+@media(max-width:760px){
+  .hero{display:block;padding:0;min-height:0}
+  .hero-photo{position:relative;width:100%;height:78svh;min-height:480px;margin-top:72px}
+  .hero-photo img{object-position:50% 30%}
+  .hero-photo::after{background:linear-gradient(0deg,var(--ink) 4%,rgba(12,12,13,.2) 45%,rgba(12,12,13,.35) 100%)}
+  .hero-copy{margin-top:-210px;padding-bottom:40px}
+  .hero h1{font-size:clamp(70px,22vw,120px);margin:14px 0 18px}
+}
+
+/* interrupt line (motion moment) */
+.interrupt{background:var(--bone);color:var(--ink);padding:64px 0 60px;overflow:hidden}
+.interrupt p{font-family:Anton,sans-serif;text-transform:uppercase;font-size:clamp(40px,7.4vw,108px);line-height:1;position:relative}
+.strike{position:relative;display:inline-block;color:var(--ink);transition:color .5s .9s}
+.strike::after{content:"";position:absolute;left:-2%;top:52%;height:.11em;width:0;background:var(--red);transform:rotate(-2deg);transition:width .7s cubic-bezier(.7,0,.2,1) .2s}
+.ins{display:inline-block;color:var(--red);opacity:0;transform:translateY(.25em);transition:opacity .5s 1s,transform .5s 1s}
+.interrupt.on .strike::after{width:104%}
+.interrupt.on .strike{color:#b9b3ac}
+.interrupt.on .ins{opacity:1;transform:none}
+.interrupt small{display:block;margin-top:22px;font:600 16px/1.5 'Bricolage Grotesque',sans-serif;color:#57534f;max-width:52ch}
+
+/* logos */
+.logos{background:var(--bone);color:var(--ink);padding:0 0 56px;overflow:hidden}
+.logos .lab{font:800 12px 'Bricolage Grotesque',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6b6661;margin-bottom:20px}
+.track{display:flex;gap:56px;align-items:center;width:max-content;animation:roll 48s linear infinite}
+.track img{height:34px;width:auto;filter:brightness(0);opacity:.78}
+.track img.sq{height:52px}
+@keyframes roll{to{transform:translateX(-50%)}}
+
+/* about */
+.sec{padding:110px 0}
+.about{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:center}
+.about-pic{position:relative}
+.about-pic img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:62% 40%;border-radius:4px}
+.about-pic .tag{position:absolute;left:-14px;bottom:28px;background:var(--red);font-family:Anton,sans-serif;text-transform:uppercase;font-size:26px;line-height:1;padding:14px 18px;transform:rotate(-3deg)}
+.about h2{font-size:clamp(46px,6vw,84px);margin:16px 0 26px}
+.about p{color:#d9d6d2;margin-bottom:16px;max-width:56ch}
+.about p strong{color:#fff}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:30px;border:1px solid var(--line)}
+.facts div{background:var(--ink);padding:18px 18px 16px}
+.facts b{display:block;font-family:Anton,sans-serif;font-weight:400;font-size:24px;text-transform:uppercase;line-height:1.05;margin-bottom:4px}
+.facts span{font-size:14px;color:var(--mu)}
+@media(max-width:860px){.about{grid-template-columns:1fr;gap:40px}.about-pic .tag{left:10px}}
+
+/* keynotes giant list */
+.keys{background:var(--ink2)}
+.keys-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:46px}
+.keys-head h2{font-size:clamp(46px,7vw,100px)}
+.keys-head p{max-width:42ch;color:#cfcbc6}
+.key{border-top:1px solid var(--line)}
+.key:last-child{border-bottom:1px solid var(--line)}
+.key summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:70px 1fr 54px;align-items:center;gap:16px;padding:26px 0;min-height:44px}
+.key summary::-webkit-details-marker{display:none}
+.key .no{font:800 14px 'Bricolage Grotesque',sans-serif;color:var(--red);letter-spacing:.1em}
+.key .t{font-family:Anton,sans-serif;text-transform:uppercase;font-size:clamp(32px,5.4vw,78px);line-height:.95;transition:color .25s,transform .35s}
+.key .t small{display:block;font:600 clamp(15px,1.6vw,19px)/1.35 'Bricolage Grotesque',sans-serif;text-transform:none;color:var(--mu);margin-top:10px}
+.key summary:hover .t{color:var(--red);transform:translateX(8px)}
+.key .pm{width:50px;height:50px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:transform .3s,background .3s}
+.key .pm svg{width:22px;height:22px}
+.key[open] .pm{transform:rotate(45deg);background:var(--red);border-color:var(--red)}
+.key .body{display:grid;grid-template-columns:70px 1fr 1fr;gap:16px 40px;padding:0 0 36px}
+.key .body > *:first-child{grid-column:2}
+.key .body p{color:#d9d6d2;max-width:58ch}
+.key ul{list-style:none;display:grid;gap:12px}
+.key li{display:grid;grid-template-columns:22px 1fr;gap:10px;color:#e8e5e1;font-size:16px}
+.key li svg{width:22px;height:22px;color:var(--red);margin-top:2px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;grid-column:2/4;margin-top:6px}
+.meta span{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:#cfcbc6}
+@media(max-width:760px){
+  .key summary{grid-template-columns:1fr 50px;gap:12px}
+  .key .no{grid-column:1/3;margin-bottom:-6px}
+  .key .body{grid-template-columns:1fr}
+  .key .body > *:first-child,.meta{grid-column:auto}
+}
+.custom{margin-top:34px;color:#cfcbc6;max-width:70ch}
+
+/* ovation */
+.ovation{background:var(--red);padding:100px 0;position:relative;overflow:hidden}
+.ovation blockquote{font-family:Anton,sans-serif;text-transform:uppercase;font-size:clamp(54px,10vw,150px);line-height:.92;max-width:12ch}
+.ovation .src{margin-top:26px;font-weight:600;max-width:60ch;font-size:17px}
+.ovation .src em{font-style:normal;opacity:.8;display:block;font-weight:400;font-size:15px;margin-top:4px}
+.ovation .btn{margin-top:30px}
+.ovation .mark{position:absolute;right:-40px;bottom:-60px;width:min(46vw,520px);opacity:.16;pointer-events:none}
+
+/* formats */
+.formats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.fmt{background:var(--ink2);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+.fmt img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:filter .5s}
+.fmt:hover img{filter:none}
+.fmt div{padding:24px 24px 28px}
+.fmt h3{font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;font-size:34px;line-height:1;margin-bottom:12px}
+.fmt p{color:#cfcbc6;font-size:16px}
+.sec-h{font-size:clamp(46px,7vw,100px);margin-top:16px}
+@media(max-width:900px){.formats{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:84%;overflow-x:auto;scroll-snap-type:x mandatory;margin:44px -20px 0;padding:0 20px 8px;scrollbar-width:none}.formats::-webkit-scrollbar{display:none}.fmt{scroll-snap-align:start}.fmt img{filter:none}}
+
+/* testimonials rail */
+.words{background:var(--bone);color:var(--ink)}
+.words .kick{color:var(--red-d)}
+.words .kick::before{background:var(--red-d)}
+.rail-top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.arrows{display:flex;gap:10px}
+.arrows button{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;cursor:pointer;display:grid;place-items:center;color:var(--ink)}
+.arrows button:hover{background:var(--ink);color:#fff}
+.arrows svg{width:22px;height:22px}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:min(420px,86%);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:40px;padding:0 0 10px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.q{scroll-snap-align:start;background:#fff;border-radius:6px;padding:30px 28px;display:flex;flex-direction:column;gap:20px}
+.q svg.qm{width:40px;height:40px;color:var(--red)}
+.q p{font-size:17px;line-height:1.55;color:#2a2826}
+.q footer{margin-top:auto;border-top:1px solid #e7e1da;padding-top:16px}
+.q b{display:block;font-size:16px}
+.q span{font-size:14px;color:#6b6661}
+
+/* podcast */
+.pod{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.pod h2{font-size:clamp(52px,7.6vw,112px);margin:16px 0 20px}
+.pod p{color:#d9d6d2;max-width:46ch}
+.eps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ep{text-decoration:none;display:block}
+.ep img{aspect-ratio:1;object-fit:cover;border-radius:4px;transition:transform .35s}
+.ep:hover img{transform:translateY(-6px) rotate(-1.5deg)}
+.ep span{display:block;font-size:14px;color:var(--mu);margin-top:10px;line-height:1.35}
+@media(max-width:860px){.pod{grid-template-columns:1fr;gap:34px}.eps{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:0 20px;scrollbar-width:none}.eps::-webkit-scrollbar{display:none}.ep{scroll-snap-align:start}}
+
+/* coaching */
+.coach{background:var(--ink2)}
+.cgrid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;margin-top:48px;align-items:start}
+.cgrid > img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:4px;position:sticky;top:100px}
+.offer{border-top:1px solid var(--line);padding:28px 0}
+.offer:first-child{border-top:0;padding-top:0}
+.offer .tagline{font:800 12px 'Bricolage Grotesque',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.offer h3{font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(32px,4vw,48px);line-height:1;margin:8px 0 12px}
+.offer p{color:#cfcbc6}
+@media(max-width:860px){.cgrid{grid-template-columns:1fr}.cgrid > img{position:static;aspect-ratio:4/3;object-position:50% 20%}}
+
+/* contact */
+.book{position:relative;overflow:hidden}
+.book-bg{position:absolute;inset:0}
+.book-bg img{width:100%;height:100%;object-fit:cover;opacity:.28;filter:grayscale(1)}
+.book-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--ink) 0%,rgba(12,12,13,.6) 40%,var(--ink) 100%)}
+.book .wrap{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.book h2{font-size:clamp(56px,9vw,132px);margin:16px 0 22px}
+.book .mail{font-size:clamp(18px,2.2vw,24px);font-weight:600;text-decoration:none;border-bottom:2px solid var(--red);display:inline-block;padding:8px 0;word-break:break-all}
+.social{display:flex;gap:10px;margin-top:26px}
+.social a{width:48px;height:48px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center}
+.social a:hover{background:var(--red);border-color:var(--red)}
+.social svg{width:22px;height:22px}
+form{background:rgba(24,24,26,.9);border:1px solid var(--line);border-radius:8px;padding:28px;display:grid;gap:14px}
+label{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#cfcbc6;display:grid;gap:6px}
+input,textarea,select{width:100%;font:400 16px 'Bricolage Grotesque',sans-serif;color:#fff;background:var(--ink);border:1px solid rgba(255,255,255,.22);border-radius:6px;padding:13px 14px;min-height:50px}
+textarea{min-height:120px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--red);outline-offset:1px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fnote{font-size:14px;color:#cfcbc6;display:none}
+.fnote.on{display:block}
+@media(max-width:860px){.book .wrap{grid-template-columns:1fr;gap:36px}.two{grid-template-columns:1fr}}
+
+footer.site{border-top:1px solid var(--line);padding:30px 0 40px;font-size:14px;color:var(--mu)}
+footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer.site img{height:26px;width:auto}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+@media(max-width:760px){.sec{padding:80px 0}.ovation{padding:80px 0}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.strike::after{width:104%}.ins{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<a class="skip" href="#speaking">Skip to keynotes</a>
-<header>
-<div class="wrap head">
-<a class="logo" href="#top" aria-label="Courtney Stanley home"><img src="https://static.wixstatic.com/media/d6340a_9ca7e5bc1ca841b0bdc26aa6b1d8c3cd~mv2.png/v1/fill/w_250,h_82,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/d6340a_9ca7e5bc1ca841b0bdc26aa6b1d8c3cd~mv2.png" alt="Courtney Stanley logo"></a>
-<nav aria-label="Main">
-<a href="#speaking">Speaking</a>
-<a href="#coaching">Coaching</a>
-<a href="#podcast">Podcast</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
-</div>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Courtney Stanley, home"><img src="img/logo.png" alt="Courtney Stanley" width="600" height="139"></a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" id="burger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
+    <nav class="menu" id="menu">
+      <a href="#about">About</a>
+      <a href="#keynotes">Keynotes</a>
+      <a href="#emcee">Emcee</a>
+      <a href="#podcast">Podcast</a>
+      <a href="#coaching">Coaching</a>
+      <a class="btn btn-red" href="#book">Book Courtney</a>
+    </nav>
+  </div>
 </header>
 
-<main id="top">
+<main>
 <section class="hero">
-<div class="wrap">
-<p class="kicker" style="color:#cfe2ee">Keynote speaker - Event emcee - Coach - Detroit</p>
-<div class="giant">Break<br>barriers<span>.</span></div>
-<p class="lede">Honest. Unfiltered. Real.</p>
-<p>Changing culture, building trust and empowering leaders, one conversation at a time.</p>
-<div class="actions">
-<a class="btn white" href="#speaking">See the keynotes</a>
-<a class="btn steel" href="#contact"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v3"/></svg>Book Courtney</a>
-</div>
-<img src="https://static.wixstatic.com/media/d6340a_44af053227fb4287aebd348c73fadd6d~mv2.jpg/v1/fill/w_490,h_327,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/d6340a_44af053227fb4287aebd348c73fadd6d~mv2.jpg" alt="Courtney Stanley on stage">
-</div>
+  <div class="hero-photo"><img src="img/hero.jpg" alt="Courtney Stanley in a white blazer in front of a Be The Change neon sign" width="1100" height="1460" fetchpriority="high"></div>
+  <div class="wrap hero-copy">
+    <div class="roles"><span>Keynote speaker</span><span>Event emcee</span><span>Coach</span></div>
+    <h1 class="display">Break<br><span class="r">barriers.</span></h1>
+    <p class="lede">Changing culture, building trust and empowering leaders, one conversation at a time.</p>
+    <div class="acts">
+      <a class="btn btn-red" href="#book">Book Courtney <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-line" href="https://www.youtube.com/watch?v=F82Pf8iLmCM" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg> See her in action</a>
+    </div>
+  </div>
 </section>
 
-<section id="speaking">
-<div class="wrap">
-<p class="kicker">Speaking</p>
-<h2>Tap a keynote. Watch it light up.</h2>
-<p>Each keynote runs 45 to 60 minutes, in person or virtual, and is customized to the audience and the event vision.</p>
-</div>
-<div class="keylist">
-<div class="keynote active">
-<button class="keynote-btn" type="button" aria-expanded="true"><span>Rise Above the Noise</span><span class="num">01</span></button>
-<div class="keynote-panel"><div class="wrap">
-<img src="https://static.wixstatic.com/media/0bd6424d7eac4fd0ae7cb794185a00de.jpg/v1/crop/x_275,y_0,w_2218,h_2767/fill/w_301,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Sparkler.jpg" alt="Photo for Rise Above the Noise">
-<h3>Building and Championing a Winning Brand</h3>
-<p>A strong brand helps you rise above the noise and the competition. But if the value you offer, the people you serve, and the problems you solve are not clear, your audience cannot connect with it.</p>
-<p>This interactive session uses exercises to clarify your buyer persona, sharpen your value proposition, line up brand identity with brand perception, and communicate your message with impact.</p>
-<p><span class="tag">45-60 minutes</span><span class="tag">Leadership teams</span><span class="tag">Sales and marketing teams</span><span class="tag">Women</span><span class="tag">Small business owners</span><span class="tag">Entrepreneurs</span><span class="tag">Associations</span><span class="tag">Corporations</span><span class="tag">Nonprofits</span></p>
-</div></div>
-</div>
-<div class="keynote">
-<button class="keynote-btn" type="button" aria-expanded="false"><span>#OUTSPOKEN: Owning Your Mic Drop Moment</span><span class="num">02</span></button>
-<div class="keynote-panel"><div class="wrap">
-<img src="https://static.wixstatic.com/media/d6340a_a0e6e932b95947aba8b5701fb570f226~mv2.jpg/v1/crop/x_320,y_0,w_2807,h_3502/fill/w_301,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/lee-soo-hyun-bo7_MA7u-_4-unsplash_edited.jpg" alt="Photo for OUTSPOKEN: Owning Your Mic Drop Moment">
-<h3>Speak up when it counts</h3>
-<p>Do you wish you spoke up more in meetings, in boardrooms, at networking events, or in your annual review? Do you wish you had the courage to disagree out loud? Do you want to feel seen and heard?</p>
-<p>Many people leave jobs, relationships, ventures, and conversations feeling they would have achieved more if they had shared feedback, ideas, or their value. This keynote digs into what holds people back, builds confidence for uncomfortable moments, and builds a culture of positive outspokenness.</p>
-<p><span class="tag">45-60 minutes</span><span class="tag">Leadership teams</span><span class="tag">Mid-level managers</span><span class="tag">Women</span><span class="tag">Small business owners</span><span class="tag">Entrepreneurs</span><span class="tag">Associations</span><span class="tag">Corporations</span><span class="tag">Nonprofits</span></p>
-</div></div>
-</div>
-<div class="keynote">
-<button class="keynote-btn" type="button" aria-expanded="false"><span>The Essentials of Empathy</span><span class="num">03</span></button>
-<div class="keynote-panel"><div class="wrap">
-<img src="https://static.wixstatic.com/media/nsplsh_4934645235373279376c30~mv2_d_3537_5306_s_4_2.jpg/v1/crop/x_0,y_447,w_3537,h_4413/fill/w_301,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image%20by%20Fadi%20Xd.jpg" alt="Photo for The Essentials of Empathy">
-<h3>Changing Culture, Building Trust, and Cultivating Leaders</h3>
-<p>When employees, customers, and stakeholders walk out the door, companies lose a great deal each year. It is time to focus on what matters most: your people.</p>
-<p>Empathy, emotional intelligence, and servant leadership carry new weight as work keeps changing. This keynote covers simple, powerful shifts that humanize interactions, improve morale, and build a culture based on courage and trust.</p>
-<p><span class="tag">45-60 minutes</span><span class="tag">Leadership teams</span><span class="tag">Mid-level managers</span><span class="tag">Small business owners</span><span class="tag">Entrepreneurs</span><span class="tag">Associations</span><span class="tag">Corporations</span><span class="tag">Nonprofits</span></p>
-</div></div>
-</div>
-</div>
-<div class="wrap" style="padding-top:24px">
-<div class="grid">
-<div class="card"><h3>Experiential workshops</h3><p>Keynotes are great, but sometimes a group needs to go deeper. Courtney builds customized, hands-on, inclusive workshops and webinars, in person or virtual, for groups from 25 to 150 people.</p><p>Her background in experience design and leadership studies helps make sure every idea, question, and voice in the room is heard and valued.</p></div>
-<div class="card"><h3>Conference and event emcee</h3><p>A dynamic, witty, and engaging emcee and moderator for nonprofit, association, and corporate audiences, in person and virtually.</p><p>From lively panels and keynote introductions to energetic interviews, audience engagement, and keeping everything on schedule, she works with your team to lift your brand and bring your goals to life on stage.</p></div>
-</div>
-<p class="note">Her background as an event technology consultant and virtual event producer also covers virtual engagement, sponsorship development, content ideas and formatting, and technical support.</p>
-<a class="btn" href="#contact">Check a date</a>
-</div>
+<section class="interrupt" id="interrupt" aria-label="Not just another keynote speaker">
+  <div class="wrap">
+    <p><span class="strike">Not just another</span><br><span class="ins">Honest. Unfiltered. Real.</span><br>Keynote speaker.</p>
+    <small>Give them something real to talk about. Courtney customizes every keynote, workshop and emcee role to your audience and your goals.</small>
+  </div>
 </section>
 
-<section id="coaching" class="grey">
-<div class="wrap">
-<p class="kicker">Coaching</p>
-<h2>Level up, out loud</h2>
-<div class="grid">
-<div class="card"><h3>Group speaker training</h3><p>Courtney works directly with CEOs, team leaders, and staff to help them deliver engaging, authentic, and impactful presentations for in-person, hybrid, and virtual experiences.</p><p>Good for audiences of customers, employees, members, or stakeholders.</p></div>
-<div class="card"><h3>#UNSTOPPABLE 1:1 strategy sessions</h3><p>Private coaching to refine your purpose, build your confidence, and create a roadmap to your next chapter.</p><p>For professional women including association leaders, coaches, entrepreneurs, event planners, marketers, and corporate professionals. Built on 10-plus years in brand marketing and public relations, public speaking, and business strategy, plus a degree in Leadership Studies.</p></div>
-<div class="card"><h3>Dare to Interrupt VIP Mastermind</h3><p>Once a year, Courtney hosts a 5-week VIP mastermind for ambitious women who are committed to leveling up and stepping into their next chapter.</p><p>Limited capacity, with deep-dive coaching on business, career, and life, focused on accountability, community, and collaboration with like-minded women.</p></div>
-<div class="card"><h3>#OUTSPOKEN community</h3><p>A personal growth community for people ready to stretch their boundaries, break out of their comfort zone, identify their true self, and speak up when it counts, including sharing their story on a big stage.</p><p class="note">[PLACEHOLDER: current #OUTSPOKEN community details and join link - confirm before publishing.]</p></div>
-</div>
-</div>
+<section class="logos" aria-label="Happy clients">
+  <div class="wrap"><p class="lab">Happy clients</p></div>
+  <div class="track" id="track">
+    <img src="img/logos/cvent.png" alt="Cvent"><img class="sq" src="img/logos/mpi.png" alt="MPI"><img class="sq" src="img/logos/imex.png" alt="IMEX Group"><img class="sq" src="img/logos/pcma.png" alt="PCMA"><img src="img/logos/asae.png" alt="ASAE"><img src="img/logos/meetings-today.png" alt="Meetings Today"><img src="img/logos/meetingsnet.png" alt="MeetingsNet"><img src="img/logos/connect.png" alt="Connect"><img src="img/logos/quickbooks.png" alt="Intuit QuickBooks"><img src="img/logos/kettering.png" alt="Kettering Health Network"><img class="sq" src="img/logos/gvsu.png" alt="Grand Valley State University"><img class="sq" src="img/logos/pilot.png" alt="Pilot International"><img src="img/logos/mag.png" alt="Merchant Advisory Group"><img src="img/logos/corinium.png" alt="Corinium"><img src="img/logos/awe.png" alt="Association for Women in Events">
+  </div>
 </section>
 
-<section id="podcast" class="steelbg">
-<div class="wrap">
-<p class="kicker">Podcast</p>
-<h2>Dare to Interrupt</h2>
-<p>Empowering women through unfiltered conversations.</p>
-<p>The podcast gives women in the event, hospitality, and tourism industries a platform to share stories of adversity and success, unfiltered.</p>
-<img src="https://static.wixstatic.com/media/8863e0_2c9001c5be8b4adea0568276acd70115~mv2.png/v1/fill/w_490,h_735,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/8863e0_2c9001c5be8b4adea0568276acd70115~mv2.png" alt="Dare to Interrupt podcast artwork" style="max-width:320px;border:3px solid #fff;margin-bottom:16px">
-<div class="grid">
-<div class="card"><h3>Authentic Growth: Navigating Change with Intention</h3><p>Building a business rooted in authenticity, intuition, and meaningful human connection, and why choosing alignment over familiarity changes how women lead.</p></div>
-<div class="card"><h3>Own Your Power: The Inner Work Behind Outer Success</h3><p>Breaking through mindset traps, knowing your worth, and taking up space with confidence in business, leadership, and life.</p></div>
-</div>
-<p class="note">[PLACEHOLDER: latest episode list and listen links - confirm the current feed before publishing.]</p>
-</div>
+<section class="sec" id="about">
+  <div class="wrap about">
+    <div class="about-pic rv"><img src="img/blue.jpg" alt="Courtney Stanley in a blue dress" loading="lazy" width="1600" height="1067"><span class="tag">Meet Courtney</span></div>
+    <div class="rv">
+      <p class="kick">About</p>
+      <h2 class="display">Upgrade the conversation.</h2>
+      <p>Courtney Stanley is recognized globally as an <strong>award-winning changemaker</strong>, compelling keynote speaker, energetic event emcee and creator of the podcast <strong>Dare to Interrupt</strong>.</p>
+      <p>Through her leadership and use of voice, she has earned seats on international boards of directors as the youngest member ever inducted. She helps women, young professionals, entrepreneurs and organizations have the conversations that change teams, culture and careers.</p>
+      <p>She is most proud of her work to prevent sexual harassment and assault through <strong>#MeetingsToo</strong>, an events-centred social movement she launched.</p>
+      <div class="facts">
+        <div><b>Detroit, Michigan</b><span>Home base</span></div>
+        <div><b>In person or virtual</b><span>Every keynote customized</span></div>
+        <div><b>Central Michigan</b><span>Experience design, leadership studies, hospitality</span></div>
+        <div><b>#MeetingsToo</b><span>Founder of the movement</span></div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="about">
-<div class="wrap">
-<p class="kicker">About</p>
-<h2>Not just another keynote speaker</h2>
-<img src="https://static.wixstatic.com/media/d6340a_143156ae1c4f4185b8076602a37be412~mv2.jpg/v1/fill/w_818,h_799,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/d6340a_143156ae1c4f4185b8076602a37be412~mv2.jpg" alt="Hustle neon sign from the About page" style="max-width:420px;border:3px solid var(--charcoal);margin-bottom:16px">
-<p>Courtney Stanley is an award-winning changemaker, keynote speaker, event emcee, and creator of the women-inspired podcast Dare to Interrupt.</p>
-<p>Through her leadership and use of voice, she has earned seats on prestigious international boards of directors as the youngest member ever inducted.</p>
-<p>She has spent 10 years helping women, young professionals, entrepreneurs, and organizations engage in game-changing, impactful conversations that help people tap into their true potential, improve team and culture dynamics, and drive meaningful change.</p>
-<p>She holds a degree from Central Michigan University in experience design, leadership studies, and business hospitality.</p>
-<p>She is personally most proud of her work to prevent sexual harassment and assault through the launch of an events-centered social movement, #MeetingsToo.</p>
-<p>Her mission is to empower women and ambitious professionals through vulnerable, meaningful dialogue, leading to changed behaviors and new approaches to leadership on stages and in boardrooms across North America and internationally.</p>
-<img src="https://static.wixstatic.com/media/d6340a_ce31b645c24d49459c890c64d93aab14~mv2.jpg/v1/fill/w_490,h_735,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/d6340a_ce31b645c24d49459c890c64d93aab14~mv2.jpg" alt="Courtney Stanley portrait" style="max-width:420px;border:3px solid var(--charcoal);margin-bottom:16px">
-<p class="note">[PLACEHOLDER: awards list - confirm from the Awards and Recognition section before publishing.]</p>
-<blockquote style="border-left:5px solid var(--steel);margin:20px 0;padding:8px 16px;font-size:1.2rem;font-weight:800">"TRULY AUTHENTIC. NATURALLY RELATABLE. COMPASSIONATELY CHALLENGING. ACTIONABLE AND LIFE-CHANGING." - Trevor Lui, The Highbell Group</blockquote>
-<p class="note">[PLACEHOLDER: additional testimonials - use only word-for-word quotes from the current site.]</p>
-</div>
+<section class="sec keys" id="keynotes">
+  <div class="wrap">
+    <div class="keys-head">
+      <div><p class="kick">Most requested keynotes</p><h2 class="display sec-h">Three talks.<br>No filler.</h2></div>
+      <p>Each one runs 45 to 60 minutes and is shaped around your audience, in person, hybrid or virtual.</p>
+    </div>
+
+    <details class="key" open>
+      <summary><span class="no">01</span><span class="t">#Outspoken<small>Owning your mic drop moment</small></span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+      <div class="body">
+        <p>Do you wish you spoke up more in meetings, in boardrooms or in your annual review? This keynote helps people get curious about what holds them back, build confidence in uncomfortable moments and create a culture of positive outspokenness.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg>How imposter syndrome and other obstacles translate to less opportunity</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg>Verbal and nonverbal strategies to communicate with confidence</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg>How to turn moments of fear into growth and change</li>
+        </ul>
+        <div class="meta"><span>Leadership teams</span><span>Mid-level managers</span><span>Women</span><span>Associations</span><span>45 to 60 min</span></div>
+      </div>
+    </details>
+
+    <details class="key">
+      <summary><span class="no">02</span><span class="t">The Essentials of Empathy<small>Changing culture, building trust and cultivating leaders</small></span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+      <div class="body">
+        <p>When employees, customers and stakeholders walk out the door, it's time to focus on what matters most: your people. Simple, powerful shifts that humanize interactions, lift morale and get to the heart of real leadership.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg>Level up self-awareness to lead with emotional intelligence</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg>Achieve results through transparency and active listening</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg>Build a culture on courage and trust</li>
+        </ul>
+        <div class="meta"><span>Leadership teams</span><span>Business owners</span><span>Corporations</span><span>Non-profits</span><span>45 to 60 min</span></div>
+      </div>
+    </details>
+
+    <details class="key">
+      <summary><span class="no">03</span><span class="t">Rise Above the Noise<small>Building and championing a winning brand</small></span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+      <div class="body">
+        <p>An interactive session with thought-provoking exercises to clarify who you serve, sharpen your value proposition and communicate your message in a way that's impactful, authentic and effective.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg>Sharpen your vision, value proposition and pitch</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg>Clarify your buyer persona to attract the right customers</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg>Communicate your brand in person and online</li>
+        </ul>
+        <div class="meta"><span>Sales and marketing teams</span><span>Entrepreneurs</span><span>Small business owners</span><span>45 to 60 min</span></div>
+      </div>
+    </details>
+    <p class="custom">Want something built just for your participants? Courtney designs custom in-person, hybrid and virtual experiences. <a href="#book">Send her a note.</a></p>
+  </div>
 </section>
 
-<section id="contact" class="grey">
-<div class="wrap">
-<p class="kicker">Contact [CONFIRM]</p>
-<h2>Book Courtney</h2>
-<img src="https://static.wixstatic.com/media/d6340a_9e4b4b562eec4215a853be966a3849bc~mv2.jpg/v1/crop/x_90,y_0,w_2061,h_3360/fill/w_468,h_763,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Edit%209.jpg" alt="Courtney Stanley" style="max-width:320px;border:3px solid var(--charcoal);margin-bottom:16px">
-<p>Email: courtney@courtney-stanley.com [CONFIRM] (shown in the homepage footer; the contact page itself shows no email address).</p>
-<p>Social links [CONFIRM]: <a href="https://twitter.com/courtneyonstage">X / Twitter</a>, <a href="https://www.facebook.com/courtneyonstage/">Facebook</a>, <a href="https://www.instagram.com/courtneyonstage/">Instagram</a>, <a href="http://linkedin.com/in/courtneystanley">LinkedIn</a>.</p>
-<form onsubmit="document.getElementById('bmsg').hidden=false;return false;">
-<label for="bfirst">First name</label>
-<input id="bfirst" name="first" autocomplete="given-name" required>
-<label for="blast">Last name</label>
-<input id="blast" name="last" autocomplete="family-name" required>
-<label for="bemail">Email</label>
-<input id="bemail" name="email" type="email" autocomplete="email" required>
-<label for="bphone">Phone</label>
-<input id="bphone" name="phone" type="tel" autocomplete="tel" required>
-<label for="babout">What would you like to speak with Courtney about?</label>
-<select id="babout" name="about" required>
-<option>Keynote speaking</option>
-<option>Event emceeing</option>
-<option>Workshop</option>
-<option>Coaching</option>
-<option>Podcast</option>
-<option>Other</option>
-</select>
-<label for="bmessage">Message</label>
-<textarea id="bmessage" name="message" placeholder="Add a message..." required></textarea>
-<div class="checkline"><input id="bnews" type="checkbox"><label for="bnews" style="margin:0">I want to subscribe to the newsletter</label></div>
-<div class="checkline"><input id="bterms" type="checkbox"><label for="bterms" style="margin:0">I agree to the terms and conditions</label></div>
-<button class="btn steel" type="submit"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v3"/></svg>Send booking enquiry</button>
-<p id="bmsg" hidden class="note">Draft form only. [PLACEHOLDER: form destination - this form is not connected yet.]</p>
-</form>
-<p class="note">[PLACEHOLDER: booking enquiry dropdown options and terms link - confirm before publishing.]</p>
-<p class="note">[PLACEHOLDER: speaker kit request form destination - the current site delivers the kit only after a form is submitted, and offers no direct download link.]</p>
-</div>
+<section class="ovation">
+  <img class="mark" src="img/logo.png" alt="" aria-hidden="true" style="filter:brightness(0)">
+  <div class="wrap rv">
+    <blockquote>She got a standing ovation.</blockquote>
+    <p class="src">"It was earned, and her message hit close to home. I wish others could hear Courtney speak because the message is healing and thought-provoking."<em>Sherry Johnson, Brand Director, East Texas Food Bank, on the 101st Pilot International Conference keynote</em></p>
+    <a class="btn btn-ink" href="#book">Book a standing ovation</a>
+  </div>
+</section>
+
+<section class="sec" id="emcee">
+  <div class="wrap">
+    <p class="kick">Ways to work together</p>
+    <h2 class="display sec-h">On stage.<br>Behind the scenes.</h2>
+    <div class="formats">
+      <article class="fmt rv"><img src="img/stage-mic.jpg" alt="Courtney speaking on stage with a microphone" loading="lazy"><div><h3>Keynotes</h3><p>Whether it's 3,000 professionals or a 50-person room of ambitious women, every talk is customized to your audience and goals.</p></div></article>
+      <article class="fmt rv"><img src="img/workshop.jpg" alt="Courtney leading a workshop" loading="lazy"><div><h3>Workshops</h3><p>Hands-on, inclusive in-person and virtual sessions for 25 to 150 people, so every idea, question and voice is heard.</p></div></article>
+      <article class="fmt rv"><img src="img/panel.jpg" alt="Courtney moderating a women in leadership panel at Cvent Connect" loading="lazy"><div><h3>Event emcee</h3><p>Lively panels, keynote introductions and energetic interviews, with the event know-how to keep everything on schedule.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec words" id="words">
+  <div class="wrap">
+    <div class="rail-top">
+      <div><p class="kick">In their words</p><h2 class="display sec-h">The real deal.</h2></div>
+      <div class="arrows"><button type="button" aria-label="Previous" data-dir="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" aria-label="Next" data-dir="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+    </div>
+    <div class="rail" id="rail">
+      <figure class="q"><svg class="qm" viewBox="0 0 40 40" fill="currentColor"><path d="M4 32V20C4 12 8 7 16 6v5c-4 1-6 4-6 9h6v12zm20 0V20c0-8 4-13 12-14v5c-4 1-6 4-6 9h6v12z"/></svg><p>Courtney is one of the industry's best! We had the pleasure of having her emcee our panel for women in leadership at Cvent Connect and our live broadcast of Cvent Connect TV. She was incredible!</p><footer><b>Francesca Vereb</b><span>Vice President of Marketing, Cvent</span></footer></figure>
+      <figure class="q"><svg class="qm" viewBox="0 0 40 40" fill="currentColor"><path d="M4 32V20C4 12 8 7 16 6v5c-4 1-6 4-6 9h6v12zm20 0V20c0-8 4-13 12-14v5c-4 1-6 4-6 9h6v12z"/></svg><p>Truly authentic. Naturally relatable. Compassionately challenging. Actionable and life-changing.</p><footer><b>Trevor Lui</b><span>The Highbell Group</span></footer></figure>
+      <figure class="q"><svg class="qm" viewBox="0 0 40 40" fill="currentColor"><path d="M4 32V20C4 12 8 7 16 6v5c-4 1-6 4-6 9h6v12zm20 0V20c0-8 4-13 12-14v5c-4 1-6 4-6 9h6v12z"/></svg><p>We had the pleasure of having Courtney speak to members on the "Essentials of Empathy" and WOW was it impactful! She recounted real life relatable experiences with powerful outcomes.</p><footer><b>Melanie Blanche, CMP</b><span>President, MPI Tennessee Chapter</span></footer></figure>
+      <figure class="q"><svg class="qm" viewBox="0 0 40 40" fill="currentColor"><path d="M4 32V20C4 12 8 7 16 6v5c-4 1-6 4-6 9h6v12zm20 0V20c0-8 4-13 12-14v5c-4 1-6 4-6 9h6v12z"/></svg><p>Her session was highly relatable, authentic and meaningful and I'd highly recommend her for other events!</p><footer><b>Liz Caruso</b><span>CEO, Liz King Events and techsytalk</span></footer></figure>
+      <figure class="q"><svg class="qm" viewBox="0 0 40 40" fill="currentColor"><path d="M4 32V20C4 12 8 7 16 6v5c-4 1-6 4-6 9h6v12zm20 0V20c0-8 4-13 12-14v5c-4 1-6 4-6 9h6v12z"/></svg><p>Courtney's performance as an emcee brought an authentic and engaging down-to-earth midwestern personality to our event that represented our MAG brand well.</p><footer><b>Laura Townsend</b><span>Chief Operations Officer, Merchant Advisory Group</span></footer></figure>
+      <figure class="q"><svg class="qm" viewBox="0 0 40 40" fill="currentColor"><path d="M4 32V20C4 12 8 7 16 6v5c-4 1-6 4-6 9h6v12zm20 0V20c0-8 4-13 12-14v5c-4 1-6 4-6 9h6v12z"/></svg><p>10/10 would recommend Courtney as the best event emcee you could ever choose. She brings so much value to the table!</p><footer><b>Dr. Lorie Tuma</b><span>Grand Valley State University</span></footer></figure>
+      <figure class="q"><svg class="qm" viewBox="0 0 40 40" fill="currentColor"><path d="M4 32V20C4 12 8 7 16 6v5c-4 1-6 4-6 9h6v12zm20 0V20c0-8 4-13 12-14v5c-4 1-6 4-6 9h6v12z"/></svg><p>The keynote presentation had a profound impact on me and I've explored more ways I can be #Outspoken in both my personal and professional lives.</p><footer><b>Gabby Fisher</b><span>Founder, GF Consulting</span></footer></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="podcast">
+  <div class="wrap pod">
+    <div class="rv">
+      <p class="kick">The podcast</p>
+      <h2 class="display">Dare to Interrupt.</h2>
+      <p>Empowering women through unfiltered conversations about leadership, ambition, resilience and growth.</p>
+      <div style="margin-top:28px"><a class="btn btn-line" href="https://www.courtney-stanley.com/courtney-stanley-blog" target="_blank" rel="noopener">Tune in <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+    <div class="eps">
+      <a class="ep rv" href="https://www.courtney-stanley.com/courtney-stanley-blog" target="_blank" rel="noopener"><img src="img/ep-terms.jpg" alt="Lead on your terms episode cover" loading="lazy"><span>Lead on Your Terms: Set Boundaries, Honor Your Needs and Challenge Expectations</span></a>
+      <a class="ep rv" href="https://www.courtney-stanley.com/courtney-stanley-blog" target="_blank" rel="noopener"><img src="img/ep-permission.jpg" alt="Give yourself permission episode cover" loading="lazy"><span>Give Yourself Permission: To Grow, Change and Become</span></a>
+      <a class="ep rv" href="https://www.courtney-stanley.com/courtney-stanley-blog" target="_blank" rel="noopener"><img src="img/ep-believe.jpg" alt="Believe the good episode cover" loading="lazy"><span>Believe the Good: Quieting Your Inner Critic and Embracing Your Growth</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec coach" id="coaching">
+  <div class="wrap">
+    <p class="kick">Coaching and community</p>
+    <h2 class="display sec-h">Level up.<br>Out loud.</h2>
+    <div class="cgrid">
+      <div>
+        <div class="offer rv"><p class="tagline">For leadership teams</p><h3>Group speaker training</h3><p>Courtney works directly with CEOs, team leaders and staff to deliver engaging, authentic presentations for in-person, hybrid and virtual events.</p></div>
+        <div class="offer rv"><p class="tagline">1:1 strategy sessions</p><h3>#Unstoppable</h3><p>Private coaching for professional women ready to refine their purpose, build confidence and map their next chapter in business, career or brand.</p></div>
+        <div class="offer rv"><p class="tagline">Once a year</p><h3>Dare to Interrupt VIP Mastermind</h3><p>A five-week, limited-capacity experience for ambitious women, focused on accountability, community and collaboration.</p></div>
+        <a class="btn btn-red" href="#book" style="margin-top:8px">Start the conversation</a>
+      </div>
+      <img class="rv" src="img/black-seat.jpg" alt="Courtney Stanley seated, dressed in black" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="sec book" id="book">
+  <div class="book-bg"><img src="img/mic.jpg" alt="" loading="lazy"></div>
+  <div class="wrap">
+    <div>
+      <p class="kick">Connect with Courtney</p>
+      <h2 class="display">Make it memorable.</h2>
+      <a class="mail" href="mailto:courtney@courtney-stanley.com">courtney@courtney-stanley.com</a>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/courtneystanley/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.95 1.32-1.95 2.7V21h-4z"/></svg></a>
+        <a href="https://www.instagram.com/courtneyonstage/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.facebook.com/courtneyonstage/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8.5V6.8c0-.8.5-1 .9-1H17V2.1L14.1 2C10.9 2 10.2 4.4 10.2 6v2.5H8V12h2.2v10H14V12h2.8l.4-3.5z"/></svg></a>
+        <a href="https://www.youtube.com/watch?v=F82Pf8iLmCM" target="_blank" rel="noopener" aria-label="Watch on YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15V9l5.8 3z"/></svg></a>
+      </div>
+    </div>
+    <form id="form" novalidate>
+      <div class="two"><label>Name<input name="name" autocomplete="name" required></label><label>Email<input type="email" name="email" autocomplete="email" required></label></div>
+      <div class="two"><label>Organization<input name="org" autocomplete="organization"></label><label>Looking for<select name="type"><option>Keynote</option><option>Workshop</option><option>Event emcee</option><option>Speaker training</option><option>1:1 coaching</option></select></label></div>
+      <label>Event date and details<textarea name="msg"></textarea></label>
+      <button class="btn btn-red" type="submit">Send enquiry</button>
+      <p class="fnote" id="fnote">This preview form isn't connected yet. Please email courtney@courtney-stanley.com.</p>
+    </form>
+  </div>
 </section>
 </main>
 
-<footer>
-<div class="wrap">
-<p><strong>Courtney Stanley</strong></p>
-<p>Keynote speaker, event emcee, and coach. Break barriers. Honest. Unfiltered. Real.</p>
-<p class="small">Draft redesign for Chairlift review. Contact details marked [CONFIRM] are copied from the current site and need confirmation before publishing.</p>
-</div>
-</footer>
+<footer class="site"><div class="wrap"><img src="img/logo.png" alt="Courtney Stanley"><span>Keynote speaker, event emcee and coach. Detroit, Michigan.</span><span>&copy; Courtney Stanley</span></div></footer>
+
 <script>
-document.querySelectorAll('.keynote-btn').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    var item = btn.closest('.keynote');
-    var wasActive = item.classList.contains('active');
-    document.querySelectorAll('.keynote').forEach(function(k){
-      k.classList.remove('active');
-      k.querySelector('.keynote-btn').setAttribute('aria-expanded','false');
-    });
-    if(!wasActive){
-      item.classList.add('active');
-      btn.setAttribute('aria-expanded','true');
-    }
-  });
-});
+(function(){
+  var top=document.getElementById('top');
+  function sc(){top.classList.toggle('solid',window.scrollY>40)}
+  sc();addEventListener('scroll',sc,{passive:true});
+  var b=document.getElementById('burger'),m=document.getElementById('menu');
+  b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''});
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open');b.setAttribute('aria-expanded',false);document.body.style.overflow=''})});
+  // duplicate logos for seamless roll
+  var t=document.getElementById('track');t.innerHTML+=t.innerHTML;
+  [].slice.call(t.querySelectorAll('img')).slice(t.children.length/2).forEach(function(i){i.alt='';i.setAttribute('aria-hidden','true')});
+  // reveals + interrupt strike
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add(e.target.id==='interrupt'?'on':'in');io.unobserve(e.target)}})},{threshold:.25});
+  document.querySelectorAll('.rv,#interrupt').forEach(function(el){io.observe(el)});
+  // rail arrows
+  var r=document.getElementById('rail');
+  document.querySelectorAll('.arrows button').forEach(function(btn){btn.addEventListener('click',function(){r.scrollBy({left:(+btn.dataset.dir)*(r.firstElementChild.offsetWidth+18),behavior:'smooth'})})});
+  // keynotes: one open at a time
+  var ks=document.querySelectorAll('.key');ks.forEach(function(k){k.addEventListener('toggle',function(){if(k.open)ks.forEach(function(o){if(o!==k)o.open=false})})});
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('fnote').classList.add('on')});
+})();
 </script>
 </body>
 </html>

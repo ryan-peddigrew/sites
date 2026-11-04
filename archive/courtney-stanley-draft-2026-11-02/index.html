@@ -1,0 +1,273 @@
+<!--
+OPEN FIXES BEFORE PUBLISHING (draft, not approved for launch):
+- Confirm every claim against courtney-stanley.com word for word: "award-winning changemaker", "youngest member ever inducted", "10 years", and the degree details.
+- Confirm the Trevor Lui testimonial word for word from the current site.
+- Check the social links and the Wix logo and photo links.
+- Connect the booking and speaker-kit forms to an approved destination.
+- Remove the [PLACEHOLDER] and [CONFIRM] notes once checked.
+Original site: https://www.courtney-stanley.com
+Image sources (from the current site):
+Logo: https://static.wixstatic.com/media/d6340a_9ca7e5bc1ca841b0bdc26aa6b1d8c3cd~mv2.png
+-->
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Courtney Stanley - Keynote Speaker, Event Emcee and Coach</title>
+<meta name="description" content="Courtney Stanley: keynote speaker, event emcee and coach. Break barriers. Honest. Unfiltered. Real.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--charcoal:#2f2e2e;--steel:#2b5672;--steel-light:#e8f0f5;--white:#ffffff;--grey:#f2f2f0;--ink:#1d1d1d}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font-family:Inter,Arial,sans-serif;font-size:17px;line-height:1.55}
+a{color:var(--steel)}
+img{max-width:100%;display:block}
+h1,h2,h3{line-height:1.05}
+h2{font-family:Anton,Arial,sans-serif;font-weight:400;font-size:clamp(2rem,10vw,3.4rem);letter-spacing:.01em;margin:0 0 .4em;text-transform:uppercase}
+h3{font-size:1.25rem;margin:0 0 .3em}
+p{margin:0 0 1em;max-width:62ch}
+.wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+.skip{position:absolute;left:-999px;top:0;background:#fff;padding:10px}
+.skip:focus{left:10px;top:10px;z-index:50}
+header{background:var(--white);border-bottom:3px solid var(--charcoal);padding:12px 0;position:sticky;top:0;z-index:20}
+.head{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{filter:drop-shadow(0 4px 6px rgba(0,0,0,.25))}
+.logo img{height:46px;width:auto}
+nav{width:100%;display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+nav a{color:var(--charcoal);text-decoration:none;padding:10px 12px;min-height:44px;display:inline-flex;align-items:center;border:2px solid var(--charcoal);border-radius:999px;font-weight:800;font-size:.95rem}
+nav a:focus,nav a:hover{background:var(--charcoal);color:#fff;outline:none}
+.btn{appearance:none;border:2px solid var(--charcoal);background:var(--charcoal);color:#fff;font:inherit;font-weight:800;min-height:46px;padding:11px 20px;border-radius:999px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn.steel{background:var(--steel);border-color:var(--steel)}
+.btn.white{background:#fff;color:var(--charcoal)}
+.btn:focus,.btn:hover{outline:3px solid #f5c518;outline-offset:2px}
+.icon{width:20px;height:20px;flex:none}
+.hero{background:var(--charcoal);color:#fff;padding:30px 0 26px}
+.hero .giant{font-family:Anton,Arial,sans-serif;font-size:clamp(3.2rem,17vw,8.5rem);line-height:.92;letter-spacing:.01em;text-transform:uppercase;margin:.1em 0}
+.hero .giant span{color:#9fc3d8}
+.hero .lede{font-size:1.15rem;max-width:52ch}
+.hero img{border:3px solid #fff;margin-top:20px;width:100%;max-width:720px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 0}
+section{padding:36px 0}
+section.grey{background:var(--grey)}
+section.steelbg{background:var(--steel);color:#fff}
+section.steelbg a{color:#fff}
+.kicker{font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);font-size:.85rem;margin:0 0 .4em}
+.steelbg .kicker{color:#cfe2ee}
+.grid{display:grid;gap:14px}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:#fff;border:2px solid var(--charcoal);border-radius:12px;padding:16px}
+.steelbg .card{background:var(--charcoal);border-color:#fff;color:#fff}
+.keylist{border-top:3px solid var(--charcoal)}
+.keynote{border-bottom:3px solid var(--charcoal)}
+.keynote-btn{width:100%;background:#fff;color:var(--charcoal);border:0;font-family:Anton,Arial,sans-serif;font-size:clamp(1.9rem,9vw,3.8rem);line-height:1;text-transform:uppercase;text-align:left;padding:18px 16px;min-height:64px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.keynote-btn:focus{outline:3px solid #f5c518;outline-offset:-3px}
+.keynote-btn .num{font-family:Inter,Arial,sans-serif;font-size:1rem;font-weight:800}
+.keynote.active .keynote-btn{background:var(--steel);color:#fff}
+.keynote:not(.active) .keynote-btn{opacity:.55}
+.keynote-panel{display:none;padding:0 16px 20px;background:var(--steel-light)}
+.keynote.active .keynote-panel{display:block}
+.keynote-panel img{width:100%;max-width:520px;border:3px solid var(--charcoal);margin-bottom:14px}
+.tag{display:inline-block;background:#fff;border:2px solid var(--charcoal);border-radius:999px;padding:4px 10px;font-size:.85rem;font-weight:800;margin:0 6px 6px 0}
+.note{background:#fff;border-left:5px solid var(--steel);padding:12px 14px;margin:14px 0;color:var(--ink)}
+label{display:block;font-weight:800;margin:12px 0 4px}
+input,select,textarea{width:100%;font:inherit;padding:12px;border:2px solid var(--charcoal);border-radius:8px;min-height:46px;background:#fff}
+textarea{min-height:110px}
+.checkline{display:flex;gap:10px;align-items:flex-start;margin:12px 0}
+.checkline input{width:auto;min-height:22px;margin-top:4px}
+footer{background:var(--charcoal);color:#fff;padding:28px 0}
+footer a{color:#fff}
+.small{font-size:.9rem;opacity:.9}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#speaking">Skip to keynotes</a>
+<header>
+<div class="wrap head">
+<a class="logo" href="#top" aria-label="Courtney Stanley home"><img src="https://static.wixstatic.com/media/d6340a_9ca7e5bc1ca841b0bdc26aa6b1d8c3cd~mv2.png/v1/fill/w_250,h_82,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/d6340a_9ca7e5bc1ca841b0bdc26aa6b1d8c3cd~mv2.png" alt="Courtney Stanley logo"></a>
+<nav aria-label="Main">
+<a href="#speaking">Speaking</a>
+<a href="#coaching">Coaching</a>
+<a href="#podcast">Podcast</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
+</header>
+
+<main id="top">
+<section class="hero">
+<div class="wrap">
+<p class="kicker" style="color:#cfe2ee">Keynote speaker - Event emcee - Coach - Detroit</p>
+<div class="giant">Break<br>barriers<span>.</span></div>
+<p class="lede">Honest. Unfiltered. Real.</p>
+<p>Changing culture, building trust and empowering leaders, one conversation at a time.</p>
+<div class="actions">
+<a class="btn white" href="#speaking">See the keynotes</a>
+<a class="btn steel" href="#contact"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v3"/></svg>Book Courtney</a>
+</div>
+<img src="https://static.wixstatic.com/media/d6340a_44af053227fb4287aebd348c73fadd6d~mv2.jpg/v1/fill/w_490,h_327,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/d6340a_44af053227fb4287aebd348c73fadd6d~mv2.jpg" alt="Courtney Stanley on stage">
+</div>
+</section>
+
+<section id="speaking">
+<div class="wrap">
+<p class="kicker">Speaking</p>
+<h2>Tap a keynote. Watch it light up.</h2>
+<p>Each keynote runs 45 to 60 minutes, in person or virtual, and is customized to the audience and the event vision.</p>
+</div>
+<div class="keylist">
+<div class="keynote active">
+<button class="keynote-btn" type="button" aria-expanded="true"><span>Rise Above the Noise</span><span class="num">01</span></button>
+<div class="keynote-panel"><div class="wrap">
+<img src="https://static.wixstatic.com/media/0bd6424d7eac4fd0ae7cb794185a00de.jpg/v1/crop/x_275,y_0,w_2218,h_2767/fill/w_301,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Sparkler.jpg" alt="Photo for Rise Above the Noise">
+<h3>Building and Championing a Winning Brand</h3>
+<p>A strong brand helps you rise above the noise and the competition. But if the value you offer, the people you serve, and the problems you solve are not clear, your audience cannot connect with it.</p>
+<p>This interactive session uses exercises to clarify your buyer persona, sharpen your value proposition, line up brand identity with brand perception, and communicate your message with impact.</p>
+<p><span class="tag">45-60 minutes</span><span class="tag">Leadership teams</span><span class="tag">Sales and marketing teams</span><span class="tag">Women</span><span class="tag">Small business owners</span><span class="tag">Entrepreneurs</span><span class="tag">Associations</span><span class="tag">Corporations</span><span class="tag">Nonprofits</span></p>
+</div></div>
+</div>
+<div class="keynote">
+<button class="keynote-btn" type="button" aria-expanded="false"><span>#OUTSPOKEN: Owning Your Mic Drop Moment</span><span class="num">02</span></button>
+<div class="keynote-panel"><div class="wrap">
+<img src="https://static.wixstatic.com/media/d6340a_a0e6e932b95947aba8b5701fb570f226~mv2.jpg/v1/crop/x_320,y_0,w_2807,h_3502/fill/w_301,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/lee-soo-hyun-bo7_MA7u-_4-unsplash_edited.jpg" alt="Photo for OUTSPOKEN: Owning Your Mic Drop Moment">
+<h3>Speak up when it counts</h3>
+<p>Do you wish you spoke up more in meetings, in boardrooms, at networking events, or in your annual review? Do you wish you had the courage to disagree out loud? Do you want to feel seen and heard?</p>
+<p>Many people leave jobs, relationships, ventures, and conversations feeling they would have achieved more if they had shared feedback, ideas, or their value. This keynote digs into what holds people back, builds confidence for uncomfortable moments, and builds a culture of positive outspokenness.</p>
+<p><span class="tag">45-60 minutes</span><span class="tag">Leadership teams</span><span class="tag">Mid-level managers</span><span class="tag">Women</span><span class="tag">Small business owners</span><span class="tag">Entrepreneurs</span><span class="tag">Associations</span><span class="tag">Corporations</span><span class="tag">Nonprofits</span></p>
+</div></div>
+</div>
+<div class="keynote">
+<button class="keynote-btn" type="button" aria-expanded="false"><span>The Essentials of Empathy</span><span class="num">03</span></button>
+<div class="keynote-panel"><div class="wrap">
+<img src="https://static.wixstatic.com/media/nsplsh_4934645235373279376c30~mv2_d_3537_5306_s_4_2.jpg/v1/crop/x_0,y_447,w_3537,h_4413/fill/w_301,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image%20by%20Fadi%20Xd.jpg" alt="Photo for The Essentials of Empathy">
+<h3>Changing Culture, Building Trust, and Cultivating Leaders</h3>
+<p>When employees, customers, and stakeholders walk out the door, companies lose a great deal each year. It is time to focus on what matters most: your people.</p>
+<p>Empathy, emotional intelligence, and servant leadership carry new weight as work keeps changing. This keynote covers simple, powerful shifts that humanize interactions, improve morale, and build a culture based on courage and trust.</p>
+<p><span class="tag">45-60 minutes</span><span class="tag">Leadership teams</span><span class="tag">Mid-level managers</span><span class="tag">Small business owners</span><span class="tag">Entrepreneurs</span><span class="tag">Associations</span><span class="tag">Corporations</span><span class="tag">Nonprofits</span></p>
+</div></div>
+</div>
+</div>
+<div class="wrap" style="padding-top:24px">
+<div class="grid">
+<div class="card"><h3>Experiential workshops</h3><p>Keynotes are great, but sometimes a group needs to go deeper. Courtney builds customized, hands-on, inclusive workshops and webinars, in person or virtual, for groups from 25 to 150 people.</p><p>Her background in experience design and leadership studies helps make sure every idea, question, and voice in the room is heard and valued.</p></div>
+<div class="card"><h3>Conference and event emcee</h3><p>A dynamic, witty, and engaging emcee and moderator for nonprofit, association, and corporate audiences, in person and virtually.</p><p>From lively panels and keynote introductions to energetic interviews, audience engagement, and keeping everything on schedule, she works with your team to lift your brand and bring your goals to life on stage.</p></div>
+</div>
+<p class="note">Her background as an event technology consultant and virtual event producer also covers virtual engagement, sponsorship development, content ideas and formatting, and technical support.</p>
+<a class="btn" href="#contact">Check a date</a>
+</div>
+</section>
+
+<section id="coaching" class="grey">
+<div class="wrap">
+<p class="kicker">Coaching</p>
+<h2>Level up, out loud</h2>
+<div class="grid">
+<div class="card"><h3>Group speaker training</h3><p>Courtney works directly with CEOs, team leaders, and staff to help them deliver engaging, authentic, and impactful presentations for in-person, hybrid, and virtual experiences.</p><p>Good for audiences of customers, employees, members, or stakeholders.</p></div>
+<div class="card"><h3>#UNSTOPPABLE 1:1 strategy sessions</h3><p>Private coaching to refine your purpose, build your confidence, and create a roadmap to your next chapter.</p><p>For professional women including association leaders, coaches, entrepreneurs, event planners, marketers, and corporate professionals. Built on 10-plus years in brand marketing and public relations, public speaking, and business strategy, plus a degree in Leadership Studies.</p></div>
+<div class="card"><h3>Dare to Interrupt VIP Mastermind</h3><p>Once a year, Courtney hosts a 5-week VIP mastermind for ambitious women who are committed to leveling up and stepping into their next chapter.</p><p>Limited capacity, with deep-dive coaching on business, career, and life, focused on accountability, community, and collaboration with like-minded women.</p></div>
+<div class="card"><h3>#OUTSPOKEN community</h3><p>A personal growth community for people ready to stretch their boundaries, break out of their comfort zone, identify their true self, and speak up when it counts, including sharing their story on a big stage.</p><p class="note">[PLACEHOLDER: current #OUTSPOKEN community details and join link - confirm before publishing.]</p></div>
+</div>
+</div>
+</section>
+
+<section id="podcast" class="steelbg">
+<div class="wrap">
+<p class="kicker">Podcast</p>
+<h2>Dare to Interrupt</h2>
+<p>Empowering women through unfiltered conversations.</p>
+<p>The podcast gives women in the event, hospitality, and tourism industries a platform to share stories of adversity and success, unfiltered.</p>
+<img src="https://static.wixstatic.com/media/8863e0_2c9001c5be8b4adea0568276acd70115~mv2.png/v1/fill/w_490,h_735,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/8863e0_2c9001c5be8b4adea0568276acd70115~mv2.png" alt="Dare to Interrupt podcast artwork" style="max-width:320px;border:3px solid #fff;margin-bottom:16px">
+<div class="grid">
+<div class="card"><h3>Authentic Growth: Navigating Change with Intention</h3><p>Building a business rooted in authenticity, intuition, and meaningful human connection, and why choosing alignment over familiarity changes how women lead.</p></div>
+<div class="card"><h3>Own Your Power: The Inner Work Behind Outer Success</h3><p>Breaking through mindset traps, knowing your worth, and taking up space with confidence in business, leadership, and life.</p></div>
+</div>
+<p class="note">[PLACEHOLDER: latest episode list and listen links - confirm the current feed before publishing.]</p>
+</div>
+</section>
+
+<section id="about">
+<div class="wrap">
+<p class="kicker">About</p>
+<h2>Not just another keynote speaker</h2>
+<img src="https://static.wixstatic.com/media/d6340a_143156ae1c4f4185b8076602a37be412~mv2.jpg/v1/fill/w_818,h_799,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/d6340a_143156ae1c4f4185b8076602a37be412~mv2.jpg" alt="Hustle neon sign from the About page" style="max-width:420px;border:3px solid var(--charcoal);margin-bottom:16px">
+<p>Courtney Stanley is an award-winning changemaker, keynote speaker, event emcee, and creator of the women-inspired podcast Dare to Interrupt.</p>
+<p>Through her leadership and use of voice, she has earned seats on prestigious international boards of directors as the youngest member ever inducted.</p>
+<p>She has spent 10 years helping women, young professionals, entrepreneurs, and organizations engage in game-changing, impactful conversations that help people tap into their true potential, improve team and culture dynamics, and drive meaningful change.</p>
+<p>She holds a degree from Central Michigan University in experience design, leadership studies, and business hospitality.</p>
+<p>She is personally most proud of her work to prevent sexual harassment and assault through the launch of an events-centered social movement, #MeetingsToo.</p>
+<p>Her mission is to empower women and ambitious professionals through vulnerable, meaningful dialogue, leading to changed behaviors and new approaches to leadership on stages and in boardrooms across North America and internationally.</p>
+<img src="https://static.wixstatic.com/media/d6340a_ce31b645c24d49459c890c64d93aab14~mv2.jpg/v1/fill/w_490,h_735,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/d6340a_ce31b645c24d49459c890c64d93aab14~mv2.jpg" alt="Courtney Stanley portrait" style="max-width:420px;border:3px solid var(--charcoal);margin-bottom:16px">
+<p class="note">[PLACEHOLDER: awards list - confirm from the Awards and Recognition section before publishing.]</p>
+<blockquote style="border-left:5px solid var(--steel);margin:20px 0;padding:8px 16px;font-size:1.2rem;font-weight:800">"TRULY AUTHENTIC. NATURALLY RELATABLE. COMPASSIONATELY CHALLENGING. ACTIONABLE AND LIFE-CHANGING." - Trevor Lui, The Highbell Group</blockquote>
+<p class="note">[PLACEHOLDER: additional testimonials - use only word-for-word quotes from the current site.]</p>
+</div>
+</section>
+
+<section id="contact" class="grey">
+<div class="wrap">
+<p class="kicker">Contact [CONFIRM]</p>
+<h2>Book Courtney</h2>
+<img src="https://static.wixstatic.com/media/d6340a_9e4b4b562eec4215a853be966a3849bc~mv2.jpg/v1/crop/x_90,y_0,w_2061,h_3360/fill/w_468,h_763,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Edit%209.jpg" alt="Courtney Stanley" style="max-width:320px;border:3px solid var(--charcoal);margin-bottom:16px">
+<p>Email: courtney@courtney-stanley.com [CONFIRM] (shown in the homepage footer; the contact page itself shows no email address).</p>
+<p>Social links [CONFIRM]: <a href="https://twitter.com/courtneyonstage">X / Twitter</a>, <a href="https://www.facebook.com/courtneyonstage/">Facebook</a>, <a href="https://www.instagram.com/courtneyonstage/">Instagram</a>, <a href="http://linkedin.com/in/courtneystanley">LinkedIn</a>.</p>
+<form onsubmit="document.getElementById('bmsg').hidden=false;return false;">
+<label for="bfirst">First name</label>
+<input id="bfirst" name="first" autocomplete="given-name" required>
+<label for="blast">Last name</label>
+<input id="blast" name="last" autocomplete="family-name" required>
+<label for="bemail">Email</label>
+<input id="bemail" name="email" type="email" autocomplete="email" required>
+<label for="bphone">Phone</label>
+<input id="bphone" name="phone" type="tel" autocomplete="tel" required>
+<label for="babout">What would you like to speak with Courtney about?</label>
+<select id="babout" name="about" required>
+<option>Keynote speaking</option>
+<option>Event emceeing</option>
+<option>Workshop</option>
+<option>Coaching</option>
+<option>Podcast</option>
+<option>Other</option>
+</select>
+<label for="bmessage">Message</label>
+<textarea id="bmessage" name="message" placeholder="Add a message..." required></textarea>
+<div class="checkline"><input id="bnews" type="checkbox"><label for="bnews" style="margin:0">I want to subscribe to the newsletter</label></div>
+<div class="checkline"><input id="bterms" type="checkbox"><label for="bterms" style="margin:0">I agree to the terms and conditions</label></div>
+<button class="btn steel" type="submit"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v3"/></svg>Send booking enquiry</button>
+<p id="bmsg" hidden class="note">Draft form only. [PLACEHOLDER: form destination - this form is not connected yet.]</p>
+</form>
+<p class="note">[PLACEHOLDER: booking enquiry dropdown options and terms link - confirm before publishing.]</p>
+<p class="note">[PLACEHOLDER: speaker kit request form destination - the current site delivers the kit only after a form is submitted, and offers no direct download link.]</p>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<p><strong>Courtney Stanley</strong></p>
+<p>Keynote speaker, event emcee, and coach. Break barriers. Honest. Unfiltered. Real.</p>
+<p class="small">Draft redesign for Chairlift review. Contact details marked [CONFIRM] are copied from the current site and need confirmation before publishing.</p>
+</div>
+</footer>
+<script>
+document.querySelectorAll('.keynote-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var item = btn.closest('.keynote');
+    var wasActive = item.classList.contains('active');
+    document.querySelectorAll('.keynote').forEach(function(k){
+      k.classList.remove('active');
+      k.querySelector('.keynote-btn').setAttribute('aria-expanded','false');
+    });
+    if(!wasActive){
+      item.classList.add('active');
+      btn.setAttribute('aria-expanded','true');
+    }
+  });
+});
+</script>
+</body>
+</html>
