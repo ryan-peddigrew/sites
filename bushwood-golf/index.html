@@ -29,8 +29,12 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;letter-spacin
 .cta.solid{border:1px solid var(--gold);padding:0 28px;min-height:50px;background:var(--gold);color:var(--ink);font-weight:600}
 .cta.solid:after{display:none}
 .cta.solid:hover{background:transparent;color:var(--gold)}
+.cta.line{border:1px solid #fff;padding:0 28px;min-height:50px;font-weight:600}.cta.line:after{display:none}.cta.line:hover{background:#fff;color:var(--ink)}
+.hero .links{gap:12px!important}
 .tbc{font-style:italic;color:var(--gold-d);border-bottom:1px dotted var(--gold-d);white-space:nowrap}
-.dark .tbc,.hero .tbc{color:var(--gold);border-color:var(--gold)}
+.dark .tbc,.hero .cta.line{border:1px solid #fff;padding:0 28px;min-height:50px;font-weight:600}.cta.line:after{display:none}.cta.line:hover{background:#fff;color:var(--ink)}
+.hero .links{gap:12px!important}
+.tbc{color:var(--gold);border-color:var(--gold)}
 
 header#hd{position:fixed;inset:0 0 auto;z-index:50;background:var(--ink);border-bottom:2px solid var(--gold)}
 .hd{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:96px}
@@ -41,9 +45,14 @@ header#hd{position:fixed;inset:0 0 auto;z-index:50;background:var(--ink);border-
 .hd nav a.book{border:1px solid var(--gold);padding:14px 22px;color:var(--gold)}
 .hd nav a.book:hover{background:var(--gold);color:var(--ink)}
 .logo{display:block}
-.logo img{height:78px;width:auto;display:block}
+.logo img{height:84px;width:auto;display:block}
 .mbtn{display:none;color:#fff;background:none;border:0;font:500 12.5px var(--sans);letter-spacing:.22em;text-transform:uppercase;min-height:48px;padding:0 4px}
 @media(max-width:1060px){.hd{grid-template-columns:auto 1fr;height:76px}.hd nav.l,.hd nav.r a:not(.mbtn){display:none}.hd nav.r{justify-content:flex-end}.mbtn{display:block}.logo img{height:62px}}
+.swrow{display:none;overflow-x:auto;white-space:nowrap;scrollbar-width:none;background:var(--ink2);padding:0 14px;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent)}
+.swrow::-webkit-scrollbar{display:none}
+.swrow a{display:inline-block;color:#fff;text-decoration:none;font:500 11.5px/44px var(--sans);letter-spacing:.2em;text-transform:uppercase;padding:0 12px}
+.swrow a:first-child{color:var(--gold)}
+@media(max-width:1060px){.swrow{display:block}}
 .drawer{position:fixed;inset:0;background:var(--ink);z-index:60;display:none;flex-direction:column;padding:22px 24px;color:#fff;overflow:auto}
 .drawer.open{display:flex}
 .drawer button{align-self:flex-end;background:none;border:0;color:var(--gold);font:500 12.5px var(--sans);letter-spacing:.22em;text-transform:uppercase;min-height:48px}
@@ -68,7 +77,7 @@ body.ready .split span:nth-child(2) b{animation-delay:.18s}body.ready .split spa
 .count small{font-size:12px;opacity:.8;margin-left:10px}
 @media(max-width:700px){.count small{display:none}}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,38,18,.5),rgba(14,38,18,0) 28%,rgba(14,38,18,0) 50%,rgba(14,38,18,.8))}
-.hero .t{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:0 0 56px}
+.hero .t{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:0 0 104px}
 .hero h1{font-size:clamp(46px,8vw,124px);font-weight:400;max-width:12ch;text-shadow:0 2px 40px rgba(0,0,0,.35)}
 .hero h1 i{color:var(--gold)}
 .hero .row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-top:30px}
@@ -128,7 +137,7 @@ body.ready .split span:nth-child(2) b{animation-delay:.18s}body.ready .split spa
 
 /* events */
 .events{padding:140px 0;background:var(--cream)}
-.events .head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:70px}
+.events .head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:46px}
 .events h2{font-size:clamp(38px,5.4vw,78px);font-weight:400}
 .events h2 i{color:var(--gold-d)}
 .events .head p{color:#40464d;max-width:44ch}
@@ -256,6 +265,9 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
 .reel figure.tall img{aspect-ratio:3/4}.reel figure.wide img{aspect-ratio:16/10}
 .w span{display:inline-block;opacity:.14;transition:opacity .5s}
 .w span.lit{opacity:1}
+.tourbtn{position:fixed;left:16px;bottom:18px;z-index:65;background:var(--ink);color:var(--gold);border:1px solid var(--gold);min-height:56px;padding:0 18px;font:600 12.5px var(--sans);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;box-shadow:0 14px 34px rgba(0,0,0,.35)}
+.tourbtn[hidden]{display:none}
+@media(max-width:760px){.tourbtn{left:10px;bottom:66px}}
 .tourbar{position:fixed;z-index:70;left:50%;transform:translateX(-50%);bottom:24px;width:min(620px,calc(100% - 24px));background:var(--ink);color:#fff;box-shadow:0 24px 60px rgba(0,0,0,.55);border-top:2px solid var(--gold);padding:16px 18px 0;display:grid;grid-template-columns:64px 1fr;gap:4px 14px;align-items:start}
 .tourbar[hidden]{display:none}
 .tourbar .gordy{width:64px;margin-top:4px}
@@ -268,7 +280,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
 .tourbar button.go{color:var(--ink);background:var(--gold);padding:0 20px;min-height:40px;font-weight:600}
 .tourbar .pg{grid-column:1/-1;height:2px;background:#ffffff1f;margin:0 -18px}.tourbar .pg i{display:block;height:2px;background:var(--gold);width:0}
 .tourbar .sp{flex:1}
-@media(max-width:760px){.tourbar{bottom:58px;grid-template-columns:48px 1fr;padding:12px 14px 0}.tourbar .gordy{width:48px}.tourbar h5{font-size:21px}.tourbar p{font-size:14px;line-height:1.4}.tourbar.idle p{display:none}.tourbar .pg{margin:0 -14px}.hero h1{font-size:44px}body.touring .hero .t{padding-bottom:270px}body.touring .hero .row p,body.touring .hero .links,body.touring .count{display:none}}
+@media(max-width:760px){.tourbar{bottom:58px;grid-template-columns:48px 1fr;padding:12px 14px 0}.tourbar .gordy{width:48px}.tourbar h5{font-size:21px}.tourbar p{font-size:14px;line-height:1.4}.tourbar.idle p{display:none}.tourbar .pg{margin:0 -14px}.hero h1{font-size:54px;line-height:.98}.hero .t{padding-bottom:142px}.hero .row{margin-top:18px;gap:16px}.hero p{font-size:16.5px}.hero .links{width:100%}.hero .links .cta{flex:1;justify-content:center;padding:0 10px;letter-spacing:.14em;font-size:12px}body.touring .hero .t{padding-bottom:270px}body.touring .hero .row p,body.touring .hero .links,body.touring .count{display:none}}
 
 .intro-s{position:fixed;inset:0;z-index:100;background:var(--ink);cursor:pointer;overflow:hidden;transition:background .9s}
 .intro-s.clear{background:transparent;pointer-events:none}
@@ -328,6 +340,21 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
 .gchat .q button:hover{background:var(--ink);color:#fff}
 @media(max-width:760px){.gchat-b{bottom:66px;right:10px}.gchat{bottom:60px;right:12px}}
 .eg li{grid-template-columns:96px 1fr!important;align-items:start}
+.offers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.offer{position:relative;display:flex;align-items:flex-end;min-height:540px;overflow:hidden;color:#fff;text-decoration:none;background:var(--ink)}
+.offer>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.offer:hover>img{transform:scale(1.06)}
+.offer:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,38,18,.25),rgba(14,38,18,0) 30%,rgba(14,38,18,.94) 78%)}
+.offer>div{position:relative;z-index:2;padding:26px}
+.offer h3{font-size:32px;margin-bottom:8px}
+.offer p{font-size:16px;line-height:1.5;opacity:.92}
+.offer small{display:block;font-size:13.5px;margin:10px 0 6px;opacity:.9}
+.offer .tbc{color:var(--gold);border-color:var(--gold)}
+.offer .n{position:absolute;z-index:2;left:22px;top:16px;font:italic 400 26px var(--serif);color:var(--gold)}
+.offer .gordy{position:absolute;z-index:3;right:16px;top:16px;width:92px;background:var(--ink);padding:10px;box-sizing:content-box;border:1px solid #edd55488}
+.offer .cta{border-color:var(--gold)}
+@media(max-width:900px){.offers{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -24px;padding:0 24px 12px;scrollbar-width:none}.offers::-webkit-scrollbar{display:none}.offer{flex:none;width:82vw;min-height:500px;scroll-snap-align:center}}
+@media(min-width:901px) and (max-width:1100px){.offers{grid-template-columns:1fr 1fr}}
 .rv{opacity:0;transform:translateY(24px);transition:opacity 1s,transform 1s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.hero img.bg{animation:none}.rv{opacity:1;transform:none;transition:none}}
@@ -340,7 +367,8 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
   <nav class="l" aria-label="Main"><a href="#courses">The courses</a><a href="#events">Tournaments &amp; events</a><a href="#lounge">The lounge</a></nav>
   <a class="logo" href="#top" aria-label="Bushwood Golf Club"><img src="brand/logo-stacked-reverse.svg" alt="Bushwood Golf Club"></a>
   <nav class="r"><a href="#practice">Range &amp; lessons</a><a href="#shop">Shop</a><a class="book" href="https://www.chronogolf.com/club/bushwood-golf-club" target="_blank" rel="noopener">Book a tee time</a><button class="mbtn" id="mo">Menu</button></nav>
-</div></header>
+</div>
+<div class="swrow" aria-label="Sections"><a href="https://www.chronogolf.com/club/bushwood-golf-club" target="_blank" rel="noopener">Tee times</a><a href="#events">Tournaments</a><a href="#events">Weddings &amp; events</a><a href="#events">Leagues</a><a href="#courses">Courses</a><a href="#lounge">The lounge</a><a href="#practice">Range &amp; lessons</a><a href="#shop">Shop</a><a href="#visit">Visit</a></div></header>
 <div class="drawer" id="dr"><button id="mc">Close</button>
   <a href="#courses">The courses</a><a href="#events">Tournaments &amp; events</a><a href="#lounge">The lounge</a><a href="#practice">Range &amp; lessons</a><a href="#squad">Gopher Squad</a><a href="#shop">Shop</a><a href="#visit">Visit</a>
 </div>
@@ -353,7 +381,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
     <div class="count"><em id="cn">01</em><u><s id="bar"></s></u><em>05</em><small id="cap">The Championship, from above</small></div>
     <div class="row">
       <p>Two public courses in northeastern Markham, just north of Toronto.</p>
-      <div class="links"><a class="cta" href="https://www.chronogolf.com/club/bushwood-golf-club" target="_blank" rel="noopener">Book a tee time</a><a class="cta" href="#events">Plan an event</a></div>
+      <div class="links"><a class="cta solid" href="https://www.chronogolf.com/club/bushwood-golf-club" target="_blank" rel="noopener">Book a tee time</a><a class="cta line" href="#events">Host your event</a></div>
     </div>
   </div></div>
 </section>
@@ -413,16 +441,13 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
 <section class="events" id="events">
   <div class="wrap">
     <div class="head rv"><h2>Your day, <i>hosted</i> at Bushwood.</h2><p>Charity tournaments, company days, celebrations and weekly leagues. Two courses and a banquet hall on one property, looked after by our team from first call to last drink.</p></div>
-    <div class="eg">
-      <div class="photos rv"><img class="p1" src="img/group-sunset.jpg" alt="Friends at sunset on the course"><img class="p2" src="img/lounge-interior.jpg" alt="The lounge"></div>
-      <ul class="rv">
-        <li><span data-gordy="cup"></span><div><h3>Tournaments &amp; outings</h3><p>Shotgun start or tee times on the eighteen or the nine, with carts, prizes and dinner in the banquet hall.</p><small>Packages from <span class="tbc">price to confirm</span> per golfer</small><a class="cta" href="#enquire">Plan a tournament</a></div></li>
-        <li><span data-gordy="party"></span><div><h3>Corporate days &amp; holiday parties</h3><p>Client golf, team days, meetings and year-end parties. The banquet hall or the patio over the ninth, with or without golf.</p><small>Capacity <span class="tbc">to confirm</span></small><a class="cta" href="#enquire">Plan an event</a></div></li>
-        <li><span data-gordy="wed"></span><div><h3>Weddings &amp; showers</h3><p>Say it on the patio, celebrate in the hall, and take your photos on the course at golden hour.</p><small><span class="tbc">Offer to confirm with Bushwood</span></small><a class="cta" href="#enquire">Enquire</a></div></li>
-        <li><span data-gordy="flag"></span><div><h3>Leagues</h3><p>The same crew, the same night, all season, with a standing tee time and the patio after.</p><small>Nights and fees <span class="tbc">to confirm</span></small><a class="cta" href="#enquire">Register interest</a></div></li>
-        <li><span data-gordy="drink"></span><div><h3>Celebrations</h3><p>Birthdays, stags and stagettes, retirements. Nine holes, a long table and a view.</p><small>Packages <span class="tbc">to confirm</span></small><a class="cta" href="#enquire">Enquire</a></div></li>
-        <li><span data-gordy="cam"></span><div><h3>Photo &amp; film shoots</h3><p>Tree-lined fairways, a pond, and a clubhouse at dusk. Book the property as a location.</p><small><span class="tbc">Offer to confirm with Bushwood</span></small><a class="cta" href="#enquire">Enquire</a></div></li>
-      </ul>
+    <div class="offers">
+      <a class="offer" href="#enquire"><img src="img/group-sunset.jpg" alt="" loading="lazy" style="object-position:50% 40%"><span class="n">01</span><span data-gordy="cup"></span><div><h3>Tournaments &amp; outings</h3><p>Shotgun start or tee times on the eighteen or the nine, with carts, prizes and dinner in the banquet hall.</p><small>Packages from <span class="tbc">price to confirm</span></small><span class="cta">Plan a tournament</span></div></a>
+      <a class="offer" href="#enquire"><img src="img/lounge-interior.jpg" alt="" loading="lazy" style="object-position:50% 50%"><span class="n">02</span><span data-gordy="party"></span><div><h3>Corporate days &amp; holiday parties</h3><p>Client golf, team days, meetings and year-end parties, with or without golf.</p><small>Capacity <span class="tbc">to confirm</span></small><span class="cta">Plan an event</span></div></a>
+      <a class="offer" href="#enquire"><img src="img/clubhouse-dusk.jpg" alt="" loading="lazy" style="object-position:60% 50%"><span class="n">03</span><span data-gordy="wed"></span><div><h3>Weddings &amp; showers</h3><p>Say it on the patio, celebrate in the hall, and take your photos on the course at golden hour.</p><small><span class="tbc">Offer to confirm with Bushwood</span></small><span class="cta">Enquire</span></div></a>
+      <a class="offer" href="#enquire"><img src="img/cart-laughs.jpg" alt="" loading="lazy" style="object-position:50% 50%"><span class="n">04</span><span data-gordy="flag"></span><div><h3>Leagues</h3><p>The same crew, the same night, all season, with a standing tee time and the patio after.</p><small>Nights and fees <span class="tbc">to confirm</span></small><span class="cta">Register interest</span></div></a>
+      <a class="offer" href="#enquire"><img src="img/muskoka-cheers.jpg" alt="" loading="lazy" style="object-position:50% 50%"><span class="n">05</span><span data-gordy="drink"></span><div><h3>Celebrations</h3><p>Birthdays, stags and stagettes, retirements. Nine holes, a long table and a view.</p><small>Packages <span class="tbc">to confirm</span></small><span class="cta">Enquire</span></div></a>
+      <a class="offer" href="#enquire"><img src="img/swing-sunset.jpg" alt="" loading="lazy" style="object-position:40% 50%"><span class="n">06</span><span data-gordy="cam"></span><div><h3>Photo &amp; film shoots</h3><p>Tree-lined fairways, a pond, and a clubhouse at dusk. Book the property as a location.</p><small><span class="tbc">Offer to confirm with Bushwood</span></small><span class="cta">Enquire</span></div></a>
     </div>
   </div>
 </section>
@@ -525,7 +550,8 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
   <div class="legal"><span>© 2026 Bushwood Golf Club. All rights reserved.</span><span>Concept draft</span></div>
 </div></footer>
 
-<div class="tourbar idle" id="tour">
+<button class="tourbtn" id="tb2">Take the tour</button>
+<div class="tourbar idle" id="tour" hidden>
   <span data-gordy="flag"></span>
   <div><div class="k" id="tk">A note from Chairlift</div>
   <h5 id="th">Take the tour with Gordy.</h5>
@@ -542,7 +568,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
 const hd=document.getElementById('hd');const f=()=>hd.classList.toggle('solid',scrollY>60);addEventListener('scroll',f,{passive:true});f();
 const dr=document.getElementById('dr');mo.onclick=()=>dr.classList.add('open');mc.onclick=()=>dr.classList.remove('open');dr.querySelectorAll('a').forEach(a=>a.onclick=()=>dr.classList.remove('open'));
 const intro=document.getElementById('intro'),lk=document.getElementById('lk'),ball=document.getElementById('ball'),trp=document.getElementById('trp');let teed=false;
-function ready(){document.body.classList.add('ready');if(new URLSearchParams(location.search).get('tour')==='1')setTimeout(()=>tgo.click(),1500)}
+function ready(){document.body.classList.add('ready');if(new URLSearchParams(location.search).get('tour')==='1')setTimeout(()=>tb2.click(),1500)}
 function ballHome(){const r=lk.getBoundingClientRect();return[r.left+r.width*.796,r.top+r.height*.955]}
 function place(){const[x,y]=ballHome();ball.style.transform='translate('+x+'px,'+y+'px)'}
 function tee(){if(teed)return;teed=true;intro.classList.add('hit');
@@ -584,7 +610,7 @@ function show(i){ti=i;if(i>=T.length){end();return}const[sel,h,p,y]=T[i];const e
  tk.textContent='What\'s new · '+(i+1)+' of '+T.length;th.textContent=h;tp.textContent=p;ty.textContent=y;ty.hidden=false;tgo.hidden=true;tpause.hidden=false;tnext.hidden=false;tnext.textContent=i===T.length-1?'Finish':'Next';tick()}
 function tick(){clearTimeout(tt);tpg.style.transition='none';tpg.style.width='0';if(paused)return;requestAnimationFrame(()=>requestAnimationFrame(()=>{tpg.style.transition='width 9s linear';tpg.style.width='100%'}));tt=setTimeout(()=>show(ti+1),9000)}
 function end(){document.body.classList.remove('touring');clearTimeout(tt);document.querySelectorAll('.spot').forEach(e=>e.classList.remove('spot'));tk.textContent='That\'s the tour';th.textContent='Have a look around.';tp.textContent='Everything here uses Bushwood\'s own words, photos and prices. Items marked "to confirm" are waiting on your details.';ty.hidden=true;tpause.hidden=true;tnext.hidden=true;tgo.hidden=false;tgo.textContent='Replay';ti=-1;scrollTo({top:0,behavior:'smooth'})}
-tgo.onclick=()=>{tour.classList.remove('idle');document.body.classList.add('touring');paused=false;tpause.textContent='Pause';show(0)};tnext.onclick=()=>show(ti+1);tpause.onclick=()=>{paused=!paused;tpause.textContent=paused?'Resume':'Pause';paused?(clearTimeout(tt),tpg.style.transition='none'):tick()};gb.style.display='none';tx.onclick=()=>{document.body.classList.remove('touring');clearTimeout(tt);tour.hidden=true;gb.style.display='';document.querySelectorAll('.spot').forEach(e=>e.classList.remove('spot'))};
+tgo.onclick=()=>{tour.classList.remove('idle');document.body.classList.add('touring');paused=false;tpause.textContent='Pause';show(0)};tnext.onclick=()=>show(ti+1);tpause.onclick=()=>{paused=!paused;tpause.textContent=paused?'Resume':'Pause';paused?(clearTimeout(tt),tpg.style.transition='none'):tick()};tb2.onclick=()=>{tb2.hidden=true;tour.hidden=false;gb.style.display='none';tgo.click()};tx.onclick=()=>{document.body.classList.remove('touring');clearTimeout(tt);tour.hidden=true;tb2.hidden=false;gb.style.display='';document.querySelectorAll('.spot').forEach(e=>e.classList.remove('spot'))};
 
 const GA={'Book a tee time':'Easy. <a href="https://www.chronogolf.com/club/bushwood-golf-club" target="_blank" rel="noopener">Book online here</a>, or call the pro shop at (905) 640-1233 and press 1.',
 'Host a tournament':'Love it. Shotgun or tee times, carts, prizes and dinner in the banquet hall. <a href="#enquire" onclick="gc.classList.remove(\'open\')">Tell the events team about your day</a> and they\'ll reply with dates.',
