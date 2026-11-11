@@ -8,7 +8,7 @@
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#23211F">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Zilla+Slab:wght@600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Yellowtail&family=Oswald:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="img/balcony-teak.jpg">
 <style>
 :root{--paper:#F3F1E8;--paper2:#E9E5D8;--ink:#23211F;--ink2:#2E2B28;--brick:#8E3B32;--brick2:#A9483D;--timber:#C2925C;--stone:#6B665E;
@@ -17,7 +17,7 @@
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--sans);overflow-x:hidden}
 img{display:block;max-width:100%}
-section{scroll-margin-top:66px}
+section{scroll-margin-top:72px}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit}
 .wrap{width:min(1240px,100% - 40px);margin:0 auto}
@@ -36,12 +36,13 @@ h2{font-size:clamp(46px,7.4vw,104px)}
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 
-/* brand (logo option B: carpenter's square) */
-.brand{display:inline-flex;align-items:center;gap:11px;line-height:1}
-.brand svg{width:30px;height:39px;flex:none}
-.brand .wm{display:flex;flex-direction:column;gap:5px}
-.brand b{font:700 27px/0.85 var(--slab);letter-spacing:-.01em}
-.brand i{font:600 9.6px/1 var(--sans);font-style:normal;letter-spacing:.34em;text-transform:uppercase}
+/* brand: brush lettering, the hammer is the T */
+.brand{display:inline-flex;align-items:center;line-height:1}
+.lg{display:inline-flex;flex-direction:column;align-items:center}
+.lg .w{font:400 42px/.9 'Yellowtail',cursive;transform:rotate(-5deg);padding-right:.06em}
+.lg .t{position:relative;display:inline-block}
+.lg .t svg{position:absolute;left:.033em;top:.17em;width:.55em;height:.3em;overflow:visible;fill:currentColor}
+.lg i{font:600 9.5px/1 'Oswald',sans-serif;font-style:normal;letter-spacing:.42em;padding-left:.42em;text-transform:uppercase;margin-top:5px}
 
 /* loader */
 #ld{position:fixed;inset:0;z-index:100;background:var(--paper);display:grid;place-items:center;transition:transform .8s cubic-bezier(.7,0,.2,1)}
@@ -50,15 +51,15 @@ h2{font-size:clamp(46px,7.4vw,104px)}
 #ld svg.bench{width:100%;height:auto;overflow:visible}
 #ld .plank{animation:plank .65s cubic-bezier(.25,.9,.3,1.15) .1s both}
 @keyframes plank{from{transform:translateX(-340px)}to{transform:none}}
-#ld .brand{margin-top:22px;opacity:0;animation:fadeup .6s ease 2.05s forwards}
-#ld .brand b{font-size:34px}#ld .brand i{font-size:11.5px}#ld .brand svg{width:36px;height:47px}
+#ld .brand{margin-top:26px;opacity:0;animation:fadeup .6s ease 2.05s forwards}
+#ld .lg .w{font-size:84px}#ld .lg i{font-size:16px;margin-top:12px}
 #ld .tag{margin-top:12px;font:600 11px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--brick);opacity:0;animation:fadeup .6s ease 2.3s forwards}
 @keyframes fadeup{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 #ld .dust{opacity:0}
 
 /* header */
 header.top{position:fixed;top:0;left:0;right:0;z-index:50;color:var(--paper);transition:background .3s,color .3s,box-shadow .3s}
-header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:84px}
 header.top.solid{background:var(--paper);color:var(--ink);box-shadow:0 1px 0 #0000001a}
 header.top .brand{filter:drop-shadow(0 2px 10px #0006)}
 header.top.solid .brand{filter:none}
@@ -184,13 +185,23 @@ header.top.solid .brand{filter:none}
 .cols p{font-size:15.5px;color:var(--stone)}
 #trade .btn{margin-top:30px}
 
-/* reviews placeholder */
-#reviews{padding:clamp(60px,8vw,100px) 0}
-.ph-box{border:2px dashed #23211f66;padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
-.ph-box svg{width:44px;height:44px;stroke:var(--brick);fill:none;stroke-width:1.6}
-.ph-box b{font:800 clamp(26px,3vw,36px)/1 var(--disp);text-transform:uppercase;display:block;margin-bottom:8px}
-.ph-box p{color:var(--stone);font-size:16px;max-width:70ch}
-.ph-box .flag{display:inline-block;background:var(--brick);color:#fff;font:600 11px var(--sans);letter-spacing:.18em;text-transform:uppercase;padding:6px 10px;margin-bottom:12px}
+/* reviews hub */
+#reviews{padding:clamp(70px,9vw,120px) 0}
+.flag{display:inline-block;background:var(--brick);color:#fff;font:600 11px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:7px 10px}
+.rhead{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.rgrid{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:16px}
+.rsrc{background:var(--ink);color:var(--paper);padding:26px;display:flex;flex-direction:column;gap:8px;border-top:6px solid var(--timber);min-height:230px}
+.rsrc .k{font:600 12px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--timber)}
+.rsrc b{font:900 38px/.95 var(--disp);text-transform:uppercase}
+.rsrc p{font-size:15px;color:#d9d4c7}
+.rsrc .go{margin-top:auto;font:600 12px var(--sans);letter-spacing:.16em;text-transform:uppercase;display:inline-flex;gap:8px;align-items:center;min-height:44px}
+.rsrc .go svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
+.rq{border:2px dashed #23211f66;padding:26px;display:flex;flex-direction:column;gap:14px;justify-content:center}
+.rq svg{width:44px;height:44px;stroke:var(--brick);fill:none;stroke-width:1.6}
+.rq p{font-size:16px;color:var(--stone)}
+.rask{margin-top:16px;background:var(--paper2);padding:24px 26px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.rask b{font:900 30px/1 var(--disp);text-transform:uppercase;display:block;margin-bottom:4px}
+.rask p{font-size:15.5px;color:var(--stone);max-width:52ch}
 
 /* quote builder */
 #quote{padding:clamp(80px,10vw,140px) 0}
@@ -224,7 +235,7 @@ footer .g{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:30px}
 footer h4{font:600 11px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--timber);margin-bottom:14px}
 footer a,footer li{display:block;font-size:15px;line-height:1.9}
 footer ul{list-style:none}
-footer .brand{color:var(--paper);margin-bottom:16px}
+footer .brand{color:var(--paper);margin-bottom:20px}footer .lg .w{font-size:56px}footer .lg i{font-size:11px}
 footer .fine{margin-top:44px;padding-top:18px;border-top:1px solid #ffffff1a;font-size:13px;color:#8f897d;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer a.ig{display:inline-flex;align-items:center;gap:10px;min-height:44px}
 footer a.ig svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.6}
@@ -257,12 +268,13 @@ footer a.ig svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-widt
  #process .pic{position:relative;top:0}
  #process .pic img{aspect-ratio:4/3}
  .cols{grid-template-columns:1fr}
+ .rgrid{grid-template-columns:1fr 1fr}.rq{grid-column:1/-1}
  footer .g{grid-template-columns:1fr 1fr}
 }
 @media (max-width:640px){
  body{font-size:16px}
- header.top .wrap{height:66px}
- .brand b{font-size:23px}.brand i{font-size:8.4px}.brand svg{width:26px;height:34px}
+ header.top .wrap{height:72px}
+ .lg .w{font-size:36px}.lg i{font-size:8.4px}
  .nav .btn{display:none}
  .hero{min-height:600px}
  .hero h1{font-size:clamp(58px,18.5vw,92px)}
@@ -274,7 +286,7 @@ footer a.ig svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-widt
  .tone button{grid-template-columns:40px 1fr;font-size:13px}.tone button img{width:40px;height:40px}
  .qb .f{grid-template-columns:1fr}
  .steps li{grid-template-columns:64px 1fr}.steps li::before{font-size:52px}
- .ph-box{grid-template-columns:1fr}
+ .rgrid{grid-template-columns:1fr}.rsrc{min-height:0}
  footer .g{grid-template-columns:1fr}
  .dock{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--ink);border-top:1px solid #ffffff1f;padding-bottom:env(safe-area-inset-bottom)}
  .dock a{min-height:58px;display:flex;align-items:center;justify-content:center;gap:7px;font:600 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--paper);border-left:1px solid #ffffff1a}
@@ -338,8 +350,7 @@ footer a.ig svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-widt
       </g>
     </svg>
     <div class="brand" style="color:var(--ink)">
-      <svg viewBox="0 0 34 44" aria-hidden="true"><path d="M0 0h9v35h25v9H0z" fill="#8E3B32"/><path d="M9 5H5.5M9 10H6.5M9 15H5.5M9 20H6.5M9 25H5.5M9 30H6.5M14 35v3.5M19 35v2.5M24 35v3.5M29 35v2.5" stroke="#F3F1E8" stroke-width="1.3"/></svg>
-      <span class="wm"><b>Steady</b><i>Improvements</i></span>
+      <span class="lg"><span class="w">S<span class="t">t<svg viewBox="0 0 165 90" aria-hidden="true"><g transform="rotate(-6 80 35)"><path d="M20 15h20c3 0 5 2 5 5v2h72v26H45v4c0 3-2 5-5 5H20c-3 0-5-2-5-5V20c0-3 2-5 5-5z"/><path d="M112 22c22-13 48-3 52 30 0 5-6 6-8 2-7-13-19-16-36-6z"/></g></svg></span>eady</span><i>Improvements</i></span>
     </div>
     <div class="tag">Carpentry you can count on</div>
   </div>
@@ -348,8 +359,7 @@ footer a.ig svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-widt
 <header class="top" id="hd">
   <div class="wrap">
     <a href="#top" class="brand" aria-label="Steady Improvements, home">
-      <svg viewBox="0 0 34 44" aria-hidden="true"><path d="M0 0h9v35h25v9H0z" fill="#A9483D"/><path d="M9 5H5.5M9 10H6.5M9 15H5.5M9 20H6.5M9 25H5.5M9 30H6.5M14 35v3.5M19 35v2.5M24 35v3.5M29 35v2.5" stroke="#F3F1E8" stroke-width="1.3"/></svg>
-      <span class="wm"><b>Steady</b><i>Improvements</i></span>
+      <span class="lg"><span class="w">S<span class="t">t<svg viewBox="0 0 165 90" aria-hidden="true"><g transform="rotate(-6 80 35)"><path d="M20 15h20c3 0 5 2 5 5v2h72v26H45v4c0 3-2 5-5 5H20c-3 0-5-2-5-5V20c0-3 2-5 5-5z"/><path d="M112 22c22-13 48-3 52 30 0 5-6 6-8 2-7-13-19-16-36-6z"/></g></svg></span>eady</span><i>Improvements</i></span>
     </a>
     <nav class="nav" aria-label="Main">
       <a class="l" href="#services">Services</a>
@@ -507,9 +517,22 @@ footer a.ig svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-widt
 
 <section id="reviews">
   <div class="wrap">
-    <div class="ph-box rv">
-      <svg viewBox="0 0 44 44"><path d="M6 8h32v22H18l-8 7v-7H6z"/><path d="M13 16h18M13 22h12"/></svg>
-      <div><span class="flag">To come: your reviews</span><b>What clients say</b><p>You already have client reviews on <a href="https://homestars.com/companies/2963366-steady-improvements" target="_blank" rel="noopener" style="color:var(--brick);border-bottom:1px solid">HomeStars</a>, but your own testimonials page is empty. With your go-ahead, your best ones go right here, with a link to the full list. We never write reviews for you.</p></div>
+    <div class="rhead rv">
+      <div><p class="eyebrow">Reviews</p><h2 style="margin-top:16px">Don't take our word for it.</h2></div>
+      <span class="flag">Preview: your ratings and quotes appear here with your go-ahead</span>
+    </div>
+    <div class="rgrid rv">
+      <a class="rsrc" href="https://homestars.com/companies/2963366-steady-improvements" target="_blank" rel="noopener">
+        <span class="k">HomeStars</span><b>Your HomeStars rating</b><p>Your score and review count, pulled from your profile.</p><span class="go">Read every review <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></span>
+      </a>
+      <a class="rsrc" href="#reviews" data-todo="google">
+        <span class="k">Google</span><b>Your Google rating</b><p>Your stars from Google Maps and Search. Google link to come.</p><span class="go">Read every review <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></span>
+      </a>
+      <div class="rq"><svg viewBox="0 0 44 44"><path d="M6 8h32v22H18l-8 7v-7H6z"/><path d="M13 16h18M13 22h12"/></svg><p>Three of your best reviews sit here, word for word, each tagged with where it came from. We never write reviews for you.</p></div>
+    </div>
+    <div class="rask rv">
+      <div><b>Worked with us?</b><p>Leave a review where it suits you. It takes a minute and it means a lot to a small team.</p></div>
+      <a class="btn btn-brick" href="review.html">Leave a review</a>
     </div>
   </div>
 </section>
@@ -554,14 +577,14 @@ footer a.ig svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-widt
   <div class="wrap">
     <div class="g">
       <div>
-        <a href="#top" class="brand"><svg viewBox="0 0 34 44" aria-hidden="true"><path d="M0 0h9v35h25v9H0z" fill="#A9483D"/><path d="M9 5H5.5M9 10H6.5M9 15H5.5M9 20H6.5M9 25H5.5M9 30H6.5M14 35v3.5M19 35v2.5M24 35v3.5M29 35v2.5" stroke="#F3F1E8" stroke-width="1.3"/></svg><span class="wm"><b>Steady</b><i>Improvements</i></span></a>
+        <a href="#top" class="brand"><span class="lg"><span class="w">S<span class="t">t<svg viewBox="0 0 165 90" aria-hidden="true"><g transform="rotate(-6 80 35)"><path d="M20 15h20c3 0 5 2 5 5v2h72v26H45v4c0 3-2 5-5 5H20c-3 0-5-2-5-5V20c0-3 2-5 5-5z"/><path d="M112 22c22-13 48-3 52 30 0 5-6 6-8 2-7-13-19-16-36-6z"/></g></svg></span>eady</span><i>Improvements</i></span></a>
         <p style="font-size:15px;max-width:34ch">Residential and commercial renovations. Carpentry you can count on.</p>
       </div>
       <div><h4>Contact</h4><a href="tel:+16474586365">(647) 458-6365</a><a href="mailto:Steadyimprovements@gmail.com">Steadyimprovements@gmail.com</a><a class="ig" href="https://www.instagram.com/steadyimprovements/" target="_blank" rel="noopener"><svg viewBox="0 0 26 26"><rect x="3" y="3" width="20" height="20" rx="5"/><circle cx="13" cy="13" r="4.5"/><path d="M18.5 7.5h.01"/></svg>@steadyimprovements</a></div>
       <div><h4>Hours</h4><ul><li>Monday to Friday</li><li>9 a.m. to 5 p.m.</li><li>Saturday and Sunday closed</li></ul></div>
       <div><h4>Services</h4><ul><li>Bathrooms</li><li>Kitchens</li><li>Balcony and interior flooring</li><li>Window coverings</li><li>Demolition and handyman</li></ul></div>
     </div>
-    <div class="fine"><span>&copy; <span id="yr">2026</span> Steady Improvements. All rights reserved.</span><span>Concept preview by Chairlift. <a href="brand/logos.html" style="display:inline;border-bottom:1px solid">Logo options</a></span></div>
+    <div class="fine"><span>&copy; <span id="yr">2026</span> Steady Improvements. All rights reserved.</span><span>Concept preview by Chairlift. <a href="https://cal.com/chairlift/5min" target="_blank" rel="noopener" style="display:inline;border-bottom:1px solid">Start a conversation</a></span></div>
   </div>
 </footer>
 
@@ -629,13 +652,13 @@ $('#qb').addEventListener('submit',e=>{e.preventDefault();const f=e.target,sel=k
 const TOUR=[
  ['#top','A new site for Steady Improvements','A concept redesign built from your own photos, words and services.','It plays by itself. Tap Pause any time, or Next to skip ahead.','Why: show the work first, and make it easy to ask for a quote from any screen.'],
  ['#hero','Your best work, first','Was: a white page with a heading and three paragraphs.','Now: your finished jobs fill the screen and change every few seconds, with Get a quote and Call right there.','Why: people hire renovators with their eyes. The work sells before any words do.'],
- ['#hd','A logo that feels hand-built','Was: a round stamp with a clip-art hammer.','Now: a clean wordmark with a carpenter\'s square. Two more options are on the logo page.','Why: it reads as a real trade business, stays sharp at any size, and works on trucks, shirts and job signs.'],
+ ['#hd','A logo that looks hand-painted','Was: a round stamp with a stock hammer.','Now: brush lettering like the side of a trade van, with a hammer head built into the t.','Why: it reads as a real craftsman, keeps your hammer and colours, and works on trucks, shirts and job signs.'],
  ['#balcony','Balcony flooring gets its own spotlight','Was: buried halfway down the Services page.','Now: its own section with your two finishes and a tool that measures the balcony.','Revenue: other balcony flooring companies in the city lead with this and take requests online. Now you do too, and owners send their exact size so quotes go out faster.'],
  ['#services','Every service, one tap from a quote','Was: long paragraphs with small cropped photos.','Now: six services, each with a real job photo and a short version of your own words.','Revenue: each one has its own Quote button that pre-fills the request.'],
  ['#process','How a job runs, step by step','Was: one "Why choose us" paragraph.','Now: four clear steps, from the quote up front to your client sign-off.','Why: the biggest fear in a renovation is not knowing what happens next. This answers it.'],
  ['#work','A wall of real jobs','Was: photos spread across pages.','Now: one swipeable wall of finished and in-progress work.','Why: proof in one place, easy to scroll on a phone.'],
  ['#trade','A door for repeat business','Was: one line about working with architects and designers.','Now: a section for architects, designers and property managers, with Send us a scope.','Revenue: one property manager or designer can send work across many units and projects.'],
- ['#reviews','Your reviews, where buyers can see them','Was: a Testimonials page with nothing on it, while your real reviews sit on HomeStars.','Now: a marked spot, ready to feature your best ones with your go-ahead.','Revenue: reviews are the first thing people check before they call a renovator. Yours should be on your own site.'],
+ ['#reviews','All your reviews in one place','Was: an empty Testimonials page, while your real reviews sit on HomeStars and Google.','Now: one hub that shows both ratings, features your best reviews, and gives you one Leave a review link to text clients after a job.','Revenue: more reviews on Google and HomeStars push you up in local search, and people check reviews before they call.'],
  ['#quote','A 30-second quote builder','Was: a form asking only for an email and phone number.','Now: tap the job, the place and the timing, then send. Call and text-a-photo sit right beside it.','Revenue: you get the job details on the first message, so you can price faster and win more of them.']
 ];
 const tour=$('#tour');let ti=-1,tt=null,paused=false;const DUR=9000;
@@ -646,7 +669,7 @@ function show(i){if(i>=TOUR.length)return end();ti=i;clr();const [sel,h,was,now,
  const y=$('#ty'),r=$('#tr');y.hidden=r.hidden=true;if(why.startsWith('Revenue')){r.textContent=why;r.hidden=false}else{y.textContent=why;y.hidden=false}
  $('#tgo').hidden=true;$('#tpause').hidden=false;$('#tnext').hidden=false;tick()}
 function tick(){clearTimeout(tt);const pg=$('#tpg');pg.style.transition='none';pg.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>{pg.style.transition=`width ${DUR}ms linear`;pg.style.width='100%'}));if(!paused)tt=setTimeout(()=>show(ti+1),DUR)}
-function end(){clearTimeout(tt);clr();$('#tk').textContent="That's the tour";$('#tn').textContent='';$('#th').textContent='Have a look around.';$('#tp').innerHTML='Everything here uses Steady Improvements\' own photos, words and services. Anything marked "to come" is waiting on your details. <a href="brand/logos.html" style="color:#E8C9A0;border-bottom:1px solid">See the logo options</a>';$('#ty').hidden=$('#tr').hidden=true;$('#tpause').hidden=$('#tnext').hidden=true;$('#tgo').hidden=false;$('#tgo').textContent='Replay';ti=-1;scrollTo({top:0,behavior:'smooth'})}
+function end(){clearTimeout(tt);clr();$('#tk').textContent="That's the tour";$('#tn').textContent='';$('#th').textContent='Want this live? Talk to Ryan.';$('#tp').innerHTML='This is a working concept built from your own photos, words and services. Ryan at Chairlift can walk you through it and what it takes to switch it on. <a href="https://cal.com/chairlift/5min" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;background:#8E3B32;color:#fff;padding:12px 16px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:12px">Start a conversation</a>';$('#ty').hidden=$('#tr').hidden=true;$('#tpause').hidden=$('#tnext').hidden=true;$('#tgo').hidden=false;$('#tgo').textContent='Replay';ti=-1;scrollTo({top:0,behavior:'smooth'})}
 $('#tgo').onclick=()=>{paused=false;$('#tpause').textContent='Pause';show(0)};
 $('#tnext').onclick=()=>show(ti+1);
 $('#tpause').onclick=()=>{paused=!paused;$('#tpause').textContent=paused?'Resume':'Pause';if(paused){clearTimeout(tt);const pg=$('#tpg');pg.style.transition='none'}else tick()};
