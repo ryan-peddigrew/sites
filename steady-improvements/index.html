@@ -38,10 +38,10 @@ h2{font-size:clamp(46px,7.4vw,104px)}
 
 /* brand: brush lettering, the hammer is the T */
 .brand{display:inline-flex;align-items:center;line-height:1}
-.lg{display:inline-flex;flex-direction:column;align-items:center}
+.lg{display:inline-flex;flex-direction:column;align-items:flex-start}
 .lg .w{display:inline-flex;align-items:flex-end;white-space:nowrap;font:400 42px/.9 'Yellowtail',cursive;transform:rotate(-5deg);padding-right:.06em}
-.lg .h{height:.62em;width:auto;fill:currentColor;transform:rotate(10deg);margin:0 -.1em .06em .08em;overflow:visible;flex:none}
-.lg i{font:600 9px/1 'Oswald',sans-serif;font-style:normal;letter-spacing:.34em;text-transform:uppercase;background:#8E3B32;color:#F3F1E8;padding:.5em .8em .5em 1.14em;margin-top:.5em;transform:rotate(-5deg)}
+.lg .h{height:.58em;width:auto;fill:currentColor;transform:rotate(12deg);margin:0 -.08em .03em .04em;overflow:visible;flex:none}
+.lg i{font:600 8px/1 'Oswald',sans-serif;font-style:normal;letter-spacing:.34em;text-transform:uppercase;background:#8E3B32;color:#F3F1E8;padding:.5em .7em .5em 1.04em;margin:.55em 0 0 .2em;transform:rotate(-5deg)}
 
 /* loader */
 #ld{position:fixed;inset:0;z-index:100;background:var(--ink);transition:opacity .7s ease}
@@ -52,7 +52,7 @@ h2{font-size:clamp(46px,7.4vw,104px)}
 @keyframes slot{to{transform:none}}
 #ld .ldlogo{position:absolute;inset:0;display:grid;place-items:center;background:#141210b8;color:var(--paper);opacity:0;animation:ldin .6s ease 1.15s forwards}
 @keyframes ldin{to{opacity:1}}
-#ld .lg .w{font-size:clamp(84px,14vw,150px)}#ld .lg i{font-size:clamp(15px,2.2vw,24px)}
+#ld .lg .w{font-size:clamp(84px,14vw,150px)}#ld .lg i{font-size:clamp(11px,1.5vw,17px)}
 
 /* header */
 header.top{position:fixed;top:0;left:0;right:0;z-index:50;color:var(--paper);transition:background .3s,color .3s,box-shadow .3s}
@@ -232,7 +232,7 @@ footer .g{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:30px}
 footer h4{font:600 11px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--timber);margin-bottom:14px}
 footer a,footer li{display:block;font-size:15px;line-height:1.9}
 footer ul{list-style:none}
-footer .brand{color:var(--paper);margin-bottom:20px}footer .lg .w{font-size:56px}footer .lg i{font-size:11px}
+footer .brand{color:var(--paper);margin-bottom:20px}footer .lg .w{font-size:56px}footer .lg i{font-size:9px}
 footer .fine{margin-top:44px;padding-top:18px;border-top:1px solid #ffffff1a;font-size:13px;color:#8f897d;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer a.ig{display:inline-flex;align-items:center;gap:10px;min-height:44px}
 footer a.ig svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.6}
@@ -271,7 +271,7 @@ footer a.ig svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-widt
 @media (max-width:640px){
  body{font-size:16px}
  header.top .wrap{height:80px}
- .lg .w{font-size:36px}.lg i{font-size:8px}
+ .lg .w{font-size:36px}.lg i{font-size:7.5px}
  .nav .btn{display:none}
  .hero{min-height:600px}
  .hero h1{font-size:clamp(58px,18.5vw,92px)}
