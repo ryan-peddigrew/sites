@@ -87,6 +87,15 @@ button{background:none;border:0;cursor:pointer}
 .dlg .row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
 .dlg .tb{color:var(--ink);border-color:var(--ivory2)}
 .dlg .tb.gold{color:var(--ink)}
+.vbx{max-width:680px!important;max-height:90vh;max-height:90dvh;display:flex;flex-direction:column;padding:20px!important}
+.vfil{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:10px 0 8px}
+.vfil select{min-height:44px;width:100%;border:1.5px solid var(--ivory2);background:#fff;color:var(--ink);padding:0 8px;font-size:16px;border-radius:3px}
+.vcount{font:800 12px var(--f);letter-spacing:.1em;text-transform:uppercase;color:var(--gold2);margin-bottom:8px;min-height:16px}
+#venL{overflow:auto;display:flex;flex-direction:column;gap:8px;flex:1;min-height:120px;-webkit-overflow-scrolling:touch}
+.vgrp{flex:none;position:sticky;top:0;z-index:1;background:var(--ink);color:#fff;font:800 12px var(--f);letter-spacing:.1em;text-transform:uppercase;padding:8px 10px;border-left:4px solid var(--gold)}
+.vnote{font-size:13px!important;margin:10px 0 0!important}
+.vbx .row .tb{flex:1 1 auto;justify-content:center}
+@media (max-width:640px){.vfil{grid-template-columns:1fr 1fr}.vfil #venS{grid-column:1/-1}.dlg#ven{padding:0;place-items:stretch}.vbx{display:block!important;max-width:none!important;max-height:none;height:100%;overflow:auto;-webkit-overflow-scrolling:touch;padding:calc(16px + env(safe-area-inset-top)) 16px 0!important}.vbx h4{font-size:20px}#venL{overflow:visible;flex:none}.vnote{display:none}.vgrp{top:-1px}.vbx .row{position:sticky;bottom:0;background:#fff;margin:12px -16px 0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--ivory2);flex-wrap:nowrap;gap:8px}.vbx .row .tb{padding:0 8px;font-size:11px;letter-spacing:.04em;white-space:normal;text-align:center;line-height:1.15;min-height:48px}}
 .vrow{flex:none;width:100%;display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center;text-align:left;background:var(--ivory);padding:8px;border-radius:3px;min-height:76px;color:var(--ink);border:1.5px solid transparent}
 .vrow:hover{border-color:var(--gold2)}
 .vrow img{width:96px;height:64px;object-fit:contain;background:#fff}
@@ -110,16 +119,22 @@ button{background:none;border:0;cursor:pointer}
   .tabs button{font-size:11px;letter-spacing:.03em}
   .sa .top{padding-top:max(calc(8px + env(safe-area-inset-top)),56px)}
   .sa .mtabs{padding-bottom:max(calc(10px + env(safe-area-inset-bottom)),30px)}
-  .mtabs{display:grid;grid-template-columns:1fr 1.25fr;gap:10px;flex:none;position:relative;z-index:21;background:var(--ink);border-top:2px solid var(--gold);padding:10px calc(12px + env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) calc(12px + env(safe-area-inset-left))}
-  .mtabs button{min-height:52px;display:flex;align-items:center;justify-content:center;gap:10px;font:800 13px var(--f);letter-spacing:.08em;text-transform:uppercase;border-radius:3px;white-space:nowrap}
-  .mtabs svg{width:24px;height:24px;flex:none}
+  .mtabs{display:grid;grid-template-columns:1fr 1.2fr;gap:12px;flex:none;position:relative;z-index:21;background:var(--ink);border-top:2px solid var(--gold);padding:10px calc(12px + env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) calc(12px + env(safe-area-inset-left))}
+  .mtabs button{position:relative;min-width:0;min-height:52px;padding:0 10px;display:flex;align-items:center;justify-content:center;gap:8px;font:800 12px var(--f);letter-spacing:.06em;text-transform:uppercase;border-radius:3px;white-space:nowrap}
+  .mtabs svg{width:22px;height:22px;flex:none}
   #mPal{background:var(--gold);color:var(--ink)}
   #mPal.on{background:#fff}
   #mSide{color:#fff;border:1.5px solid rgba(216,190,110,.6);background:var(--ink2)}
   #mSide.on{border-color:var(--gold);background:var(--ink3);color:var(--gold)}
-  #mCount{font-style:normal;min-width:26px;height:26px;padding:0 6px;display:grid;place-items:center;background:var(--gold);color:var(--ink);border-radius:2px;font:800 13px var(--f);letter-spacing:0}
+  #mCount{position:absolute;top:-9px;right:-5px;font-style:normal;min-width:24px;height:24px;padding:0 6px;display:grid;place-items:center;box-shadow:0 0 0 2px var(--ink);background:var(--gold);color:var(--ink);border-radius:2px;font:800 13px var(--f);letter-spacing:0}
   .stage{position:absolute;left:0;top:0;right:0;bottom:0}
-  .zoom{bottom:12px}.sel{bottom:12px}
+  .zoom{bottom:10px;right:10px;flex-direction:row}.sel{bottom:64px;left:10px}
+  .side{padding:18px 16px 20px}
+  .side .acts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+  .side .acts .tb{margin-top:0;padding:0 8px;white-space:normal;text-align:center;line-height:1.15;min-height:48px}
+  .side .acts .tb:last-child{grid-column:1/-1;border-color:rgba(255,255,255,.12);color:var(--mute2)}
+  .side #toQuote{min-height:52px;margin-top:14px;font-size:12px}
+  .kv{background:var(--ink3);padding:12px 14px;border-radius:3px;gap:8px 10px}
 }
 </style>
 </head>
@@ -172,9 +187,9 @@ button{background:none;border:0;cursor:pointer}
     <button class="tb gold" id="toQuote">Add Divine pieces to my quote</button>
     <h3>Everything on the plan</h3>
     <ul class="lst" id="allList"></ul>
-    <button class="tb" id="shareB">Share this layout</button>
+    <div class="acts"><button class="tb" id="shareB">Share this layout</button>
     <button class="tb" id="pngB">Save as image</button>
-    <button class="tb" id="clrB">Clear the plan</button>
+    <button class="tb" id="clrB">Clear the plan</button></div>
     <p class="fine"><span class="pv">Preview</span>Piece sizes are approximate until Divine confirms each footprint. Seating, catering and AV blocks are standard sizes for planning.</p>
   </aside>
 </div>
@@ -186,12 +201,20 @@ button{background:none;border:0;cursor:pointer}
   <input id="dlgI" type="number" min="1" step="0.5" inputmode="decimal" placeholder="For example, 40">
   <div class="row"><button class="tb gold" id="dlgOk">Set scale</button><button class="tb" id="dlgX">Cancel</button></div>
 </div></div>
-<div class="dlg" id="ven"><div class="bx" style="max-width:620px;max-height:86vh;display:flex;flex-direction:column">
-  <h4>Choose a venue</h4>
-  <input id="venQ" type="search" placeholder="Search venue, room or city" style="margin-bottom:12px">
-  <div id="venL" style="overflow:auto;display:flex;flex-direction:column;gap:8px;flex:1;min-height:0"></div>
-  <p style="font-size:12.5px;margin:12px 0 0">Plans are the ones each venue publishes for planners. Confirm the current layout with the venue before you finalize.</p>
-  <div class="row"><button class="tb" id="venX">Close</button></div>
+<div class="dlg" id="ven"><div class="bx vbx">
+  <h4 id="venH">Choose a venue</h4>
+  <input id="venQ" type="search" placeholder="Search venue, room, city or type" autocomplete="off">
+  <div class="vfil">
+    <select id="venK" aria-label="Country"></select>
+    <select id="venP" aria-label="Province or state"></select>
+    <select id="venC" aria-label="City"></select>
+    <select id="venT" aria-label="Venue type"></select>
+    <select id="venS" aria-label="Sort"><option value="city">Sort by city</option><option value="type">Sort by venue type</option><option value="name">Sort A to Z</option></select>
+  </div>
+  <div class="vcount" id="venN"></div>
+  <div id="venL"></div>
+  <p class="vnote">Plans are the ones each venue publishes for planners. Confirm the current layout with the venue before you finalize.</p>
+  <div class="row"><button class="tb gold" id="venUp">Upload my own plan</button><button class="tb" id="venSample">Try the sample hall</button><button class="tb" id="venX">Close</button></div>
 </div></div>
 <div class="dlg" id="inst"><div class="bx">
   <h4>Get Divine Design on your phone</h4>
@@ -467,13 +490,44 @@ $('#mSide').onclick=function(){var on=!$('#side').classList.contains('on');close
 
 /* ---------- venues ---------- */
 var VEN=[{"id": "mtcc-north-300", "n": "Metro Toronto Convention Centre", "r": "North Building, Level 300: Exhibit Halls A, B, C", "c": "Toronto, ON", "w": 1828, "h": 676}, {"id": "mtcc-south-800", "n": "Metro Toronto Convention Centre", "r": "South Building, Level 800: Exhibit Halls D, E, F, G", "c": "Toronto, ON", "w": 1056, "h": 1045}, {"id": "mtcc-south-700", "n": "Metro Toronto Convention Centre", "r": "South Building, Level 700: meeting rooms", "c": "Toronto, ON", "w": 1310, "h": 931}, {"id": "tcc-north", "n": "Toronto Congress Centre", "r": "North Building: Halls H, I, J and ballroom", "c": "Toronto, ON", "w": 2400, "h": 1553}, {"id": "tcc-south", "n": "Toronto Congress Centre", "r": "South Building: Halls A to G", "c": "Toronto, ON", "w": 2400, "h": 1553}, {"id": "beanfield-main", "n": "Beanfield Centre", "r": "Main floor: Ballrooms A to D", "c": "Toronto, ON", "w": 1144, "h": 811}, {"id": "beanfield-second", "n": "Beanfield Centre", "r": "Second floor: meeting rooms", "c": "Toronto, ON", "w": 1144, "h": 769}, {"id": "liberty-grand", "n": "Liberty Grand", "r": "Full venue: Governor's, Renaissance, Centennial and Artifacts rooms", "c": "Toronto, ON", "w": 871, "h": 629}, {"id": "mtcc-level-600", "n": "Metro Toronto Convention Centre", "r": "South Building, Level 600: meeting rooms", "c": "Toronto, ON", "w": 1407, "h": 1237}, {"id": "mtcc-level-400-500", "n": "Metro Toronto Convention Centre", "r": "Levels 400 and 500: pre-function and meeting space", "c": "Toronto, ON", "w": 1407, "h": 1237}, {"id": "steam-whistle-hall-patio", "n": "Steam Whistle Brewing (Roundhouse)", "r": "The Hall and The Patio", "c": "Toronto, ON", "w": 1900, "h": 1277}, {"id": "steam-whistle-locomotive", "n": "Steam Whistle Brewing (Roundhouse)", "r": "Locomotive Hall and event spaces", "c": "Toronto, ON", "w": 1900, "h": 1229}, {"id": "bingemans-overview", "n": "Bingemans Conference Centre", "r": "Facilities overview: Ballroom, Marshall Hall", "c": "Kitchener, ON", "w": 1468, "h": 1900}, {"id": "bingemans-ballroom", "n": "Bingemans Conference Centre", "r": "Ballroom A to D", "c": "Kitchener, ON", "w": 1468, "h": 1900}, {"id": "bingemans-marshall-hall", "n": "Bingemans Conference Centre", "r": "Marshall Hall and Heritage Room", "c": "Kitchener, ON", "w": 1468, "h": 1900}, {"id": "bingemans-embassy", "n": "Bingemans Conference Centre", "r": "Embassy Room", "c": "Kitchener, ON", "w": 1468, "h": 1900}, {"id": "rbc-place-london-main", "n": "RBC Place London", "r": "Main floor", "c": "London, ON", "w": 1900, "h": 1468}, {"id": "rbc-place-london-second", "n": "RBC Place London", "r": "Second floor", "c": "London, ON", "w": 1900, "h": 1523}, {"id": "rbc-place-london-king-st", "n": "RBC Place London", "r": "King Street Ballroom", "c": "London, ON", "w": 1900, "h": 1468}, {"id": "palais-montreal-level2", "n": "Palais des congrès de Montréal", "r": "Level 2: exhibition hall, rooms 210 to 230", "c": "Montréal, QC", "w": 1739, "h": 1229}, {"id": "palais-montreal-level1", "n": "Palais des congrès de Montréal", "r": "Level 1: public and rental space", "c": "Montréal, QC", "w": 1870, "h": 1070}, {"id": "palais-montreal-level5", "n": "Palais des congrès de Montréal", "r": "Level 5: rooms 510 to 518 and ballroom", "c": "Montréal, QC", "w": 1870, "h": 1127}, {"id": "palais-montreal-level7", "n": "Palais des congrès de Montréal", "r": "Level 7 and Mezzanine 8: rooms 710 to 730", "c": "Montréal, QC", "w": 1870, "h": 1200}, {"id": "halifax-convention-level", "n": "Halifax Convention Centre", "r": "Convention Hall Level", "c": "Halifax, NS", "w": 1468, "h": 1900}, {"id": "halifax-argyle-level", "n": "Halifax Convention Centre", "r": "Argyle Level and Atrium", "c": "Halifax, NS", "w": 1468, "h": 1900}, {"id": "halifax-ballroom-level", "n": "Halifax Convention Centre", "r": "Ballroom Level", "c": "Halifax, NS", "w": 1468, "h": 1900}, {"id": "halifax-summit-level", "n": "Halifax Convention Centre", "r": "Summit Level", "c": "Halifax, NS", "w": 1468, "h": 1900}, {"id": "tcu-place-lower", "n": "TCU Place", "r": "Lower floor", "c": "Saskatoon, SK", "w": 1900, "h": 1468}, {"id": "tcu-place-main", "n": "TCU Place", "r": "Main floor", "c": "Saskatoon, SK", "w": 1900, "h": 1468}, {"id": "tcu-place-upper", "n": "TCU Place", "r": "Upper floor", "c": "Saskatoon, SK", "w": 1900, "h": 1468}, {"id": "edmonton-cc-assembly", "n": "Edmonton Convention Centre", "r": "Assembly Level: Halls A, B, C", "c": "Edmonton, AB", "w": 1468, "h": 1900}, {"id": "edmonton-cc-hall-d", "n": "Edmonton Convention Centre", "r": "Hall D", "c": "Edmonton, AB", "w": 1468, "h": 1900}, {"id": "edmonton-cc-riverview", "n": "Edmonton Convention Centre", "r": "Riverview Room", "c": "Edmonton, AB", "w": 1468, "h": 1900}, {"id": "edmonton-cc-meeting", "n": "Edmonton Convention Centre", "r": "Meeting Level: meeting rooms", "c": "Edmonton, AB", "w": 1468, "h": 1900}, {"id": "vcc-west-exhibition", "n": "Vancouver Convention Centre", "r": "West Building: Exhibition Level", "c": "Vancouver, BC", "w": 1900, "h": 1618}, {"id": "vcc-west-level1", "n": "Vancouver Convention Centre", "r": "West Building: Level 1", "c": "Vancouver, BC", "w": 1900, "h": 1618}, {"id": "vcc-west-level2", "n": "Vancouver Convention Centre", "r": "West Building: Level 2", "c": "Vancouver, BC", "w": 1900, "h": 1618}, {"id": "vcc-west-level3", "n": "Vancouver Convention Centre", "r": "West Building: Level 3 (Summit)", "c": "Vancouver, BC", "w": 1900, "h": 1618}, {"id": "vcc-east-convention", "n": "Vancouver Convention Centre", "r": "East Building: Convention Level", "c": "Vancouver, BC", "w": 1900, "h": 936}, {"id": "vcc-east-meeting", "n": "Vancouver Convention Centre", "r": "East Building: Meeting Level", "c": "Vancouver, BC", "w": 1900, "h": 1419}, {"id": "rbc-cc-winnipeg-ground-north", "n": "RBC Convention Centre Winnipeg", "r": "Ground floor, North Building", "c": "Winnipeg, MB", "w": 1900, "h": 1229}, {"id": "rbc-cc-winnipeg-ground-south", "n": "RBC Convention Centre Winnipeg", "r": "Ground floor, South Building", "c": "Winnipeg, MB", "w": 1900, "h": 1229}, {"id": "rbc-cc-winnipeg-second", "n": "RBC Convention Centre Winnipeg", "r": "Second floor", "c": "Winnipeg, MB", "w": 1900, "h": 1229}, {"id": "rbc-cc-winnipeg-third", "n": "RBC Convention Centre Winnipeg", "r": "Third floor", "c": "Winnipeg, MB", "w": 1900, "h": 1229}, {"id": "quebec-cc-level2", "n": "Centre des congrès de Québec", "r": "Level 2: Convention Hall 200 and Hall 2000", "c": "Québec City, QC", "w": 1900, "h": 1190}, {"id": "quebec-cc-level4", "n": "Centre des congrès de Québec", "r": "Level 4: Exhibit Hall 400 and Main Hall", "c": "Québec City, QC", "w": 1900, "h": 1190}, {"id": "quebec-cc-level3", "n": "Centre des congrès de Québec", "r": "Level 3: Halls 300 and 310, rooms 301 to 311", "c": "Québec City, QC", "w": 1900, "h": 1190}];
-function venList(q){q=(q||'').toLowerCase();var L=VEN.filter(function(v){return !q||(v.n+' '+v.r+' '+v.c).toLowerCase().indexOf(q)>-1});
-  $('#venL').innerHTML=L.length?L.map(function(v){return '<button class="vrow" data-v="'+v.id+'"><img src="venues/'+v.id+'-t.jpg" alt="" loading="lazy"><span><small>'+v.c+'</small><b>'+v.n+'</b><span>'+v.r+'</span></span></button>'}).join(''):'<p style="margin:0">No venue matches yet. Use Upload a floor plan to add your own.</p>';
-  $$('#venL .vrow').forEach(function(b){b.onclick=function(){pickVenue(b.dataset.v)}})}
+var PRV={ON:'Ontario',QC:'Québec',BC:'British Columbia',AB:'Alberta',MB:'Manitoba',SK:'Saskatchewan',NS:'Nova Scotia',NB:'New Brunswick',NL:'Newfoundland and Labrador',PE:'Prince Edward Island',YT:'Yukon',NT:'Northwest Territories',NU:'Nunavut'};
+function vP(v){return v.p||((v.c||'').split(', ')[1]||'')}
+function vK(v){return v.k||(PRV[vP(v)]?'Canada':'USA')}
+function vT(v){return v.t||(/convention|congr|trade centre|trade center/i.test(v.n)?'Convention centre':/hotel|fairmont|marriott|hilton|sheraton|westin|hyatt/i.test(v.n)?'Hotel':'Event venue')}
+function vCity(v){return (v.c||'').split(', ')[0]}
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function cnt(L,f){var m={};L.forEach(function(v){var k=f(v);m[k]=(m[k]||0)+1});return m}
+function opts(sel,all,m,lab,keep){var ks=Object.keys(m).sort(function(a,b){return a.localeCompare(b)});sel.innerHTML='<option value="">'+all+'</option>'+ks.map(function(k){return '<option value="'+esc(k)+'">'+esc(lab?lab(k):k)+' ('+m[k]+')</option>'}).join('');sel.value=ks.indexOf(keep)>-1?keep:''}
+var venMax=40;
+function venFill(){var fk=$('#venK').value,fp=$('#venP').value;
+  opts($('#venK'),'All countries',cnt(VEN,vK),null,fk);fk=$('#venK').value;
+  var A=VEN.filter(function(v){return !fk||vK(v)===fk});
+  opts($('#venP'),fk==='USA'?'All states':fk==='Canada'?'All provinces':'Province or state',cnt(A,vP),function(k){return PRV[k]||k},fp);fp=$('#venP').value;
+  var B=A.filter(function(v){return !fp||vP(v)===fp});
+  opts($('#venC'),'All cities',cnt(B,function(v){return v.c}),null,$('#venC').value);
+  opts($('#venT'),'All venue types',cnt(VEN,vT),null,$('#venT').value)}
+function venList(){var q=$('#venQ').value.trim().toLowerCase().split(/\s+/).filter(Boolean),fk=$('#venK').value,fp=$('#venP').value,fc=$('#venC').value,ft=$('#venT').value,so=$('#venS').value;
+  var L=VEN.filter(function(v){if(fk&&vK(v)!==fk)return false;if(fp&&vP(v)!==fp)return false;if(fc&&v.c!==fc)return false;if(ft&&vT(v)!==ft)return false;
+    if(q.length){var h=(v.n+' '+v.r+' '+v.c+' '+(PRV[vP(v)]||'')+' '+vK(v)+' '+vT(v)).toLowerCase();for(var i=0;i<q.length;i++)if(h.indexOf(q[i])<0)return false}return true});
+  var key=so==='type'?vT:so==='name'?function(v){return v.n.charAt(0).toUpperCase()}:function(v){return v.c};
+  var pin=function(v){return so==='city'&&v.c==='Toronto, ON'?0:1};
+  if(so)L=L.slice().sort(function(a,b){return pin(a)-pin(b)||key(a).localeCompare(key(b))||a.n.localeCompare(b.n)});
+  var nv={};L.forEach(function(v){nv[v.n]=1});
+  $('#venN').textContent=L.length?L.length+' floor plan'+(L.length===1?'':'s')+' at '+Object.keys(nv).length+' venue'+(Object.keys(nv).length===1?'':'s'):'';
+  var h='',last=null;L.slice(0,venMax).forEach(function(v){var g=so?key(v):null;if(so&&g!==last){h+='<div class="vgrp">'+esc(g)+'</div>';last=g}
+    h+='<button class="vrow" data-v="'+v.id+'"><img src="venues/'+v.id+'-t.jpg" alt="" loading="lazy" width="96" height="64"><span><small>'+esc(so==='city'?vT(v):so==='type'?v.c:v.c+' · '+vT(v))+'</small><b>'+esc(v.n)+'</b><span>'+esc(v.r)+'</span></span></button>'});
+  if(L.length>venMax)h+='<button class="tb" id="venMore" style="flex:none;justify-content:center">Show more venues</button>';
+  $('#venL').innerHTML=L.length?h:'<p style="margin:0">No venue matches yet. Clear a filter, or upload your own floor plan.</p>';
+  $$('#venL .vrow').forEach(function(b){b.onclick=function(){pickVenue(b.dataset.v)}});
+  if($('#venMore'))$('#venMore').onclick=function(){venMax+=60;venList()}}
 function pickVenue(id){var v=VEN.find(function(x){return x.id===id});if(!v)return;$('#ven').classList.remove('on');toast('Loading '+v.n);
   fetch('venues/'+v.id+'.jpg').then(function(r){return r.blob()}).then(function(b){var rd=new FileReader();rd.onload=function(){S.objs=[];selId=null;loadPlan(rd.result,v.w,v.h)};rd.readAsDataURL(b)}).catch(function(){toast('Could not load that plan')})}
-$('#venB').onclick=function(){venList('');$('#venQ').value='';$('#ven').classList.add('on')};$('#venX').onclick=function(){$('#ven').classList.remove('on')};
-$('#venQ').oninput=function(){venList(this.value)};
+function openVen(first){venMax=40;$('#venQ').value='';['#venK','#venP','#venC','#venT'].forEach(function(x){$(x).value=''});venFill();venList();
+  $('#venH').textContent=first?'Choose your venue':'Choose a venue';$('#venSample').style.display=first?'':'none';$('#ven').classList.add('on');$('#venL').scrollTop=0}
+$('#venB').onclick=function(){openVen(false)};$('#venX').onclick=$('#venSample').onclick=function(){$('#ven').classList.remove('on')};
+$('#venUp').onclick=function(){$('#ven').classList.remove('on');$('#upl').click()};
+$('#venQ').oninput=function(){venMax=40;venList()};
+['#venK','#venP','#venC','#venT','#venS'].forEach(function(x){$(x).onchange=function(){venMax=40;venFill();venList();$('#venL').scrollTop=0}});
 /* ---------- install ---------- */
 var dp=null;addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;$('#instAuto').hidden=false});
 $('#instB').onclick=function(){$('#inst').classList.add('on')};$('#instX').onclick=function(){$('#inst').classList.remove('on')};
@@ -484,6 +538,7 @@ if('serviceWorker' in navigator){var hadSW=!!navigator.serviceWorker.controller,
 var shared=location.hash.match(/layout=([^&]+)/),had=false;
 if(shared){try{var d=JSON.parse(atob(shared[1]));S.pw=d.w;S.ph=d.h;S.objs=d.o.map(function(a,i){return {id:i+1,t:a[0],x:a[1],y:a[2],r:a[3]}}).filter(function(o){return BY[o.t]});nid=S.objs.length+1;had=true;if(!d.s)toast('Layout loaded. Upload the same floor plan to see it underneath.')}catch(e){}}
 if(!had)had=restore();
+if(!had&&!/[?&]install=1/.test(location.search))openVen(true);
 if(!had){ // starter layout on the sample hall
   [['STG',50,6],['SCR',50,1.2],['DF',50,20],['R60',20,22],['R60',20,38],['R60',80,22],['R60',80,38],['R60',38,46],['R60',62,46],['SS-450-SETUP-001',10,50],['SS-650-SETUP-010',24,52],['CAT-BARS',92,30],['BUF16',74,52],['FOH',50,40],['CRU-SETUP-001',8,8],['CRU-SETUP-001',92,8]].forEach(function(a){S.objs.push({id:nid++,t:a[0],x:a[1],y:a[2],r:0})});
   S.objs.forEach(function(o){if(o.t==='CAT-BARS')o.r=90});
