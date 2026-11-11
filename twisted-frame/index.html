@@ -254,7 +254,7 @@ footer img{height:46px;width:auto}
  .tile,.tile.w{grid-column:span 12;grid-row:auto}
  .wgrid{gap:10px}
  .filters{flex-wrap:nowrap;overflow-x:auto;margin-inline:-16px;padding-inline:16px;scrollbar-width:none}.filters button{flex:none}
- .qcard{padding:22px 18px}.opts{grid-template-columns:1fr}.opts.chips{grid-template-columns:1fr 1fr}.f2{grid-template-columns:1fr}
+ .qcard{padding:22px 16px}.opts{grid-template-columns:1fr 1fr;gap:6px}.opt{padding:12px 10px 12px 36px;font-size:14px;min-height:56px}.opt:before{left:11px;top:15px;width:14px;height:14px}.opt small{font-size:11.5px}.opts.chips{grid-template-columns:1fr 1fr}.f2{grid-template-columns:1fr}
  .ogrid{grid-template-columns:1fr;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-16px;padding-inline:16px;border:0;gap:10px;scrollbar-width:none}.offer{flex:0 0 84%;scroll-snap-align:start;border:1px solid var(--line);min-height:0}
  .alist{grid-template-columns:1fr}.qwrap{grid-template-columns:1fr;gap:34px}.stg{grid-template-columns:1fr;gap:30px}
  .tourbtn{display:none}
@@ -564,7 +564,7 @@ function show(i){if(i>=TOUR.length)return end();ti=i;clr();const [sel,h,was,now,
  const y=$('#ty'),r=$('#tr');y.hidden=r.hidden=true;if(why.startsWith('Revenue')){r.textContent=why;r.hidden=false}else{y.textContent=why;y.hidden=false}
  $('#tgo').hidden=true;$('#tpause').hidden=false;$('#tnext').hidden=false;tick()}
 function tick(){clearTimeout(tt);const pg=$('#tpg');pg.style.transition='none';pg.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>{pg.style.transition=`width ${DUR}ms linear`;pg.style.width='100%'}));if(!paused)tt=setTimeout(()=>show(ti+1),DUR)}
-function end(){clearTimeout(tt);clr();$('#tk').textContent="That's the tour";$('#tn').textContent='';$('#th').textContent='Have a look around.';$('#tp').textContent='Everything here uses Twisted Frame\'s own work, words, clients and awards. Items marked "to confirm" are waiting on their details.';$('#ty').hidden=$('#tr').hidden=true;$('#tpause').hidden=$('#tnext').hidden=true;$('#tgo').hidden=false;$('#tgo').textContent='Replay';ti=-1;scrollTo({top:0,behavior:'smooth'})}
+function end(){clearTimeout(tt);clr();$('#tk').textContent="That's the tour";$('#tn').textContent='';$('#th').textContent='Have a look around.';$('#tp').textContent='Everything here uses Twisted Frame\'s own work, words, clients and awards. Items marked "to confirm" are waiting on their details.';$('#tp').insertAdjacentHTML('beforeend',' <a href="elevation.html" style="color:#F0D79A;border-bottom:1px solid">See the full before and after</a>');$('#ty').hidden=$('#tr').hidden=true;$('#tpause').hidden=$('#tnext').hidden=true;$('#tgo').hidden=false;$('#tgo').textContent='Replay';ti=-1;scrollTo({top:0,behavior:'smooth'})}
 $('#tgo').onclick=()=>{paused=false;$('#tpause').textContent='Pause';show(0)};
 $('#tnext').onclick=()=>show(ti+1);
 $('#tpause').onclick=()=>{paused=!paused;$('#tpause').textContent=paused?'Resume':'Pause';if(paused){clearTimeout(tt);const pg=$('#tpg');pg.style.transition='none'}else tick()};
