@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Patients' Mirror | Patient stories, told on film</title>
+<meta name="description" content="Patients' Mirror makes patient-centred documentaries that educate, inspire and change how the world sees healthcare.">
+<meta name="theme-color" content="#08161E">
+<link rel="icon" href="img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#08161E;--ink2:#0E2430;--navy:#0D5374;--navy2:#0A4560;--green:#A9D377;--green2:#8FC05A;--paper:#F5F3EE;--white:#fff;--ash:#5B6B74;--mist:#C9D3D8;--line:rgba(13,83,116,.14);--head:'Archivo',system-ui,sans-serif;--serif:'Newsreader',Georgia,serif;--body:'Inter',system-ui,sans-serif;--gut:clamp(16px,4.5vw,56px);--r:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--gut)}
+h1,h2,h3,h4{font-family:var(--head);font-weight:800;letter-spacing:-.02em;line-height:1.02}
+h2{font-size:clamp(34px,5.4vw,68px)}
+h3{font-size:clamp(21px,2.2vw,26px);letter-spacing:-.01em}
+.eyebrow{display:flex;align-items:center;gap:12px;font:700 13px/1 var(--head);letter-spacing:.16em;text-transform:uppercase;color:var(--navy);margin-bottom:18px}
+.eyebrow::before{content:"";width:28px;height:3px;background:var(--green);border-radius:2px}
+.dark .eyebrow{color:var(--green)}
+.lead{font-size:clamp(17px,1.6vw,20px);color:var(--ash);max-width:58ch;margin-top:18px}
+.dark .lead{color:var(--mist)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:10px;font:700 16px/1 var(--head);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .2s,background .2s}
+.btn:active{transform:translateY(1px)}
+.btn.g{background:var(--green);color:var(--ink)}.btn.g:hover{background:#B8DD8C}
+.btn.o{border-color:rgba(255,255,255,.4);color:#fff;background:transparent}.btn.o:hover{border-color:#fff}
+.btn.n{background:var(--navy);color:#fff}.btn.n:hover{background:var(--navy2)}
+.btn.l{border-color:var(--navy);color:var(--navy);background:transparent}
+.btn svg{width:18px;height:18px}
+section{padding:clamp(64px,9vw,128px) 0;position:relative}
+.dark{background:var(--ink);color:#fff}
+
+/* header */
+.hd{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s}
+.hd .wrap{display:flex;align-items:center;justify-content:space-between;min-height:72px;gap:14px}
+.hd.solid{background:rgba(8,22,30,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+.brand img{width:62px;height:auto;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
+.brand b{font:800 19px/1 var(--head);letter-spacing:-.01em;white-space:nowrap}
+.brand small{display:block;font:600 10px/1 var(--head);letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-top:5px}
+.nav{display:none;gap:4px;align-items:center}
+.nav a{color:#fff;text-decoration:none;font:600 15px var(--head);padding:0 13px;min-height:44px;display:inline-flex;align-items:center;border-radius:8px;opacity:.88}
+.nav a:hover{opacity:1;background:rgba(255,255,255,.08)}
+.hd .btn{min-height:44px;padding:0 18px;font-size:15px}
+.menu-btn{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:10px;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:#fff;cursor:pointer}
+.menu-btn svg{width:22px;height:22px}
+.hd-cta{display:none}
+@media(min-width:1080px){.nav{display:flex}.menu-btn{display:none}.hd-cta{display:inline-flex}}
+.drawer{position:fixed;inset:0;z-index:60;background:var(--ink);color:#fff;padding:90px var(--gut) 40px;display:flex;flex-direction:column;gap:6px;transform:translateY(-100%);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.drawer.on{transform:none}
+.drawer a{font:800 clamp(30px,8vw,44px)/1.15 var(--head);text-decoration:none;color:#fff;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center}
+.drawer a span{font:600 13px var(--head);color:var(--green);letter-spacing:.14em}
+.drawer .x{position:absolute;top:14px;right:var(--gut)}
+
+/* hero */
+.hero{background:var(--ink);color:#fff;padding:0;min-height:100svh;display:grid;grid-template-columns:1fr;overflow:hidden}
+.hero-img{position:relative;height:56svh;min-height:340px;overflow:hidden}
+.hero-img figure{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease}
+.hero-img figure.on{opacity:1}
+.hero-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 9s linear}
+.hero-img figure.on img{transform:scale(1)}
+.hero-img figure:nth-child(1) img{object-position:30% 30%}
+.hero-img figure:nth-child(2) img{object-position:50% 35%}
+.hero-img figure:nth-child(3) img{object-position:50% 30%}
+.hero-img::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(transparent,var(--ink));pointer-events:none}
+.cap{position:absolute;left:var(--gut);bottom:18px;z-index:2;display:flex;gap:10px;align-items:center;font:600 12px/1.2 var(--head);letter-spacing:.16em;text-transform:uppercase;color:#fff}
+.cap i{display:block;width:8px;height:8px;background:#E5484D;border-radius:2px;animation:rec 1.4s infinite}
+@keyframes rec{50%{opacity:.2}}
+.ticks{position:absolute;right:var(--gut);bottom:20px;z-index:2;display:flex;gap:6px}
+.ticks button{width:34px;height:44px;background:none;border:0;cursor:pointer;display:flex;align-items:center}
+.ticks button::before{content:"";display:block;width:100%;height:3px;background:rgba(255,255,255,.35);border-radius:2px}
+.ticks button.on::before{background:var(--green)}
+.hero-copy{padding:8px var(--gut) 48px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.hero h1{font-size:clamp(42px,6.4vw,92px);letter-spacing:-.035em;line-height:.96}
+.hero h1 .rot{display:block;color:var(--green);min-height:1em;white-space:nowrap}
+.hero h1 .rot .c{display:inline-block;width:.06em;height:.82em;background:var(--green);margin-left:.06em;vertical-align:-.04em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero .sub{font-size:clamp(17px,1.5vw,20px);color:var(--mist);max-width:44ch;margin-top:22px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:34px;font:600 13px var(--head);letter-spacing:.06em;color:var(--mist)}
+.hero .meta span{display:flex;align-items:center;gap:8px}
+.hero .meta span::before{content:"";width:12px;height:2px;background:var(--green)}
+@media(min-width:960px){
+  .hero{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}
+  .hero-copy{order:-1;padding:120px 40px 80px var(--gut);max-width:720px;margin-left:auto}
+  .hero-img{height:auto;min-height:100svh}
+  .hero-img::after{inset:0 auto 0 0;width:22%;height:auto;background:linear-gradient(90deg,var(--ink),transparent)}
+}
+
+/* doors */
+.doors{display:grid;gap:16px;margin-top:44px}
+.door{position:relative;border-radius:var(--r);overflow:hidden;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;text-decoration:none;color:var(--ink);transition:transform .3s,box-shadow .3s}
+.door:hover{transform:translateY(-4px);box-shadow:0 24px 50px -24px rgba(8,22,30,.4)}
+.door .ph{aspect-ratio:16/10;overflow:hidden;background:var(--ink)}
+.door .ph img{width:100%;height:100%;object-fit:cover}
+.door .bd{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.door .who{font:700 12px var(--head);letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
+.door p{color:var(--ash);font-size:16px}
+.door .go{margin-top:auto;padding-top:8px;font:700 15px var(--head);color:var(--navy);display:flex;align-items:center;gap:8px;min-height:44px}
+.door .go svg{width:18px;height:18px;transition:transform .2s}
+.door:hover .go svg{transform:translateX(4px)}
+.door.feature{background:var(--navy);color:#fff;border-color:var(--navy)}
+.door.feature .who,.door.feature .go{color:var(--green)}.door.feature p{color:#D5E3EA}
+@media(min-width:860px){.doors{grid-template-columns:repeat(3,1fr)}}
+
+/* manifesto */
+.manifesto{background:var(--ink);color:#fff;overflow:hidden}
+.manifesto .q{font:400 clamp(26px,3.6vw,48px)/1.22 var(--serif);letter-spacing:-.01em;max-width:24ch}
+.manifesto .q .w{color:rgba(255,255,255,.18);transition:color .4s}
+.manifesto .q .w.lit{color:#fff}
+.manifesto .q .w.hi.lit{color:var(--green)}
+.manifesto .more{display:grid;gap:26px;margin-top:56px;max-width:980px}
+.manifesto .more p{color:var(--mist);font-size:17px}
+@media(min-width:860px){.manifesto .more{grid-template-columns:1fr 1fr}}
+.manifesto .mk{position:absolute;right:-6%;bottom:-8%;width:46%;max-width:620px;opacity:.06;pointer-events:none}
+
+/* films */
+.films{background:var(--ink2);color:#fff}
+.films-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px}
+.reel{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:36px var(--gut) 8px;margin:0 calc(var(--gut)*-1);scrollbar-width:none}
+.reel::-webkit-scrollbar{display:none}
+.film{flex:0 0 min(82vw,440px);scroll-snap-align:start;background:none;border:0;color:#fff;text-align:left;cursor:pointer}
+.film .fr{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#000}
+.film .fr img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.film:hover .fr img{transform:scale(1.04)}
+.play{position:absolute;left:14px;bottom:14px;display:flex;align-items:center;gap:10px;background:var(--green);color:var(--ink);font:700 14px var(--head);padding:0 16px 0 12px;height:46px;border-radius:8px}
+.play svg{width:20px;height:20px}
+.film .t{display:block;margin-top:14px;font:700 19px/1.25 var(--head)}
+.film .s{display:block;margin-top:4px;color:var(--mist);font-size:14px}
+.reel-nav{display:flex;gap:8px}
+.reel-nav button{width:48px;height:48px;border-radius:10px;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:#fff;cursor:pointer;display:grid;place-items:center}
+.reel-nav svg{width:20px;height:20px}
+.lb{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:var(--gut)}
+.lb.on{display:flex}
+.lb video{width:min(1100px,100%);max-height:80vh;border-radius:10px;background:#000}
+.lb .x{position:absolute;top:14px;right:var(--gut)}
+
+/* services chapters */
+.chap{margin-top:40px;border-top:1px solid var(--line)}
+.ch{border-bottom:1px solid var(--line)}
+.ch button{width:100%;background:none;border:0;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;text-align:left;padding:22px 0;min-height:64px;color:var(--ink)}
+.ch .no{font:700 14px var(--head);color:var(--navy);letter-spacing:.1em;width:34px}
+.ch .nm{font:800 clamp(22px,3.4vw,42px)/1.08 var(--head);letter-spacing:-.02em;transition:color .2s}
+.ch button:hover .nm{color:var(--navy)}
+.ch .pl{width:40px;height:40px;border-radius:8px;border:1.5px solid var(--line);display:grid;place-items:center;transition:transform .3s,background .3s}
+.ch .pl svg{width:18px;height:18px}
+.ch.open .pl{transform:rotate(45deg);background:var(--green);border-color:var(--green)}
+.ch .ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.ch.open .ans{grid-template-rows:1fr}
+.ch .ans>div{overflow:hidden}
+.ch .ans p{padding:0 0 26px 50px;max-width:72ch;color:var(--ash)}
+@media(max-width:600px){.ch .ans p{padding-left:0}}
+
+/* studio */
+.studio{background:var(--white)}
+.st-grid{display:grid;gap:22px;margin-top:40px}
+@media(min-width:1000px){.st-grid{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);align-items:start}}
+.steps{background:var(--paper);border-radius:16px;padding:clamp(18px,3vw,32px)}
+.prog{display:flex;gap:6px;margin-bottom:22px}
+.prog i{flex:1;height:4px;border-radius:2px;background:var(--mist)}
+.prog i.on{background:var(--navy)}
+.step{display:none}
+.step.on{display:block;animation:fade .4s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}}
+.step .k{font:700 12px var(--head);letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
+.step h3{margin:8px 0 6px}
+.step .hint{color:var(--ash);font-size:15px;margin-bottom:18px}
+.opts{display:grid;gap:10px}
+@media(min-width:600px){.opts.two{grid-template-columns:1fr 1fr}}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;padding:16px;border-radius:10px;border:1.5px solid var(--line);background:#fff;cursor:pointer;min-height:56px;transition:border-color .2s,background .2s;color:var(--ink)}
+.opt:hover{border-color:var(--navy)}
+.opt .bx{flex:0 0 22px;height:22px;border-radius:5px;border:2px solid var(--mist);display:grid;place-items:center;margin-top:1px}
+.opt .bx svg{width:14px;height:14px;opacity:0;color:var(--ink)}
+.opt b{display:block;font:700 16px/1.3 var(--head)}
+.opt small{display:block;color:var(--ash);font-size:14px;margin-top:3px;line-height:1.4}
+.opt[aria-pressed="true"]{border-color:var(--navy);background:#EEF5F8}
+.opt[aria-pressed="true"] .bx{background:var(--green);border-color:var(--green)}
+.opt[aria-pressed="true"] .bx svg{opacity:1}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.field label{font:600 14px var(--head)}
+.field input,.field select,.field textarea{min-height:50px;border-radius:10px;border:1.5px solid var(--line);background:#fff;padding:12px 14px;font:400 16px var(--body);color:var(--ink)}
+.field textarea{min-height:96px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--navy)}
+.nav-row{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+.brief{background:var(--ink);color:#fff;border-radius:16px;padding:clamp(20px,3vw,30px);position:sticky;top:90px}
+.brief .k{font:700 12px var(--head);letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+.brief h3{margin:8px 0 16px}
+.brief dl{display:grid;gap:12px}
+.brief dt{font:600 12px var(--head);letter-spacing:.1em;text-transform:uppercase;color:var(--mist)}
+.brief dd{font:500 16px/1.4 var(--body);color:#fff;min-height:1.4em}
+.brief dd.empty{color:rgba(255,255,255,.35)}
+.brief .note{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);font-size:14px;color:var(--mist)}
+.ph-tag{display:inline-block;font:700 11px var(--head);letter-spacing:.12em;text-transform:uppercase;background:#FFE7A3;color:#5A4300;padding:4px 8px;border-radius:5px;vertical-align:middle}
+.done{display:none;text-align:left}
+.done.on{display:block;animation:fade .4s}
+
+/* story steps */
+.story{background:var(--paper)}
+.story-grid{display:grid;gap:36px;margin-top:40px}
+@media(min-width:1000px){.story-grid{grid-template-columns:1.2fr 1fr}}
+.path{list-style:none;display:grid;gap:0;counter-reset:s}
+.path li{position:relative;padding:0 0 28px 64px;counter-increment:s}
+.path li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:0;width:44px;height:44px;border-radius:10px;background:var(--navy);color:#fff;display:grid;place-items:center;font:800 15px var(--head)}
+.path li::after{content:"";position:absolute;left:21px;top:52px;bottom:6px;width:2px;background:var(--line)}
+.path li:last-child::after{display:none}
+.path b{display:block;font:800 20px/1.2 var(--head);margin:9px 0 6px}
+.path p{color:var(--ash);font-size:16px}
+.sform{background:#fff;border-radius:16px;padding:clamp(20px,3vw,30px);border:1px solid var(--line);align-self:start}
+.sform .warn{display:flex;gap:10px;background:#EEF5F8;border-radius:10px;padding:14px;font-size:14px;color:var(--navy2);margin-bottom:18px}
+.sform .warn svg{flex:0 0 20px;width:20px;height:20px;margin-top:1px}
+
+/* journal */
+.journal .post{display:grid;gap:0;margin-top:40px;border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.journal .post img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10}
+.journal .post .bd{padding:clamp(22px,3vw,40px);display:flex;flex-direction:column;gap:14px;justify-content:center}
+.journal .post .by{font:600 13px var(--head);letter-spacing:.1em;text-transform:uppercase;color:var(--navy)}
+.journal .post h3{font-size:clamp(24px,3vw,36px)}
+.journal .post p{color:var(--ash)}
+@media(min-width:900px){.journal .post{grid-template-columns:1fr 1fr}}
+
+/* cta band */
+.band{background:var(--navy);color:#fff;border-radius:20px;padding:clamp(32px,5vw,64px);display:grid;gap:24px;align-items:center;overflow:hidden;position:relative}
+.band h2{font-size:clamp(32px,4.6vw,58px);max-width:16ch}
+.band p{color:#D5E3EA;max-width:52ch;margin-top:12px}
+.band .ctas{display:flex;flex-wrap:wrap;gap:12px}
+@media(min-width:960px){.band{grid-template-columns:1.4fr 1fr}}
+
+/* footer */
+footer{background:var(--ink);color:var(--mist);padding:72px 0 calc(110px + env(safe-area-inset-bottom));font-size:15px}
+.ft{display:grid;gap:36px}
+@media(min-width:900px){.ft{grid-template-columns:1.4fr 1fr 1fr 1fr}}
+footer h4{font:700 12px var(--head);letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+footer a{color:#fff;text-decoration:none;display:flex;align-items:center;min-height:40px}
+footer a:hover{color:var(--green)}
+.soc{display:flex;flex-wrap:wrap;gap:8px}
+.soc a{width:44px;height:44px;border-radius:10px;border:1.5px solid rgba(255,255,255,.18);justify-content:center}
+.soc svg{width:20px;height:20px}
+.fine{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:13px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+
+/* tour */
+.tour-btn{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:46;display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 18px;border-radius:10px;background:var(--green);color:var(--ink);border:0;font:700 15px var(--head);cursor:pointer;box-shadow:0 14px 34px -10px rgba(0,0,0,.55)}
+.tour-btn svg{width:18px;height:18px}
+.tour{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translate(-50%,160%);z-index:95;width:min(calc(100% - 24px),540px);background:#fff;color:var(--ink);border-radius:16px;padding:18px 18px 14px;box-shadow:0 30px 70px -10px rgba(0,0,0,.55);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.tour.on{transform:translate(-50%,0)}
+.tour .n{font:700 12px var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
+.tour .why{display:inline-block;margin-left:8px;font:700 11px var(--head);letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;background:var(--green);color:var(--ink)}
+.tour h4{font-size:24px;margin:8px 0 6px}
+.tour p{font-size:15.5px;line-height:1.45;color:var(--ash)}
+.tour .bar{height:4px;background:#E7ECEF;border-radius:2px;margin:14px 0 12px;overflow:hidden}
+.tour .bar i{display:block;height:100%;width:0;background:var(--navy)}
+.tour .row{display:flex;gap:8px}
+.tour .row button{flex:1;min-height:46px;border-radius:10px;border:1.5px solid var(--line);background:#fff;color:var(--navy);font:700 15px var(--head);cursor:pointer}
+.tour .row button.go{background:var(--navy);border-color:var(--navy);color:#fff}
+.tour-hl{outline:4px solid var(--green);outline-offset:-4px}
+@media(prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="hd" id="hd"><div class="wrap">
+  <a class="brand" href="#top" aria-label="Patients' Mirror home"><img src="img/mark-white.svg" alt=""><div><b>Patients' Mirror</b><small>Stories that heal</small></div></a>
+  <nav class="nav" aria-label="Main"><a href="#films">Films</a><a href="#what">What we do</a><a href="#sponsor">Sponsor</a><a href="#story">Share your story</a><a href="#journal">Journal</a></nav>
+  <a class="btn g hd-cta" href="#sponsor">Sponsor a story</a>
+  <button class="menu-btn" id="mb" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+</div></header>
+<div class="drawer" id="drawer" aria-hidden="true">
+  <button class="menu-btn x" id="mx" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <a href="#films">Films <span>01</span></a><a href="#what">What we do <span>02</span></a><a href="#sponsor">Sponsor a story <span>03</span></a><a href="#story">Share your story <span>04</span></a><a href="#journal">Journal <span>05</span></a><a href="#contact">Contact <span>06</span></a>
+</div>
+
+<main id="top">
+<section class="hero dark" id="hero">
+  <div class="hero-img" id="heroimg">
+    <figure class="on"><img src="img/listen.jpg" alt="An older man listening, hands clasped"></figure>
+    <figure><img src="img/alive.jpg" alt="Portrait split between an older woman and a young girl"></figure>
+    <figure><img src="img/inside.jpg" alt="A young man with hands framing his eyes"></figure>
+    <div class="cap"><i></i><span id="capt">A patient's journey: listen</span></div>
+    <div class="ticks" id="ticks"><button class="on" aria-label="Story 1"></button><button aria-label="Story 2"></button><button aria-label="Story 3"></button></div>
+  </div>
+  <div class="hero-copy">
+    <div class="eyebrow">Documentary storytelling for healthcare</div>
+    <h1>No patient should be <span class="rot"><span id="rot">ignored.</span><span class="c"></span></span></h1>
+    <p class="sub">We make films that put patients at the centre of healthcare, so the people who care for them, fund them and set policy can finally see what they live with.</p>
+    <div class="ctas"><a class="btn g" href="#sponsor">Sponsor a story</a><a class="btn o" href="#story">Share your story</a></div>
+    <div class="meta"><span>Patients</span><span>Caregivers</span><span>Healthcare professionals</span></div>
+  </div>
+</section>
+
+<section id="doors">
+  <div class="wrap">
+    <div class="eyebrow rv">Find your way in</div>
+    <h2 class="rv">Every story needs<br>three kinds of people.</h2>
+    <div class="doors">
+      <a class="door rv" href="#story"><div class="ph"><img src="img/listen.jpg" alt="" loading="lazy"></div><div class="bd"><span class="who">Patients and caregivers</span><h3>Your story deserves to be seen.</h3><p>Living with a chronic, rare or misunderstood condition? Tell us you're interested. We start with just your name and phone number.</p><span class="go">Share your story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="door feature rv" href="#sponsor"><div class="ph"><img src="img/alive.jpg" alt="" loading="lazy"></div><div class="bd"><span class="who">Sponsors and partners</span><h3>Put your mission on screen.</h3><p>Pharmaceutical companies, foundations, healthcare providers and philanthropists: sponsor a documentary, commission your own, or host a screening.</p><span class="go">Build your sponsorship brief <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="door rv" href="#films"><div class="ph"><img src="img/care.jpg" alt="" loading="lazy"></div><div class="bd"><span class="who">Healthcare professionals and educators</span><h3>See care through the patient's eyes.</h3><p>Films that bridge the gap between patients and the people who care for them. Watch, share and bring them to your team.</p><span class="go">Watch the films <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="manifesto" id="why">
+  <img class="mk" src="img/mark-white.svg" alt="">
+  <div class="wrap">
+    <div class="eyebrow">Who we are, and why it matters</div>
+    <p class="q" id="q">We are skilled storytellers and attentive listeners. But we are also just like you: patients, caregivers, healthcare professionals. And we too have a story.</p>
+    <div class="more">
+      <p>We are a professional group specializing in marketing and documentary production. We bring narratives to life with passion and precision.</p>
+      <p>We are driven to make a positive impact for the family and friends we have lost, for the patients whose stories touch our hearts, for forgotten seniors, for people trying to navigate the healthcare system, and for the healthcare workers who serve despite burnout. Together, we are making a difference.</p>
+    </div>
+  </div>
+</section>
+
+<section class="films" id="films">
+  <div class="wrap">
+    <div class="films-head">
+      <div><div class="eyebrow">Watch</div><h2>It's more than a story.</h2><p class="lead">Short films from Patients' Mirror. Tap any film to play it here.</p></div>
+      <div class="reel-nav"><button id="rp" aria-label="Previous films"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg></button><button id="rn" aria-label="More films"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button></div>
+    </div>
+    <div class="reel" id="reel">
+      <button class="film" data-v="https://patientsmirror.com/wp-content/uploads/2024/06/promo1.mp4"><span class="fr"><img src="img/film1.jpg" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>Play</span></span><span class="t">We hear your cry for help</span><span class="s">Film 01</span></button>
+      <button class="film" data-v="https://patientsmirror.com/wp-content/uploads/2024/06/promo2.mp4"><span class="fr"><img src="img/film2.jpg" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>Play</span></span><span class="t">When patients become complacent</span><span class="s">Film 02</span></button>
+      <button class="film" data-v="https://patientsmirror.com/wp-content/uploads/2024/06/promo3.mp4"><span class="fr"><img src="img/film3.jpg" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>Play</span></span><span class="t">Being healthy is both physical and mental</span><span class="s">Film 03</span></button>
+      <button class="film" data-v="https://patientsmirror.com/wp-content/uploads/2024/06/promo4.mp4"><span class="fr"><img src="img/film4.jpg" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>Play</span></span><span class="t">Imagine a world where every patient…</span><span class="s">Film 04</span></button>
+      <button class="film" data-v="https://patientsmirror.com/wp-content/uploads/2024/06/promo5.mp4"><span class="fr"><img src="img/film5.jpg" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>Play</span></span><span class="t">You deserve more</span><span class="s">Film 05</span></button>
+      <button class="film" data-v="https://patientsmirror.com/wp-content/uploads/2024/08/PM-JoinUs.mp4"><span class="fr"><img src="img/care.jpg" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>Play</span></span><span class="t">Join us: transforming healthcare through storytelling</span><span class="s">Film 06</span></button>
+    </div>
+  </div>
+</section>
+
+<section id="what">
+  <div class="wrap">
+    <div class="eyebrow rv">What we do</div>
+    <h2 class="rv">Together with our partners, we create.</h2>
+    <div class="chap" id="chap">
+      <div class="ch open"><button aria-expanded="true"><span class="no">01</span><span class="nm">Patient-centred documentaries</span><span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="ans"><div><p>Patients at the forefront: their journeys, challenges and triumphs. It gives a voice to the people directly affected and builds empathy and understanding in everyone who watches.</p></div></div></div>
+      <div class="ch"><button aria-expanded="false"><span class="no">02</span><span class="nm">Caregiver support and recognition</span><span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="ans"><div><p>Caregivers play a vital role. Our films show their dedication and the emotional and physical challenges they face, validate other caregivers, and raise awareness of the support they need.</p></div></div></div>
+      <div class="ch"><button aria-expanded="false"><span class="no">03</span><span class="nm">Healthcare professional insights</span><span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="ans"><div><p>Films that bridge the gap between patients and the people who care for them. They demystify medical processes and treatments and show the innovations and challenges in healthcare.</p></div></div></div>
+      <div class="ch"><button aria-expanded="false"><span class="no">04</span><span class="nm">Educational outreach</span><span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="ans"><div><p>Rare disease, mental health, everyday wellness, breakthrough therapies or medical devices: every film is made to inform, so viewers can make better health choices.</p></div></div></div>
+      <div class="ch"><button aria-expanded="false"><span class="no">05</span><span class="nm">Outreach, advocacy and policy</span><span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="ans"><div><p>It's not just about making the film. It's about impact: sparking discussion and showing decision makers the real-world effect of healthcare policy on patients and providers.</p></div></div></div>
+      <div class="ch"><button aria-expanded="false"><span class="no">06</span><span class="nm">Cinematic production</span><span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="ans"><div><p>The latest documentary filmmaking technology, so every production is both informative and visually captivating, and reaches a wider audience.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="studio" id="sponsor">
+  <div class="wrap">
+    <div class="eyebrow rv">Sponsor a story, inspire a movement</div>
+    <h2 class="rv">Build your sponsorship brief<br>in about two minutes.</h2>
+    <p class="lead rv">Tell us who you are and what you want the film to do. Your brief builds as you go, and our team comes back with options for your project.</p>
+    <div class="st-grid">
+      <div class="steps" id="steps">
+        <div class="prog" id="prog"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="step on" data-s="0" data-key="org" data-multi="0"><span class="k">Step 1 of 6</span><h3>Who are you?</h3><p class="hint">Pick the one that fits best.</p>
+          <div class="opts two">
+            <button class="opt" data-v="Pharmaceutical company"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Pharmaceutical company</b></span></button>
+            <button class="opt" data-v="Foundation or charity"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Foundation or charity</b></span></button>
+            <button class="opt" data-v="Healthcare provider"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Healthcare provider</b><small>Hospital, clinic or health system</small></span></button>
+            <button class="opt" data-v="Philanthropist"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Philanthropist</b></span></button>
+            <button class="opt" data-v="Patient organization"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Patient organization</b></span></button>
+            <button class="opt" data-v="Medical device or health technology company"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Medical device or health tech</b></span></button>
+          </div></div>
+        <div class="step" data-s="1" data-key="way" data-multi="0"><span class="k">Step 2 of 6</span><h3>How would you like to partner?</h3><p class="hint">Our three sponsorship options.</p>
+          <div class="opts">
+            <button class="opt" data-v="Sponsor an upcoming documentary"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Sponsor an upcoming documentary</b><small>Join a production already in progress that matches your therapeutic area or mission.</small></span></button>
+            <button class="opt" data-v="Request a custom documentary"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Request a custom documentary</b><small>A specific disease, patient population or campaign, with full creative collaboration.</small></span></button>
+            <button class="opt" data-v="Co-branded campaign or screening event"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Co-branded campaign or screening event</b><small>Film premieres, panel discussions or impact campaigns.</small></span></button>
+            <button class="opt" data-v="Not sure yet"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Not sure yet</b><small>We'll suggest the best fit.</small></span></button>
+          </div></div>
+        <div class="step" data-s="2" data-key="focus" data-multi="1"><span class="k">Step 3 of 6</span><h3>What's the focus?</h3><p class="hint">Pick any that apply, or add your own.</p>
+          <div class="opts two">
+            <button class="opt" data-v="Rare disease"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Rare disease</b></span></button>
+            <button class="opt" data-v="Mental health"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Mental health</b></span></button>
+            <button class="opt" data-v="Chronic condition"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Chronic condition</b></span></button>
+            <button class="opt" data-v="Seniors and caregiving"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Seniors and caregiving</b></span></button>
+            <button class="opt" data-v="Therapies and medical devices"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Therapies and medical devices</b></span></button>
+            <button class="opt" data-v="Access and health policy"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Access and health policy</b></span></button>
+          </div>
+          <div class="field" style="margin-top:12px"><label for="area">Therapeutic area or condition (optional)</label><input id="area" placeholder="For example: cystic fibrosis"></div></div>
+        <div class="step" data-s="3" data-key="goal" data-multi="1"><span class="k">Step 4 of 6</span><h3>What should the film achieve?</h3><p class="hint">Pick any that apply.</p>
+          <div class="opts two">
+            <button class="opt" data-v="Raise awareness"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Raise awareness</b><small>Of a critical healthcare issue</small></span></button>
+            <button class="opt" data-v="Build emotional connection"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Emotional connection</b><small>Between patients, providers and the public</small></span></button>
+            <button class="opt" data-v="Advocacy and policy change"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Advocacy</b><small>Drive real-world change in policy and care</small></span></button>
+            <button class="opt" data-v="Community engagement"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Community engagement</b><small>Around your organization's values</small></span></button>
+            <button class="opt" data-v="Educate healthcare professionals"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Educate professionals</b><small>Medical and patient communities</small></span></button>
+            <button class="opt" data-v="Support fundraising"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Support fundraising</b><small>For research or patient programs</small></span></button>
+          </div></div>
+        <div class="step" data-s="4" data-key="extras" data-multi="1"><span class="k">Step 5 of 6</span><h3>What would you like with it?</h3><p class="hint">Optional. Pick anything that would help.</p>
+          <div class="opts two">
+            <button class="opt" data-v="Short cut-downs for social media"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Short cut-downs for social</b></span></button>
+            <button class="opt" data-v="Premiere screening"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Premiere screening</b></span></button>
+            <button class="opt" data-v="Panel discussion"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Panel discussion</b></span></button>
+            <button class="opt" data-v="Version for professional education"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Version for professional education</b></span></button>
+            <button class="opt" data-v="Impact campaign"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Impact campaign</b></span></button>
+            <button class="opt" data-v="French version"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span><b>French version</b></span></button>
+          </div></div>
+        <div class="step" data-s="5" data-key="contact"><span class="k">Step 6 of 6</span><h3>Where should we send options?</h3><p class="hint">We'll reply with next steps for your brief.</p>
+          <div class="field"><label for="when">Timing</label><select id="when"><option value="">Choose one</option><option>Within 3 months</option><option>3 to 6 months</option><option>6 to 12 months</option><option>Just exploring</option></select></div>
+          <div class="opts two"><div class="field"><label for="nm">Your name</label><input id="nm" autocomplete="name"></div><div class="field"><label for="og">Organization</label><input id="og" autocomplete="organization"></div></div>
+          <div class="field"><label for="em">Email</label><input id="em" type="email" autocomplete="email"></div>
+          <div class="field"><label for="ms">Anything else? (optional)</label><textarea id="ms"></textarea></div>
+          <div class="done" id="done"><h3>Thank you. Your brief is ready.</h3><p class="hint">Preview only: this form isn't connected yet. <span class="ph-tag">Placeholder</span> It will email the brief to hello@patientsmirror.com.</p></div>
+        </div>
+        <div class="nav-row"><button class="btn l" id="back" style="visibility:hidden">Back</button><button class="btn n" id="next">Next</button></div>
+      </div>
+      <aside class="brief" id="brief" aria-live="polite">
+        <span class="k">Your brief</span><h3>Sponsorship brief</h3>
+        <dl>
+          <div><dt>Organization</dt><dd data-b="org" class="empty">Not chosen yet</dd></div>
+          <div><dt>Partnership</dt><dd data-b="way" class="empty">Not chosen yet</dd></div>
+          <div><dt>Focus</dt><dd data-b="focus" class="empty">Not chosen yet</dd></div>
+          <div><dt>Goals</dt><dd data-b="goal" class="empty">Not chosen yet</dd></div>
+          <div><dt>Extras</dt><dd data-b="extras" class="empty">Optional</dd></div>
+          <div><dt>Timing</dt><dd data-b="when" class="empty">Not chosen yet</dd></div>
+        </dl>
+        <p class="note">Investment is confirmed by our team after a short call. <span class="ph-tag">Placeholder</span> Sponsorship packages and starting prices to be supplied by Patients' Mirror.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="wrap">
+    <div class="eyebrow rv">Share your story</div>
+    <h2 class="rv">Your privacy comes first,<br>at every step.</h2>
+    <p class="lead rv">Thinking about taking part in a documentary? Here's exactly what happens. You stay in control, and you can stop at any point.</p>
+    <div class="story-grid">
+      <ol class="path">
+        <li class="rv"><b>Tell us you're interested</b><p>Just your name and phone number. Please don't share any medical details yet.</p></li>
+        <li class="rv"><b>A first phone conversation</b><p>We call you to understand your interest and see whether it's the right fit.</p></li>
+        <li class="rv"><b>Consent, in writing</b><p>If we both want to go ahead, you complete a patient information consent release form that protects your privacy and rights.</p></li>
+        <li class="rv"><b>A full interview</b><p>A detailed online interview about life with your condition: the highs, the lows and your hopes.</p></li>
+        <li class="rv"><b>Your information, removed if we stop</b><p>If either of us decides not to go ahead, all your contact information is removed from our records.</p></li>
+      </ol>
+      <form class="sform rv" id="sform" onsubmit="return false">
+        <div class="warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/></svg><span>Name and phone number only, please. No medical or personal details at this stage.</span></div>
+        <div class="field"><label for="sn">Your name</label><input id="sn" autocomplete="name" required></div>
+        <div class="field"><label for="sp">Phone number</label><input id="sp" type="tel" autocomplete="tel" required></div>
+        <div class="field"><label for="sw">I am a</label><select id="sw"><option>Patient</option><option>Caregiver or family member</option><option>Healthcare professional</option></select></div>
+        <button class="btn n" style="width:100%" id="sgo">I'm interested</button>
+        <p class="hint" id="sdone" style="display:none;margin-top:12px;color:var(--ash);font-size:14px">Thank you. Preview only: this form isn't connected yet. <span class="ph-tag">Placeholder</span></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="journal" id="journal">
+  <div class="wrap">
+    <div class="eyebrow rv">Journal</div>
+    <h2 class="rv">Better healthcare, medicine.<br>It's tomorrow.</h2>
+    <a class="post rv" href="https://patientsmirror.com/bridging-the-gap-a-patients-perspective-on-canadas-health-care-promise/" target="_blank" rel="noopener"><img src="img/care.jpg" alt="" loading="lazy"><div class="bd"><span class="by">Debra Workman · October 7, 2024</span><h3>Bridging the gap: a patient's perspective on Canada's health care promise</h3><p>A promise was made to Canadians over fifty years ago, the cornerstone of universal health care: that no one would have to go without.</p><span class="btn l" style="align-self:flex-start">Read the article</span></div></a>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="band rv">
+      <div><h2>Transforming healthcare through storytelling.</h2><p>Empower patients, support caregivers, educate the public and influence healthcare policy. Partner with us to make a real difference.</p></div>
+      <div class="ctas"><a class="btn g" href="#sponsor">Sponsor a story</a><a class="btn o" href="tel:+14166191116">Call 416-619-1116</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div><a class="brand" href="#top" style="margin-bottom:16px"><img src="img/mark-white.svg" alt=""><div><b>Patients' Mirror</b><small>Stories that heal</small></div></a><p style="max-width:34ch">Together, we can change how the world sees healthcare, one story at a time.</p></div>
+      <div><h4>Office</h4><p>192 Spadina Ave, Suite 300<br>Toronto, ON M5T 2C2</p><p style="margin-top:8px">Weekdays, 9 a.m. to 8 p.m. ET</p></div>
+      <div><h4>Contact</h4><a href="tel:+14166191116">416-619-1116</a><a href="mailto:hello@patientsmirror.com">hello@patientsmirror.com</a></div>
+      <div><h4>Follow</h4><div class="soc">
+        <a href="https://www.youtube.com/@PatientsMirror" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.8 3.1z"/></svg></a>
+        <a href="https://www.instagram.com/patientsmirror/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.linkedin.com/company/patientsmirror" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4v11H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6v5.4h-4v-4.8c0-1.1 0-2.6-1.6-2.6s-1.9 1.3-1.9 2.5v4.9h-4z"/></svg></a>
+        <a href="https://www.facebook.com/patientsmirror" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v8h4v-8h3l.5-4h-3.5V8.8c0-.5.3-.8.5-.8z"/></svg></a>
+        <a href="https://www.tiktok.com/@patientsmirror" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.4v13.4a2.9 2.9 0 1 1-2-2.8V9.2a6.3 6.3 0 1 0 5.4 6.2V8.6a7.9 7.9 0 0 0 4.4 1.4V6.6a4.5 4.5 0 0 1-4.4-4.6z"/></svg></a>
+      </div></div>
+    </div>
+    <div class="fine"><span>© 2026 Patients' Mirror. All rights reserved.</span><span>Preview draft for review</span></div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-label="Film player"><button class="menu-btn x" id="lbx" aria-label="Close film"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button><video id="lbv" controls playsinline preload="none"></video></div>
+
+<button class="tour-btn" type="button" id="tour-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>See what's new</button>
+<div class="tour" id="tour" role="dialog" aria-label="Tour of the new website"><span class="n" id="tr-n"></span><span class="why" id="tr-w"></span><h4 id="tr-h"></h4><p id="tr-p"></p><div class="bar"><i id="tr-bar"></i></div><div class="row"><button type="button" id="tr-pause">Pause</button><button type="button" class="go" id="tr-next">Next</button><button type="button" id="tr-x">Close</button></div></div>
+
+<script>
+(function(){
+  var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // header
+  var hd=$('#hd');function hs(){hd.classList.toggle('solid',window.scrollY>40)}window.addEventListener('scroll',hs,{passive:true});hs();
+  var dr=$('#drawer');function setMenu(o){dr.classList.toggle('on',o);dr.setAttribute('aria-hidden',!o)}
+  $('#mb').onclick=function(){setMenu(true)};$('#mx').onclick=function(){setMenu(false)};$$('#drawer a').forEach(function(a){a.onclick=function(){setMenu(false)}});
+  // hero images
+  var figs=$$('#heroimg figure'),ticks=$$('#ticks button'),caps=["A patient's journey: listen","I'm alive, and once was you","Schizophrenia: see it inside my head"],hi=0,ht;
+  function show(i){figs[hi].classList.remove('on');ticks[hi].classList.remove('on');hi=i;figs[hi].classList.add('on');ticks[hi].classList.add('on');$('#capt').textContent=caps[hi]}
+  function auto(){clearInterval(ht);ht=setInterval(function(){show((hi+1)%figs.length)},6000)}
+  ticks.forEach(function(b,i){b.onclick=function(){show(i);auto()}});auto();
+  // rotating headline
+  var words=['ignored.','marginalized.','forgotten.','unseen.'],wi=0,el=$('#rot');
+  function typeTo(w,cb){var cur=el.textContent;var del=setInterval(function(){cur=cur.slice(0,-1);el.textContent=cur;if(!cur){clearInterval(del);var k=0;var add=setInterval(function(){k++;el.textContent=w.slice(0,k);if(k>=w.length){clearInterval(add);cb&&cb()}},70)}},35)}
+  if(!reduce)setInterval(function(){wi=(wi+1)%words.length;typeTo(words[wi])},3200);
+  // manifesto words
+  var q=$('#q');if(q){var hiW=['listeners.','like','you:','story.'];q.innerHTML=q.textContent.split(' ').map(function(w){return '<span class="w'+(hiW.indexOf(w)>-1?' hi':'')+'">'+w+'</span>'}).join(' ');var ws=$$('.w',q);
+    function lit(){var r=q.getBoundingClientRect(),vh=window.innerHeight,p=(vh*.85-r.top)/(r.height+vh*.35);var n=Math.round(Math.max(0,Math.min(1,p))*ws.length);ws.forEach(function(w,i){w.classList.toggle('lit',i<n)})}
+    if(reduce)ws.forEach(function(w){w.classList.add('lit')});else{window.addEventListener('scroll',lit,{passive:true});lit()}}
+  // reveal
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});$$('.rv').forEach(function(r){io.observe(r)})}else $$('.rv').forEach(function(r){r.classList.add('in')});
+  // films
+  var reel=$('#reel');$('#rn').onclick=function(){reel.scrollBy({left:reel.clientWidth*.8,behavior:'smooth'})};$('#rp').onclick=function(){reel.scrollBy({left:-reel.clientWidth*.8,behavior:'smooth'})};
+  var lb=$('#lb'),lv=$('#lbv');function closeLb(){lv.pause();lv.removeAttribute('src');lv.load();lb.classList.remove('on')}
+  $$('.film').forEach(function(f){f.onclick=function(){lv.src=f.dataset.v;lb.classList.add('on');lv.play().catch(function(){})}});$('#lbx').onclick=closeLb;lb.onclick=function(e){if(e.target===lb)closeLb()};
+  // chapters
+  $$('.ch button').forEach(function(b){b.onclick=function(){var c=b.parentNode,o=!c.classList.contains('open');c.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}});
+  // sponsor studio
+  var steps=$$('.step'),si=0,data={org:[],way:[],focus:[],goal:[],extras:[]};
+  function paint(){Object.keys(data).forEach(function(k){var dd=$('[data-b="'+k+'"]');var v=data[k].slice();if(k==='focus'&&$('#area').value.trim())v.push($('#area').value.trim());dd.textContent=v.length?v.join(', '):(k==='extras'?'Optional':'Not chosen yet');dd.classList.toggle('empty',!v.length)});
+    var w=$('#when').value,d=$('[data-b="when"]');d.textContent=w||'Not chosen yet';d.classList.toggle('empty',!w)}
+  $$('.step .opt').forEach(function(o){o.setAttribute('aria-pressed','false');o.onclick=function(){var st=o.closest('.step'),k=st.dataset.key,multi=st.dataset.multi==='1';
+    if(!multi){$$('.opt',st).forEach(function(x){x.setAttribute('aria-pressed','false')});o.setAttribute('aria-pressed','true');data[k]=[o.dataset.v];paint();setTimeout(function(){go(si+1)},280)}
+    else{var on=o.getAttribute('aria-pressed')!=='true';o.setAttribute('aria-pressed',on);var a=data[k];if(on)a.push(o.dataset.v);else a.splice(a.indexOf(o.dataset.v),1);paint()}}});
+  $('#area').oninput=paint;$('#when').onchange=paint;
+  var prog=$$('#prog i');
+  function go(i){if(i<0||i>=steps.length)return;steps[si].classList.remove('on');si=i;steps[si].classList.add('on');prog.forEach(function(p,j){p.classList.toggle('on',j<=si)});$('#back').style.visibility=si?'visible':'hidden';$('#next').textContent=si===steps.length-1?'Send my brief':'Next'}
+  $('#next').onclick=function(){if(si===steps.length-1){$('#done').classList.add('on');$('#next').textContent='Brief ready';return}go(si+1)};$('#back').onclick=function(){go(si-1)};
+  $('#sgo').onclick=function(){var f=$('#sform');if(f.reportValidity()){$('#sdone').style.display='block'}};
+  // tour
+  var T=[
+    ['#hero','A cinematic first impression','New','The old homepage was a slider with cut-off text. Now their own portraits change every few seconds, the headline types out the problem they solve, and two clear buttons split visitors: sponsors and patients.'],
+    ['#doors','Three doors, three audiences','Why','Patients, sponsors and healthcare professionals each want something different. Each now gets a door that takes them straight to the right place, instead of one long page.'],
+    ['#why','Their own words, front and centre','Why','Their "who we are" statement was buried in small italics. Now it lights up word by word as you scroll, so the human side of the company lands.'],
+    ['#films','Films you can actually watch','New','Their videos were background loops nobody could play. Now every film plays right on the page, with a real play button, so sponsors see the quality of the work in seconds.'],
+    ['#what','What they do, in six chapters','Why','Six long paragraphs became six tappable chapters. Easy to scan on a phone, nothing lost.'],
+    ['#sponsor','Sponsor brief builder','Revenue','This is the money page. Sponsorship used to live on a separate page with a generic form. Now a sponsor builds a scoped brief in six taps: who they are, how they want to partner, focus, goals and extras. Patients\' Mirror gets a qualified lead, not a vague email.'],
+    ['#sponsor','Upsells built into the brief','Revenue','Step 5 offers add-ons the old site only hinted at: social cut-downs, premiere screenings, panel discussions, a professional education version, impact campaigns and a French version. Each one is a chance to grow the size of a sponsorship.'],
+    ['#story','A safe way for patients to come forward','Why','The old sign-up form asked for a full home address. Their own privacy rules say name and phone only. Now the form matches, and the five steps show patients exactly what happens next. More trust, more stories, more films to sponsor.'],
+    ['#contact','Every page ends with an ask','Revenue','A closing banner sends sponsors back to the brief builder, with a tap-to-call number for anyone ready to talk now.']
+  ];
+  var tr=$('#tour'),ti=-1,tp=false,tt0=0,TD=7500,hl=null,trun=false;
+  function tgo(i){if(hl)hl.classList.remove('tour-hl');ti=i;if(ti>=T.length){tstop();return}var t=T[ti],e=$(t[0]);
+    $('#tr-n').textContent='What\'s new · '+(ti+1)+' of '+T.length;$('#tr-w').textContent=t[2];$('#tr-h').textContent=t[1];$('#tr-p').textContent=t[3];
+    if(e){var y=e.getBoundingClientRect().top+window.scrollY-80;window.scrollTo({top:Math.max(0,y),behavior:reduce?'auto':'smooth'});hl=e;e.classList.add('tour-hl')}
+    tt0=0;$('#tr-bar').style.width='0';$('#tr-next').textContent=ti===T.length-1?'Finish':'Next'}
+  function tframe(now){if(!trun)return;if(!tp){if(!tt0)tt0=now;var p=(now-tt0)/TD;$('#tr-bar').style.width=Math.min(100,p*100)+'%';if(p>=1)tgo(ti+1)}requestAnimationFrame(tframe)}
+  function tstart(){trun=true;tp=false;$('#tr-pause').textContent='Pause';tr.classList.add('on');$('#tour-btn').style.display='none';tgo(0);requestAnimationFrame(tframe)}
+  function tstop(){trun=false;if(hl)hl.classList.remove('tour-hl');tr.classList.remove('on');$('#tour-btn').style.display=''}
+  $('#tour-btn').onclick=tstart;$('#tr-next').onclick=function(){tgo(ti+1)};$('#tr-x').onclick=tstop;
+  $('#tr-pause').onclick=function(){tp=!tp;this.textContent=tp?'Play':'Pause';tt0=0};
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeLb();setMenu(false);tstop()}});
+  if(/[?&]tour=1/.test(location.search))setTimeout(tstart,900);
+})();
+</script>
+</body>
+</html>
