@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Twisted Frame: what we changed</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/mark-current.png">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Manrope:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#08090B;--ink2:#0F1114;--gold:#D6B25E;--gold2:#F0D79A;--chrome:#E9EBEE;--mute:#9AA1AB;--line:#ffffff1f}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ink);color:var(--chrome);font:16px/1.6 'Manrope',sans-serif}
+.wrap{width:min(1180px,100% - 32px);margin:auto}
+.k{font:500 11.5px 'JetBrains Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+h1,h2{font-family:Archivo;font-weight:900;font-stretch:118%;text-transform:uppercase;line-height:.95}
+h1{font-size:clamp(42px,7vw,96px);margin:14px 0 18px}
+h2{font-size:clamp(30px,4.4vw,56px);margin:12px 0 22px}
+h3{font-family:Archivo;font-weight:800;font-stretch:108%;text-transform:uppercase;font-size:20px;line-height:1.1;margin-bottom:6px}
+p{color:#ffffffc8}
+section{padding:80px 0;border-top:1px solid var(--line)}
+header{padding:60px 0 50px}
+.btns{display:flex;flex-wrap:wrap;gap:14px 28px;margin-top:26px;align-items:center}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 34px 0 20px;background:var(--gold);color:var(--ink);font:700 12.5px 'Manrope';letter-spacing:.14em;text-transform:uppercase;text-decoration:none;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%)}
+.tl{display:inline-flex;align-items:center;min-height:48px;color:var(--chrome);font:600 12.5px 'Manrope';letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid #fff5}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ba figure{border:1px solid var(--line);background:var(--ink2)}
+.ba figcaption{padding:12px 14px;font:500 11.5px 'JetBrains Mono';letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.ba figcaption b{color:var(--gold);font-weight:500}
+.ba img{width:100%;display:block}
+.phones{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:14px 12px 14px 0;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:500 11px 'JetBrains Mono';letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+td b{color:#fff}
+.tw{overflow-x:auto}
+.list{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line)}
+.it{padding:22px 22px 22px 0;border-bottom:1px solid var(--line)}
+.it .was{font-size:14.5px;color:var(--mute)}
+.it .now{font-size:15px;margin-top:4px}
+.it .why{font-size:14.5px;color:var(--gold2);margin-top:6px}
+.rev{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rv{border:1px solid var(--line);padding:22px;background:var(--ink2)}
+.rv .n{font:500 12px 'JetBrains Mono';color:var(--gold)}
+.rv p{font-size:15px;margin-top:6px}
+.rv .why{color:#9FE3B8;font-size:14px;margin-top:10px}
+.need li{margin:8px 0 8px 20px;color:#ffffffd0}
+.src{font-size:13px;color:var(--mute);margin-top:18px}.src a{color:var(--mute)}
+.tbc{background:#F6E7B8;color:#5b4510;font:600 11px 'JetBrains Mono';padding:2px 6px;text-transform:uppercase}
+@media(max-width:800px){table,tbody,tr,td{display:block}tr:first-child{display:none}tr{border-bottom:1px solid var(--line);padding:14px 0}td{border:0;padding:2px 0}td:nth-child(2){font:500 11px 'JetBrains Mono';letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}td:nth-child(4){color:#9FE3B8}td:nth-child(4):before{content:'Edge: '}.ba,.list,.rev{grid-template-columns:1fr}.phones{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="wrap">
+ <span class="k">Twisted Frame · concept by Chairlift</span>
+ <h1>What we changed, and why.</h1>
+ <p style="max-width:62ch">We kept everything that makes Twisted Frame credible: the work, the clients, the awards, the people who vouch for you, and the logo's twisted film strip. Then we rebuilt how it is shown, and added two new ways for the site to bring in business.</p>
+ <div class="btns"><a class="btn" href="./?tour=1">Take the guided tour</a><a class="tl" href="./">Open the new site</a><a class="tl" href="logo-options.html">See the logo refresh</a></div>
+</header>
+
+<section>
+ <div class="wrap">
+  <span class="k">Before and after</span>
+  <h2>First impression</h2>
+  <div class="ba">
+   <figure><img src="img/compare/old-desk.jpg" alt="Current twistedframe.ca home page" loading="lazy"><figcaption><b>Now</b> · twistedframe.ca</figcaption></figure>
+   <figure><img src="img/compare/new-desk.jpg" alt="New concept home page" loading="lazy"><figcaption><b>New</b> · concept</figcaption></figure>
+  </div>
+  <div class="phones">
+   <figure class="ba" style="display:block"><figure><img src="img/compare/old-phone.jpg" alt="Current site on a phone" loading="lazy"><figcaption><b>Now</b> · phone</figcaption></figure></figure>
+   <figure class="ba" style="display:block"><figure><img src="img/compare/new-phone.jpg" alt="New site on a phone" loading="lazy"><figcaption><b>New</b> · phone</figcaption></figure></figure>
+   <figure class="ba" style="display:block"><figure><img src="img/compare/old-quote-phone.jpg" alt="Current site: framed award photos and call buttons" loading="lazy"><figcaption><b>Now</b> · "Get a quote"</figcaption></figure></figure>
+   <figure class="ba" style="display:block"><figure><img src="img/compare/new-quote-phone.jpg" alt="New build-your-quote tool" loading="lazy"><figcaption><b>New</b> · build your quote</figcaption></figure></figure>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap">
+  <span class="k">Competitor set</span>
+  <h2>Who buyers compare you with</h2>
+  <p style="max-width:66ch;margin-bottom:24px">Twisted Frame competes in two markets at once: Toronto healthcare and medical video, and Toronto corporate video. Directory listings already name Twisted Frame among Toronto healthcare studios.</p>
+  <div class="tw"><table>
+   <tr><th>Studio</th><th>Market</th><th>What stands out</th><th>Where Twisted Frame can win</th></tr>
+   <tr><td><b>AXS Studio</b></td><td>Healthcare</td><td>3D medical animation, with medical writers and illustrators in-house</td><td>Live-action and animation under one roof</td></tr>
+   <tr><td><b>Hatch Studios</b></td><td>Healthcare</td><td>Healthcare video and animation, patient education, training</td><td>Award list and pharma client logos up front</td></tr>
+   <tr><td><b>Reel Vision Studios</b></td><td>Healthcare</td><td>Pharmaceutical, medical and dental video</td><td>Broader range: VFX, broadcast and interactive</td></tr>
+   <tr><td><b>VCM Interactive</b></td><td>Healthcare</td><td>Full-service, healthcare focus, publishes a pricing page</td><td>A self-serve brief and clear packages close the gap</td></tr>
+   <tr><td><b>F. Learning Studio</b></td><td>Healthcare</td><td>Surgery, nurse training and pharma animation</td><td>Real surgery and clinical shoots in the portfolio</td></tr>
+   <tr><td><b>Key West Video</b></td><td>Corporate</td><td>Long-established Toronto corporate video producer</td><td>Visual polish and VFX that corporate shops rarely show</td></tr>
+   <tr><td><b>Signature Video Group</b></td><td>Corporate</td><td>Strong review volume on Clutch</td><td>Healthcare depth no generalist can match</td></tr>
+   <tr><td><b>Origin Films</b></td><td>Corporate</td><td>Highly reviewed Toronto corporate video firm</td><td>Animation, motion and 3D in-house</td></tr>
+  </table></div>
+  <p class="src">Sources: <a href="https://hatchstudios.com/best-medical-animation-studios-in-toronto/">Hatch Studios list</a> · <a href="https://flearningstudio.com/healthcare-animation-toronto">F. Learning Studio list</a> · <a href="https://www.designrush.com/agency/profile/axs-studio">DesignRush: AXS Studio</a> · <a href="https://clutch.co/ca/agencies/video-production/corporate-video/toronto">Clutch: Toronto corporate video</a> · <a href="https://azurodigital.com/video-production-toronto/">Azuro Digital comparison</a> · <a href="https://www.vcminteractive.com/pricing/">VCM Interactive pricing</a>. Checked 2026-11-11.</p>
+ </div>
+</section>
+
+<section>
+ <div class="wrap">
+  <span class="k">How we elevated it</span>
+  <h2>Ten changes</h2>
+  <div class="list">
+   <div class="it"><h3>Loading screen</h3><p class="was">Was: none.</p><p class="now">Now: a three-second film-leader countdown that lands on the logo.</p><p class="why">Why: it says "film studio" before a word is read.</p></div>
+   <div class="it"><h3>Hero</h3><p class="was">Was: blurred stock texture, generic headline.</p><p class="now">Now: three strips of their real work, under "We twist and tailor every frame."</p><p class="why">Why: the work is the proof. Show it first.</p></div>
+   <div class="it"><h3>One clear action</h3><p class="was">Was: Start a conversation, Call now, Get a quote, Contact us.</p><p class="now">Now: Build your quote, everywhere, including a phone bar.</p><p class="why">Why: one ask converts better than four.</p></div>
+   <div class="it"><h3>Two doors</h3><p class="was">Was: healthcare hidden on its own page.</p><p class="now">Now: Healthcare and Brands side by side on the home page.</p><p class="why">Why: each buyer sees their proof in one tap.</p></div>
+   <div class="it"><h3>Work that plays</h3><p class="was">Was: 61 thumbnails, each opening a new page.</p><p class="now">Now: the best 30, filtered, playing in place.</p><p class="why">Why: more people watch, fewer leave.</p></div>
+   <div class="it"><h3>Services</h3><p class="was">Was: five long pages repeating the same lines.</p><p class="now">Now: one list in their words, with a frame from real work.</p><p class="why">Why: easier to scan on a phone.</p></div>
+   <div class="it"><h3>Awards</h3><p class="was">Was: photos of certificates in wooden frames.</p><p class="now">Now: a clean list of all eight.</p><p class="why">Why: confident, and readable at any size.</p></div>
+   <div class="it"><h3>Testimonials</h3><p class="was">Was: three long quotes in a slider.</p><p class="now">Now: the same three, trimmed to the line that sells, all visible.</p><p class="why">Why: nothing invented, more of it read.</p></div>
+   <div class="it"><h3>Look and type</h3><p class="was">Was: stock theme, cyan buttons that are not in the logo.</p><p class="now">Now: chrome and gold taken from their logo, wide block headlines.</p><p class="why">Why: the site finally matches the brand.</p></div>
+   <div class="it"><h3>Logo</h3><p class="was">Was: 3D chrome bevel that blurs when small.</p><p class="now">Now: three flat refreshes of the same twisted strip to choose from.</p><p class="why">Why: crisp everywhere, still recognisably theirs.</p></div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap">
+  <span class="k">Revenue opportunities</span>
+  <h2>New ways to win work</h2>
+  <div class="rev">
+   <div class="rv"><span class="n">01</span><h3>Build your quote</h3><p>Seven quick steps: what they are making, existing branding vs a refresh vs a new look, audience and review, deliverables and languages, production, timing and budget. A live brief builds as they go.</p><p class="why">Faster quotes, better-qualified leads, and the producer starts the first call already knowing the scope.</p></div>
+   <div class="rv"><span class="n">02</span><h3>Packages</h3><p>Healthcare Launch kit, Always-on monthly content, Footage re-cut and Brand in motion. Each opens the quote tool pre-filled.</p><p class="why">Monthly content adds recurring income. Re-cuts sell new work from footage clients already own.</p></div>
+   <div class="rv"><span class="n">03</span><h3>Upsells inside the brief</h3><p>Cut-downs, vertical formats, French versions, captions, scriptwriting, voice-over and brand refresh are asked about up front.</p><p class="why">Add-ons get scoped into the first quote instead of being forgotten.</p></div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap">
+  <span class="k">What we need from Twisted Frame</span>
+  <h2>To go live</h2>
+  <ul class="need">
+   <li>Package prices or "starting from" figures <span class="tbc">to confirm</span></li>
+   <li>Whether to show an estimate range in the quote tool, or keep it to a brief</li>
+   <li>Logo choice: A, B or C</li>
+   <li>Where briefs should land (email, CRM or calendar booking)</li>
+   <li>Any newer work to add to the reel</li>
+  </ul>
+ </div>
+</section>
+</body>
+</html>
