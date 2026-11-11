@@ -26,7 +26,9 @@ body{background:var(--ink);color:#fff;font:400 15px/1.45 var(--f);display:grid;g
 button,input,select{font:inherit;color:inherit}
 button{background:none;border:0;cursor:pointer}
 .top{display:flex;align-items:center;gap:16px;padding:10px 16px;background:var(--ink);border-bottom:1px solid rgba(255,255,255,.1);min-height:64px}
-.top img{height:40px;width:auto}
+.top img{height:46px;width:auto}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.top h1 small{margin-top:0}
 .top h1{font:900 18px/1 var(--f);text-transform:uppercase;letter-spacing:-.01em}
 .top h1 small{display:block;font:600 11px var(--f);letter-spacing:.18em;color:var(--gold);margin-top:4px}
 .top .sp{flex:1}
@@ -83,12 +85,18 @@ button{background:none;border:0;cursor:pointer}
 .dlg .row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
 .dlg .tb{color:var(--ink);border-color:var(--ivory2)}
 .dlg .tb.gold{color:var(--ink)}
+.vrow{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center;text-align:left;background:var(--ivory);padding:8px;border-radius:3px;min-height:76px;color:var(--ink);border:1.5px solid transparent}
+.vrow:hover{border-color:var(--gold2)}
+.vrow img{width:96px;height:64px;object-fit:contain;background:#fff}
+.vrow b{display:block;font:800 15px/1.15 var(--f)}
+.vrow span{display:block;font-size:13px;color:var(--mute);line-height:1.3}
+.vrow small{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold2)}
 .steps{margin:0 0 12px 20px;color:var(--ink);font-size:14.5px;display:grid;gap:6px}
 .mtabs{display:none}
 .short{display:none}
 @media (display-mode:standalone){#instB{display:none}.top{padding-top:calc(10px + env(safe-area-inset-top))}}
 @media (max-width:980px){
-  .top{gap:8px;padding:8px 10px;min-height:60px}.top img{height:30px}.top h1{font-size:14px}.top h1 small,.top .lbl,.top .sp{display:none}.top h1{flex:1}
+  .top{gap:8px;padding:8px 10px;min-height:60px}.top img{height:40px}.top h1{font-size:14px}.top h1 small,.top .lbl,.top .sp{display:none}.top h1{flex:1}
   .top .tb{padding:0 10px;font-size:11px;letter-spacing:.06em}.top .tb .short{display:inline}.top .tb .long{display:none}
   .app{display:block;min-height:0;padding-bottom:calc(56px + env(safe-area-inset-bottom))}
   .it{touch-action:auto}
@@ -105,11 +113,12 @@ button{background:none;border:0;cursor:pointer}
 </head>
 <body>
 <header class="top">
-  <a href="../" aria-label="Back to Divine Furniture Rental"><img src="../img/logo-gold.png" alt="Divine Furniture Rental" width="668" height="236"></a>
-  <h1>Divine Design<small>Lay out your event to scale</small></h1>
+  <a href="../" aria-label="Back to Divine Furniture Rental"><img src="divine-design-logo.png?v=1" alt="Divine Design" width="656" height="257"></a>
+  <h1><span class="vh">Divine Design</span><small>Lay out your event to scale</small></h1>
   <span class="sp"></span>
   <label class="tb" for="upl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"/></svg><span class="long">Upload a floor plan</span><span class="short">Plan</span></label>
   <input type="file" id="upl" accept="image/*,application/pdf" hidden>
+  <button class="tb" id="venB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg><span>Venues</span></button>
   <button class="tb" id="scaleBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 17l14-14 4 4L7 21z"/><path d="M8 8l2 2M11 5l2 2M5 11l2 2"/></svg><span class="lbl">Set scale</span></button>
   <button class="tb gold" id="instB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 10l6 6 6-6M4 20h16"/></svg><span class="long">Get the app</span><span class="short">App</span></button>
   <a class="tb lbl" href="../">Divine site</a>
@@ -164,6 +173,13 @@ button{background:none;border:0;cursor:pointer}
   <p id="dlgP">How long is the line you just drew, in feet?</p>
   <input id="dlgI" type="number" min="1" step="0.5" inputmode="decimal" placeholder="For example, 40">
   <div class="row"><button class="tb gold" id="dlgOk">Set scale</button><button class="tb" id="dlgX">Cancel</button></div>
+</div></div>
+<div class="dlg" id="ven"><div class="bx" style="max-width:620px;max-height:86vh;display:flex;flex-direction:column">
+  <h4>Choose a venue</h4>
+  <input id="venQ" type="search" placeholder="Search venue, room or city" style="margin-bottom:12px">
+  <div id="venL" style="overflow:auto;display:grid;gap:8px;flex:1;min-height:0"></div>
+  <p style="font-size:12.5px;margin:12px 0 0">Plans are the ones each venue publishes for planners. Confirm the current layout with the venue before you finalize.</p>
+  <div class="row"><button class="tb" id="venX">Close</button></div>
 </div></div>
 <div class="dlg" id="inst"><div class="bx">
   <h4>Get Divine Design on your phone</h4>
@@ -395,7 +411,7 @@ $('#upl').onchange=function(){var f=this.files[0];if(!f)return;
 var imgPx={w:0,h:0};
 function loadPlan(url,w,h){S.plan=url;imgPx={w:w,h:h};S.ftPerPx=100/w;S.pw=100;S.ph=h*S.ftPerPx;S.ftPerPx=null;drawPlan();fit();render();startScale();}
 var scaling=false,scaleA=null;
-function startScale(){scaling=true;scaleA=null;cv.classList.add('scaling');msg('Set the scale: tap the two ends of a wall or door you know the length of.')}
+function startScale(){scaling=true;scaleA=null;cv.classList.add('scaling');msg('Set the scale: tap the two ends of the scale bar, or of a wall you know the length of.')}
 $('#scaleBtn').onclick=startScale;
 function drawScaleLine(a,b){scaleG.innerHTML='';var sw=VB.w/300;el('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,stroke:'#A8873A','stroke-width':sw*2},scaleG);[a,b].forEach(function(q){el('circle',{cx:q.x,cy:q.y,r:sw*4,fill:'#A8873A'},scaleG)})}
 var scaleB=null;
@@ -437,6 +453,15 @@ function closeSheets(){$('#pal').classList.remove('on');$('#side').classList.rem
 $('#mPal').onclick=function(){var on=!$('#pal').classList.contains('on');closeSheets();if(on){$('#pal').classList.add('on');this.classList.add('on')}};
 $('#mSide').onclick=function(){var on=!$('#side').classList.contains('on');closeSheets();if(on){$('#side').classList.add('on');this.classList.add('on')}};
 
+/* ---------- venues ---------- */
+var VEN=[{"id": "mtcc-north-300", "n": "Metro Toronto Convention Centre", "r": "North Building, Level 300: Exhibit Halls A, B, C", "c": "Toronto, ON", "w": 1828, "h": 676}, {"id": "mtcc-south-800", "n": "Metro Toronto Convention Centre", "r": "South Building, Level 800: Exhibit Halls D, E, F, G", "c": "Toronto, ON", "w": 1056, "h": 1045}, {"id": "mtcc-south-700", "n": "Metro Toronto Convention Centre", "r": "South Building, Level 700: meeting rooms", "c": "Toronto, ON", "w": 1310, "h": 931}, {"id": "tcc-north", "n": "Toronto Congress Centre", "r": "North Building: Halls H, I, J and ballroom", "c": "Toronto, ON", "w": 2400, "h": 1553}, {"id": "tcc-south", "n": "Toronto Congress Centre", "r": "South Building: Halls A to G", "c": "Toronto, ON", "w": 2400, "h": 1553}, {"id": "beanfield-main", "n": "Beanfield Centre", "r": "Main floor: Ballrooms A to D", "c": "Toronto, ON", "w": 1144, "h": 811}, {"id": "beanfield-second", "n": "Beanfield Centre", "r": "Second floor: meeting rooms", "c": "Toronto, ON", "w": 1144, "h": 769}, {"id": "liberty-grand", "n": "Liberty Grand", "r": "Full venue: Governor's, Renaissance, Centennial and Artifacts rooms", "c": "Toronto, ON", "w": 871, "h": 629}, {"id": "palais-montreal-level2", "n": "Palais des congrès de Montréal", "r": "Level 2: exhibition hall, rooms 210 to 230", "c": "Montréal, QC", "w": 1739, "h": 1229}];
+function venList(q){q=(q||'').toLowerCase();var L=VEN.filter(function(v){return !q||(v.n+' '+v.r+' '+v.c).toLowerCase().indexOf(q)>-1});
+  $('#venL').innerHTML=L.length?L.map(function(v){return '<button class="vrow" data-v="'+v.id+'"><img src="venues/'+v.id+'-t.jpg" alt="" loading="lazy"><span><small>'+v.c+'</small><b>'+v.n+'</b><span>'+v.r+'</span></span></button>'}).join(''):'<p style="margin:0">No venue matches yet. Use Upload a floor plan to add your own.</p>';
+  $$('#venL .vrow').forEach(function(b){b.onclick=function(){pickVenue(b.dataset.v)}})}
+function pickVenue(id){var v=VEN.find(function(x){return x.id===id});if(!v)return;$('#ven').classList.remove('on');toast('Loading '+v.n);
+  fetch('venues/'+v.id+'.jpg').then(function(r){return r.blob()}).then(function(b){var rd=new FileReader();rd.onload=function(){S.objs=[];selId=null;loadPlan(rd.result,v.w,v.h)};rd.readAsDataURL(b)}).catch(function(){toast('Could not load that plan')})}
+$('#venB').onclick=function(){venList('');$('#venQ').value='';$('#ven').classList.add('on')};$('#venX').onclick=function(){$('#ven').classList.remove('on')};
+$('#venQ').oninput=function(){venList(this.value)};
 /* ---------- install ---------- */
 var dp=null;addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;$('#instAuto').hidden=false});
 $('#instB').onclick=function(){$('#inst').classList.add('on')};$('#instX').onclick=function(){$('#inst').classList.remove('on')};
