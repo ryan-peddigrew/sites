@@ -108,6 +108,8 @@ button{background:none;border:0;cursor:pointer}
   .pal.on,.side.on{display:block}
   .items{grid-template-columns:repeat(2,1fr)}
   .tabs button{font-size:11px;letter-spacing:.03em}
+  .sa .top{padding-top:max(calc(8px + env(safe-area-inset-top)),56px)}
+  .sa .mtabs{padding-bottom:max(calc(10px + env(safe-area-inset-bottom)),30px)}
   .mtabs{display:grid;grid-template-columns:1fr 1.25fr;gap:10px;flex:none;position:relative;z-index:21;background:var(--ink);border-top:2px solid var(--gold);padding:10px calc(12px + env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) calc(12px + env(safe-area-inset-left))}
   .mtabs button{min-height:52px;display:flex;align-items:center;justify-content:center;gap:10px;font:800 13px var(--f);letter-spacing:.08em;text-transform:uppercase;border-radius:3px;white-space:nowrap}
   .mtabs svg{width:24px;height:24px;flex:none}
@@ -477,7 +479,7 @@ var dp=null;addEventListener('beforeinstallprompt',function(e){e.preventDefault(
 $('#instB').onclick=function(){$('#inst').classList.add('on')};$('#instX').onclick=function(){$('#inst').classList.remove('on')};
 $('#instGo').onclick=function(){if(dp){dp.prompt();dp=null;$('#inst').classList.remove('on')}};
 if(/[?&]install=1/.test(location.search))$('#inst').classList.add('on');
-if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(function(){});
+if('serviceWorker' in navigator){var hadSW=!!navigator.serviceWorker.controller,rl=false;navigator.serviceWorker.addEventListener('controllerchange',function(){if(hadSW&&!rl){rl=true;location.reload()}});navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(function(r){r.update()}).catch(function(){})}
 /* ---------- start ---------- */
 var shared=location.hash.match(/layout=([^&]+)/),had=false;
 if(shared){try{var d=JSON.parse(atob(shared[1]));S.pw=d.w;S.ph=d.h;S.objs=d.o.map(function(a,i){return {id:i+1,t:a[0],x:a[1],y:a[2],r:a[3]}}).filter(function(o){return BY[o.t]});nid=S.objs.length+1;had=true;if(!d.s)toast('Layout loaded. Upload the same floor plan to see it underneath.')}catch(e){}}
@@ -489,6 +491,7 @@ if(!had){ // starter layout on the sample hall
 function setAH(){var d=document.documentElement;if(navigator.standalone){var land=matchMedia('(orientation:landscape)').matches;d.style.setProperty('--ah',Math.max(innerHeight,land?Math.min(screen.width,screen.height):Math.max(screen.width,screen.height))+'px')}else{d.style.removeProperty('--ah')}}
 var fitW=0,fitH=0;function refit(){setAH();var r=cv.getBoundingClientRect();if(Math.abs(r.width-fitW)>1||Math.abs(r.height-fitH)>1){fitW=r.width;fitH=r.height;fit()}}
 ['gesturestart','gesturechange'].forEach(function(n){document.addEventListener(n,function(e){e.preventDefault()},{passive:false})});
+if(navigator.standalone)document.documentElement.classList.add('sa');
 setAH();tabs();drawPlan();fit();render();
 addEventListener('resize',refit);addEventListener('orientationchange',function(){setTimeout(refit,300)});addEventListener('pageshow',refit);
 requestAnimationFrame(refit);setTimeout(refit,300);setTimeout(refit,1200);
