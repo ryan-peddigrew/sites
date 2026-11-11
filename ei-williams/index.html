@@ -394,8 +394,18 @@ footer{background:#06131f;color:#9db0c2;padding:52px 0 40px;font-size:15px}
 .hp .res div{background:var(--mint);border-radius:12px;padding:10px 12px;font-weight:600;color:#1c4a22;font-size:15px}
 .hp .btn{margin-top:14px;width:100%}
 .hp .back{background:none;border:0;color:var(--muted);font:600 14px var(--f);min-height:44px;cursor:pointer;margin-top:4px}
-@media(max-width:700px){.fl-tour,.fl-help{font-size:14.5px;padding:0 15px}}
+@media(max-width:700px){.fl-tour{font-size:14.5px;padding:0 15px}.fl-help{font-size:14.5px}}
 
+.fl-help{padding:0 18px 0 4px}
+.fl-help svg.av{width:44px;height:44px;border-radius:50%}
+.hp-hand{transform-origin:32px 56px;animation:shush 4s ease-in-out infinite}
+.hp-eyes{transform-origin:32px 28px;animation:blink 5s infinite}
+@keyframes shush{0%,70%,100%{transform:none}78%{transform:translateY(-1.5px) rotate(-3deg)}86%{transform:translateY(0) rotate(2deg)}}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+.hp .who{display:flex;align-items:center;gap:12px;padding-right:44px}
+.hp .who svg{width:60px;height:60px;flex:0 0 auto}
+.hp .who b{display:block;font:800 20px var(--f);letter-spacing:-.02em;color:var(--navy)}
+.hp .who span{display:block;font-size:14px;color:var(--muted);line-height:1.35}
 /* tour overlay */
 body.touring .fl-tour,body.touring .fl-help,body.touring .hp{display:none}
 .tag{position:fixed;left:12px;top:calc(12px + env(safe-area-inset-top));z-index:96;background:rgba(9,27,45,.9);color:#fff;border-radius:999px;padding:7px 14px;font:700 12.5px var(--f);letter-spacing:.06em;text-transform:uppercase;display:none}
@@ -432,7 +442,7 @@ html.tourlock{scroll-behavior:auto}
   .rv{opacity:1;transform:none;transition:none}
   .hero h1 .ch{transform:none;animation:none}
   .slide.on img{animation:none;transform:none}
-  .tk,.mrow .trk{animation:none}
+  .tk,.mrow .trk,.hp-hand,.hp-eyes{animation:none}
   *{transition-duration:.01ms!important}
 }
 </style>
@@ -465,6 +475,19 @@ html.tourlock{scroll-behavior:auto}
   <symbol id="i-prev" viewBox="0 0 24 24"><path d="M6 5h2.5v14H6zM20 5v14L9.5 12z" fill="currentColor"/></symbol>
   <symbol id="i-next" viewBox="0 0 24 24"><path d="M15.5 5H18v14h-2.5zM4 5v14l10.5-7z" fill="currentColor"/></symbol>
   <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.4l2.3 10.2a1 1 0 0 0 1 .8h8.4a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9.5" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></symbol>
+  <symbol id="harpo" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="30" fill="#113352"/>
+    <circle cx="32" cy="32" r="30" fill="none" stroke="#44AE4D" stroke-width="3"/>
+    <path d="M12 21h14M10 15.5h20M15 10h18" stroke="#44AE4D" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+    <g class="hp-eyes"><ellipse cx="22.5" cy="28" rx="3.4" ry="4.2" fill="#fff"/><ellipse cx="41.5" cy="28" rx="3.4" ry="4.2" fill="#fff"/></g>
+    <path d="M17 21.5q5-3.5 10-1M37 20.5q5-2.5 10 1" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <ellipse cx="32" cy="41" rx="3.2" ry="2.6" fill="#0b2236" stroke="#fff" stroke-width="1.6"/>
+    <g class="hp-hand">
+      <rect x="28.6" y="27" width="6.8" height="22" rx="3.4" fill="#8fdc96" stroke="#113352" stroke-width="1.6"/>
+      <path d="M22 49q0-6 6.6-6h6.8q8 0 8 7v6q0 6-8 6h-6q-7.4 0-7.4-7z" fill="#8fdc96" stroke="#113352" stroke-width="1.6"/>
+      <path d="M36 49v6M40 50v5" stroke="#113352" stroke-width="1.4" stroke-linecap="round"/>
+    </g>
+  </symbol>
   <symbol id="i-find" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
   <symbol id="i-bolt2" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M27 4 9 28h14l-3 16 19-25H25z"/></symbol>
   <symbol id="i-wave" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 24h6l4-12 6 24 6-20 4 8h14"/></symbol>
@@ -863,8 +886,8 @@ html.tourlock{scroll-behavior:auto}
 </footer>
 
 <button class="fl-tour" id="flTour" data-tour><svg><use href="#i-play"/></svg><span class="t">Take the tour</span></button>
-<button class="fl-help" id="flHelp" aria-expanded="false" aria-controls="hp"><svg><use href="#i-find"/></svg>Find my silencer</button>
-<div class="hp" id="hp" role="dialog" aria-label="Find my silencer"></div>
+<button class="fl-help" id="flHelp" aria-expanded="false" aria-controls="hp"><svg class="av" viewBox="0 0 64 64"><use href="#harpo"/></svg><span>Ask Harpo</span></button>
+<div class="hp" id="hp" role="dialog" aria-label="Harpo, the silencer finder"></div>
 <div class="tag">Concept by Chairlift</div>
 
 <script>
@@ -1007,10 +1030,11 @@ var map={'Blower':['Rotary positive blower silencers','Pod silencers','Combinati
 function closeHelp(){hp.classList.remove('open');hb.setAttribute('aria-expanded','false')}
 function helpHtml(){
   var x='<button class="x" aria-label="Close"><svg><use href="#i-close"/></svg></button>';
-  if(hs_.q===0)return x+'<h4>Find my silencer</h4><p class="q">What is making the noise?</p><div class="opts">'+Object.keys(map).map(function(k){return '<button data-a="'+k+'">'+k+'</button>'}).join('')+'</div>';
-  if(hs_.q===1)return x+'<h4>Find my silencer</h4><p class="q">Do you also need to cut emissions?</p><div class="opts"><button data-e="1">Yes</button><button data-e="0">No</button></div><button class="back" data-back>Back</button>';
+var who='<div class="who"><svg viewBox="0 0 64 64"><use href="#harpo"/></svg><div><b>Harpo</b><span>Shh. I help you find the right silencer.</span></div></div>';
+  if(hs_.q===0)return x+who+'<p class="q">What is making the noise?</p><div class="opts">'+Object.keys(map).map(function(k){return '<button data-a="'+k+'">'+k+'</button>'}).join('')+'</div>';
+  if(hs_.q===1)return x+who+'<p class="q">Do you also need to cut emissions?</p><div class="opts"><button data-e="1">Yes</button><button data-e="0">No</button></div><button class="back" data-back>Back</button>';
   var r=map[hs_.a].slice();if(hs_.em)r.push('Emission products (DOC, DPF, SCR, 3WC)');
-  return x+'<h4>Good starting points</h4><div class="res">'+r.map(function(i){return '<div>'+esc(i)+'</div>'}).join('')+'</div><button class="btn btn-green" data-go>Start a quote with this <svg><use href="#i-arrow"/></svg></button><button class="back" data-back>Start over</button>';
+  return x+who+'<p class="q">Good starting points:</p><div class="res">'+r.map(function(i){return '<div>'+esc(i)+'</div>'}).join('')+'</div><button class="btn btn-green" data-go>Start a quote with this <svg><use href="#i-arrow"/></svg></button><button class="back" data-back>Start over</button>';
 }
 function hdraw(){hp.innerHTML=helpHtml()}
 hb.onclick=function(){var o=!hp.classList.contains('open');if(o){hs_={q:0,a:null,em:null};hdraw()}hp.classList.toggle('open',o);hb.setAttribute('aria-expanded',o)};
@@ -1038,7 +1062,7 @@ var S=[
  ['A partner program (new)','Wholesale accounts, spec sheets and sizing help for partners who sell your silencers.','Why: you already work with partners like IMS and in the Northeastern U.S. A simple program makes adding more easy.','#partners .pa'],
  ['Proof that moves','Your own photos from your shops, rolling in two rows.','Why: buyers trust what they can see. Your old gallery was a grid to click through.','#gallery .mrow'],
  ['Your 30+ year story','From two people in Markham to two plants in two countries, with your mission and your latest news.','Why: thirty years of making these is your strongest proof. It now has its own moment.','#story .track'],
- ['Find my silencer','A small helper at the bottom right asks what is making the noise and points to the right product, then starts the quote.','Why: it answers the first question for buyers who are not sure what they need, at any hour.','#flHelp'],
+ ['Meet Harpo','Harpo is your shushing helper at the bottom right, named for Harpocrates, the Greek god of silence. He asks what is making the noise, points to the right product, then starts the quote.','Why: he answers the first question for buyers who are not sure what they need, at any hour, and gives the site a face people remember.','#flHelp'],
  ['Two plants, one tap to call','Both plants, the toll-free line, maps and one form that knows what the visitor wants.','Why: on a phone, a buyer should be able to call in one tap. And your team sees what the message is about.','#contact .cg']
 ];
 var DW=11000,bar=null,hlEl=null,idx=0,mode='play',timer=0,raf=0;
