@@ -1,7 +1,7 @@
 # Steady Improvements (prospect concept)
 
 Preview: https://ryan-peddigrew.github.io/sites/steady-improvements/ (tour auto-plays; `?tour=0` turns it off)
-Logo options: /steady-improvements/brand/logos.html (B, carpenter's square, is applied; awaiting Ryan's pick)
+Style guide: /steady-improvements/brand/style-guide.html (final logo: brush Steady, hammer as the T, red Improvements label)
 
 Source: https://steady-improvements.com (GoDaddy builder) and @steadyimprovements on Instagram.
 All copy and photos are theirs. Phone (647) 458-6365, Steadyimprovements@gmail.com, Mon to Fri 9 to 5.
