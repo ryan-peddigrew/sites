@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>VIVID AV | Event production and AV installation, Toronto and the GTA</title>
+<meta name="description" content="Corporate event production and permanent AV installation across Toronto and the GTA.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0c0510">
+<link rel="icon" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+@property --x{syntax:'<percentage>';inherits:true;initial-value:30%}
+@property --y{syntax:'<percentage>';inherits:true;initial-value:40%}
+:root{--ink:#0c0510;--ink2:#160a1c;--plum:#521262;--plum2:#2c0c36;--coral:#ff5252;--paper:#f4eef6;--mist:#e5dbe8;--mute:#bcb1bf;
+--disp:'Barlow Condensed',system-ui,sans-serif;--sans:'DM Sans',system-ui,sans-serif;--ease:cubic-bezier(.165,.84,.44,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:#fff;font:400 16px/1.6 var(--sans);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:800;text-transform:uppercase;letter-spacing:.005em;line-height:.92}
+.wrap{width:min(1240px,100% - 32px);margin-inline:auto}
+.k{font:600 12px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--coral)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border:0;border-radius:4px;font:700 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform .3s var(--ease),background .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn.hot{background:var(--coral);color:#fff;box-shadow:0 12px 40px #ff525255}
+.btn.line{background:#ffffff10;border:1px solid #ffffff40;color:#fff;backdrop-filter:blur(6px)}
+.btn.ink{background:var(--ink);color:#fff}
+.btn svg{width:18px;height:18px}
+.ph{display:inline-block;border:1px dashed var(--coral);color:var(--coral);font:600 11px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;border-radius:3px}
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* loader: a stage light sweeps across the real VIVID logo, then the house opens */
+#ld{position:fixed;inset:0;z-index:100;background:var(--ink);display:grid;place-items:center;overflow:hidden}
+#ld .half{position:absolute;left:0;right:0;height:50.5%;background:var(--plum2);transition:transform 1s var(--ease)}
+#ld .half.t{top:0}#ld .half.b{bottom:0}
+#ld .mark{position:relative;width:min(300px,64vw);z-index:2}
+#ld .mark svg{width:100%;height:auto;display:block}
+#ld .mark .lit{position:absolute;inset:0;-webkit-mask:linear-gradient(100deg,#000 0 40%,#0000 60%) 160% 0/250% 100% no-repeat;mask:linear-gradient(100deg,#000 0 40%,#0000 60%) 160% 0/250% 100% no-repeat;animation:sweep 1.5s .2s var(--ease) forwards}
+#ld .mark .dim{opacity:.1}
+#ld .beam{position:absolute;top:-30%;width:28vmax;height:160%;left:-30vmax;background:linear-gradient(90deg,#ff525200,#ff525233 45%,#ffffff55 50%,#ff525233 55%,#ff525200);transform:rotate(12deg);filter:blur(10px);animation:beam 1.6s .15s var(--ease) forwards;z-index:1}
+#ld .bar{position:absolute;left:50%;bottom:calc(50% - 70px);width:min(300px,64vw);height:3px;background:#ffffff14;transform:translateX(-50%);z-index:2}
+#ld .bar i{display:block;height:100%;width:0;background:var(--coral);animation:fill 1.8s var(--ease) forwards}
+@keyframes sweep{to{-webkit-mask-position:0 0;mask-position:0 0}}
+@keyframes beam{to{left:110vw}}
+@keyframes fill{to{width:100%}}
+#ld.out .half.t{transform:translateY(-101%)}#ld.out .half.b{transform:translateY(101%)}
+#ld.out .mark,#ld.out .bar{opacity:0;transition:opacity .35s}
+#ld.out{background:transparent;pointer-events:none}
+
+/* header */
+#hd{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s,backdrop-filter .4s}
+#hd.solid{background:#0c0510e6;backdrop-filter:blur(14px);box-shadow:0 1px 0 #ffffff12}
+#hd .wrap{display:flex;align-items:center;gap:28px;height:76px}
+#hd .logo{display:block;width:118px;filter:drop-shadow(0 6px 18px #0009)}
+#hd .logo img{width:100%;height:auto}
+#hd nav{display:flex;gap:26px;margin-left:auto}
+#hd nav a{font:600 13px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;opacity:.85;padding:14px 0}
+#hd nav a:hover{opacity:1;color:var(--coral)}
+#hd .ctas{display:flex;gap:10px}
+#hd .ctas .btn{min-height:44px;padding:0 18px;font-size:12px}
+.menu{display:none;width:48px;height:48px;border:1px solid #ffffff30;border-radius:4px;background:#0c051066;cursor:pointer;place-items:center;margin-left:auto}
+.menu span{display:block;width:20px;height:2px;background:#fff;box-shadow:0 6px 0 #fff,0 -6px 0 #fff}
+
+/* hero */
+#hero{position:relative;height:100svh;min-height:640px;overflow:hidden;background:#000}
+#hero figure{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease}
+#hero figure.on{opacity:1}
+#hero figure img{width:100%;height:100%;object-fit:cover;transform:scale(1.14);transition:transform 9s linear}
+#hero figure.on img{transform:scale(1)}
+#hero .spot{position:absolute;inset:0;background:radial-gradient(circle at var(--x) var(--y),#0c051000 0,#0c051033 14vmax,#0c0510d0 46vmax);pointer-events:none;animation:drift 14s ease-in-out infinite alternate}
+#hero.mouse .spot{animation:none}
+@keyframes drift{0%{--x:24%;--y:34%}50%{--x:70%;--y:30%}100%{--x:44%;--y:58%}}
+#hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0c051099 0,#0c051000 22%,#0c051000 45%,#0c0510f2 100%),linear-gradient(90deg,#52126266,#52126200 60%);pointer-events:none}
+#hero .copy{position:absolute;left:0;right:0;bottom:118px;z-index:3}
+#hero .k{margin-bottom:18px;display:flex;gap:12px;align-items:center}
+#hero .k:before{content:"";width:34px;height:3px;background:var(--coral)}
+#hero h1{font-size:clamp(50px,9.2vw,138px);max-width:12ch}
+#hero h1 .rw{display:block;color:var(--coral);height:1em;overflow:hidden;white-space:nowrap}
+#hero h1 .rw span{display:inline-block;transform:translateY(105%);animation:up .7s var(--ease) forwards}
+@keyframes up{to{transform:none}}
+#hero h1 .rw span.gone{animation:down .45s var(--ease) forwards;transform:none}
+@keyframes down{to{transform:translateY(-105%)}}
+#hero p.sub{max-width:540px;margin:22px 0 28px;font-size:18px;color:#ffffffd9}
+#hero .row{display:flex;gap:12px;flex-wrap:wrap}
+#hero .cap{position:absolute;right:16px;bottom:126px;z-index:3;text-align:right;font:600 12px/1.5 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#ffffffb3}
+#hero .cap .bars{display:flex;gap:6px;justify-content:flex-end;margin-top:10px}
+#hero .cap .bars i{width:34px;height:3px;background:#ffffff33}
+#hero .cap .bars i.on{background:var(--coral)}
+.ticker{position:absolute;left:0;right:0;bottom:0;z-index:3;border-top:1px solid #ffffff1f;background:#0c0510b3;backdrop-filter:blur(8px);overflow:hidden;height:62px;display:flex;align-items:center}
+.ticker .tr{display:flex;gap:48px;white-space:nowrap;animation:tick 38s linear infinite;padding-left:48px}
+.ticker span{font:700 22px/1 var(--disp);letter-spacing:.06em;text-transform:uppercase;display:flex;gap:48px;align-items:center}
+.ticker span:after{content:"";width:9px;height:9px;background:var(--coral);transform:rotate(45deg)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* trusted by */
+#clients{position:relative;padding:70px 0;background:linear-gradient(#0c0510ee,#0c0510ee),url(img/audience-s.jpg) center/cover}
+#clients .wrap{display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:center}
+#clients p{font:700 26px/1.05 var(--disp);text-transform:uppercase;letter-spacing:.02em}
+#clients p em{font-style:normal;color:var(--coral)}
+.logos{overflow:hidden;-webkit-mask:linear-gradient(90deg,#0000,#000 10%,#000 90%,#0000);mask:linear-gradient(90deg,#0000,#000 10%,#000 90%,#0000)}
+.logos .tr{display:flex;gap:64px;align-items:center;width:max-content;animation:tick 40s linear infinite}
+.logos img{height:40px;width:auto;max-width:170px;object-fit:contain;filter:brightness(0) invert(1);opacity:.75}
+
+/* two doors */
+#doors{display:flex;height:min(86vh,760px);gap:6px;padding:6px;background:var(--ink)}
+.door{position:relative;flex:1;overflow:hidden;border-radius:6px;transition:flex 1s var(--ease);display:flex;align-items:flex-end;text-decoration:none}
+.door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.door:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0c051000 30%,#0c0510f0 100%)}
+.door.ev:after{background:linear-gradient(180deg,#0c051000 25%,#2c0c36f0 100%)}
+.door .in{position:relative;z-index:2;padding:40px}
+.door h2{font-size:clamp(42px,5.6vw,84px)}
+.door ul{list-style:none;margin:18px 0 24px;display:grid;gap:6px;max-width:420px}
+.door li{font-size:16px;color:#ffffffd6;padding-left:22px;position:relative}
+.door li:before{content:"";position:absolute;left:0;top:.62em;width:12px;height:2px;background:var(--coral)}
+.door .go{display:inline-flex;align-items:center;gap:10px;font:700 13px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;border-bottom:2px solid var(--coral);padding:14px 0}
+@media (hover:hover){#doors:hover .door{flex:.8}#doors .door:hover{flex:1.4}.door:hover img{transform:scale(1.05)}}
+
+/* run of show */
+#events{padding:120px 0 110px;background:var(--ink)}
+.head{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:56px}
+.head h2{font-size:clamp(44px,6.4vw,96px)}
+.head p{color:#ffffffc7;font-size:17px;max-width:470px}
+.cues{border-top:1px solid #ffffff26}
+.cue{display:grid;grid-template-columns:110px 1.1fr 1fr 220px;gap:28px;align-items:center;padding:26px 0;border-bottom:1px solid #ffffff26;position:relative;cursor:default}
+.cue .n{font:700 15px/1 var(--disp);letter-spacing:.14em;color:var(--coral)}
+.cue .n b{display:block;font-size:13px;color:#ffffff73;font-weight:600;margin-top:8px;letter-spacing:.1em;font-family:var(--sans)}
+.cue h3{font-size:clamp(30px,3.4vw,48px);transition:color .3s,transform .5s var(--ease)}
+.cue p{color:#ffffffbf;font-size:15.5px}
+.cue .ph-img{height:120px;border-radius:4px;overflow:hidden}
+.cue .ph-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.7);transition:filter .6s,transform 1s var(--ease)}
+.cue:hover h3{color:var(--coral);transform:translateX(8px)}
+.cue:hover .ph-img img,.cue.in .ph-img img{filter:none}
+.cue .q{grid-column:2/4;justify-self:start;font:700 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;background:none;border:0;border-bottom:2px solid var(--coral);padding:12px 0;cursor:pointer;margin-top:-6px}
+
+/* install room builder */
+#installs{position:relative;padding:120px 0;background:linear-gradient(90deg,#f4eef6 0 44%,#f4eef6f2 58%,#f4eef6c4),url(img/blueprint.jpg) right center/cover;color:var(--ink)}
+#installs .k{color:var(--plum)}
+#installs .head p{color:#2a1a30}
+.builder{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}
+.panel{background:#fff;border-radius:8px;padding:30px;box-shadow:0 30px 80px #2c0c3626}
+.panel h4{font-size:22px;letter-spacing:.04em;margin:22px 0 12px;color:var(--plum)}
+.panel h4:first-child{margin-top:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{min-height:46px;padding:0 16px;border-radius:4px;border:1.5px solid #d8cddc;background:#fff;font:500 15px/1 var(--sans);cursor:pointer;color:var(--ink);transition:all .2s}
+.chips button[aria-pressed=true]{background:var(--plum);border-color:var(--plum);color:#fff}
+.range{display:flex;align-items:center;gap:16px}
+.range input{flex:1;accent-color:var(--plum);height:44px}
+.range output{font:800 30px/1 var(--disp);color:var(--plum);min-width:110px;text-align:right}
+.spec{position:sticky;top:100px;background:var(--plum2);color:#fff;border-radius:8px;overflow:hidden;box-shadow:0 30px 80px #2c0c3655}
+.spec .im{height:170px;position:relative}
+.spec .im img{width:100%;height:100%;object-fit:cover}
+.spec .im:after{content:"";position:absolute;inset:0;background:linear-gradient(#2c0c3600,#2c0c36)}
+.spec .bd{padding:4px 26px 26px}
+.spec h3{font-size:34px;margin:6px 0 14px}
+.spec dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:14.5px;margin-bottom:20px}
+.spec dt{color:#ffffff8c;text-transform:uppercase;letter-spacing:.14em;font-size:11px;padding-top:4px}
+.spec dd{color:#fff}
+.spec .btn{width:100%}
+.spec small{display:block;margin-top:12px;color:#ffffff99;font-size:12.5px}
+
+/* event quote */
+#quote{position:relative;padding:120px 0;overflow:hidden;background:var(--ink2)}
+#quote:before{content:"";position:absolute;inset:0;background:url(img/concert.jpg) center/cover;opacity:.22}
+#quote:after{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 80% 0,#52126299,#0000),linear-gradient(#16081cd0,#16081c)}
+#quote .wrap{position:relative;z-index:2}
+.qgrid{display:grid;grid-template-columns:1fr 360px;gap:28px}
+.qform{background:#ffffff0d;border:1px solid #ffffff1f;border-radius:8px;padding:30px;backdrop-filter:blur(10px)}
+.step{display:grid;grid-template-columns:56px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid #ffffff1a}
+.step:last-of-type{border:0}
+.step>b{font:800 40px/1 var(--disp);color:var(--coral)}
+.step h4{font-size:22px;letter-spacing:.04em;margin-bottom:12px}
+#quote .chips button{background:#ffffff0a;border-color:#ffffff30;color:#fff}
+#quote .chips button[aria-pressed=true]{background:var(--coral);border-color:var(--coral)}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.f3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+label.fld{display:grid;gap:6px;font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#ffffffa6}
+.fld input,.fld textarea,.fld select{font:400 16px/1.3 var(--sans);color:#fff;background:#0c051099;border:1px solid #ffffff2e;border-radius:4px;padding:13px 14px;min-height:50px;width:100%;color-scheme:dark}
+.fld textarea{min-height:90px;resize:vertical}
+.qside{display:grid;gap:14px;align-content:start}
+.qside .card{border-radius:8px;overflow:hidden;background:#0c0510cc;border:1px solid #ffffff1a}
+.qside .card img{height:190px;width:100%;object-fit:cover}
+.qside .card .bd{padding:20px 22px 22px}
+.qside h4{font-size:26px;margin-bottom:8px}
+.qside p{color:#ffffffbf;font-size:15px;margin-bottom:14px}
+.qside .btn{width:100%}
+.ok{display:none;margin-top:14px;color:#9fe6b8;font-size:14.5px}
+
+/* process */
+#process{position:relative;padding:120px 0 100px;overflow:hidden}
+#process .bg{position:absolute;inset:0;background:url(img/auditorium.jpg) center/cover;opacity:.32}
+#process:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0c0510 0,#0c0510aa 40%,#0c0510 100%)}
+#process .wrap{position:relative;z-index:2}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:20px}
+.steps div{padding:0 28px 0 0;position:relative}
+.steps b{display:block;font:800 clamp(110px,14vw,200px)/.8 var(--disp);color:transparent;-webkit-text-stroke:2px #ff5252;margin-bottom:18px}
+.steps h3{font-size:34px;margin-bottom:10px}
+.steps p{color:#ffffffc7;max-width:330px}
+.steps div:after{content:"";position:absolute;top:70px;right:16px;width:30%;height:2px;background:linear-gradient(90deg,#ff5252,#ff525200)}
+.steps div:last-child:after{display:none}
+
+/* support plans */
+#care{padding:110px 0;background:var(--paper);color:var(--ink)}
+#care .k{color:var(--plum)}
+.care{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:stretch}
+.care .ph-img{border-radius:8px;overflow:hidden;min-height:440px;position:relative}
+.care .ph-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.care h2{font-size:clamp(44px,5.6vw,84px);color:var(--plum2);margin:12px 0 16px}
+.care>div>p{color:#3b2a40;font-size:17px;max-width:520px}
+.tiers{margin-top:26px;border-top:2px solid var(--plum2)}
+.tier{display:grid;grid-template-columns:200px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid #d8cddc}
+.tier h3{font-size:30px;color:var(--plum)}
+.tier p{color:#3b2a40;font-size:15.5px}
+
+/* partners */
+#partners{position:relative;padding:120px 0;background:var(--plum2);overflow:hidden}
+#partners .bgimg{position:absolute;right:0;top:0;bottom:0;width:46%;background:url(img/handshake.jpg) center/cover}
+#partners .bgimg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#2c0c36,#2c0c3600 55%)}
+#partners .wrap{position:relative;z-index:2}
+#partners h2{font-size:clamp(44px,6vw,90px);max-width:9ch;margin:12px 0 18px}
+#partners .intro{max-width:470px;color:#ffffffd0;font-size:17px}
+.plist{margin-top:40px;max-width:640px;display:grid;gap:2px}
+.plist details{background:#0c05104d;border-left:3px solid var(--coral);backdrop-filter:blur(6px)}
+.plist summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:20px 22px;min-height:64px;font:800 26px/1 var(--disp);text-transform:uppercase}
+.plist summary::-webkit-details-marker{display:none}
+.plist summary:after{content:"";width:12px;height:12px;border-right:2px solid var(--coral);border-bottom:2px solid var(--coral);transform:rotate(45deg);transition:transform .3s}
+.plist details[open] summary:after{transform:rotate(225deg)}
+.plist details p{padding:0 22px 20px;color:#ffffffc7;font-size:15.5px}
+
+/* work reel */
+#work{padding:120px 0 90px;background:var(--ink);overflow:hidden}
+.reel{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 max(16px,calc((100vw - 1240px)/2)) 20px;scrollbar-width:none;cursor:grab}
+.reel::-webkit-scrollbar{display:none}
+.reel figure{flex:0 0 min(440px,78vw);scroll-snap-align:start;position:relative;border-radius:6px;overflow:hidden;height:520px}
+.reel figure:nth-child(even){height:440px;margin-top:80px}
+.reel img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.reel figure:hover img{transform:scale(1.05)}
+.reel figcaption{position:absolute;left:0;right:0;bottom:0;padding:60px 20px 18px;background:linear-gradient(#0c051000,#0c0510e6)}
+.reel figcaption b{display:block;font:800 26px/1 var(--disp);text-transform:uppercase}
+.reel figcaption span{font-size:13.5px;color:#ffffffb3}
+.reelnav{display:flex;gap:10px;margin-top:10px}
+.reelnav button{width:52px;height:52px;border-radius:4px;border:1px solid #ffffff33;background:none;cursor:pointer;display:grid;place-items:center}
+.reelnav svg{width:20px;height:20px}
+
+/* faq */
+#faq{padding:110px 0;background:var(--ink2)}
+.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px}
+.faq .side{position:sticky;top:100px;align-self:start}
+.faq .side h2{font-size:clamp(44px,5.4vw,80px);margin:12px 0 20px}
+.faq .side .ph-img{border-radius:8px;overflow:hidden;height:300px;margin-top:24px}
+.faq .side .ph-img img{width:100%;height:100%;object-fit:cover}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.tabs button{min-height:46px;padding:0 18px;border-radius:4px;border:1px solid #ffffff30;background:none;cursor:pointer;font:700 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.tabs button[aria-selected=true]{background:var(--coral);border-color:var(--coral)}
+.qa details{border-bottom:1px solid #ffffff1f}
+.qa summary{list-style:none;cursor:pointer;padding:22px 40px 22px 0;font:600 18px/1.35 var(--sans);position:relative;min-height:44px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary:after{content:"";position:absolute;right:6px;top:28px;width:14px;height:2px;background:var(--coral);box-shadow:0 0 0 0 var(--coral)}
+.qa summary:before{content:"";position:absolute;right:12px;top:22px;width:2px;height:14px;background:var(--coral);transition:transform .3s}
+.qa details[open] summary:before{transform:scaleY(0)}
+.qa p{padding:0 0 22px;color:#ffffffc2;max-width:620px}
+.qa [hidden]{display:none}
+
+/* closing */
+#cta{position:relative;min-height:88vh;display:grid;align-items:end;overflow:hidden}
+#cta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#cta:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0c051033,#0c0510f0 85%),linear-gradient(90deg,#521262aa,#52126200 70%)}
+#cta .wrap{position:relative;z-index:2;padding-bottom:90px}
+#cta h2{font-size:clamp(56px,10vw,160px);max-width:11ch}
+#cta h2 em{font-style:normal;color:var(--coral)}
+#cta p{font-size:18px;color:#ffffffd6;max-width:520px;margin:20px 0 28px}
+#cta .row{display:flex;gap:12px;flex-wrap:wrap}
+
+footer{background:#07030a;padding:70px 0 120px;font-size:15px;color:#ffffffb8}
+footer .grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.3fr;gap:36px}
+footer img.lg{width:130px;margin-bottom:16px}
+footer h5{font:700 13px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#fff;margin-bottom:14px}
+footer ul{list-style:none;display:grid;gap:4px}
+footer a{text-decoration:none;display:inline-block;padding:6px 0}
+footer a:hover{color:var(--coral)}
+footer form{display:flex;gap:6px;margin-top:10px}
+footer form input{flex:1;min-width:0;min-height:48px;border-radius:4px;border:1px solid #ffffff2e;background:#ffffff0a;color:#fff;padding:0 14px;font:inherit}
+footer form button{min-height:48px}
+footer .base{margin-top:50px;padding-top:22px;border-top:1px solid #ffffff14;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:#ffffff73}
+
+/* contact drawer (all ways in, one place) */
+#dr{position:fixed;inset:0;z-index:80;pointer-events:none}
+#dr .sh{position:absolute;inset:0;background:#0c0510aa;opacity:0;transition:opacity .4s}
+#dr aside{position:absolute;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--plum2);transform:translateX(100%);transition:transform .55s var(--ease);padding:26px 26px 40px;overflow:auto;display:flex;flex-direction:column}
+#dr.open{pointer-events:auto}#dr.open .sh{opacity:1}#dr.open aside{transform:none}
+#dr .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}
+#dr .x{width:48px;height:48px;border-radius:4px;border:1px solid #ffffff33;background:none;cursor:pointer;font:400 26px/1 var(--sans)}
+#dr a.opt{display:grid;grid-template-columns:1fr auto;align-items:center;padding:20px 0;border-bottom:1px solid #ffffff1f;text-decoration:none;min-height:64px}
+#dr a.opt b{font:800 30px/1 var(--disp);text-transform:uppercase}
+#dr a.opt span{grid-column:1;font-size:14px;color:#ffffffa6;margin-top:6px}
+#dr a.opt i{grid-row:1/3;grid-column:2;width:14px;height:14px;border-top:2px solid var(--coral);border-right:2px solid var(--coral);transform:rotate(45deg)}
+#dr .mobnav{display:none}
+#dr .mobnav a{display:block;font:800 40px/1.1 var(--disp);text-transform:uppercase;text-decoration:none;padding:6px 0}
+#dr .contact{margin-top:auto;padding-top:26px;font-size:15px;color:#ffffffc7}
+#dr .contact a{display:block;padding:8px 0;text-decoration:none;font-weight:700;color:#fff}
+
+/* phone action bar */
+.abar{display:none}
+
+/* tour */
+.tourbtn{position:fixed;right:16px;bottom:78px;z-index:65;min-height:50px;font-size:12px;background:var(--coral);color:#fff;box-shadow:0 10px 30px #0007}
+.tourbtn[hidden]{display:none}
+.tourbar{position:fixed;z-index:70;left:50%;transform:translateX(-50%);bottom:20px;width:min(640px,calc(100% - 24px));background:#120716f7;backdrop-filter:blur(12px);color:#fff;box-shadow:0 24px 70px #000c;border-top:4px solid var(--coral);border-radius:6px 6px 4px 4px;padding:16px 20px 0}
+.tourbar[hidden]{display:none}
+.tourbar .tk{display:flex;justify-content:space-between;font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--coral)}
+.tourbar h5{font:800 28px/1 var(--disp);text-transform:uppercase;margin:7px 0 6px;letter-spacing:.01em}
+.tourbar p{font-size:14.5px;line-height:1.45;color:#ffffffd6}
+.tourbar p+p{margin-top:6px}
+.tourbar .why{color:#e7c9f0}
+.tourbar .rev{color:#a8e8c0}
+.tourbar .ctl{display:flex;gap:22px;align-items:center;margin-top:10px;border-top:1px solid #ffffff1f}
+.tourbar .ctl button{background:none;border:0;font:700 12px var(--sans);letter-spacing:.16em;text-transform:uppercase;min-height:46px;cursor:pointer;padding:0;color:#fff}
+.tourbar .ctl .go{background:var(--coral);padding:0 18px;min-height:40px;border-radius:4px}
+.tourbar .sp{flex:1}
+.tourbar .pg{height:3px;background:#ffffff1f;margin:0 -20px}.tourbar .pg i{display:block;height:3px;background:var(--coral);width:0}
+.spotlit{outline:3px solid var(--coral);outline-offset:-3px;position:relative;z-index:1}
+body.touring .tourbtn{display:none}
+
+@media (max-width:1000px){
+ #hd nav,#hd .ctas .line{display:none}
+ .menu{display:grid;margin-left:0}
+ #hd .ctas{margin-left:auto}
+ #dr .mobnav{display:block;margin-bottom:20px}
+ #clients .wrap{grid-template-columns:1fr;gap:24px}
+ .head{grid-template-columns:1fr;gap:18px}
+ .cue{grid-template-columns:70px 1fr;gap:10px 18px}
+ .cue .ph-img{grid-column:1/3;grid-row:1;height:180px}
+ .cue p,.cue .q{grid-column:2}
+ .builder,.qgrid,.care,.faq{grid-template-columns:1fr}
+ .spec,.faq .side{position:static}
+ .steps{grid-template-columns:1fr;gap:40px}.steps div:after{display:none}
+ #partners .bgimg{position:relative;width:auto;height:300px;margin:-120px 0 40px}
+ #partners .bgimg:after{background:linear-gradient(180deg,#2c0c3600 40%,#2c0c36)}
+ footer .grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:700px){
+ body{font-size:15.5px}
+ #hd .wrap{height:64px;gap:12px}
+ #hd .logo{width:96px}
+ #hd .ctas .btn{padding:0 14px}
+ #hero{min-height:600px}
+ #hero .copy{bottom:96px}
+ #hero h1{font-size:clamp(46px,13.5vw,64px)}
+ #hero p.sub{font-size:16px;margin:16px 0 20px}
+ #hero .cap{display:none}
+ #hero .row .btn{flex:1}
+ .ticker{height:52px}.ticker span{font-size:18px}
+ #doors{flex-direction:column;height:auto}
+ .door{min-height:480px}
+ .door .in{padding:26px}
+ #events,#installs,#quote,#process,#partners,#work{padding:84px 0}
+ #care,#faq{padding:80px 0}
+ .panel,.qform{padding:20px}
+ .step{grid-template-columns:1fr;gap:6px}
+ .step>b{font-size:30px}
+ .f2,.f3{grid-template-columns:1fr}
+ .tier{grid-template-columns:1fr;gap:6px}
+ .care .ph-img{min-height:300px}
+ .reel figure{height:420px}.reel figure:nth-child(even){height:360px;margin-top:60px}
+ #cta{min-height:auto;padding-top:300px}
+ #cta .wrap{padding-bottom:70px}
+ footer{padding-bottom:150px}
+ footer .grid{grid-template-columns:1fr}
+ .abar{display:grid;grid-template-columns:1fr 1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#0c0510f2;backdrop-filter:blur(12px);border-top:1px solid #ffffff1f;padding:8px 8px calc(8px + env(safe-area-inset-bottom));gap:8px}
+ .abar a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:4px;text-decoration:none;font:700 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;border:1px solid #ffffff2a}
+ .abar a.hot{background:var(--coral);border-color:var(--coral)}
+ .abar svg{width:17px;height:17px}
+ .tourbtn{display:none}
+ .tourbar{bottom:calc(74px + env(safe-area-inset-bottom));padding:12px 14px 0}.tourbar h5{font-size:23px}.tourbar p{font-size:13.5px;line-height:1.4}.tourbar .pg{margin:0 -14px}
+ body.touring #hero .copy{bottom:auto;top:84px}
+ body.touring #hero .row{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<span id="top"></span>
+
+<div id="ld" aria-hidden="true">
+  <div class="half t"></div><div class="half b"></div>
+  <div class="beam"></div>
+  <div class="mark">
+    <img class="dim" src="img/vivid-white.svg" alt="">
+    <img class="lit" src="img/vivid-white.svg" alt="">
+  </div>
+  <div class="bar"><i></i></div>
+</div>
+
+<header id="hd">
+  <div class="wrap">
+    <button class="menu" id="mb" aria-label="Open menu"><span></span></button>
+    <a class="logo" href="#top" aria-label="VIVID AV home"><img src="img/vivid-white.svg" alt="VIVID" width="118" height="36"></a>
+    <nav aria-label="Main">
+      <a href="#events">Events</a><a href="#installs">Installs</a><a href="#work">Work</a><a href="#partners">Partners</a><a href="#faq">FAQ</a>
+    </nav>
+    <div class="ctas">
+      <button class="btn line" data-drawer>Contact</button>
+      <a class="btn hot" href="#quote">Get a quote</a>
+    </div>
+  </div>
+</header>
+
+<section id="hero" aria-label="Introduction">
+  <figure class="on"><img src="img/auditorium.jpg" alt="Conference auditorium set with a projection screen" fetchpriority="high"></figure>
+  <figure><img src="img/concert.jpg" alt="Stage lights and LED wall over a live audience" loading="lazy"></figure>
+  <figure><img src="img/camera.jpg" alt="Camera operator filming a live performance" loading="lazy" style="object-position:70% 40%"></figure>
+  <figure><img src="img/audience.jpg" alt="Conference audience facing the stage" loading="lazy"></figure>
+  <div class="spot"></div>
+  <div class="copy wrap">
+    <div class="k">AV production and installation, Toronto and the GTA</div>
+    <h1>Events and spaces that <span class="rw" id="rw" aria-live="polite">look flawless.</span></h1>
+    <p class="sub">From corporate events to permanent AV installations, reliable, high-quality audio visual across Toronto and the GTA, without the stress.</p>
+    <div class="row">
+      <a class="btn hot" href="#quote">Get a quote</a>
+      <a class="btn line" href="mailto:sales@vivid-av.net?subject=Book%20a%20discovery%20call">Book a call</a>
+    </div>
+  </div>
+  <div class="cap"><span id="cap">Conference staging</span><div class="bars" id="bars"><i class="on"></i><i></i><i></i><i></i></div></div>
+  <div class="ticker" aria-hidden="true"><div class="tr">
+    <span>Corporate events</span><span>Conference and stage design</span><span>Hybrid and live streaming</span><span>Boardroom systems</span><span>LED displays and video walls</span><span>Digital signage</span><span>On-site technical management</span>
+    <span>Corporate events</span><span>Conference and stage design</span><span>Hybrid and live streaming</span><span>Boardroom systems</span><span>LED displays and video walls</span><span>Digital signage</span><span>On-site technical management</span>
+  </div></div>
+</section>
+
+<section id="clients" aria-label="Clients">
+  <div class="wrap">
+    <p>Trusted by <em>corporations, event planners and organizations</em> across the GTA</p>
+    <div class="logos"><div class="tr" id="logos">
+      <img src="img/clients/oxford-properties.svg" alt="Oxford Properties"><img src="img/clients/sunnybrook.png" alt="Sunnybrook"><img src="img/clients/bgis.svg" alt="BGIS"><img src="img/clients/altus-group.svg" alt="Altus Group"><img src="img/clients/st-lawrence-market.png" alt="St. Lawrence Market"><img src="img/clients/downsview-park.svg" alt="Downsview Park"><img src="img/clients/tcdsb.svg" alt="TCDSB"><img src="img/clients/tssa.png" alt="TSSA"><img src="img/clients/vimeo.svg" alt="Vimeo"><img src="img/clients/wealthgenius.png" alt="WealthGenius">
+    </div></div>
+  </div>
+</section>
+
+<section id="doors" aria-label="Events or installations">
+  <a class="door ev" href="#events">
+    <img src="img/concert-s.jpg" srcset="img/concert-s.jpg 900w, img/concert.jpg 2200w" sizes="(max-width:700px) 100vw, 50vw" alt="Stage lighting at a live event" loading="lazy">
+    <div class="in">
+      <div class="k">Planning an event?</div>
+      <h2>Show day,<br>handled.</h2>
+      <ul><li>Meetings, conferences and corporate events of any size</li><li>Sound, lighting, stage and visuals</li><li>Hybrid and live streams</li><li>Technicians on site, start to finish</li></ul>
+      <span class="go">See event production</span>
+    </div>
+  </a>
+  <a class="door in2" href="#installs">
+    <img src="img/blueprint-s.jpg" srcset="img/blueprint-s.jpg 900w, img/blueprint.jpg 2200w" sizes="(max-width:700px) 100vw, 50vw" alt="Drafting table with room plans" loading="lazy">
+    <div class="in">
+      <div class="k">Upgrading a space?</div>
+      <h2>Rooms that<br>just work.</h2>
+      <ul><li>Boardroom and meeting room systems</li><li>Video conferencing, Zoom and Teams ready</li><li>LED displays, video walls and digital signage</li><li>Sound for venues and retail</li></ul>
+      <span class="go">Plan your room</span>
+    </div>
+  </a>
+</section>
+
+<section id="events" aria-labelledby="evh">
+  <div class="wrap">
+    <div class="head rv">
+      <div><div class="k">Event production</div><h2 id="evh" style="margin-top:14px">Your run<br>of show.</h2></div>
+      <p>Every event runs on cues. Here's what Vivid takes off your plate, cue by cue. Tap any one to start a quote with it already picked.</p>
+    </div>
+    <div class="cues">
+      <div class="cue rv"><div class="n">CUE 01<b>Before doors</b></div><div class="ph-img"><img src="img/audience-s.jpg" alt="Conference audience" loading="lazy"></div><h3>Corporate event production</h3><p>Flawless execution for meetings, conferences and corporate events of any size.</p><button class="q" data-gear="Corporate event">Quote this</button></div>
+      <div class="cue rv"><div class="n">CUE 02<b>House to half</b></div><div class="ph-img"><img src="img/auditorium-s.jpg" alt="Auditorium stage" loading="lazy"></div><h3>Conference and stage design</h3><p>Professional sound, lighting and visuals that lift the whole audience experience.</p><button class="q" data-gear="Staging">Quote this</button></div>
+      <div class="cue rv"><div class="n">CUE 03<b>Go live</b></div><div class="ph-img"><img src="img/camera-s.jpg" alt="Camera operator at a live show" loading="lazy" style="object-position:70% 40%"></div><h3>Hybrid and live streaming</h3><p>Reliable streams that connect the room and remote audiences, seamlessly.</p><button class="q" data-gear="Live streaming">Quote this</button></div>
+      <div class="cue rv"><div class="n">CUE 04<b>Show running</b></div><div class="ph-img"><img src="img/operator-s.jpg" alt="Technician at the control desk" loading="lazy"></div><h3>On-site technical management</h3><p>Experienced technicians making sure everything runs smoothly from start to finish.</p><button class="q" data-gear="On-site technicians">Quote this</button></div>
+      <div class="cue rv"><div class="n">CUE 05<b>Encore</b></div><div class="ph-img"><img src="img/concert-s.jpg" alt="LED wall and lighting over a crowd" loading="lazy"></div><h3>Lighting, LED and visuals</h3><p>Lighting and screens that make the room, the stage and your brand look the part.</p><button class="q" data-gear="Lighting">Quote this</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="installs" aria-labelledby="inh">
+  <div class="wrap">
+    <div class="head rv">
+      <div><div class="k">AV installation and integration</div><h2 id="inh" style="margin-top:14px;color:var(--plum2)">Plan your<br>room.</h2></div>
+      <p>Boardrooms, event spaces, retail and venues, designed around your space so your team can run it without technical headaches. Pick what you need and Vivid gets a clear brief.</p>
+    </div>
+    <div class="builder rv">
+      <div class="panel">
+        <h4>What kind of space?</h4>
+        <div class="chips" data-k="space"><button>Boardroom</button><button>Meeting room</button><button>Event space</button><button>Retail</button><button>Venue</button><button>Lobby</button></div>
+        <h4>How many people?</h4>
+        <div class="range"><input type="range" id="ppl" min="2" max="400" step="2" value="12" aria-label="Number of people"><output id="pplo">12 people</output></div>
+        <h4>What should it do?</h4>
+        <div class="chips" data-k="needs" data-multi="1"><button>Video calls (Zoom or Teams)</button><button>Presentations</button><button>LED display or video wall</button><button>Sound system</button><button>Digital signage</button><button>Microphones</button></div>
+        <h4>Timing</h4>
+        <div class="chips" data-k="when"><button>As soon as possible</button><button>This quarter</button><button>Planning ahead</button></div>
+      </div>
+      <aside class="spec" aria-live="polite">
+        <div class="im"><img src="img/blueprint-s.jpg" alt="" loading="lazy" id="specimg"></div>
+        <div class="bd">
+          <div class="k">Your room brief</div>
+          <h3 id="sph">Boardroom</h3>
+          <dl><dt>People</dt><dd id="spp">12</dd><dt>Needs</dt><dd id="spn">Pick a few</dd><dt>Timing</dt><dd id="spw">Not picked</dd><dt>After</dt><dd>Ongoing support available</dd></dl>
+          <button class="btn hot" id="spsend">Send my room brief</button>
+          <small>Opens your email with the brief filled in. Nothing is booked until you talk to Vivid.</small>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="quote" aria-labelledby="qh">
+  <div class="wrap">
+    <div class="head rv">
+      <div><div class="k">Event quote</div><h2 id="qh" style="margin-top:14px">Hold your<br>date.</h2></div>
+      <p>Tell us the date, the venue and the gear, in under a minute. You get a quote built around your event and budget.</p>
+    </div>
+    <div class="qgrid">
+      <form class="qform rv" id="qf" novalidate>
+        <div class="step"><b>1</b><div><h4>What's the event?</h4><div class="chips" data-k="type"><button type="button">Corporate event</button><button type="button">Conference</button><button type="button">Town hall</button><button type="button">Gala or awards</button><button type="button">Product launch</button><button type="button">Hybrid or streamed</button></div></div></div>
+        <div class="step"><b>2</b><div><h4>When and where?</h4><div class="f3"><label class="fld">Date<input type="date" name="date"></label><label class="fld">Venue<input name="venue" placeholder="Venue or address"></label><label class="fld">Guests<select name="guests"><option>Under 50</option><option>50 to 150</option><option>150 to 400</option><option>400 plus</option><option>Not sure yet</option></select></label></div></div></div>
+        <div class="step"><b>3</b><div><h4>What do you need?</h4><div class="chips" data-k="gear" data-multi="1"><button type="button">Audio</button><button type="button">Lighting</button><button type="button">LED screens and projection</button><button type="button">Staging</button><button type="button">Live streaming</button><button type="button">Recording</button><button type="button">Presentation and playback</button><button type="button">On-site technicians</button><button type="button">Not sure, help me plan</button></div></div></div>
+        <div class="step"><b>4</b><div><h4>Where should we send it?</h4><div class="f2"><label class="fld">Name<input name="name" autocomplete="name"></label><label class="fld">Company<input name="company" autocomplete="organization"></label><label class="fld">Work email<input name="email" type="email" autocomplete="email"></label><label class="fld">Phone<input name="phone" type="tel" autocomplete="tel"></label></div><label class="fld" style="margin-top:10px">Anything else?<textarea name="notes" placeholder="Run of show, room setup, speakers, anything you know so far"></textarea></label>
+          <button class="btn hot" style="margin-top:16px;width:100%">Send my quote request</button><div class="ok" id="ok">Your email app should open with everything filled in. Hit send and it goes to Vivid.</div></div></div>
+      </form>
+      <div class="qside">
+        <div class="card rv"><img src="img/handshake-s.jpg" alt="Two people shaking hands" loading="lazy"><div class="bd"><h4>Rather talk it through?</h4><p>Book a complimentary discovery call. Bring the idea; Vivid helps shape the plan.</p><a class="btn hot" href="mailto:sales@vivid-av.net?subject=Book%20a%20discovery%20call">Book a discovery call</a></div></div>
+        <div class="card rv"><div class="bd"><h4>Call the team</h4><p>Event this week? Pick up the phone.</p><a class="btn line" href="tel:+14168338424">(416) 833-8424</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" aria-labelledby="ph">
+  <div class="bg"></div>
+  <div class="wrap">
+    <div class="k rv">How it works</div>
+    <h2 id="ph" class="rv" style="font-size:clamp(44px,6vw,90px);margin:14px 0 50px">Three steps.<br>No surprises.</h2>
+    <div class="steps">
+      <div class="rv"><b>1</b><h3>Tell us your needs</h3><p>Event or installation, we start with your goals and your space.</p></div>
+      <div class="rv"><b>2</b><h3>We design it</h3><p>A custom AV plan built around your requirements and budget. Everything planned and tested.</p></div>
+      <div class="rv"><b>3</b><h3>We deliver and support</h3><p>From setup to long-term support, we handle it, so you don't have to.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="care" aria-labelledby="ch">
+  <div class="wrap care">
+    <div class="ph-img rv"><img src="img/operator-s.jpg" srcset="img/operator-s.jpg 900w, img/operator.jpg 2200w" sizes="(max-width:1000px) 100vw, 45vw" alt="Technician checking equipment" loading="lazy"></div>
+    <div class="rv">
+      <div class="k">After the install</div>
+      <h2 id="ch">Support that<br>stays.</h2>
+      <p>Clean installs, easy-to-use systems and reliable performance every time. Ongoing support keeps your rooms ready for the next meeting.</p>
+      <div class="tiers">
+        <div class="tier"><h3>Check-in</h3><p>Scheduled visits to test, update and tidy your rooms. <span class="ph">Details to confirm with Vivid</span></p></div>
+        <div class="tier"><h3>Priority</h3><p>A direct line and faster help when a room goes down before a meeting. <span class="ph">Details to confirm with Vivid</span></p></div>
+        <div class="tier"><h3>Event-ready</h3><p>Your installed space, staffed and set for your own events. <span class="ph">Details to confirm with Vivid</span></p></div>
+      </div>
+      <a class="btn ink" style="margin-top:26px" href="mailto:sales@vivid-av.net?subject=Ongoing%20support%20for%20our%20AV">Ask about support</a>
+    </div>
+  </div>
+</section>
+
+<section id="partners" aria-labelledby="pah">
+  <div class="bgimg"></div>
+  <div class="wrap">
+    <div class="k rv">Partner programme</div>
+    <h2 id="pah" class="rv">One partner for everything.</h2>
+    <p class="intro rv">Events and permanent installs from one team, so planners, venues and property teams don't juggle vendors. Work with Vivid on a standing basis.</p>
+    <div class="plist rv">
+      <details open><summary>Planners and agencies</summary><p>Your go-to AV team for client events, from the site visit to the last cable packed.</p></details>
+      <details><summary>Venues</summary><p>Technical support on site for the events in your rooms, plus installed systems your own staff can run.</p></details>
+      <details><summary>Property and facility teams</summary><p>Boardrooms, lobbies and amenity spaces across your buildings, installed the same way and supported after.</p></details>
+      <details><summary>Streaming partners</summary><p>Hybrid shows that feed cleanly into your client's platform of choice.</p></details>
+    </div>
+    <a class="btn hot rv" style="margin-top:28px" href="mailto:sales@vivid-av.net?subject=Partner%20with%20Vivid">Become a partner</a>
+  </div>
+</section>
+
+<section id="work" aria-labelledby="wh">
+  <div class="wrap">
+    <div class="head rv">
+      <div><div class="k">Work</div><h2 id="wh" style="margin-top:14px">On stage.<br>On the wall.</h2></div>
+      <div><p>Drag or swipe through. Each one opens into a short project story: the brief, the room and what Vivid ran.</p><p style="margin-top:12px"><span class="ph">Placeholder: Vivid's own project photos and stories go here</span></p></div>
+    </div>
+  </div>
+  <div class="reel" id="reel">
+    <figure><img src="img/concert-s.jpg" alt="Lighting and LED wall at a live show" loading="lazy"><figcaption><b>Stage and lighting</b><span>Project story to come</span></figcaption></figure>
+    <figure><img src="img/auditorium-s.jpg" alt="Auditorium with projection" loading="lazy"><figcaption><b>Conference staging</b><span>Project story to come</span></figcaption></figure>
+    <figure><img src="img/camera-s.jpg" alt="Camera operator" loading="lazy" style="object-position:70% 40%"><figcaption><b>Live streaming</b><span>Project story to come</span></figcaption></figure>
+    <figure><img src="img/audience-s.jpg" alt="Audience at a conference" loading="lazy"><figcaption><b>Corporate event</b><span>Project story to come</span></figcaption></figure>
+    <figure><img src="img/operator-s.jpg" alt="Technician on site" loading="lazy"><figcaption><b>Show management</b><span>Project story to come</span></figcaption></figure>
+    <figure><img src="img/blueprint-s.jpg" alt="Room plans on a drafting table" loading="lazy"><figcaption><b>Installation design</b><span>Project story to come</span></figcaption></figure>
+  </div>
+  <div class="wrap reelnav"><button aria-label="Previous" id="rp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg></button><button aria-label="Next" id="rn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></button></div>
+</section>
+
+<section id="faq" aria-labelledby="fh">
+  <div class="wrap faq">
+    <div class="side rv">
+      <div class="k">Questions</div>
+      <h2 id="fh">Before you<br>book.</h2>
+      <p style="color:#ffffffc2">Straight answers, sorted by where you are in the plan.</p>
+      <div class="ph-img"><img src="img/camera-s.jpg" alt="Live production crew" loading="lazy" style="object-position:70% 40%"></div>
+    </div>
+    <div class="rv">
+      <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="a">Getting started</button><button role="tab" aria-selected="false" data-t="b">Events</button><button role="tab" aria-selected="false" data-t="c">Installs</button></div>
+      <div class="qa">
+        <details data-g="a" open><summary>Do you do both events and permanent installs?</summary><p>Yes. Events and installs come from one partner, so you don't need to juggle multiple vendors.</p></details>
+        <details data-g="a"><summary>Where do you work?</summary><p>Across Toronto and the GTA.</p></details>
+        <details data-g="a"><summary>How do we start?</summary><p>Tell us about your event or your space, by quote request or a complimentary discovery call. Vivid designs an AV plan around your goals, space and budget.</p></details>
+        <details data-g="b" hidden><summary>What kinds of events do you support?</summary><p>Meetings, conferences and corporate events of any size, including hybrid events with live streaming.</p></details>
+        <details data-g="b" hidden><summary>Will someone be on site?</summary><p>Yes. Experienced technicians make sure everything runs smoothly from start to finish.</p></details>
+        <details data-g="b" hidden><summary>Can remote guests watch live?</summary><p>Yes. Hybrid and live streaming connect your in-person and remote audiences.</p></details>
+        <details data-g="c" hidden><summary>Will our team be able to use it?</summary><p>That's the point. Systems are designed for ease of use, so there's no tech confusion on meeting day.</p></details>
+        <details data-g="c" hidden><summary>Does it work with Zoom and Teams?</summary><p>Yes. Video conferencing setups are Zoom and Teams ready.</p></details>
+        <details data-g="c" hidden><summary>What happens after the install?</summary><p>Ongoing support is available, so your rooms keep working long after day one.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta" aria-labelledby="ctah">
+  <img src="img/concert.jpg" alt="Live event with stage lighting" loading="lazy">
+  <div class="wrap">
+    <h2 id="ctah" class="rv">Planning an event? <em>Upgrading a space?</em></h2>
+    <p class="rv">Whether it's one show or every room in the building, Vivid has you covered.</p>
+    <div class="row rv"><a class="btn hot" href="#quote">Get a quote</a><a class="btn line" href="tel:+14168338424">Call (416) 833-8424</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div><img class="lg" src="img/vivid-white.svg" alt="VIVID"><p>Corporate event production, AV installation and integration. Toronto and the GTA.</p></div>
+      <div><h5>Services</h5><ul><li><a href="#events">Corporate events</a></li><li><a href="#events">Stage design</a></li><li><a href="#events">Live streaming</a></li><li><a href="#installs">AV installation</a></li></ul></div>
+      <div><h5>Contact</h5><ul><li><a href="tel:+14168338424">(416) 833-8424</a></li><li><a href="mailto:sales@vivid-av.net">sales@vivid-av.net</a></li><li><a href="https://www.instagram.com/vividaudiovisuals" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://ca.linkedin.com/company/vivid-av" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
+      <div><h5>Planner notes</h5><p>Occasional notes for event planners and office managers: what's new in rooms, stages and streams.</p><form id="nl"><input type="email" placeholder="Work email" aria-label="Work email" required><button class="btn hot">Join</button></form></div>
+    </div>
+    <div class="base"><span>&copy; <span id="yr"></span> VIVID AV. All rights reserved.</span><span>Concept preview by Chairlift</span></div>
+  </div>
+</footer>
+
+<div id="dr" aria-hidden="true">
+  <div class="sh" data-close></div>
+  <aside aria-label="Contact">
+    <div class="top"><img src="img/vivid-white.svg" alt="VIVID" style="width:100px"><button class="x" data-close aria-label="Close">&times;</button></div>
+    <div class="mobnav"><a href="#events" data-close>Events</a><a href="#installs" data-close>Installs</a><a href="#work" data-close>Work</a><a href="#partners" data-close>Partners</a><a href="#faq" data-close>FAQ</a></div>
+    <a class="opt" href="#quote" data-close><b>Request a quote</b><span>Date, venue and gear in under a minute</span><i></i></a>
+    <a class="opt" href="#installs" data-close><b>Plan a room</b><span>Boardrooms, event spaces, retail, venues</span><i></i></a>
+    <a class="opt" href="mailto:sales@vivid-av.net?subject=Book%20a%20discovery%20call"><b>Book a call</b><span>Complimentary discovery call</span><i></i></a>
+    <a class="opt" href="#partners" data-close><b>Partner with us</b><span>Planners, venues and property teams</span><i></i></a>
+    <a class="opt" href="mailto:sales@vivid-av.net?subject=Invoice%20or%20deposit"><b>Invoices and deposits</b><span>Settle a deposit or invoice online <span class="ph" style="margin-top:6px">To switch on with Vivid</span></span><i></i></a>
+    <div class="contact"><a href="tel:+14168338424">(416) 833-8424</a><a href="mailto:sales@vivid-av.net">sales@vivid-av.net</a></div>
+  </aside>
+</div>
+
+<nav class="abar" aria-label="Quick actions">
+  <a href="tel:+14168338424"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg>Call</a>
+  <a href="#installs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg>Rooms</a>
+  <a class="hot" href="#quote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4zM8 9h8M8 13h8M8 17h5"/></svg>Quote</a>
+</nav>
+
+<button class="btn tourbtn" id="tb">Take the tour</button>
+<div class="tourbar" id="tour" hidden role="dialog" aria-label="Guided tour">
+  <div class="tk"><span id="tk">Concept preview</span><span id="tn"></span></div>
+  <h5 id="th">A new site for Vivid AV</h5>
+  <p id="tp">A short guided tour. It plays by itself.</p>
+  <p class="why" id="ty" hidden></p><p class="rev" id="tr" hidden></p>
+  <div class="ctl"><button class="go" id="tgo">Start the tour</button><button id="tpause" hidden>Pause</button><button id="tnext" hidden>Next</button><span class="sp"></span><button id="tx">Close</button></div>
+  <div class="pg"><i id="tpg"></i></div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+$('#yr').textContent=new Date().getFullYear();
+const MAIL='sales@vivid-av.net';
+
+/* loader */
+const ld=$('#ld');
+function ready(){ld.classList.add('out');setTimeout(()=>{ld.remove();dispatchEvent(new Event('vready'))},1000)}
+setTimeout(ready,RM?200:2100);
+
+/* header */
+const hd=$('#hd');const onS=()=>hd.classList.toggle('solid',scrollY>80);addEventListener('scroll',onS,{passive:true});onS();
+
+/* drawer */
+const dr=$('#dr');const openDr=()=>{dr.classList.add('open');dr.setAttribute('aria-hidden','false')};const closeDr=()=>{dr.classList.remove('open');dr.setAttribute('aria-hidden','true')};
+$$('[data-drawer]').forEach(b=>b.onclick=openDr);$('#mb').onclick=openDr;$$('#dr [data-close]').forEach(b=>b.addEventListener('click',closeDr));
+addEventListener('keydown',e=>{if(e.key==='Escape')closeDr()});
+
+/* hero: slides, spotlight, rotating line */
+const hero=$('#hero'),figs=$$('#hero figure'),bars=$$('#bars i'),caps=['Conference staging','Stage and LED','Live streaming','Corporate events'];let si=0;
+setInterval(()=>{figs[si].classList.remove('on');bars[si].classList.remove('on');si=(si+1)%figs.length;figs[si].classList.add('on');bars[si].classList.add('on');$('#cap').textContent=caps[si]},5200);
+if(matchMedia('(hover:hover)').matches){hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();hero.classList.add('mouse');hero.style.setProperty('--x',((e.clientX-r.left)/r.width*100)+'%');hero.style.setProperty('--y',((e.clientY-r.top)/r.height*100)+'%')});hero.addEventListener('pointerleave',()=>hero.classList.remove('mouse'))}
+const lines=['look flawless.','sound right.','stream clean.','just work.'];let li=0;
+function setLine(t){const rw=$('#rw');rw.innerHTML=[...t].map((c,i)=>`<span style="animation-delay:${i*28}ms">${c===' '?'&nbsp;':esc(c)}</span>`).join('')}
+setLine(lines[0]);
+if(!RM)setInterval(()=>{const sp=$$('#rw span');sp.forEach((s,i)=>{s.style.animationDelay=(i*14)+'ms';s.classList.add('gone')});setTimeout(()=>{li=(li+1)%lines.length;setLine(lines[li])},480)},3200);
+
+/* client logos loop */
+const lg=$('#logos');lg.innerHTML+=lg.innerHTML;
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+$$('.rv').forEach(el=>io.observe(el));
+
+/* chips */
+$$('.chips button').forEach(b=>{b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>{const g=b.parentElement,on=b.getAttribute('aria-pressed')!=='true';if(!g.dataset.multi)[...g.children].forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed',on?'true':'false');spec()})});
+const sel=(k,root=document)=>[...root.querySelectorAll(`.chips[data-k="${k}"] button`)].filter(b=>b.getAttribute('aria-pressed')==='true').map(b=>b.textContent);
+const pick=(k,label)=>{const g=$(`.chips[data-k="${k}"]`);[...g.children].forEach(b=>{if(b.textContent===label)b.setAttribute('aria-pressed','true');else if(!g.dataset.multi)b.setAttribute('aria-pressed','false')})};
+
+/* room builder */
+$('.chips[data-k="space"] button').setAttribute('aria-pressed','true');
+const imgs={Boardroom:'blueprint',"Meeting room":'blueprint',"Event space":'auditorium',Retail:'operator',Venue:'concert',Lobby:'audience'};
+function spec(){const s=sel('space')[0]||'Your space',n=sel('needs'),w=sel('when')[0];const p=$('#ppl').value;
+ $('#sph').textContent=s;$('#spp').textContent=p+(p>=400?'+':'');$('#pplo').textContent=p+(p>=400?'+':'')+' people';$('#spn').textContent=n.length?n.join(', '):'Pick a few';$('#spw').textContent=w||'Not picked';
+ const im=imgs[s]||'blueprint';const el=$('#specimg');if(!el.src.includes(im))el.src=`img/${im}-s.jpg`}
+$('#ppl').addEventListener('input',spec);spec();
+$('#spsend').onclick=()=>{const body=`Space: ${$('#sph').textContent}\nPeople: ${$('#spp').textContent}\nNeeds: ${$('#spn').textContent}\nTiming: ${$('#spw').textContent}\n\nName:\nCompany:\nPhone:\nAddress of the space:\n`;
+ location.href=`mailto:${MAIL}?subject=${encodeURIComponent('Installation quote: '+$('#sph').textContent)}&body=${encodeURIComponent(body)}`};
+
+/* cue -> quote */
+$$('.cue .q').forEach(b=>b.onclick=()=>{const g=b.dataset.gear;if(['Corporate event'].includes(g))pick('type',g);else pick('gear',g);$('#quote').scrollIntoView({behavior:'smooth'})});
+
+/* event quote */
+$('#qf').addEventListener('submit',e=>{e.preventDefault();const f=e.target,v=n=>f[n].value||'Not given';
+ const body=`Event: ${sel('type').join(', ')||'Not picked'}\nDate: ${v('date')}\nVenue: ${v('venue')}\nGuests: ${v('guests')}\nNeeds: ${sel('gear').join(', ')||'Not picked'}\n\nName: ${v('name')}\nCompany: ${v('company')}\nEmail: ${v('email')}\nPhone: ${v('phone')}\n\n${f.notes.value}`;
+ location.href=`mailto:${MAIL}?subject=${encodeURIComponent('Event quote request'+(f.date.value?' for '+f.date.value:''))}&body=${encodeURIComponent(body)}`;$('#ok').style.display='block'});
+$('#nl').addEventListener('submit',e=>{e.preventDefault();location.href=`mailto:${MAIL}?subject=${encodeURIComponent('Add me to Planner notes')}&body=${encodeURIComponent(e.target.querySelector('input').value)}`});
+
+/* reel */
+const reel=$('#reel');const stepR=d=>reel.scrollBy({left:d*reel.querySelector('figure').offsetWidth,behavior:'smooth'});$('#rp').onclick=()=>stepR(-1);$('#rn').onclick=()=>stepR(1);
+let dn=false,sx=0,sl=0;reel.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;dn=true;sx=e.clientX;sl=reel.scrollLeft;reel.style.scrollSnapType='none'});addEventListener('pointerup',()=>{if(dn){dn=false;reel.style.scrollSnapType=''}});reel.addEventListener('pointermove',e=>{if(dn)reel.scrollLeft=sl-(e.clientX-sx)});
+
+/* faq tabs */
+$$('.tabs button').forEach(b=>b.onclick=()=>{$$('.tabs button').forEach(x=>x.setAttribute('aria-selected','false'));b.setAttribute('aria-selected','true');$$('.qa details').forEach(d=>d.hidden=d.dataset.g!==b.dataset.t)});
+
+/* guided tour: what changed, why, and how it brings in work */
+const TOUR=[
+ ['#top','A new site for Vivid AV','A concept redesign built from Vivid\'s own logo, colours, photos and words.','It plays by itself. Tap Pause any time, or Next to skip ahead.','Why: make Vivid look like the team you call for a big room, and make every visit end in a quote.'],
+ ['#hero','A stage, not a brochure','Was: a dark page of text with one Book A Call button.','Now: your event photos change every few seconds under a moving spotlight, the headline shifts between look flawless, sound right, stream clean and just work, and your services scroll past like a show ticker.','Why: planners buy with their eyes. Within three seconds they see that you do both events and rooms.'],
+ ['#hd','Every way in, in one drawer','Was: Call Now and Get A Quote, both opening the same form.','Now: Contact opens one drawer with Request a quote, Plan a room, Book a call, Partner with us, and Invoices and deposits.','Revenue: each kind of buyer gets their own door, and deposits can be paid online once switched on, so money comes in faster.'],
+ ['#clients','Your client list, front and centre','Was: logos in a small strip.','Now: the same logos, larger and moving, right under the hero.','Why: names like Oxford Properties and Sunnybrook settle the trust question before anyone scrolls.'],
+ ['#doors','Two doors: events or rooms','Was: events and installs mixed together in one carousel.','Now: one big choice up top. Planning an event, or upgrading a space.','Why: two different buyers. A planner and an office manager each get straight to their side.'],
+ ['#events','Your services as a run of show','Was: five cards in a slider that most people never swipe.','Now: a cue sheet, cue 01 to 05, each with a photo and a Quote this button.','Revenue: tap any cue and the quote form opens with that service already picked.'],
+ ['#installs','A room planner for installs','Was: two bullet lists and one button.','Now: pick the space, the head count and what it should do, and a room brief builds itself.','Revenue: install jobs are the bigger tickets. You get a qualified brief on the first email, so you can quote faster and win more of them.'],
+ ['#quote','Hold your date','Was: a pop-up form with no detail.','Now: event type, date, venue, guest count and gear in four quick steps, with Book a call and Call beside it.','Revenue: date-first requests mean fewer missed bookings, and you see the size of the job before you call back.'],
+ ['#care','Ongoing support, as a plan','Was: one line saying ongoing support is available.','Now: three support plans after every install. Names and details are placeholders for you to set.','Revenue: monthly support turns one install into income every month, and keeps you first in line for the next room.'],
+ ['#partners','A partner programme','Was: nothing for repeat buyers.','Now: a section for planners, venues, property teams and streaming partners, with Become a partner.','Revenue: one planner or property manager can send you dozens of events and rooms a year.'],
+ ['#work','A reel for your work','Was: no project photos on the site.','Now: a swipeable reel ready for your own shows and installs, each opening into a short project story.','Why: proof sells AV. Send us your best photos and we drop them in.'],
+ ['#faq','Answers before the call','Was: no FAQ.','Now: straight answers sorted by Getting started, Events and Installs, all in your own words.','Why: fewer back-and-forth emails, and buyers arrive ready to book.'],
+ ['#cta','Every screen ends with an ask','Was: one quote button at the bottom.','Now: a full-screen close with Get a quote and Call, plus a Planner notes sign-up in the footer and a Call, Rooms, Quote bar on phones.','Revenue: Planner notes keeps Vivid in front of planners between events, so the next one comes to you.']
+];
+const tour=$('#tour');let ti=-1,tt=null,paused=false;const DUR=9500;
+function clr(){$$('.spotlit').forEach(e=>e.classList.remove('spotlit'))}
+function show(i){if(i>=TOUR.length)return end();ti=i;clr();const [s,h,was,now,why]=TOUR[i];const el=$(s);
+ if(s==='#hd')openDr();else closeDr();
+ if(s==='#top'||s==='#hero'||s==='#hd'){scrollTo({top:0,behavior:'smooth'})}else{el.scrollIntoView({behavior:'smooth',block:'start'})}
+ if(s!=='#top'&&s!=='#hd')el.classList.add('spotlit');
+ $('#tk').textContent=i?'What we changed':'Concept preview';$('#tn').textContent=i?`${i} / ${TOUR.length-1}`:'';$('#th').textContent=h;$('#tp').innerHTML=`${esc(was)}<br>${esc(now)}`;
+ const y=$('#ty'),r=$('#tr');y.hidden=r.hidden=true;if(why.startsWith('Revenue')){r.textContent=why;r.hidden=false}else{y.textContent=why;y.hidden=false}
+ $('#tgo').hidden=true;$('#tpause').hidden=false;$('#tnext').hidden=false;tick()}
+function tick(){clearTimeout(tt);const pg=$('#tpg');pg.style.transition='none';pg.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>{pg.style.transition=`width ${DUR}ms linear`;pg.style.width='100%'}));if(!paused)tt=setTimeout(()=>show(ti+1),DUR)}
+function end(){clearTimeout(tt);clr();closeDr();$('#tk').textContent="That's the tour";$('#tn').textContent='';$('#th').textContent='Want this live? Talk to Ryan.';$('#tp').innerHTML='This is a working concept built from Vivid\'s own logo, photos, words and services. Ryan at Chairlift can walk you through it and what it takes to switch it on. <a href="https://cal.com/chairlift/5min" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;background:#ff5252;color:#fff;padding:12px 16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:12px;border-radius:4px;text-decoration:none">Start a conversation</a>';$('#ty').hidden=$('#tr').hidden=true;$('#tpause').hidden=$('#tnext').hidden=true;$('#tgo').hidden=false;$('#tgo').textContent='Replay';ti=-1;scrollTo({top:0,behavior:'smooth'})}
+$('#tgo').onclick=()=>{paused=false;$('#tpause').textContent='Pause';show(0)};
+$('#tnext').onclick=()=>show(ti+1);
+$('#tpause').onclick=()=>{paused=!paused;$('#tpause').textContent=paused?'Resume':'Pause';if(paused){clearTimeout(tt);const pg=$('#tpg');pg.style.width=getComputedStyle(pg).width;pg.style.transition='none'}else tick()};
+const openTour=()=>{document.body.classList.add('touring');tour.hidden=false;$('#tgo').click()};
+$('#tb').onclick=openTour;
+$('#tx').onclick=()=>{clearTimeout(tt);clr();closeDr();tour.hidden=true;document.body.classList.remove('touring')};
+/* the tour starts by itself right after the loading screen (?tour=0 turns it off) */
+let started=false;const autoTour=()=>{if(started||new URLSearchParams(location.search).get('tour')==='0')return;started=true;setTimeout(openTour,500)};
+addEventListener('vready',autoTour);setTimeout(autoTour,5000);
+</script>
+</body>
+</html>
