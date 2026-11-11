@@ -470,7 +470,7 @@ footer .tflogo{height:50px;width:auto}
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 /* loader */
 (function(){const ld=$('#ld');if(!ld)return;let n=3,a=0,done=false;const sw=$('#sw'),num=$('#ldn');
-const fin=()=>{if(done)return;done=true;ld.classList.add('logo');setTimeout(()=>{ld.classList.add('go');setTimeout(()=>ld.remove(),850)},750)};
+const fin=()=>{if(done)return;done=true;ld.classList.add('logo');setTimeout(()=>{ld.classList.add('go');dispatchEvent(new Event('tfready'));setTimeout(()=>ld.remove(),850)},750)};
 const st=performance.now();(function f(t){if(done)return;const e=(t-st)/450;n=3-Math.floor(e);a=(e%1)*360;sw.style.setProperty('--a',a+'deg');if(n<1)return fin();num.textContent=n;requestAnimationFrame(f)})(st);
 $('#ldx').onclick=fin;})();
 /* header + timecode */
@@ -572,7 +572,9 @@ $('#tpause').onclick=()=>{paused=!paused;$('#tpause').textContent=paused?'Resume
 const openTour=()=>{$('#tb').hidden=true;tour.hidden=false;$('#tgo').click()};
 $('#tb').onclick=openTour;$('#dtour').onclick=e=>{e.preventDefault();openTour()};
 $('#tx').onclick=()=>{clearTimeout(tt);clr();tour.hidden=true;$('#tb').hidden=false};
-if(new URLSearchParams(location.search).get('tour')==='1')setTimeout(openTour,3000);
+/* preview: tour starts by itself right after the loading screen (?tour=0 turns it off) */
+let tourStarted=false;const autoTour=()=>{if(tourStarted||new URLSearchParams(location.search).get('tour')==='0')return;tourStarted=true;setTimeout(openTour,500)};
+addEventListener('tfready',autoTour);if(!document.getElementById('ld'))autoTour();setTimeout(autoTour,6000);
 </script>
 </body>
 </html>
