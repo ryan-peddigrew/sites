@@ -1,6 +1,6 @@
-const C='divine-design-v8';
+const C='divine-design-v9';
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(['./','icon-192.png','../img/logo-gold.png'].map(u=>new Request(u,{cache:'reload'})))))});
-self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim()).then(()=>self.clients.matchAll({type:'window'})).then(cs=>Promise.all(cs.map(c=>c.navigate(c.url).catch(()=>{})))))});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;
   const same=new URL(e.request.url).origin===location.origin;
   const req=same&&(e.request.mode==='navigate'||/\.(js|webmanifest)$/.test(new URL(e.request.url).pathname))?new Request(e.request.url,{cache:'no-cache',credentials:'same-origin'}):e.request;
