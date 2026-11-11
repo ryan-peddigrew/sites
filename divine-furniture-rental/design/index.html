@@ -65,6 +65,9 @@ button{background:none;border:0;cursor:pointer}
 .sel button svg{width:18px;height:18px}
 .msg{position:absolute;left:50%;top:12px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;font-size:14px;border-left:4px solid var(--gold);display:none;max-width:calc(100% - 24px);z-index:5}
 .msg.on{display:block}
+.evs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 8px}
+.evs button{min-height:44px;padding:0 8px;border:1.5px solid rgba(216,190,110,.5);background:var(--ink3);color:#fff;font:800 11px/1.15 var(--f);letter-spacing:.06em;text-transform:uppercase;border-radius:3px}
+.evs button:hover{border-color:var(--gold)}
 .side h3{font:900 14px var(--f);text-transform:uppercase;letter-spacing:.06em;color:var(--gold);margin:4px 0 10px}
 .side h3:not(:first-child){margin-top:22px}
 .kv{display:grid;grid-template-columns:1fr auto;gap:6px 10px;font-size:14px}
@@ -182,6 +185,9 @@ button{background:none;border:0;cursor:pointer}
   <aside class="side" id="side">
     <h3>Your layout</h3>
     <div class="kv"><span>Seats placed</span><b id="seats">0</b><span>Plan size</span><b id="psize">-</b><span>Scale</span><b id="pscale">-</b></div>
+    <h3>Start from an event type</h3>
+    <div class="evs" id="evs"></div>
+    <p class="fine" id="evNote">Pick an event type to place a standard starting layout, with its AV, then move anything into place. This replaces the current layout after you confirm.</p>
     <h3>Divine pieces</h3>
     <ul class="lst" id="divList"><li style="color:var(--mute2)">None yet</li></ul>
     <button class="tb gold" id="toQuote">Add Divine pieces to my quote</button>
@@ -547,6 +553,26 @@ function setAH(){var d=document.documentElement;if(navigator.standalone){var lan
 var fitW=0,fitH=0;function refit(){setAH();var r=cv.getBoundingClientRect();if(Math.abs(r.width-fitW)>1||Math.abs(r.height-fitH)>1){fitW=r.width;fitH=r.height;fit()}}
 ['gesturestart','gesturechange'].forEach(function(n){document.addEventListener(n,function(e){e.preventDefault()},{passive:false})});
 if(navigator.standalone)document.documentElement.classList.add('sa');
+/* ---------- event starting layouts (positions are fractions of the plan) ---------- */
+function EG(id,xs,ys){var o=[];ys.forEach(function(y){xs.forEach(function(x){o.push([id,x,y])})});return o}
+var EVT={
+ gala:{n:'Gala dinner',p:EG('R60',[.2,.5,.8],[.55,.7,.85]).concat([['STG',.5,.1],['SCR',.5,.035],['DF',.5,.3],['FOH',.08,.1],['CAT-BARS',.92,.1],['SRV',.9,.9],['BUF16',.5,.95]])},
+ wedding:{n:'Wedding reception',p:[['STG',.5,.07],['B8',.5,.24]].concat(EG('R72',[.2,.5,.8],[.48,.64,.8]),[['DJ',.08,.1],['CAKE',.9,.3],['CAT-BARS',.92,.08],['SRV',.9,.9]])},
+ conference:{n:'Conference or theatre',p:[['SCR',.5,.03],['POD',.5,.1],['SPK',.1,.1],['SPK',.9,.1],['FOH',.5,.92]].concat(['.25','.33','.41','.49','.57','.65'].map(function(y){return ['ROW10',.5,+y]}))},
+ boardroom:{n:'Boardroom meeting',p:[['SCR',.5,.1]].concat(EG('B8',[.3,.5,.7],[.4,.6]),[['FOH',.85,.85]])},
+ cocktail:{n:'Cocktail reception',p:[['CAT-BARS',.5,.1],['STN',.2,.35],['STN',.8,.35],['STN',.2,.7],['STN',.8,.7],['SS-450-SETUP-001',.5,.5],['SS-810-SETUP-388',.5,.85],['SPK',.08,.1],['SPK',.92,.1],['DJ',.85,.9]]}
+};
+function evApply(k){var E=EVT[k];if(!E)return;
+  if(S.objs.length&&!confirm('Replace your current layout with a '+E.n.toLowerCase()+' starting layout?'))return;
+  S.objs=[];selId=null;var W=S.pw,H=S.ph;
+  E.p.forEach(function(q){add(q[0],q[1]*W,q[2]*H)});
+  selId=null;render();try{persist()}catch(e){}
+  var av=E.p.filter(function(q){return BY[q[0]].g==='av'}).map(function(q){return BY[q[0]].n.split(',')[0]});
+  var uniq=av.filter(function(x,i){return av.indexOf(x)===i});
+  $('#evNote').innerHTML='<b>'+E.n+':</b> '+E.p.length+' pieces placed. AV in this set: '+(uniq.length?uniq.join(', '):'none')+'. Move anything into place, and confirm AV with the venue.';
+  toast('Starting layout placed. Drag pieces into place.')}
+$('#evs').innerHTML=Object.keys(EVT).map(function(k){return '<button type="button" data-e="'+k+'">'+EVT[k].n+'</button>'}).join('');
+$$('#evs button').forEach(function(b){b.onclick=function(){evApply(b.dataset.e)}});
 setAH();tabs();drawPlan();fit();render();
 addEventListener('resize',refit);addEventListener('orientationchange',function(){setTimeout(refit,300)});addEventListener('pageshow',refit);
 requestAnimationFrame(refit);setTimeout(refit,300);setTimeout(refit,1200);
