@@ -37,6 +37,7 @@ h3{font-size:clamp(21px,2.2vw,26px);letter-spacing:-.01em}
 section{padding:clamp(64px,9vw,128px) 0;position:relative}
 .dark{background:var(--ink);color:#fff}
 
+@media(max-width:700px){h2 br{display:none}}
 /* header */
 .hd{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s}
 .hd .wrap{display:flex;align-items:center;justify-content:space-between;min-height:72px;gap:14px}
@@ -149,9 +150,9 @@ section{padding:clamp(64px,9vw,128px) 0;position:relative}
 .ch .no{font:700 14px var(--head);color:var(--navy);letter-spacing:.1em;width:34px}
 .ch .nm{font:800 clamp(22px,3.4vw,42px)/1.08 var(--head);letter-spacing:-.02em;transition:color .2s}
 .ch button:hover .nm{color:var(--navy)}
-.ch .pl{width:40px;height:40px;border-radius:8px;border:1.5px solid var(--line);display:grid;place-items:center;transition:transform .3s,background .3s}
+.ch .pl{width:44px;height:44px;border-radius:8px;border:1.5px solid var(--line);display:grid;place-items:center;transition:background .3s}
 .ch .pl svg{width:18px;height:18px}
-.ch.open .pl{transform:rotate(45deg);background:var(--green);border-color:var(--green)}
+.ch .pl svg{transition:transform .3s}.ch.open .pl{background:var(--green);border-color:var(--green)}.ch.open .pl svg{transform:rotate(45deg)}
 .ch .ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
 .ch.open .ans{grid-template-rows:1fr}
 .ch .ans>div{overflow:hidden}
@@ -189,7 +190,8 @@ section{padding:clamp(64px,9vw,128px) 0;position:relative}
 .field textarea{min-height:96px;resize:vertical}
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--navy)}
 .nav-row{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
-.brief{background:var(--ink);color:#fff;border-radius:16px;padding:clamp(20px,3vw,30px);position:sticky;top:90px}
+.brief{background:var(--ink);color:#fff;border-radius:16px;padding:clamp(20px,3vw,30px)}
+@media(min-width:1000px){.brief{position:sticky;top:90px}}
 .brief .k{font:700 12px var(--head);letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
 .brief h3{margin:8px 0 16px}
 .brief dl{display:grid;gap:12px}
@@ -292,7 +294,7 @@ footer a:hover{color:var(--green)}
 <script>try{if(sessionStorage.getItem('pmld')&&!/[?&](tour|intro)=1/.test(location.search))document.getElementById('ld').remove()}catch(e){}</script>
 
 <header class="hd" id="hd"><div class="wrap">
-  <a class="brand" href="#top" aria-label="Patients' Mirror home"><img src="img/mark-white.svg" alt=""><div><b>Patients' Mirror</b><small>Stories that heal</small></div></a>
+  <a class="brand" href="#top" aria-label="Patients' Mirror home"><img src="img/mark-white.svg" alt=""><div><b>Patients' Mirror</b><small>More than a story</small></div></a>
   <nav class="nav" aria-label="Main"><a href="#films">Films</a><a href="#what">What we do</a><a href="#sponsor">Sponsor</a><a href="#story">Share your story</a><a href="#journal">Journal</a></nav>
   <a class="btn g hd-cta" href="#sponsor">Sponsor a story</a>
   <button class="menu-btn" id="mb" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
@@ -332,7 +334,7 @@ footer a:hover{color:var(--green)}
   </div>
 </section>
 
-<section class="manifesto" id="why">
+<section class="manifesto dark" id="why">
   <img class="mk" src="img/mark-white.svg" alt="">
   <div class="wrap">
     <div class="eyebrow">Who we are, and why it matters</div>
@@ -344,7 +346,7 @@ footer a:hover{color:var(--green)}
   </div>
 </section>
 
-<section class="films" id="films">
+<section class="films dark" id="films">
   <div class="wrap">
     <div class="films-head">
       <div><div class="eyebrow">Watch</div><h2>It's more than a story.</h2><p class="lead">Short films from Patients' Mirror. Tap any film to play it here.</p></div>
@@ -499,7 +501,7 @@ footer a:hover{color:var(--green)}
 <footer>
   <div class="wrap">
     <div class="ft">
-      <div><a class="brand" href="#top" style="margin-bottom:16px"><img src="img/mark-white.svg" alt=""><div><b>Patients' Mirror</b><small>Stories that heal</small></div></a><p style="max-width:34ch">Together, we can change how the world sees healthcare, one story at a time.</p></div>
+      <div><a class="brand" href="#top" style="margin-bottom:16px"><img src="img/mark-white.svg" alt=""><div><b>Patients' Mirror</b><small>More than a story</small></div></a><p style="max-width:34ch">Together, we can change how the world sees healthcare, one story at a time.</p></div>
       <div><h4>Office</h4><p>192 Spadina Ave, Suite 300<br>Toronto, ON M5T 2C2</p><p style="margin-top:8px">Weekdays, 9 a.m. to 8 p.m. ET</p></div>
       <div><h4>Contact</h4><a href="tel:+14166191116">416-619-1116</a><a href="mailto:hello@patientsmirror.com">hello@patientsmirror.com</a></div>
       <div><h4>Follow</h4><div class="soc">
