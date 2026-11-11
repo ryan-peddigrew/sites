@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<title>MapleTrust brand style guide</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0F2440">
+<link rel="icon" href="../img/icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0F2440;--red:#D62B1F;--blue:#2F7DE1;--paper:#FBF8F3;--stone:#F1EBE1;--line:#E6E0D6;--ash:#55607A;--head:'Bricolage Grotesque',system-ui,sans-serif;--body:'Instrument Sans',system-ui,sans-serif;--gut:clamp(16px,4vw,44px)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--navy);font:400 17px/1.6 var(--body);overflow-x:hidden}
+img{display:block;max-width:100%}
+.wrap{max-width:1220px;margin:0 auto;padding:0 var(--gut)}
+h1,h2,h3{font-family:var(--head);font-weight:800;letter-spacing:-.025em;line-height:1}
+h1{font-size:clamp(40px,7vw,80px)}h2{font-size:clamp(28px,4vw,44px);margin-bottom:18px}h3{font-size:20px;letter-spacing:-.01em}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:700 13px/1 var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.eyebrow::before{content:"";width:22px;height:3px;background:currentColor;border-radius:2px}
+.lead{font-size:19px;color:var(--ash);max-width:60ch;margin-top:16px}
+header.top{background:var(--navy);color:#fff}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;min-height:64px;gap:12px}
+.lock{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+.lock img{width:38px;height:38px}
+.lock b{font:800 22px/1 var(--head);letter-spacing:-.02em}.lock b span{color:#FF4A3A}
+.lock small{display:block;font:700 9px/1 var(--head);letter-spacing:.3em;margin-top:4px}
+.toplinks{display:flex;gap:8px;flex-wrap:wrap}
+.toplinks a{color:#fff;text-decoration:none;font-weight:600;font-size:15px;min-height:44px;display:inline-flex;align-items:center;padding:0 14px;border:1.5px solid rgba(255,255,255,.35);border-radius:10px}
+.toplinks a[aria-current]{background:#fff;color:var(--navy)}
+section{padding:clamp(48px,7vw,88px) 0}
+section+section{border-top:1px solid var(--line)}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+footer{padding:40px 0 60px;color:var(--ash);font-size:15px}
+</style>
+
+<style>
+.grid{display:grid;gap:18px;margin-top:26px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.pad{padding:26px}
+.lk{display:flex;align-items:center;gap:16px}
+.lk img{width:72px;height:72px}
+.lk b{display:block;font:800 40px/1 var(--head);letter-spacing:-.03em}.lk b span{color:var(--red)}
+.lk small{display:block;font:700 11px/1 var(--head);letter-spacing:.32em;margin-top:6px}
+.on-navy{background:var(--navy);color:#fff}.on-navy .lk b span{color:#FF4A3A}
+.on-red{background:var(--red);color:#fff}
+.stage{min-height:200px;display:grid;place-items:center}
+.cap{font-size:14px;color:var(--ash);padding:12px 18px;border-top:1px solid var(--line);background:#fff}
+.sw{height:120px}
+.sw+div{padding:14px 16px}
+.sw+div b{font-family:var(--head);font-size:17px;display:block}
+.sw+div code{font:500 14px/1.5 ui-monospace,Menlo,monospace;color:var(--ash)}
+.sw+div p{font-size:14px;color:var(--ash);margin-top:6px}
+.type-h{font:800 clamp(44px,7vw,84px)/.95 var(--head);letter-spacing:-.03em}
+.type-b{font-size:19px;color:var(--ash);max-width:56ch}
+.spec{font:500 14px/1.5 ui-monospace,Menlo,monospace;color:var(--ash);margin-top:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 24px;border-radius:10px;font:600 16px/1 var(--body);text-decoration:none;border:2px solid transparent}
+.btn-red{background:var(--red);color:#fff}.btn-navy{background:var(--navy);color:#fff}.btn-line{border-color:var(--navy);color:var(--navy)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.do,.dont{padding:22px}
+.do h3::before,.dont h3::before{content:"";display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:10px;vertical-align:middle;background:var(--blue)}
+.dont h3::before{background:var(--red)}
+.do ul,.dont ul{margin-top:10px;padding-left:18px;color:var(--ash);display:grid;gap:6px}
+.wave{height:12px;width:100%;max-width:340px}
+.icons{display:flex;gap:28px;flex-wrap:wrap;color:var(--navy)}
+.icons svg{width:40px;height:40px}
+@media(max-width:860px){.g3,.g4{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.g2,.g3,.g4{grid-template-columns:1fr}.lk b{font-size:32px}.lk img{width:58px;height:58px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="lock" href="../"><img src="../img/mark-dark.svg" alt=""><div><b>Maple<span>Trust</span></b><small>RESTORATION</small></div></a>
+  <nav class="toplinks"><a href="compare.html">Current vs new</a><a href="style-guide.html" aria-current="page">Style guide</a><a href="../?tour=1">Tour the new site</a></nav>
+</div></header>
+
+<section><div class="wrap">
+  <div class="eyebrow">Brand style guide · version 1 · November 2026</div>
+  <h1>MapleTrust, in one page.</h1>
+  <p class="lead">How the logo, colours, type and buttons work, so the website, trucks, uniforms, invoices and social posts all look like the same trusted team.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">01 · Logo</div>
+  <h2>The leaf that shelters a home.</h2>
+  <p class="lead">A maple leaf (Canadian, local) holding a small house under a navy roof line (we protect your place). The name sits beside it: "Maple" in navy, "Trust" in maple red, "RESTORATION" spaced out underneath.</p>
+  <div class="grid g3">
+    <div class="card"><div class="stage pad"><div class="lk"><img src="../img/mark.svg" alt=""><div><b>Maple<span>Trust</span></b><small>RESTORATION</small></div></div></div><div class="cap">Main logo, on light backgrounds</div></div>
+    <div class="card"><div class="stage pad on-navy"><div class="lk"><img src="../img/mark-dark.svg" alt=""><div><b>Maple<span>Trust</span></b><small>RESTORATION</small></div></div></div><div class="cap">On navy: white name, brighter red "Trust"</div></div>
+    <div class="card"><div class="stage pad"><img src="../img/icon.svg" alt="" style="width:120px;height:120px"></div><div class="cap">App icon, social profile picture, favicon</div></div>
+  </div>
+  <div class="grid g2">
+    <div class="card do"><h3>Do</h3><ul><li>Leave clear space around the logo at least the height of the house.</li><li>Use the mark on its own only where space is tight (icon, stamp, truck door).</li><li>Keep the logo at least 120px wide on screen, 30mm in print.</li></ul></div>
+    <div class="card dont"><h3>Don't</h3><ul><li>Change the colours, stretch, rotate or outline it.</li><li>Add shadows, glows or a reflection.</li><li>Put it on a busy photo without a solid panel behind it.</li></ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">02 · Colour</div>
+  <h2>Three working colours, plus neutrals.</h2>
+  <div class="grid g4">
+    <div class="card"><div class="sw" style="background:#0F2440"></div><div><b>Navy</b><code>#0F2440</code><p>Headings, header bar, footer. The colour of trust.</p></div></div>
+    <div class="card"><div class="sw" style="background:#D62B1F"></div><div><b>Maple red</b><code>#D62B1F</code><p>Call buttons, the leaf, "Trust". Use for action, sparingly.</p></div></div>
+    <div class="card"><div class="sw" style="background:#2F7DE1"></div><div><b>Water blue</b><code>#2F7DE1</code><p>Accents only: the wave line, water in illustrations.</p></div></div>
+    <div class="card"><div class="sw" style="background:#FBF8F3;border-bottom:1px solid var(--line)"></div><div><b>Paper</b><code>#FBF8F3</code><p>Page background. Warm, clean, calm.</p></div></div>
+    <div class="card"><div class="sw" style="background:#F1EBE1"></div><div><b>Stone</b><code>#F1EBE1</code><p>Panels and quieter sections.</p></div></div>
+    <div class="card"><div class="sw" style="background:#55607A"></div><div><b>Slate</b><code>#55607A</code><p>Body text and captions.</p></div></div>
+    <div class="card"><div class="sw" style="background:#FF4A3A"></div><div><b>Bright red</b><code>#FF4A3A</code><p>Red on navy only, so it stays readable.</p></div></div>
+    <div class="card"><div class="sw" style="background:#fff;border-bottom:1px solid var(--line)"></div><div><b>White</b><code>#FFFFFF</code><p>Cards, text on navy and red.</p></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">03 · Type</div>
+  <h2>Bold headlines, easy reading.</h2>
+  <div class="grid g2">
+    <div class="card pad"><div class="type-h">Water, fire or mould?</div><p class="spec">Bricolage Grotesque · ExtraBold 800 · tight spacing · headlines and the logo name</p></div>
+    <div class="card pad"><p class="type-b">Expert restoration in Toronto and the GTA, ensuring your property is safely restored with care. When disaster strikes, let us take the weight off your shoulders.</p><p class="spec">Instrument Sans · Regular 400 and SemiBold 600 · body text, buttons, forms</p></div>
+  </div>
+  <p class="lead">Both are free Google Fonts. For Word, email and invoices, use Arial if they aren't installed.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">04 · Buttons and details</div>
+  <h2>Clear, rounded, never round.</h2>
+  <div class="grid g2">
+    <div class="card pad"><div class="row"><span class="btn btn-red">Call now 647-267-6798</span><span class="btn btn-navy">Send to MapleTrust</span><span class="btn btn-line">Tell us what happened</span></div><p class="spec">10px corners · at least 54px tall · red = call, navy = send, outline = second choice</p></div>
+    <div class="card pad"><svg class="wave" viewBox="0 0 340 12" preserveAspectRatio="none"><path d="M2 8 C 40 2, 80 2, 120 6 S 220 11, 338 4" fill="none" stroke="#2F7DE1" stroke-width="3.5" stroke-linecap="round"/></svg><p class="spec" style="margin-top:14px">The water line: one blue wave under a key word. Once per page.</p><div class="eyebrow" style="margin-top:18px">Section label</div><p class="spec" style="margin-top:0">Short red bar plus spaced capitals, above each section title.</p></div>
+  </div>
+  <div class="grid g2">
+    <div class="card pad"><div class="icons" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-3 2-4 2-6 2 1 3 2 3-4z"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+    </div><p class="spec">Line icons, 40px, navy on light and white on navy. Never inside a box or circle.</p></div>
+    <div class="card pad"><p style="font-family:var(--head);font-weight:700;font-size:22px">Photos</p><p class="spec" style="font-family:var(--body);font-size:16px">Use real MapleTrust job photos first: meters, thermal cameras, air movers, finished rooms. Natural light, no heavy filters. Never show a customer's face or address without permission.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">05 · Voice</div>
+  <h2>Calm, quick, plain words.</h2>
+  <div class="grid g2">
+    <div class="card do"><h3>Sounds like</h3><ul><li>"Water, fire or mould? We've got it."</li><li>"Tell us what happened."</li><li>"We answer 24/7."</li></ul></div>
+    <div class="card dont"><h3>Avoid</h3><ul><li>Jargon like "solutions" and "remediation services provider".</li><li>All caps sentences.</li><li>Promises we can't back up (times, guarantees) unless confirmed.</li></ul></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">Prepared by Chairlift for MapleTrust Restoration Inc. Draft for review.</div></footer>
+</body>
+</html>
