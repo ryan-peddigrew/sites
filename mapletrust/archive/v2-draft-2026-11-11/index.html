@@ -1,0 +1,1024 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>MapleTrust Restoration Inc. | 24/7 emergency restoration, Toronto and the GTA</title>
+<meta name="description" content="24/7 emergency restoration in Toronto and the GTA: water damage, fire damage, mould remediation, trauma clean up, board up, odour control, hoarding clean up and carpet cleaning.">
+<meta name="theme-color" content="#0B0D12">
+<link rel="preload" as="image" href="img/job-room-fans.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Figtree:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B0D12; --graphite:#141821; --panel:#11151C; --edge:#262C37;
+  --paper:#F4F2EE; --text:#E9EBEE; --soft:#C3C8CF; --mute:#98A0AA;
+  --red:#F2361B; --red-l:#FF6A4D; --blue:#1E6BF0; --blue-l:#6FA4FF;
+  --display:'Barlow Condensed',Impact,sans-serif;
+  --body:'Figtree',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --gut:clamp(16px,4vw,48px); --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:var(--text);font:400 17px/1.6 var(--body);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.mono{font:500 11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+h1,h2,h3{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.9;letter-spacing:.005em}
+h2{font-size:clamp(46px,8vw,104px)}
+h2 em,h1 em{font-style:normal;color:var(--red-l)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border-radius:3px;font:700 15px/1 var(--body);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn svg{width:22px;height:22px;flex:0 0 auto}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:#d92a10}
+.btn-line{border-color:rgba(255,255,255,.55);background:transparent;color:#fff}
+.btn-line:hover{background:#fff;color:var(--ink);border-color:#fff}
+.btn-ghost{background:transparent;border-color:var(--edge);color:#fff}
+.btn-ghost:hover{border-color:#fff}
+:focus-visible{outline:3px solid var(--blue-l);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.tag{color:var(--red-l)}
+
+/* header */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(11,13,18,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.07)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:none}
+.logo{display:flex;align-items:center;min-height:44px}
+.logo img{height:52px;width:auto;filter:drop-shadow(0 6px 10px rgba(0,0,0,.6)) drop-shadow(0 1px 2px rgba(0,0,0,.45));transform:translateY(-1px)}
+.nav{display:none;gap:26px;align-items:center}
+.nav a{font:500 15px/1 var(--body);text-decoration:none;opacity:.85;min-height:44px;display:flex;align-items:center}
+.nav a:hover{opacity:1}
+.nav .btn{min-height:46px;padding:0 18px;opacity:1}
+.hdr-r{display:flex;align-items:center;gap:6px}
+.hdr-call{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:3px;background:var(--red);color:#fff}
+.hdr-call svg{width:26px;height:26px}
+.menu-btn{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 4px 0 12px;background:none;border:0;color:#fff;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.menu-btn svg{width:30px;height:30px}
+@media(min-width:1040px){.nav{display:flex}.hdr-r{display:none}}
+
+/* full-screen menu */
+.dir{position:fixed;inset:0;z-index:60;background:var(--ink);display:flex;flex-direction:column;padding:0 var(--gut) calc(24px + env(safe-area-inset-bottom));transform:translateY(-100%);transition:transform .45s cubic-bezier(.7,0,.2,1);visibility:hidden;overflow-y:auto}
+.dir.open{transform:none;visibility:visible}
+.dir-top{display:flex;justify-content:space-between;align-items:center;height:72px;flex:0 0 auto}
+.dir-top img{height:46px;width:auto}
+.dir-close{width:48px;height:48px;display:grid;place-items:center;background:none;border:0;color:#fff;cursor:pointer}
+.dir-close svg{width:32px;height:32px}
+.dir-head{margin:16px 0 10px;color:var(--mute)}
+.dir ol{list-style:none;border-top:1px solid var(--edge)}
+.dir li a{display:grid;grid-template-columns:52px 1fr auto;align-items:center;min-height:62px;border-bottom:1px solid var(--edge);text-decoration:none;font:800 34px/1 var(--display);text-transform:uppercase}
+.dir li a span:first-child{font:500 12px var(--mono);color:var(--red-l)}
+.dir li a svg{width:26px;height:26px;opacity:.5}
+.dir-foot{margin-top:auto;padding-top:22px;display:grid;gap:10px}
+.dir-foot .btn{width:100%}
+
+/* hero: moving job-photo mosaic */
+.hero{position:relative;height:170vh;background:var(--ink)}
+.hero-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;color:#fff}
+.hero-img{position:absolute;inset:0;transform-origin:50% 48%;will-change:transform}
+.mosaic{position:absolute;inset:-6% -4%;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:6px}
+.tile{position:relative;overflow:hidden;border-radius:4px;background:var(--graphite)}
+.tile i{position:absolute;inset:-8%;background:center/cover no-repeat;opacity:0;transform:scale(1.08);transition:opacity 1.2s ease,transform 6s ease}
+.tile i.on{opacity:1;transform:scale(1)}
+@media(min-width:900px){
+  .mosaic{grid-template-columns:repeat(4,1fr);grid-template-rows:1fr;gap:10px;inset:-10% -2%}
+  .tile:nth-child(odd){animation:drift 14s ease-in-out infinite alternate}
+  .tile:nth-child(even){animation:drift 14s ease-in-out infinite alternate-reverse}
+}
+@keyframes drift{from{transform:translateY(-4%)}to{transform:translateY(4%)}}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,18,.62) 0%,rgba(11,13,18,.28) 30%,rgba(11,13,18,.94) 80%)}
+@media(min-width:900px){.hero-shade{background:linear-gradient(90deg,rgba(11,13,18,.94) 0%,rgba(11,13,18,.6) 46%,rgba(11,13,18,.18) 100%),linear-gradient(0deg,rgba(11,13,18,.75),transparent 40%)}}
+.hero-stick::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1.4px);background-size:22px 22px;mask-image:linear-gradient(180deg,#000,transparent 55%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 55%)}
+.hero-in{position:absolute;inset:auto 0 0 0;z-index:2;padding:0 var(--gut) clamp(28px,6vh,64px);max-width:var(--max);margin:0 auto;will-change:opacity,transform}
+.kicker{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.kicker i{width:30px;height:4px;background:var(--red);display:block}
+.hero h1{font-size:clamp(62px,15vw,196px);line-height:.84;font-weight:800}
+.hw{display:block;overflow:hidden;padding-bottom:.04em}
+.hw>span{display:block;transform:translateY(105%);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.hero.go .hw>span{transform:none}
+.hero.go .hw:nth-child(2)>span{transition-delay:.12s}
+.hero h1 .rot{font-size:.7em;line-height:.95;min-height:1em}
+.hero h1 .rot em{display:inline-block;color:transparent;-webkit-text-stroke:2px #fff;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .5s}
+.hero h1 .rot em.out{transform:translateY(-100%);opacity:0}
+.hero h1 .rot em.in{transform:translateY(100%);opacity:0;transition:none}
+.hero p{max-width:36ch;margin:18px 0 24px;font-size:clamp(17px,2vw,21px);line-height:1.45;color:#eef0f2}
+.hero .kicker,.hero p,.hero .ctas{opacity:0;transform:translateY(16px);transition:opacity .8s .35s,transform .8s .35s}
+.hero.go .kicker,.hero.go p,.hero.go .ctas{opacity:1;transform:none}
+.ctas{display:flex;flex-wrap:wrap;gap:10px}
+.hero .ctas .btn{flex:1 1 220px}
+@media(min-width:700px){.hero .ctas .btn{max-width:300px}}
+.live{position:absolute;right:var(--gut);top:96px;z-index:2;text-align:right}
+.live b{display:block;font:800 76px/.9 var(--display)}
+.live span{display:inline-flex;align-items:center;gap:8px}
+.live span i{width:10px;height:10px;background:var(--red);display:block;animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+@media(max-width:600px){.live{top:86px;right:16px}.live b{font-size:40px}}
+@media(max-width:380px){.hero h1{font-size:56px}}
+
+/* facts strip */
+.facts{border-top:1px solid var(--edge);border-bottom:1px solid var(--edge)}
+.facts .wrap{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--edge);padding:0}
+.fact{background:var(--ink);padding:22px var(--gut) 24px}
+.fact b{display:block;font:800 clamp(50px,7vw,88px)/.9 var(--display);color:#fff}
+.fact b small{font-size:.45em;color:var(--red-l);margin-left:4px}
+.fact span{display:block;margin-top:8px;color:var(--mute);font-size:15px;line-height:1.35}
+@media(min-width:900px){.facts .wrap{grid-template-columns:repeat(4,1fr)}.fact{padding:30px 32px}}
+
+/* intro */
+.intro{padding:clamp(48px,8vw,110px) 0 clamp(40px,6vw,84px);background:radial-gradient(60% 80% at 100% 0%,rgba(242,54,27,.16),transparent 60%),var(--ink)}
+.intro-grid{display:grid;gap:28px}
+.intro h2{font-size:clamp(46px,7vw,92px)}
+.intro .copy p{max-width:58ch;color:var(--soft)}
+.intro .copy p+p{margin-top:16px}
+@media(min-width:900px){.intro-grid{grid-template-columns:1.05fr 1fr;gap:64px;align-items:end}}
+
+/* explorer: where's the damage */
+.explore{padding:clamp(44px,7vw,100px) 0;background-color:var(--graphite);background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1.4px);background-size:24px 24px}
+.ex-head{display:grid;gap:12px;margin-bottom:26px}
+.ex-head h2{margin-top:12px}
+.ex-head p{max-width:52ch;color:var(--soft)}
+@media(min-width:900px){.ex-head{grid-template-columns:1fr 1fr;align-items:end;gap:64px}}
+.ex-grid{display:grid;gap:28px;grid-template-columns:minmax(0,1fr)}
+.ex-left,.ex-panel{min-width:0}
+@media(min-width:900px){.ex-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:start}}
+.zone-tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 calc(var(--gut)*-1) 18px;padding:0 var(--gut)}
+.zone-tabs::-webkit-scrollbar{display:none}
+.zone-tabs button{flex:0 0 auto;min-height:46px;padding:0 16px;border-radius:3px;border:1px solid rgba(255,255,255,.22);background:transparent;color:#fff;font:500 15px var(--body);cursor:pointer;white-space:nowrap}
+.zone-tabs button[aria-selected="true"]{background:var(--red);border-color:var(--red)}
+@media(min-width:900px){.zone-tabs{flex-wrap:wrap;margin:0 0 18px;padding:0}}
+.house{width:100%;max-width:440px;margin:0 auto;display:block;height:auto}
+.house .zone{cursor:pointer}
+.house .zf{fill:#161b24;stroke:#e9ebee;stroke-width:1.4;transition:fill .25s}
+.house .zf.below{fill:#10141b}
+.house .w{fill:#1f2631;stroke:#e9ebee;stroke-width:1;transition:fill .25s}
+.house .ln{stroke:#e9ebee;stroke-width:1.4;fill:none}
+.house .ground{stroke:#e9ebee;stroke-width:2}
+.house .soil{fill:url(#soil)}
+.house text{fill:#7f8893;font:500 10px var(--mono);letter-spacing:.12em}
+.house .zone:hover .zf{fill:#21262f}
+.house .zone.on .zf{fill:rgba(242,54,27,.22);stroke:#FF6A4D}
+.house .zone.on .w{fill:var(--red);stroke:#FF6A4D}
+.house .drip{fill:var(--blue-l);opacity:0}
+.house .zone.on .drip{opacity:1;animation:drip 1.4s ease-in infinite}
+.house .zone.on .drip:nth-of-type(2){animation-delay:.5s}
+@keyframes drip{0%{transform:translateY(0);opacity:0}20%{opacity:1}100%{transform:translateY(22px);opacity:0}}
+.ex-panel{background:var(--panel);border:1px solid var(--edge);border-radius:4px;padding:24px clamp(18px,3vw,32px) 26px}
+.ex-name{font-size:clamp(42px,5vw,66px);margin:8px 0 10px}
+.ex-desc{color:var(--soft);max-width:46ch}
+.ex-ph{margin:18px 0 4px;border-radius:3px;overflow:hidden;position:relative;aspect-ratio:16/10;background:var(--ink)}
+.ex-ph img{width:100%;height:100%;object-fit:cover}
+.ex-list{display:grid;gap:8px;margin-top:18px}
+.svc-row{display:grid;grid-template-columns:1fr 44px;align-items:center;gap:12px;min-height:60px;padding:10px 8px 10px 16px;border:1px solid var(--edge);border-radius:3px;background:transparent;color:#fff;cursor:pointer;text-align:left;width:100%;font:inherit}
+.svc-row b{display:block;font:700 clamp(23px,2.6vw,28px)/1 var(--display);text-transform:uppercase;letter-spacing:.02em}
+.svc-row small{display:block;margin-top:4px;color:var(--mute);font-size:14px;line-height:1.35}
+.svc-row i{width:44px;height:44px;border-radius:3px;border:1px solid rgba(255,255,255,.28);display:grid;place-items:center;transition:background .2s,transform .2s}
+.svc-row i svg{width:22px;height:22px}
+.svc-row[aria-pressed="true"]{border-color:var(--red);background:rgba(242,54,27,.12)}
+.svc-row[aria-pressed="true"] i{background:var(--red);border-color:var(--red);transform:rotate(45deg)}
+.ex-actions{display:grid;gap:10px;margin-top:20px}
+@media(min-width:600px){.ex-actions{grid-template-columns:1fr 1fr}}
+.bcount{display:inline-grid;place-items:center;min-width:26px;height:26px;padding:0 6px;border-radius:3px;background:#fff;color:var(--ink);font:500 12px var(--mono)}
+
+/* services rail */
+.services{padding:clamp(44px,7vw,100px) 0 clamp(36px,6vw,72px)}
+.sv-head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:20px;flex-wrap:wrap}
+.sv-head p{max-width:42ch;color:var(--mute)}
+.arrows{display:none;gap:8px}
+.arrows button{width:52px;height:52px;border:1px solid #fff;color:#fff;background:transparent;display:grid;place-items:center;cursor:pointer;border-radius:3px}
+.arrows button:hover{background:#fff;color:var(--ink)}
+.arrows svg{width:24px;height:24px}
+@media(min-width:900px){.arrows{display:flex}}
+.filters{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 var(--gut) 18px;max-width:var(--max);margin:0 auto}
+.filters::-webkit-scrollbar{display:none}
+.filters button{flex:0 0 auto;min-height:46px;padding:0 16px;border-radius:3px;border:1px solid var(--edge);background:var(--panel);font:500 15px var(--body);cursor:pointer;color:#fff}
+.filters button[aria-pressed="true"]{background:#fff;color:var(--ink);border-color:#fff}
+.filters button span{font:500 11px var(--mono);opacity:.6;margin-left:6px}
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--gut) 18px;scroll-padding:0 var(--gut);scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+@media(min-width:1340px){.rail{padding-left:calc((100vw - var(--max))/2 + var(--gut));scroll-padding-left:calc((100vw - var(--max))/2 + var(--gut))}}
+.card{flex:0 0 auto;width:min(78vw,330px);scroll-snap-align:start;background:none;border:0;padding:0;text-align:left;cursor:pointer;color:inherit;font:inherit}
+.card[hidden]{display:none}
+.card .ph{aspect-ratio:4/5;overflow:hidden;border-radius:4px;background:var(--panel);position:relative}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.card:hover img{transform:scale(1.04)}
+.card .ph em{position:absolute;left:10px;top:10px;font:500 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;font-style:normal;background:rgba(11,13,18,.82);padding:7px 9px;border-radius:2px}
+.plate{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px;padding:12px 14px;background:var(--panel);border:1px solid var(--edge);border-left:4px solid var(--red);border-radius:3px}
+.plate strong{font:800 25px/1 var(--display);text-transform:uppercase;letter-spacing:.02em}
+.plate svg{width:24px;height:24px;color:var(--mute)}
+.rail-hint{padding:0 var(--gut);color:var(--mute);display:flex;align-items:center;gap:8px}
+.rail-hint svg{width:22px;height:22px}
+@media(min-width:900px){.rail-hint{display:none}}
+
+/* service sheet */
+.sheet{position:fixed;inset:0;z-index:80;background:rgba(11,13,18,.88);display:none;align-items:flex-end;justify-content:center}
+.sheet.open{display:flex}
+.sheet-in{position:relative;width:min(100%,760px);max-height:92svh;overflow-y:auto;background:var(--graphite);border:1px solid var(--edge);border-radius:6px 6px 0 0;padding:0 0 calc(20px + env(safe-area-inset-bottom))}
+@media(min-width:800px){.sheet{align-items:center}.sheet-in{border-radius:6px}}
+.sheet-ph{aspect-ratio:16/8;overflow:hidden}
+.sheet-ph img{width:100%;height:100%;object-fit:cover}
+.sheet-body{padding:22px clamp(18px,4vw,34px) 0}
+.sheet h3{font-size:clamp(44px,7vw,72px);margin:8px 0 12px}
+.sheet p{color:var(--soft)}
+.sheet ul{list-style:none;margin-top:16px;border-top:1px solid var(--edge)}
+.sheet li{padding:12px 0;border-bottom:1px solid var(--edge);color:var(--soft);font-size:16px}
+.sheet li b{display:block;color:#fff;font:700 22px/1.1 var(--display);text-transform:uppercase;margin-bottom:2px}
+.sheet .ctas{margin-top:20px}
+.sheet .ctas .btn{flex:1 1 200px}
+.x{position:absolute;top:10px;right:10px;width:50px;height:50px;background:rgba(11,13,18,.8);border:0;border-radius:3px;color:#fff;cursor:pointer;display:grid;place-items:center;z-index:2}
+.x svg{width:30px;height:30px}
+
+/* report builder */
+.report{padding:clamp(44px,7vw,100px) 0;background:radial-gradient(50% 60% at 0% 10%,rgba(30,107,240,.14),transparent 60%),var(--ink)}
+.br-grid{display:grid;gap:28px;grid-template-columns:minmax(0,1fr)}
+.br-grid>*{min-width:0}
+@media(min-width:960px){.br-grid{grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}.br-card{position:sticky;top:92px}}
+.br-form{display:grid;gap:14px}
+.fs{border:1px solid var(--edge);border-radius:3px;padding:20px 18px 22px;background:var(--panel);display:grid;gap:12px;min-width:0}
+.lg{display:flex;align-items:center;flex-wrap:wrap;gap:12px;font:800 clamp(27px,3vw,33px)/1 var(--display);text-transform:uppercase;color:#fff}
+.lg span{flex:0 0 36px;height:36px;border-radius:3px;background:var(--red);color:#fff;display:grid;place-items:center;font:500 13px var(--mono)}
+.lg em{flex-basis:100%;font:500 10px var(--mono);letter-spacing:.1em;color:var(--mute);font-style:normal;padding-left:48px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{min-height:46px;padding:0 16px;border-radius:3px;border:1px solid var(--edge);background:var(--ink);color:var(--text);font:500 15px var(--body);cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.chips button:hover{border-color:#fff}
+.chips button[aria-pressed="true"]{background:#fff;border-color:#fff;color:var(--ink)}
+.chips.svc button[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.chips.now button:first-child{border-color:var(--red)}
+label{display:grid;gap:6px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+input,textarea,select{font:400 17px var(--body);color:#fff;background:var(--ink);border:1px solid var(--edge);border-radius:3px;padding:14px;min-height:52px;width:100%}
+select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,#fff 50%),linear-gradient(135deg,#fff 50%,transparent 50%);background-position:calc(100% - 22px) 23px,calc(100% - 16px) 23px;background-size:6px 6px;background-repeat:no-repeat}
+textarea{min-height:120px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--blue-l);border-color:var(--blue-l)}
+.br-card{background:var(--panel);border:1px solid var(--edge);border-top:6px solid var(--red);border-radius:3px;padding:22px 22px 22px;box-shadow:0 30px 60px -30px rgba(242,54,27,.4)}
+.br-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.br-logo{height:46px;width:auto}
+.br-top .mono{color:var(--mute)}
+.br-card h3{font-size:clamp(36px,4vw,48px)}
+.br-sub{color:var(--mute);margin-top:6px}
+.urgent{display:none;margin:16px 0 4px;padding:14px;border-radius:3px;background:var(--red);color:#fff}
+.urgent.show{display:block}
+.urgent b{display:block;font:800 26px/1 var(--display);text-transform:uppercase}
+.urgent a{display:flex;align-items:center;gap:8px;margin-top:8px;min-height:44px;font:700 22px var(--body);text-decoration:none}
+.urgent a svg{width:24px;height:24px}
+.br-dl{margin-top:14px;border-top:1px solid var(--edge)}
+.br-dl div{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--edge)}
+.br-dl dt{font:500 10px/1.8 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.br-dl dd{font-size:15px}
+.br-note{margin-top:14px;font-size:14px;color:var(--mute);background:var(--ink);padding:12px;border-radius:3px}
+.br-actions{display:grid;gap:8px;margin-top:16px}
+.br-actions .btn{width:100%}
+
+/* reel */
+.reel{padding:clamp(44px,7vw,100px) 0;overflow:hidden;border-top:1px solid var(--edge);background:var(--graphite)}
+.deck-grid{display:grid;gap:36px;align-items:center}
+@media(min-width:900px){.deck-grid{grid-template-columns:.9fr 1.1fr;gap:64px}}
+.deck-copy h2{margin:12px 0 16px}
+.deck-copy p{color:var(--soft);max-width:40ch}
+.deck-nav{display:flex;align-items:center;gap:16px;margin-top:24px}
+.deck-nav .mono{color:var(--mute)}
+.deck{position:relative;height:clamp(420px,62vh,580px);touch-action:pan-y}
+.dk{position:absolute;left:50%;top:50%;width:min(64vw,310px);aspect-ratio:9/15;margin:0;border-radius:6px;overflow:hidden;background:var(--panel);box-shadow:0 30px 60px -20px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.08);transform:translate(-50%,-50%) rotate(calc(var(--p) * 1deg)) translateX(calc(var(--x) * 1px)) translateY(calc(var(--y) * 1px)) scale(var(--s));transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .4s;cursor:grab;--p:0;--x:0;--y:0;--s:1;will-change:transform}
+.dk img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.dk figcaption{position:absolute;inset:auto 0 0 0;padding:44px 14px 14px;background:linear-gradient(transparent,rgba(11,13,18,.94))}
+.dk figcaption b{display:block;font:800 24px/1 var(--display);text-transform:uppercase;color:#fff}
+.dk figcaption .mono{color:var(--red-l);display:block;margin-bottom:6px}
+.dk.drag{transition:none;cursor:grabbing}
+.dk.fly{opacity:0}
+
+/* why */
+.pillars{display:grid;gap:1px;background:var(--edge);border-block:1px solid var(--edge)}
+.pillar{background:var(--ink);padding:32px var(--gut) 36px;display:grid;gap:12px;align-content:start;transition:background .3s}
+.pillar:hover{background:#10141a}
+.pillar svg{width:40px;height:40px;stroke:#fff}
+.pillar h3{font-size:clamp(40px,4.4vw,56px)}
+.pillar p{max-width:34ch;color:var(--soft)}
+.why-head{padding:clamp(44px,7vw,96px) 0 28px}
+@media(min-width:700px){.pillars{grid-template-columns:1fr 1fr}}
+@media(min-width:1100px){.pillars{grid-template-columns:repeat(4,1fr)}.pillar{padding:40px 32px 44px}}
+
+/* how */
+.how{padding:clamp(44px,7vw,100px) 0;background:var(--graphite)}
+.how-grid{display:grid;gap:36px}
+.how figure{border-radius:4px;overflow:hidden;aspect-ratio:4/5;max-height:660px}
+.how figure img{width:100%;height:100%;object-fit:cover}
+.how h2{margin:12px 0 18px;font-size:clamp(44px,6vw,82px)}
+.how p.lead{color:var(--soft);max-width:52ch}
+@media(min-width:900px){.how-grid{grid-template-columns:.85fr 1.15fr;gap:72px;align-items:center}}
+.steps{list-style:none;margin-top:28px;border-top:1px solid var(--edge)}
+.steps li{display:grid;grid-template-columns:52px 1fr;gap:6px;padding:16px 0;border-bottom:1px solid var(--edge)}
+.steps li span{font:500 12px var(--mono);color:var(--red-l);padding-top:6px}
+.steps li b{display:block;font:800 27px/1 var(--display);text-transform:uppercase;margin-bottom:4px}
+.steps li p{color:var(--soft);font-size:16px}
+
+/* credentials */
+.creds{padding:clamp(40px,6vw,80px) 0}
+.creds-head{display:grid;gap:10px;margin-bottom:24px}
+.creds-head p{color:var(--mute);max-width:52ch}
+@media(min-width:900px){.creds-head{grid-template-columns:1fr 1fr;align-items:end;gap:64px}}
+.cred-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(min-width:900px){.cred-row{grid-template-columns:repeat(4,1fr)}}
+.cred{background:#fff;border-radius:4px;display:grid;place-items:center;padding:14px;min-height:140px}
+.cred img{height:110px;width:100%;object-fit:contain}
+
+/* about */
+.about{padding:clamp(44px,7vw,100px) 0;background:radial-gradient(60% 70% at 100% 100%,rgba(242,54,27,.14),transparent 60%),var(--ink);border-top:1px solid var(--edge)}
+.about-grid{display:grid;gap:30px}
+.about h2{font-size:clamp(46px,7vw,96px);margin:12px 0 22px}
+.about p{color:var(--soft);max-width:58ch}
+.about p+p{margin-top:14px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair img{aspect-ratio:3/4.4;object-fit:cover;border-radius:4px;width:100%}
+.pair img:last-child{margin-top:48px}
+@media(min-width:900px){.about-grid{grid-template-columns:1.1fr .9fr;gap:72px;align-items:center}}
+
+/* emergency band */
+.band{background:var(--red);color:#fff;padding:clamp(36px,6vw,72px) 0}
+.band .wrap{display:grid;gap:20px}
+.band h2{font-size:clamp(46px,8vw,104px)}
+.band a.big{display:inline-flex;align-items:center;gap:14px;font:800 clamp(44px,8vw,96px)/1 var(--display);text-decoration:none;min-height:56px}
+.band a.big svg{width:.7em;height:.7em}
+@media(min-width:900px){.band .wrap{grid-template-columns:1fr auto;align-items:end}}
+
+/* contact */
+.contact{padding:clamp(44px,7vw,100px) 0;background:radial-gradient(60% 70% at 100% 0%,rgba(30,107,240,.14),transparent 60%),var(--ink)}
+.contact-grid{display:grid;gap:40px}
+@media(min-width:900px){.contact-grid{grid-template-columns:1fr 1fr;gap:72px}}
+.contact h2{font-size:clamp(46px,7vw,96px);margin-top:12px}
+.lines{margin-top:28px;border-top:1px solid var(--edge)}
+.lines a{display:grid;grid-template-columns:48px 1fr;align-items:center;gap:6px;min-height:66px;padding:10px 0;border-bottom:1px solid var(--edge);text-decoration:none}
+.lines svg{width:30px;height:30px;color:var(--red-l)}
+.lines small{display:block;color:var(--mute);font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.lines strong{font-weight:500}
+form.cf{display:grid;gap:14px;background:var(--panel);border:1px solid var(--edge);padding:24px;border-radius:3px}
+form.cf .btn{width:100%}
+.form-msg{display:none;padding:14px;background:#1b212b;border-radius:3px;font-size:15px}
+.form-msg.show{display:block}
+
+footer{background:#07080B;color:#c4c9cf;padding:44px 0 calc(28px + env(safe-area-inset-bottom));border-top:1px solid var(--edge)}
+.foot{display:grid;gap:24px}
+footer img{height:66px;width:auto}
+footer .mono{color:var(--mute)}
+footer nav{display:flex;flex-wrap:wrap;gap:4px 20px}
+footer nav a{min-height:44px;display:inline-flex;align-items:center;text-decoration:none;font-size:15px}
+@media(min-width:900px){.foot{grid-template-columns:1fr auto;align-items:center}}
+
+/* phone action bar */
+.actbar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:grid;grid-template-columns:1.4fr 1fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(11,13,18,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transform:translateY(110%);transition:transform .35s;border-top:1px solid var(--edge)}
+.actbar.show{transform:none}
+.actbar .btn{min-height:50px;padding:0 12px}
+@media(min-width:1040px){.actbar{display:none}}
+@media(max-width:1039px){footer{padding-bottom:calc(96px + env(safe-area-inset-bottom))}}
+.toast{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom));transform:translate(-50%,20px);background:#fff;color:var(--ink);padding:12px 18px;border-radius:3px;font-size:15px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:90;max-width:calc(100vw - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .hero{height:auto}.hero-stick{position:relative}
+  .hw>span{transform:none;transition:none}.hero .kicker,.hero p,.hero .ctas{opacity:1;transform:none;transition:none}
+  .tile{animation:none!important}.tile i{transition:none}
+  .dir,.dk,.actbar,.toast,.svc-row i{transition:none}
+  .live span i,.house .zone.on .drip{animation:none}
+  .card img{transition:none}
+}
+@media print{
+  @page{margin:16mm}
+  body{background:#fff;color:#000}
+  .hdr,.dir,.actbar,.toast,.sheet,footer,main>section:not(#report),.br-form,.report .ex-head,.br-actions{display:none!important}
+  .report{padding:0;background:#fff}
+  .br-grid{display:block}
+  .br-card{box-shadow:none;border:1px solid #999;border-top:6px solid #F2361B;position:static;background:#fff;color:#000}
+  .br-card h3{color:#000}.br-note{background:#f3f3f3;color:#333}
+  .urgent{background:#fff;color:#000;border:2px solid #F2361B}
+  .br-card::after{content:"MapleTrust Restoration Inc. · 280 Yorktech Dr, Unit 22, Markham, ON · 647-267-6798 (24/7) · info@mapletrustinc.com";display:block;margin-top:18px;font:500 10px var(--mono);color:#555}
+}
+
+/* v2 hero: thermal camera */
+.th-scene{position:absolute;inset:0;overflow:hidden;touch-action:pan-y;cursor:crosshair}
+.th-img{position:absolute;inset:-4%;background:center 60%/cover no-repeat;filter:saturate(.9) brightness(.9);transform-origin:50% 50%;will-change:transform}
+.th-lens{position:absolute;left:0;top:0;width:min(46vw,300px);aspect-ratio:1;transform:translate3d(var(--lx,60vw),var(--ly,30vh),0) translate(-50%,-50%);pointer-events:none;z-index:1;overflow:hidden;border-radius:6px;box-shadow:0 0 0 1px rgba(255,255,255,.6),0 30px 60px -10px rgba(0,0,0,.7)}
+.th-heat{position:absolute;inset:0;background-repeat:no-repeat;filter:url(#thermal) contrast(1.25) saturate(1.3)}
+.th-lens i{position:absolute;width:22px;height:22px;border:3px solid #fff}
+.th-lens .c1{left:10px;top:10px;border-right:0;border-bottom:0}.th-lens .c2{right:10px;top:10px;border-left:0;border-bottom:0}
+.th-lens .c3{left:10px;bottom:10px;border-right:0;border-top:0}.th-lens .c4{right:10px;bottom:10px;border-left:0;border-top:0}
+.th-lens .cross{position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);background:linear-gradient(#fff,#fff) center/2px 100% no-repeat,linear-gradient(#fff,#fff) center/100% 2px no-repeat;opacity:.85}
+.th-lab{position:absolute;left:14px;top:40px;color:#fff;text-shadow:0 1px 3px #000}
+.th-scale{position:absolute;left:14px;right:14px;bottom:40px;display:grid;gap:5px;color:#fff;font-size:9px;text-shadow:0 1px 3px #000}
+.th-scale em{display:block;height:6px;border-radius:2px;background:linear-gradient(90deg,#0d0550,#4c0d9f,#c01a8c,#ff5a1a,#ffcc33,#fffbe0)}
+.th-hint{display:flex;align-items:center;gap:8px;margin:14px 0 0;color:#cfd3d8;font-size:11px;max-width:none}
+.th-hint svg{width:22px;height:22px}
+.hero h1{font-size:clamp(58px,11.5vw,168px);line-height:.86}
+.hero h1 b{color:transparent;-webkit-text-stroke:2px #fff;font-weight:800}
+.hero.go .hw:nth-child(3)>span{transition-delay:.24s}
+.hero-in{max-width:var(--max)}
+.hero-in>*{max-width:760px}
+@media(min-width:900px){.th-lens{width:min(30vw,360px)}}
+@media(max-width:600px){.th-lens{width:62vw}.hero-shade{background:linear-gradient(180deg,rgba(11,13,18,.55) 0%,rgba(11,13,18,.05) 28%,rgba(11,13,18,.35) 48%,rgba(11,13,18,.95) 74%)}}
+/* clock strip */
+.clock{background:#07080B;border-bottom:1px solid var(--edge)}
+.clock-in{display:grid;gap:10px;padding-top:16px;padding-bottom:16px;align-items:center}
+.clock .mono{display:flex;align-items:center;gap:8px;color:var(--mute)}
+.clock .mono i{width:10px;height:10px;background:#2BD576;display:block;animation:blink 1.6s ease-in-out infinite}
+.clock strong{font:700 clamp(24px,3vw,34px)/1.05 var(--display);text-transform:uppercase}
+.clock .btn{justify-self:start}
+@media(min-width:900px){.clock-in{grid-template-columns:auto 1fr auto;gap:28px}}
+/* services big list */
+.biglist{list-style:none;border-top:1px solid var(--edge)}
+.biglist li{border-bottom:1px solid var(--edge)}
+.biglist button{width:100%;display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding:18px 0;background:none;border:0;color:#fff;text-align:left;cursor:pointer;font:inherit;min-height:72px}
+.biglist .n{font:500 12px var(--mono);color:var(--red-l)}
+.biglist .nm{display:block;font:800 clamp(38px,7.4vw,104px)/.9 var(--display);text-transform:uppercase;transition:color .25s,transform .35s cubic-bezier(.2,.8,.2,1)}
+.biglist small{display:block;margin-top:6px;color:var(--mute);font-size:15px}
+.biglist .th{width:72px;height:72px;border-radius:3px;overflow:hidden}
+.biglist .th img{width:100%;height:100%;object-fit:cover}
+.biglist .tg{font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-left:10px;vertical-align:middle}
+@media(min-width:900px){
+  .biglist .th{display:none}
+  .biglist button:hover .nm{color:transparent;-webkit-text-stroke:2px #fff;transform:translateX(18px)}
+  .biglist button{grid-template-columns:70px 1fr auto}
+}
+.peek{position:fixed;left:0;top:0;width:300px;aspect-ratio:4/5;border-radius:4px;overflow:hidden;pointer-events:none;z-index:30;opacity:0;transform:translate3d(var(--px,0),var(--py,0),0) translate(-50%,-50%) rotate(-4deg) scale(.9);transition:opacity .25s,transform .25s;box-shadow:0 30px 60px -10px rgba(0,0,0,.8)}
+.peek.on{opacity:1;transform:translate3d(var(--px,0),var(--py,0),0) translate(-50%,-50%) rotate(-4deg) scale(1)}
+.peek img{width:100%;height:100%;object-fit:cover}
+@media(hover:none),(max-width:899px){.peek{display:none}}
+/* tour */
+.tour-btn{position:fixed;right:16px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:46;display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 16px;border-radius:3px;background:#fff;color:var(--ink);border:0;font:700 14px var(--body);cursor:pointer;box-shadow:0 12px 30px -8px rgba(0,0,0,.6)}
+.tour-btn svg{width:20px;height:20px}
+@media(min-width:1040px){.tour-btn{bottom:24px}}
+.tour{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translate(-50%,140%);z-index:95;width:min(calc(100% - 24px),520px);background:#fff;color:var(--ink);border-radius:6px;padding:18px 18px 14px;box-shadow:0 30px 70px -10px rgba(0,0,0,.75);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.tour.on{transform:translate(-50%,0)}
+.tour .mono{color:#C22510}
+.tour h4{font:800 28px/1 var(--display);text-transform:uppercase;margin:6px 0 8px}
+.tour p{font-size:16px;line-height:1.45;color:#333a44}
+.tour .bar{height:4px;background:#E6E8EC;border-radius:2px;margin:14px 0 12px;overflow:hidden}
+.tour .bar i{display:block;height:100%;width:0;background:var(--red)}
+.tour .row{display:flex;gap:8px}
+.tour .row button{flex:1;min-height:46px;border-radius:3px;border:1px solid #CDD1D7;background:#fff;color:var(--ink);font:700 15px var(--body);cursor:pointer}
+.tour .row button.go{background:var(--ink);border-color:var(--ink);color:#fff}
+.tour-hl{outline:3px solid var(--red);outline-offset:-3px}
+@media (prefers-reduced-motion:reduce){.tour{transition:none}.clock .mono i{animation:none}.biglist .nm{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="MapleTrust Restoration Inc. home"><img src="../../img/logo-white.png" alt="MapleTrust Restoration Inc." width="76" height="52"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#damage">Where's the damage?</a>
+      <a href="#services">Services</a>
+      <a href="#report">Report damage</a>
+      <a href="#work">On the job</a>
+      <a href="#about">About us</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-red" href="tel:+16472676798"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z"/></svg>647-267-6798</a>
+    </nav>
+    <div class="hdr-r">
+      <a class="hdr-call" href="tel:+16472676798" aria-label="Call MapleTrust 24/7 at 647-267-6798"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z"/></svg></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="dir">Menu
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="dir" id="dir" aria-hidden="true">
+  <div class="dir-top">
+    <img src="../../img/logo-white.png" alt="">
+    <button class="dir-close" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <p class="dir-head mono">24/7 emergency restoration · Toronto and the GTA</p>
+  <ol>
+    <li><a href="#damage"><span>01</span>Where's the damage?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#services"><span>02</span>Services<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#report"><span>03</span>Report damage<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#work"><span>04</span>On the job<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#how"><span>05</span>When you call<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#about"><span>06</span>About us<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#contact"><span>07</span>Contact<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+  </ol>
+  <div class="dir-foot">
+    <a class="btn btn-red" href="tel:+16472676798">Call 24/7: 647-267-6798</a>
+    <a class="btn btn-line" href="#report">Report damage</a>
+  </div>
+</div>
+
+<main id="top">
+
+<section class="hero" aria-label="Introduction">
+  <div class="hero-stick">
+    <div class="th-scene" id="scene" role="img" aria-label="A room on a MapleTrust job, with a thermal camera view you can drag across it">
+      <div class="th-img" style="background-image:url(../../img/job-room-fans.jpg)"></div>
+      <div class="th-lens" id="lens" aria-hidden="true">
+        <div class="th-heat" style="background-image:url(../../img/job-room-fans.jpg)"></div>
+        <i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i>
+        <b class="cross"></b>
+        <span class="mono th-lab">Thermal view</span>
+        <span class="mono th-scale"><em></em>Cold · Warm</span>
+      </div>
+    </div>
+    <div class="hero-shade"></div>
+    <div class="live mono" aria-hidden="true"><b>24/7</b><span><i></i>Emergency line open</span></div>
+    <div class="hero-in">
+      <div class="kicker mono"><i></i>24/7 emergency restoration · Toronto and the GTA</div>
+      <h1><span class="hw"><span>We find the</span></span><span class="hw"><span>damage you</span></span><span class="hw"><span><b>can't see.</b></span></span></h1>
+      <p>Water, fire, mould and more. Expert restoration in Toronto and the GTA, so your property is safely restored with care.</p>
+      <div class="ctas">
+        <a class="btn btn-red" href="tel:+16472676798"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z"/></svg>Call now 647-267-6798</a>
+        <a class="btn btn-line" href="#damage">Show us where the damage is</a>
+      </div>
+      <p class="th-hint mono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M9 11V5a2 2 0 014 0v6m0-2a2 2 0 014 0v4a7 7 0 01-7 7h-1a6 6 0 01-5-3l-2-4a2 2 0 013-2l1 1"/></svg>Drag the camera across the room</p>
+    </div>
+  </div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="thermal" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0"/><feComponentTransfer><feFuncR type="table" tableValues="0.05 0.3 0.75 1 1 1"/><feFuncG type="table" tableValues="0.02 0.05 0.1 0.45 0.8 1"/><feFuncB type="table" tableValues="0.3 0.75 0.55 0.1 0.05 0.6"/></feComponentTransfer></filter></svg>
+</section>
+
+<div class="clock" aria-live="off">
+  <div class="wrap clock-in">
+    <span class="mono"><i></i><span id="tor-time">Toronto</span></span>
+    <strong>Our emergency line is open right now.</strong>
+    <a class="btn btn-red" href="tel:+16472676798">Call 647-267-6798</a>
+  </div>
+</div>
+
+<section class="facts" aria-label="Quick facts">
+  <div class="wrap">
+    <div class="fact"><b>24/7</b><span>Emergency response, day or night</span></div>
+    <div class="fact"><b>1<small>HR</small></b><span>We arrive within the hour</span></div>
+    <div class="fact"><b data-n="8">8</b><span>Restoration and clean-up services</span></div>
+    <div class="fact"><b>GTA</b><span>Toronto and the Greater Toronto Area</span></div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap intro-grid">
+    <h2 class="rv">Immediate response. <em>Lasting</em> solutions.</h2>
+    <div class="copy rv">
+      <p>When water, fire or mould intrude upon your property, the path to recovery is often more than physical repair. These incidents disrupt lives, displace residents and demand a swift, considerate response.</p>
+      <p>MapleTrust Restoration specializes in rapid response for water, fire and mould damage, and extends that expertise to trauma support, odour control and more.</p>
+      <p>With a focus on quality, safety and empathy, we make sure your property is not just repaired, but restored. When disaster strikes, let us take the weight off your shoulders.</p>
+    </div>
+  </div>
+</section>
+
+<section class="explore" id="damage">
+  <div class="wrap">
+    <div class="ex-head">
+      <div>
+        <span class="mono tag">01 · Where's the damage?</span>
+        <h2>Tap where it happened.</h2>
+      </div>
+      <p>Pick the part of the property that's affected. We'll show you how we can help, and you can add it to your damage report in one tap.</p>
+    </div>
+    <div class="ex-grid">
+      <div class="ex-left">
+        <div class="zone-tabs" role="tablist" aria-label="Parts of the property">
+          <button type="button" role="tab" data-zone="upper">Upper floor</button>
+          <button type="button" role="tab" data-zone="main" aria-selected="true">Main floor</button>
+          <button type="button" role="tab" data-zone="base">Basement</button>
+          <button type="button" role="tab" data-zone="out">Outside</button>
+        </div>
+        <svg class="house" viewBox="0 0 340 470" aria-hidden="true">
+          <defs><pattern id="soil" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 8L8 0" stroke="#2a313c" stroke-width="1"/></pattern></defs>
+          <rect class="soil" x="0" y="352" width="340" height="118"/>
+          <g class="zone" data-zone="out">
+            <path class="zf" d="M58 128L170 40l112 88z"/>
+            <rect class="zf" x="214" y="56" width="22" height="40"/>
+            <rect class="zf" x="8" y="296" width="30" height="56"/><path class="ln" d="M8 310h30M8 324h30M8 338h30M23 296v56"/>
+            <rect class="zf" x="302" y="296" width="30" height="56"/><path class="ln" d="M302 310h30M302 324h30M302 338h30M317 296v56"/>
+            <rect class="w" x="150" y="78" width="40" height="30"/><path class="ln" d="M150 86h40M150 94h40M150 102h40"/>
+          </g>
+          <g class="zone" data-zone="upper">
+            <rect class="zf" x="70" y="128" width="200" height="104"/>
+            <rect class="w" x="88" y="150" width="44" height="40"/><rect class="w" x="148" y="150" width="44" height="40"/><rect class="w" x="208" y="150" width="44" height="40"/>
+            <path class="ln" d="M88 206h48v26M206 206h46"/>
+            <rect class="drip" x="226" y="208" width="4" height="8"/><rect class="drip" x="240" y="208" width="4" height="8"/>
+          </g>
+          <g class="zone" data-zone="main">
+            <rect class="zf" x="70" y="232" width="200" height="120"/>
+            <rect class="w" x="88" y="256" width="52" height="42"/><rect class="w" x="200" y="256" width="52" height="42"/>
+            <rect class="w" x="152" y="290" width="36" height="62"/>
+            <path class="ln" d="M88 330h40v22M214 318h38v34"/>
+          </g>
+          <path class="ground" d="M0 352h340"/>
+          <g class="zone" data-zone="base">
+            <rect class="zf below" x="70" y="352" width="200" height="94"/>
+            <rect class="w" x="84" y="364" width="40" height="18"/><rect class="w" x="216" y="364" width="40" height="18"/>
+            <path class="ln" d="M150 352v40h40v54M206 420h50"/>
+            <rect class="drip" x="110" y="400" width="4" height="8"/><rect class="drip" x="124" y="404" width="4" height="8"/>
+          </g>
+          <text x="170" y="24" text-anchor="middle">ROOF</text>
+          <text x="170" y="466" text-anchor="middle">BASEMENT</text>
+        </svg>
+      </div>
+      <div class="ex-panel" aria-live="polite">
+        <span class="mono tag ex-tag"></span>
+        <h3 class="ex-name"></h3>
+        <p class="ex-desc"></p>
+        <figure class="ex-ph"><img alt="" loading="lazy"></figure>
+        <div class="ex-list"></div>
+        <div class="ex-actions">
+          <a class="btn btn-red" href="tel:+16472676798">Call 24/7</a>
+          <a class="btn btn-line" href="#report">Open my report <span class="bcount">0</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap sv-head">
+    <div>
+      <span class="mono tag">02 · Services</span>
+      <h2 style="margin-top:12px">Eight ways we help.</h2>
+    </div>
+    <p>Our services are provided with expertise, for efficient solutions and a quick return to comfort. Tap a service to learn more.</p>
+  </div>
+  <div class="wrap"><ol class="biglist" id="biglist"></ol></div>
+  <div class="peek" id="peek" aria-hidden="true"><img alt=""></div>
+</section>
+
+<section class="report" id="report">
+  <div class="wrap">
+    <div class="ex-head">
+      <div>
+        <span class="mono tag">03 · Report damage</span>
+        <h2>Tell us what happened.</h2>
+      </div>
+      <p>Four quick questions. We get what we need before we arrive, and you get a summary to keep for your records or your property manager.</p>
+    </div>
+    <div class="br-grid">
+      <form class="br-form" id="brief-form" onsubmit="return false">
+        <div class="fs" role="group">
+          <div class="lg"><span>1</span>What happened?<em>Pick all that apply</em></div>
+          <div class="chips svc" id="svc-chips"></div>
+        </div>
+        <div class="fs" role="group">
+          <div class="lg"><span>2</span>Is it happening now?</div>
+          <div class="chips now" data-name="when" data-single>
+            <button type="button" aria-pressed="false">Yes, right now</button>
+            <button type="button" aria-pressed="false">In the last day</button>
+            <button type="button" aria-pressed="false">Earlier this week</button>
+            <button type="button" aria-pressed="false">Planning ahead</button>
+          </div>
+        </div>
+        <div class="fs" role="group">
+          <div class="lg"><span>3</span>What kind of property?</div>
+          <div class="chips" data-name="prop" data-single>
+            <button type="button" aria-pressed="false">House</button>
+            <button type="button" aria-pressed="false">Condo unit</button>
+            <button type="button" aria-pressed="false">Building I manage</button>
+            <button type="button" aria-pressed="false">Business</button>
+          </div>
+        </div>
+        <div class="fs" role="group">
+          <div class="lg"><span>4</span>Where is it?</div>
+          <label>Address or area<input id="b-addr" autocomplete="street-address" placeholder="For example, Yonge and Eglinton"></label>
+          <label>Anything else we should know? (optional)<textarea id="b-note" placeholder="Which rooms, how long, is anyone displaced?"></textarea></label>
+        </div>
+      </form>
+
+      <aside class="br-card" id="brief-card" aria-live="polite">
+        <div class="br-top">
+          <img src="../../img/logo-white.png" alt="MapleTrust Restoration Inc." class="br-logo">
+          <span class="mono">Damage report</span>
+        </div>
+        <h3 id="c-name">Your property</h3>
+        <p class="br-sub" id="c-sub">Pick what happened to start.</p>
+        <div class="urgent" id="c-urgent"><b>This is an emergency</b>Call us now. We answer 24/7.<a href="tel:+16472676798"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z"/></svg>647-267-6798</a></div>
+        <dl class="br-dl">
+          <div><dt>Damage</dt><dd id="c-dmg">None yet</dd></div>
+          <div><dt>When</dt><dd id="c-when">Not set</dd></div>
+          <div><dt>Property</dt><dd id="c-prop">Not set</dd></div>
+          <div><dt>Notes</dt><dd id="c-note">None</dd></div>
+        </dl>
+        <p class="br-note">No prices here. Every job is different, so we assess the damage first and then plan the work with you.</p>
+        <div class="br-actions">
+          <button type="button" class="btn btn-red" id="c-send">Send this report</button>
+          <button type="button" class="btn btn-ghost" id="c-print"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3"/><rect x="7" y="14" width="10" height="7"/></svg>Save as PDF</button>
+          <button type="button" class="btn btn-ghost" id="c-copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="8" y="8" width="12" height="13" rx="1"/><path d="M16 8V4H4v13h4"/></svg>Copy report</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="reel" id="work" aria-label="On the job">
+  <div class="wrap deck-grid">
+    <div class="deck-copy">
+      <span class="mono tag">04 · On the job</span>
+      <h2>Real jobs. Real gear.</h2>
+      <p>Photos from our own jobs: moisture checks, thermal readings and drying equipment at work. Flick a photo away to see the next one.</p>
+      <div class="deck-nav"><button type="button" class="btn btn-red" id="dk-next">Next photo</button><span class="mono" id="dk-n">01 / 08</span></div>
+    </div>
+    <div class="deck" id="deck">
+      <figure class="dk"><img src="../../img/job-room-fans.jpg" alt="Air movers drying a room" loading="lazy"><figcaption><span class="mono">MapleTrust job</span><b>Drying a room</b></figcaption></figure>
+      <figure class="dk"><img src="../../img/job-thermal-1.jpg" alt="Thermal camera showing moisture in a wall" loading="lazy"><figcaption><span class="mono">MapleTrust job</span><b>Thermal check</b></figcaption></figure>
+      <figure class="dk"><img src="../../img/job-meter.jpg" alt="Moisture meter reading on a wall" loading="lazy"><figcaption><span class="mono">MapleTrust job</span><b>Moisture reading</b></figcaption></figure>
+      <figure class="dk"><img src="../../img/job-hall-fan.jpg" alt="Air mover drying a hallway" loading="lazy"><figcaption><span class="mono">MapleTrust job</span><b>Drying a hallway</b></figcaption></figure>
+      <figure class="dk"><img src="../../img/job-mould-board.jpg" alt="Mould spots on a removed baseboard" loading="lazy"><figcaption><span class="mono">MapleTrust job</span><b>Mould found</b></figcaption></figure>
+      <figure class="dk"><img src="../../img/job-thermal-2.jpg" alt="Thermal camera reading of a wall" loading="lazy"><figcaption><span class="mono">MapleTrust job</span><b>Finding the source</b></figcaption></figure>
+      <figure class="dk"><img src="../../img/job-closet-fan.jpg" alt="Air mover drying a closet" loading="lazy"><figcaption><span class="mono">MapleTrust job</span><b>Drying a closet</b></figcaption></figure>
+      <figure class="dk"><img src="../../img/job-room-fan.jpg" alt="Air mover drying a bedroom" loading="lazy"><figcaption><span class="mono">MapleTrust job</span><b>Drying a bedroom</b></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="wrap why-head">
+  <span class="mono tag">05 · Why MapleTrust</span>
+  <h2 style="margin-top:12px">Why choose MapleTrust?</h2>
+</div>
+<section class="pillars" aria-label="Why choose MapleTrust">
+  <div class="pillar rv">
+    <svg viewBox="0 0 40 40" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="21" r="14"/><path d="M20 12v9l6 4"/><path d="M15 3h10"/></svg>
+    <h3>24/7 response</h3>
+    <p>After a disaster, quick restoration is crucial. That's why we're committed to answering your call as quickly as possible.</p>
+  </div>
+  <div class="pillar rv">
+    <svg viewBox="0 0 40 40" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="5" width="26" height="30" rx="1"/><path d="M13 13h14M13 19h14M13 25h7"/><path d="M24 27l3 3 6-6"/></svg>
+    <h3>Licensed and certified</h3>
+    <p>Our team is fully licensed and certified, for professional and reliable service on every job.</p>
+  </div>
+  <div class="pillar rv">
+    <svg viewBox="0 0 40 40" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 22l7-7 6 3 7-7 10 10"/><path d="M5 22l9 9 4-2 4 3 4-3 9-9"/><path d="M18 18l7 7"/></svg>
+    <h3>Professionalism</h3>
+    <p>Our team's professionalism means top-tier service and outstanding care on every task.</p>
+  </div>
+  <div class="pillar rv">
+    <svg viewBox="0 0 40 40" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4l13 5v10c0 9-6 14-13 17C13 33 7 28 7 19V9z"/><path d="M14 20l4 4 8-8"/></svg>
+    <h3>Commitment to safety</h3>
+    <p>Every project is handled with the utmost care, safeguarding your space and your peace of mind.</p>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap how-grid">
+    <figure class="rv"><img src="../../img/stairs-fans.jpg" alt="Air movers drying a staircase" loading="lazy"></figure>
+    <div class="rv">
+      <span class="mono tag">06 · When you call</span>
+      <h2>Someone you can rely on.</h2>
+      <p class="lead">In times of crisis, you need help right when you need it. Here's what happens when you call.</p>
+      <ol class="steps">
+        <li><span>01</span><div><b>Call any time</b><p>647-267-6798, day or night. We answer 24/7.</p></div></li>
+        <li><span>02</span><div><b>Immediate response</b><p>Our team jumps into action quickly. We arrive within the hour.</p></div></li>
+        <li><span>03</span><div><b>Assess the damage</b><p>We take the time to carefully assess the damage and come up with the best plan.</p></div></li>
+        <li><span>04</span><div><b>Secure and restore</b><p>Your space is dried, secured and restored to its pre-damage condition.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="creds" aria-label="Credentials">
+  <div class="wrap">
+    <div class="creds-head">
+      <div><span class="mono tag">07 · Credentials</span><h2 style="margin-top:12px">Credentials</h2></div>
+      <p>The organizations we work with across the restoration and property management industry.</p>
+    </div>
+    <div class="cred-row">
+      <div class="cred"><img src="../../img/cred-iirc.png" alt="IICRC, Institute of Inspection Cleaning and Restoration Certification" loading="lazy"></div>
+      <div class="cred"><img src="../../img/cred-cci.png" alt="Canadian Condominium Institute" loading="lazy"></div>
+      <div class="cred"><img src="../../img/cred-acmo.png" alt="ACMO, Association of Condominium Managers of Ontario" loading="lazy"></div>
+      <div class="cred"><img src="../../img/cred-vendorpm.png" alt="VendorPM" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="rv">
+      <span class="mono tag">08 · About us</span>
+      <h2>Your ally when disaster strikes.</h2>
+      <p>Drawing on a solid decade of restoration expertise, MapleTrust Restoration is committed to delivering maintenance and emergency services that meet the highest standards of quality and efficiency throughout Toronto and the Greater Toronto Area.</p>
+      <p>We help property managers streamline management and operations, with superior customer service and value-driven solutions. Our team is fully licensed, certified and insured, dedicated to the safety and comfort of your property.</p>
+      <p>Should you face property damage from an unforeseen event, our team is on standby to help with all your restoration needs.</p>
+    </div>
+    <div class="pair rv">
+      <img src="../../img/job-thermal-1.jpg" alt="Thermal camera check on a MapleTrust job" loading="lazy">
+      <img src="../../img/job-closet-fan.jpg" alt="Drying equipment on a MapleTrust job" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-label="Emergency line">
+  <div class="wrap">
+    <div>
+      <span class="mono">Emergencies don't wait</span>
+      <h2 style="margin-top:10px">Neither should you.</h2>
+    </div>
+    <a class="big" href="tel:+16472676798"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z"/></svg>647-267-6798</a>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="mono tag">09 · Contact</span>
+      <h2>Get in touch with us <em>today.</em></h2>
+      <p style="margin-top:18px;max-width:44ch;color:var(--soft)">Got questions about our services? Reach out any time.</p>
+      <div class="lines">
+        <a href="tel:+16472676798"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z"/></svg><span><small>Phone · 24/7</small><strong>647-267-6798</strong></span></a>
+        <a href="mailto:info@mapletrustinc.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg><span><small>Email</small><strong>info@mapletrustinc.com</strong></span></a>
+        <a href="https://maps.google.com/?q=280+Yorktech+Dr+Unit+22+Markham+ON+L6G+0A4" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0112 2.5a7 7 0 017 7C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span><small>Visit us</small><strong>280 Yorktech Dr, Unit 22, Markham, ON L6G 0A4</strong></span></a>
+      </div>
+    </div>
+    <form class="cf" id="form" novalidate>
+      <label>Your name<input name="name" autocomplete="name" required></label>
+      <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+      <label>Email<input name="email" type="email" autocomplete="email"></label>
+      <label>Service<select name="service"><option value="">Select a service</option></select></label>
+      <label>Message<textarea name="message"></textarea></label>
+      <button class="btn btn-red" type="submit">Send</button>
+      <p class="form-msg" id="form-msg" role="status">Thanks. This is a preview, so the form isn't connected yet. For an emergency, call 647-267-6798.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div style="display:grid;gap:14px">
+      <img src="../../img/logo-white.png" alt="MapleTrust Restoration Inc.">
+      <span class="mono">24/7 emergency restoration · Toronto and the GTA</span>
+      <span style="font-size:14px">© 2026 MapleTrust Restoration Inc. · 280 Yorktech Dr, Unit 22, Markham, ON</span>
+    </div>
+    <nav aria-label="Footer">
+      <a href="#services">Services</a><a href="#report">Report damage</a><a href="#about">About us</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="actbar" aria-label="Quick actions">
+  <a class="btn btn-red" href="tel:+16472676798">Call 24/7</a>
+  <a class="btn btn-line" href="#report">Report <span class="bcount">0</span></a>
+</div>
+<div class="toast" role="status"></div>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sh-name">
+  <div class="sheet-in">
+    <button class="x" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="sheet-ph"><img alt=""></div>
+    <div class="sheet-body">
+      <span class="mono tag" id="sh-tag"></span>
+      <h3 id="sh-name"></h3>
+      <p id="sh-intro"></p>
+      <ul id="sh-list"></ul>
+      <div class="ctas">
+        <button type="button" class="btn btn-red" id="sh-add">Add to my report</button>
+        <a class="btn btn-line" href="tel:+16472676798">Call 647-267-6798</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var PLUS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
+  var ARROW='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+  // services: wording from mapletrustinc.com
+  var S={
+    'Water damage':{t:'em',img:'../../img/job-room-fans.jpg',short:'Floods, leaks, sewage and appliance failures.',intro:'Water damage demands prompt, expert attention. We dry, secure and restore your space to its pre-damage condition, aiming to reduce harm and work to prevent future problems.',list:[['Flooding','Heavy rainfall or burst pipes can flood your home. We offer rapid, effective flood recovery.'],['Plumbing issues','Leaks and ruptured pipes, handled quickly before the damage spreads.'],['Sewage overflow','A sewage backup is a serious health hazard. We manage it with efficiency and safety.'],['Appliance failures','When a washer or dishwasher fails, we help you deal with the water damage.']]},
+    'Fire damage':{t:'em',img:'../../img/fire-interior.jpg',short:'Repair and restoration after a fire.',intro:'Fires can be catastrophic, leaving behind damage and emotional distress. Fire damage is met with swift expertise, focusing on quick restoration and returning your home to its original state.',list:[['Restoring damage','Synthetic materials, trees and bushes, or appliance failures: we understand the restoration each type of smoke and residue needs.'],['Fire aftermath','We check walls, ceilings and personal items for smoke discolouration, and eliminate residual smoke to improve air quality.'],['Trust the specialists','Burned materials can leave biohazards behind. Our team knows how to clean up fire and smoke safely.']]},
+    'Mould remediation':{t:'cl',img:'../../img/mould-wall.jpg',short:'Find it, remove it, keep it from coming back.',intro:'Mould can be stealthy and harmful, causing damage and health concerns. We tackle it with thorough care to restore a safe, healthy, mould-free environment.',list:[['Contain it','A thorough inspection first, then we contain the mould so spores don\'t spread through the rest of the house.'],['Fix the cause','We eliminate the source of moisture that triggered the growth.'],['Remove it safely','Every mould colony is removed with care, using professional tools and equipment.']]},
+    'Trauma clean up':{t:'em',img:'../../img/trauma-tape.jpg',short:'Discreet, respectful clean-up.',intro:'Trauma scenes require sensitive, thorough clean-up. Our team handles these situations with discretion and efficiency, respectfully restoring your space to a state of order and calm.',list:[['Trained and regulation-ready','Protective materials and specialized training to thoroughly sanitize your home and eliminate harmful elements.'],['A helping hand','We approach every situation with compassion and discretion, to restore a sense of calm.']]},
+    'Board up service':{t:'em',img:'../../img/board-windows.jpg',short:'Secure doors and windows right away.',intro:'After damage, securing your property is crucial. Our emergency board-up service gives immediate protection from further damage, theft or unauthorized access.',list:[['Assess first','Before we board up, we carefully assess the damage to plan the best way to keep your property safe.'],['Every entry point','We seal every possible entry point, from windows to doors, using top-quality materials.']]},
+    'Odour control':{t:'cl',img:'../../img/odour-spray.jpg',short:'Neutralize lingering smells.',intro:'Unpleasant odours can linger and affect your comfort. Our odour control service neutralizes unpleasant smells to restore freshness and a healthy environment.',list:[['Eliminating odours','Pet odours, cigarette smoke or the musty smell of mould: we identify and neutralize each one.'],['Odour resolution','We find the source, from mould and mildew to tobacco or pets, so your space is fresh and odour-free.']]},
+    'Hoarding clean up':{t:'cl',img:'../../img/hoarding-bin.jpg',short:'Clear clutter safely and with discretion.',intro:'Hoarding can make spaces unsafe and uncomfortable. We clear these areas with discretion and efficiency, restoring order and making your home livable and welcoming again.',list:[['Reclaiming spaces','From household clutter to hazardous materials, we tailor the clean-up to each site.'],['Rely on expertise','Built-up debris can bring health risks. We clear it safely and respectfully.']]},
+    'Carpet cleaning':{t:'cl',img:'../../img/carpet.jpg',short:'Remove stains and revive your carpets.',intro:'Stubborn stains and dirt affect your carpets and your home\'s hygiene. We remove them with careful attention to revive your flooring.',list:[['Reviving carpets','Spills, pet stains and high-traffic wear, cleaned with methods suited to each carpet\'s fibres and dyes.']]}
+  };
+  var NAMES=Object.keys(S);
+  var Z={
+    upper:{name:'Upper floor',tag:'Bedrooms and bathrooms',desc:'Leaks from bathrooms and appliances, mould in damp corners and odours that won\'t go away.',ph:'../../img/job-room-fan.jpg',svc:['Water damage','Mould remediation','Odour control']},
+    main:{name:'Main floor',tag:'Kitchen and living spaces',desc:'Kitchen fires, appliance leaks, stained carpets and rooms that need a full clean-up.',ph:'../../img/fire-interior.jpg',svc:['Fire damage','Water damage','Carpet cleaning','Hoarding clean up','Trauma clean up']},
+    base:{name:'Basement',tag:'Below ground',desc:'Flooding, burst pipes and sewage backups often start here, and mould follows if it isn\'t dried fast.',ph:'../../img/stairs-fans.jpg',svc:['Water damage','Mould remediation','Odour control']},
+    out:{name:'Outside',tag:'Doors, windows and roof',desc:'Broken windows and doors leave your property open to more damage, theft or unauthorized access.',ph:'../../img/board-windows.jpg',svc:['Board up service','Fire damage']}
+  };
+  var sel=new Set();
+
+  // menu
+  var dir=document.getElementById('dir'),mb=document.querySelector('.menu-btn');
+  function setDir(o){dir.classList.toggle('open',o);dir.setAttribute('aria-hidden',!o);mb.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''}
+  mb.addEventListener('click',function(){setDir(true)});
+  dir.querySelector('.dir-close').addEventListener('click',function(){setDir(false)});
+  dir.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setDir(false)})});
+
+  // hero
+  var hero=document.querySelector('.hero'),txt=document.querySelector('.hero-in'),live=document.querySelector('.live');
+  requestAnimationFrame(function(){hero.classList.add('go')});
+  if(!reduce){
+    var tick=false;
+    function walk(){tick=false;var r=hero.getBoundingClientRect(),span=hero.offsetHeight-window.innerHeight;var p=Math.min(1,Math.max(0,-r.top/span));
+      txt.style.opacity=(1-Math.max(0,p-.35)*1.9).toFixed(3);txt.style.transform='translateY('+(-p*40).toFixed(1)+'px)';live.style.opacity=(1-p*1.4).toFixed(3)}
+    window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(walk)}},{passive:true});walk();
+  }
+  // thermal camera lens
+  var scene=document.getElementById('scene'),lens=document.getElementById('lens'),heat=lens.querySelector('.th-heat'),base=scene.querySelector('.th-img');
+  var lx=0,ly=0,userUntil=0,t0=performance.now();
+  function place(x,y){var sr=scene.getBoundingClientRect(),br=base.getBoundingClientRect(),L=lens.offsetWidth;
+    x=Math.max(L/2,Math.min(sr.width-L/2,x));y=Math.max(L/2+60,Math.min(sr.height-L/2,y));lx=x;ly=y;
+    lens.style.setProperty('--lx',x+'px');lens.style.setProperty('--ly',y+'px');
+    heat.style.width=br.width+'px';heat.style.height=br.height+'px';heat.style.backgroundSize='cover';heat.style.backgroundPosition='center 60%';
+    heat.style.left=(br.left-sr.left-(x-L/2))+'px';heat.style.top=(br.top-sr.top-(y-L/2))+'px';heat.style.right='auto';heat.style.bottom='auto'}
+  function auto(now){var sr=scene.getBoundingClientRect(),w=sr.width,h=sr.height,k=(now-t0)/1000;
+    var cx=w>900?w*.68:w*.5,cy=w>900?h*.45:h*.32;place(cx+Math.sin(k*.45)*w*(w>900?.2:.18),cy+Math.sin(k*.9)*h*.12)}
+  function loop(now){if(now>userUntil&&!reduce)auto(now);requestAnimationFrame(loop)}
+  scene.addEventListener('pointermove',function(e){var sr=scene.getBoundingClientRect();userUntil=performance.now()+4000;place(e.clientX-sr.left,e.clientY-sr.top)});
+  scene.addEventListener('pointerdown',function(e){var sr=scene.getBoundingClientRect();userUntil=performance.now()+4000;place(e.clientX-sr.left,e.clientY-sr.top)});
+  window.addEventListener('resize',function(){place(lx,ly)});
+  if(reduce){var sr0=scene.getBoundingClientRect();place(sr0.width*.62,sr0.height*.4)}else requestAnimationFrame(loop);
+  // Toronto clock
+  var tt=document.getElementById('tor-time');
+  function clk(){try{tt.textContent=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Toronto',hour:'numeric',minute:'2-digit',weekday:'long'}).format(new Date())+' in Toronto'}catch(e){tt.textContent='Toronto'}}
+  clk();setInterval(clk,20000);
+
+  // explorer
+  var panel=document.querySelector('.ex-panel'),cur='main';
+  function showZone(k){cur=k;var z=Z[k];
+    document.querySelectorAll('.zone-tabs button').forEach(function(b){b.setAttribute('aria-selected',b.dataset.zone===k)});
+    document.querySelectorAll('.house .zone').forEach(function(g){g.classList.toggle('on',g.dataset.zone===k)});
+    panel.querySelector('.ex-tag').textContent=z.tag;panel.querySelector('.ex-name').textContent=z.name;panel.querySelector('.ex-desc').textContent=z.desc;
+    var im=panel.querySelector('.ex-ph img');im.src=z.ph;im.alt=z.name;
+    panel.querySelector('.ex-list').innerHTML=z.svc.map(function(s){return '<button type="button" class="svc-row" data-svc="'+s+'" aria-pressed="'+sel.has(s)+'"><span><b>'+s+'</b><small>'+S[s].short+'</small></span><i>'+PLUS+'</i></button>'}).join('');
+  }
+  document.querySelectorAll('.zone-tabs button,.house .zone').forEach(function(el){el.addEventListener('click',function(){showZone(el.dataset.zone)})});
+  panel.addEventListener('click',function(e){var b=e.target.closest('.svc-row');if(b)toggle(b.dataset.svc,true)});
+
+  // services big list + sheet
+  var bl=document.getElementById('biglist'),peek=document.getElementById('peek'),pim=peek.querySelector('img');
+  bl.innerHTML=NAMES.map(function(n,i){var s=S[n];return '<li><button type="button" data-svc-card="'+n+'" data-img="'+s.img+'"><span class="n">0'+(i+1)+'</span><span><span class="nm">'+n+'</span><small>'+s.short+'<span class="tg">'+(s.t==='em'?'Emergency':'Clean up')+'</span></small></span><span class="th"><img src="'+s.img+'" alt="" loading="lazy"></span></button></li>'}).join('');
+  bl.addEventListener('pointerover',function(e){var b=e.target.closest('button');if(!b)return;pim.src=b.dataset.img;peek.classList.add('on')});
+  bl.addEventListener('pointerleave',function(){peek.classList.remove('on')});
+  bl.addEventListener('pointermove',function(e){peek.style.setProperty('--px',e.clientX+'px');peek.style.setProperty('--py',e.clientY+'px')});
+  var sheet=document.getElementById('sheet'),shName,last;
+  bl.addEventListener('click',function(e){var c=e.target.closest('button');if(!c)return;peek.classList.remove('on');last=c;shName=c.dataset.svcCard;var s=S[shName];
+    sheet.querySelector('.sheet-ph img').src=s.img;sheet.querySelector('.sheet-ph img').alt=shName;
+    document.getElementById('sh-tag').textContent=s.t==='em'?'Emergency service · 24/7':'Clean-up service';
+    document.getElementById('sh-name').textContent=shName;document.getElementById('sh-intro').textContent=s.intro;
+    document.getElementById('sh-list').innerHTML=s.list.map(function(x){return '<li><b>'+x[0]+'</b>'+x[1]+'</li>'}).join('');
+    syncSheet();sheet.classList.add('open');document.body.style.overflow='hidden';sheet.querySelector('.x').focus()});
+  function syncSheet(){if(shName)document.getElementById('sh-add').textContent=sel.has(shName)?'Added to my report':'Add to my report'}
+  document.getElementById('sh-add').addEventListener('click',function(){if(!sel.has(shName))toggle(shName,true);syncSheet()});
+  function closeSheet(){sheet.classList.remove('open');document.body.style.overflow='';if(last)last.focus()}
+  sheet.addEventListener('click',function(e){if(e.target===sheet||e.target.closest('.x'))closeSheet()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeSheet();setDir(false)}});
+
+  // report
+  var chipBox=document.getElementById('svc-chips');
+  chipBox.innerHTML=NAMES.map(function(n){return '<button type="button" data-svc="'+n+'" aria-pressed="false">'+n+'</button>'}).join('');
+  chipBox.addEventListener('click',function(e){var b=e.target.closest('button');if(b)toggle(b.dataset.svc)});
+  var selSvc=document.querySelector('#form select');NAMES.forEach(function(n){var o=document.createElement('option');o.textContent=n;selSvc.appendChild(o)});
+  function toggle(s,tell){var had=sel.has(s);had?sel.delete(s):sel.add(s);syncAll();if(tell&&!had)toast(s+' added to your report')}
+  var state={when:'',prop:''};
+  document.querySelectorAll('.chips[data-name]').forEach(function(box){box.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var on=b.getAttribute('aria-pressed')==='true';
+    box.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed',String(!on));state[box.dataset.name]=on?'':b.textContent;render()})});
+  var addr=document.getElementById('b-addr'),note=document.getElementById('b-note');addr.addEventListener('input',render);note.addEventListener('input',render);
+  function syncAll(){document.querySelectorAll('[data-svc]').forEach(function(b){b.setAttribute('aria-pressed',sel.has(b.dataset.svc))});document.querySelectorAll('.bcount').forEach(function(c){c.textContent=sel.size});render()}
+  function render(){var arr=Array.from(sel);
+    document.getElementById('c-name').textContent=addr.value.trim()||'Your property';
+    document.getElementById('c-sub').textContent=arr.length?arr.length+' type'+(arr.length>1?'s':'')+' of damage'+(state.prop?' · '+state.prop:''):'Pick what happened to start.';
+    document.getElementById('c-dmg').textContent=arr.length?arr.join(', '):'None yet';
+    document.getElementById('c-when').textContent=state.when||'Not set';document.getElementById('c-prop').textContent=state.prop||'Not set';
+    document.getElementById('c-note').textContent=note.value.trim()||'None';
+    document.getElementById('c-urgent').classList.toggle('show',state.when==='Yes, right now')}
+  function reportText(){return ['Damage report for '+(addr.value.trim()||'my property'),'Damage: '+(Array.from(sel).join(', ')||'Not set'),'When: '+(state.when||'Not set'),'Property: '+(state.prop||'Not set'),'Notes: '+(note.value.trim()||'None')].join('\n')}
+  document.getElementById('c-print').addEventListener('click',function(){window.print()});
+  document.getElementById('c-copy').addEventListener('click',function(){var t=reportText();(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){toast('Report copied')},function(){toast('Copy not available on this device')})});
+  document.getElementById('c-send').addEventListener('click',function(){if(!sel.size){toast('Pick what happened first');return}
+    var f=document.getElementById('form');f.querySelector('textarea').value=reportText();var first=Array.from(sel)[0];selSvc.value=first;
+    document.getElementById('contact').scrollIntoView({behavior:reduce?'auto':'smooth'});setTimeout(function(){f.querySelector('input[name="name"]').focus({preventScroll:true})},reduce?0:700)});
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('form-msg').classList.add('show')});
+
+  // reel deck
+  var deck=document.getElementById('deck'),dcs=[].slice.call(deck.querySelectorAll('.dk')),order=dcs.slice(),N=dcs.length,cnt=document.getElementById('dk-n'),idx=0,fanned=false;
+  var fan=[[0,0,0,1],[-7,-46,14,.96],[6,44,22,.93],[-3,-18,30,.9],[4,20,36,.87],[0,0,40,.84]],stack=[[0,0,0,1],[-2,-6,8,.97],[2,6,14,.94],[-1,-3,20,.91],[1,3,24,.88],[0,0,28,.85]];
+  function lay(){order.forEach(function(c,k){var f=(fanned?fan:stack)[Math.min(k,5)];c.style.setProperty('--p',f[0]);c.style.setProperty('--x',f[1]);c.style.setProperty('--y',f[2]);c.style.setProperty('--s',f[3]);c.style.zIndex=N-k;c.style.visibility=k>5?'hidden':''});cnt.textContent=('0'+(idx%N+1)).slice(-2)+' / '+('0'+N).slice(-2)}
+  function next(d){var top=order[0];top.classList.add('fly');top.style.setProperty('--x',(d||1)*520);top.style.setProperty('--p',(d||1)*24);setTimeout(function(){order.push(order.shift());top.classList.remove('fly');idx++;lay()},320)}
+  document.getElementById('dk-next').addEventListener('click',function(){next(1)});
+  var sx=0,dx=0,dragging=false,top=null;
+  deck.addEventListener('pointerdown',function(e){top=order[0];if(!top.contains(e.target))return;dragging=true;sx=e.clientX;dx=0;top.classList.add('drag');top.setPointerCapture(e.pointerId)});
+  deck.addEventListener('pointermove',function(e){if(!dragging)return;dx=e.clientX-sx;top.style.setProperty('--x',dx);top.style.setProperty('--p',dx/14)});
+  function end(){if(!dragging)return;dragging=false;top.classList.remove('drag');if(Math.abs(dx)>70)next(dx>0?1:-1);else if(Math.abs(dx)<6)next(1);else lay()}
+  deck.addEventListener('pointerup',end);deck.addEventListener('pointercancel',end);lay();
+  if('IntersectionObserver' in window){var dio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){setTimeout(function(){fanned=true;lay()},250);dio.disconnect()}})},{threshold:.35});dio.observe(deck)}else{fanned=true;lay()}
+
+  // reveal
+  if('IntersectionObserver' in window&&!reduce){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});document.querySelectorAll('.rv').forEach(function(el){io.observe(el)})}
+  else document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
+
+  // phone action bar
+  var bar=document.querySelector('.actbar');function barCheck(){bar.classList.toggle('show',hero.getBoundingClientRect().bottom<window.innerHeight*0.6)}
+  window.addEventListener('scroll',barCheck,{passive:true});barCheck();
+
+  var tEl=document.querySelector('.toast'),tT;function toast(m){tEl.textContent=m;tEl.classList.add('show');clearTimeout(tT);tT=setTimeout(function(){tEl.classList.remove('show')},2200)}
+
+  showZone('main');syncAll();
+})();
+</script>
+</body>
+</html>
