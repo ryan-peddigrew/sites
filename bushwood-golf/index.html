@@ -32,8 +32,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;letter-spacin
 .tbc{font-style:italic;color:var(--gold-d);border-bottom:1px dotted var(--gold-d);white-space:nowrap}
 .dark .tbc,.hero .tbc{color:var(--gold);border-color:var(--gold)}
 
-header{position:fixed;inset:0 0 auto;z-index:50;transition:background .4s,box-shadow .4s}
-header.solid{background:rgba(14,38,18,.96);box-shadow:0 1px 0 #ffffff12}
+header#hd{position:fixed;inset:0 0 auto;z-index:50;background:var(--ink);border-bottom:2px solid var(--gold)}
 .hd{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:96px}
 .hd nav{display:flex;gap:30px}
 .hd nav.r{justify-content:flex-end;align-items:center}
@@ -41,25 +40,24 @@ header.solid{background:rgba(14,38,18,.96);box-shadow:0 1px 0 #ffffff12}
 .hd nav a:hover{color:var(--gold);opacity:1}
 .hd nav a.book{border:1px solid var(--gold);padding:14px 22px;color:var(--gold)}
 .hd nav a.book:hover{background:var(--gold);color:var(--ink)}
-.logo{display:block;background:var(--ink);padding:12px 14px 10px;margin-top:34px;box-shadow:0 14px 34px rgba(0,0,0,.45);outline:1px solid #edd55488;outline-offset:-5px;transition:margin .3s,padding .3s}
-.logo img{height:104px;width:auto;transition:height .3s}
-header.solid .logo{margin-top:0;box-shadow:none;outline-color:transparent;padding:6px 10px}
-header.solid .logo img{height:70px}
+.logo{display:block}
+.logo img{height:78px;width:auto;display:block}
 .mbtn{display:none;color:#fff;background:none;border:0;font:500 12.5px var(--sans);letter-spacing:.22em;text-transform:uppercase;min-height:48px;padding:0 4px}
-@media(max-width:1060px){.hd{grid-template-columns:auto 1fr;height:76px}.hd nav.l,.hd nav.r a:not(.mbtn){display:none}.hd nav.r{justify-content:flex-end}.mbtn{display:block}.logo{margin-top:26px;padding:10px 12px 8px}.logo img{height:84px}header.solid .logo img{height:60px}}
+@media(max-width:1060px){.hd{grid-template-columns:auto 1fr;height:76px}.hd nav.l,.hd nav.r a:not(.mbtn){display:none}.hd nav.r{justify-content:flex-end}.mbtn{display:block}.logo img{height:62px}}
 .drawer{position:fixed;inset:0;background:var(--ink);z-index:60;display:none;flex-direction:column;padding:22px 24px;color:#fff;overflow:auto}
 .drawer.open{display:flex}
 .drawer button{align-self:flex-end;background:none;border:0;color:var(--gold);font:500 12.5px var(--sans);letter-spacing:.22em;text-transform:uppercase;min-height:48px}
 .drawer a{font:500 34px/1.2 var(--serif);text-decoration:none;padding:12px 0;border-bottom:1px solid #ffffff14}
 
-.hero{position:relative;height:100svh;min-height:640px;color:#fff;overflow:hidden;background:var(--ink)}
+.hero{position:relative;margin-top:0;height:100svh;min-height:640px;color:#fff;overflow:hidden;background:var(--ink)}
 .slides{position:absolute;inset:0;will-change:transform;transform-origin:50% 60%}
 .hero .t{will-change:transform}
 .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.14);transition:opacity 1.8s ease,transform 9s linear}
 .slides img.on{opacity:1;transform:scale(1.02)}
 .split span{display:block;overflow:hidden;padding-bottom:.08em}
-.split b{display:block;font-weight:inherit;transform:translateY(110%);animation:up 1.2s cubic-bezier(.2,.8,.2,1) forwards}
-.split b{animation-delay:3.2s}.split span:nth-child(2) b{animation-delay:3.4s}.split span:nth-child(3) b{animation-delay:3.6s}
+.split b{display:block;font-weight:inherit;transform:translateY(110%)}
+body.ready .split b{animation:up 1.2s cubic-bezier(.2,.8,.2,1) forwards}
+body.ready .split span:nth-child(2) b{animation-delay:.18s}body.ready .split span:nth-child(3) b{animation-delay:.36s}
 @keyframes up{to{transform:none}}
 #hw{display:inline-block;transition:opacity .45s,transform .45s}#hw.out{opacity:0;transform:translateY(14px)}
 #rot{display:inline-block;transition:opacity .6s,transform .6s}
@@ -76,8 +74,8 @@ header.solid .logo img{height:70px}
 .hero .row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-top:30px}
 .hero p{max-width:40ch;font-size:19px;opacity:.92}
 .hero .links{display:flex;gap:34px;flex-wrap:wrap;color:#fff}
-.season{position:absolute;z-index:2;left:0;right:0;top:112px;text-align:center;font:500 12px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:#fff;opacity:.85}
-@media(max-width:1060px){.season{top:90px;padding:0 20px}}
+.season{font:500 12px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+
 
 .host{background:var(--gold);color:var(--ink);padding:54px 0}
 .host .wrap{display:grid;grid-template-columns:1.3fr 1fr auto;gap:50px;align-items:center}
@@ -258,33 +256,35 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
 .reel figure.tall img{aspect-ratio:3/4}.reel figure.wide img{aspect-ratio:16/10}
 .w span{display:inline-block;opacity:.14;transition:opacity .5s}
 .w span.lit{opacity:1}
-.tourbar{position:fixed;z-index:70;left:50%;transform:translateX(-50%);bottom:26px;width:min(560px,calc(100% - 28px));background:var(--cream);color:var(--ink);box-shadow:0 30px 70px rgba(0,0,0,.5);border-top:3px solid var(--gold);padding:20px 22px 16px}
+.tourbar{position:fixed;z-index:70;left:50%;transform:translateX(-50%);bottom:24px;width:min(620px,calc(100% - 24px));background:var(--ink);color:#fff;box-shadow:0 24px 60px rgba(0,0,0,.55);border-top:2px solid var(--gold);padding:16px 18px 0;display:grid;grid-template-columns:64px 1fr;gap:4px 14px;align-items:start}
 .tourbar[hidden]{display:none}
-.tourbar .k{font:500 11.5px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold-d)}
-.tourbar h5{font:500 27px/1.12 var(--serif);margin:8px 0 6px}
-.tourbar p{font-size:16px;line-height:1.5;color:#40464d}
-.tourbar .why{margin-top:6px;color:var(--ink);font-weight:500}
-.tourbar .ctl{display:flex;gap:22px;align-items:center;margin-top:12px}
-.tourbar button{background:none;border:0;font:500 12.5px var(--sans);letter-spacing:.2em;text-transform:uppercase;min-height:44px;cursor:pointer;color:var(--ink);border-bottom:1px solid var(--gold);padding:0}
-.tourbar button.go{background:var(--ink);color:#fff;border:0;padding:0 22px;min-height:48px}
-.tourbar .pg{height:2px;background:#14261a1f;margin-top:12px}.tourbar .pg i{display:block;height:2px;background:var(--gold);width:0}
+.tourbar .gordy{width:64px;margin-top:4px}
+.tourbar .k{font:500 11px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.tourbar h5{font:500 25px/1.1 var(--serif);margin:5px 0 5px}
+.tourbar p{font-size:15px;line-height:1.45;color:#ffffffd9}
+.tourbar .why{margin-top:5px;color:var(--gold)}
+.tourbar .ctl{grid-column:1/-1;display:flex;gap:24px;align-items:center;margin-top:6px;border-top:1px solid #ffffff22}
+.tourbar button{background:none;border:0;font:500 12px var(--sans);letter-spacing:.2em;text-transform:uppercase;min-height:46px;cursor:pointer;color:#fff;padding:0}
+.tourbar button.go{color:var(--ink);background:var(--gold);padding:0 20px;min-height:40px;font-weight:600}
+.tourbar .pg{grid-column:1/-1;height:2px;background:#ffffff1f;margin:0 -18px}.tourbar .pg i{display:block;height:2px;background:var(--gold);width:0}
 .tourbar .sp{flex:1}
-@media(max-width:760px){.tourbar{bottom:62px;padding:14px 16px 10px}.tourbar h5{font-size:21px;margin:4px 0 4px}.tourbar p{font-size:14.5px;line-height:1.4}.tourbar .ctl{margin-top:4px}.tourbar.idle p{display:none}.season{top:150px!important;text-align:left!important;padding:0 24px!important;font-size:10.5px!important}.hero h1{font-size:44px}}
-.spot{outline:2px solid var(--gold);outline-offset:-10px;transition:outline-color .4s}
-.intro-s{position:fixed;inset:0;z-index:100;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;transition:transform 1s cubic-bezier(.7,0,.2,1);cursor:pointer;overflow:hidden}
-.intro-s.up{transform:translateY(-100%)}
-.intro-s .wm{width:min(300px,64vw);opacity:0;animation:fin .8s .2s forwards}
-.intro-s .gw{position:relative;width:min(230px,50vw)}
-.intro-s .gw img{width:100%;transform-origin:50% 88%;animation:wag 1.1s ease-in-out infinite alternate}
-.intro-s.hit .gw img{animation:swing .55s cubic-bezier(.3,0,.2,1) forwards}
-.intro-s .ball{position:absolute;left:54%;top:66%;width:9%;aspect-ratio:1;background:#fafdff;border-radius:50%;box-shadow:inset -2px -2px 0 #b9b8bd;opacity:0}
-.intro-s.hit .ball{opacity:1;animation:fly 1s .22s cubic-bezier(.2,.6,.4,1) forwards}
-.intro-s small{font:500 11.5px var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-top:14px;animation:fin .8s .6s both}
-.intro-s.hit small{opacity:0!important;transition:opacity .2s}
-@keyframes fin{to{opacity:1}}
-@keyframes wag{from{transform:rotate(-4deg)}to{transform:rotate(3deg)}}
-@keyframes swing{0%{transform:rotate(-4deg)}35%{transform:rotate(-20deg)}70%{transform:rotate(16deg)}100%{transform:rotate(0)}}
-@keyframes fly{0%{transform:translate(0,0) scale(1)}100%{transform:translate(70vw,-80vh) scale(.35)}}
+@media(max-width:760px){.tourbar{bottom:58px;grid-template-columns:48px 1fr;padding:12px 14px 0}.tourbar .gordy{width:48px}.tourbar h5{font-size:21px}.tourbar p{font-size:14px;line-height:1.4}.tourbar.idle p{display:none}.tourbar .pg{margin:0 -14px}.hero h1{font-size:44px}body.touring .hero .t{padding-bottom:270px}body.touring .hero .row p,body.touring .hero .links,body.touring .count{display:none}}
+
+.intro-s{position:fixed;inset:0;z-index:100;background:var(--ink);cursor:pointer;overflow:hidden;transition:background .9s}
+.intro-s.clear{background:transparent;pointer-events:none}
+.intro-s .lk{position:absolute;left:50%;top:46%;width:min(360px,74vw);aspect-ratio:632/526;transform:translate(-50%,-50%);transform-origin:0 0}
+.intro-s .lk.fly{transition:transform .95s cubic-bezier(.7,0,.2,1)}
+.intro-s .wm{position:absolute;left:0;top:0;width:100%}
+.intro-s .gp{position:absolute;left:14.9%;top:42.2%;width:56.3%;transform-origin:50% 92%;animation:wag 1.2s ease-in-out infinite alternate}
+.intro-s.hit .gp{animation:swing 1.25s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes wag{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+@keyframes swing{0%{transform:rotate(-3deg)}50%{transform:rotate(-26deg)}62%{transform:rotate(-26deg)}76%{transform:rotate(22deg)}100%{transform:rotate(0)}}
+.intro-s .tee{position:absolute;left:79%;top:97%;width:1.2%;height:6%;background:var(--gold)}
+.intro-s .ball{position:fixed;left:0;top:0;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#dfe3e0 70%,#b9b8bd);box-shadow:0 0 0 1.5px #14261a;will-change:transform}
+.intro-s svg.tr{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
+.intro-s svg.tr path{fill:none;stroke:var(--gold);stroke-width:3;stroke-linecap:round;stroke-dasharray:2 12}
+.intro-s small{position:absolute;left:0;right:0;bottom:16%;text-align:center;font:500 12px var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--gold);transition:opacity .3s}
+.intro-s.hit small,.intro-s.hit .tee{opacity:0}
 .gordy{position:relative;display:block;width:86px;aspect-ratio:356/304;flex:none}
 .gordy>img{width:100%;display:block;transform-origin:50% 90%}
 .gordy svg{position:absolute;overflow:visible;pointer-events:none}
@@ -335,7 +335,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
 </head>
 <body>
 
-<div class="intro-s" id="intro"><img class="wm" src="brand/wordmark-white.svg" alt="Bushwood Golf Club"><div class="gw"><img src="brand/gopher.svg" alt=""><span class="ball"></span></div><small>Tap Gordy to tee off</small></div>
+<div class="intro-s" id="intro"><svg class="tr"><path id="trp"/></svg><div class="lk" id="lk"><img class="wm" src="brand/wordmark-white.svg" alt="Bushwood Golf Club"><img class="gp" src="brand/gopher.svg" alt=""><i class="tee"></i></div><span class="ball" id="ball"></span><small>Tap Gordy to tee off</small></div>
 <header id="hd"><div class="wrap hd">
   <nav class="l" aria-label="Main"><a href="#courses">The courses</a><a href="#events">Tournaments &amp; events</a><a href="#lounge">The lounge</a></nav>
   <a class="logo" href="#top" aria-label="Bushwood Golf Club"><img src="brand/logo-stacked-reverse.svg" alt="Bushwood Golf Club"></a>
@@ -347,8 +347,8 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
 
 <section class="hero" id="top">
   <div class="slides"><img class="on" src="img/aerial-hero.jpg" alt="Bushwood's fairways in evening light"><img src="img/silhouette-swing.jpg" alt="A golfer swinging at sunset" loading="lazy"><img src="img/course-bunker.jpg" alt="A green and bunker on the Championship course" loading="lazy"><img src="img/clubhouse-dusk.jpg" alt="The clubhouse at dusk" loading="lazy"><img src="img/friends-green.jpg" alt="Friends on the green" loading="lazy" style="object-position:50% 20%"></div>
-  <div class="season">The 2026 season has closed. See you in the spring.</div>
   <div class="t"><div class="wrap">
+    <div class="season">The 2026 season has closed. See you in the spring.</div>
     <h1 class="split"><span><b>Not just another</b></span><span><b>golf course.</b></span><span><b><i id="rot">We're Bushwood.</i></b></span></h1>
     <div class="count"><em id="cn">01</em><u><s id="bar"></s></u><em>05</em><small id="cap">The Championship, from above</small></div>
     <div class="row">
@@ -526,9 +526,10 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
 </div></footer>
 
 <div class="tourbar idle" id="tour">
-  <div class="k" id="tk">A note from Chairlift</div>
-  <h5 id="th">Take a one-minute tour of what's new.</h5>
-  <p id="tp">Tap once and we'll walk you through what we changed for Bushwood, and why.</p><p id="ty" class="why" hidden></p>
+  <span data-gordy="flag"></span>
+  <div><div class="k" id="tk">A note from Chairlift</div>
+  <h5 id="th">Take the tour with Gordy.</h5>
+  <p id="tp">One minute on what we changed for Bushwood, and why.</p><p id="ty" class="why" hidden></p></div>
   <div class="ctl"><button class="go" id="tgo">Start the tour</button><button id="tpause" hidden>Pause</button><button id="tnext" hidden>Next</button><span class="sp"></span><button id="tx">Close</button></div>
   <div class="pg"><i id="tpg"></i></div>
 </div>
@@ -540,8 +541,18 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
 <script>
 const hd=document.getElementById('hd');const f=()=>hd.classList.toggle('solid',scrollY>60);addEventListener('scroll',f,{passive:true});f();
 const dr=document.getElementById('dr');mo.onclick=()=>dr.classList.add('open');mc.onclick=()=>dr.classList.remove('open');dr.querySelectorAll('a').forEach(a=>a.onclick=()=>dr.classList.remove('open'));
-const intro=document.getElementById('intro');let teed=false;function tee(){if(teed)return;teed=true;intro.classList.add('hit');setTimeout(()=>intro.classList.add('up'),1150);setTimeout(()=>intro.remove(),2300)}
-intro.onclick=tee;if(matchMedia('(prefers-reduced-motion:reduce)').matches)intro.remove();else setTimeout(tee,2200);
+const intro=document.getElementById('intro'),lk=document.getElementById('lk'),ball=document.getElementById('ball'),trp=document.getElementById('trp');let teed=false;
+function ready(){document.body.classList.add('ready');if(new URLSearchParams(location.search).get('tour')==='1')setTimeout(()=>tgo.click(),1500)}
+function ballHome(){const r=lk.getBoundingClientRect();return[r.left+r.width*.796,r.top+r.height*.955]}
+function place(){const[x,y]=ballHome();ball.style.transform='translate('+x+'px,'+y+'px)'}
+function tee(){if(teed)return;teed=true;intro.classList.add('hit');
+ setTimeout(()=>{const[x0,y0]=ballHome(),x1=innerWidth*.94,y1=innerHeight*.07,cx=x0+(x1-x0)*.35,cy=y0-innerHeight*.75;
+  trp.setAttribute('d','M'+x0+' '+y0+' Q'+cx+' '+cy+' '+x1+' '+y1);const L=trp.getTotalLength(),D=1500,t0=performance.now();trp.style.strokeDasharray='2 12';
+  trp.style.clipPath='inset(0 100% 0 0)';
+  (function f(t){const k=Math.min(1,(t-t0)/D),e=1-Math.pow(1-k,2.2),pt=trp.getPointAtLength(L*e);ball.style.transform='translate('+pt.x+'px,'+pt.y+'px) scale('+(1-e*.6)+')';trp.style.clipPath='inset(0 '+(100-((pt.x)/innerWidth*100))+'% 0 0)';if(k<1)requestAnimationFrame(f);else{ball.style.transition='opacity .3s';ball.style.opacity=0;trp.style.transition='opacity .4s';trp.style.opacity=0}})(t0)},930);
+ setTimeout(()=>{const a=lk.getBoundingClientRect(),h=document.querySelector('.logo img').getBoundingClientRect(),sc=h.width/a.width;lk.style.left=a.left+'px';lk.style.top=a.top+'px';lk.style.width=a.width+'px';lk.style.transform='none';lk.getBoundingClientRect();lk.classList.add('fly');lk.style.transform='translate('+(h.left-a.left)+'px,'+(h.top-a.top)+'px) scale('+sc+')';intro.classList.add('clear')},2750);
+ setTimeout(()=>{intro.remove();ready()},3750)}
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){intro.remove();ready()}else{place();addEventListener('resize',()=>{if(!teed)place()});intro.onclick=tee;setTimeout(tee,2600)}
 /* hero slides */
 const sl=[...document.querySelectorAll('.slides img')],caps=['The Championship, from above','Golden hour on the tee','Greens worth the trip','The clubhouse at dusk','Better with friends'],rots=["We're Bushwood.","Two courses.","One clubhouse.","Good times.","We're Bushwood."];
 let si=0;const rot=document.getElementById('rot'),bar=document.getElementById('bar');
@@ -551,13 +562,13 @@ if(!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(()=>{sl[si
 const hw=document.getElementById('hw'),hws=['tournament','corporate day','wedding','celebration','league night','photo shoot'];let hi=0;setInterval(()=>{hw.classList.add('out');setTimeout(()=>{hi=(hi+1)%hws.length;hw.textContent=hws[hi];hw.classList.remove('out')},450)},2400);
 /* hero scroll movement */
 const hs=document.querySelector('.slides'),ht=document.querySelector('.hero .t');
-if(!matchMedia('(prefers-reduced-motion:reduce)').matches)addEventListener('scroll',()=>{const y=scrollY,h=innerHeight;if(y>h*1.1)return;const p=y/h;hs.style.transform='translateY('+(y*.38)+'px) scale('+(1+p*.22)+')';ht.style.transform='translateY('+(-y*.3)+'px)';ht.style.opacity=Math.max(0,1-p*1.5)},{passive:true});
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)addEventListener('scroll',()=>{const y=scrollY,h=innerHeight;if(y>h*1.1)return;const p=y/h;hs.style.transform='translateY('+(y*.38)+'px) scale('+(1+p*.22)+')';ht.style.opacity=Math.max(0,1-p*1.4)},{passive:true});
 /* word reveal */
 document.querySelectorAll('.w').forEach(h=>{const walk=n=>{[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(t=>{if(/^\s+$/.test(t)||!t)f.append(t);else{const s=document.createElement('span');s.textContent=t;f.append(s)}});c.replaceWith(f)}else walk(c)})};walk(h);
  const sp=[...h.querySelectorAll('span')];const u=()=>{const r=h.getBoundingClientRect(),p=Math.min(1,Math.max(0,(innerHeight*.9-r.top)/(innerHeight*.55)));sp.forEach((s,i)=>s.classList.toggle('lit',i/sp.length<p))};addEventListener('scroll',u,{passive:true});u()});
 /* tour */
 const T=[
- ['#top','The welcome','Was: one still banner. Now: a moving hero with your own photos, your own line, and your logo exactly as it is, set in a crest.','Why: visitors decide in seconds. The course should sell itself before anyone reads a word.'],
+ ['#top','The welcome','Was: one still banner. Now: a moving hero with your own photos, your own line, and your logo exactly as it is.','Why: visitors decide in seconds. The course should sell itself before anyone reads a word.'],
  ['#host','Host your day here','Was: no mention of tournaments or events on the home page. Now: the first thing after the welcome is an invitation to host one.','Why: one tournament or wedding can be worth more than a hundred tee times.'],
  ['#courses','Two courses, clearly told','Was: one paragraph each. Now: the eighteen and the nine each get a full spread with par, length, pace and ages.','Why: golfers pick a round by time and difficulty. Answer it and they book.'],
  ['#walk','Your photography, front and centre','Was: a small gallery on the About page. Now: a swipe-through walk around the property.','Why: you already own beautiful photos. They were doing no work.'],
@@ -572,9 +583,9 @@ const tour=document.getElementById('tour');let ti=-1,tt=null,paused=false;
 function show(i){ti=i;if(i>=T.length){end();return}const[sel,h,p,y]=T[i];const el=document.querySelector(sel);document.querySelectorAll('.spot').forEach(e=>e.classList.remove('spot'));if(el){scrollTo({top:el.getBoundingClientRect().top+scrollY-(i?70:0),behavior:'smooth'});el.classList.add('spot')}
  tk.textContent='What\'s new · '+(i+1)+' of '+T.length;th.textContent=h;tp.textContent=p;ty.textContent=y;ty.hidden=false;tgo.hidden=true;tpause.hidden=false;tnext.hidden=false;tnext.textContent=i===T.length-1?'Finish':'Next';tick()}
 function tick(){clearTimeout(tt);tpg.style.transition='none';tpg.style.width='0';if(paused)return;requestAnimationFrame(()=>requestAnimationFrame(()=>{tpg.style.transition='width 9s linear';tpg.style.width='100%'}));tt=setTimeout(()=>show(ti+1),9000)}
-function end(){clearTimeout(tt);document.querySelectorAll('.spot').forEach(e=>e.classList.remove('spot'));tk.textContent='That\'s the tour';th.textContent='Have a look around.';tp.textContent='Everything here uses Bushwood\'s own words, photos and prices. Items marked "to confirm" are waiting on your details.';ty.hidden=true;tpause.hidden=true;tnext.hidden=true;tgo.hidden=false;tgo.textContent='Replay';ti=-1;scrollTo({top:0,behavior:'smooth'})}
-tgo.onclick=()=>{tour.classList.remove('idle');paused=false;tpause.textContent='Pause';show(0)};tnext.onclick=()=>show(ti+1);tpause.onclick=()=>{paused=!paused;tpause.textContent=paused?'Resume':'Pause';paused?(clearTimeout(tt),tpg.style.transition='none'):tick()};gb.style.display='none';tx.onclick=()=>{clearTimeout(tt);tour.hidden=true;gb.style.display='';document.querySelectorAll('.spot').forEach(e=>e.classList.remove('spot'))};
-if(new URLSearchParams(location.search).get('tour')==='1')setTimeout(()=>tgo.click(),4200);
+function end(){document.body.classList.remove('touring');clearTimeout(tt);document.querySelectorAll('.spot').forEach(e=>e.classList.remove('spot'));tk.textContent='That\'s the tour';th.textContent='Have a look around.';tp.textContent='Everything here uses Bushwood\'s own words, photos and prices. Items marked "to confirm" are waiting on your details.';ty.hidden=true;tpause.hidden=true;tnext.hidden=true;tgo.hidden=false;tgo.textContent='Replay';ti=-1;scrollTo({top:0,behavior:'smooth'})}
+tgo.onclick=()=>{tour.classList.remove('idle');document.body.classList.add('touring');paused=false;tpause.textContent='Pause';show(0)};tnext.onclick=()=>show(ti+1);tpause.onclick=()=>{paused=!paused;tpause.textContent=paused?'Resume':'Pause';paused?(clearTimeout(tt),tpg.style.transition='none'):tick()};gb.style.display='none';tx.onclick=()=>{document.body.classList.remove('touring');clearTimeout(tt);tour.hidden=true;gb.style.display='';document.querySelectorAll('.spot').forEach(e=>e.classList.remove('spot'))};
+
 const GA={'Book a tee time':'Easy. <a href="https://www.chronogolf.com/club/bushwood-golf-club" target="_blank" rel="noopener">Book online here</a>, or call the pro shop at (905) 640-1233 and press 1.',
 'Host a tournament':'Love it. Shotgun or tee times, carts, prizes and dinner in the banquet hall. <a href="#enquire" onclick="gc.classList.remove(\'open\')">Tell the events team about your day</a> and they\'ll reply with dates.',
 'Weddings and events':'The banquet hall and the patio over the ninth are both available. <a href="#enquire" onclick="gc.classList.remove(\'open\')">Send an enquiry</a> or email john@bushwood.ca.',
