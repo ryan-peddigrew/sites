@@ -10,10 +10,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#1D232A;--ink2:#262E37;--gold:#D2A84E;--gold-d:#9b7a2c;--cream:#F6F2E9;--cream2:#ECE5D4;--mu:#5f646b;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif}
+:root{--ink:#1B411F;--ink2:#2B6527;--gold:#EDD554;--gold-d:#2B6527;--cream:#F7F4EA;--cream2:#E9EBDD;--mu:#5c6a5d;--txt:#14261a;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font:400 18px/1.7 var(--sans);color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font:400 18px/1.7 var(--sans);color:var(--txt);background:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
 .wrap{width:min(1180px,100% - 48px);margin-inline:auto}
@@ -26,14 +26,14 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;letter-spacin
 .cta:hover{color:var(--gold);}
 .cta:after{content:"";width:34px;height:1px;background:currentColor;margin-left:14px;transition:width .3s}
 .cta:hover:after{width:52px}
-.cta.solid{border:1px solid var(--gold);padding:0 28px;min-height:50px;background:var(--gold);color:var(--ink)}
+.cta.solid{border:1px solid var(--gold);padding:0 28px;min-height:50px;background:var(--gold);color:var(--ink);font-weight:600}
 .cta.solid:after{display:none}
 .cta.solid:hover{background:transparent;color:var(--gold)}
 .tbc{font-style:italic;color:var(--gold-d);border-bottom:1px dotted var(--gold-d);white-space:nowrap}
 .dark .tbc,.hero .tbc{color:var(--gold);border-color:var(--gold)}
 
 header{position:fixed;inset:0 0 auto;z-index:50;transition:background .4s,box-shadow .4s}
-header.solid{background:rgba(29,35,42,.96);box-shadow:0 1px 0 #ffffff12}
+header.solid{background:rgba(14,38,18,.96);box-shadow:0 1px 0 #ffffff12}
 .hd{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:96px}
 .hd nav{display:flex;gap:30px}
 .hd nav.r{justify-content:flex-end;align-items:center}
@@ -41,7 +41,7 @@ header.solid{background:rgba(29,35,42,.96);box-shadow:0 1px 0 #ffffff12}
 .hd nav a:hover{color:var(--gold);opacity:1}
 .hd nav a.book{border:1px solid var(--gold);padding:14px 22px;color:var(--gold)}
 .hd nav a.book:hover{background:var(--gold);color:var(--ink)}
-.logo{display:block;background:var(--ink);padding:12px 14px 10px;margin-top:34px;box-shadow:0 14px 34px rgba(0,0,0,.45);outline:1px solid #d2a84e88;outline-offset:-5px;transition:margin .3s,padding .3s}
+.logo{display:block;background:var(--ink);padding:12px 14px 10px;margin-top:34px;box-shadow:0 14px 34px rgba(0,0,0,.45);outline:1px solid #edd55488;outline-offset:-5px;transition:margin .3s,padding .3s}
 .logo img{height:104px;width:auto;transition:height .3s}
 header.solid .logo{margin-top:0;box-shadow:none;outline-color:transparent;padding:6px 10px}
 header.solid .logo img{height:70px}
@@ -61,6 +61,7 @@ header.solid .logo img{height:70px}
 .split b{display:block;font-weight:inherit;transform:translateY(110%);animation:up 1.2s cubic-bezier(.2,.8,.2,1) forwards}
 .split b{animation-delay:3.2s}.split span:nth-child(2) b{animation-delay:3.4s}.split span:nth-child(3) b{animation-delay:3.6s}
 @keyframes up{to{transform:none}}
+#hw{display:inline-block;transition:opacity .45s,transform .45s}#hw.out{opacity:0;transform:translateY(14px)}
 #rot{display:inline-block;transition:opacity .6s,transform .6s}
 #rot.out{opacity:0;transform:translateY(18px)}
 .count{display:flex;align-items:center;gap:14px;margin-top:26px;font:500 12px var(--sans);letter-spacing:.22em;text-transform:uppercase}
@@ -68,7 +69,7 @@ header.solid .logo img{height:70px}
 .count s{position:absolute;left:0;top:0;height:1px;background:var(--gold);width:0}
 .count small{font-size:12px;opacity:.8;margin-left:10px}
 @media(max-width:700px){.count small{display:none}}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,35,42,.5),rgba(29,35,42,0) 28%,rgba(29,35,42,0) 50%,rgba(29,35,42,.8))}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,38,18,.5),rgba(14,38,18,0) 28%,rgba(14,38,18,0) 50%,rgba(14,38,18,.8))}
 .hero .t{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:0 0 56px}
 .hero h1{font-size:clamp(46px,8vw,124px);font-weight:400;max-width:12ch;text-shadow:0 2px 40px rgba(0,0,0,.35)}
 .hero h1 i{color:var(--gold)}
@@ -92,12 +93,12 @@ header.solid .logo img{height:70px}
 .intro h2{font-size:clamp(34px,5.4vw,76px);font-weight:400;max-width:20ch;margin:0 auto}
 .intro h2 i{color:var(--gold-d)}
 .intro .cols{display:grid;grid-template-columns:1fr 1fr;gap:60px;text-align:left;max-width:900px;margin:70px auto 0;color:#40464d}
-.intro .facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:80px;border-top:1px solid #1d232a30;border-bottom:1px solid #1d232a30}
-.intro .facts div{padding:30px 10px;border-right:1px solid #1d232a20}
+.intro .facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:80px;border-top:1px solid #14261a30;border-bottom:1px solid #14261a30}
+.intro .facts div{padding:30px 10px;border-right:1px solid #14261a20}
 .intro .facts div:last-child{border:0}
 .intro .facts b{display:block;font:500 28px/1.1 var(--serif);margin-bottom:6px}
 .intro .facts span{font:500 11.5px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mu)}
-@media(max-width:820px){.intro{padding:90px 0 70px}.intro .cols{grid-template-columns:1fr;gap:18px;margin-top:40px}.intro .facts{grid-template-columns:1fr 1fr;margin-top:50px}.intro .facts div:nth-child(2){border-right:0}.intro .facts div:nth-child(-n+2){border-bottom:1px solid #1d232a20}}
+@media(max-width:820px){.intro{padding:90px 0 70px}.intro .cols{grid-template-columns:1fr;gap:18px;margin-top:40px}.intro .facts{grid-template-columns:1fr 1fr;margin-top:50px}.intro .facts div:nth-child(2){border-right:0}.intro .facts div:nth-child(-n+2){border-bottom:1px solid #14261a20}}
 
 /* courses editorial */
 .course{display:grid;grid-template-columns:1.15fr 1fr;min-height:86vh;background:var(--cream)}
@@ -110,7 +111,7 @@ header.solid .logo img{height:70px}
 .course h2{font-size:clamp(34px,4vw,54px)}
 .course p.lead{margin:18px 0 28px;color:#40464d;max-width:44ch}
 .course dl{display:grid;grid-template-columns:auto 1fr;gap:0 32px;margin-bottom:32px;max-width:420px}
-.course dt,.course dd{padding:12px 0;border-top:1px solid #1d232a22}
+.course dt,.course dd{padding:12px 0;border-top:1px solid #14261a22}
 .course dt{font:500 11.5px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mu);padding-top:15px}
 .course dd{font:500 22px/1.2 var(--serif)}
 .course.alt{background:var(--cream2)}
@@ -119,7 +120,7 @@ header.solid .logo img{height:70px}
 /* record */
 .record{position:relative;color:#fff;text-align:center;padding:180px 0;overflow:hidden;background:var(--ink)}
 .record>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
-.record:after{content:"";position:absolute;inset:0;background:rgba(29,35,42,.45)}
+.record:after{content:"";position:absolute;inset:0;background:rgba(14,38,18,.45)}
 .record .wrap{position:relative;z-index:2}
 .record blockquote{font:italic 400 clamp(30px,5vw,68px)/1.12 var(--serif);max-width:20ch;margin:26px auto}
 .record blockquote b{font-style:normal;font-weight:500;color:var(--gold)}
@@ -139,12 +140,14 @@ header.solid .logo img{height:70px}
 .eg .photos .p1{left:0;top:0;width:78%;height:70%}
 .eg .photos .p2{right:0;bottom:0;width:52%;height:46%;border:10px solid var(--cream)}
 .eg ul{list-style:none}
-.eg li{padding:34px 0;border-top:1px solid #1d232a30}
-.eg li:last-child{border-bottom:1px solid #1d232a30}
+.eg li{padding:30px 0;border-top:1px solid #14261a30;display:grid;grid-template-columns:54px 1fr;gap:6px}
+.eg li em{font:italic 400 26px/1.3 var(--serif);color:var(--gold-d)}
+.eg .photos{position:sticky;top:110px;height:640px}
+.eg li:last-child{border-bottom:1px solid #14261a30}
 .eg li h3{font-size:34px;margin-bottom:8px}
 .eg li p{color:#40464d;max-width:46ch;margin-bottom:6px}
 .eg li small{display:block;font-size:14.5px;color:var(--mu);margin:8px 0 12px}
-@media(max-width:900px){.events{padding:80px 0}.events .head,.eg{grid-template-columns:1fr;gap:34px}.eg .photos{min-height:360px}}
+@media(max-width:900px){.eg .photos{position:relative;top:0;height:360px}.events{padding:80px 0}.events .head,.eg{grid-template-columns:1fr;gap:34px}.eg .photos{min-height:360px}}
 
 .enquire{background:var(--ink);color:#fff;padding:120px 0}
 .enquire .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:90px}
@@ -184,7 +187,7 @@ header.solid .logo img{height:70px}
 .cards img{aspect-ratio:4/5;object-fit:cover;width:100%}
 .cards .sub{font:500 11.5px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-d);margin-bottom:16px}
 .pr{display:flex;align-items:baseline;gap:10px;padding:8px 0}
-.pr i{flex:1;border-bottom:1px dotted #1d232a55;transform:translateY(-4px)}
+.pr i{flex:1;border-bottom:1px dotted #14261a55;transform:translateY(-4px)}
 .pr b{font:500 24px var(--serif)}
 .cards .fine{font-size:14.5px;color:var(--mu);margin:12px 0 16px}
 @media(max-width:900px){.practice{padding:80px 0}.cards{grid-template-columns:1fr;gap:56px}.cards img{aspect-ratio:3/2}.practice .head{margin-bottom:50px}}
@@ -192,7 +195,7 @@ header.solid .logo img{height:70px}
 /* squad */
 .squad{background:var(--ink);color:#fff;padding:110px 0;border-top:1px solid #ffffff14}
 .squad .wrap{display:grid;grid-template-columns:auto 1fr auto;gap:70px;align-items:center}
-.squad img{width:150px}
+
 .squad h2{font-size:clamp(36px,4.4vw,62px);font-weight:400}
 .squad h2 i{color:var(--gold)}
 .squad p{opacity:.85;margin-top:14px;max-width:52ch}
@@ -230,7 +233,7 @@ header.solid .logo img{height:70px}
 .faq p{padding:0 0 24px;opacity:.82;max-width:60ch;font-size:17px}
 @media(max-width:900px){.visit{padding:80px 0}.visit .wrap{grid-template-columns:1fr;gap:50px}}
 
-footer{background:#14191f;color:#fff;padding:80px 0 100px}
+footer{background:#12300f;color:#fff;padding:80px 0 100px}
 footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:50px}
 footer img{height:130px;width:auto;margin-bottom:18px}
 footer h4{font:500 11.5px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
@@ -251,7 +254,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
 .reel figure{flex:none;scroll-snap-align:center;position:relative;overflow:hidden}
 .reel figure img{height:min(62vh,560px);width:auto;max-width:86vw;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
 .reel figure:hover img{transform:scale(1.05)}
-.reel figcaption{position:absolute;left:0;bottom:0;padding:40px 22px 18px;width:100%;background:linear-gradient(transparent,rgba(29,35,42,.85));font:italic 400 22px var(--serif)}
+.reel figcaption{position:absolute;left:0;bottom:0;padding:40px 22px 18px;width:100%;background:linear-gradient(transparent,rgba(14,38,18,.85));font:italic 400 22px var(--serif)}
 .reel figure.tall img{aspect-ratio:3/4}.reel figure.wide img{aspect-ratio:16/10}
 .w span{display:inline-block;opacity:.14;transition:opacity .5s}
 .w span.lit{opacity:1}
@@ -264,7 +267,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
 .tourbar .ctl{display:flex;gap:22px;align-items:center;margin-top:12px}
 .tourbar button{background:none;border:0;font:500 12.5px var(--sans);letter-spacing:.2em;text-transform:uppercase;min-height:44px;cursor:pointer;color:var(--ink);border-bottom:1px solid var(--gold);padding:0}
 .tourbar button.go{background:var(--ink);color:#fff;border:0;padding:0 22px;min-height:48px}
-.tourbar .pg{height:2px;background:#1d232a1f;margin-top:12px}.tourbar .pg i{display:block;height:2px;background:var(--gold);width:0}
+.tourbar .pg{height:2px;background:#14261a1f;margin-top:12px}.tourbar .pg i{display:block;height:2px;background:var(--gold);width:0}
 .tourbar .sp{flex:1}
 @media(max-width:760px){.tourbar{bottom:62px;padding:14px 16px 10px}.tourbar h5{font-size:21px;margin:4px 0 4px}.tourbar p{font-size:14.5px;line-height:1.4}.tourbar .ctl{margin-top:4px}.tourbar.idle p{display:none}.season{top:150px!important;text-align:left!important;padding:0 24px!important;font-size:10.5px!important}.hero h1{font-size:44px}}
 .spot{outline:2px solid var(--gold);outline-offset:-10px;transition:outline-color .4s}
@@ -282,6 +285,49 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
 @keyframes wag{from{transform:rotate(-4deg)}to{transform:rotate(3deg)}}
 @keyframes swing{0%{transform:rotate(-4deg)}35%{transform:rotate(-20deg)}70%{transform:rotate(16deg)}100%{transform:rotate(0)}}
 @keyframes fly{0%{transform:translate(0,0) scale(1)}100%{transform:translate(70vw,-80vh) scale(.35)}}
+.gordy{position:relative;display:block;width:86px;aspect-ratio:356/304;flex:none}
+.gordy>img{width:100%;display:block;transform-origin:50% 90%}
+.gordy svg{position:absolute;overflow:visible;pointer-events:none}
+.gordy.go>img{animation:gbob 2.4s ease-in-out infinite}
+@keyframes gbob{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+.g-swing.go>img{animation:gsw 2.2s cubic-bezier(.3,0,.2,1) infinite}
+@keyframes gsw{0%,45%{transform:rotate(-3deg)}60%{transform:rotate(-20deg)}74%{transform:rotate(15deg)}88%,100%{transform:rotate(0)}}
+.g-swing .p{left:58%;top:60%;width:11%}.g-swing.go .p{animation:gball 2.2s linear infinite}
+@keyframes gball{0%,70%{transform:none;opacity:0}72%{opacity:1}100%{transform:translate(260%,-420%) scale(.5);opacity:0}}
+.g-drink .p{left:66%;top:22%;width:30%;transform-origin:30% 90%}.g-drink.go .p{animation:gsip 3s ease-in-out infinite}
+@keyframes gsip{0%,40%,100%{transform:rotate(8deg)}60%,80%{transform:rotate(-38deg) translate(-18%,-4%)}}
+.g-wed .hat{left:30%;top:-27%;width:40%}.g-wed .tie{left:38%;top:44%;width:24%}
+.g-wed .h{left:74%;top:6%;width:16%;opacity:0}.g-wed .h2{left:8%;top:14%;width:12%;opacity:0}
+.g-wed.go .h{animation:ghe 2.6s ease-out infinite}.g-wed.go .h2{animation:ghe 2.6s 1.1s ease-out infinite}
+@keyframes ghe{0%{transform:translateY(40%) scale(.5);opacity:0}30%{opacity:1}100%{transform:translateY(-160%) scale(1.1);opacity:0}}
+.g-cup .p{left:62%;top:10%;width:34%;transform-origin:50% 100%}.g-cup.go .p{animation:gcup 1.6s ease-in-out infinite}
+@keyframes gcup{0%,100%{transform:translateY(0) rotate(4deg)}50%{transform:translateY(-22%) rotate(-6deg)}}
+.g-party .hat{left:36%;top:-26%;width:28%}.g-party .c{left:0;top:-10%;width:100%;height:60%}
+.g-party.go .c *{animation:gconf 2.2s linear infinite}.g-party .c :nth-child(2n){animation-delay:.7s}.g-party .c :nth-child(3n){animation-delay:1.3s}
+@keyframes gconf{0%{transform:translateY(-30%);opacity:0}20%{opacity:1}100%{transform:translateY(140%) rotate(200deg);opacity:0}}
+.g-cam .p{left:60%;top:30%;width:34%}.g-cam .f{left:58%;top:4%;width:44%;opacity:0}.g-cam.go .f{animation:gfl 2.6s steps(1) infinite}
+@keyframes gfl{0%,62%{opacity:0}64%,70%{opacity:1}72%,100%{opacity:0}}
+.g-flag .p{left:70%;top:-6%;width:36%;transform-origin:10% 100%}.g-flag.go .p{animation:gfw 1.8s ease-in-out infinite}
+@keyframes gfw{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(8deg)}}
+@media(prefers-reduced-motion:reduce){.gordy *{animation:none!important}}
+/* Gordy chat */
+.gchat-b{position:fixed;right:16px;bottom:18px;z-index:65;display:flex;align-items:center;gap:10px;background:var(--ink);color:#fff;border:1px solid var(--gold);padding:6px 16px 6px 6px;min-height:56px;font:600 12.5px var(--sans);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;box-shadow:0 14px 34px rgba(0,0,0,.35)}
+.gchat-b .gordy{width:52px}
+.gchat{position:fixed;right:16px;bottom:18px;z-index:80;width:min(380px,calc(100% - 24px));background:var(--cream);box-shadow:0 30px 80px rgba(0,0,0,.5);display:none;flex-direction:column;max-height:min(600px,78vh)}
+.gchat.open{display:flex}
+.gchat header{position:static;background:var(--ink);color:#fff;display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:3px solid var(--gold)}
+.gchat header .gordy{width:60px}
+.gchat header b{font:500 24px/1 var(--serif);display:block}.gchat header small{font-size:12px;opacity:.8}
+.gchat header button{margin-left:auto;background:none;border:0;color:var(--gold);font:500 12px var(--sans);letter-spacing:.2em;text-transform:uppercase;min-height:44px;cursor:pointer}
+.gchat .log{padding:16px;overflow:auto;display:flex;flex-direction:column;gap:10px;flex:1}
+.gchat .m{max-width:86%;padding:10px 14px;font-size:15.5px;line-height:1.45;background:#fff;border-left:3px solid var(--ink2)}
+.gchat .m.u{align-self:flex-end;background:var(--ink);color:#fff;border:0}
+.gchat .m a{font-weight:600}
+.gchat .q{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 14px}
+.gchat .q button{background:none;border:1px solid var(--ink2);color:var(--ink);font:500 13.5px var(--sans);padding:0 12px;min-height:44px;cursor:pointer}
+.gchat .q button:hover{background:var(--ink);color:#fff}
+@media(max-width:760px){.gchat-b{bottom:66px;right:10px}.gchat{bottom:60px;right:12px}}
+.eg li{grid-template-columns:96px 1fr!important;align-items:start}
 .rv{opacity:0;transform:translateY(24px);transition:opacity 1s,transform 1s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.hero img.bg{animation:none}.rv{opacity:1;transform:none;transition:none}}
@@ -289,7 +335,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
 </head>
 <body>
 
-<div class="intro-s" id="intro"><img class="wm" src="brand/wordmark-white.svg" alt="Bushwood Golf Club"><div class="gw"><img src="brand/gopher.svg" alt=""><span class="ball"></span></div><small>Tap to tee off</small></div>
+<div class="intro-s" id="intro"><img class="wm" src="brand/wordmark-white.svg" alt="Bushwood Golf Club"><div class="gw"><img src="brand/gopher.svg" alt=""><span class="ball"></span></div><small>Tap Gordy to tee off</small></div>
 <header id="hd"><div class="wrap hd">
   <nav class="l" aria-label="Main"><a href="#courses">The courses</a><a href="#events">Tournaments &amp; events</a><a href="#lounge">The lounge</a></nav>
   <a class="logo" href="#top" aria-label="Bushwood Golf Club"><img src="brand/logo-stacked-reverse.svg" alt="Bushwood Golf Club"></a>
@@ -314,9 +360,9 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
 
 <section class="host" id="host">
   <div class="wrap">
-    <div><span class="eyebrow">Tournaments &amp; outings</span><h2>Host your tournament <i>here.</i></h2></div>
-    <p>Charity classics, company days and group outings on two courses, with dinner in the banquet hall after.</p>
-    <a class="cta solid" href="#enquire">Plan your tournament</a>
+    <div><span class="eyebrow">Two courses · Banquet hall · Patio</span><h2>Host your <i id="hw">tournament</i> here.</h2></div>
+    <p>Tournaments, corporate days, weddings, celebrations and leagues, all on one property and looked after by our team.</p>
+    <a class="cta solid" href="#events">Plan your day</a>
   </div>
 </section>
 
@@ -370,10 +416,12 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
     <div class="eg">
       <div class="photos rv"><img class="p1" src="img/group-sunset.jpg" alt="Friends at sunset on the course"><img class="p2" src="img/lounge-interior.jpg" alt="The lounge"></div>
       <ul class="rv">
-        <li><h3>Tournaments &amp; outings</h3><p>Shotgun start or tee times on the eighteen or the nine, with carts, prizes and dinner in the banquet hall.</p><small>Packages from <span class="tbc">price to confirm</span> per golfer</small><a class="cta" href="#enquire">Enquire</a></li>
-        <li><h3>Corporate &amp; private events</h3><p>Client golf, team days, holiday parties and meetings. The banquet hall or the patio over the ninth, with or without golf.</p><small>Capacity <span class="tbc">to confirm</span></small><a class="cta" href="#enquire">Enquire</a></li>
-        <li><h3>Leagues</h3><p>The same crew, the same night, all season, with a standing tee time and the patio after.</p><small>Nights and fees <span class="tbc">to confirm</span></small><a class="cta" href="#enquire">Register interest</a></li>
-        <li><h3>Celebrations</h3><p>Birthdays, stags and stagettes, retirements. Nine holes, a long table and a view.</p><small>Packages <span class="tbc">to confirm</span></small><a class="cta" href="#enquire">Enquire</a></li>
+        <li><span data-gordy="cup"></span><div><h3>Tournaments &amp; outings</h3><p>Shotgun start or tee times on the eighteen or the nine, with carts, prizes and dinner in the banquet hall.</p><small>Packages from <span class="tbc">price to confirm</span> per golfer</small><a class="cta" href="#enquire">Plan a tournament</a></div></li>
+        <li><span data-gordy="party"></span><div><h3>Corporate days &amp; holiday parties</h3><p>Client golf, team days, meetings and year-end parties. The banquet hall or the patio over the ninth, with or without golf.</p><small>Capacity <span class="tbc">to confirm</span></small><a class="cta" href="#enquire">Plan an event</a></div></li>
+        <li><span data-gordy="wed"></span><div><h3>Weddings &amp; showers</h3><p>Say it on the patio, celebrate in the hall, and take your photos on the course at golden hour.</p><small><span class="tbc">Offer to confirm with Bushwood</span></small><a class="cta" href="#enquire">Enquire</a></div></li>
+        <li><span data-gordy="flag"></span><div><h3>Leagues</h3><p>The same crew, the same night, all season, with a standing tee time and the patio after.</p><small>Nights and fees <span class="tbc">to confirm</span></small><a class="cta" href="#enquire">Register interest</a></div></li>
+        <li><span data-gordy="drink"></span><div><h3>Celebrations</h3><p>Birthdays, stags and stagettes, retirements. Nine holes, a long table and a view.</p><small>Packages <span class="tbc">to confirm</span></small><a class="cta" href="#enquire">Enquire</a></div></li>
+        <li><span data-gordy="cam"></span><div><h3>Photo &amp; film shoots</h3><p>Tree-lined fairways, a pond, and a clubhouse at dusk. Book the property as a location.</p><small><span class="tbc">Offer to confirm with Bushwood</span></small><a class="cta" href="#enquire">Enquire</a></div></li>
       </ul>
     </div>
   </div>
@@ -385,7 +433,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
     <form class="rv" onsubmit="event.preventDefault();document.getElementById('ok').hidden=false">
       <div><label for="n">Name</label><input id="n" required></div>
       <div><label for="e">Email</label><input id="e" type="email" required></div>
-      <div><label for="t">Occasion</label><select id="t"><option>Tournament</option><option>Corporate event</option><option>League</option><option>Celebration</option></select></div>
+      <div><label for="t">Occasion</label><select id="t"><option>Tournament</option><option>Corporate day or holiday party</option><option>Wedding or shower</option><option>League</option><option>Celebration</option><option>Photo or film shoot</option></select></div>
       <div><label for="g">Guests</label><input id="g" inputmode="numeric" placeholder="Approx."></div>
       <div class="full"><label for="d">Preferred dates</label><input id="d" placeholder="Up to three"></div>
       <div class="full"><label for="m">Anything else</label><textarea id="m"></textarea></div>
@@ -433,7 +481,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
 
 <section class="squad" id="squad">
   <div class="wrap">
-    <img src="brand/gopher.svg" alt="">
+    <span data-gordy="swing" style="width:170px"></span>
     <div class="rv"><span class="eyebrow">Loyalty, free to join</span><h2 style="margin-top:12px">The <i>Gopher Squad.</i></h2><p>Earn one point for every dollar spent, and redeem twenty points for a dollar off green fees. Members enjoy special green fee pricing, giveaways, and invitations to tournaments, clinics and socials.</p></div>
     <div class="stack"><a class="cta" href="https://bushwoodgiftcard.loyalaction.com/en/registration/" target="_blank" rel="noopener">Join the Squad</a><a class="cta" href="https://bushwoodgiftcard.loyalaction.com/en/" target="_blank" rel="noopener">Check my points</a></div>
   </div>
@@ -484,6 +532,10 @@ footer .legal{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:24px;f
   <div class="ctl"><button class="go" id="tgo">Start the tour</button><button id="tpause" hidden>Pause</button><button id="tnext" hidden>Next</button><span class="sp"></span><button id="tx">Close</button></div>
   <div class="pg"><i id="tpg"></i></div>
 </div>
+<button class="gchat-b" id="gb"><span data-gordy="flag"></span>Ask Gordy</button>
+<div class="gchat" id="gc"><header><span data-gordy="drink"></span><div><b>Gordy the Gopher</b><small>Bushwood's resident expert</small></div><button id="gx">Close</button></header>
+  <div class="log" id="gl"><div class="m">Hi, I'm Gordy. I live here, so ask me anything about Bushwood.</div></div>
+  <div class="q" id="gq"></div></div>
 <div class="dock"><a href="https://www.chronogolf.com/club/bushwood-golf-club">Book a tee time</a><a href="tel:9056401233">Call</a></div>
 <script>
 const hd=document.getElementById('hd');const f=()=>hd.classList.toggle('solid',scrollY>60);addEventListener('scroll',f,{passive:true});f();
@@ -496,6 +548,7 @@ let si=0;const rot=document.getElementById('rot'),bar=document.getElementById('b
 function runbar(){bar.style.transition='none';bar.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>{bar.style.transition='width 5.6s linear';bar.style.width='100%'}))}
 runbar();
 if(!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(()=>{sl[si].classList.remove('on');si=(si+1)%sl.length;sl[si].classList.add('on');cn.textContent='0'+(si+1);cap.textContent=caps[si];rot.classList.add('out');setTimeout(()=>{rot.textContent=rots[si];rot.classList.remove('out')},600);runbar()},5600);
+const hw=document.getElementById('hw'),hws=['tournament','corporate day','wedding','celebration','league night','photo shoot'];let hi=0;setInterval(()=>{hw.classList.add('out');setTimeout(()=>{hi=(hi+1)%hws.length;hw.textContent=hws[hi];hw.classList.remove('out')},450)},2400);
 /* hero scroll movement */
 const hs=document.querySelector('.slides'),ht=document.querySelector('.hero .t');
 if(!matchMedia('(prefers-reduced-motion:reduce)').matches)addEventListener('scroll',()=>{const y=scrollY,h=innerHeight;if(y>h*1.1)return;const p=y/h;hs.style.transform='translateY('+(y*.38)+'px) scale('+(1+p*.22)+')';ht.style.transform='translateY('+(-y*.3)+'px)';ht.style.opacity=Math.max(0,1-p*1.5)},{passive:true});
@@ -505,11 +558,12 @@ document.querySelectorAll('.w').forEach(h=>{const walk=n=>{[...n.childNodes].for
 /* tour */
 const T=[
  ['#top','The welcome','Was: one still banner. Now: a moving hero with your own photos, your own line, and your logo exactly as it is, set in a crest.','Why: visitors decide in seconds. The course should sell itself before anyone reads a word.'],
- ['#host','Host your tournament here','Was: no mention of tournaments on the home page. Now: the first thing after the welcome is an invitation to host one.','Why: one tournament can be worth more than a hundred tee times.'],
+ ['#host','Host your day here','Was: no mention of tournaments or events on the home page. Now: the first thing after the welcome is an invitation to host one.','Why: one tournament or wedding can be worth more than a hundred tee times.'],
  ['#courses','Two courses, clearly told','Was: one paragraph each. Now: the eighteen and the nine each get a full spread with par, length, pace and ages.','Why: golfers pick a round by time and difficulty. Answer it and they book.'],
  ['#walk','Your photography, front and centre','Was: a small gallery on the About page. Now: a swipe-through walk around the property.','Why: you already own beautiful photos. They were doing no work.'],
- ['#events','New: tournaments, events and leagues','Was: nothing. The current site has no page for group business. Now: four clear offers and one enquiry form.','Why: every comparable course sells these online. It is the biggest revenue gap we found.'],
+ ['#events','New: tournaments, events and leagues','Was: nothing. The current site has no page for group business. Now: six clear offers and one enquiry form.','Why: every comparable course sells these online. It is the biggest revenue gap we found.'],
  ['.record','The story only you have','Was: Bubba Watson\'s record 61 sat on a sub-page. Now: it is a centrepiece.','Why: no other course nearby can say it. It is the thing people repeat to friends.'],
+ ['#events','Meet Gordy the Gopher','Was: a logo. Now: a character. Gordy lifts the trophy, wears the top hat, raises a glass and answers questions in the chat.','Why: a mascot people remember sells tournaments, weddings and merchandise.'],
  ['#lounge','The Caddy Shack Lounge','Was: a short page with no menu. Now: the patio, kitchen and banquet hall shown as a place to book.','Why: the lounge can earn on days when nobody is golfing, including winter.'],
  ['#practice','Range, clinics and lessons','Was: prices spread over three pages. Now: one menu with your real prices.','Why: people shouldn\'t have to call to ask what a bucket is.'],
  ['#squad','Gopher Squad and the shop','Was: tucked in a menu. Now: loyalty sign-up, gift cards and gear each one tap away.','Why: these are sales that happen without a tee time.'],
@@ -519,8 +573,30 @@ function show(i){ti=i;if(i>=T.length){end();return}const[sel,h,p,y]=T[i];const e
  tk.textContent='What\'s new · '+(i+1)+' of '+T.length;th.textContent=h;tp.textContent=p;ty.textContent=y;ty.hidden=false;tgo.hidden=true;tpause.hidden=false;tnext.hidden=false;tnext.textContent=i===T.length-1?'Finish':'Next';tick()}
 function tick(){clearTimeout(tt);tpg.style.transition='none';tpg.style.width='0';if(paused)return;requestAnimationFrame(()=>requestAnimationFrame(()=>{tpg.style.transition='width 9s linear';tpg.style.width='100%'}));tt=setTimeout(()=>show(ti+1),9000)}
 function end(){clearTimeout(tt);document.querySelectorAll('.spot').forEach(e=>e.classList.remove('spot'));tk.textContent='That\'s the tour';th.textContent='Have a look around.';tp.textContent='Everything here uses Bushwood\'s own words, photos and prices. Items marked "to confirm" are waiting on your details.';ty.hidden=true;tpause.hidden=true;tnext.hidden=true;tgo.hidden=false;tgo.textContent='Replay';ti=-1;scrollTo({top:0,behavior:'smooth'})}
-tgo.onclick=()=>{tour.classList.remove('idle');paused=false;tpause.textContent='Pause';show(0)};tnext.onclick=()=>show(ti+1);tpause.onclick=()=>{paused=!paused;tpause.textContent=paused?'Resume':'Pause';paused?(clearTimeout(tt),tpg.style.transition='none'):tick()};tx.onclick=()=>{clearTimeout(tt);tour.hidden=true;document.querySelectorAll('.spot').forEach(e=>e.classList.remove('spot'))};
+tgo.onclick=()=>{tour.classList.remove('idle');paused=false;tpause.textContent='Pause';show(0)};tnext.onclick=()=>show(ti+1);tpause.onclick=()=>{paused=!paused;tpause.textContent=paused?'Resume':'Pause';paused?(clearTimeout(tt),tpg.style.transition='none'):tick()};gb.style.display='none';tx.onclick=()=>{clearTimeout(tt);tour.hidden=true;gb.style.display='';document.querySelectorAll('.spot').forEach(e=>e.classList.remove('spot'))};
 if(new URLSearchParams(location.search).get('tour')==='1')setTimeout(()=>tgo.click(),4200);
+const GA={'Book a tee time':'Easy. <a href="https://www.chronogolf.com/club/bushwood-golf-club" target="_blank" rel="noopener">Book online here</a>, or call the pro shop at (905) 640-1233 and press 1.',
+'Host a tournament':'Love it. Shotgun or tee times, carts, prizes and dinner in the banquet hall. <a href="#enquire" onclick="gc.classList.remove(\'open\')">Tell the events team about your day</a> and they\'ll reply with dates.',
+'Weddings and events':'The banquet hall and the patio over the ninth are both available. <a href="#enquire" onclick="gc.classList.remove(\'open\')">Send an enquiry</a> or email john@bushwood.ca.',
+'Range prices':'Small bucket (35 to 40 balls) is $15, large bucket (75 to 80) is $20, plus HST.',
+'Lessons':'Gord Burns Golf School runs five-week clinics for $249 and private lessons at $175 an hour, plus HST. Email gord@gburnsgolfschool.com.',
+'Dress code':'Collared shirts preferred, golf pants, shorts, skirts or skorts. No tank tops, track pants or metal spikes. Denim is discouraged.',
+'Where are you?':'10905 Reesor Rd, Markham. <a href="https://maps.app.goo.gl/g8UE7WZ31PpKkEKX7" target="_blank" rel="noopener">Open directions</a>.'};
+Object.keys(GA).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>{gl.insertAdjacentHTML('beforeend','<div class="m u">'+k+'</div>');setTimeout(()=>{gl.insertAdjacentHTML('beforeend','<div class="m">'+GA[k]+'</div>');gl.scrollTop=gl.scrollHeight},350);gl.scrollTop=gl.scrollHeight};gq.append(b)});
+gb.onclick=()=>{gc.classList.add('open');gb.hidden=true};gx.onclick=()=>{gc.classList.remove('open');gb.hidden=false};
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+<script>
+const GP={
+ swing:'<svg class="p" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#fafdff" stroke="#14261a" stroke-width="1.5"/></svg>',
+ drink:'<svg class="p" viewBox="0 0 40 60"><path d="M4 4h32l-5 30a11 11 0 0 1-22 0z" fill="#fff8" stroke="#14261a" stroke-width="3"/><path d="M8 18h24l-3 16a9 9 0 0 1-18 0z" fill="#EDD554"/><path d="M20 45v10M10 56h20" stroke="#14261a" stroke-width="3" stroke-linecap="round"/><path d="M26 2l8-10" stroke="#2B6527" stroke-width="3" stroke-linecap="round"/></svg>',
+ wed:'<svg class="hat" viewBox="0 0 60 44"><rect x="14" y="2" width="32" height="30" fill="#14261a"/><rect x="14" y="22" width="32" height="6" fill="#EDD554"/><rect x="2" y="32" width="56" height="8" rx="2" fill="#14261a"/></svg><svg class="tie" viewBox="0 0 40 20"><path d="M2 2l14 8-14 8zM38 2l-14 8 14 8z" fill="#14261a"/><rect x="15" y="6" width="10" height="8" fill="#EDD554" stroke="#14261a" stroke-width="1.5"/></svg><svg class="h" viewBox="0 0 20 18"><path d="M10 17C2 11 0 7 3 3c3-3 6-1 7 2 1-3 4-5 7-2 3 4 1 8-7 14z" fill="#EDD554" stroke="#14261a" stroke-width="1.2"/></svg><svg class="h2" viewBox="0 0 20 18"><path d="M10 17C2 11 0 7 3 3c3-3 6-1 7 2 1-3 4-5 7-2 3 4 1 8-7 14z" fill="#fff" stroke="#14261a" stroke-width="1.2"/></svg>',
+ cup:'<svg class="p" viewBox="0 0 50 60"><path d="M12 4h26v16a13 13 0 0 1-26 0z" fill="#EDD554" stroke="#14261a" stroke-width="3"/><path d="M12 8H4c0 10 4 14 9 15M38 8h8c0 10-4 14-9 15" fill="none" stroke="#14261a" stroke-width="3"/><path d="M25 33v10" stroke="#14261a" stroke-width="3"/><rect x="13" y="43" width="24" height="9" fill="#14261a"/></svg>',
+ party:'<svg class="hat" viewBox="0 0 40 46"><path d="M20 4L36 42H4z" fill="#EDD554" stroke="#14261a" stroke-width="2.5"/><path d="M12 24l14 4M9 33l20 5" stroke="#2B6527" stroke-width="3"/><rect x="16" y="0" width="8" height="8" fill="#fff" stroke="#14261a" stroke-width="2"/></svg><svg class="c" viewBox="0 0 100 60"><rect x="8" y="6" width="5" height="5" fill="#EDD554"/><rect x="26" y="0" width="4" height="7" fill="#fff"/><rect x="70" y="4" width="5" height="5" fill="#EDD554"/><rect x="88" y="10" width="4" height="7" fill="#2B6527"/><rect x="50" y="2" width="4" height="4" fill="#fff"/><rect x="16" y="14" width="4" height="6" fill="#2B6527"/></svg>',
+ cam:'<svg class="p" viewBox="0 0 50 36"><rect x="2" y="8" width="46" height="26" rx="3" fill="#14261a"/><rect x="14" y="2" width="14" height="8" fill="#14261a"/><rect x="16" y="13" width="18" height="16" fill="#fff" stroke="#EDD554" stroke-width="3"/></svg><svg class="f" viewBox="0 0 40 40"><path d="M20 0l4 14 14-6-9 12 11 8-14 1 2 11-8-9-8 9 2-11-14-1 11-8-9-12 14 6z" fill="#fff"/></svg>',
+ flag:'<svg class="p" viewBox="0 0 40 60"><path d="M5 2v56" stroke="#14261a" stroke-width="3" stroke-linecap="round"/><path d="M6 4l30 9-30 9z" fill="#EDD554" stroke="#14261a" stroke-width="2"/></svg>'};
+const GC={swing:'g-swing',drink:'g-drink',wed:'g-wed',cup:'g-cup',party:'g-party',cam:'g-cam',flag:'g-flag'};
+document.querySelectorAll('[data-gordy]').forEach(e=>{const k=e.dataset.gordy;e.classList.add('gordy',GC[k]);e.innerHTML='<img src="brand/gopher.svg" alt="">'+GP[k]});
+const gio=new IntersectionObserver(es=>es.forEach(x=>x.target.classList.toggle('go',x.isIntersecting)),{threshold:.3});document.querySelectorAll('.gordy').forEach(g=>gio.observe(g));
 </script>
 </body></html>
