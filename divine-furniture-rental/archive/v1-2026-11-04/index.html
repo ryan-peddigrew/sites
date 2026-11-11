@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Divine Furniture Rental | Event and trade show furniture, Toronto</title>
+<meta name="description" content="Event and trade show furniture rental from Toronto. Family owned and operated since 1989.">
+<meta name="theme-color" content="#161B20">
+<link rel="icon" href="../../img/icon.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#161B20;--ink2:#1F262D;--ink3:#2A323A;
+  --gold:#D8BE6E;--gold2:#B8974A;--goldt:rgba(216,190,110,.35);
+  --ivory:#F3EEE4;--ivory2:#E9E2D4;--paper:#FBF9F4;
+  --text:#1B2026;--mute:#5E646B;--mute2:#A9AEB3;
+  --serif:'Cormorant',Georgia,'Times New Roman',serif;
+  --sans:'Jost',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --r:22px;--gut:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--ivory);color:var(--text);font:400 17px/1.6 var(--sans);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--gut)}
+section[id]{scroll-margin-top:72px}
+.eyebrow{font:500 12px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold2)}
+.dark .eyebrow{color:var(--gold)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-height:1}
+h2{font-size:clamp(40px,7vw,84px)}
+h2 em,h1 em{font-style:italic;font-weight:500;color:var(--gold2)}
+.dark h2 em,.dark h1 em{color:var(--gold)}
+.lede{font-size:clamp(17px,1.6vw,19px);color:var(--mute);max-width:56ch}
+.dark .lede{color:var(--mute2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 26px;border-radius:999px;font:500 15px var(--sans);letter-spacing:.04em;text-decoration:none;transition:background .25s,color .25s,border-color .25s,transform .25s}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:#E6CF86}
+.btn-line{border:1px solid var(--goldt);color:#fff}
+.btn-line:hover{border-color:var(--gold)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-ink:hover{background:var(--ink3)}
+.btn svg{width:18px;height:18px}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(22,27,32,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(216,190,110,.14)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.logo img{height:46px;width:auto}
+.hdr-r{display:flex;align-items:center;gap:8px}
+.hdr-tel{display:none;align-items:center;min-height:44px;padding:0 12px;color:#fff;text-decoration:none;font-size:15px;letter-spacing:.04em}
+.qbtn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--goldt);color:#fff;font-size:14px;letter-spacing:.04em}
+.qbtn b{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--gold);color:var(--ink);font-size:12px;font-weight:600}
+.menu-btn{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;color:#fff}
+.menu-btn svg{width:26px;height:26px}
+@media(min-width:900px){.hdr-tel{display:inline-flex}}
+
+/* overlay menu */
+.nav{position:fixed;inset:0;z-index:80;background:var(--ink);color:#fff;display:flex;flex-direction:column;padding:20px var(--gut) 32px;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.nav.open{opacity:1;visibility:visible}
+.nav-top{display:flex;justify-content:space-between;align-items:center;height:52px}
+.nav ol{list-style:none;margin:auto 0;display:grid;gap:2px;counter-reset:n}
+.nav li a{display:flex;align-items:baseline;gap:18px;min-height:56px;text-decoration:none;font:600 clamp(38px,8vw,72px)/1.05 var(--serif);transition:color .2s,padding .3s}
+.nav li a::before{counter-increment:n;content:"0" counter(n);font:500 13px var(--sans);letter-spacing:.2em;color:var(--gold)}
+.nav li a:hover{color:var(--gold);padding-left:8px}
+.nav-foot{display:flex;flex-wrap:wrap;gap:8px 24px;color:var(--mute2);font-size:15px}
+.nav-foot a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+
+/* hero */
+.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.hero .wrap{display:grid;gap:36px;padding-top:28px;padding-bottom:64px}
+.arch-wrap{position:relative;justify-self:center;width:min(78vw,420px)}
+.arch{position:relative;aspect-ratio:3/3.7;border-radius:999px 999px 18px 18px;overflow:hidden;background:var(--ink2);z-index:1}
+.arch img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.6s ease,transform 7s linear}
+.arch img.on{opacity:1;transform:scale(1)}
+.arch-line{position:absolute;inset:-14px -14px auto -14px;aspect-ratio:3/3.7;border:1px solid var(--goldt);border-radius:999px 999px 24px 24px;z-index:0;pointer-events:none}
+.arch-cap{position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);z-index:2;background:var(--gold);color:var(--ink);font:500 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;padding:9px 16px;border-radius:999px;white-space:nowrap}
+.hero h1{font-size:clamp(56px,11vw,132px);line-height:.9;margin:14px 0 22px}
+.hero h1 span{display:block}
+.hero .lede{margin-bottom:28px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+@media(min-width:900px){
+  .hero .wrap{grid-template-columns:1.15fr .85fr;align-items:center;padding-top:56px;padding-bottom:96px;gap:64px}
+  .hero-copy{order:-1}
+  .arch-wrap{width:100%;max-width:440px}
+}
+/* crafts ticker */
+.ticker{background:var(--gold);color:var(--ink);overflow:hidden;white-space:nowrap}
+.ticker-in{display:inline-flex;animation:tick 38s linear infinite;padding:14px 0}
+.ticker span{display:inline-flex;align-items:center;gap:22px;padding-right:22px;font:600 clamp(20px,2.4vw,26px) var(--serif);letter-spacing:.01em}
+.ticker span::after{content:"";width:7px;height:7px;transform:rotate(45deg);background:var(--ink);opacity:.55}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* facts */
+.facts{padding:clamp(56px,8vw,96px) 0 0}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ivory2)}
+.fact{padding:22px 8px 22px 0;border-bottom:1px solid var(--ivory2)}
+.fact:nth-child(odd){border-right:1px solid var(--ivory2);padding-right:16px}
+.fact:nth-child(even){padding-left:16px}
+.fact b{display:block;font:600 clamp(38px,6vw,64px)/1 var(--serif);color:var(--ink)}
+.fact span{display:block;margin-top:8px;font-size:14px;color:var(--mute);letter-spacing:.02em}
+@media(min-width:900px){.facts-grid{grid-template-columns:repeat(4,1fr)}.fact,.fact:nth-child(odd),.fact:nth-child(even){border-right:1px solid var(--ivory2);padding:28px 24px}.fact:last-child{border-right:0}}
+
+/* catalogue type list */
+.sec{padding:clamp(64px,10vw,128px) 0}
+.sec-head{display:grid;gap:18px;margin-bottom:clamp(32px,5vw,56px)}
+@media(min-width:900px){.sec-head{grid-template-columns:1fr 1fr;align-items:end}}
+.cat-list{list-style:none;border-top:1px solid #CFC6B4}
+.cat-list a{display:grid;grid-template-columns:1fr auto 64px;align-items:center;gap:14px;min-height:84px;padding:10px 0;border-bottom:1px solid #CFC6B4;text-decoration:none;transition:padding .35s ease,color .25s}
+.cat-list .nm{font:600 clamp(28px,5.4vw,64px)/1.02 var(--serif);color:var(--ink)}
+.cat-list .ct{font:500 13px var(--sans);letter-spacing:.14em;color:var(--mute);text-transform:uppercase;white-space:nowrap}
+.cat-list .th{width:64px;height:64px;border-radius:14px;background:#fff;overflow:hidden}
+.cat-list .th img{width:100%;height:100%;object-fit:contain;padding:6px}
+@media(hover:hover) and (min-width:900px){
+  .cat-list a{grid-template-columns:1fr auto}
+  .cat-list .th{display:none}
+  .cat-list a:hover{padding-left:22px}
+  .cat-list a:hover .nm{font-style:italic;color:var(--gold2)}
+}
+.follow{position:fixed;left:0;top:0;width:260px;height:260px;border-radius:24px;background:#fff;box-shadow:0 30px 60px -20px rgba(22,27,32,.35);pointer-events:none;z-index:40;opacity:0;transform:translate(-50%,-50%) scale(.85);transition:opacity .25s,transform .25s;overflow:hidden}
+.follow.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.follow img{width:100%;height:100%;object-fit:contain;padding:18px}
+.cat-more{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.cat-more p{color:var(--mute);font-size:15px;max-width:46ch}
+
+/* collections */
+.collect{background:var(--paper)}
+.coll-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:28px;scrollbar-width:none}
+.coll-tabs::-webkit-scrollbar{display:none}
+.coll-tabs a{flex:none;display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 18px;border-radius:999px;border:1px solid #D9D1C1;text-decoration:none;font-size:15px}
+.coll-tabs a small{color:var(--mute);font-size:12px;letter-spacing:.08em}
+.feat{display:grid;gap:16px}
+.feat-main{position:relative;background:var(--ink);color:#fff;border-radius:var(--r);padding:28px;display:grid;gap:18px;overflow:hidden}
+.feat-main h3{font-size:clamp(40px,6vw,72px)}
+.feat-main p{color:var(--mute2);max-width:40ch}
+.feat-main .feat-img{background:#fff;border-radius:16px;overflow:hidden;aspect-ratio:1}
+.feat-main .feat-img img{width:100%;height:100%;object-fit:cover}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pc{background:#fff;border-radius:18px;padding:12px;display:flex;flex-direction:column;gap:10px}
+.pc .im{aspect-ratio:1;border-radius:12px;overflow:hidden;background:#fff}
+.pc .im img{width:100%;height:100%;object-fit:contain;transition:transform .5s ease}
+.pc:hover .im img{transform:scale(1.04)}
+.pc .sku{font:500 11px var(--sans);letter-spacing:.14em;color:var(--mute)}
+.pc h4{font:600 20px/1.1 var(--serif);color:var(--ink)}
+.add{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;border-radius:999px;border:1px solid #D9D1C1;font-size:14px;letter-spacing:.03em;transition:background .2s,color .2s,border-color .2s}
+.add svg{width:16px;height:16px}
+.add:hover{border-color:var(--ink)}
+.add.in{background:var(--ink);color:#fff;border-color:var(--ink)}
+@media(min-width:900px){
+  .feat{grid-template-columns:1.05fr 1fr;align-items:stretch}
+  .feat-main{grid-template-rows:auto 1fr;padding:40px}
+}
+
+/* vignettes rail */
+.vig{background:var(--ink);color:#fff;overflow:hidden}
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px var(--gut) 18px;scrollbar-width:none;scroll-padding:0 var(--gut)}
+.rail::-webkit-scrollbar{display:none}
+.vc{flex:none;width:min(78vw,340px);scroll-snap-align:start;background:var(--ink2);border:1px solid rgba(255,255,255,.07);border-radius:var(--r);padding:12px;display:flex;flex-direction:column;gap:12px}
+.vc .im{aspect-ratio:1;border-radius:14px;overflow:hidden;background:#eee}
+.vc .im img{width:100%;height:100%;object-fit:cover}
+.vc .sku{font:500 11px var(--sans);letter-spacing:.14em;color:var(--gold)}
+.vc h4{font:600 24px/1.08 var(--serif)}
+.vc .add{border-color:rgba(255,255,255,.18);color:#fff}
+.vc .add:hover{border-color:var(--gold)}
+.vc .add.in{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.rail-nav{display:flex;gap:8px}
+.rail-nav button{width:50px;height:50px;border-radius:50%;border:1px solid var(--goldt);display:grid;place-items:center;color:#fff}
+.rail-nav button:hover{border-color:var(--gold)}
+.rail-nav svg{width:20px;height:20px}
+.vig .sec-head{padding:0 var(--gut);max-width:1240px;margin-left:auto;margin-right:auto}
+.vig-row{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+
+/* gallery */
+.wall{columns:2;column-gap:10px}
+.wall button{display:block;width:100%;margin:0 0 10px;border-radius:14px;overflow:hidden;break-inside:avoid;position:relative}
+.wall img{width:100%;height:auto;background:var(--ivory2);transition:transform .7s ease,filter .4s}
+.wall button:hover img{transform:scale(1.04)}
+@media(min-width:700px){.wall{columns:3;column-gap:14px}.wall button{margin-bottom:14px;border-radius:18px}}
+@media(min-width:1100px){.wall{columns:4}}
+.lb{position:fixed;inset:0;z-index:90;background:rgba(14,17,21,.96);display:grid;place-items:center;padding:64px 12px;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.lb.open{opacity:1;visibility:visible}
+.lb img{max-width:100%;max-height:100%;border-radius:12px;object-fit:contain}
+.lb-x,.lb-p,.lb-n{position:absolute;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#fff;border:1px solid rgba(255,255,255,.2)}
+.lb-x{top:14px;right:14px}.lb-p{left:12px;bottom:14px}.lb-n{right:12px;bottom:14px}
+.lb svg{width:22px;height:22px}
+@media(min-width:900px){.lb-p,.lb-n{top:50%;bottom:auto;transform:translateY(-50%)}.lb-p{left:24px}.lb-n{right:24px}}
+
+/* story */
+.story{background:var(--ivory2)}
+.story-grid{display:grid;gap:40px}
+.big-year{font:600 clamp(110px,22vw,260px)/.8 var(--serif);color:var(--ink);letter-spacing:-.03em}
+.big-year small{display:block;font:500 12px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold2);margin-bottom:18px}
+.tl{list-style:none;position:relative;padding-left:30px}
+.tl::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:1px;background:var(--gold2)}
+.tl li{position:relative;padding-bottom:30px}
+.tl li::before{content:"";position:absolute;left:-30px;top:8px;width:13px;height:13px;border-radius:50%;background:var(--ivory2);border:1px solid var(--gold2)}
+.tl li:last-child::before{background:var(--gold2)}
+.tl h3{font-size:clamp(28px,3.6vw,38px);margin-bottom:8px;color:var(--ink)}
+.tl p{color:var(--mute);max-width:52ch}
+.motto{margin-top:12px;padding:30px 0 0;border-top:1px solid #CFC6B4}
+.motto q{display:block;font:500 italic clamp(30px,4.4vw,50px)/1.1 var(--serif);color:var(--ink);quotes:"\201C" "\201D"}
+.motto p{margin-top:12px;font-size:14px;color:var(--mute);letter-spacing:.04em}
+.team{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.team span{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:999px;background:var(--paper);font-size:14px;color:var(--ink)}
+@media(min-width:900px){.story-grid{grid-template-columns:.9fr 1.1fr;gap:80px}.story-left{position:sticky;top:110px;align-self:start}}
+
+/* care */
+.care-grid{display:grid;gap:12px}
+.care{background:var(--paper);border-radius:var(--r);padding:26px;display:grid;grid-template-columns:44px 1fr;gap:18px;align-items:start}
+.care svg{width:40px;height:40px;stroke:var(--ink);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.care h3{font-size:26px;color:var(--ink);margin-bottom:6px}
+.care p{color:var(--mute);font-size:15.5px}
+@media(min-width:760px){.care-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1100px){.care-grid{grid-template-columns:repeat(3,1fr)}.care.wide{grid-column:span 1}}
+
+/* giving */
+.give{background:var(--ink);color:#fff;border-radius:calc(var(--r) + 6px);margin:0 var(--gut);padding:clamp(36px,6vw,80px) clamp(22px,5vw,72px);display:grid;gap:32px}
+.give ul{list-style:none;display:grid;gap:0}
+.give li{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1);font:500 clamp(21px,2.4vw,26px)/1.2 var(--serif)}
+.give li small{display:block;font:400 14px var(--sans);color:var(--mute2);margin-top:4px;letter-spacing:.01em}
+@media(min-width:900px){.give{grid-template-columns:.85fr 1.15fr;gap:72px;max-width:1240px;margin:0 auto}.give ul{grid-template-columns:1fr 1fr;column-gap:36px}}
+@media(min-width:1290px){.give{margin:0 auto}}
+
+/* quote */
+.quote-grid{display:grid;gap:36px}
+.contact-lines{display:grid;gap:4px;margin-top:28px}
+.contact-lines a,.contact-lines div{display:flex;align-items:center;gap:14px;min-height:52px;text-decoration:none;font-size:17px;border-bottom:1px solid #D9D1C1}
+.contact-lines svg{width:22px;height:22px;flex:none;stroke:var(--ink);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.form{background:var(--paper);border-radius:var(--r);padding:clamp(22px,4vw,40px);display:grid;gap:16px}
+.form .row{display:grid;gap:16px}
+@media(min-width:640px){.form .row{grid-template-columns:1fr 1fr}}
+.form label{display:grid;gap:6px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.form input,.form textarea{font:400 17px var(--sans);color:var(--text);background:#fff;border:1px solid #DCD4C4;border-radius:12px;padding:13px 14px;min-height:50px;width:100%}
+.form textarea{min-height:120px;resize:vertical}
+.form input:focus,.form textarea:focus{outline:2px solid var(--gold2);outline-offset:1px}
+.qlist{border:1px dashed #CFC6B4;border-radius:14px;padding:14px;font-size:15px;color:var(--mute)}
+.qlist ul{list-style:none;display:grid;gap:8px;margin-top:8px}
+.qlist li{display:flex;align-items:center;gap:12px;color:var(--text)}
+.qlist li img{width:44px;height:44px;border-radius:8px;object-fit:contain;background:#fff;border:1px solid #eee}
+.qlist li span{flex:1;font-size:15px;line-height:1.3}
+.qlist li button{width:44px;height:44px;display:grid;place-items:center;color:var(--mute)}
+.qlist li button svg{width:18px;height:18px}
+.form-note{font-size:14px;color:var(--mute)}
+.form-done{display:none;background:var(--ink);color:#fff;border-radius:12px;padding:14px 16px;font-size:15px}
+@media(min-width:900px){.quote-grid{grid-template-columns:.85fr 1.15fr;gap:72px}}
+
+/* footer */
+.ftr{background:var(--ink);color:var(--mute2);padding:64px 0 calc(40px + env(safe-area-inset-bottom));margin-top:clamp(64px,10vw,120px);font-size:15px}
+.ftr-grid{display:grid;gap:32px}
+.ftr h4{font:500 12px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.ftr a{text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.ftr a:hover{color:#fff}
+.ftr ul{list-style:none}
+.ftr-big{font:600 clamp(44px,8vw,96px)/.95 var(--serif);color:#fff;margin-bottom:8px}
+.ftr-big em{color:var(--gold);font-weight:500}
+.soc{display:flex;gap:8px}
+.soc a{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.15);justify-content:center}
+.soc svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6}
+.ftr-bot{margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:13px}
+@media(min-width:900px){.ftr-grid{grid-template-columns:1.6fr 1fr 1fr 1fr}}
+
+/* quote drawer */
+.drawer{position:fixed;z-index:85;right:0;top:0;bottom:0;width:min(100%,420px);background:var(--paper);box-shadow:-30px 0 60px -30px rgba(0,0,0,.4);transform:translateX(105%);transition:transform .4s cubic-bezier(.2,.8,.2,1),visibility .4s;display:flex;flex-direction:column;visibility:hidden}
+.drawer.open{transform:none;visibility:visible}
+.drawer-h{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--ivory2)}
+.drawer-h h3{font-size:32px;color:var(--ink)}
+.drawer-b{flex:1;overflow:auto;padding:16px 20px}
+.drawer-f{padding:16px 20px calc(16px + env(safe-area-inset-bottom));border-top:1px solid var(--ivory2)}
+.drawer-f .btn{width:100%}
+.scrim{position:fixed;inset:0;z-index:84;background:rgba(14,17,21,.5);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.scrim.open{opacity:1;visibility:visible}
+.x{width:48px;height:48px;border-radius:50%;display:grid;place-items:center}
+.x svg{width:24px;height:24px}
+.toast{visibility:hidden;position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translate(-50%,140%);z-index:70;background:var(--ink);color:#fff;border:1px solid var(--goldt);border-radius:999px;padding:12px 20px;font-size:14px;transition:transform .35s;white-space:nowrap}
+.toast.on{transform:translate(-50%,0);visibility:visible}
+
+.preview-tag{display:inline-block;background:#FFF3C9;color:#6A5300;border-radius:6px;padding:2px 8px;font-size:12px;letter-spacing:.04em}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+  .arch img{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Divine Furniture Rental, home"><img src="../../img/logo.jpg" alt="Divine Furniture Rental" width="200" height="77"></a>
+    <div class="hdr-r">
+      <a class="hdr-tel" href="tel:+14167509272">416.750.9272</a>
+      <button class="qbtn" data-open-quote aria-label="Open quote list">Quote <b id="qcount">0</b></button>
+      <button class="menu-btn" id="menuOpen" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 8h18M3 16h18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" id="nav" aria-label="Main">
+  <div class="nav-top">
+    <img src="../../img/logo.jpg" alt="Divine Furniture Rental" style="height:44px;width:auto">
+    <button class="x" id="menuClose" aria-label="Close menu" style="color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <ol>
+    <li><a href="#catalogue">Catalogue</a></li>
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#vignettes">Vignettes</a></li>
+    <li><a href="#gallery">Event gallery</a></li>
+    <li><a href="#story">Our story</a></li>
+    <li><a href="#quote">Request a quote</a></li>
+  </ol>
+  <div class="nav-foot">
+    <a href="tel:+14167509272">416.750.9272</a>
+    <a href="mailto:info@divinefr.com">info@divinefr.com</a>
+    <span style="display:inline-flex;align-items:center;min-height:44px">375 Kennedy Road, Toronto</span>
+  </div>
+</nav>
+
+<main id="top">
+<section class="hero dark">
+  <div class="wrap">
+    <div class="arch-wrap rv">
+      <div class="arch-line" aria-hidden="true"></div>
+      <div class="arch" id="arch">
+        <img class="on" src="../../img/g/e42.jpg" alt="Blush lounge seating and dining set up beneath a brick wall">
+        <img src="../../img/g/e10.jpg" alt="Gala dinner with cane chairs and tall candles">
+        <img src="../../img/g/e36.jpg" alt="White curved lounge seating in a glass pavilion">
+        <img src="../../img/g/e45.jpg" alt="Long lounge run of sofas in a bright hall">
+        <img src="../../img/g/e17.jpg" alt="Long dinner tables in a heritage hall">
+      </div>
+      <span class="arch-cap">Family owned since 1989</span>
+    </div>
+    <div class="hero-copy">
+      <p class="eyebrow rv">Event and trade show furniture rental</p>
+      <h1 class="rv"><span>The Divine</span><span><em>Difference</em></span></h1>
+      <p class="lede rv">Cutting-edge designs for event and trade show furnishings, delivered with the industry's best service. From our Toronto warehouse to events across Canada.</p>
+      <div class="hero-ctas rv">
+        <a class="btn btn-gold" href="#catalogue">Browse the catalogue</a>
+        <a class="btn btn-line" href="#quote">Request a quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-label="Our team">
+  <div class="ticker-in" aria-hidden="true">
+    <span>Logistics experts</span><span>Carpenters</span><span>Painters</span><span>Seamstresses</span><span>Upholsterers</span><span>Truck drivers</span><span>Onsite specialists</span>
+    <span>Logistics experts</span><span>Carpenters</span><span>Painters</span><span>Seamstresses</span><span>Upholsterers</span><span>Truck drivers</span><span>Onsite specialists</span>
+  </div>
+</div>
+
+<section class="facts">
+  <div class="wrap">
+    <div class="facts-grid">
+      <div class="fact rv"><b>1989</b><span>The Devine family's first rental company</span></div>
+      <div class="fact rv"><b>1,000+</b><span>Pieces in the online catalogue</span></div>
+      <div class="fact rv"><b>Canada-wide</b><span>A fleet ready for the largest events across Canada</span></div>
+      <div class="fact rv"><b>In-house</b><span>Carpentry, paint and upholstery under one roof</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="catalogue">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow rv">The catalogue</p><h2 class="rv">Every piece,<br><em>by the room.</em></h2></div>
+      <p class="lede rv">Lounge seating, bars, cruisers, communal tables and the props that finish a space. Pick a category to see every piece with its item number.</p>
+    </div>
+    <ul class="cat-list" id="catList"></ul>
+    <div class="cat-more">
+      <p>Looking for something specific? Tell us. We're always adding fresh products, and if we don't have it, we'll look into making it happen.</p>
+      <a class="btn btn-ink" href="#quote">Ask about a piece</a>
+    </div>
+  </div>
+</section>
+<div class="follow" id="follow" aria-hidden="true"><img alt=""></div>
+
+<section class="sec collect" id="collections">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow rv">Collections</p><h2 class="rv">Designed to<br><em>work together.</em></h2></div>
+      <p class="lede rv">Matching families of seating and tables, so a lounge, a bar and a dining room all feel like one event.</p>
+    </div>
+    <div class="coll-tabs rv">
+      <a href="https://divinefr.com/product-category/collections/" target="_blank" rel="noopener">Bellagio <small>50</small></a>
+      <a href="https://divinefr.com/product-category/collections/reclaimed-collection/" target="_blank" rel="noopener">Reclaimed <small>54</small></a>
+      <a href="https://divinefr.com/product-category/collections/sydney-collection/" target="_blank" rel="noopener">Sydney <small>52</small></a>
+      <a href="https://divinefr.com/product-category/collections/" target="_blank" rel="noopener">Napa <small>35</small></a>
+      <a href="https://divinefr.com/product-category/collections/" target="_blank" rel="noopener">Catalina <small>17</small></a>
+    </div>
+    <div class="feat">
+      <div class="feat-main rv">
+        <div>
+          <p class="eyebrow">Latest additions</p>
+          <h3 style="margin:12px 0 14px">The Bellagio <em style="color:var(--gold);font-weight:500">Collection</em></h3>
+          <p>Modular sectionals that curve, snake and cluster. Fresh to the inventory.</p>
+        </div>
+        <div class="feat-img"><img src="../../img/p/ss-810-setup-145.jpg" alt="Bellagio Clover 12 piece sofa in black" loading="lazy"></div>
+      </div>
+      <div class="pgrid" id="bellagio"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec vig dark" id="vignettes">
+  <div class="sec-head">
+    <div class="vig-row">
+      <div><p class="eyebrow rv">Vignettes</p><h2 class="rv">Ready-made<br><em>rooms.</em></h2></div>
+      <div class="rail-nav"><button id="railPrev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><button id="railNext" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button></div>
+    </div>
+    <p class="lede rv">Sofa, chairs and tables already paired. Add a full set to your quote in one tap.</p>
+  </div>
+  <div class="rail" id="rail"></div>
+</section>
+
+<section class="sec" id="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow rv">Event gallery</p><h2 class="rv">In the<br><em>room.</em></h2></div>
+      <p class="lede rv">Galas, lounges, patios and trade show floors, furnished by our team. Tap any photo to see it larger.</p>
+    </div>
+    <div class="wall" id="wall"></div>
+  </div>
+</section>
+
+<section class="sec story" id="story">
+  <div class="wrap story-grid">
+    <div class="story-left">
+      <div class="big-year rv"><small>Our story</small>1989</div>
+      <div class="motto rv">
+        <q>We're only as good as our last job.</q>
+        <p>The philosophy we work by, every day.</p>
+      </div>
+      <div class="team rv" aria-label="Our team">
+        <span>Logistics</span><span>Carpentry</span><span>Paint</span><span>Sewing</span><span>Upholstery</span><span>Trucking</span><span>Onsite</span>
+      </div>
+    </div>
+    <ol class="tl">
+      <li class="rv"><p class="eyebrow">1989</p><h3>Exclusive Affair Rental</h3><p>After years in the event industry, Mike and Edie Devine found Exclusive Affair Rental. It becomes a cornerstone of the event rental market.</p></li>
+      <li class="rv"><p class="eyebrow">Growth</p><h3>Exclusive Display</h3><p>The family expands into the trade show and exhibit space.</p></li>
+      <li class="rv"><p class="eyebrow">Specialty</p><h3>Furnishings by Exclusive</h3><p>Specialty furniture for events and trade shows joins the family of companies.</p></li>
+      <li class="rv"><p class="eyebrow">Today</p><h3>Divine Furniture Rental</h3><p>After a brief retirement, Mike Devine returns with a renewed vision. Divine specializes in cutting-edge event and trade show furnishings, backed by a team of logistics experts, carpenters, painters, seamstresses, upholsterers, truck drivers and onsite specialists. Proudly family owned and operated.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="care">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow rv">Sustainability</p><h2 class="rv">Built to<br><em>last longer.</em></h2></div>
+      <p class="lede rv">We prioritize sustainability in everything we do, and we're always open to learning. Have an idea we could put to work? We'd love to hear it.</p>
+    </div>
+    <div class="care-grid">
+      <div class="care rv"><svg viewBox="0 0 40 40"><path d="M14 6h12M17 6v6l-6 6v14a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V18l-6-6V6"/><path d="M11 24h18"/></svg><div><h3>Food-safe cleaning</h3><p>All cleaning products used on our inventory are environmentally friendly and food-safe.</p></div></div>
+      <div class="care rv"><svg viewBox="0 0 40 40"><path d="M8 14l12-7 12 7v12l-12 7-12-7z"/><path d="M8 14l12 7 12-7M20 21v12"/></svg><div><h3>Reusable covers</h3><p>The first rental company in Canada to use reusable, custom-made covers for every product, made from recycled plastic.</p></div></div>
+      <div class="care rv"><svg viewBox="0 0 40 40"><path d="M15 9l-5 8h9M25 9l5 8h-9M14 31h12l4-7M10 17l-3 6 7 8M30 17l3 6-7 8"/></svg><div><h3>Plastic reuse</h3><p>Where wrapping is needed for safe delivery, we reuse it wherever possible and recycle the rest at our facility.</p></div></div>
+      <div class="care rv"><svg viewBox="0 0 40 40"><path d="M16 5h8v5l3 4v19a2 2 0 0 1-2 2H15a2 2 0 0 1-2-2V14l3-4z"/><path d="M13 20h14"/></svg><div><h3>No plastic bottles</h3><p>A filtered water system lets our warehouse team refill company-provided reusable bottles.</p></div></div>
+      <div class="care rv"><svg viewBox="0 0 40 40"><path d="M24 7a7 7 0 0 0-6 10L7 28a3 3 0 0 0 4 4l11-11a7 7 0 0 0 9-8l-4 4-4-1-1-4 4-4a7 7 0 0 0-2-1z"/></svg><div><h3>Repaired in-house</h3><p>Our carpentry and upholstery teams repair pieces in-house, extending their life and keeping them out of landfill.</p></div></div>
+      <div class="care rv"><svg viewBox="0 0 40 40"><path d="M20 35s11-10 11-19a11 11 0 0 0-22 0c0 9 11 19 11 19z"/><circle cx="20" cy="16" r="4"/></svg><div><h3>GPS truck routing</h3><p>Every route is planned by GPS to run efficiently and reduce emissions.</p></div></div>
+      <div class="care rv"><svg viewBox="0 0 40 40"><path d="M6 19l14-12 14 12M10 16v18h20V16"/><path d="M20 30s-6-4-6-8a3 3 0 0 1 6-1 3 3 0 0 1 6 1c0 4-6 8-6 8z"/></svg><div><h3>Donated, not discarded</h3><p>When pieces are retired, we donate them to Habitat for Humanity, a partnership we cherish.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="give rv" id="giving">
+  <div>
+    <p class="eyebrow">Giving back</p>
+    <h2 style="font-size:clamp(40px,6vw,72px);margin:14px 0 18px">Charity events,<br><em>close to heart.</em></h2>
+    <p class="lede">Through donations, discounts and in-kind contributions, we're honoured to help these organizations bring their visions to life. Planning a charitable event? We'd be delighted to hear from you.</p>
+    <a class="btn btn-gold" href="#quote" style="margin-top:26px">Talk to our office</a>
+  </div>
+  <ul>
+    <li>Variety Village of Ontario</li>
+    <li>SickKids Foundation</li>
+    <li>Michael Garron Hospital Foundation</li>
+    <li>Arthritis Society</li>
+    <li>Best Buddies Canada</li>
+    <li>Quest for Awareness<small>Supporting the Alzheimer's Society of Toronto</small></li>
+    <li>We Are Warriors Gala<small>Supporting the Princess Margaret Charitable Foundation</small></li>
+    <li>Lawsuits Charity Event<small>Supporting the Princess Margaret Charitable Foundation</small></li>
+    <li>POGO PJ Party<small>Supporting the Pediatric Oncology Group of Ontario</small></li>
+  </ul>
+</section>
+
+<section class="sec" id="quote">
+  <div class="wrap quote-grid">
+    <div>
+      <p class="eyebrow rv">Request a quote</p>
+      <h2 class="rv">Let's furnish<br><em>your event.</em></h2>
+      <p class="lede rv" style="margin-top:18px">Send your date, venue and the pieces you have in mind. Our office will come back to you with availability and a quote.</p>
+      <div class="contact-lines rv">
+        <a href="tel:+14167509272"><svg viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2"/></svg>416.750.9272</a>
+        <a href="mailto:info@divinefr.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>info@divinefr.com</a>
+        <a href="https://maps.google.com/?q=375+Kennedy+Road+Toronto+ON+M1K+2A1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>375 Kennedy Road, Toronto, ON M1K 2A1</a>
+        <div><svg viewBox="0 0 24 24"><path d="M7 8V3h10v5M7 17H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="7" y="14" width="10" height="7"/></svg>Fax 416.750.0448</div>
+      </div>
+    </div>
+    <form class="form rv" id="qform" novalidate>
+      <div class="row">
+        <label>Name<input name="name" autocomplete="name" required></label>
+        <label>Email<input name="email" type="email" autocomplete="email" required></label>
+      </div>
+      <div class="row">
+        <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+        <label>Event date<input name="date" type="date"></label>
+      </div>
+      <label>Venue and city<input name="venue"></label>
+      <div class="qlist" id="formList">Your quote list is empty. Tap "Add to quote" on any piece, or describe what you need below.</div>
+      <label>Tell us about your event<textarea name="msg"></textarea></label>
+      <button class="btn btn-ink" type="submit">Send quote request</button>
+      <p class="form-note"><span class="preview-tag">Preview</span> This form isn't connected yet, so nothing is sent.</p>
+      <div class="form-done" id="formDone">Thanks. In the live site, this request goes straight to the Divine office.</div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="ftr dark">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <p class="ftr-big">The Divine <em>Difference</em></p>
+        <p>Divine Furniture Rental Inc.<br>375 Kennedy Road, Toronto, Ontario M1K 2A1</p>
+        <div class="soc" style="margin-top:16px">
+          <a href="https://www.instagram.com/divinefurniturerental/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/Divine-Furniture-Rental-190292080982745/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Shop</h4><ul><li><a href="#catalogue">Catalogue</a></li><li><a href="#collections">Collections</a></li><li><a href="#vignettes">Vignettes</a></li><li><a href="https://divinefr.com/product-category/new-products/" target="_blank" rel="noopener">New products</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#story">Our story</a></li><li><a href="#gallery">Event gallery</a></li><li><a href="https://divinefr.com/rental-agreement" target="_blank" rel="noopener">Rental agreement</a></li><li><a href="https://divinefr.com/employment-opportunities" target="_blank" rel="noopener">Careers</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:+14167509272">416.750.9272</a></li><li><a href="mailto:info@divinefr.com">info@divinefr.com</a></li><li><a href="https://divinefr.com/privacy-policy" target="_blank" rel="noopener">Privacy policy</a></li></ul></div>
+    </div>
+    <div class="ftr-bot"><span>&copy; 2026 Divine Furniture Rental. Proudly family owned and operated.</span><span>Design preview</span></div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Quote list">
+  <div class="drawer-h"><h3>Your quote</h3><button class="x" id="drawerClose" aria-label="Close quote list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="drawer-b"><div class="qlist" id="drawerList" style="border:0;padding:0"></div></div>
+  <div class="drawer-f"><a class="btn btn-ink" href="#quote" id="drawerGo">Request a quote for these</a></div>
+</aside>
+<div class="lb" id="lb" role="dialog" aria-label="Photo viewer">
+  <img alt="">
+  <button class="lb-x" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="lb-p" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="lb-n" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+var CAT='https://divinefr.com/product-category/';
+var cats=[
+ ['Soft Seating',308,'soft-seating/','soft-seating'],
+ ['Bars & Bar Shelves',116,'bars-bar-shelves/','bars'],
+ ['Outdoor',103,'outdoor/','outdoor'],
+ ['End & Accent Tables',93,'end-accent-tables/','end-accent'],
+ ['Barstools',80,'barstools/','barstools'],
+ ['Chairs & Cushions',80,'chairs-cushions/','chairs'],
+ ['Café & Dining Tables',72,'cafe-dining-tables/','cafe-dining'],
+ ['Props',65,'props/','props'],
+ ['Cruiser Tables',64,'cruiser-tables/','cruiser'],
+ ['Coffee Tables',53,'coffee-tables/','coffee'],
+ ['Office Furniture',41,'office-furniture/','office'],
+ ['Communal Tables',27,'communal-tables/','communal'],
+ ['Miscellaneous',178,'miscellaneous/','misc']
+];
+var plus='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
+var tick='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>';
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+var list=document.getElementById('catList');
+list.innerHTML=cats.map(function(c){return '<li><a href="'+CAT+c[2]+'" target="_blank" rel="noopener" data-img="../../img/p/'+c[3]+'.jpg"><span class="nm">'+esc(c[0])+'</span><span class="ct">'+c[1]+' pieces</span><span class="th"><img src="../../img/p/'+c[3]+'.jpg" alt="" loading="lazy"></span></a></li>'}).join('');
+
+var bell=[['SS-810-SETUP-388','Bellagio Sofa 90','ss-810-setup-388'],['SS-810-SETUP-385','Bellagio Loveseat 90','ss-810-setup-385'],['SS-810-SETUP-120','Bellagio Compass Curved Sofa','ss-810-setup-120'],['SS-810-SETUP-145','Bellagio Clover 12 Piece Sofa','ss-810-setup-145']];
+var vig=[
+ ['SS-450-SETUP-001','Eloise Vignette, Black Velvet','ss-450-setup-001'],
+ ['SS-600-SETUP-001','Mia Corduroy Sofa Vignette, Yellow','ss-600-setup-001'],
+ ['SS-650-SETUP-010','Napa Natural Cane Sofa Vignette','ss-650-setup-010'],
+ ['SS-630-SETUP-015','Tufted Fabric Sofa Vignette, Ocean Blue','ss-630-setup-015'],
+ ['SS-360-SETUP-005','BK Vignette, Burnt Orange 7 ft','ss-360-setup-005'],
+ ['SS-125-SETUP-010','Sculpted Sofa Vignette, Red','ss-125-setup-010'],
+ ['SS-200-SETUP-001','Distressed Sofa Vignette, Brown','ss-200-setup-001'],
+ ['SS-110-SETUP-001','Open Back Sofa Vignette, Cognac','ss-110-setup-001'],
+ ['SS-365-SETUP-005','BK Vignette, Blue Velvet 7 ft','ss-365-setup-005'],
+ ['SS-250-SETUP-010','Nora Vignette, Blue','ss-250-setup-010'],
+ ['SS-210-SETUP-001','Sussex Tufted Sofa Vignette','ss-210-setup-001'],
+ ['DT-SETUP-001','Sydney Fluted Oval Dining Table','dt-setup-001'],
+ ['COMM-SETUP-001','Sydney Fluted Communal Table','comm-setup-001'],
+ ['CRU-SETUP-001','Gatsby and Levi Cruiser Vignette','cru-setup-001']
+];
+function card(p,cls){return '<article class="'+cls+'"><div class="im"><img src="../../img/p/'+p[2]+'.jpg" alt="'+esc(p[1])+'"></div><span class="sku">'+p[0]+'</span><h4>'+esc(p[1])+'</h4><button class="add" data-q="'+p[0]+'" data-n="'+esc(p[1])+'" data-i="../../img/p/'+p[2]+'.jpg">'+plus+'<span>Add to quote</span></button></article>'}
+document.getElementById('bellagio').innerHTML=bell.map(function(p){return card(p,'pc rv')}).join('');
+document.getElementById('rail').innerHTML=vig.map(function(p){return card(p,'vc')}).join('');
+
+var GD={"e42": [1400, 934], "e08": [838, 960], "e36": [1179, 765], "e29": [775, 960], "e10": [776, 960], "e47": [809, 960], "e53": [1179, 777], "e33": [1179, 940], "e24": [762, 959], "e40": [1179, 780], "e16": [839, 960], "e14": [1179, 876], "e45": [884, 960], "e11": [1062, 960], "e23": [768, 960], "e17": [770, 960], "e46": [734, 960], "e25": [964, 960], "e44": [729, 960], "e30": [774, 960], "e12": [837, 960], "e37": [959, 960]};
+var gal=['e42','e08','e36','e29','e10','e47','e53','e33','e24','e40','e16','e14','e45','e11','e23','e17','e46','e25','e44','e30','e12','e37'];
+var wall=document.getElementById('wall');
+wall.innerHTML=gal.map(function(g,i){return '<button data-i="'+i+'" aria-label="View event photo '+(i+1)+'"><img src="../../img/g/'+g+'.jpg" width="'+GD[g][0]+'" height="'+GD[g][1]+'" alt="Event furnished by Divine Furniture Rental" loading="lazy"></button>'}).join('');
+
+/* quote list */
+var Q=[];try{Q=JSON.parse(localStorage.getItem('dfr-quote')||'[]')}catch(e){Q=[]}
+function save(){try{localStorage.setItem('dfr-quote',JSON.stringify(Q))}catch(e){}}
+var toastEl=document.getElementById('toast'),tt;
+function toast(m){toastEl.textContent=m;toastEl.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toastEl.classList.remove('on')},2200)}
+function render(){
+  document.getElementById('qcount').textContent=Q.length;
+  document.querySelectorAll('.add').forEach(function(b){var on=Q.some(function(x){return x.s===b.dataset.q});b.classList.toggle('in',on);b.innerHTML=(on?tick:plus)+'<span>'+(on?'On your quote':'Add to quote')+'</span>'});
+  var html=Q.length?'<strong style="color:var(--ink)">'+Q.length+' piece'+(Q.length>1?'s':'')+' on your quote</strong><ul>'+Q.map(function(x){return '<li><img src="'+x.i+'" alt=""><span>'+esc(x.n)+'<br><small style="color:var(--mute)">'+x.s+'</small></span><button data-rm="'+x.s+'" aria-label="Remove '+esc(x.n)+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></li>'}).join('')+'</ul>':'Your quote list is empty. Tap "Add to quote" on any piece, or describe what you need below.';
+  document.getElementById('formList').innerHTML=html;
+  document.getElementById('drawerList').innerHTML=Q.length?html:'<p style="color:var(--mute)">Nothing here yet. Tap "Add to quote" on any piece and it lands here.</p>';
+}
+document.addEventListener('click',function(e){
+  var a=e.target.closest('.add');
+  if(a){var i=Q.findIndex(function(x){return x.s===a.dataset.q});if(i>-1){Q.splice(i,1);toast('Removed from your quote')}else{Q.push({s:a.dataset.q,n:a.dataset.n,i:a.dataset.i});toast('Added to your quote')}save();render();return}
+  var r=e.target.closest('[data-rm]');
+  if(r){Q=Q.filter(function(x){return x.s!==r.dataset.rm});save();render()}
+});
+render();
+
+/* drawer + menu */
+var drawer=document.getElementById('drawer'),scrim=document.getElementById('scrim'),nav=document.getElementById('nav');
+function openD(){drawer.classList.add('open');scrim.classList.add('open')}
+function closeD(){drawer.classList.remove('open');scrim.classList.remove('open')}
+document.querySelectorAll('[data-open-quote]').forEach(function(b){b.addEventListener('click',openD)});
+document.getElementById('drawerClose').onclick=closeD;scrim.onclick=closeD;
+document.getElementById('drawerGo').addEventListener('click',closeD);
+document.getElementById('menuOpen').onclick=function(){nav.classList.add('open');document.body.style.overflow='hidden'};
+function closeN(){nav.classList.remove('open');document.body.style.overflow=''}
+document.getElementById('menuClose').onclick=closeN;
+nav.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',closeN)});
+
+/* form (preview) */
+document.getElementById('qform').addEventListener('submit',function(e){e.preventDefault();document.getElementById('formDone').style.display='block'});
+
+/* hero arch crossfade */
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var imgs=document.querySelectorAll('#arch img'),k=0;
+if(!reduce&&imgs.length>1){setInterval(function(){imgs[k].classList.remove('on');k=(k+1)%imgs.length;imgs[k].classList.add('on')},4800)}
+
+/* cursor follow on catalogue (desktop with hover only) */
+var fine=window.matchMedia('(hover: hover) and (min-width: 900px)');
+var fol=document.getElementById('follow'),fimg=fol.querySelector('img'),fx=0,fy=0,cx=0,cy=0,raf=null;
+function loop(){cx+=(fx-cx)*.18;cy+=(fy-cy)*.18;fol.style.left=cx+'px';fol.style.top=cy+'px';raf=requestAnimationFrame(loop)}
+list.addEventListener('mousemove',function(e){if(!fine.matches)return;fx=e.clientX+150;fy=e.clientY;if(!raf){cx=fx;cy=fy;loop()}});
+list.addEventListener('mouseover',function(e){var a=e.target.closest('a');if(!a||!fine.matches)return;if(fimg.getAttribute('src')!==a.dataset.img)fimg.src=a.dataset.img;fol.classList.add('on')});
+list.addEventListener('mouseleave',function(){fol.classList.remove('on');cancelAnimationFrame(raf);raf=null});
+
+/* rail buttons */
+var rail=document.getElementById('rail');
+function step(){var c=rail.querySelector('.vc');return c?c.offsetWidth+14:320}
+document.getElementById('railPrev').onclick=function(){rail.scrollBy({left:-step(),behavior:reduce?'auto':'smooth'})};
+document.getElementById('railNext').onclick=function(){rail.scrollBy({left:step(),behavior:reduce?'auto':'smooth'})};
+
+/* lightbox */
+var lb=document.getElementById('lb'),lbi=lb.querySelector('img'),cur=0;
+function show(i){cur=(i+gal.length)%gal.length;lbi.src='img/g/'+gal[cur]+'.jpg'}
+wall.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;show(+b.dataset.i);lb.classList.add('open')});
+lb.querySelector('.lb-x').onclick=function(){lb.classList.remove('open')};
+lb.querySelector('.lb-p').onclick=function(){show(cur-1)};
+lb.querySelector('.lb-n').onclick=function(){show(cur+1)};
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){lb.classList.remove('open');closeD();closeN()}if(lb.classList.contains('open')){if(e.key==='ArrowRight')show(cur+1);if(e.key==='ArrowLeft')show(cur-1)}});
+var sx=0;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+lb.addEventListener('touchend',function(e){var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)show(cur+(d<0?1:-1))});
+
+/* reveal */
+var els=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window&&!reduce){var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(el){io.observe(el)})}else{els.forEach(function(el){el.classList.add('in')})}
+})();
+</script>
+</body>
+</html>

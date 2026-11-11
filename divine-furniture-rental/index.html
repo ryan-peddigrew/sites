@@ -10,669 +10,913 @@
 <link rel="icon" href="img/icon.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#161B20;--ink2:#1F262D;--ink3:#2A323A;
-  --gold:#D8BE6E;--gold2:#B8974A;--goldt:rgba(216,190,110,.35);
-  --ivory:#F3EEE4;--ivory2:#E9E2D4;--paper:#FBF9F4;
-  --text:#1B2026;--mute:#5E646B;--mute2:#A9AEB3;
-  --serif:'Cormorant',Georgia,'Times New Roman',serif;
-  --sans:'Jost',system-ui,-apple-system,'Segoe UI',sans-serif;
-  --r:22px;--gut:clamp(16px,4vw,48px);
+  --ink:#161B20;--ink2:#1E252C;--ink3:#2A333B;
+  --gold:#D8BE6E;--gold2:#A8873A;--goldt:rgba(216,190,110,.28);
+  --ivory:#F3EEE4;--ivory2:#E7DFCF;--paper:#FBF9F4;
+  --text:#1B2026;--mute:#5B6168;--mute2:#AEB3B8;
+  --f:'Inter Tight',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --gut:clamp(16px,4vw,48px);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--ivory);color:var(--text);font:400 17px/1.6 var(--sans);overflow-x:hidden}
+body{background:var(--ivory);color:var(--text);font:400 17px/1.6 var(--f);overflow-x:hidden}
+body.locked{overflow:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-.wrap{max-width:1240px;margin:0 auto;padding:0 var(--gut)}
-section[id]{scroll-margin-top:72px}
-.eyebrow{font:500 12px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold2)}
-.dark .eyebrow{color:var(--gold)}
-h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-height:1}
-h2{font-size:clamp(40px,7vw,84px)}
-h2 em,h1 em{font-style:italic;font-weight:500;color:var(--gold2)}
-.dark h2 em,.dark h1 em{color:var(--gold)}
-.lede{font-size:clamp(17px,1.6vw,19px);color:var(--mute);max-width:56ch}
-.dark .lede{color:var(--mute2)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 26px;border-radius:999px;font:500 15px var(--sans);letter-spacing:.04em;text-decoration:none;transition:background .25s,color .25s,border-color .25s,transform .25s}
-.btn-gold{background:var(--gold);color:var(--ink)}
-.btn-gold:hover{background:#E6CF86}
-.btn-line{border:1px solid var(--goldt);color:#fff}
-.btn-line:hover{border-color:var(--gold)}
-.btn-ink{background:var(--ink);color:#fff}
-.btn-ink:hover{background:var(--ink3)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--gut)}
+section[id]{scroll-margin-top:76px}
+.k{font:700 12px/1.3 var(--f);letter-spacing:.22em;text-transform:uppercase;color:var(--gold2)}
+.dk .k{color:var(--gold)}
+h1,h2,h3,h4{font-family:var(--f);font-weight:900;text-transform:uppercase;letter-spacing:-.025em;line-height:.92}
+h2{font-size:clamp(40px,7.4vw,104px)}
+h2 .g{color:var(--gold2)}.dk h2 .g{color:var(--gold)}
+h3{font-size:clamp(24px,2.6vw,34px);line-height:1}
+.lede{font-size:clamp(17px,1.5vw,19px);color:var(--mute);max-width:54ch}
+.dk{background:var(--ink);color:#fff}.dk .lede{color:var(--mute2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:4px;font:700 14px var(--f);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .25s,color .25s,transform .25s;white-space:nowrap}
 .btn svg{width:18px;height:18px}
+.btn.gold{background:var(--gold);color:var(--ink)}.btn.gold:hover{background:#E6CF8A}
+.btn.ink{background:var(--ink);color:#fff}.btn.ink:hover{background:var(--ink3)}
+.btn.line{border:1.5px solid currentColor}
+.btn:active{transform:translateY(1px)}
+.sec{padding:clamp(72px,10vw,140px) 0}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* loader */
+#ld{position:fixed;inset:0;z-index:200;background:var(--ink);display:grid;place-items:center;transition:opacity .6s ease,visibility .6s}
+#ld.out{opacity:0;visibility:hidden}
+#ld .box{display:flex;flex-direction:column;align-items:center;gap:18px}
+#ld .lg{width:min(300px,70vw);clip-path:inset(0 100% 0 0);animation:wipe 1.1s .15s cubic-bezier(.7,0,.2,1) forwards;position:relative}
+#ld .lg img{width:100%;height:auto;box-shadow:0 18px 50px rgba(0,0,0,.5)}
+#ld .lg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,240,200,.55) 50%,transparent 70%);background-size:250% 100%;background-position:120% 0;animation:shine 1s 1.1s ease forwards;mix-blend-mode:screen}
+#ld .ln{height:2px;width:0;background:var(--gold);animation:grow .9s .5s ease forwards}
+#ld .tx{font:600 12px var(--f);letter-spacing:.32em;text-transform:uppercase;color:var(--gold);opacity:0;animation:fade .6s 1s ease forwards}
+@keyframes wipe{to{clip-path:inset(0 0 0 0)}}
+@keyframes shine{to{background-position:-60% 0}}
+@keyframes grow{to{width:min(300px,70vw)}}
+@keyframes fade{to{opacity:1}}
 
 /* header */
-.hdr{position:sticky;top:0;z-index:50;background:rgba(22,27,32,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(216,190,110,.14)}
-.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
-.logo img{height:46px;width:auto}
-.hdr-r{display:flex;align-items:center;gap:8px}
-.hdr-tel{display:none;align-items:center;min-height:44px;padding:0 12px;color:#fff;text-decoration:none;font-size:15px;letter-spacing:.04em}
-.qbtn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--goldt);color:#fff;font-size:14px;letter-spacing:.04em}
-.qbtn b{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--gold);color:var(--ink);font-size:12px;font-weight:600}
-.menu-btn{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;color:#fff}
-.menu-btn svg{width:26px;height:26px}
-@media(min-width:900px){.hdr-tel{display:inline-flex}}
-
-/* overlay menu */
-.nav{position:fixed;inset:0;z-index:80;background:var(--ink);color:#fff;display:flex;flex-direction:column;padding:20px var(--gut) 32px;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
-.nav.open{opacity:1;visibility:visible}
-.nav-top{display:flex;justify-content:space-between;align-items:center;height:52px}
-.nav ol{list-style:none;margin:auto 0;display:grid;gap:2px;counter-reset:n}
-.nav li a{display:flex;align-items:baseline;gap:18px;min-height:56px;text-decoration:none;font:600 clamp(38px,8vw,72px)/1.05 var(--serif);transition:color .2s,padding .3s}
-.nav li a::before{counter-increment:n;content:"0" counter(n);font:500 13px var(--sans);letter-spacing:.2em;color:var(--gold)}
-.nav li a:hover{color:var(--gold);padding-left:8px}
-.nav-foot{display:flex;flex-wrap:wrap;gap:8px 24px;color:var(--mute2);font-size:15px}
-.nav-foot a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.hd{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .35s,box-shadow .35s}
+.hd .in{display:flex;align-items:center;gap:22px;height:72px}
+.hd.solid{background:var(--ink);box-shadow:0 6px 30px rgba(0,0,0,.25)}
+.logo{display:block;flex:none}
+.logo img{height:46px;width:auto;box-shadow:0 8px 22px rgba(0,0,0,.45),0 2px 4px rgba(0,0,0,.35);transition:transform .3s}
+.logo:hover img{transform:translateY(-2px)}
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{font:600 13px var(--f);letter-spacing:.12em;text-transform:uppercase;color:#fff;text-decoration:none;opacity:.86;min-height:44px;display:flex;align-items:center}
+.nav a:hover{opacity:1;color:var(--gold)}
+.hd .btn{min-height:44px;padding:0 18px;font-size:12.5px}
+.qn{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;background:var(--ink);color:var(--gold);font-size:12px;border-radius:3px}
+.menu{display:none;width:44px;height:44px;color:#fff;margin-left:auto}
+.menu svg{width:26px;height:26px;margin:auto}
 
 /* hero */
-.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden}
-.hero .wrap{display:grid;gap:36px;padding-top:28px;padding-bottom:64px}
-.arch-wrap{position:relative;justify-self:center;width:min(78vw,420px)}
-.arch{position:relative;aspect-ratio:3/3.7;border-radius:999px 999px 18px 18px;overflow:hidden;background:var(--ink2);z-index:1}
-.arch img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.6s ease,transform 7s linear}
-.arch img.on{opacity:1;transform:scale(1)}
-.arch-line{position:absolute;inset:-14px -14px auto -14px;aspect-ratio:3/3.7;border:1px solid var(--goldt);border-radius:999px 999px 24px 24px;z-index:0;pointer-events:none}
-.arch-cap{position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);z-index:2;background:var(--gold);color:var(--ink);font:500 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;padding:9px 16px;border-radius:999px;white-space:nowrap}
-.hero h1{font-size:clamp(56px,11vw,132px);line-height:.9;margin:14px 0 22px}
-.hero h1 span{display:block}
-.hero .lede{margin-bottom:28px}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
-@media(min-width:900px){
-  .hero .wrap{grid-template-columns:1.15fr .85fr;align-items:center;padding-top:56px;padding-bottom:96px;gap:64px}
-  .hero-copy{order:-1}
-  .arch-wrap{width:100%;max-width:440px}
-}
-/* crafts ticker */
-.ticker{background:var(--gold);color:var(--ink);overflow:hidden;white-space:nowrap}
-.ticker-in{display:inline-flex;animation:tick 38s linear infinite;padding:14px 0}
-.ticker span{display:inline-flex;align-items:center;gap:22px;padding-right:22px;font:600 clamp(20px,2.4vw,26px) var(--serif);letter-spacing:.01em}
-.ticker span::after{content:"";width:7px;height:7px;transform:rotate(45deg);background:var(--ink);opacity:.55}
-@keyframes tick{to{transform:translateX(-50%)}}
+.hero{position:relative;min-height:100svh;color:#fff;overflow:hidden;display:flex;align-items:flex-end;background:var(--ink)}
+.hero .ph{position:absolute;inset:0}
+.hero .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.12);transition:opacity 1.4s ease}
+.hero .ph img.on{opacity:1;animation:kb 7s linear forwards}
+@keyframes kb{from{transform:scale(1.12) translate(1%,0)}to{transform:scale(1.0) translate(-1%,-1%)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,27,32,.55) 0%,rgba(22,27,32,.1) 30%,rgba(22,27,32,.35) 55%,rgba(22,27,32,.92) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(36px,6vw,72px)}
+.hero h1{font-size:clamp(46px,9.6vw,150px);line-height:.86;letter-spacing:-.035em}
+.hero h1 .rot{display:block;color:var(--gold);height:.9em;overflow:hidden;position:relative}
+.hero h1 .rot span{display:block;transition:transform .7s cubic-bezier(.7,0,.2,1),opacity .5s}
+.hero h1 .rot span.out{transform:translateY(-100%);opacity:0}
+.hero h1 .rot span.pre{transform:translateY(100%);opacity:0;transition:none}
+.hero .row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:28px;flex-wrap:wrap}
+.hero p{max-width:46ch;font-size:clamp(16px,1.5vw,19px);color:#E9EBEC}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta .line{color:#fff}
+.hero .pips{display:flex;gap:6px;margin-top:26px}
+.hero .pips i{height:3px;flex:1;max-width:70px;background:rgba(255,255,255,.25);position:relative;overflow:hidden}
+.hero .pips i.on::after{content:"";position:absolute;inset:0;background:var(--gold);transform-origin:left;animation:pip 5s linear forwards}
+@keyframes pip{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.hero .tag{position:absolute;top:96px;right:var(--gut);z-index:2;font:700 11px var(--f);letter-spacing:.24em;text-transform:uppercase;color:var(--gold);writing-mode:vertical-rl}
 
-/* facts */
-.facts{padding:clamp(56px,8vw,96px) 0 0}
-.facts-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ivory2)}
-.fact{padding:22px 8px 22px 0;border-bottom:1px solid var(--ivory2)}
-.fact:nth-child(odd){border-right:1px solid var(--ivory2);padding-right:16px}
-.fact:nth-child(even){padding-left:16px}
-.fact b{display:block;font:600 clamp(38px,6vw,64px)/1 var(--serif);color:var(--ink)}
-.fact span{display:block;margin-top:8px;font-size:14px;color:var(--mute);letter-spacing:.02em}
-@media(min-width:900px){.facts-grid{grid-template-columns:repeat(4,1fr)}.fact,.fact:nth-child(odd),.fact:nth-child(even){border-right:1px solid var(--ivory2);padding:28px 24px}.fact:last-child{border-right:0}}
+/* trades ticker */
+.tick{background:var(--gold);color:var(--ink);overflow:hidden;white-space:nowrap;padding:16px 0}
+.tick .tr{display:inline-flex;gap:46px;animation:mq 34s linear infinite;padding-left:46px}
+.tick span{font:900 clamp(18px,2.2vw,26px)/1 var(--f);text-transform:uppercase;letter-spacing:-.01em;display:inline-flex;align-items:center;gap:46px}
+.tick span::after{content:"";width:10px;height:10px;background:var(--ink);transform:rotate(45deg)}
+@keyframes mq{to{transform:translateX(-50%)}}
 
-/* catalogue type list */
-.sec{padding:clamp(64px,10vw,128px) 0}
-.sec-head{display:grid;gap:18px;margin-bottom:clamp(32px,5vw,56px)}
-@media(min-width:900px){.sec-head{grid-template-columns:1fr 1fr;align-items:end}}
-.cat-list{list-style:none;border-top:1px solid #CFC6B4}
-.cat-list a{display:grid;grid-template-columns:1fr auto 64px;align-items:center;gap:14px;min-height:84px;padding:10px 0;border-bottom:1px solid #CFC6B4;text-decoration:none;transition:padding .35s ease,color .25s}
-.cat-list .nm{font:600 clamp(28px,5.4vw,64px)/1.02 var(--serif);color:var(--ink)}
-.cat-list .ct{font:500 13px var(--sans);letter-spacing:.14em;color:var(--mute);text-transform:uppercase;white-space:nowrap}
-.cat-list .th{width:64px;height:64px;border-radius:14px;background:#fff;overflow:hidden}
-.cat-list .th img{width:100%;height:100%;object-fit:contain;padding:6px}
-@media(hover:hover) and (min-width:900px){
-  .cat-list a{grid-template-columns:1fr auto}
-  .cat-list .th{display:none}
-  .cat-list a:hover{padding-left:22px}
-  .cat-list a:hover .nm{font-style:italic;color:var(--gold2)}
-}
-.follow{position:fixed;left:0;top:0;width:260px;height:260px;border-radius:24px;background:#fff;box-shadow:0 30px 60px -20px rgba(22,27,32,.35);pointer-events:none;z-index:40;opacity:0;transform:translate(-50%,-50%) scale(.85);transition:opacity .25s,transform .25s;overflow:hidden}
-.follow.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
-.follow img{width:100%;height:100%;object-fit:contain;padding:18px}
-.cat-more{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
-.cat-more p{color:var(--mute);font-size:15px;max-width:46ch}
+/* planner (event builder) */
+.plan{background:var(--paper)}
+.plan h2,.looks h2{font-size:clamp(38px,5.8vw,84px)}
+.plan .top{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,80px);align-items:end;margin-bottom:44px}
+.plan .top .lede{margin-top:18px}
+.pbx{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:0;background:#fff;box-shadow:0 30px 80px rgba(22,27,32,.12);border-top:4px solid var(--gold)}
+.steps{padding:clamp(22px,3.5vw,44px)}
+.st{display:none}.st.on{display:block;animation:fade .45s ease}
+.st h3{margin:8px 0 22px}
+.stn{display:flex;gap:8px;margin-bottom:26px}
+.stn i{height:4px;flex:1;background:var(--ivory2)}.stn i.on{background:var(--ink)}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.opt{position:relative;text-align:left;border:2px solid transparent;background:var(--ivory);min-height:150px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;border-radius:3px;transition:border-color .2s,transform .2s}
+.opt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.opt::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(22,27,32,.85));z-index:1}
+.opt b{position:relative;z-index:2;color:#fff;font:800 15px/1.1 var(--f);text-transform:uppercase;letter-spacing:.01em;padding:12px}
+.opt:hover img{transform:scale(1.06)}
+.opt.on{border-color:var(--gold);transform:translateY(-3px)}
+.opt.on::after{content:"";position:absolute;top:10px;right:10px;width:26px;height:26px;z-index:2;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23161B20' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/16px no-repeat;border-radius:3px}
+.fld{display:grid;gap:8px;margin-bottom:18px}
+.fld label{font:700 12px var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.fld input,.fld select,.fld textarea{width:100%;min-height:50px;border:1.5px solid var(--ivory2);background:var(--paper);padding:12px 14px;border-radius:3px;font-size:16px}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--gold2)}
+.rng{display:flex;align-items:center;gap:16px}
+.rng input{flex:1;accent-color:var(--ink);min-height:44px;border:0;background:none;padding:0}
+.rng output{font:900 44px/1 var(--f);min-width:3.2ch;text-align:right}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:46px;padding:0 16px;border:1.5px solid var(--ivory2);border-radius:3px;font:600 14px var(--f);background:var(--paper)}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.nx{display:flex;gap:10px;margin-top:26px;align-items:center}
+.nx .bk{min-height:48px;padding:0 6px;font:700 13px var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.res{background:var(--ink);color:#fff;padding:clamp(22px,3vw,36px);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.res .bgp{position:absolute;inset:0;opacity:.18}
+.res .bgp img{width:100%;height:100%;object-fit:cover}
+.res>*:not(.bgp){position:relative}
+.res h4{font-size:26px;margin:8px 0 6px}
+.res .sm{font-size:14px;color:var(--mute2)}
+.res ul{list-style:none;margin:18px 0;display:grid;gap:10px}
+.res li{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;background:rgba(255,255,255,.06);padding:8px;border-radius:3px}
+.res li img{width:52px;height:52px;object-fit:cover;border-radius:2px;background:#fff}
+.res li span{font-size:14.5px;line-height:1.25}
+.res li small{display:block;color:var(--mute2);font-size:12px}
+.qty{display:flex;align-items:center;gap:2px}
+.qty button{width:34px;height:40px;color:var(--gold);font-size:20px;line-height:1}
+.qty b{min-width:2ch;text-align:center;font-weight:800}
+.res .empty{margin:22px 0;color:var(--mute2);font-size:15px}
+.res .act{margin-top:auto;display:grid;gap:10px}
+.res .btn{width:100%}
+.res .note{font-size:12px;color:var(--mute2);margin-top:12px}
 
-/* collections */
-.collect{background:var(--paper)}
-.coll-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:28px;scrollbar-width:none}
-.coll-tabs::-webkit-scrollbar{display:none}
-.coll-tabs a{flex:none;display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 18px;border-radius:999px;border:1px solid #D9D1C1;text-decoration:none;font-size:15px}
-.coll-tabs a small{color:var(--mute);font-size:12px;letter-spacing:.08em}
-.feat{display:grid;gap:16px}
-.feat-main{position:relative;background:var(--ink);color:#fff;border-radius:var(--r);padding:28px;display:grid;gap:18px;overflow:hidden}
-.feat-main h3{font-size:clamp(40px,6vw,72px)}
-.feat-main p{color:var(--mute2);max-width:40ch}
-.feat-main .feat-img{background:#fff;border-radius:16px;overflow:hidden;aspect-ratio:1}
-.feat-main .feat-img img{width:100%;height:100%;object-fit:cover}
-.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.pc{background:#fff;border-radius:18px;padding:12px;display:flex;flex-direction:column;gap:10px}
-.pc .im{aspect-ratio:1;border-radius:12px;overflow:hidden;background:#fff}
-.pc .im img{width:100%;height:100%;object-fit:contain;transition:transform .5s ease}
-.pc:hover .im img{transform:scale(1.04)}
-.pc .sku{font:500 11px var(--sans);letter-spacing:.14em;color:var(--mute)}
-.pc h4{font:600 20px/1.1 var(--serif);color:var(--ink)}
-.add{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;border-radius:999px;border:1px solid #D9D1C1;font-size:14px;letter-spacing:.03em;transition:background .2s,color .2s,border-color .2s}
-.add svg{width:16px;height:16px}
-.add:hover{border-color:var(--ink)}
-.add.in{background:var(--ink);color:#fff;border-color:var(--ink)}
-@media(min-width:900px){
-  .feat{grid-template-columns:1.05fr 1fr;align-items:stretch}
-  .feat-main{grid-template-rows:auto 1fr;padding:40px}
-}
+/* filmstrip */
+.film{background:var(--ink);padding:14px 0;overflow:hidden}
+.film .tr{display:flex;gap:14px;width:max-content;animation:mq 70s linear infinite}
+.film img{height:clamp(150px,22vw,260px);width:auto;border-radius:2px}
+.film:hover .tr{animation-play-state:paused}
 
-/* vignettes rail */
-.vig{background:var(--ink);color:#fff;overflow:hidden}
-.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px var(--gut) 18px;scrollbar-width:none;scroll-padding:0 var(--gut)}
-.rail::-webkit-scrollbar{display:none}
-.vc{flex:none;width:min(78vw,340px);scroll-snap-align:start;background:var(--ink2);border:1px solid rgba(255,255,255,.07);border-radius:var(--r);padding:12px;display:flex;flex-direction:column;gap:12px}
-.vc .im{aspect-ratio:1;border-radius:14px;overflow:hidden;background:#eee}
-.vc .im img{width:100%;height:100%;object-fit:cover}
-.vc .sku{font:500 11px var(--sans);letter-spacing:.14em;color:var(--gold)}
-.vc h4{font:600 24px/1.08 var(--serif)}
-.vc .add{border-color:rgba(255,255,255,.18);color:#fff}
-.vc .add:hover{border-color:var(--gold)}
-.vc .add.in{background:var(--gold);color:var(--ink);border-color:var(--gold)}
-.rail-nav{display:flex;gap:8px}
-.rail-nav button{width:50px;height:50px;border-radius:50%;border:1px solid var(--goldt);display:grid;place-items:center;color:#fff}
-.rail-nav button:hover{border-color:var(--gold)}
-.rail-nav svg{width:20px;height:20px}
-.vig .sec-head{padding:0 var(--gut);max-width:1240px;margin-left:auto;margin-right:auto}
-.vig-row{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+/* looks */
+.looks .hdr{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:38px}
+.lk{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:18px;scrollbar-width:thin}
+.lk article{scroll-snap-align:start;background:#fff;display:flex;flex-direction:column}
+.lk .im{aspect-ratio:4/3;background:#fff;overflow:hidden}
+.lk .im img{width:100%;height:100%;object-fit:contain;transition:transform .6s}
+.lk article:hover .im img{transform:scale(1.05)}
+.lk .tx{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1;border-top:3px solid var(--ivory2)}
+.lk .sku{font:700 11px var(--f);letter-spacing:.16em;color:var(--gold2)}
+.lk h4{font-size:19px;line-height:1.05}
+.add{margin-top:auto;min-height:46px;display:flex;align-items:center;gap:10px;font:700 13px var(--f);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);padding-top:10px}
+.add svg{width:20px;height:20px;padding:3px;background:var(--gold);border-radius:2px}
+.add.in svg{background:var(--ink);color:var(--gold)}
 
-/* gallery */
-.wall{columns:2;column-gap:10px}
-.wall button{display:block;width:100%;margin:0 0 10px;border-radius:14px;overflow:hidden;break-inside:avoid;position:relative}
-.wall img{width:100%;height:auto;background:var(--ivory2);transition:transform .7s ease,filter .4s}
-.wall button:hover img{transform:scale(1.04)}
-@media(min-width:700px){.wall{columns:3;column-gap:14px}.wall button{margin-bottom:14px;border-radius:18px}}
-@media(min-width:1100px){.wall{columns:4}}
-.lb{position:fixed;inset:0;z-index:90;background:rgba(14,17,21,.96);display:grid;place-items:center;padding:64px 12px;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
-.lb.open{opacity:1;visibility:visible}
-.lb img{max-width:100%;max-height:100%;border-radius:12px;object-fit:contain}
-.lb-x,.lb-p,.lb-n{position:absolute;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#fff;border:1px solid rgba(255,255,255,.2)}
-.lb-x{top:14px;right:14px}.lb-p{left:12px;bottom:14px}.lb-n{right:12px;bottom:14px}
-.lb svg{width:22px;height:22px}
-@media(min-width:900px){.lb-p,.lb-n{top:50%;bottom:auto;transform:translateY(-50%)}.lb-p{left:24px}.lb-n{right:24px}}
+/* trade show */
+.ts{position:relative;overflow:hidden}
+.ts .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px);align-items:center}
+.ts .pic{position:relative;aspect-ratio:4/5;overflow:hidden}
+.ts .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s}
+.ts .pic .cap{position:absolute;left:0;bottom:0;background:var(--gold);color:var(--ink);font:900 clamp(30px,4vw,54px)/1 var(--f);padding:14px 20px;text-transform:uppercase;letter-spacing:-.02em}
+.bs{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0 20px}
+.bs button{min-height:50px;padding:0 18px;border:1.5px solid rgba(255,255,255,.25);font:800 15px var(--f);text-transform:uppercase;letter-spacing:.04em;border-radius:3px;color:#fff}
+.bs button.on{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.pk{list-style:none;display:grid;gap:8px;margin-bottom:24px}
+.pk li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid rgba(255,255,255,.12);padding:10px 0;font-size:16px}
+.pk li b{color:var(--gold);font-weight:800}
+.ts .fine{font-size:13px;color:var(--mute2);margin-top:14px}
+
+/* new arrivals */
+.nw .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(20px,4vw,60px);align-items:stretch}
+.nw .life{position:relative;min-height:520px;overflow:hidden}
+.nw .life img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.nw .life h2{position:absolute;left:clamp(16px,3vw,32px);bottom:clamp(16px,3vw,32px);color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.45)}
+.nw .items{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start}
+.nw .items article{background:#fff;padding:12px 12px 14px;display:flex;flex-direction:column}
+.nw .items .im{aspect-ratio:1;overflow:hidden}
+.nw .items .im img{width:100%;height:100%;object-fit:contain}
+.nw .items h4{font-size:15px;line-height:1.1;margin-top:8px}
+.nw .items .sku{font:700 11px var(--f);letter-spacing:.14em;color:var(--gold2);margin-top:6px}
+
+/* catalogue */
+.cat .hdr{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;margin-bottom:40px}
+.cg{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.cg a{position:relative;aspect-ratio:1;background:#fff;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;padding:16px}
+.cg a img{position:absolute;inset:12% 10% 18%;width:80%;height:70%;object-fit:contain;transition:transform .5s}
+.cg a:hover img{transform:scale(1.07)}
+.cg a b{position:relative;font:900 clamp(16px,1.6vw,22px)/1 var(--f);text-transform:uppercase;letter-spacing:-.01em;margin-top:auto}
+.cg a small{position:relative;font:700 12px var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--gold2)}
+.cg a.big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto;background:var(--ink);color:#fff;padding:24px}
+.cg a.big img{inset:0;width:100%;height:100%;object-fit:cover;opacity:.75}
+.cg a.big b{font-size:clamp(28px,3.4vw,52px)}
+.cg a.big::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(22,27,32,.9));z-index:1}
+.cg a.big b,.cg a.big small{z-index:2}.cg a.big small{color:var(--gold)}
+.cat .ask{margin-top:24px;display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap;color:var(--mute)}
+
+/* planners */
+.pl{position:relative;min-height:80vh;display:flex;align-items:center;color:#fff;overflow:hidden}
+.pl>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pl::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(22,27,32,.94) 0%,rgba(22,27,32,.75) 50%,rgba(22,27,32,.2) 100%)}
+.pl .wrap{position:relative;width:100%}
+.pl .bx{max-width:620px}
+.pl ul{list-style:none;margin:26px 0 30px;display:grid;gap:14px}
+.pl li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;font-size:17px}
+.pl li svg{width:40px;height:40px;color:var(--gold)}
+.pl li b{display:block;font-weight:800;text-transform:uppercase;letter-spacing:.02em;font-size:15px}
+.pl li span{color:#D7DADD}
+.ph-tag{display:inline-block;font:700 11px var(--f);letter-spacing:.18em;text-transform:uppercase;border:1px dashed var(--gold);color:var(--gold);padding:6px 10px;margin-top:10px}
 
 /* story */
-.story{background:var(--ivory2)}
-.story-grid{display:grid;gap:40px}
-.big-year{font:600 clamp(110px,22vw,260px)/.8 var(--serif);color:var(--ink);letter-spacing:-.03em}
-.big-year small{display:block;font:500 12px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold2);margin-bottom:18px}
-.tl{list-style:none;position:relative;padding-left:30px}
-.tl::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:1px;background:var(--gold2)}
-.tl li{position:relative;padding-bottom:30px}
-.tl li::before{content:"";position:absolute;left:-30px;top:8px;width:13px;height:13px;border-radius:50%;background:var(--ivory2);border:1px solid var(--gold2)}
-.tl li:last-child::before{background:var(--gold2)}
-.tl h3{font-size:clamp(28px,3.6vw,38px);margin-bottom:8px;color:var(--ink)}
-.tl p{color:var(--mute);max-width:52ch}
-.motto{margin-top:12px;padding:30px 0 0;border-top:1px solid #CFC6B4}
-.motto q{display:block;font:500 italic clamp(30px,4.4vw,50px)/1.1 var(--serif);color:var(--ink);quotes:"\201C" "\201D"}
-.motto p{margin-top:12px;font-size:14px;color:var(--mute);letter-spacing:.04em}
-.team{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
-.team span{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:999px;background:var(--paper);font-size:14px;color:var(--ink)}
-@media(min-width:900px){.story-grid{grid-template-columns:.9fr 1.1fr;gap:80px}.story-left{position:sticky;top:110px;align-self:start}}
+.story .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,5vw,80px)}
+.story .big{font:900 clamp(110px,20vw,280px)/.8 var(--f);letter-spacing:-.06em;color:var(--gold2)}
+.story blockquote{font:900 clamp(26px,3.2vw,44px)/1 var(--f);text-transform:uppercase;letter-spacing:-.02em;margin:22px 0 14px}
+.story .pic{margin-top:26px;aspect-ratio:4/3;overflow:hidden}
+.story .pic img{width:100%;height:100%;object-fit:cover}
+.tl{list-style:none;border-left:3px solid var(--ink);margin-top:8px}
+.tl li{padding:0 0 30px 26px;position:relative}
+.tl li::before{content:"";position:absolute;left:-9px;top:6px;width:15px;height:15px;background:var(--gold);transform:rotate(45deg)}
+.tl small{font:800 13px var(--f);letter-spacing:.16em;text-transform:uppercase;color:var(--gold2)}
+.tl h4{font-size:22px;margin:6px 0 6px}
+.tl p{color:var(--mute);font-size:16px}
+.trd{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.trd span{background:var(--ink);color:#fff;font:700 12px var(--f);letter-spacing:.12em;text-transform:uppercase;padding:9px 12px;border-radius:2px}
 
-/* care */
-.care-grid{display:grid;gap:12px}
-.care{background:var(--paper);border-radius:var(--r);padding:26px;display:grid;grid-template-columns:44px 1fr;gap:18px;align-items:start}
-.care svg{width:40px;height:40px;stroke:var(--ink);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
-.care h3{font-size:26px;color:var(--ink);margin-bottom:6px}
-.care p{color:var(--mute);font-size:15.5px}
-@media(min-width:760px){.care-grid{grid-template-columns:1fr 1fr}}
-@media(min-width:1100px){.care-grid{grid-template-columns:repeat(3,1fr)}.care.wide{grid-column:span 1}}
-
-/* giving */
-.give{background:var(--ink);color:#fff;border-radius:calc(var(--r) + 6px);margin:0 var(--gut);padding:clamp(36px,6vw,80px) clamp(22px,5vw,72px);display:grid;gap:32px}
-.give ul{list-style:none;display:grid;gap:0}
-.give li{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1);font:500 clamp(21px,2.4vw,26px)/1.2 var(--serif)}
-.give li small{display:block;font:400 14px var(--sans);color:var(--mute2);margin-top:4px;letter-spacing:.01em}
-@media(min-width:900px){.give{grid-template-columns:.85fr 1.15fr;gap:72px;max-width:1240px;margin:0 auto}.give ul{grid-template-columns:1fr 1fr;column-gap:36px}}
-@media(min-width:1290px){.give{margin:0 auto}}
+/* care + giving */
+.care .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.12);margin-top:44px}
+.care .grid div{background:var(--ink);padding:26px 22px 28px}
+.care svg{width:40px;height:40px;color:#fff;margin-bottom:16px}
+.care h4{font-size:18px;margin-bottom:8px}
+.care p{font-size:15px;color:var(--mute2)}
+.care .ph{grid-column:span 1;padding:0!important;position:relative;min-height:220px}
+.care .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.give{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
+.give .pic{position:relative;overflow:hidden}
+.give .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.give .tx{padding:clamp(40px,6vw,90px) var(--gut);background:var(--gold);color:var(--ink)}
+.give .tx .k{color:var(--ink)}
+.give h2{font-size:clamp(36px,5.4vw,76px)}
+.give ul{list-style:none;margin:24px 0 28px;display:grid;gap:0}
+.give li{padding:10px 0;border-bottom:1.5px solid rgba(22,27,32,.2);font-weight:700;font-size:16px}
+.give li small{display:block;font-weight:500;font-size:13px;opacity:.75}
 
 /* quote */
-.quote-grid{display:grid;gap:36px}
-.contact-lines{display:grid;gap:4px;margin-top:28px}
-.contact-lines a,.contact-lines div{display:flex;align-items:center;gap:14px;min-height:52px;text-decoration:none;font-size:17px;border-bottom:1px solid #D9D1C1}
-.contact-lines svg{width:22px;height:22px;flex:none;stroke:var(--ink);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.form{background:var(--paper);border-radius:var(--r);padding:clamp(22px,4vw,40px);display:grid;gap:16px}
-.form .row{display:grid;gap:16px}
-@media(min-width:640px){.form .row{grid-template-columns:1fr 1fr}}
-.form label{display:grid;gap:6px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
-.form input,.form textarea{font:400 17px var(--sans);color:var(--text);background:#fff;border:1px solid #DCD4C4;border-radius:12px;padding:13px 14px;min-height:50px;width:100%}
-.form textarea{min-height:120px;resize:vertical}
-.form input:focus,.form textarea:focus{outline:2px solid var(--gold2);outline-offset:1px}
-.qlist{border:1px dashed #CFC6B4;border-radius:14px;padding:14px;font-size:15px;color:var(--mute)}
-.qlist ul{list-style:none;display:grid;gap:8px;margin-top:8px}
-.qlist li{display:flex;align-items:center;gap:12px;color:var(--text)}
-.qlist li img{width:44px;height:44px;border-radius:8px;object-fit:contain;background:#fff;border:1px solid #eee}
-.qlist li span{flex:1;font-size:15px;line-height:1.3}
-.qlist li button{width:44px;height:44px;display:grid;place-items:center;color:var(--mute)}
-.qlist li button svg{width:18px;height:18px}
-.form-note{font-size:14px;color:var(--mute)}
-.form-done{display:none;background:var(--ink);color:#fff;border-radius:12px;padding:14px 16px;font-size:15px}
-@media(min-width:900px){.quote-grid{grid-template-columns:.85fr 1.15fr;gap:72px}}
+.quote .grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,5vw,80px)}
+.quote .pic{aspect-ratio:4/3;overflow:hidden;margin:26px 0}
+.quote .pic img{width:100%;height:100%;object-fit:cover}
+.ci{display:grid;gap:4px;font-size:17px}
+.ci a{text-decoration:none;font-weight:700;min-height:44px;display:flex;align-items:center}
+.qf{background:#fff;padding:clamp(22px,3.4vw,44px);border-top:4px solid var(--gold)}
+.qf .two{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.ql{background:var(--ivory);padding:16px;margin-bottom:18px;font-size:15px;color:var(--mute)}
+.ql ul{list-style:none;display:grid;gap:8px;margin-top:10px}
+.ql li{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:center;color:var(--text)}
+.ql li img{width:44px;height:44px;object-fit:cover;background:#fff}
+.ql li button{min-width:44px;min-height:44px;color:var(--mute)}
+.ql li button svg{width:18px;height:18px;margin:auto}
+.chk{display:flex;gap:12px;align-items:center;min-height:44px;margin-bottom:12px;font-size:15px}
+.chk input{width:22px;height:22px;accent-color:var(--ink)}
+.qf .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:8px}
+.pv{font-size:13px;color:var(--mute);margin-top:12px}
+.pv b{display:inline-block;background:var(--ink);color:var(--gold);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;margin-right:6px;border-radius:2px}
+.done{display:none;background:var(--ink);color:#fff;padding:26px;margin-top:16px}
+.done.on{display:block}
 
 /* footer */
-.ftr{background:var(--ink);color:var(--mute2);padding:64px 0 calc(40px + env(safe-area-inset-bottom));margin-top:clamp(64px,10vw,120px);font-size:15px}
-.ftr-grid{display:grid;gap:32px}
-.ftr h4{font:500 12px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
-.ftr a{text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
-.ftr a:hover{color:#fff}
-.ftr ul{list-style:none}
-.ftr-big{font:600 clamp(44px,8vw,96px)/.95 var(--serif);color:#fff;margin-bottom:8px}
-.ftr-big em{color:var(--gold);font-weight:500}
-.soc{display:flex;gap:8px}
-.soc a{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.15);justify-content:center}
-.soc svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6}
-.ftr-bot{margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:13px}
-@media(min-width:900px){.ftr-grid{grid-template-columns:1.6fr 1fr 1fr 1fr}}
+.ft{background:var(--ink);color:#fff;padding:70px 0 120px}
+.ft .grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+.ft h5{font:800 12px var(--f);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.ft a{display:flex;align-items:center;min-height:40px;text-decoration:none;color:#D5D8DB}
+.ft a:hover{color:var(--gold)}
+.ft .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:22px;font-size:13px;color:var(--mute2)}
 
-/* quote drawer */
-.drawer{position:fixed;z-index:85;right:0;top:0;bottom:0;width:min(100%,420px);background:var(--paper);box-shadow:-30px 0 60px -30px rgba(0,0,0,.4);transform:translateX(105%);transition:transform .4s cubic-bezier(.2,.8,.2,1),visibility .4s;display:flex;flex-direction:column;visibility:hidden}
-.drawer.open{transform:none;visibility:visible}
-.drawer-h{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--ivory2)}
-.drawer-h h3{font-size:32px;color:var(--ink)}
-.drawer-b{flex:1;overflow:auto;padding:16px 20px}
-.drawer-f{padding:16px 20px calc(16px + env(safe-area-inset-bottom));border-top:1px solid var(--ivory2)}
-.drawer-f .btn{width:100%}
-.scrim{position:fixed;inset:0;z-index:84;background:rgba(14,17,21,.5);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
-.scrim.open{opacity:1;visibility:visible}
-.x{width:48px;height:48px;border-radius:50%;display:grid;place-items:center}
-.x svg{width:24px;height:24px}
-.toast{visibility:hidden;position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translate(-50%,140%);z-index:70;background:var(--ink);color:#fff;border:1px solid var(--goldt);border-radius:999px;padding:12px 20px;font-size:14px;transition:transform .35s;white-space:nowrap}
-.toast.on{transform:translate(-50%,0);visibility:visible}
+/* toast, dock, tour */
+.toast{position:fixed;left:50%;top:86px;transform:translate(-50%,-20px);background:var(--ink);color:#fff;padding:12px 18px;font-size:14px;font-weight:600;border-left:4px solid var(--gold);opacity:0;pointer-events:none;transition:.3s;z-index:90}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.dock{display:none}
+.tourbtn{position:fixed;left:16px;bottom:18px;z-index:65;min-height:48px;font-size:12px;box-shadow:0 12px 30px rgba(0,0,0,.3)}
+.tourbtn[hidden]{display:none}
+.tourbar{position:fixed;z-index:70;left:50%;transform:translateX(-50%);bottom:20px;width:min(660px,calc(100% - 24px));background:#0E1216;color:#fff;box-shadow:0 24px 70px rgba(0,0,0,.6);border-top:3px solid var(--gold);padding:16px 20px 0}
+.tourbar[hidden]{display:none}
+.tourbar .hdr2{display:flex;justify-content:space-between;font:700 11px var(--f);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.tourbar h5{font:900 24px/1.02 var(--f);text-transform:uppercase;letter-spacing:-.01em;margin:8px 0 8px}
+.tourbar p{font-size:14.5px;line-height:1.45;color:#DADDE0}
+.tourbar p+p{margin-top:6px}
+.tourbar p b{font-weight:800;text-transform:uppercase;font-size:11px;letter-spacing:.16em;margin-right:6px}
+.tourbar .why b{color:var(--gold)}
+.tourbar .rev b{color:#9FE3B8}
+.tourbar .ctl{display:flex;gap:20px;align-items:center;margin-top:12px;border-top:1px solid rgba(255,255,255,.12)}
+.tourbar .ctl button{font:700 12px var(--f);letter-spacing:.16em;text-transform:uppercase;min-height:46px;padding:0}
+.tourbar .ctl .go{color:var(--ink);background:var(--gold);padding:0 18px;min-height:40px;border-radius:3px}
+.tourbar .sp{flex:1}
+.tourbar .pg{height:3px;background:rgba(255,255,255,.12);margin:0 -20px}.tourbar .pg i{display:block;height:3px;background:var(--gold);width:0}
+.spot{outline:3px solid var(--gold);outline-offset:-3px;transition:outline-color .3s}
 
-.preview-tag{display:inline-block;background:#FFF3C9;color:#6A5300;border-radius:6px;padding:2px 8px;font-size:12px;letter-spacing:.04em}
+/* phone drawer menu */
+.drawer{position:fixed;inset:0;z-index:100;background:var(--ink);color:#fff;display:none;flex-direction:column;padding:90px var(--gut) 40px}
+.drawer.on{display:flex}
+.drawer a{font:900 34px/1 var(--f);text-transform:uppercase;letter-spacing:-.02em;text-decoration:none;min-height:60px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.1)}
+.drawer .x{position:absolute;top:14px;right:var(--gut);width:44px;height:44px;color:#fff}
+.drawer .x svg{width:28px;height:28px;margin:auto}
 
-/* reveal */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
-.rv.in{opacity:1;transform:none}
+@media (max-width:1020px){
+  .nav,.hd .btn.gold{display:none}.menu{display:block}
+  .plan .top,.pbx,.ts .grid,.nw .grid,.story .grid,.quote .grid,.give{grid-template-columns:minmax(0,1fr)}
+  .cg{grid-template-columns:repeat(2,1fr)}
+  .cg a.big{grid-column:span 2;grid-row:auto;aspect-ratio:16/10}
+  .care .grid{grid-template-columns:1fr 1fr}
+  .ft .grid{grid-template-columns:1fr 1fr}
+  .give .pic{min-height:320px}
+  .ts .pic{aspect-ratio:4/3}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .btn{white-space:normal;text-align:center;line-height:1.2;padding:8px 20px}
+  h2{overflow-wrap:anywhere}
+  .hd .in{height:64px}.logo img{height:38px}
+  .hero .tag{display:none}
+  .hero .cta .btn{flex:1}
+  .opts{grid-template-columns:1fr 1fr}
+  .opt{min-height:120px}
+  .qf .two{grid-template-columns:1fr}
+  .cat .hdr{grid-template-columns:1fr}
+  .care .grid{display:grid;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;background:none}
+  .care .grid>div{scroll-snap-align:start}
+  .care .ph{min-height:200px}
+  .pl::before{background:linear-gradient(180deg,rgba(22,27,32,.75) 0%,rgba(22,27,32,.92) 35%,rgba(22,27,32,.95) 100%)}
+  .pl{padding:80px 0}
+  .nw .life{min-height:420px}
+  .ft .grid{grid-template-columns:1fr}
+  .tourbtn{display:none}
+  .dock{display:grid;grid-template-columns:1.4fr 1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:64;background:var(--ink);border-top:2px solid var(--gold);padding-bottom:env(safe-area-inset-bottom)}
+  .dock a{min-height:56px;display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;text-decoration:none;font:700 12.5px var(--f);letter-spacing:.12em;text-transform:uppercase;border-left:1px solid rgba(255,255,255,.1)}
+  .dock a:first-child{background:var(--gold);color:var(--ink);border:0}
+  .tourbar{bottom:66px;padding:12px 14px 0}.tourbar h5{font-size:20px}.tourbar p{font-size:13.5px;line-height:1.4}.tourbar .pg{margin:0 -14px}
+  .toast{top:74px}
+}
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .rv{opacity:1;transform:none}
-  .arch img{transform:none}
 }
 </style>
 </head>
-<body>
+<body class="locked">
 
-<header class="hdr">
-  <div class="wrap">
+<div id="ld" aria-hidden="true"><div class="box"><div class="lg"><img src="img/logo.jpg" alt=""></div><div class="ln"></div><div class="tx">Family owned since 1989</div></div></div>
+
+<header class="hd" id="hd">
+  <div class="wrap in">
     <a class="logo" href="#top" aria-label="Divine Furniture Rental, home"><img src="img/logo.jpg" alt="Divine Furniture Rental" width="200" height="77"></a>
-    <div class="hdr-r">
-      <a class="hdr-tel" href="tel:+14167509272">416.750.9272</a>
-      <button class="qbtn" data-open-quote aria-label="Open quote list">Quote <b id="qcount">0</b></button>
-      <button class="menu-btn" id="menuOpen" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 8h18M3 16h18"/></svg></button>
-    </div>
+    <nav class="nav" aria-label="Main">
+      <a href="#plan">Plan an event</a>
+      <a href="#looks">Book the look</a>
+      <a href="#tradeshow">Trade shows</a>
+      <a href="#catalogue">Catalogue</a>
+      <a href="#story">Our story</a>
+    </nav>
+    <a class="btn gold" href="#quote">Your quote <span class="qn" data-qn>0</span></a>
+    <button class="menu" id="menuBtn" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
 </header>
 
-<nav class="nav" id="nav" aria-label="Main">
-  <div class="nav-top">
-    <img src="img/logo.jpg" alt="Divine Furniture Rental" style="height:44px;width:auto">
-    <button class="x" id="menuClose" aria-label="Close menu" style="color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-  </div>
-  <ol>
-    <li><a href="#catalogue">Catalogue</a></li>
-    <li><a href="#collections">Collections</a></li>
-    <li><a href="#vignettes">Vignettes</a></li>
-    <li><a href="#gallery">Event gallery</a></li>
-    <li><a href="#story">Our story</a></li>
-    <li><a href="#quote">Request a quote</a></li>
-  </ol>
-  <div class="nav-foot">
-    <a href="tel:+14167509272">416.750.9272</a>
-    <a href="mailto:info@divinefr.com">info@divinefr.com</a>
-    <span style="display:inline-flex;align-items:center;min-height:44px">375 Kennedy Road, Toronto</span>
-  </div>
-</nav>
-
-<main id="top">
-<section class="hero dark">
-  <div class="wrap">
-    <div class="arch-wrap rv">
-      <div class="arch-line" aria-hidden="true"></div>
-      <div class="arch" id="arch">
-        <img class="on" src="img/g/e42.jpg" alt="Blush lounge seating and dining set up beneath a brick wall">
-        <img src="img/g/e10.jpg" alt="Gala dinner with cane chairs and tall candles">
-        <img src="img/g/e36.jpg" alt="White curved lounge seating in a glass pavilion">
-        <img src="img/g/e45.jpg" alt="Long lounge run of sofas in a bright hall">
-        <img src="img/g/e17.jpg" alt="Long dinner tables in a heritage hall">
-      </div>
-      <span class="arch-cap">Family owned since 1989</span>
-    </div>
-    <div class="hero-copy">
-      <p class="eyebrow rv">Event and trade show furniture rental</p>
-      <h1 class="rv"><span>The Divine</span><span><em>Difference</em></span></h1>
-      <p class="lede rv">Cutting-edge designs for event and trade show furnishings, delivered with the industry's best service. From our Toronto warehouse to events across Canada.</p>
-      <div class="hero-ctas rv">
-        <a class="btn btn-gold" href="#catalogue">Browse the catalogue</a>
-        <a class="btn btn-line" href="#quote">Request a quote</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="ticker" aria-label="Our team">
-  <div class="ticker-in" aria-hidden="true">
-    <span>Logistics experts</span><span>Carpenters</span><span>Painters</span><span>Seamstresses</span><span>Upholsterers</span><span>Truck drivers</span><span>Onsite specialists</span>
-    <span>Logistics experts</span><span>Carpenters</span><span>Painters</span><span>Seamstresses</span><span>Upholsterers</span><span>Truck drivers</span><span>Onsite specialists</span>
-  </div>
+<div class="drawer" id="drawer">
+  <button class="x" id="menuX" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <a href="#plan">Plan an event</a><a href="#looks">Book the look</a><a href="#tradeshow">Trade shows</a><a href="#new">New pieces</a><a href="#catalogue">Catalogue</a><a href="#story">Our story</a><a href="#quote">Your quote (<span data-qn>0</span>)</a>
 </div>
 
-<section class="facts">
+<main id="top">
+
+<section class="hero" id="hero">
+  <div class="ph" id="heroPh">
+    <img src="img/g/e36.jpg" alt="White lounge seating in a warehouse event space, furnished by Divine">
+    <img src="img/g/e42.jpg" alt="Blush tufted lounge with cane chairs">
+    <img src="img/g/e33.jpg" alt="Patterned bar with globe lights at an event">
+    <img src="img/g/e29.jpg" alt="Orange lounge seating in a brick hall">
+    <img src="img/g/e11.jpg" alt="Curved grey velvet sofa with a white coffee table">
+    <img src="img/g/e53.jpg" alt="Leather chesterfield lounge with a rug">
+  </div>
+  <div class="tag">Toronto · Since 1989</div>
   <div class="wrap">
-    <div class="facts-grid">
-      <div class="fact rv"><b>1989</b><span>The Devine family's first rental company</span></div>
-      <div class="fact rv"><b>1,000+</b><span>Pieces in the online catalogue</span></div>
-      <div class="fact rv"><b>Canada-wide</b><span>A fleet ready for the largest events across Canada</span></div>
-      <div class="fact rv"><b>In-house</b><span>Carpentry, paint and upholstery under one roof</span></div>
+    <h1>Furniture<br>for the<span class="rot" id="rot"><span>gala.</span></span></h1>
+    <div class="row">
+      <p>Cutting-edge designs for event and trade show furnishings, delivered with the industry's best service. From our Toronto warehouse to events across Canada.</p>
+      <div class="cta">
+        <a class="btn gold" href="#plan">Plan my event <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn line" href="#catalogue">Browse 1,000+ pieces</a>
+      </div>
     </div>
+    <div class="pips" id="pips"></div>
   </div>
 </section>
 
-<section class="sec" id="catalogue">
-  <div class="wrap">
-    <div class="sec-head">
-      <div><p class="eyebrow rv">The catalogue</p><h2 class="rv">Every piece,<br><em>by the room.</em></h2></div>
-      <p class="lede rv">Lounge seating, bars, cruisers, communal tables and the props that finish a space. Pick a category to see every piece with its item number.</p>
-    </div>
-    <ul class="cat-list" id="catList"></ul>
-    <div class="cat-more">
-      <p>Looking for something specific? Tell us. We're always adding fresh products, and if we don't have it, we'll look into making it happen.</p>
-      <a class="btn btn-ink" href="#quote">Ask about a piece</a>
-    </div>
-  </div>
-</section>
-<div class="follow" id="follow" aria-hidden="true"><img alt=""></div>
+<div class="tick" aria-label="Our team"><div class="tr" id="tick"></div></div>
 
-<section class="sec collect" id="collections">
+<!-- EVENT PLANNER -->
+<section class="sec plan" id="plan">
   <div class="wrap">
-    <div class="sec-head">
-      <div><p class="eyebrow rv">Collections</p><h2 class="rv">Designed to<br><em>work together.</em></h2></div>
-      <p class="lede rv">Matching families of seating and tables, so a lounge, a bar and a dining room all feel like one event.</p>
+    <div class="top">
+      <div>
+        <p class="k rv">Plan your event in a minute</p>
+        <h2 class="rv">Tell us the room.<br><span class="g">We'll start the list.</span></h2>
+      </div>
+      <p class="lede rv">Three quick questions and you get a starter list built from our catalogue. Adjust it, add any piece, and send it to our office for availability and a quote.</p>
     </div>
-    <div class="coll-tabs rv">
-      <a href="https://divinefr.com/product-category/collections/" target="_blank" rel="noopener">Bellagio <small>50</small></a>
-      <a href="https://divinefr.com/product-category/collections/reclaimed-collection/" target="_blank" rel="noopener">Reclaimed <small>54</small></a>
-      <a href="https://divinefr.com/product-category/collections/sydney-collection/" target="_blank" rel="noopener">Sydney <small>52</small></a>
-      <a href="https://divinefr.com/product-category/collections/" target="_blank" rel="noopener">Napa <small>35</small></a>
-      <a href="https://divinefr.com/product-category/collections/" target="_blank" rel="noopener">Catalina <small>17</small></a>
-    </div>
-    <div class="feat">
-      <div class="feat-main rv">
-        <div>
-          <p class="eyebrow">Latest additions</p>
-          <h3 style="margin:12px 0 14px">The Bellagio <em style="color:var(--gold);font-weight:500">Collection</em></h3>
-          <p>Modular sectionals that curve, snake and cluster. Fresh to the inventory.</p>
+
+    <div class="pbx rv">
+      <div class="steps">
+        <div class="stn"><i class="on"></i><i></i><i></i><i></i></div>
+
+        <div class="st on" data-s="0">
+          <p class="k">Step 1 of 4</p>
+          <h3>What are you planning?</h3>
+          <div class="opts" id="typeOpts"></div>
         </div>
-        <div class="feat-img"><img src="img/p/ss-810-setup-145.jpg" alt="Bellagio Clover 12 piece sofa in black" loading="lazy"></div>
+
+        <div class="st" data-s="1">
+          <p class="k">Step 2 of 4</p>
+          <h3 id="s2h">How many guests?</h3>
+          <div id="guestBox">
+            <div class="rng"><input type="range" id="guests" min="20" max="1000" step="10" value="150" aria-label="Number of guests"><output id="gOut">150</output></div>
+            <div class="chips" style="margin-top:16px" id="fmt">
+              <button class="chip on" data-v="mix">Mix and mingle</button>
+              <button class="chip" data-v="seated">Seated dinner</button>
+            </div>
+          </div>
+          <div id="boothBox" hidden>
+            <div class="chips" id="booth"></div>
+          </div>
+        </div>
+
+        <div class="st" data-s="2">
+          <p class="k">Step 3 of 4</p>
+          <h3>Pick a look</h3>
+          <div class="opts" id="styleOpts"></div>
+        </div>
+
+        <div class="st" data-s="3">
+          <p class="k">Step 4 of 4</p>
+          <h3>When and where?</h3>
+          <div class="fld"><label for="pDate">Event date</label><input type="date" id="pDate"></div>
+          <div class="fld"><label for="pVenue">Venue and city</label><input id="pVenue" placeholder="For example, Enercare Centre, Toronto"></div>
+          <p style="font-size:15px;color:var(--mute)">Your starter list is on the right. Change any amount, then send it to our office.</p>
+        </div>
+
+        <div class="nx">
+          <button class="btn ink" id="nextBtn">Next</button>
+          <button class="bk" id="backBtn" hidden>Back</button>
+        </div>
       </div>
-      <div class="pgrid" id="bellagio"></div>
+
+      <aside class="res" id="res">
+        <div class="bgp"><img src="img/g/e23.jpg" alt=""></div>
+        <p class="k">Your starter list</p>
+        <h4 id="resH">Pick an event to begin</h4>
+        <p class="sm" id="resSub">We'll suggest pieces and amounts from our own catalogue.</p>
+        <div id="resList"><p class="empty">Nothing yet. Choose what you're planning.</p></div>
+        <div class="act">
+          <button class="btn gold" id="toQuote" disabled>Send this list for a quote</button>
+          <button class="btn line" id="shareBtn" style="color:#fff">Share this list</button>
+        </div>
+        <p class="note">Amounts are a starting point. Our office confirms the final list with you.</p>
+      </aside>
     </div>
   </div>
 </section>
 
-<section class="sec vig dark" id="vignettes">
-  <div class="sec-head">
-    <div class="vig-row">
-      <div><p class="eyebrow rv">Vignettes</p><h2 class="rv">Ready-made<br><em>rooms.</em></h2></div>
-      <div class="rail-nav"><button id="railPrev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><button id="railNext" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button></div>
-    </div>
-    <p class="lede rv">Sofa, chairs and tables already paired. Add a full set to your quote in one tap.</p>
-  </div>
-  <div class="rail" id="rail"></div>
-</section>
+<!-- FILMSTRIP -->
+<div class="film" aria-label="Events furnished by Divine"><div class="tr" id="film"></div></div>
 
-<section class="sec" id="gallery">
+<!-- BOOK THE LOOK -->
+<section class="sec looks" id="looks">
   <div class="wrap">
-    <div class="sec-head">
-      <div><p class="eyebrow rv">Event gallery</p><h2 class="rv">In the<br><em>room.</em></h2></div>
-      <p class="lede rv">Galas, lounges, patios and trade show floors, furnished by our team. Tap any photo to see it larger.</p>
-    </div>
-    <div class="wall" id="wall"></div>
-  </div>
-</section>
-
-<section class="sec story" id="story">
-  <div class="wrap story-grid">
-    <div class="story-left">
-      <div class="big-year rv"><small>Our story</small>1989</div>
-      <div class="motto rv">
-        <q>We're only as good as our last job.</q>
-        <p>The philosophy we work by, every day.</p>
+    <div class="hdr">
+      <div>
+        <p class="k rv">Vignettes</p>
+        <h2 class="rv">Book the look.<br><span class="g">Whole rooms, one tap.</span></h2>
       </div>
-      <div class="team rv" aria-label="Our team">
-        <span>Logistics</span><span>Carpentry</span><span>Paint</span><span>Sewing</span><span>Upholstery</span><span>Trucking</span><span>Onsite</span>
-      </div>
+      <p class="lede rv">Sofa, chairs and tables already paired by our team. Add a full set to your quote, then swap any piece with our office.</p>
     </div>
-    <ol class="tl">
-      <li class="rv"><p class="eyebrow">1989</p><h3>Exclusive Affair Rental</h3><p>After years in the event industry, Mike and Edie Devine found Exclusive Affair Rental. It becomes a cornerstone of the event rental market.</p></li>
-      <li class="rv"><p class="eyebrow">Growth</p><h3>Exclusive Display</h3><p>The family expands into the trade show and exhibit space.</p></li>
-      <li class="rv"><p class="eyebrow">Specialty</p><h3>Furnishings by Exclusive</h3><p>Specialty furniture for events and trade shows joins the family of companies.</p></li>
-      <li class="rv"><p class="eyebrow">Today</p><h3>Divine Furniture Rental</h3><p>After a brief retirement, Mike Devine returns with a renewed vision. Divine specializes in cutting-edge event and trade show furnishings, backed by a team of logistics experts, carpenters, painters, seamstresses, upholsterers, truck drivers and onsite specialists. Proudly family owned and operated.</p></li>
-    </ol>
+    <div class="lk" id="lk"></div>
   </div>
 </section>
 
-<section class="sec" id="care">
-  <div class="wrap">
-    <div class="sec-head">
-      <div><p class="eyebrow rv">Sustainability</p><h2 class="rv">Built to<br><em>last longer.</em></h2></div>
-      <p class="lede rv">We prioritize sustainability in everything we do, and we're always open to learning. Have an idea we could put to work? We'd love to hear it.</p>
-    </div>
-    <div class="care-grid">
-      <div class="care rv"><svg viewBox="0 0 40 40"><path d="M14 6h12M17 6v6l-6 6v14a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V18l-6-6V6"/><path d="M11 24h18"/></svg><div><h3>Food-safe cleaning</h3><p>All cleaning products used on our inventory are environmentally friendly and food-safe.</p></div></div>
-      <div class="care rv"><svg viewBox="0 0 40 40"><path d="M8 14l12-7 12 7v12l-12 7-12-7z"/><path d="M8 14l12 7 12-7M20 21v12"/></svg><div><h3>Reusable covers</h3><p>The first rental company in Canada to use reusable, custom-made covers for every product, made from recycled plastic.</p></div></div>
-      <div class="care rv"><svg viewBox="0 0 40 40"><path d="M15 9l-5 8h9M25 9l5 8h-9M14 31h12l4-7M10 17l-3 6 7 8M30 17l3 6-7 8"/></svg><div><h3>Plastic reuse</h3><p>Where wrapping is needed for safe delivery, we reuse it wherever possible and recycle the rest at our facility.</p></div></div>
-      <div class="care rv"><svg viewBox="0 0 40 40"><path d="M16 5h8v5l3 4v19a2 2 0 0 1-2 2H15a2 2 0 0 1-2-2V14l3-4z"/><path d="M13 20h14"/></svg><div><h3>No plastic bottles</h3><p>A filtered water system lets our warehouse team refill company-provided reusable bottles.</p></div></div>
-      <div class="care rv"><svg viewBox="0 0 40 40"><path d="M24 7a7 7 0 0 0-6 10L7 28a3 3 0 0 0 4 4l11-11a7 7 0 0 0 9-8l-4 4-4-1-1-4 4-4a7 7 0 0 0-2-1z"/></svg><div><h3>Repaired in-house</h3><p>Our carpentry and upholstery teams repair pieces in-house, extending their life and keeping them out of landfill.</p></div></div>
-      <div class="care rv"><svg viewBox="0 0 40 40"><path d="M20 35s11-10 11-19a11 11 0 0 0-22 0c0 9 11 19 11 19z"/><circle cx="20" cy="16" r="4"/></svg><div><h3>GPS truck routing</h3><p>Every route is planned by GPS to run efficiently and reduce emissions.</p></div></div>
-      <div class="care rv"><svg viewBox="0 0 40 40"><path d="M6 19l14-12 14 12M10 16v18h20V16"/><path d="M20 30s-6-4-6-8a3 3 0 0 1 6-1 3 3 0 0 1 6 1c0 4-6 8-6 8z"/></svg><div><h3>Donated, not discarded</h3><p>When pieces are retired, we donate them to Habitat for Humanity, a partnership we cherish.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="give rv" id="giving">
-  <div>
-    <p class="eyebrow">Giving back</p>
-    <h2 style="font-size:clamp(40px,6vw,72px);margin:14px 0 18px">Charity events,<br><em>close to heart.</em></h2>
-    <p class="lede">Through donations, discounts and in-kind contributions, we're honoured to help these organizations bring their visions to life. Planning a charitable event? We'd be delighted to hear from you.</p>
-    <a class="btn btn-gold" href="#quote" style="margin-top:26px">Talk to our office</a>
-  </div>
-  <ul>
-    <li>Variety Village of Ontario</li>
-    <li>SickKids Foundation</li>
-    <li>Michael Garron Hospital Foundation</li>
-    <li>Arthritis Society</li>
-    <li>Best Buddies Canada</li>
-    <li>Quest for Awareness<small>Supporting the Alzheimer's Society of Toronto</small></li>
-    <li>We Are Warriors Gala<small>Supporting the Princess Margaret Charitable Foundation</small></li>
-    <li>Lawsuits Charity Event<small>Supporting the Princess Margaret Charitable Foundation</small></li>
-    <li>POGO PJ Party<small>Supporting the Pediatric Oncology Group of Ontario</small></li>
-  </ul>
-</section>
-
-<section class="sec" id="quote">
-  <div class="wrap quote-grid">
+<!-- TRADE SHOWS -->
+<section class="sec dk ts" id="tradeshow">
+  <div class="wrap grid">
+    <div class="pic rv"><img id="tsImg" src="img/g/e23.jpg" alt="Lounge furniture with cane chairs at a branded event"><div class="cap" id="tsCap">10 × 10</div></div>
     <div>
-      <p class="eyebrow rv">Request a quote</p>
-      <h2 class="rv">Let's furnish<br><em>your event.</em></h2>
-      <p class="lede rv" style="margin-top:18px">Send your date, venue and the pieces you have in mind. Our office will come back to you with availability and a quote.</p>
-      <div class="contact-lines rv">
-        <a href="tel:+14167509272"><svg viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2"/></svg>416.750.9272</a>
-        <a href="mailto:info@divinefr.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>info@divinefr.com</a>
-        <a href="https://maps.google.com/?q=375+Kennedy+Road+Toronto+ON+M1K+2A1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>375 Kennedy Road, Toronto, ON M1K 2A1</a>
-        <div><svg viewBox="0 0 24 24"><path d="M7 8V3h10v5M7 17H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="7" y="14" width="10" height="7"/></svg>Fax 416.750.0448</div>
+      <p class="k rv">Trade show booths</p>
+      <h2 class="rv">Pick your booth.<br><span class="g">We'll furnish it.</span></h2>
+      <p class="lede rv" style="margin-top:18px">Choose your booth size and see a ready-to-go furniture package. Add it to your quote in one tap, and our team delivers and sets up on the show floor.</p>
+      <div class="bs" id="bs"></div>
+      <ul class="pk" id="pk"></ul>
+      <button class="btn gold" id="pkAdd">Add this booth package</button>
+      <p class="fine">Package contents are a suggested starting point.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEW -->
+<section class="sec nw" id="new">
+  <div class="wrap grid">
+    <div class="life rv"><img src="img/n/patio-bar.jpg" alt="White fringe umbrella beside a white fluted bar on a lakeside patio"><h2>Just<br>landed.</h2></div>
+    <div>
+      <p class="k rv">New to the inventory</p>
+      <p class="lede rv" style="margin:14px 0 24px">Fresh pieces from our latest additions, ready for the patio season and the bar.</p>
+      <div class="items" id="newItems"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOGUE -->
+<section class="sec cat" id="catalogue" style="background:var(--ivory2)">
+  <div class="wrap">
+    <div class="hdr">
+      <div>
+        <p class="k rv">The catalogue</p>
+        <h2 class="rv">1,000+ pieces.<br><span class="g">Pick by category.</span></h2>
+      </div>
+      <a class="btn ink rv" href="https://divinefr.com/shop/" target="_blank" rel="noopener">Open the full catalogue</a>
+    </div>
+    <div class="cg" id="cg"></div>
+    <div class="ask"><span>Looking for something specific? We're always adding fresh products, and if we don't have it, we'll look into making it happen.</span><a class="btn line" href="#quote" style="color:var(--ink)">Ask about a piece</a></div>
+  </div>
+</section>
+
+<!-- PLANNERS -->
+<section class="pl" id="planners">
+  <img src="img/g/e08.jpg" alt="Long dinner tables with cane chairs and tall florals">
+  <div class="wrap">
+    <div class="bx">
+      <p class="k rv" style="color:var(--gold)">For planners and designers</p>
+      <h2 class="rv">Your clients.<br><span class="g" style="color:var(--gold)">Our furniture.</span></h2>
+      <ul>
+        <li class="rv"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30V12a3 3 0 0 1 3-3h18a3 3 0 0 1 3 3v18"/><path d="M5 30h30"/><path d="M14 16h12M14 22h8"/></svg><div><b>Share a list for sign-off</b><span>Build a list and send your client a link. They see the same pieces and amounts you do.</span></div></li>
+        <li class="rv"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="9" width="26" height="24" rx="2"/><path d="M7 16h26M14 5v7M26 5v7"/><path d="M15 24l4 4 7-8"/></svg><div><b>Repeat-event lists</b><span>Saved lists for venues and events you run every year.</span></div></li>
+        <li class="rv"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="14" r="6"/><path d="M8 34c1.5-7 6.5-10 12-10s10.5 3 12 10"/></svg><div><b>A trade account</b><span>One account for every event you plan with us.</span></div></li>
+      </ul>
+      <a class="btn gold" href="#quote">Ask about a trade account</a>
+      <div><span class="ph-tag">Proposed: program details to confirm with Divine</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="sec story" id="story">
+  <div class="wrap grid">
+    <div>
+      <p class="k rv">Our story</p>
+      <div class="big rv">1989</div>
+      <blockquote class="rv">We're only as good as our last job.</blockquote>
+      <p class="lede rv">The philosophy we work by, every day. Proudly family owned and operated.</p>
+      <div class="pic rv"><img src="img/g/e17.jpg" alt="Long harvest tables set in a brick warehouse event space" loading="lazy"></div>
+    </div>
+    <div>
+      <ol class="tl">
+        <li class="rv"><small>1989</small><h4>Exclusive Affair Rental</h4><p>After years in the event industry, Mike and Edie Devine found Exclusive Affair Rental. It becomes a cornerstone of the event rental market.</p></li>
+        <li class="rv"><small>Growth</small><h4>Exclusive Display</h4><p>The family expands into the trade show and exhibit space.</p></li>
+        <li class="rv"><small>Specialty</small><h4>Furnishings by Exclusive</h4><p>Specialty furniture for events and trade shows joins the family of companies.</p></li>
+        <li class="rv"><small>Today</small><h4>Divine Furniture Rental</h4><p>After a brief retirement, Mike Devine returns with a renewed vision: cutting-edge event and trade show furnishings, backed by a team that does it all under one roof.</p>
+          <div class="trd"><span>Logistics experts</span><span>Carpenters</span><span>Painters</span><span>Seamstresses</span><span>Upholsterers</span><span>Truck drivers</span><span>Onsite specialists</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- SUSTAINABILITY -->
+<section class="sec dk care" id="care">
+  <div class="wrap">
+    <p class="k rv">Sustainability</p>
+    <h2 class="rv">Built to<br><span class="g">last longer.</span></h2>
+    <p class="lede rv" style="margin-top:18px">We prioritize sustainability in everything we do, and we're always open to learning. Have an idea we could put to work? We'd love to hear it.</p>
+    <div class="grid" id="careGrid"></div>
+  </div>
+</section>
+
+<!-- GIVING -->
+<section class="give" id="giving">
+  <div class="pic"><img src="img/g/e10.jpg" alt="Dinner tables with white cane chairs and florals" loading="lazy"></div>
+  <div class="tx">
+    <p class="k rv">Giving back</p>
+    <h2 class="rv">Charity events, close to heart.</h2>
+    <p class="rv" style="margin-top:16px;max-width:52ch">Through donations, discounts and in-kind contributions, we're honoured to help these organizations bring their visions to life.</p>
+    <ul id="charity"></ul>
+    <a class="btn ink" href="#quote">Planning a charity event? Talk to us</a>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="sec quote" id="quote">
+  <div class="wrap grid">
+    <div>
+      <p class="k rv">Request a quote</p>
+      <h2 class="rv">Let's furnish<br><span class="g">your event.</span></h2>
+      <p class="lede rv" style="margin-top:18px">Send your date, venue and the pieces you have in mind. Our office comes back to you with availability and a quote.</p>
+      <div class="pic rv"><img src="img/g/e40.jpg" alt="White curved lounge seating with gold side tables" loading="lazy"></div>
+      <div class="ci">
+        <a href="tel:+14167509272">416.750.9272</a>
+        <a href="mailto:info@divinefr.com">info@divinefr.com</a>
+        <span>375 Kennedy Road, Toronto, ON M1K 2A1</span>
+        <span style="color:var(--mute)">Fax 416.750.0448</span>
       </div>
     </div>
-    <form class="form rv" id="qform" novalidate>
-      <div class="row">
-        <label>Name<input name="name" autocomplete="name" required></label>
-        <label>Email<input name="email" type="email" autocomplete="email" required></label>
+    <form class="qf rv" id="qf" novalidate>
+      <div class="ql" id="ql"></div>
+      <div class="two">
+        <div class="fld"><label for="fName">Name</label><input id="fName" autocomplete="name" required></div>
+        <div class="fld"><label for="fCo">Company</label><input id="fCo" autocomplete="organization"></div>
+        <div class="fld"><label for="fEmail">Email</label><input id="fEmail" type="email" autocomplete="email" required></div>
+        <div class="fld"><label for="fPhone">Phone</label><input id="fPhone" type="tel" autocomplete="tel"></div>
+        <div class="fld"><label for="fDate">Event date</label><input id="fDate" type="date"></div>
+        <div class="fld"><label for="fVenue">Venue and city</label><input id="fVenue"></div>
       </div>
-      <div class="row">
-        <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
-        <label>Event date<input name="date" type="date"></label>
-      </div>
-      <label>Venue and city<input name="venue"></label>
-      <div class="qlist" id="formList">Your quote list is empty. Tap "Add to quote" on any piece, or describe what you need below.</div>
-      <label>Tell us about your event<textarea name="msg"></textarea></label>
-      <button class="btn btn-ink" type="submit">Send quote request</button>
-      <p class="form-note"><span class="preview-tag">Preview</span> This form isn't connected yet, so nothing is sent.</p>
-      <div class="form-done" id="formDone">Thanks. In the live site, this request goes straight to the Divine office.</div>
+      <label class="chk"><input type="checkbox" id="fHold"> Please hold my date while we finalize</label>
+      <label class="chk"><input type="checkbox" id="fPlanner"> I'm a planner or designer</label>
+      <div class="fld"><label for="fNote">Tell us about your event</label><textarea id="fNote" rows="4"></textarea></div>
+      <div class="row"><button class="btn ink" type="submit">Send quote request</button></div>
+      <p class="pv"><b>Preview</b>This form isn't connected yet, so nothing is sent.</p>
+      <div class="done" id="done"><h4 style="font-size:22px;margin-bottom:8px">Thank you.</h4><p>On the live site, this request and your list go straight to the Divine office.</p></div>
     </form>
   </div>
 </section>
+
 </main>
 
-<footer class="ftr dark">
+<footer class="ft">
   <div class="wrap">
-    <div class="ftr-grid">
-      <div>
-        <p class="ftr-big">The Divine <em>Difference</em></p>
-        <p>Divine Furniture Rental Inc.<br>375 Kennedy Road, Toronto, Ontario M1K 2A1</p>
-        <div class="soc" style="margin-top:16px">
-          <a href="https://www.instagram.com/divinefurniturerental/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a>
-          <a href="https://www.facebook.com/Divine-Furniture-Rental-190292080982745/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
-        </div>
-      </div>
-      <div><h4>Shop</h4><ul><li><a href="#catalogue">Catalogue</a></li><li><a href="#collections">Collections</a></li><li><a href="#vignettes">Vignettes</a></li><li><a href="https://divinefr.com/product-category/new-products/" target="_blank" rel="noopener">New products</a></li></ul></div>
-      <div><h4>Company</h4><ul><li><a href="#story">Our story</a></li><li><a href="#gallery">Event gallery</a></li><li><a href="https://divinefr.com/rental-agreement" target="_blank" rel="noopener">Rental agreement</a></li><li><a href="https://divinefr.com/employment-opportunities" target="_blank" rel="noopener">Careers</a></li></ul></div>
-      <div><h4>Contact</h4><ul><li><a href="tel:+14167509272">416.750.9272</a></li><li><a href="mailto:info@divinefr.com">info@divinefr.com</a></li><li><a href="https://divinefr.com/privacy-policy" target="_blank" rel="noopener">Privacy policy</a></li></ul></div>
+    <div class="grid">
+      <div><img src="img/logo.jpg" alt="Divine Furniture Rental" width="200" height="77" style="height:56px;width:auto;margin-bottom:16px"><p style="color:var(--mute2);font-size:15px">Divine Furniture Rental Inc.<br>375 Kennedy Road, Toronto, Ontario M1K 2A1</p></div>
+      <div><h5>Rent</h5><a href="#plan">Plan an event</a><a href="#looks">Book the look</a><a href="#tradeshow">Trade show booths</a><a href="#catalogue">Catalogue</a></div>
+      <div><h5>Company</h5><a href="#story">Our story</a><a href="#care">Sustainability</a><a href="#giving">Giving back</a><a href="https://divinefr.com/rental-agreement/" target="_blank" rel="noopener">Rental agreement</a></div>
+      <div><h5>Contact</h5><a href="tel:+14167509272">416.750.9272</a><a href="mailto:info@divinefr.com">info@divinefr.com</a><a href="#quote">Request a quote</a></div>
     </div>
-    <div class="ftr-bot"><span>&copy; 2026 Divine Furniture Rental. Proudly family owned and operated.</span><span>Design preview</span></div>
+    <div class="base"><span>© 2026 Divine Furniture Rental. Proudly family owned and operated.</span><span>Design preview</span></div>
   </div>
 </footer>
 
-<div class="scrim" id="scrim"></div>
-<aside class="drawer" id="drawer" aria-label="Quote list">
-  <div class="drawer-h"><h3>Your quote</h3><button class="x" id="drawerClose" aria-label="Close quote list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <div class="drawer-b"><div class="qlist" id="drawerList" style="border:0;padding:0"></div></div>
-  <div class="drawer-f"><a class="btn btn-ink" href="#quote" id="drawerGo">Request a quote for these</a></div>
-</aside>
-<div class="lb" id="lb" role="dialog" aria-label="Photo viewer">
-  <img alt="">
-  <button class="lb-x" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-  <button class="lb-p" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
-  <button class="lb-n" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<nav class="dock" aria-label="Quick actions"><a href="#quote">Quote (<span data-qn>0</span>)</a><a href="tel:+14167509272">Call</a><a href="#" id="dTour">Tour</a></nav>
+
+<button class="btn gold tourbtn" id="tourBtn">Take the tour</button>
+<div class="tourbar" id="tour" hidden role="dialog" aria-label="Guided tour">
+  <div class="hdr2"><span id="tk">Guided tour</span><span id="tn"></span></div>
+  <h5 id="th">What's new on the Divine site</h5>
+  <p id="tp">A short guided tour of the redesign. It plays by itself.</p>
+  <p class="why" id="ty" hidden></p>
+  <p class="rev" id="tr" hidden></p>
+  <div class="ctl"><button class="go" id="tGo">Start the tour</button><button id="tPause" hidden>Pause</button><button id="tNext" hidden>Next</button><span class="sp"></span><button id="tX">Close</button></div>
+  <div class="pg"><i id="tBar"></i></div>
 </div>
-<div class="toast" id="toast"></div>
 
 <script>
 (function(){
+var $=function(s,c){return (c||document).querySelector(s)},$$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+var PLUS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
+var TICK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>';
+var XI='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+
+/* ---------- data (from divinefr.com) ---------- */
 var CAT='https://divinefr.com/product-category/';
 var cats=[
- ['Soft Seating',308,'soft-seating/','soft-seating'],
- ['Bars & Bar Shelves',116,'bars-bar-shelves/','bars'],
- ['Outdoor',103,'outdoor/','outdoor'],
- ['End & Accent Tables',93,'end-accent-tables/','end-accent'],
- ['Barstools',80,'barstools/','barstools'],
- ['Chairs & Cushions',80,'chairs-cushions/','chairs'],
- ['Café & Dining Tables',72,'cafe-dining-tables/','cafe-dining'],
- ['Props',65,'props/','props'],
- ['Cruiser Tables',64,'cruiser-tables/','cruiser'],
- ['Coffee Tables',53,'coffee-tables/','coffee'],
- ['Office Furniture',41,'office-furniture/','office'],
- ['Communal Tables',27,'communal-tables/','communal'],
- ['Miscellaneous',178,'miscellaneous/','misc']
+ ['soft','Soft Seating',308,'soft-seating/','soft-seating'],
+ ['bars','Bars & Bar Shelves',116,'bars-bar-shelves/','bars'],
+ ['outdoor','Outdoor',103,'outdoor/','outdoor'],
+ ['end','End & Accent Tables',93,'end-accent-tables/','end-accent'],
+ ['stools','Barstools',80,'barstools/','barstools'],
+ ['chairs','Chairs & Cushions',80,'chairs-cushions/','chairs'],
+ ['dining','Café & Dining Tables',72,'cafe-dining-tables/','cafe-dining'],
+ ['props','Props',65,'props/','props'],
+ ['cruiser','Cruiser Tables',64,'cruiser-tables/','cruiser'],
+ ['coffee','Coffee Tables',53,'coffee-tables/','coffee'],
+ ['office','Office Furniture',41,'office-furniture/','office'],
+ ['communal','Communal Tables',27,'communal-tables/','communal'],
+ ['misc','Miscellaneous',178,'miscellaneous/','misc']
 ];
-var plus='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
-var tick='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>';
-function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
-var list=document.getElementById('catList');
-list.innerHTML=cats.map(function(c){return '<li><a href="'+CAT+c[2]+'" target="_blank" rel="noopener" data-img="img/p/'+c[3]+'.jpg"><span class="nm">'+esc(c[0])+'</span><span class="ct">'+c[1]+' pieces</span><span class="th"><img src="img/p/'+c[3]+'.jpg" alt="" loading="lazy"></span></a></li>'}).join('');
-
-var bell=[['SS-810-SETUP-388','Bellagio Sofa 90','ss-810-setup-388'],['SS-810-SETUP-385','Bellagio Loveseat 90','ss-810-setup-385'],['SS-810-SETUP-120','Bellagio Compass Curved Sofa','ss-810-setup-120'],['SS-810-SETUP-145','Bellagio Clover 12 Piece Sofa','ss-810-setup-145']];
+var C={};cats.forEach(function(c){C[c[0]]={n:c[1],i:'img/p/'+c[4]+'.jpg'}});
 var vig=[
- ['SS-450-SETUP-001','Eloise Vignette, Black Velvet','ss-450-setup-001'],
- ['SS-600-SETUP-001','Mia Corduroy Sofa Vignette, Yellow','ss-600-setup-001'],
- ['SS-650-SETUP-010','Napa Natural Cane Sofa Vignette','ss-650-setup-010'],
- ['SS-630-SETUP-015','Tufted Fabric Sofa Vignette, Ocean Blue','ss-630-setup-015'],
- ['SS-360-SETUP-005','BK Vignette, Burnt Orange 7 ft','ss-360-setup-005'],
- ['SS-125-SETUP-010','Sculpted Sofa Vignette, Red','ss-125-setup-010'],
- ['SS-200-SETUP-001','Distressed Sofa Vignette, Brown','ss-200-setup-001'],
- ['SS-110-SETUP-001','Open Back Sofa Vignette, Cognac','ss-110-setup-001'],
- ['SS-365-SETUP-005','BK Vignette, Blue Velvet 7 ft','ss-365-setup-005'],
- ['SS-250-SETUP-010','Nora Vignette, Blue','ss-250-setup-010'],
- ['SS-210-SETUP-001','Sussex Tufted Sofa Vignette','ss-210-setup-001'],
- ['DT-SETUP-001','Sydney Fluted Oval Dining Table','dt-setup-001'],
- ['COMM-SETUP-001','Sydney Fluted Communal Table','comm-setup-001'],
- ['CRU-SETUP-001','Gatsby and Levi Cruiser Vignette','cru-setup-001']
+ ['SS-450-SETUP-001','Eloise Vignette, Black Velvet','ss-450-setup-001','glam'],
+ ['SS-365-SETUP-005','BK Vignette, Blue Velvet 7 ft','ss-365-setup-005','glam'],
+ ['SS-650-SETUP-010','Napa Natural Cane Sofa Vignette','ss-650-setup-010','natural'],
+ ['SS-600-SETUP-001','Mia Corduroy Sofa Vignette, Yellow','ss-600-setup-001','colour'],
+ ['SS-360-SETUP-005','BK Vignette, Burnt Orange 7 ft','ss-360-setup-005','colour'],
+ ['SS-125-SETUP-010','Sculpted Sofa Vignette, Red','ss-125-setup-010','colour'],
+ ['SS-110-SETUP-001','Open Back Sofa Vignette, Cognac','ss-110-setup-001','leather'],
+ ['SS-200-SETUP-001','Distressed Sofa Vignette, Brown','ss-200-setup-001','leather'],
+ ['SS-630-SETUP-015','Tufted Fabric Sofa Vignette, Ocean Blue','ss-630-setup-015','classic'],
+ ['SS-210-SETUP-001','Sussex Tufted Sofa Vignette','ss-210-setup-001','classic'],
+ ['SS-250-SETUP-010','Nora Vignette, Blue','ss-250-setup-010','classic'],
+ ['SS-810-SETUP-388','Bellagio Sofa 90','ss-810-setup-388','natural'],
+ ['CRU-SETUP-001','Gatsby and Levi Cruiser Vignette','cru-setup-001','glam'],
+ ['COMM-SETUP-001','Sydney Fluted Communal Table','comm-setup-001','natural']
 ];
-function card(p,cls){return '<article class="'+cls+'"><div class="im"><img src="img/p/'+p[2]+'.jpg" alt="'+esc(p[1])+'"></div><span class="sku">'+p[0]+'</span><h4>'+esc(p[1])+'</h4><button class="add" data-q="'+p[0]+'" data-n="'+esc(p[1])+'" data-i="img/p/'+p[2]+'.jpg">'+plus+'<span>Add to quote</span></button></article>'}
-document.getElementById('bellagio').innerHTML=bell.map(function(p){return card(p,'pc rv')}).join('');
-document.getElementById('rail').innerHTML=vig.map(function(p){return card(p,'vc')}).join('');
-
-var GD={"e42": [1400, 934], "e08": [838, 960], "e36": [1179, 765], "e29": [775, 960], "e10": [776, 960], "e47": [809, 960], "e53": [1179, 777], "e33": [1179, 940], "e24": [762, 959], "e40": [1179, 780], "e16": [839, 960], "e14": [1179, 876], "e45": [884, 960], "e11": [1062, 960], "e23": [768, 960], "e17": [770, 960], "e46": [734, 960], "e25": [964, 960], "e44": [729, 960], "e30": [774, 960], "e12": [837, 960], "e37": [959, 960]};
+var news=[
+ ['BS-SET-252','Levi Curved Barstool, White Frame, White Velvet','img/n/levi-white.jpg'],
+ ['BS-SET-257','Levi Curved Barstool, Black Frame, Black Velvet','img/n/levi-black.jpg'],
+ ['BAR-SETUP-106','Wine Barrel Bar with Wood Top','img/n/barrel-bar.jpg'],
+ ['MISC-UMB-005','White Boho Fringe Umbrella with Base','img/n/umbrella.jpg']
+];
+var types=[
+ {id:'gala',n:'Gala or wedding',i:'img/g/e16.jpg'},
+ {id:'corp',n:'Corporate reception',i:'img/g/e44.jpg'},
+ {id:'booth',n:'Trade show booth',i:'img/g/e23.jpg'},
+ {id:'patio',n:'Patio or outdoor',i:'img/g/e14.jpg'},
+ {id:'launch',n:'Brand launch or activation',i:'img/g/e33.jpg'},
+ {id:'lounge',n:'Lounge or VIP area',i:'img/g/e45.jpg'}
+];
+var styles=[
+ {id:'glam',n:'Velvet and glam',i:'img/p/ss-450-setup-001.jpg'},
+ {id:'natural',n:'Natural and cane',i:'img/p/ss-650-setup-010.jpg'},
+ {id:'leather',n:'Warm leather',i:'img/p/ss-110-setup-001.jpg'},
+ {id:'colour',n:'Bold colour',i:'img/p/ss-600-setup-001.jpg'},
+ {id:'classic',n:'Classic tufted',i:'img/p/ss-630-setup-015.jpg'}
+];
+var booths={
+ '10 × 10':{img:'img/g/e24.jpg',items:[['cruiser',1],['stools',2],['end',1]]},
+ '10 × 20':{img:'img/g/e23.jpg',items:[['soft',3],['coffee',1],['cruiser',1],['stools',2]]},
+ '20 × 20':{img:'img/g/e37.jpg',items:[['vig',1],['cruiser',2],['stools',6],['bars',1]]},
+ 'Island':{img:'img/g/e36.jpg',items:[['vig',2],['bars',1],['stools',6],['cruiser',3],['props',2]]}
+};
+var care=[
+ ['Food-safe cleaning','All cleaning products used on our inventory are environmentally friendly and food-safe.','<path d="M14 6h12v6l3 4v18a2 2 0 0 1-2 2H13a2 2 0 0 1-2-2V16l3-4z"/><path d="M11 22h18"/>'],
+ ['Reusable covers','The first rental company in Canada to use reusable, custom-made covers for every product, made from recycled plastic.','<path d="M8 14l12-7 12 7v12l-12 7-12-7z"/><path d="M8 14l12 7 12-7M20 21v12"/>'],
+ ['Plastic reuse','Where wrapping is needed for safe delivery, we reuse it wherever possible and recycle the rest at our facility.','<path d="M12 14a9 9 0 0 1 16-2M28 26a9 9 0 0 1-16 2"/><path d="M28 6v6h-6M12 34v-6h6"/>'],
+ ['No plastic bottles','A filtered water system lets our warehouse team refill company-provided reusable bottles.','<path d="M16 4h8v5l3 4v21a2 2 0 0 1-2 2H15a2 2 0 0 1-2-2V13l3-4z"/><path d="M13 20h14"/>'],
+ ['Repaired in-house','Our carpentry and upholstery teams repair pieces in-house, extending their life and keeping them out of landfill.','<path d="M24 8a7 7 0 0 0-8 9L6 27l4 4 10-10a7 7 0 0 0 9-8l-4 4-4-1-1-4z"/>'],
+ ['GPS truck routing','Every route is planned by GPS to run efficiently and reduce emissions.','<path d="M4 12h20v14H4zM24 17h7l4 5v4h-11"/><circle cx="11" cy="29" r="3"/><circle cx="29" cy="29" r="3"/>'],
+ ['Donated, not discarded','When pieces are retired, we donate them to Habitat for Humanity, a partnership we cherish.','<path d="M20 33S6 25 6 15a7 7 0 0 1 14-2 7 7 0 0 1 14 2c0 10-14 18-14 18z"/>']
+];
+var charities=[['Variety Village of Ontario',''],['SickKids Foundation',''],['Michael Garron Hospital Foundation',''],['Arthritis Society',''],['Best Buddies Canada',''],['Quest for Awareness',"Supporting the Alzheimer's Society of Toronto"],['We Are Warriors Gala','Supporting the Princess Margaret Charitable Foundation'],['Lawsuits Charity Event','Supporting the Princess Margaret Charitable Foundation'],['POGO PJ Party','Supporting the Pediatric Oncology Group of Ontario']];
 var gal=['e42','e08','e36','e29','e10','e47','e53','e33','e24','e40','e16','e14','e45','e11','e23','e17','e46','e25','e44','e30','e12','e37'];
-var wall=document.getElementById('wall');
-wall.innerHTML=gal.map(function(g,i){return '<button data-i="'+i+'" aria-label="View event photo '+(i+1)+'"><img src="img/g/'+g+'.jpg" width="'+GD[g][0]+'" height="'+GD[g][1]+'" alt="Event furnished by Divine Furniture Rental" loading="lazy"></button>'}).join('');
 
-/* quote list */
-var Q=[];try{Q=JSON.parse(localStorage.getItem('dfr-quote')||'[]')}catch(e){Q=[]}
-function save(){try{localStorage.setItem('dfr-quote',JSON.stringify(Q))}catch(e){}}
-var toastEl=document.getElementById('toast'),tt;
-function toast(m){toastEl.textContent=m;toastEl.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toastEl.classList.remove('on')},2200)}
+/* ---------- quote store ---------- */
+var Q=[];try{Q=JSON.parse(localStorage.getItem('dfr-q2')||'[]')}catch(e){Q=[]}
+function save(){try{localStorage.setItem('dfr-q2',JSON.stringify(Q))}catch(e){}}
+var toastEl=$('#toast'),tt;
+function toast(m){toastEl.textContent=m;toastEl.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toastEl.classList.remove('on')},2400)}
+function addItem(o,silent){var f=Q.find(function(x){return x.s===o.s});if(f){f.q=(f.q||1)+(o.q||1)}else{Q.push({s:o.s,n:o.n,i:o.i,q:o.q||1})}save();render();if(!silent)toast('Added to your quote')}
 function render(){
-  document.getElementById('qcount').textContent=Q.length;
-  document.querySelectorAll('.add').forEach(function(b){var on=Q.some(function(x){return x.s===b.dataset.q});b.classList.toggle('in',on);b.innerHTML=(on?tick:plus)+'<span>'+(on?'On your quote':'Add to quote')+'</span>'});
-  var html=Q.length?'<strong style="color:var(--ink)">'+Q.length+' piece'+(Q.length>1?'s':'')+' on your quote</strong><ul>'+Q.map(function(x){return '<li><img src="'+x.i+'" alt=""><span>'+esc(x.n)+'<br><small style="color:var(--mute)">'+x.s+'</small></span><button data-rm="'+x.s+'" aria-label="Remove '+esc(x.n)+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></li>'}).join('')+'</ul>':'Your quote list is empty. Tap "Add to quote" on any piece, or describe what you need below.';
-  document.getElementById('formList').innerHTML=html;
-  document.getElementById('drawerList').innerHTML=Q.length?html:'<p style="color:var(--mute)">Nothing here yet. Tap "Add to quote" on any piece and it lands here.</p>';
+  var n=Q.reduce(function(a,x){return a+(x.q||1)},0);
+  $$('[data-qn]').forEach(function(e){e.textContent=n});
+  $$('.add').forEach(function(b){var on=Q.some(function(x){return x.s===b.dataset.q});b.classList.toggle('in',on);b.innerHTML=(on?TICK:PLUS)+'<span>'+(on?'On your quote':'Add whole set')+'</span>'});
+  $('#ql').innerHTML=Q.length?'<strong style="color:var(--ink)">Your list: '+n+' piece'+(n>1?'s':'')+'</strong><ul>'+Q.map(function(x){return '<li><img src="'+x.i+'" alt=""><span>'+esc(x.n)+(x.q>1?' × '+x.q:'')+'<br><small style="color:var(--mute)">'+esc(x.s)+'</small></span><button type="button" data-rm="'+esc(x.s)+'" aria-label="Remove '+esc(x.n)+'">'+XI+'</button></li>'}).join('')+'</ul>':'Your list is empty. Use the event planner, tap "Add whole set" on any look, or describe what you need below.';
 }
 document.addEventListener('click',function(e){
   var a=e.target.closest('.add');
-  if(a){var i=Q.findIndex(function(x){return x.s===a.dataset.q});if(i>-1){Q.splice(i,1);toast('Removed from your quote')}else{Q.push({s:a.dataset.q,n:a.dataset.n,i:a.dataset.i});toast('Added to your quote')}save();render();return}
+  if(a){var i=Q.findIndex(function(x){return x.s===a.dataset.q});if(i>-1){Q.splice(i,1);save();render();toast('Removed from your quote')}else addItem({s:a.dataset.q,n:a.dataset.n,i:a.dataset.i})}
   var r=e.target.closest('[data-rm]');
   if(r){Q=Q.filter(function(x){return x.s!==r.dataset.rm});save();render()}
 });
-render();
 
-/* drawer + menu */
-var drawer=document.getElementById('drawer'),scrim=document.getElementById('scrim'),nav=document.getElementById('nav');
-function openD(){drawer.classList.add('open');scrim.classList.add('open')}
-function closeD(){drawer.classList.remove('open');scrim.classList.remove('open')}
-document.querySelectorAll('[data-open-quote]').forEach(function(b){b.addEventListener('click',openD)});
-document.getElementById('drawerClose').onclick=closeD;scrim.onclick=closeD;
-document.getElementById('drawerGo').addEventListener('click',closeD);
-document.getElementById('menuOpen').onclick=function(){nav.classList.add('open');document.body.style.overflow='hidden'};
-function closeN(){nav.classList.remove('open');document.body.style.overflow=''}
-document.getElementById('menuClose').onclick=closeN;
-nav.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',closeN)});
+/* ---------- loader + hero ---------- */
+var hp=$$('#heroPh img'),hi=0,pips=$('#pips');
+pips.innerHTML=hp.map(function(){return '<i></i>'}).join('');
+var pipEls=$$('i',pips);
+function showHero(i){hp.forEach(function(im,k){im.classList.toggle('on',k===i)});pipEls.forEach(function(p,k){p.classList.remove('on');if(k===i){void p.offsetWidth;p.classList.add('on')}})}
+showHero(0);
+if(!RM)setInterval(function(){hi=(hi+1)%hp.length;showHero(hi)},5000);
+var words=['gala.','trade show.','wedding.','patio.','brand launch.','VIP lounge.'],wi=0,rot=$('#rot');
+if(!RM)setInterval(function(){
+  var cur=$('span',rot);cur.classList.add('out');
+  wi=(wi+1)%words.length;var nx=document.createElement('span');nx.className='pre';nx.textContent=words[wi];rot.appendChild(nx);
+  requestAnimationFrame(function(){requestAnimationFrame(function(){nx.className=''})});
+  setTimeout(function(){cur.remove()},750);
+},2600);
+var ld=$('#ld');
+function loaded(){ld.classList.add('out');document.body.classList.remove('locked');setTimeout(function(){ld.remove()},700);if(/[?&]tour=1/.test(location.search))setTimeout(openTour,700)}
+setTimeout(loaded,RM?200:2300);
+
+/* header */
+var hd=$('#hd');function hs(){hd.classList.toggle('solid',scrollY>40)}addEventListener('scroll',hs,{passive:true});hs();
+$('#menuBtn').onclick=function(){$('#drawer').classList.add('on')};
+$('#menuX').onclick=function(){$('#drawer').classList.remove('on')};
+$$('#drawer a').forEach(function(a){a.addEventListener('click',function(){$('#drawer').classList.remove('on')})});
+
+/* ticker + film */
+var trades=['Logistics experts','Carpenters','Painters','Seamstresses','Upholsterers','Truck drivers','Onsite specialists','Family owned since 1989'];
+$('#tick').innerHTML=trades.concat(trades).map(function(t){return '<span>'+t+'</span>'}).join('');
+var fs=gal.concat(gal);$('#film').innerHTML=fs.map(function(g){return '<img src="img/g/'+g+'.jpg" alt="" loading="lazy">'}).join('');
+
+/* ---------- planner ---------- */
+var P={type:null,guests:150,fmt:'mix',booth:'10 × 20',style:null},step=0;
+$('#typeOpts').innerHTML=types.map(function(t){return '<button class="opt" data-t="'+t.id+'"><img src="'+t.i+'" alt="" loading="lazy"><b>'+t.n+'</b></button>'}).join('');
+$('#styleOpts').innerHTML=styles.map(function(t){return '<button class="opt" data-y="'+t.id+'" style="background:#fff"><img src="'+t.i+'" alt="" loading="lazy" style="object-fit:contain;padding:8px 8px 34px"><b>'+t.n+'</b></button>'}).join('');
+$('#booth').innerHTML=Object.keys(booths).map(function(b){return '<button class="chip'+(b===P.booth?' on':'')+'" data-b="'+b+'">'+b+(b==='Island'?'':' ft')+'</button>'}).join('');
+$$('#typeOpts .opt').forEach(function(b){b.onclick=function(){P.type=b.dataset.t;$$('#typeOpts .opt').forEach(function(x){x.classList.toggle('on',x===b)});build();setTimeout(function(){go(1)},250)}});
+$$('#styleOpts .opt').forEach(function(b){b.onclick=function(){P.style=b.dataset.y;$$('#styleOpts .opt').forEach(function(x){x.classList.toggle('on',x===b)});build()}});
+$$('#booth .chip').forEach(function(b){b.onclick=function(){P.booth=b.dataset.b;$$('#booth .chip').forEach(function(x){x.classList.toggle('on',x===b)});build()}});
+$$('#fmt .chip').forEach(function(b){b.onclick=function(){P.fmt=b.dataset.v;$$('#fmt .chip').forEach(function(x){x.classList.toggle('on',x===b)});build()}});
+$('#guests').oninput=function(){P.guests=+this.value;$('#gOut').textContent=this.value;build()};
+function go(s){step=Math.max(0,Math.min(3,s));$$('.st').forEach(function(x){x.classList.toggle('on',+x.dataset.s===step)});$$('.stn i').forEach(function(x,k){x.classList.toggle('on',k<=step)});$('#backBtn').hidden=step===0;$('#nextBtn').textContent=step===3?'Send for a quote':'Next';
+  var bth=P.type==='booth';$('#guestBox').hidden=bth;$('#boothBox').hidden=!bth;$('#s2h').textContent=bth?'What size is your booth?':'How many guests?'}
+$('#nextBtn').onclick=function(){if(step===0&&!P.type){toast('Pick what you\'re planning first');return}if(step===3){sendList();return}go(step+1)};
+$('#backBtn').onclick=function(){go(step-1)};
+var PL=[];
+function vigFor(st,k){var v=vig.filter(function(x){return x[3]===st});if(!v.length)v=vig;return v.slice(0,k)}
+function build(){
+  var g=P.guests,L=[],ce=Math.ceil;
+  function cat(id,q){if(q>0)L.push({s:'CAT-'+id.toUpperCase(),n:C[id].n,i:C[id].i,q:q,c:1})}
+  function vigs(k){vigFor(P.style||'classic',k).forEach(function(v){L.push({s:v[0],n:v[1],i:'img/p/'+v[2]+'.jpg',q:1})})}
+  if(!P.type){}
+  else if(P.type==='booth'){booths[P.booth].items.forEach(function(it){if(it[0]==='vig')vigs(it[1]);else cat(it[0],it[1])})}
+  else{
+    var lounge=P.type==='lounge'?ce(g/15):P.type==='gala'?ce(g/60):ce(g/40);
+    vigs(Math.min(lounge,4));if(lounge>4)cat('soft',(lounge-4)*3);
+    if(P.fmt==='seated'&&P.type!=='lounge'){cat('dining',ce(g/8));cat('chairs',g)}
+    else cat('cruiser',ce(g/10));
+    cat('bars',ce(g/120));cat('stools',ce(g/120)*4);
+    if(P.type==='patio')cat('outdoor',ce(g/25));
+    if(P.type==='launch'||P.type==='gala')cat('props',ce(g/100)+1);
+    if(P.type==='corp')cat('end',ce(g/50));
+  }
+  PL=L;var t=types.find(function(x){return x.id===P.type});
+  $('#resH').textContent=t?t.n+(P.type==='booth'?', '+P.booth+(P.booth==='Island'?'':' ft'):', '+g+' guests'):'Pick an event to begin';
+  if(t)$('.bgp img').src=t.i;
+  $('#resSub').textContent=t?(P.style?styles.find(function(s){return s.id===P.style}).n+' look':'Pick a look to match the lounge pieces')+'.':'We\'ll suggest pieces and amounts from our own catalogue.';
+  $('#resList').innerHTML=L.length?'<ul>'+L.map(function(x,k){return '<li><img src="'+x.i+'" alt=""><span>'+esc(x.n)+'<small>'+(x.c?'Choose from our catalogue':esc(x.s))+'</small></span><div class="qty"><button data-d="'+k+'" aria-label="Fewer">−</button><b>'+x.q+'</b><button data-u="'+k+'" aria-label="More">+</button></div></li>'}).join('')+'</ul>':'<p class="empty">Nothing yet. Choose what you\'re planning.</p>';
+  $('#toQuote').disabled=!L.length;
+}
+$('#resList').addEventListener('click',function(e){var d=e.target.closest('[data-d]'),u=e.target.closest('[data-u]');
+  if(d){var x=PL[+d.dataset.d];x.q=Math.max(0,x.q-1)}if(u){PL[+u.dataset.u].q++}
+  if(d||u){var html=$('#resList');$$('.qty b',html).forEach(function(b,k){b.textContent=PL[k].q})}});
+function sendList(){
+  PL.filter(function(x){return x.q>0}).forEach(function(x){addItem(x,true)});
+  var d=$('#pDate').value,v=$('#pVenue').value;if(d)$('#fDate').value=d;if(v)$('#fVenue').value=v;
+  var t=types.find(function(x){return x.id===P.type});
+  if(t&&!$('#fNote').value)$('#fNote').value=t.n+(P.type==='booth'?', '+P.booth+' booth':', about '+P.guests+' guests'+(P.fmt==='seated'?', seated dinner':''))+(P.style?'. Look: '+styles.find(function(s){return s.id===P.style}).n:'')+'.';
+  toast('Your list is on the quote');document.getElementById('quote').scrollIntoView({behavior:'smooth'});
+}
+$('#toQuote').onclick=sendList;
+$('#shareBtn').onclick=function(){
+  var src=PL.length?PL:Q;if(!src.length){toast('Build a list first');return}
+  var data=btoa(unescape(encodeURIComponent(JSON.stringify(src.filter(function(x){return x.q>0}).map(function(x){return [x.s,x.n,x.i,x.q]})))));
+  var url=location.origin+location.pathname+'#list='+data;
+  if(navigator.share){navigator.share({title:'Our Divine furniture list',url:url}).catch(function(){})}
+  else if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){toast('Link copied. Send it to your client.')})}
+  else prompt('Copy this link',url);
+};
+/* open a shared list */
+(function(){var m=location.hash.match(/list=([^&]+)/);if(!m)return;try{var arr=JSON.parse(decodeURIComponent(escape(atob(m[1]))));arr.forEach(function(a){addItem({s:a[0],n:a[1],i:a[2],q:a[3]},true)});setTimeout(function(){toast('Shared list added to your quote');document.getElementById('quote').scrollIntoView()},2500)}catch(e){}})();
+
+/* ---------- looks ---------- */
+$('#lk').innerHTML=vig.map(function(p){return '<article><div class="im"><img src="img/p/'+p[2]+'.jpg" alt="'+esc(p[1])+'" loading="lazy"></div><div class="tx"><span class="sku">'+p[0]+'</span><h4>'+esc(p[1])+'</h4><button class="add" data-q="'+p[0]+'" data-n="'+esc(p[1])+'" data-i="img/p/'+p[2]+'.jpg"></button></div></article>'}).join('');
+
+/* ---------- trade show ---------- */
+var BK=Object.keys(booths),cb='10 × 20';
+$('#bs').innerHTML=BK.map(function(b){return '<button data-b="'+b+'">'+b+'</button>'}).join('');
+function pkLines(b){var o=[];booths[b].items.forEach(function(it){if(it[0]==='vig')o.push(['Lounge vignette (your pick)',it[1],'VIG']);else o.push([C[it[0]].n,it[1],it[0]])});return o}
+function showBooth(b){cb=b;$$('#bs button').forEach(function(x){x.classList.toggle('on',x.dataset.b===b)});$('#tsCap').textContent=b;$('#tsImg').src=booths[b].img;
+  $('#pk').innerHTML=pkLines(b).map(function(l){return '<li><span>'+esc(l[0])+'</span><b>× '+l[1]+'</b></li>'}).join('')}
+$$('#bs button').forEach(function(x){x.onclick=function(){showBooth(x.dataset.b)}});showBooth(cb);
+$('#pkAdd').onclick=function(){addItem({s:'BOOTH-'+cb.replace(/\D+/g,'X'),n:'Trade show booth package, '+cb+(cb==='Island'?'':' ft'),i:booths[cb].img,q:1})};
+
+/* ---------- new, catalogue, care, giving ---------- */
+$('#newItems').innerHTML=news.map(function(p){return '<article class="rv"><div class="im"><img src="'+p[2]+'" alt="'+esc(p[1])+'" loading="lazy"></div><span class="sku">'+p[0]+'</span><h4>'+esc(p[1])+'</h4><button class="add" data-q="'+p[0]+'" data-n="'+esc(p[1])+'" data-i="'+p[2]+'"></button></article>'}).join('');
+$('#cg').innerHTML=cats.map(function(c,k){return '<a class="'+(k===0?'big':'')+' rv" href="'+CAT+c[3]+'" target="_blank" rel="noopener"><img src="'+(k===0?'img/g/e42.jpg':'img/p/'+c[4]+'.jpg')+'" alt="" loading="lazy"><small>'+c[2]+' pieces</small><b>'+esc(c[1])+'</b></a>'}).join('');
+var cg=$('#careGrid');cg.innerHTML=care.map(function(c){return '<div class="rv"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">'+c[2]+'</svg><h4>'+c[0]+'</h4><p>'+c[1]+'</p></div>'}).join('')+'<div class="ph rv"><img src="img/g/e47.jpg" alt="Outdoor lounge furniture on a lawn beside a tent" loading="lazy"></div>';
+$('#charity').innerHTML=charities.map(function(c){return '<li>'+esc(c[0])+(c[1]?'<small>'+esc(c[1])+'</small>':'')+'</li>'}).join('');
 
 /* form (preview) */
-document.getElementById('qform').addEventListener('submit',function(e){e.preventDefault();document.getElementById('formDone').style.display='block'});
-
-/* hero arch crossfade */
-var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-var imgs=document.querySelectorAll('#arch img'),k=0;
-if(!reduce&&imgs.length>1){setInterval(function(){imgs[k].classList.remove('on');k=(k+1)%imgs.length;imgs[k].classList.add('on')},4800)}
-
-/* cursor follow on catalogue (desktop with hover only) */
-var fine=window.matchMedia('(hover: hover) and (min-width: 900px)');
-var fol=document.getElementById('follow'),fimg=fol.querySelector('img'),fx=0,fy=0,cx=0,cy=0,raf=null;
-function loop(){cx+=(fx-cx)*.18;cy+=(fy-cy)*.18;fol.style.left=cx+'px';fol.style.top=cy+'px';raf=requestAnimationFrame(loop)}
-list.addEventListener('mousemove',function(e){if(!fine.matches)return;fx=e.clientX+150;fy=e.clientY;if(!raf){cx=fx;cy=fy;loop()}});
-list.addEventListener('mouseover',function(e){var a=e.target.closest('a');if(!a||!fine.matches)return;if(fimg.getAttribute('src')!==a.dataset.img)fimg.src=a.dataset.img;fol.classList.add('on')});
-list.addEventListener('mouseleave',function(){fol.classList.remove('on');cancelAnimationFrame(raf);raf=null});
-
-/* rail buttons */
-var rail=document.getElementById('rail');
-function step(){var c=rail.querySelector('.vc');return c?c.offsetWidth+14:320}
-document.getElementById('railPrev').onclick=function(){rail.scrollBy({left:-step(),behavior:reduce?'auto':'smooth'})};
-document.getElementById('railNext').onclick=function(){rail.scrollBy({left:step(),behavior:reduce?'auto':'smooth'})};
-
-/* lightbox */
-var lb=document.getElementById('lb'),lbi=lb.querySelector('img'),cur=0;
-function show(i){cur=(i+gal.length)%gal.length;lbi.src='img/g/'+gal[cur]+'.jpg'}
-wall.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;show(+b.dataset.i);lb.classList.add('open')});
-lb.querySelector('.lb-x').onclick=function(){lb.classList.remove('open')};
-lb.querySelector('.lb-p').onclick=function(){show(cur-1)};
-lb.querySelector('.lb-n').onclick=function(){show(cur+1)};
-lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){lb.classList.remove('open');closeD();closeN()}if(lb.classList.contains('open')){if(e.key==='ArrowRight')show(cur+1);if(e.key==='ArrowLeft')show(cur-1)}});
-var sx=0;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
-lb.addEventListener('touchend',function(e){var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)show(cur+(d<0?1:-1))});
+$('#qf').addEventListener('submit',function(e){e.preventDefault();if(!$('#fName').value||!$('#fEmail').value){toast('Add your name and email');return}$('#done').classList.add('on')});
 
 /* reveal */
-var els=document.querySelectorAll('.rv');
-if('IntersectionObserver' in window&&!reduce){var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(el){io.observe(el)})}else{els.forEach(function(el){el.classList.add('in')})}
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.12});
+$$('.rv').forEach(function(el){io.observe(el)});
+render();build();go(0);
+
+/* ---------- tour ---------- */
+var STEPS=[
+ {sel:'#hero',t:'A hero that moves',w:'Their own event photos now crossfade behind a bold headline that cycles through the events Divine furnishes.',y:'The first three seconds now show real rooms Divine has dressed, not single product shots.',r:'Two clear starts: plan an event, or browse the catalogue.'},
+ {sel:'#plan',t:'Plan an event in a minute',w:'A four-step planner: event type, guests or booth size, a look, then date and venue. It builds a starter list from Divine\'s own catalogue.',y:'Most visitors don\'t know item numbers, and 1,000+ pieces is a lot to shop before asking for a quote.',r:'Every inquiry arrives already scoped: date, guest count, style and a list. Faster quotes, bigger orders.'},
+ {sel:'#looks',t:'Book the look',w:'Ready-made vignettes from Divine\'s own range, added to the quote as a whole set in one tap.',y:'Planners buy rooms, not single chairs.',r:'Sells complete sets instead of single pieces, which lifts the size of each order.'},
+ {sel:'#tradeshow',t:'Trade show booth packages',w:'Pick a booth size and see a furniture package for it. One tap adds it to the quote.',y:'Trade shows are a core Divine market. Exhibitors now get a path built just for them.',r:'An easy yes for exhibitors, and repeat business every show season.'},
+ {sel:'#new',t:'New pieces up front',w:'The latest additions from Divine\'s own home page get a full feature with a lifestyle photo.',y:'Fresh stock gives planners a reason to come back.',r:'New pieces are the easiest upsell on an existing booking.'},
+ {sel:'#catalogue',t:'The full catalogue, kept',w:'All 13 categories with their real piece counts, linking straight to Divine\'s existing online catalogue.',y:'Their shop keeps working as is. Nothing is lost.',r:''},
+ {sel:'#planners',t:'A program for planners',w:'Planners can share a list with their client by link, plus a proposed trade account.',y:'Planners and designers book again and again. They should feel like regulars.',r:'Repeat business from the people who book the most events. Program details to confirm with Divine.'},
+ {sel:'#story',t:'The family story, front and centre',w:'1989, the Devine family timeline, "only as good as our last job", and the trades they keep in-house.',y:'This is the Divine difference against national chains, so it now sits on the home page.',r:''},
+ {sel:'#care',t:'Sustainability and giving',w:'Their seven real sustainability practices and the charities they support, in their own words.',y:'Corporate clients and charity galas look for this when choosing a vendor.',r:''},
+ {sel:'#quote',t:'One clear quote request',w:'The quote list follows the visitor everywhere, with date hold and planner options on the form.',y:'No dead ends. Every section ends at the same place.',r:'Date holds and planner flags help the office sort hot leads first. The form connects to Divine\'s office on launch.'}
+];
+var tour=$('#tour'),ti=-1,tmr=null,paused=false,DUR=9000,t0=0,left=DUR,raf;
+function clr(){$$('.spot').forEach(function(e){e.classList.remove('spot')})}
+function bar(){var p=Math.min(1,(DUR-left+(performance.now()-t0))/DUR);$('#tBar').style.width=(p*100)+'%';if(!paused&&p<1)raf=requestAnimationFrame(bar)}
+function show(i){ti=i;var s=STEPS[i];clr();var el=$(s.sel);if(el){el.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'});el.classList.add('spot')}
+  $('#tk').textContent='Guided tour';$('#tn').textContent=(i+1)+' / '+STEPS.length;$('#th').textContent=s.t;$('#tp').innerHTML='<b>What changed</b>'+esc(s.w);
+  $('#ty').hidden=false;$('#ty').innerHTML='<b>Why</b>'+esc(s.y);$('#tr').hidden=!s.r;$('#tr').innerHTML='<b>Revenue</b>'+esc(s.r);
+  left=DUR;t0=performance.now();cancelAnimationFrame(raf);bar();clearTimeout(tmr);if(!paused)tmr=setTimeout(next,DUR)}
+function next(){if(ti+1<STEPS.length)show(ti+1);else end()}
+function end(){clearTimeout(tmr);cancelAnimationFrame(raf);clr();$('#tk').textContent="That's the tour";$('#tn').textContent='';$('#th').textContent='Have a look around.';$('#tp').textContent='Everything uses Divine\'s own photos, products, words and facts. Items marked "Preview" or "Proposed" wait on Divine\'s go.';$('#ty').hidden=$('#tr').hidden=true;$('#tPause').hidden=$('#tNext').hidden=true;$('#tGo').hidden=false;$('#tGo').textContent='Replay';$('#tBar').style.width='100%';ti=-1;scrollTo({top:0,behavior:'smooth'})}
+$('#tGo').onclick=function(){paused=false;$('#tPause').textContent='Pause';$('#tGo').hidden=true;$('#tPause').hidden=$('#tNext').hidden=false;show(0)};
+$('#tNext').onclick=function(){paused=false;$('#tPause').textContent='Pause';next()};
+$('#tPause').onclick=function(){if(!paused){paused=true;clearTimeout(tmr);cancelAnimationFrame(raf);left=Math.max(0,left-(performance.now()-t0));this.textContent='Play'}else{paused=false;t0=performance.now();tmr=setTimeout(next,left);bar();this.textContent='Pause'}};
+function openTour(){$('#tourBtn').hidden=true;tour.hidden=false;$('#tGo').click()}
+$('#tourBtn').onclick=openTour;$('#dTour').onclick=function(e){e.preventDefault();openTour()};
+$('#tX').onclick=function(){clearTimeout(tmr);cancelAnimationFrame(raf);clr();tour.hidden=true;$('#tourBtn').hidden=false};
 })();
 </script>
 </body>

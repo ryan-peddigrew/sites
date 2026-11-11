@@ -1,17 +1,27 @@
-# Divine Furniture Rental preview draft
+# Divine Furniture Rental preview draft (v2, 2026-11-11)
 
 Preview: https://ryan-peddigrew.github.io/sites/divine-furniture-rental/
+Tour (plays by itself after the loading screen): https://ryan-peddigrew.github.io/sites/divine-furniture-rental/?tour=1
 
-Private draft for Ryan to review. Not public until Ryan approves. Prospect: Paul Flood. Do not contact Paul from this draft.
+Private draft for Ryan to review. Prospect: Paul Flood. Do not contact Paul or Divine from this draft.
+Source: their live site, divinefr.com. Previous version archived at `archive/v1-2026-11-04/`.
 
-## Open fixes before this goes live
+## What's new in v2
+- Short loading screen built from their real logo (wipe, gold line, "Family owned since 1989").
+- Moving hero: six of their own event photos crossfading, headline cycles gala / trade show / wedding / patio / brand launch / VIP lounge.
+- Bold block headlines (Inter Tight 900), no serif italics. Navy-black + gold from their logo.
+- Revenue tools: event planner (type, guests or booth size, look, date) that builds a starter list; "Book the look" whole-set add; trade show booth packages by size; new arrivals feature; planner program with share-a-list link; quote form with date hold and planner flags.
+- Tour (?tour=1) covering what changed, why, and the revenue angle.
 
-1. **Photos are not in this folder yet.** The page uses `img/` for the logo, the catalogue thumbnails (`img/p/`), the event gallery (`img/g/`) and the hero photos. Upload the `img/` folder from the working draft next to `index.html`. Until then, images will be blank.
-2. **Catalogue item numbers and names** (for example SS-810-SETUP-388) were read from Divine's own catalogue pages. Confirm each one with Divine before publishing.
-3. **Vignette and Bellagio item list** is a sample of the catalogue, not the full range. Confirm which pieces to show.
-4. **Charity list and the "Our story" timeline** come from Divine's site. Confirm the wording and the charities with Divine.
-5. **Quote form** does not send yet. It needs connecting to a real destination (Divine's office at info@divinefr.com).
-6. **Phone and fax numbers** (416.750.9272, fax 416.750.0448) and the address (375 Kennedy Road) need confirming.
-7. **Remove the "Preview" tag** and the "Design preview" line in the footer before going live.
-8. **Motion:** the hero photos crossfade every few seconds, and sections fade in as you scroll. Both turn off for visitors who prefer reduced motion.
-9. **Mobile check** on a phone, especially the catalogue list and the quote drawer.
+## Competitor set looked at
+Luxe Modern Rentals (Toronto lounge collections, in-house branding), CORT Events, Executive Furniture Rentals (Toronto, trade show focus), Glowmi (LED furniture), Element Event Solutions (Etobicoke showroom). Most use a plain add-to-cart or contact form; none scope the event first.
+
+## Open items (need Divine or Ryan)
+1. Planner amounts are a rule of thumb (e.g. 1 cruiser per 10 guests, lounge set per 40 to 60 guests). Confirm or replace with Divine's own ratios.
+2. Booth package contents are suggestions. Confirm with Divine.
+3. Planner and designer trade account is PROPOSED, marked on the page. Divine to confirm whether to offer it.
+4. Quote form does not send (marked Preview). Connect to info@divinefr.com on launch.
+5. Item numbers and names come from divinefr.com product pages; new arrivals (BS-SET-252, BS-SET-257, BAR-SETUP-106, MISC-UMB-005) from their home page on 2026-11-11.
+6. Charity list, timeline, sustainability text: from their site, confirm wording.
+7. Phone, fax, address: confirm.
+8. Remove "Design preview" in the footer and the Preview tag before going live.
