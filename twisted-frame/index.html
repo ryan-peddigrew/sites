@@ -204,6 +204,8 @@ footer .tflogo{height:50px;width:auto}
 .lb iframe{width:100%;height:100%;border:0}
 .lb .cl{position:absolute;top:14px;right:16px;min-height:48px;padding:0 14px;background:none;border:0;font:600 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
 .lb .tt{position:absolute;left:20px;top:22px;font:600 14px var(--sans)}
+/* play cursor */
+(function(){const c=$('#cur');addEventListener('pointermove',e=>{c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';c.classList.toggle('on',!!e.target.closest('.tile,.mon'))},{passive:true})})();
 /* reveal */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -241,6 +243,32 @@ footer .tflogo{height:50px;width:auto}
 .ld .tcode{position:absolute;bottom:90px;font:500 12px var(--mono);letter-spacing:.2em;color:#9AA1AB}
 .ld .skip{position:absolute;top:16px;right:16px;min-height:44px;padding:0 12px;background:none;border:0;color:#9AA1AB;font:600 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
 @media(prefers-reduced-motion:reduce){.ld{display:none}}
+.tcx{font-style:normal;color:var(--mute);margin-right:12px}
+.mon{position:absolute;right:0;top:0;width:min(40vw,580px);transform:rotate(2.5deg);background:#050506;padding:26px 10px 0;box-shadow:0 40px 90px #000,0 0 0 1px #ffffff1a}
+.mon:before{content:"";position:absolute;left:0;right:0;top:8px;height:10px;background:repeating-linear-gradient(90deg,transparent 0 10px,#2a2d33 10px 26px,transparent 26px 34px)}
+.scr{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000}
+.scr img,.scr iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+.scr iframe{transform:scale(1.02)}
+.mbar{display:flex;justify-content:space-between;align-items:center;padding:4px 4px 6px;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.mbar span{display:flex;align-items:center;gap:8px}.mbar i{width:8px;height:8px;background:#E2463C;animation:blink 1.2s steps(2) infinite}
+.mbar .tl{min-height:40px;font-size:11px;border-bottom-color:#fff3}
+.hero .wrap{min-height:calc(100svh - 184px);display:flex;flex-direction:column;justify-content:flex-end}
+.big{max-width:11ch}
+@media(min-width:1101px){.hero .big{font-size:clamp(54px,6vw,104px);max-width:none}.hero .rot,.hero .row{max-width:56%}}
+@media(max-width:1100px){.mon{position:relative;right:auto;top:auto;width:100%;max-width:560px;transform:rotate(-1.5deg);margin:34px 0 0;order:9}.hero .wrap{min-height:0}.hero .meta{order:10}}
+@media(max-width:760px){.mon{padding:18px 6px 0}.mon:before{top:5px;height:7px}.hero{padding-top:96px}}
+.cur{position:fixed;left:0;top:0;z-index:80;pointer-events:none;background:var(--gold);color:var(--ink);font:700 11px var(--sans);letter-spacing:.16em;padding:10px 14px;transform:translate(-50%,-50%) scale(0);transition:transform .2s;text-transform:uppercase}
+.cur.on{transform:translate(-50%,-50%) scale(1)}
+@media(hover:none){.cur{display:none}}
+.doc{background:var(--paper);color:var(--ink);padding:26px;margin-top:18px}
+.doc .hd{display:flex;justify-content:space-between;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:12px;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.doc h5{font-family:var(--disp);font-weight:900;font-stretch:112%;text-transform:uppercase;font-size:26px;line-height:1;margin-bottom:12px}
+.doc dl{display:grid;grid-template-columns:130px 1fr;gap:6px 14px;font-size:14px}
+.doc dt{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#6b6f76;padding-top:3px}
+.doc dd{font-weight:600}
+.doc .nx{margin-top:16px;border-top:1px solid #0002;padding-top:12px;font-size:13.5px;color:#3a3e45}
+@media(max-width:760px){.doc dl{grid-template-columns:1fr}.doc dt{padding-top:6px}}
+@media print{body *{visibility:hidden}.doc,.doc *{visibility:visible}.doc{position:absolute;left:0;top:0;width:100%}}
 /* responsive */
 @media(max-width:1100px){.top nav{display:none}.burger{display:block}.rec{display:none}.srow{grid-template-columns:50px 1fr}.srow p{grid-column:2}.srow .pv{display:none}.ogrid{grid-template-columns:1fr 1fr}.qgrid{grid-template-columns:1fr}.brief{position:static}.alist{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){
@@ -289,6 +317,10 @@ footer .tflogo{height:50px;width:auto}
     <div class="strip s3" id="s3"></div>
   </div>
   <div class="wrap">
+    <div class="mon" aria-label="Twisted Frame showreel, playing muted">
+      <div class="scr"><img src="img/w/p0.jpg" alt=""><iframe src="https://player.vimeo.com/video/112019146?background=1&muted=1&autoplay=1&loop=1&dnt=1" title="Twisted Frame showreel" allow="autoplay; fullscreen" loading="eager"></iframe></div>
+      <div class="mbar"><span><i></i>Now playing · Showreel</span><button class="tl" data-v="112019146" data-t="Twisted Frame showreel">Sound on</button></div>
+    </div>
     <h1 class="sr">Corporate and healthcare video production in Toronto</h1>
     <span class="k">Award-winning digital media agency · Toronto</span>
     <p class="big disp chrome" aria-hidden="true"><span><i>We twist</i></span><span><i>and tailor</i></span><span><i>every frame.</i></span></p>
@@ -308,7 +340,7 @@ footer .tflogo{height:50px;width:auto}
 
 <section class="doors" id="doors">
   <div class="wrap">
-    <span class="k rv">Two specialties, one studio</span>
+    <span class="k rv"><em class="tcx">SC 00:00:12:08</em>Two specialties, one studio</span>
     <h2 class="h2 disp rv" style="margin-top:14px">Pick your <span class="chrome">door.</span></h2>
     <p class="lead rv">Healthcare buyers and brand teams need different proof. Start where you are and see the work that fits.</p>
     <div class="dgrid">
@@ -335,7 +367,7 @@ footer .tflogo{height:50px;width:auto}
 <section class="work" id="work">
   <div class="wrap">
     <div class="whead">
-      <div><span class="k rv">Selected work</span><h2 class="h2 disp rv" style="margin-top:14px">Press play.</h2></div>
+      <div><span class="k rv"><em class="tcx">SC 00:00:31:16</em>Selected work</span><h2 class="h2 disp rv" style="margin-top:14px">Press play.</h2></div>
       <p class="lead rv" style="margin:0;max-width:44ch">Every piece plays right here. No page loads, no detours.</p>
     </div>
     <div class="filters" id="filters" role="tablist">
@@ -348,7 +380,7 @@ footer .tflogo{height:50px;width:auto}
 
 <section class="svc" id="services">
   <div class="wrap">
-    <span class="k rv">What we do</span>
+    <span class="k rv"><em class="tcx">SC 00:01:04:02</em>What we do</span>
     <h2 class="h2 disp rv" style="margin-top:14px">Production to <span class="chrome">post.</span></h2>
     <div class="slist" id="slist">
       <div class="srow rv"><span class="n">01</span><h3 class="disp">Video production</h3><p>Creatively driven talent, live-shot storytelling and access to the latest technology.</p><div class="pv"><img src="img/w/p31.jpg" alt="" loading="lazy"></div></div>
@@ -363,7 +395,7 @@ footer .tflogo{height:50px;width:auto}
 
 <section class="quote" id="quote">
   <div class="wrap">
-    <span class="k rv">Build your quote · about 3 minutes</span>
+    <span class="k rv"><em class="tcx">SC 00:01:27:20</em>Build your quote · about 3 minutes</span>
     <h2 class="h2 disp rv" style="margin-top:14px">Scope it <span class="chrome">yourself.</span></h2>
     <p class="lead rv">Answer a few questions and your brief builds on the right. Send it and our producers come back with a plan and an estimate, not a pile of questions.</p>
     <div class="qgrid">
@@ -384,7 +416,7 @@ footer .tflogo{height:50px;width:auto}
 
 <section class="offers" id="offers">
   <div class="wrap">
-    <span class="k rv">Ways to work with us</span>
+    <span class="k rv"><em class="tcx">SC 00:02:03:11</em>Ways to work with us</span>
     <h2 class="h2 disp rv" style="margin-top:14px">Packages that <span class="chrome">ship.</span></h2>
     <p class="lead rv">Clear starting points for the work we are asked for most. Every package can be tailored.</p>
     <div class="ogrid">
@@ -398,7 +430,7 @@ footer .tflogo{height:50px;width:auto}
 
 <section class="awards" id="awards">
   <div class="wrap">
-    <span class="k rv">Featured awards and industry recognition</span>
+    <span class="k rv"><em class="tcx">SC 00:02:40:05</em>Featured awards and industry recognition</span>
     <h2 class="h2 disp rv" style="margin-top:14px">Recognised.</h2>
     <div class="alist">
       <div class="aw rv"><b>MarCom Awards</b><span>Gold winner · 2018</span></div>
@@ -415,7 +447,7 @@ footer .tflogo{height:50px;width:auto}
 
 <section class="words" id="words">
   <div class="wrap">
-    <span class="k rv">In their words</span>
+    <span class="k rv"><em class="tcx">SC 00:03:02:19</em>In their words</span>
     <h2 class="h2 disp rv" style="margin-top:14px">The go-to team.</h2>
     <div class="qwrap">
       <figure class="qt rv"><blockquote>"They are my go-to for anything motion graphic or animation related because quite simply they consistently produce excellent work that exceeds client expectations."</blockquote><cite>Diane Akam<small>DNA Films</small></cite></figure>
@@ -464,6 +496,7 @@ footer .tflogo{height:50px;width:auto}
   <div class="ctl"><button class="go" id="tgo">Start the tour</button><button id="tpause" hidden>Pause</button><button id="tnext" hidden>Next</button><span class="sp"></span><button id="tx">Close</button></div>
   <div class="pg"><i id="tpg"></i></div>
 </div>
+<div class="cur" id="cur">Play</div>
 <nav class="dock" aria-label="Quick actions"><a href="#quote">Build a quote</a><a href="tel:+14166191116">Call</a><a href="#" id="dtour">Tour</a></nav>
 
 <script>
@@ -537,16 +570,18 @@ function renderQ(){
 function size(){let p=Q.make.length*2+Q.count*2+Q.aud.length+Q.fmt.length+Q.lang.length+Q.add.length+Q.loc.length;p+={'Under 30 sec':0,'30–60 sec':1,'1–2 min':2,'2–5 min':4,'5 min +':6}[Q.len]||0;p+={'3–5':2,'6–10':4,'10 +':6}[Q.cuts]||0;p+={'Half day':1,'1 day':2,'2 days':4,'3 days +':6}[Q.days]||0;if(Q.how.includes('3D animation'))p+=4;if(Q.brand.startsWith('Build'))p+=4;if(Q.brand.startsWith('Refresh'))p+=2;return p<6?1:p<14?2:p<24?3:4}
 function lines(){const j=a=>a.join(', ');return [['Making',j(Q.make)],['Brand',Q.brand+(Q.footage?` · footage: ${Q.footage.toLowerCase()}`:'')],['Audience',j(Q.aud)+(Q.review?` · review: ${Q.review.toLowerCase()}`:'')],['Deliverables',(Q.len||Q.cuts||Q.fmt.length)?`${Q.count} main video${Q.count>1?'s':''}${Q.len?`, ${Q.len}`:''}${Q.cuts&&Q.cuts!=='None'?`, ${Q.cuts} cut-downs`:''}${Q.fmt.length?` · ${j(Q.fmt)}`:''}`:''],['Languages',j(Q.lang)],['Production',[j(Q.how),Q.days&&Q.days!=='None'?Q.days+' shoot':'',j(Q.loc)].filter(Boolean).join(' · ')],['Add-ons',j(Q.add)],['Timing',[Q.date,Q.rush?'Rush':''].filter(Boolean).join(' · ')],['Budget',Q.budget]]}
 function renderB(){$('#bdl').innerHTML=lines().map(([k,v])=>`<div><dt>${k}</dt><dd class="${v?'':'e'}">${v?esc(v):'Not set yet'}</dd></div>`).join('');const s=size();$$('#bars i').forEach((b,i)=>b.classList.toggle('on',i<s))}
-function sendQ(){const body=`New project brief from the Twisted Frame website\n\nName: ${Q.name}\nCompany: ${Q.co}\nEmail: ${Q.email}\nPhone: ${Q.phone}\n\n`+lines().map(([k,v])=>`${k}: ${v||'-'}`).join('\n')+`\n\nNotes: ${Q.notes}`;
- const mail=`mailto:sales@twistedframe.ca?subject=${encodeURIComponent('Project brief: '+(Q.co||Q.name))}&body=${encodeURIComponent(body)}`;
+function sendQ(){const ref='TF-'+new Date().toISOString().slice(2,10).replace(/-/g,'')+'-'+String(Math.floor(Math.random()*900)+100);const body=`New project brief from the Twisted Frame website\n\nName: ${Q.name}\nCompany: ${Q.co}\nEmail: ${Q.email}\nPhone: ${Q.phone}\n\n`+lines().map(([k,v])=>`${k}: ${v||'-'}`).join('\n')+`\n\nNotes: ${Q.notes}`;
+ const mail=`mailto:sales@twistedframe.ca?subject=${encodeURIComponent('Project brief: '+(Q.co||Q.name))}&body=${encodeURIComponent('Ref: '+ref+'\n'+body)}`;
  $('#qsteps').innerHTML=STEPS.map(()=>'<i class="on"></i>').join('');
- $('#qcard').innerHTML=`<div class="done"><span class="k">Brief ready</span><h3>Thanks, ${esc(Q.name.split(' ')[0])}.</h3><p class="hint">Your brief is ready for our producers. You will hear back with a plan and an estimate.</p><p style="margin:6px 0 18px"><span class="tbc">Preview: form not connected yet</span></p><div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center"><a class="btn" href="${mail}">Email my brief</a><a class="tl" href="tel:+14166191116">Or call 416 619 1116</a></div></div>`}
+ $('#qcard').innerHTML=`<div class="done"><span class="k">Brief ready</span><h3>Thanks, ${esc(Q.name.split(' ')[0])}.</h3><p class="hint">Your brief is ready for our producers. You will hear back with a plan and an estimate.</p><p style="margin:6px 0 18px"><span class="tbc">Preview: form not connected yet</span></p><div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center"><a class="btn" href="${mail}">Email my brief</a><button type="button" class="tl" onclick="print()">Save as PDF</button></div><div class="doc"><div class="hd"><span>Twisted Frame · Production brief</span><span>${ref}</span></div><h5>${esc(Q.co||Q.name)}</h5><dl><dt>Contact</dt><dd>${esc(Q.name)}${Q.email?' · '+esc(Q.email):''}${Q.phone?' · '+esc(Q.phone):''}</dd>${lines().filter(l=>l[1]).map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')}${Q.notes?`<dt>Notes</dt><dd>${esc(Q.notes)}</dd>`:''}<dt>Project size</dt><dd>${['','Focused','Standard','Large','Campaign'][size()]}</dd></dl><p class="nx">Next: a Twisted Frame producer reviews this brief and replies with a plan, timeline and estimate. Estimate range <span class="tbc">set by Twisted Frame</span></p></div></div>`}
 $$('[data-pre]').forEach(a=>a.addEventListener('click',()=>{const m={launch:['Product launch','Mechanism of action'],monthly:['Social video series'],recut:[],brand:[]}[a.dataset.pre];m.forEach(x=>Q.make.includes(x)||Q.make.push(x));if(a.dataset.pre==='recut'){Q.how=['Edit our footage'];Q.footage='Lots'}if(a.dataset.pre==='brand')Q.brand='Refresh our look for video';if(a.dataset.pre==='launch'){Q.lang=['English','French']}qi=0;renderQ();renderB()}));
 renderQ();renderB();
 
 /* ===== TOUR ===== */
+const who=(new URLSearchParams(location.search).get('for')||'').replace(/[^A-Za-z\u00C0-\u017F .'-]/g,'').slice(0,30);
 const TOUR=[
- ['#hero','The opening frame','Was: a stock blurred background with "Corporate Video production in Toronto" and two cyan buttons.','Now: Twisted Frame\'s own work runs through a twisted film strip, under their own line, "We twist and tailor every frame."','Why: a video studio should show its work in the first second, not a stock texture.'],
+ ['#hero',who?`Hi ${who}, welcome.`:'Welcome to the new Twisted Frame.','This is a concept for twistedframe.ca, put together by Ryan at Chairlift from your own work, clients, awards and words.','It plays by itself: about ninety seconds, ten stops. Tap Pause or Next anytime.','Why: nothing here is invented. Every frame, quote and award is already yours.'],
+ ['#hero','The opening frame','Was: a stock blurred background with "Corporate Video production in Toronto" and two cyan buttons.','Now: your showreel plays in a film frame, your work runs through twisted film strips, under your own line, "We twist and tailor every frame."','Why: a video studio should show its work in the first second, not a stock texture.'],
  ['#top','A quote button that never leaves','Was: "Start a conversation", "Call now" and "Get a quote", which all lead to the same contact form.','Now: one clear action, Build your quote, in the header, the hero, the phone bar and the footer. The REC timecode from the old site stays, now running live.','Revenue: every visitor is one tap from starting a project, on every screen.'],
  ['#doors','Two doors: healthcare and brands','Was: healthcare sat on its own page, hidden in the menu, mixed in with everything else.','Now: the two specialties are side by side, each with its own proof and services.','Why: a pharma marketer and a retail brand manager need different examples to say yes.'],
  ['#work','Work that plays on the page','Was: 61 videos in a grid, each opening a new page.','Now: the best 30, filtered by Healthcare, Commercial, Animation and VFX, playing right here in a full-screen player.','Why: buyers decide on the reel. Fewer clicks means more of them watch it.'],
@@ -561,7 +596,7 @@ const tour=$('#tour');let ti=-1,tt=null,paused=false;const DUR=9000;
 function clr(){$$('.spot').forEach(e=>e.classList.remove('spot'))}
 function show(i){if(i>=TOUR.length)return end();ti=i;clr();const [sel,h,was,now,why]=TOUR[i];const el=$(sel);
  if(sel!=='#top'){el.scrollIntoView({behavior:'smooth',block:'start'})}else{scrollTo({top:0,behavior:'smooth'})}
- el.classList.add('spot');$('#tk').textContent='What we changed';$('#tn').textContent=`${i+1} / ${TOUR.length}`;$('#th').textContent=h;$('#tp').innerHTML=`${esc(was)}<br>${esc(now)}`;
+ el.classList.add('spot');$('#tk').textContent=i?'What we changed':'Concept preview';$('#tn').textContent=i?`${i} / ${TOUR.length-1}`:'';$('#th').textContent=h;$('#tp').innerHTML=`${esc(was)}<br>${esc(now)}`;
  const y=$('#ty'),r=$('#tr');y.hidden=r.hidden=true;if(why.startsWith('Revenue')){r.textContent=why;r.hidden=false}else{y.textContent=why;y.hidden=false}
  $('#tgo').hidden=true;$('#tpause').hidden=false;$('#tnext').hidden=false;tick()}
 function tick(){clearTimeout(tt);const pg=$('#tpg');pg.style.transition='none';pg.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>{pg.style.transition=`width ${DUR}ms linear`;pg.style.width='100%'}));if(!paused)tt=setTimeout(()=>show(ti+1),DUR)}
