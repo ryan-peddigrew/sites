@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Steady Improvements | Carpentry you can count on</title>
+<meta name="description" content="Residential and commercial renovations: bathrooms, kitchens, balcony flooring, flooring, window coverings, demolition and handyman services. Call (647) 458-6365.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#23211F">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Zilla+Slab:wght@600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/balcony-teak.jpg">
+<style>
+:root{--paper:#F3F1E8;--paper2:#E9E5D8;--ink:#23211F;--ink2:#2E2B28;--brick:#8E3B32;--brick2:#A9483D;--timber:#C2925C;--stone:#6B665E;
+--disp:'Big Shoulders Display',Impact,sans-serif;--slab:'Zilla Slab',Georgia,serif;--sans:'Work Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--sans);overflow-x:hidden}
+img{display:block;max-width:100%}
+section{scroll-margin-top:66px}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+.wrap{width:min(1240px,100% - 40px);margin:0 auto}
+.eyebrow{font:600 12px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--brick)}
+.on-ink .eyebrow{color:var(--timber)}
+h1,h2,h3{font-family:var(--disp);font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:.005em}
+h2{font-size:clamp(46px,7.4vw,104px)}
+.lead{font-size:clamp(17px,1.5vw,20px);max-width:52ch;color:var(--stone)}
+.on-ink{background:var(--ink);color:var(--paper)}
+.on-ink .lead{color:#d9d4c7}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;font:600 14px var(--sans);letter-spacing:.12em;text-transform:uppercase;border:0;cursor:pointer;transition:transform .2s,background .2s}
+.btn:active{transform:translateY(1px)}
+.btn-brick{background:var(--brick);color:#fff}.btn-brick:hover{background:var(--brick2)}
+.btn-line{border:2px solid currentColor;background:transparent}
+.btn svg{width:20px;height:20px}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* brand (logo option B: carpenter's square) */
+.brand{display:inline-flex;align-items:center;gap:11px;line-height:1}
+.brand svg{width:30px;height:39px;flex:none}
+.brand .wm{display:flex;flex-direction:column;gap:5px}
+.brand b{font:700 27px/0.85 var(--slab);letter-spacing:-.01em}
+.brand i{font:600 9.6px/1 var(--sans);font-style:normal;letter-spacing:.34em;text-transform:uppercase}
+
+/* loader */
+#ld{position:fixed;inset:0;z-index:100;background:var(--paper);display:grid;place-items:center;transition:transform .8s cubic-bezier(.7,0,.2,1)}
+#ld.out{transform:translateY(-100%)}
+#ld .stage{width:min(360px,82vw);text-align:center}
+#ld svg.bench{width:100%;height:auto;overflow:visible}
+#ld .plank{animation:plank .65s cubic-bezier(.25,.9,.3,1.15) .1s both}
+@keyframes plank{from{transform:translateX(-340px)}to{transform:none}}
+#ld .brand{margin-top:22px;opacity:0;animation:fadeup .6s ease 2.05s forwards}
+#ld .brand b{font-size:34px}#ld .brand i{font-size:11.5px}#ld .brand svg{width:36px;height:47px}
+#ld .tag{margin-top:12px;font:600 11px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--brick);opacity:0;animation:fadeup .6s ease 2.3s forwards}
+@keyframes fadeup{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+#ld .dust{opacity:0}
+
+/* header */
+header.top{position:fixed;top:0;left:0;right:0;z-index:50;color:var(--paper);transition:background .3s,color .3s,box-shadow .3s}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+header.top.solid{background:var(--paper);color:var(--ink);box-shadow:0 1px 0 #0000001a}
+header.top .brand{filter:drop-shadow(0 2px 10px #0006)}
+header.top.solid .brand{filter:none}
+.nav{display:flex;gap:28px;align-items:center}
+.nav a.l{font:600 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;min-height:44px;display:inline-flex;align-items:center;border-bottom:2px solid transparent}
+.nav a.l:hover{border-color:currentColor}
+.nav .btn{min-height:46px;padding:0 18px}
+
+/* hero */
+.hero{position:relative;height:100svh;min-height:620px;background:var(--ink);color:var(--paper);overflow:hidden}
+.slides,.slides figure{position:absolute;inset:0}
+.slides figure{opacity:0;transition:opacity 1.4s ease}
+.slides figure.on{opacity:1}
+.slides img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 7s linear}
+.slides figure.on img{transform:scale(1.0)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#000a 0%,#0000 24%,#0000 42%,#141210e6 82%,#141210 100%)}
+.hero .copy{position:absolute;z-index:2;left:0;right:0;bottom:0;padding-bottom:clamp(92px,11vh,120px)}
+.hero h1{font-size:clamp(64px,12.6vw,188px);line-height:.84}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln span{display:block;transform:translateY(105%);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.hero.go h1 .ln span{transform:none}
+.hero.go h1 .ln:nth-child(2) span{transition-delay:.12s}.hero.go h1 .ln:nth-child(3) span{transition-delay:.24s}
+.hero h1 .ln:nth-child(3){color:var(--timber)}
+.rot{margin-top:18px;display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;font:600 clamp(16px,1.7vw,21px)/1.3 var(--sans)}
+.rot .w{display:inline-block;min-width:11ch;color:#fff;border-bottom:3px solid var(--brick2);padding-bottom:2px}
+.rot .w.swap{animation:swap .5s ease}
+@keyframes swap{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.hero .ctas .btn-line{color:#fff}
+.hero .meta{position:absolute;z-index:2;right:20px;bottom:30px;font:600 11px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:#ffffffb3;display:flex;gap:10px;align-items:center}
+.hero .meta .bar{display:flex;gap:5px}.hero .meta .bar i{width:26px;height:3px;background:#ffffff40}.hero .meta .bar i.on{background:var(--timber)}
+
+/* ticker */
+.ticker{background:var(--brick);color:#fff;overflow:hidden;white-space:nowrap;border-top:1px solid #0003}
+.ticker div{display:inline-flex;gap:46px;padding:16px 0;animation:tick 32s linear infinite;font:800 clamp(20px,2.4vw,30px)/1 var(--disp);text-transform:uppercase;letter-spacing:.04em}
+.ticker span{display:inline-flex;align-items:center;gap:46px}
+.ticker span::after{content:"";width:14px;height:14px;background:var(--ink);transform:rotate(45deg)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* intro */
+.intro{padding:clamp(80px,11vw,150px) 0 clamp(60px,8vw,110px)}
+.intro .g{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(30px,6vw,90px);align-items:end}
+.intro h2{margin-top:18px}
+.intro .facts{display:grid;gap:0;border-top:2px solid var(--ink)}
+.intro .facts div{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:18px 0;border-bottom:1px solid #23211f2e;font-size:16px}
+.intro .facts svg{width:40px;height:40px;stroke:var(--ink);fill:none;stroke-width:1.6}
+.intro .facts b{display:block;font:800 21px/1.1 var(--disp);text-transform:uppercase;letter-spacing:.02em;margin-bottom:3px}
+
+/* balcony */
+#balcony{padding:clamp(80px,10vw,140px) 0;position:relative;overflow:hidden}
+#balcony .g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+#balcony .pics{position:relative;height:clamp(460px,52vw,680px)}
+#balcony .pics img{position:absolute;object-fit:cover;box-shadow:0 30px 60px #0008}
+#balcony .pics .a{left:0;top:0;width:64%;height:86%}
+#balcony .pics .b{right:0;bottom:0;width:52%;height:58%;border:8px solid var(--ink)}
+#balcony .pics .lab{position:absolute;z-index:2;background:var(--paper);color:var(--ink);font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;padding:8px 12px}
+#balcony .pics .la{left:12px;top:12px}#balcony .pics .lb{right:12px;bottom:12px}
+#balcony h2{margin:16px 0 20px}
+.ticks{list-style:none;margin:26px 0 30px;display:grid;gap:12px}
+.ticks li{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start;font-size:17px}
+.ticks svg{width:26px;height:26px;stroke:var(--timber);fill:none;stroke-width:2.2;margin-top:1px}
+.calc{background:var(--ink2);border-top:3px solid var(--timber);padding:24px}
+.calc h3{font-size:30px;letter-spacing:.02em}
+.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.calc label{font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#d9d4c7;display:grid;gap:8px}
+.calc input{width:100%;min-height:52px;background:var(--paper);border:0;padding:0 14px;font:600 20px var(--sans);color:var(--ink);border-radius:0}
+.tone{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.tone button{display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:center;text-align:left;background:transparent;border:2px solid #ffffff2e;padding:6px;min-height:64px;cursor:pointer;font:600 14px var(--sans)}
+.tone button img{width:52px;height:52px;object-fit:cover}
+.tone button[aria-pressed=true]{border-color:var(--timber);background:#ffffff0d}
+.calc .out{font:800 clamp(36px,4vw,48px)/1 var(--disp);color:#fff;margin:4px 0 4px}
+.calc .note{font-size:13.5px;color:#bdb7aa;margin-bottom:16px}
+
+/* services: giant type list */
+#services{padding:clamp(80px,10vw,140px) 0}
+#services .head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:clamp(30px,5vw,60px)}
+.svc{border-top:2px solid var(--ink)}
+.svc article{display:grid;grid-template-columns:70px 1fr 1.05fr 300px;gap:clamp(16px,3vw,40px);align-items:center;padding:clamp(20px,3vw,34px) 0;border-bottom:1px solid #23211f33;position:relative}
+.svc .n{font:800 22px var(--disp);color:var(--brick)}
+.svc h3{font-size:clamp(38px,5.2vw,74px);transition:color .3s}
+.svc p{font-size:16px;color:var(--stone);max-width:46ch}
+.svc .ph{aspect-ratio:4/3;overflow:hidden;background:var(--paper2)}
+.svc .ph img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.svc article:hover .ph img{transform:scale(1.06)}
+.svc article:hover h3{color:var(--brick)}
+.svc .q{white-space:nowrap;grid-column:3;justify-self:start;margin-top:-6px;font:600 12px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--brick);min-height:44px;display:inline-flex;align-items:center;gap:8px;border:0;background:none;cursor:pointer}
+.svc .q svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
+.svc .noph{aspect-ratio:4/3;background:var(--ink);color:var(--paper);display:grid;place-items:center}
+.svc .noph svg{width:64px;height:64px;stroke:var(--timber);fill:none;stroke-width:1.4}
+
+/* process */
+#process{padding:clamp(80px,10vw,140px) 0}
+#process .g{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,80px)}
+#process .pic{position:sticky;top:96px;align-self:start}
+#process .pic img{width:100%;aspect-ratio:3/4;object-fit:cover}
+#process .pic figcaption{margin-top:12px;font-size:14px;color:#bdb7aa}
+.steps{list-style:none;margin-top:36px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:26px 0;border-top:1px solid #ffffff26}
+.steps li::before{counter-increment:s;content:"0" counter(s);font:900 72px/.8 var(--disp);color:transparent;-webkit-text-stroke:1.5px var(--timber)}
+.steps b{display:block;font:800 30px/1 var(--disp);text-transform:uppercase;letter-spacing:.02em;margin-bottom:8px}
+.steps p{color:#d9d4c7;font-size:16px;max-width:48ch}
+
+/* work wall */
+#work{padding:clamp(80px,10vw,130px) 0 clamp(60px,8vw,100px);overflow:hidden}
+#work .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.wall{scroll-padding-left:max(20px,calc((100% - 1240px)/2));display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:36px max(20px,calc((100% - 1240px)/2)) 14px;scrollbar-width:thin}
+.wall figure{flex:none;width:clamp(250px,26vw,360px);scroll-snap-align:start}
+.wall figure:nth-child(even){margin-top:46px}
+.wall img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.wall figcaption{display:flex;justify-content:space-between;margin-top:10px;font:600 12px var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.wall figcaption span{color:var(--stone)}
+.swipehint{font:600 12px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--stone);display:flex;gap:8px;align-items:center}
+.swipehint svg{width:28px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8}
+
+/* trade */
+#trade{padding:clamp(70px,9vw,120px) 0;background:var(--paper2)}
+#trade .g{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:start}
+#trade h2{font-size:clamp(42px,6vw,84px);margin-top:16px}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.cols div{border-top:3px solid var(--ink);padding-top:16px}
+.cols svg{width:40px;height:40px;stroke:var(--ink);fill:none;stroke-width:1.6;margin-bottom:12px}
+.cols b{display:block;font:800 23px/1.05 var(--disp);text-transform:uppercase;margin-bottom:8px}
+.cols p{font-size:15.5px;color:var(--stone)}
+#trade .btn{margin-top:30px}
+
+/* reviews placeholder */
+#reviews{padding:clamp(60px,8vw,100px) 0}
+.ph-box{border:2px dashed #23211f66;padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+.ph-box svg{width:44px;height:44px;stroke:var(--brick);fill:none;stroke-width:1.6}
+.ph-box b{font:800 clamp(26px,3vw,36px)/1 var(--disp);text-transform:uppercase;display:block;margin-bottom:8px}
+.ph-box p{color:var(--stone);font-size:16px;max-width:70ch}
+.ph-box .flag{display:inline-block;background:var(--brick);color:#fff;font:600 11px var(--sans);letter-spacing:.18em;text-transform:uppercase;padding:6px 10px;margin-bottom:12px}
+
+/* quote builder */
+#quote{padding:clamp(80px,10vw,140px) 0}
+#quote .g{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,80px);align-items:start}
+#quote h2{margin:16px 0 20px}
+.qb{background:var(--paper);color:var(--ink);padding:clamp(20px,3vw,34px);border-top:6px solid var(--brick)}
+.qb fieldset{border:0;margin-bottom:22px}
+.qb legend{font:800 22px/1 var(--disp);text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;display:flex;gap:10px;align-items:baseline}
+.qb legend em{font:600 11px var(--sans);letter-spacing:.18em;color:var(--brick);font-style:normal}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{min-height:46px;padding:0 14px;border:2px solid #23211f40;background:#fff;font:500 15px var(--sans);cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.qb .f{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.qb input,.qb textarea{width:100%;min-height:52px;border:2px solid #23211f40;background:#fff;padding:12px 14px;font:400 16px var(--sans);color:var(--ink);border-radius:0}
+.qb textarea{min-height:110px;resize:vertical;grid-column:1/-1}
+.qb .full{grid-column:1/-1}
+.qb input:focus,.qb textarea:focus,.calc input:focus{outline:3px solid var(--timber);outline-offset:0}
+.qb .send{width:100%;margin-top:18px;min-height:58px;font-size:15px}
+.qb .alt{margin-top:14px;font-size:14.5px;color:var(--stone);text-align:center}
+.qb .alt a{color:var(--brick);font-weight:600;border-bottom:1px solid}
+.qb .ok{display:none;background:var(--ink);color:var(--paper);padding:16px;margin-top:14px;font-size:15px}
+.direct{display:grid;gap:0;margin-top:30px;border-top:1px solid #ffffff26}
+.direct a{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid #ffffff26;min-height:64px}
+.direct svg{width:36px;height:36px;stroke:var(--timber);fill:none;stroke-width:1.6}
+.direct b{display:block;font:800 24px/1 var(--disp);text-transform:uppercase;letter-spacing:.02em}
+.direct span{font-size:14px;color:#bdb7aa}
+
+/* footer */
+footer{background:#171513;color:#d9d4c7;padding:60px 0 120px}
+footer .g{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:30px}
+footer h4{font:600 11px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--timber);margin-bottom:14px}
+footer a,footer li{display:block;font-size:15px;line-height:1.9}
+footer ul{list-style:none}
+footer .brand{color:var(--paper);margin-bottom:16px}
+footer .fine{margin-top:44px;padding-top:18px;border-top:1px solid #ffffff1a;font-size:13px;color:#8f897d;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a.ig{display:inline-flex;align-items:center;gap:10px;min-height:44px}
+footer a.ig svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.6}
+
+/* phone dock */
+.dock{display:none}
+/* tour */
+.tourbtn{position:fixed;left:16px;bottom:18px;z-index:65;min-height:50px;font-size:12px;background:var(--ink);color:var(--paper);box-shadow:0 10px 30px #0005}
+.tourbtn[hidden]{display:none}
+.tourbar{position:fixed;z-index:70;left:50%;transform:translateX(-50%);bottom:20px;width:min(640px,calc(100% - 24px));background:var(--ink);color:#fff;box-shadow:0 24px 70px #000a;border-top:4px solid var(--timber);padding:16px 20px 0}
+.tourbar[hidden]{display:none}
+.tourbar .k{display:flex;justify-content:space-between;font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--timber)}
+.tourbar h5{font:900 26px/1.02 var(--disp);text-transform:uppercase;margin:7px 0 6px;letter-spacing:.01em}
+.tourbar p{font-size:14.5px;line-height:1.45;color:#ffffffd6}
+.tourbar p+p{margin-top:5px}
+.tourbar .why{color:#E8C9A0}
+.tourbar .rev{color:#A8E0B5}
+.tourbar .ctl{display:flex;gap:22px;align-items:center;margin-top:10px;border-top:1px solid #ffffff1f}
+.tourbar .ctl button{background:none;border:0;font:600 12px var(--sans);letter-spacing:.16em;text-transform:uppercase;min-height:46px;cursor:pointer;padding:0;color:#fff}
+.tourbar .ctl .go{color:#fff;background:var(--brick);padding:0 18px;min-height:40px}
+.tourbar .sp{flex:1}
+.tourbar .pg{height:3px;background:#ffffff1f;margin:0 -20px}.tourbar .pg i{display:block;height:3px;background:var(--timber);width:0}
+.spot{outline:4px solid var(--timber);outline-offset:-4px}
+
+@media (max-width:980px){
+ .nav a.l{display:none}
+ .intro .g,#balcony .g,#process .g,#trade .g,#quote .g{grid-template-columns:1fr}
+ .svc article{grid-template-columns:44px 1fr;grid-template-areas:"n h" "ph ph" "p p" "q q";row-gap:14px}
+ .svc .n{grid-area:n}.svc h3{grid-area:h}.svc .ph,.svc .noph{grid-area:ph}.svc p{grid-area:p}.svc .q{grid-area:q;grid-column:auto;margin-top:-8px}
+ #process .pic{position:relative;top:0}
+ #process .pic img{aspect-ratio:4/3}
+ .cols{grid-template-columns:1fr}
+ footer .g{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+ body{font-size:16px}
+ header.top .wrap{height:66px}
+ .brand b{font-size:23px}.brand i{font-size:8.4px}.brand svg{width:26px;height:34px}
+ .nav .btn{display:none}
+ .hero{min-height:600px}
+ .hero h1{font-size:clamp(58px,18.5vw,92px)}
+ .hero .copy{padding-bottom:104px}
+ .hero .ctas .btn{flex:1 1 auto}
+ .hero .meta{left:20px;right:auto;bottom:80px;display:none}
+ #balcony .pics{height:420px}
+ .calc .row,.tone{grid-template-columns:1fr 1fr}
+ .tone button{grid-template-columns:40px 1fr;font-size:13px}.tone button img{width:40px;height:40px}
+ .qb .f{grid-template-columns:1fr}
+ .steps li{grid-template-columns:64px 1fr}.steps li::before{font-size:52px}
+ .ph-box{grid-template-columns:1fr}
+ footer .g{grid-template-columns:1fr}
+ .dock{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--ink);border-top:1px solid #ffffff1f;padding-bottom:env(safe-area-inset-bottom)}
+ .dock a{min-height:58px;display:flex;align-items:center;justify-content:center;gap:7px;font:600 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--paper);border-left:1px solid #ffffff1a}
+ .dock a:first-child{background:var(--brick);border:0}
+ .dock svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8}
+ .tourbtn{display:none}
+ .tourbar{bottom:calc(66px + env(safe-area-inset-bottom));padding:12px 14px 0}.tourbar h5{font-size:22px}.tourbar p{font-size:13.5px;line-height:1.4}.tourbar .pg{margin:0 -14px}
+}
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}
+ .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- craftsman loading screen: a plank slides onto the bench and a nail is hammered home -->
+<div id="ld" aria-hidden="true">
+  <div class="stage">
+    <svg class="bench" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="wd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CF9F68"/><stop offset="1" stop-color="#A9764A"/></linearGradient>
+        <linearGradient id="wd2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8A5E3A"/><stop offset="1" stop-color="#6E4A2D"/></linearGradient>
+      </defs>
+      <!-- bench beam -->
+      <rect x="20" y="124" width="260" height="22" fill="url(#wd2)"/>
+      <path d="M28 132h70M120 138h90M220 131h52" stroke="#5a3b23" stroke-width="1.2" fill="none" opacity=".7"/>
+      <!-- plank slides in -->
+      <g class="plank">
+        <rect x="40" y="100" width="220" height="24" fill="url(#wd)"/>
+        <path d="M46 108c40-3 80 3 120 0s60-2 88 1M50 116c50 2 90-3 130 0s50 2 74-1" stroke="#9B6A40" stroke-width="1.1" fill="none" opacity=".8"/>
+        <rect x="40" y="100" width="220" height="2" fill="#E2B98A"/>
+      </g>
+      <!-- nail: driven down in three strikes -->
+      <g>
+        <g>
+          <animateTransform attributeName="transform" type="translate" dur="1.2s" begin="0.75s" fill="freeze" calcMode="discrete"
+            keyTimes="0;0.2;0.53;0.86" values="0 0;0 7;0 14;0 20"/>
+          <rect x="148" y="80" width="4" height="22" fill="#7d7a74"/>
+          <rect x="141" y="76" width="18" height="4" fill="#4b4843"/>
+        </g>
+      </g>
+      <!-- strike dust -->
+      <g class="dust" stroke="#8E3B32" stroke-width="2" stroke-linecap="square">
+        <animate attributeName="opacity" dur="1.2s" begin="0.75s" fill="freeze" calcMode="discrete" keyTimes="0;0.2;0.28;0.53;0.61;0.86;0.95" values="0;1;0;1;0;1;0"/>
+        <path d="M128 92l-10-4M128 100l-12 1M172 92l10-4M172 100l12 1"/>
+      </g>
+      <!-- hammer: pivots at the end of the handle -->
+      <g>
+        <animateTransform attributeName="transform" type="rotate" dur="1.2s" begin="0.75s" fill="freeze"
+          keyTimes="0;0.2;0.36;0.53;0.69;0.86;1" values="34 262 62;0 262 62;34 262 62;-3.7 262 62;34 262 62;-6.8 262 62;40 262 62"
+          calcMode="spline" keySplines=".55 0 1 .6;0 .4 .4 1;.55 0 1 .6;0 .4 .4 1;.55 0 1 .6;0 .4 .4 1"/>
+        <animate attributeName="opacity" values="0;1" dur=".25s" begin="0.5s" fill="freeze"/>
+        <g opacity="1">
+          <rect x="160" y="58" width="104" height="8" fill="#B7834F"/>
+          <rect x="246" y="57" width="20" height="10" fill="#23211F"/>
+          <path d="M137 50h28v26h-28z" fill="#3a3733"/>
+          <path d="M137 50h28v4h-28z" fill="#5b5751"/>
+          <path d="M165 54c10-2 16-8 20-16l3 2c-4 10-11 17-23 20z" fill="#3a3733"/>
+        </g>
+      </g>
+    </svg>
+    <div class="brand" style="color:var(--ink)">
+      <svg viewBox="0 0 34 44" aria-hidden="true"><path d="M0 0h9v35h25v9H0z" fill="#8E3B32"/><path d="M9 5H5.5M9 10H6.5M9 15H5.5M9 20H6.5M9 25H5.5M9 30H6.5M14 35v3.5M19 35v2.5M24 35v3.5M29 35v2.5" stroke="#F3F1E8" stroke-width="1.3"/></svg>
+      <span class="wm"><b>Steady</b><i>Improvements</i></span>
+    </div>
+    <div class="tag">Carpentry you can count on</div>
+  </div>
+</div>
+
+<header class="top" id="hd">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Steady Improvements, home">
+      <svg viewBox="0 0 34 44" aria-hidden="true"><path d="M0 0h9v35h25v9H0z" fill="#A9483D"/><path d="M9 5H5.5M9 10H6.5M9 15H5.5M9 20H6.5M9 25H5.5M9 30H6.5M14 35v3.5M19 35v2.5M24 35v3.5M29 35v2.5" stroke="#F3F1E8" stroke-width="1.3"/></svg>
+      <span class="wm"><b>Steady</b><i>Improvements</i></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a class="l" href="#services">Services</a>
+      <a class="l" href="#balcony">Balcony flooring</a>
+      <a class="l" href="#process">How we work</a>
+      <a class="l" href="#work">Our work</a>
+      <a class="btn btn-brick" href="#quote">Get a quote</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" id="hero">
+  <div class="slides" id="slides">
+    <figure class="on"><img src="img/balcony-teak.jpg" alt="Warm composite balcony flooring on a long condo balcony" style="object-position:50% 60%"></figure>
+    <figure><img src="img/kitchen.jpg" alt="Finished kitchen with a navy island and white quartz top" loading="lazy" style="object-position:50% 45%"></figure>
+    <figure><img src="img/feature-wall.jpg" alt="Marble-look tile feature wall with a mounted TV" loading="lazy" style="object-position:50% 35%"></figure>
+    <figure><img src="img/balcony-grey.jpg" alt="Grey composite balcony flooring with glass railings" loading="lazy" style="object-position:50% 60%"></figure>
+    <figure><img src="img/bathroom.jpg" alt="Renovated bathroom with marble-look tile and floating vanity" loading="lazy" style="object-position:50% 80%"></figure>
+  </div>
+  <div class="copy">
+    <div class="wrap">
+      <h1><span class="ln"><span>Carpentry</span></span><span class="ln"><span>you can</span></span><span class="ln"><span>count on.</span></span></h1>
+      <p class="rot">Residential and commercial <span class="w" id="rw">bathrooms</span></p>
+      <div class="ctas">
+        <a class="btn btn-brick" href="#quote">Get a quote</a>
+        <a class="btn btn-line" href="tel:+16474586365"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg>(647) 458-6365</a>
+      </div>
+    </div>
+  </div>
+  <div class="meta"><span id="cap">Balcony flooring</span><span class="bar" id="bar"><i class="on"></i><i></i><i></i><i></i><i></i></span></div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div>
+  <span>Bathrooms</span><span>Kitchens</span><span>Balcony flooring</span><span>Hardwood and laminate</span><span>Tile</span><span>Window coverings</span><span>Demolition</span><span>Handyman</span>
+  <span>Bathrooms</span><span>Kitchens</span><span>Balcony flooring</span><span>Hardwood and laminate</span><span>Tile</span><span>Window coverings</span><span>Demolition</span><span>Handyman</span>
+</div></div>
+
+<section class="intro" id="about">
+  <div class="wrap g">
+    <div class="rv">
+      <p class="eyebrow">Small, local, hands-on</p>
+      <h2>Interior finishes, done properly.</h2>
+      <p class="lead" style="margin-top:22px">We're a small local construction company that specialises in interior finishes: new construction, repairs and restorations, for homes and businesses.</p>
+    </div>
+    <div class="facts rv">
+      <div><svg viewBox="0 0 40 40"><path d="M6 34V14l14-9 14 9v20H6z"/><path d="M15 34V22h10v12"/></svg><p><b>Occupied sites, no problem</b>Live-in homes and fully operating businesses.</p></div>
+      <div><svg viewBox="0 0 40 40"><rect x="5" y="8" width="30" height="26"/><path d="M5 16h30M13 4v8M27 4v8M11 23h6M11 28h12"/></svg><p><b>Multi-phase jobs</b>We plan, manage and build them, start to finish.</p></div>
+      <div><svg viewBox="0 0 40 40"><path d="M8 21l8 8L33 11"/><path d="M4 36h32"/></svg><p><b>Client sign-off</b>Every project ends with your sign-off.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="on-ink" id="balcony">
+  <div class="wrap g">
+    <div class="pics rv">
+      <img class="a" src="img/balcony-teak.jpg" alt="Long condo balcony finished in warm composite flooring" loading="lazy">
+      <span class="lab la">Warm tone</span>
+      <img class="b" src="img/balcony-grey.jpg" alt="Grey composite balcony flooring next to glass railings" loading="lazy">
+      <span class="lab lb">Cool grey</span>
+    </div>
+    <div class="rv">
+      <p class="eyebrow">For condo owners</p>
+      <h2>The balcony upgrade.</h2>
+      <p class="lead">A trendy, unique composite balcony floor that turns bare concrete into a real outdoor room. We supply it, deliver it and install it.</p>
+      <ul class="ticks">
+        <li><svg viewBox="0 0 26 26"><path d="M4 13l6 6L22 6"/></svg>Condo board approved</li>
+        <li><svg viewBox="0 0 26 26"><path d="M4 13l6 6L22 6"/></svg>Zero maintenance for 20 years</li>
+        <li><svg viewBox="0 0 26 26"><path d="M4 13l6 6L22 6"/></svg>Installed by our own team, with real attention to detail</li>
+      </ul>
+      <div class="calc" id="calc">
+        <h3>Measure your balcony</h3>
+        <div class="row">
+          <label>Length (ft)<input id="bl" type="number" inputmode="decimal" min="1" step="0.5" placeholder="20"></label>
+          <label>Depth (ft)<input id="bw" type="number" inputmode="decimal" min="1" step="0.5" placeholder="6"></label>
+        </div>
+        <div class="tone" role="group" aria-label="Pick a tone">
+          <button type="button" data-tone="Warm tone" aria-pressed="true"><img src="img/balcony-teak.jpg" alt="">Warm tone</button>
+          <button type="button" data-tone="Cool grey" aria-pressed="false"><img src="img/balcony-grey.jpg" alt="">Cool grey</button>
+        </div>
+        <p class="out" id="bout">0 sq ft</p>
+        <p class="note">Send us the size and we'll come back with a quote. Your measurements go straight into the request.</p>
+        <button class="btn btn-brick" id="bsend" type="button" style="width:100%">Quote my balcony</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head rv">
+      <div><p class="eyebrow">We do it all</p><h2 style="margin-top:16px">What we build.</h2></div>
+      <p class="lead">Tap any service to start a quote for it.</p>
+    </div>
+    <div class="svc">
+      <article class="rv"><span class="n">01</span><h3>Bathrooms</h3><p>We factor in materials, structural upgrades and labour so you get a reasonable quote at the start. We fix underlying issues before we finish, and we'll even pick up and deliver custom fixtures.</p><div class="ph"><img src="img/bathroom.jpg" alt="Finished bathroom renovation" loading="lazy" style="object-position:50% 70%"></div><button class="q" data-svc="Bathroom">Quote a bathroom <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button></article>
+      <article class="rv"><span class="n">02</span><h3>Kitchens</h3><p>Design, renovation and remodelling, including premium appliances, cabinetry and fixtures. Finished on time and within your budget.</p><div class="ph"><img src="img/kitchen.jpg" alt="Renovated kitchen with island" loading="lazy" style="object-position:50% 50%"></div><button class="q" data-svc="Kitchen">Quote a kitchen <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button></article>
+      <article class="rv"><span class="n">03</span><h3>Flooring</h3><p>Composite balcony flooring, plus laminate, hardwood, vinyl tile and ceramic tile inside.</p><div class="ph"><img src="img/balcony-teak.jpg" alt="Composite balcony flooring" loading="lazy" style="object-position:50% 70%"></div><button class="q" data-svc="Flooring">Quote flooring <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button></article>
+      <article class="rv"><span class="n">04</span><h3>Window coverings</h3><p>Blinds, shades and shutters in styles that suit any room. We'll walk you through choosing them, then install them.</p><div class="ph"><img src="img/blind.jpg" alt="Roller shade installed over condo windows" loading="lazy" style="object-position:50% 40%"></div><button class="q" data-svc="Window coverings">Quote window coverings <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button></article>
+      <article class="rv"><span class="n">05</span><h3>Demolition</h3><p>Every demolition is different. We plan it properly, with the skills and manpower to keep your project on schedule and on budget.</p><div class="ph"><img src="img/framing.jpg" alt="Bathroom stripped back to the studs" loading="lazy" style="object-position:50% 50%"></div><button class="q" data-svc="Demolition">Quote demolition <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button></article>
+      <article class="rv"><span class="n">06</span><h3>Handyman</h3><p>Basic handyman services for the smaller jobs on your list.</p><div class="noph" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M10 54l26-26"/><path d="M30 14h16l6 6-6 6-8-4-6 6"/><path d="M38 22l-4 4"/></svg></div><button class="q" data-svc="Handyman">Quote a small job <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button></article>
+    </div>
+  </div>
+</section>
+
+<section class="on-ink" id="process">
+  <div class="wrap g">
+    <figure class="pic rv">
+      <img src="img/framing.jpg" alt="A bathroom opened to the studs before rebuilding" loading="lazy">
+      <figcaption>Behind the walls first. We deal with what's underneath before anything gets finished.</figcaption>
+    </figure>
+    <div class="rv">
+      <p class="eyebrow">How we work</p>
+      <h2 style="margin-top:16px">No short cuts. Start to finish.</h2>
+      <ol class="steps">
+        <li><p><b>A clear quote up front</b>Materials, structural work and labour, all factored in from the beginning.</p></li>
+        <li><p><b>Planned and managed</b>Budgeting, staffing and on-site organisation, with seamless communication the whole way.</p></li>
+        <li><p><b>Built properly</b>We work with architects and designers, and we take no short cuts on quality.</p></li>
+        <li><p><b>Your sign-off</b>When every project is complete, you sign off to confirm you're satisfied.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap head rv">
+    <div><p class="eyebrow">Recent work</p><h2 style="margin-top:16px">From the job site.</h2></div>
+    <p class="swipehint"><svg viewBox="0 0 28 14"><path d="M1 7h26M21 1l6 6-6 6"/></svg>Swipe</p>
+  </div>
+  <div class="wall">
+    <figure><img src="img/balcony-teak.jpg" alt="Warm composite balcony flooring" loading="lazy"><figcaption>Balcony<span>Composite</span></figcaption></figure>
+    <figure><img src="img/kitchen.jpg" alt="Finished kitchen" loading="lazy"><figcaption>Kitchen<span>Full renovation</span></figcaption></figure>
+    <figure><img src="img/feature-wall.jpg" alt="Tile feature wall" loading="lazy"><figcaption>Feature wall<span>Tile</span></figcaption></figure>
+    <figure><img src="img/bathroom.jpg" alt="Finished bathroom" loading="lazy"><figcaption>Bathroom<span>Full renovation</span></figcaption></figure>
+    <figure><img src="img/framing.jpg" alt="Bathroom opened to the studs" loading="lazy"><figcaption>Bathroom<span>Demolition</span></figcaption></figure>
+    <figure><img src="img/balcony-grey.jpg" alt="Grey composite balcony flooring" loading="lazy"><figcaption>Balcony<span>Composite</span></figcaption></figure>
+    <figure><img src="img/blind.jpg" alt="Roller shade" loading="lazy"><figcaption>Window coverings<span>Roller shade</span></figcaption></figure>
+  </div>
+</section>
+
+<section id="trade">
+  <div class="wrap g">
+    <div class="rv">
+      <p class="eyebrow">For architects, designers and property managers</p>
+      <h2>A builder your projects can lean on.</h2>
+      <a class="btn btn-brick" href="#quote" data-pre="Commercial">Send us a scope</a>
+    </div>
+    <div class="cols rv">
+      <div><svg viewBox="0 0 40 40"><path d="M5 35V9h14v26M19 35V3h16v32M9 15h6M9 21h6M9 27h6M23 9h8M23 15h8M23 21h8M23 27h8"/></svg><b>Live sites</b><p>Occupied and fully operational job sites are never a problem.</p></div>
+      <div><svg viewBox="0 0 40 40"><path d="M4 32h32M8 32V20h8v12M18 32V12h8v20M28 32V6h6v26"/></svg><b>Multi-phase</b><p>We plan, manage and build jobs in phases.</p></div>
+      <div><svg viewBox="0 0 40 40"><path d="M6 34l8-22 8 22M9 26h10"/><path d="M24 6h12v28H24z"/><path d="M24 12h5M24 18h5M24 24h5"/></svg><b>Your drawings</b><p>We work with architects and designers to build what was drawn.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="ph-box rv">
+      <svg viewBox="0 0 44 44"><path d="M6 8h32v22H18l-8 7v-7H6z"/><path d="M13 16h18M13 22h12"/></svg>
+      <div><span class="flag">To come: client reviews</span><b>What clients say</b><p>Your current testimonials page is empty. Send us two or three real reviews (Google, Instagram or messages from clients) and they go here. We never write reviews for you.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="on-ink" id="quote">
+  <div class="wrap g">
+    <div class="rv">
+      <p class="eyebrow">Get a quote</p>
+      <h2>Tell us about the job.</h2>
+      <p class="lead">Takes about 30 seconds. Photos help, so feel free to text them over too.</p>
+      <div class="direct">
+        <a href="tel:+16474586365"><svg viewBox="0 0 36 36"><path d="M8 5h6l3 7-4 2.5a16 16 0 0 0 8.5 8.5L24 19l7 3v6a3 3 0 0 1-3 3A23 23 0 0 1 5 8a3 3 0 0 1 3-3"/></svg><p><b>(647) 458-6365</b><span>Call us, Monday to Friday, 9 a.m. to 5 p.m.</span></p></a>
+        <a href="sms:+16474586365"><svg viewBox="0 0 36 36"><path d="M5 7h26v18H15l-7 6v-6H5z"/><path d="M11 14h14M11 19h9"/></svg><p><b>Text us photos</b><span>Snap the space and send it over.</span></p></a>
+        <a href="mailto:Steadyimprovements@gmail.com"><svg viewBox="0 0 36 36"><rect x="4" y="8" width="28" height="20"/><path d="M4 9l14 11L32 9"/></svg><p><b>Email</b><span>Steadyimprovements@gmail.com</span></p></a>
+      </div>
+    </div>
+    <form class="qb rv" id="qb" novalidate>
+      <fieldset><legend>The job <em>Pick any</em></legend>
+        <div class="chips" data-k="Job" data-multi="1">
+          <button type="button">Bathroom</button><button type="button">Kitchen</button><button type="button">Balcony flooring</button><button type="button">Flooring</button><button type="button">Window coverings</button><button type="button">Demolition</button><button type="button">Handyman</button><button type="button">Commercial</button>
+        </div></fieldset>
+      <fieldset><legend>The place</legend>
+        <div class="chips" data-k="Property"><button type="button">Condo</button><button type="button">House</button><button type="button">Business</button></div></fieldset>
+      <fieldset><legend>Timing</legend>
+        <div class="chips" data-k="Timing"><button type="button">As soon as possible</button><button type="button">Next 1 to 3 months</button><button type="button">Just planning</button></div></fieldset>
+      <fieldset><legend>You</legend>
+        <div class="f">
+          <input name="name" placeholder="Your name" autocomplete="name" aria-label="Your name">
+          <input name="phone" type="tel" placeholder="Phone" autocomplete="tel" aria-label="Phone">
+          <input class="full" name="email" type="email" placeholder="Email" autocomplete="email" aria-label="Email">
+          <textarea name="details" id="det" placeholder="Anything else? Size, address area, what you have in mind." aria-label="Details"></textarea>
+        </div></fieldset>
+      <button class="btn btn-brick send" type="submit">Send my quote request</button>
+      <p class="ok" id="ok">Thanks. Your email app has opened with everything filled in. Hit send and we'll be in touch.</p>
+      <p class="alt">Rather talk? <a href="tel:+16474586365">Call (647) 458-6365</a> or <a href="sms:+16474586365">text us photos</a>.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="g">
+      <div>
+        <a href="#top" class="brand"><svg viewBox="0 0 34 44" aria-hidden="true"><path d="M0 0h9v35h25v9H0z" fill="#A9483D"/><path d="M9 5H5.5M9 10H6.5M9 15H5.5M9 20H6.5M9 25H5.5M9 30H6.5M14 35v3.5M19 35v2.5M24 35v3.5M29 35v2.5" stroke="#F3F1E8" stroke-width="1.3"/></svg><span class="wm"><b>Steady</b><i>Improvements</i></span></a>
+        <p style="font-size:15px;max-width:34ch">Residential and commercial renovations. Carpentry you can count on.</p>
+      </div>
+      <div><h4>Contact</h4><a href="tel:+16474586365">(647) 458-6365</a><a href="mailto:Steadyimprovements@gmail.com">Steadyimprovements@gmail.com</a><a class="ig" href="https://www.instagram.com/steadyimprovements/" target="_blank" rel="noopener"><svg viewBox="0 0 26 26"><rect x="3" y="3" width="20" height="20" rx="5"/><circle cx="13" cy="13" r="4.5"/><path d="M18.5 7.5h.01"/></svg>@steadyimprovements</a></div>
+      <div><h4>Hours</h4><ul><li>Monday to Friday</li><li>9 a.m. to 5 p.m.</li><li>Saturday and Sunday closed</li></ul></div>
+      <div><h4>Services</h4><ul><li>Bathrooms</li><li>Kitchens</li><li>Balcony and interior flooring</li><li>Window coverings</li><li>Demolition and handyman</li></ul></div>
+    </div>
+    <div class="fine"><span>&copy; <span id="yr">2026</span> Steady Improvements. All rights reserved.</span><span>Concept preview by Chairlift. <a href="brand/logos.html" style="display:inline;border-bottom:1px solid">Logo options</a></span></div>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Quick actions">
+  <a href="#quote"><svg viewBox="0 0 20 20"><path d="M4 2h9l3 3v13H4z"/><path d="M7 8h6M7 12h6"/></svg>Quote</a>
+  <a href="tel:+16474586365"><svg viewBox="0 0 20 20"><path d="M4 2h3l2 4-2 1.3a9 9 0 0 0 5 5L13 11l4 2v3a2 2 0 0 1-2 2A14 14 0 0 1 2 4a2 2 0 0 1 2-2"/></svg>Call</a>
+  <a href="sms:+16474586365"><svg viewBox="0 0 20 20"><path d="M2 3h16v11H8l-4 4v-4H2z"/></svg>Text</a>
+  <a href="#" id="dtour">Tour</a>
+</nav>
+
+<button class="btn tourbtn" id="tb">Take the tour</button>
+<div class="tourbar" id="tour" hidden>
+  <div class="k"><span id="tk">What we changed</span><span id="tn"></span></div>
+  <h5 id="th">See what changed, and why.</h5>
+  <p id="tp">A short guided tour of the new Steady Improvements site. It plays by itself.</p>
+  <p class="why" id="ty" hidden></p>
+  <p class="rev" id="tr" hidden></p>
+  <div class="ctl"><button class="go" id="tgo">Start the tour</button><button id="tpause" hidden>Pause</button><button id="tnext" hidden>Next</button><span class="sp"></span><button id="tx">Close</button></div>
+  <div class="pg"><i id="tpg"></i></div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+$('#yr').textContent=new Date().getFullYear();
+
+/* loader -> hero -> tour */
+const ld=$('#ld');
+function ready(){ld.classList.add('out');$('#hero').classList.add('go');setTimeout(()=>{ld.remove();dispatchEvent(new Event('siready'))},800)}
+setTimeout(ready,RM?300:3000);
+
+/* header */
+const hd=$('#hd');const onS=()=>hd.classList.toggle('solid',scrollY>innerHeight*.75);addEventListener('scroll',onS,{passive:true});onS();
+
+/* hero slides + rotating word */
+const figs=$$('#slides figure'),bars=$$('#bar i'),caps=['Balcony flooring','Kitchen','Feature wall','Balcony flooring','Bathroom'];
+const words=['bathrooms','kitchens','balcony floors','flooring','window coverings','demolition'];let si=0,wi=0;
+setInterval(()=>{figs[si].classList.remove('on');bars[si].classList.remove('on');si=(si+1)%figs.length;figs[si].classList.add('on');bars[si].classList.add('on');$('#cap').textContent=caps[si]},4800);
+setInterval(()=>{wi=(wi+1)%words.length;const w=$('#rw');w.textContent=words[wi];w.classList.remove('swap');void w.offsetWidth;w.classList.add('swap')},2400);
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+$$('.rv').forEach(el=>io.observe(el));
+
+/* balcony calculator */
+let tone='Warm tone';
+const calc=()=>{const l=parseFloat($('#bl').value)||0,w=parseFloat($('#bw').value)||0;const a=Math.round(l*w);$('#bout').textContent=a+' sq ft';return {l,w,a}};
+['#bl','#bw'].forEach(s=>$(s).addEventListener('input',calc));
+$$('.tone button').forEach(b=>b.onclick=()=>{$$('.tone button').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');tone=b.dataset.tone});
+
+/* quote builder */
+const pick=(k,label,on=true)=>{const g=$(`.chips[data-k="${k}"]`);if(!g)return;[...g.children].forEach(b=>{if(b.textContent===label)b.setAttribute('aria-pressed',on?'true':'false');else if(!g.dataset.multi)b.setAttribute('aria-pressed','false')})};
+$$('.chips button').forEach(b=>{b.setAttribute('aria-pressed','false');b.onclick=()=>{const g=b.parentElement,on=b.getAttribute('aria-pressed')!=='true';if(!g.dataset.multi)[...g.children].forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed',on?'true':'false')}});
+const goQuote=()=>$('#quote').scrollIntoView({behavior:'smooth'});
+$$('.svc .q').forEach(b=>b.onclick=()=>{pick('Job',b.dataset.svc);goQuote()});
+$$('[data-pre]').forEach(a=>a.addEventListener('click',()=>pick('Job',a.dataset.pre)));
+$('#bsend').onclick=()=>{const {l,w,a}=calc();pick('Job','Balcony flooring');pick('Property','Condo');
+  if(a){const t=$('#det');const line=`Balcony: about ${l} ft by ${w} ft (${a} sq ft), ${tone.toLowerCase()}.`;if(!t.value.includes('Balcony:'))t.value=(line+' '+t.value).trim()}goQuote()};
+$('#qb').addEventListener('submit',e=>{e.preventDefault();const f=e.target,sel=k=>[...$(`.chips[data-k="${k}"]`).children].filter(b=>b.getAttribute('aria-pressed')==='true').map(b=>b.textContent).join(', ')||'Not picked';
+  const body=`Job: ${sel('Job')}\nPlace: ${sel('Property')}\nTiming: ${sel('Timing')}\n\nName: ${f.name.value}\nPhone: ${f.phone.value}\nEmail: ${f.email.value}\n\n${f.details.value}`;
+  location.href=`mailto:Steadyimprovements@gmail.com?subject=${encodeURIComponent('Quote request: '+sel('Job'))}&body=${encodeURIComponent(body)}`;$('#ok').style.display='block'});
+
+/* guided tour: what changed, why, and how it brings in work */
+const TOUR=[
+ ['#top','A new site for Steady Improvements','A concept redesign built from your own photos, words and services.','It plays by itself. Tap Pause any time, or Next to skip ahead.','Why: show the work first, and make it easy to ask for a quote from any screen.'],
+ ['#hero','Your best work, first','Was: a white page with a heading and three paragraphs.','Now: your finished jobs fill the screen and change every few seconds, with Get a quote and Call right there.','Why: people hire renovators with their eyes. The work sells before any words do.'],
+ ['#hd','A logo that feels hand-built','Was: a round stamp with a clip-art hammer.','Now: a clean wordmark with a carpenter\'s square. Two more options are on the logo page.','Why: it reads as a real trade business, stays sharp at any size, and works on trucks, shirts and job signs.'],
+ ['#balcony','Balcony flooring gets its own spotlight','Was: buried halfway down the Services page.','Now: its own section with your two finishes and a tool that measures the balcony.','Revenue: condo owners send their exact size, so quotes go out faster. One balcony in a building often leads to the neighbours.'],
+ ['#services','Every service, one tap from a quote','Was: long paragraphs with small cropped photos.','Now: six services, each with a real job photo and a short version of your own words.','Revenue: each one has its own Quote button that pre-fills the request.'],
+ ['#process','How a job runs, step by step','Was: one "Why choose us" paragraph.','Now: four clear steps, from the quote up front to your client sign-off.','Why: the biggest fear in a renovation is not knowing what happens next. This answers it.'],
+ ['#work','A wall of real jobs','Was: photos spread across pages.','Now: one swipeable wall of finished and in-progress work.','Why: proof in one place, easy to scroll on a phone.'],
+ ['#trade','A door for repeat business','Was: one line about working with architects and designers.','Now: a section for architects, designers and property managers, with Send us a scope.','Revenue: one property manager or designer can send work across many units and projects.'],
+ ['#reviews','A home for real reviews','Was: a Testimonials page with nothing on it.','Now: a marked spot, ready for two or three real reviews.','Why: we never invent reviews. Real ones from your clients will lift calls the most.'],
+ ['#quote','A 30-second quote builder','Was: a form asking only for an email and phone number.','Now: tap the job, the place and the timing, then send. Call and text-a-photo sit right beside it.','Revenue: you get the job details on the first message, so you can price faster and win more of them.']
+];
+const tour=$('#tour');let ti=-1,tt=null,paused=false;const DUR=9000;
+function clr(){$$('.spot').forEach(e=>e.classList.remove('spot'))}
+function show(i){if(i>=TOUR.length)return end();ti=i;clr();const [sel,h,was,now,why]=TOUR[i];const el=$(sel);
+ if(sel==='#top'||sel==='#hero'||sel==='#hd'){scrollTo({top:0,behavior:'smooth'})}else{el.scrollIntoView({behavior:'smooth',block:'start'})}
+ if(sel!=='#top')el.classList.add('spot');$('#tk').textContent=i?'What we changed':'Concept preview';$('#tn').textContent=i?`${i} / ${TOUR.length-1}`:'';$('#th').textContent=h;$('#tp').innerHTML=`${esc(was)}<br>${esc(now)}`;
+ const y=$('#ty'),r=$('#tr');y.hidden=r.hidden=true;if(why.startsWith('Revenue')){r.textContent=why;r.hidden=false}else{y.textContent=why;y.hidden=false}
+ $('#tgo').hidden=true;$('#tpause').hidden=false;$('#tnext').hidden=false;tick()}
+function tick(){clearTimeout(tt);const pg=$('#tpg');pg.style.transition='none';pg.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>{pg.style.transition=`width ${DUR}ms linear`;pg.style.width='100%'}));if(!paused)tt=setTimeout(()=>show(ti+1),DUR)}
+function end(){clearTimeout(tt);clr();$('#tk').textContent="That's the tour";$('#tn').textContent='';$('#th').textContent='Have a look around.';$('#tp').innerHTML='Everything here uses Steady Improvements\' own photos, words and services. Anything marked "to come" is waiting on your details. <a href="brand/logos.html" style="color:#E8C9A0;border-bottom:1px solid">See the logo options</a>';$('#ty').hidden=$('#tr').hidden=true;$('#tpause').hidden=$('#tnext').hidden=true;$('#tgo').hidden=false;$('#tgo').textContent='Replay';ti=-1;scrollTo({top:0,behavior:'smooth'})}
+$('#tgo').onclick=()=>{paused=false;$('#tpause').textContent='Pause';show(0)};
+$('#tnext').onclick=()=>show(ti+1);
+$('#tpause').onclick=()=>{paused=!paused;$('#tpause').textContent=paused?'Resume':'Pause';if(paused){clearTimeout(tt);const pg=$('#tpg');pg.style.transition='none'}else tick()};
+const openTour=()=>{$('#tb').hidden=true;tour.hidden=false;$('#tgo').click()};
+$('#tb').onclick=openTour;$('#dtour').onclick=e=>{e.preventDefault();openTour()};
+$('#tx').onclick=()=>{clearTimeout(tt);clr();tour.hidden=true;$('#tb').hidden=false};
+/* preview: the tour starts by itself right after the loading screen (?tour=0 turns it off) */
+let tourStarted=false;const autoTour=()=>{if(tourStarted||new URLSearchParams(location.search).get('tour')==='0')return;tourStarted=true;setTimeout(openTour,400)};
+addEventListener('siready',autoTour);setTimeout(autoTour,6000);
+</script>
+</body>
+</html>
