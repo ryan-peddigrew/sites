@@ -67,9 +67,14 @@ section{padding:clamp(64px,9vw,128px) 0;position:relative}
 .hero-img figure.on{opacity:1}
 .hero-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 9s linear}
 .hero-img figure.on img{transform:scale(1)}
-.hero-img figure:nth-child(1) img{object-position:30% 30%}
-.hero-img figure:nth-child(2) img{object-position:50% 35%}
-.hero-img figure:nth-child(3) img{object-position:50% 30%}
+.hero-img video{width:100%;height:100%;object-fit:cover;object-position:42% 40%;filter:contrast(1.05) saturate(.9)}
+.hero-img figure:nth-child(2) img{object-position:30% 30%}
+.hero-img figure:nth-child(3) img{object-position:50% 35%}
+.hero-img figure:nth-child(4) img{object-position:50% 30%}
+.hero-img figure.wipe.on img{animation:wipe 1.8s cubic-bezier(.7,0,.2,1) both}
+@keyframes wipe{from{clip-path:inset(0 50% 0 50%)}to{clip-path:inset(0 0 0 0)}}
+.hero-img::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain .8s steps(4) infinite}
+@keyframes grain{25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}}
 .hero-img::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(transparent,var(--ink));pointer-events:none}
 .cap{position:absolute;left:var(--gut);bottom:18px;z-index:2;display:flex;gap:10px;align-items:center;font:600 12px/1.2 var(--head);letter-spacing:.16em;text-transform:uppercase;color:#fff}
 .cap i{display:block;width:8px;height:8px;background:#E5484D;border-radius:2px;animation:rec 1.4s infinite}
@@ -203,6 +208,43 @@ section{padding:clamp(64px,9vw,128px) 0;position:relative}
 .done{display:none;text-align:left}
 .done.on{display:block;animation:fade .4s}
 
+
+/* slate */
+.slate{background:var(--ink)}
+.slate-row{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin:36px calc(var(--gut)*-1) 0;padding:0 var(--gut) 6px;scrollbar-width:none}
+.slate-row::-webkit-scrollbar{display:none}
+.sl{flex:0 0 min(84vw,380px);scroll-snap-align:start;background:var(--ink2);border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+@media(min-width:1000px){.slate-row{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;margin:36px 0 0;padding:0}.sl{flex:none}}
+.sl .ph{position:relative;aspect-ratio:4/3;overflow:hidden}
+.sl .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(1) contrast(1.05);transition:transform .6s}
+.sl:hover .ph img{transform:scale(1.04)}
+.sl .stage{position:absolute;left:12px;top:12px;font:700 11px var(--head);letter-spacing:.14em;text-transform:uppercase;background:rgba(8,22,30,.85);color:var(--green);padding:7px 10px;border-radius:6px}
+.sl .bd{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.sl .cat{font:700 12px var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+.sl h3{font-size:26px}
+.sl p{color:var(--mist);font-size:15.5px;margin-bottom:10px}
+.sl .btn{margin-top:auto;align-self:flex-start}
+.slate-note{margin-top:22px;color:var(--mist);font-size:14px}
+/* brief pdf */
+.pdf-btn{margin-top:16px;width:100%}
+.btn.gw{background:transparent;border-color:var(--green);color:var(--green)}
+#printbrief{display:none}
+@media print{
+  @page{size:letter;margin:16mm}
+  body>*:not(#printbrief){display:none!important}
+  #printbrief{display:block!important;color:#08161E;font:400 11pt/1.5 'Inter',sans-serif}
+  .pb-top{display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid #A9D377;padding-bottom:12px;margin-bottom:18px}
+  .pb-top img{width:90px}
+  .pb-top b{font:800 18pt 'Archivo',sans-serif}
+  #printbrief h1{font:800 26pt/1.05 'Archivo',sans-serif;margin:6px 0 4px}
+  #printbrief .k{font:700 8pt 'Archivo',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0D5374}
+  #printbrief table{width:100%;border-collapse:collapse;margin:16px 0}
+  #printbrief td{padding:9px 0;border-bottom:1px solid #dde4e8;vertical-align:top}
+  #printbrief td:first-child{width:32%;font:700 9pt 'Archivo',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#5B6B74}
+  #printbrief .nx{background:#F2F6F8;padding:14px;border-radius:8px;margin-top:14px}
+  #printbrief .ft{margin-top:22px;font-size:9pt;color:#5B6B74}
+}
+
 /* story steps */
 .story{background:var(--paper)}
 .story-grid{display:grid;gap:36px;margin-top:40px}
@@ -311,11 +353,12 @@ footer a:hover{color:var(--green)}
 <main id="top">
 <section class="hero dark" id="hero">
   <div class="hero-img" id="heroimg">
-    <figure class="on"><img src="img/listen.jpg" alt="An older man listening, hands clasped"></figure>
-    <figure><img src="img/alive.jpg" alt="Portrait split between an older woman and a young girl"></figure>
+    <figure class="on vid"><video id="hv" src="img/hero-film.mp4" poster="img/hero-film.jpg" muted playsinline loop autoplay preload="auto" aria-label="A family sharing a moment together outdoors"></video></figure>
+    <figure><img src="img/listen.jpg" alt="An older man listening, hands clasped"></figure>
+    <figure class="wipe"><img src="img/alive.jpg" alt="Portrait split between an older woman and a young girl"></figure>
     <figure><img src="img/inside.jpg" alt="A young man with hands framing his eyes"></figure>
-    <div class="cap"><i></i><span id="capt">A patient's journey: listen</span></div>
-    <div class="ticks" id="ticks"><button class="on" aria-label="Story 1"></button><button aria-label="Story 2"></button><button aria-label="Story 3"></button></div>
+    <div class="cap"><i></i><span id="capt">Join us: real people, real stories</span></div>
+    <div class="ticks" id="ticks"><button class="on" aria-label="Story 1"></button><button aria-label="Story 2"></button><button aria-label="Story 3"></button><button aria-label="Story 4"></button></div>
   </div>
   <div class="hero-copy">
     <div class="eyebrow">Documentary storytelling for healthcare</div>
@@ -382,6 +425,20 @@ footer a:hover{color:var(--green)}
   </div>
 </section>
 
+<section class="slate dark" id="slate">
+  <div class="wrap">
+    <div class="eyebrow rv">Now in development</div>
+    <h2 class="rv">Stories looking <br>for a sponsor.</h2>
+    <p class="lead rv">Put your name behind a film that is already taking shape. Pick one and your sponsorship brief starts there.</p>
+    <div class="slate-row">
+      <article class="sl rv"><div class="ph"><img src="img/inside.jpg" alt="" loading="lazy"><span class="stage">In development</span></div><div class="bd"><span class="cat">Mental health</span><h3>Inside my head</h3><p>Living with schizophrenia, seen from the inside.</p><button class="btn g" data-focus="Mental health">Sponsor this story</button></div></article>
+      <article class="sl rv"><div class="ph"><img src="img/alive.jpg" alt="" loading="lazy"><span class="stage">In development</span></div><div class="bd"><span class="cat">Seniors and caregiving</span><h3>I'm alive, and once was you</h3><p>The seniors our system forgets, and the people who care for them.</p><button class="btn g" data-focus="Seniors and caregiving">Sponsor this story</button></div></article>
+      <article class="sl rv"><div class="ph"><img src="img/listen.jpg" alt="" loading="lazy"><span class="stage">In development</span></div><div class="bd"><span class="cat">Chronic condition</span><h3>A patient's journey</h3><p>One patient navigating the healthcare system, start to finish.</p><button class="btn g" data-focus="Chronic condition">Sponsor this story</button></div></article>
+    </div>
+    <p class="slate-note"><span class="ph-tag">Placeholder</span> Themes come from their current homepage. Real titles, conditions and production stages to be supplied by Patients' Mirror.</p>
+  </div>
+</section>
+
 <section class="studio" id="sponsor">
   <div class="wrap">
     <div class="eyebrow rv">Sponsor a story, inspire a movement</div>
@@ -439,7 +496,7 @@ footer a:hover{color:var(--green)}
           <div class="opts two"><div class="field"><label for="nm">Your name</label><input id="nm" autocomplete="name"></div><div class="field"><label for="og">Organization</label><input id="og" autocomplete="organization"></div></div>
           <div class="field"><label for="em">Email</label><input id="em" type="email" autocomplete="email"></div>
           <div class="field"><label for="ms">Anything else? (optional)</label><textarea id="ms"></textarea></div>
-          <div class="done" id="done"><h3>Thank you. Your brief is ready.</h3><p class="hint">Preview only: this form isn't connected yet. <span class="ph-tag">Placeholder</span> It will email the brief to hello@patientsmirror.com.</p></div>
+          <div class="done" id="done"><h3>Thank you. Your brief is ready.</h3><p class="hint">Save a one-page copy to share with your team.</p><button class="btn n" type="button" id="pdf2" style="margin-bottom:12px">Save my brief as a PDF</button><p class="hint">Preview only: this form isn't connected yet. <span class="ph-tag">Placeholder</span> It will email the brief to hello@patientsmirror.com.</p></div>
         </div>
         <div class="nav-row"><button class="btn l" id="back" style="visibility:hidden">Back</button><button class="btn n" id="next">Next</button></div>
       </div>
@@ -454,6 +511,7 @@ footer a:hover{color:var(--green)}
           <div><dt>Timing</dt><dd data-b="when" class="empty">Not chosen yet</dd></div>
         </dl>
         <p class="note">Investment is confirmed by our team after a short call. <span class="ph-tag">Placeholder</span> Sponsorship packages and starting prices to be supplied by Patients' Mirror.</p>
+        <button class="btn gw pdf-btn" id="pdf" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Save my brief as a PDF</button>
       </aside>
     </div>
   </div>
@@ -520,6 +578,7 @@ footer a:hover{color:var(--green)}
   </div>
 </footer>
 
+<div id="printbrief" aria-hidden="true"><div class="pb-top"><div style="display:flex;align-items:center;gap:12px"><img src="img/mark.svg" alt=""><b>Patients' Mirror</b></div><span class="k">Sponsorship brief</span></div><span class="k" id="pb-date"></span><h1 id="pb-title">Sponsorship brief</h1><p id="pb-sub"></p><table id="pb-t"></table><div class="nx"><b>Next step</b><br>Our team reviews your brief and comes back with options for your project. Questions in the meantime: hello@patientsmirror.com or 416-619-1116.</div><p class="ft">Patients' Mirror · 192 Spadina Ave, Suite 300, Toronto, ON M5T 2C2 · patientsmirror.com</p></div>
 <div class="lb" id="lb" role="dialog" aria-label="Film player"><button class="menu-btn x" id="lbx" aria-label="Close film"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button><video id="lbv" controls playsinline preload="none"></video></div>
 
 <button class="tour-btn" type="button" id="tour-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>See what's new</button>
@@ -537,9 +596,10 @@ footer a:hover{color:var(--green)}
   var dr=$('#drawer');function setMenu(o){dr.classList.toggle('on',o);dr.setAttribute('aria-hidden',!o)}
   $('#mb').onclick=function(){setMenu(true)};$('#mx').onclick=function(){setMenu(false)};$$('#drawer a').forEach(function(a){a.onclick=function(){setMenu(false)}});
   // hero images
-  var figs=$$('#heroimg figure'),ticks=$$('#ticks button'),caps=["A patient's journey: listen","I'm alive, and once was you","Schizophrenia: see it inside my head"],hi=0,ht;
-  function show(i){figs[hi].classList.remove('on');ticks[hi].classList.remove('on');hi=i;figs[hi].classList.add('on');ticks[hi].classList.add('on');$('#capt').textContent=caps[hi]}
-  function auto(){clearInterval(ht);ht=setInterval(function(){show((hi+1)%figs.length)},6000)}
+  var figs=$$('#heroimg figure'),ticks=$$('#ticks button'),caps=["Join us: real people, real stories","A patient's journey: listen","I'm alive, and once was you","Schizophrenia: see it inside my head"],hi=0,ht;
+  var hv=$('#hv');function show(i){figs[hi].classList.remove('on');ticks[hi].classList.remove('on');hi=i;figs[hi].classList.add('on');ticks[hi].classList.add('on');$('#capt').textContent=caps[hi];if(hv){if(hi===0){hv.currentTime=0;hv.play().catch(function(){})}}}
+  function auto(){clearTimeout(ht);ht=setTimeout(function(){show((hi+1)%figs.length);auto()},hi===0?10000:6000)}
+  if(hv&&reduce){hv.pause()}
   ticks.forEach(function(b,i){b.onclick=function(){show(i);auto()}});auto();
   // rotating headline
   var words=['ignored.','marginalized.','forgotten.','unseen.'],wi=0,el=$('#rot');
@@ -569,15 +629,32 @@ footer a:hover{color:var(--green)}
   function go(i){if(i<0||i>=steps.length)return;steps[si].classList.remove('on');si=i;steps[si].classList.add('on');prog.forEach(function(p,j){p.classList.toggle('on',j<=si)});$('#back').style.visibility=si?'visible':'hidden';$('#next').textContent=si===steps.length-1?'Send my brief':'Next'}
   $('#next').onclick=function(){if(si===steps.length-1){$('#done').classList.add('on');$('#next').textContent='Brief ready';return}go(si+1)};$('#back').onclick=function(){go(si-1)};
   $('#sgo').onclick=function(){var f=$('#sform');if(f.reportValidity()){$('#sdone').style.display='block'}};
+  // pdf brief
+  function esc(t){return String(t).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+  function pdf(){var org=$('#og').value.trim(),nm=$('#nm').value.trim();
+    $('#pb-date').textContent=new Date().toLocaleDateString('en-CA',{year:'numeric',month:'long',day:'numeric'});
+    $('#pb-title').textContent=(org?org+': ':'')+'documentary sponsorship brief';$('#pb-sub').textContent=nm?'Prepared for '+nm:'';
+    var rows=[['Organization',data.org.join(', ')],['Partnership',data.way.join(', ')],['Focus',data.focus.concat($('#area').value.trim()?[$('#area').value.trim()]:[]).join(', ')],['Goals',data.goal.join(', ')],['Extras',data.extras.join(', ')],['Timing',$('#when').value],['Notes',$('#ms').value.trim()]];
+    $('#pb-t').innerHTML=rows.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+(r[1]?esc(r[1]):'To discuss')+'</td></tr>'}).join('');
+    window.print()}
+  $('#pdf').onclick=pdf;$('#pdf2').onclick=pdf;
+  // slate -> brief
+  $$('.sl .btn').forEach(function(b){b.onclick=function(){
+    data.way=['Sponsor an upcoming documentary'];data.focus=[b.dataset.focus];
+    $$('.step[data-key="way"] .opt').forEach(function(o){o.setAttribute('aria-pressed',o.dataset.v===data.way[0])});
+    $$('.step[data-key="focus"] .opt').forEach(function(o){o.setAttribute('aria-pressed',o.dataset.v===b.dataset.focus)});
+    paint();go(data.org.length?3:0);document.getElementById('sponsor').scrollIntoView({behavior:reduce?'auto':'smooth'})}});
   // tour
   var T=[
-    ['#hero','A cinematic first impression','New','The old homepage was a slider with cut-off text. Now their own portraits change every few seconds, the headline types out the problem they solve, and two clear buttons split visitors: sponsors and patients.'],
+    ['#hero','A cinematic first impression','New','The old homepage was a slider with text over faces. Now it opens on their own film footage, then their portraits, with a slow reveal on the "I\'m alive" portrait, the headline types out the problem they solve, and two clear buttons split visitors: sponsors and patients.'],
     ['#doors','Three doors, three audiences','Why','Patients, sponsors and healthcare professionals each want something different. Each now gets a door that takes them straight to the right place, instead of one long page.'],
     ['#why','Their own words, front and centre','Why','Their "who we are" statement was buried in small italics. Now it lights up word by word as you scroll, so the human side of the company lands.'],
     ['#films','Films you can actually watch','New','Their videos were background loops nobody could play. Now every film plays right on the page, with a real play button, so sponsors see the quality of the work in seconds.'],
+    ['#slate','Stories looking for a sponsor','Revenue','A new "Now in development" row shows films that need funding. One tap on "Sponsor this story" opens the brief builder with the film already filled in. Sponsors buy a specific story, not an idea.'],
     ['#what','What they do, in six chapters','Why','Six long paragraphs became six tappable chapters. Easy to scan on a phone, nothing lost.'],
     ['#sponsor','Sponsor brief builder','Revenue','This is the money page. Sponsorship used to live on a separate page with a generic form. Now a sponsor builds a scoped brief in six taps: who they are, how they want to partner, focus, goals and extras. Patients\' Mirror gets a qualified lead, not a vague email.'],
     ['#sponsor','Upsells built into the brief','Revenue','Step 5 offers add-ons the old site only hinted at: social cut-downs, premiere screenings, panel discussions, a professional education version, impact campaigns and a French version. Each one is a chance to grow the size of a sponsorship.'],
+    ['#brief','A brief they can take to their boss','Revenue','Sponsors can save a one-page, branded PDF of their brief and forward it inside their organization. That is how pharma and foundation deals get approved.'],
     ['#story','A safe way for patients to come forward','Why','The old sign-up form asked for a full home address. Their own privacy rules say name and phone only. Now the form matches, and the five steps show patients exactly what happens next. More trust, more stories, more films to sponsor.'],
     ['#contact','Every page ends with an ask','Revenue','A closing banner sends sponsors back to the brief builder, with a tap-to-call number for anyone ready to talk now.']
   ];

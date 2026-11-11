@@ -13,3 +13,8 @@ All copy is from patientsmirror.com (home, sponsorship page /pm-signup/, sign-up
 2. Sponsorship packages and starting prices: placeholder, needs Patients' Mirror.
 3. Film titles are taken from the opening line of each promo; confirm real titles.
 4. Logo: Ryan chose Option A (refined stack) on 11 Nov 2026; applied across the site.
+
+## Added 11 Nov 2026 (round 2)
+- Hero opens on their own "Join us" film footage (re-encoded to img/hero-film.mp4, 1.5 MB, no sound), then portraits; "I'm alive" portrait reveals from the centre.
+- "Now in development" slate: 3 placeholder stories using themes from their old homepage. Needs real titles, conditions and stages.
+- Sponsor brief saves as a one-page branded PDF (browser print to PDF).
