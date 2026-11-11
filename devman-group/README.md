@@ -1,34 +1,29 @@
-# Devman Group preview draft
+# Devman Group preview draft (v2, 11 Nov 2026)
 
 Preview: https://ryan-peddigrew.github.io/sites/devman-group/
+Tour of what changed and why: https://ryan-peddigrew.github.io/sites/devman-group/?tour=1
 
-Private draft for Ryan to review. Not public until Ryan approves. Prospect preview only: nobody at Devman has been contacted.
+Private draft for Ryan to review. Nothing goes on devmaninc.com without Ryan's go.
+All copy, photos, reviews and contact details come from devmaninc.com. Nothing invented.
 
-Everything on the page comes from devmaninc.com (copy, testimonials, project addresses, photos, logo, teal #0088A3). Nothing invented.
+Separate brand: Devman and MapleTrust must look completely different, with no links or mentions between them.
+
+## What's in v2
+- Moving hero: their best project photos crossfade, the headline rises in letter by letter and changes every few seconds, "Now showing" names the building.
+- Hallway entrance plays once per visit (Ryan asked for it 2 Nov). Skipped on the tour.
+- Statement lights up word by word as you scroll, with small project photos inline.
+- Sideways project gallery driven by scrolling (9 real projects).
+- Tap-a-floor building explorer, board brief builder (print/copy, fills the form).
+- How a project runs (5 steps), teal review rotator (4 real reviews), giant phone number contact.
+- Phone bar: Call, Tour, Brief. Chamfered buttons only, nothing round.
+- 8-step tour (?tour=1 or "Take the tour"): auto-plays, Next/Pause/Close.
 
 ## Open fixes before this goes live
+1. Contact form and newsletter don't send yet. Connect to team@devmaninc.com.
+2. 5 photos had no address on the old site; confirm which buildings they are.
+3. Confirm project addresses and the room labels.
+4. ACMO/CCI memberships left off until confirmed current.
+5. Reviews use first names as on the old site; confirm they're happy to be shown.
+6. Confirm the 5-step order of how a project runs.
 
-1. **Contact form does not send yet.** It shows a "preview" message. Connect it to team@devmaninc.com (or their choice).
-2. **Five more project photos** on their site have no address (POST-06, 08, 09, 11, 20). Left out until Devman says which buildings they are.
-3. **Project labels** use the addresses as written on their site (for example "90 Stadium", "1818 Bayview"). Confirm full street names. The 1 Maison Parc Crt lobby and corridor photos were matched by what the photos show, since their site's labels looked swapped.
-4. **Memberships.** Their site shows ACMO (Associate Member) and CCI logos. Left off this draft; add back once confirmed current.
-5. **Testimonials** use first names only, exactly as on their site. Confirm they are still happy to be quoted.
-6. **"How we work" steps** are built from sentences on their site. Have Devman check the order.
-7. **Long quotes** (Ken, Lori) run past 5 lines on a phone. They are verbatim, so left as is unless Devman approves a shorter version.
-8. **Newsletter sign-up** from their footer was dropped. Add back if they still send one.
-9. **Photo sizes**: photos are from their site at up to 900px. Ask for originals for sharper images.
-
-## Version 2 (2026-11-02, about 8:00 AM ET)
-
-Added: tap-a-floor building explorer, project brief builder (board-ready PDF, copy, sends brief into the contact form; no prices), project filters, quick facts, phone action bar, newsletter sign-up. Version 1 archived at archive/devman-group-v1-2026-11-02/.
-
-10. **Newsletter and brief "Request a site meeting"** are preview only. Connect to Devman's email or mailing tool.
-11. **Ideas from competitor sites still to add:** before/after slider (needs before photos from Devman), FAQ, downloadable insurance/WSIB/bonding documents for tenders, Google reviews feed.
-
-## Design picks (so other client sites differ)
-
-- Opener: walk down the corridor (hero photo zooms as you scroll; off for reduced motion).
-- Menu: full-screen "building directory" with floor numbers on phones.
-- Services: lobby directory board, Interior and Exterior tabs.
-- Work: address-plaque card rail, tap to enlarge.
-- Fonts: Big Shoulders Display, Schibsted Grotesk, Martian Mono. Colours: ink, warm paper, stone, Devman teal.
+Older versions: ../archive/devman-group-v1-2026-11-02/, ../archive/devman-group-v2-index-2026-11-02.html, ../archive/devman-group-v3-2026-11-11/
