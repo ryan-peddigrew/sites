@@ -11,3 +11,6 @@ Open items
 - Weddings and photo shoots are proposed offers; Bushwood must confirm.
 - Enquiry form and Ask Gordy chat are preview only (scripted answers). Stripe not connected.
 - Google reviews placeholder: connect to their Google profile.
+
+## Stock photos (replace with Bushwood's own when available)
+Free Unsplash licence, no attribution required. Files: img/stock-wed-arch, stock-wed-rings, stock-event-dinner, stock-event-table, stock-event-toast (each with -s). Used in: Host band (wedding, celebration), Weddings card, strip above the enquiry form.
