@@ -12,4 +12,4 @@ All copy is from patientsmirror.com (home, sponsorship page /pm-signup/, sign-up
 1. Forms (sponsor brief builder and patient sign-up) are not connected. Old site used HubSpot on the sponsorship page.
 2. Sponsorship packages and starting prices: placeholder, needs Patients' Mirror.
 3. Film titles are taken from the opening line of each promo; confirm real titles.
-4. Logo refresh: options pending Ryan's pick. Site uses the current mark until then.
+4. Logo: Ryan chose Option A (refined stack) on 11 Nov 2026; applied across the site.
