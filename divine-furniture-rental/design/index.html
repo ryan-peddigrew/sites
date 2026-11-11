@@ -2,7 +2,7 @@
 <html lang="en-CA">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Divine Design</title>
 <link rel="manifest" href="manifest.webmanifest">
@@ -21,6 +21,7 @@
 :root{--ink:#161B20;--ink2:#1E252C;--ink3:#2A333B;--gold:#D8BE6E;--gold2:#A8873A;--ivory:#F3EEE4;--ivory2:#E7DFCF;--paper:#FBF9F4;--mute:#5B6168;--mute2:#AEB3B8;--f:'Inter Tight',system-ui,sans-serif;
   --c-div:#D8BE6E;--c-seat:#8FB4D9;--c-cat:#E39A6F;--c-av:#B49BE0}
 *{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;touch-action:manipulation}
 html,body{height:100%}
 body{height:100vh;height:100dvh}
 body{background:var(--ink);color:#fff;font:400 15px/1.45 var(--f);display:grid;grid-template-rows:auto 1fr;overflow:hidden}
@@ -41,7 +42,7 @@ button{background:none;border:0;cursor:pointer}
 .pal{border-right:1px solid rgba(255,255,255,.08)}
 .side{border-left:1px solid rgba(255,255,255,.08);padding:16px}
 .tabs{display:grid;grid-template-columns:repeat(4,1fr);position:sticky;top:0;background:var(--ink2);z-index:2;border-bottom:1px solid rgba(255,255,255,.08)}
-.tabs button{min-height:48px;font:800 11px var(--f);letter-spacing:.08em;text-transform:uppercase;color:var(--mute2);border-bottom:3px solid transparent}
+.tabs button{min-height:48px;font:800 12px var(--f);letter-spacing:.08em;text-transform:uppercase;color:var(--mute2);border-bottom:3px solid transparent}
 .tabs button.on{color:#fff;border-color:var(--gold)}
 .items{padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .it{background:var(--ink3);border-radius:3px;padding:8px;text-align:left;display:flex;flex-direction:column;gap:6px;min-height:118px;border:1.5px solid transparent;touch-action:none}
@@ -49,9 +50,9 @@ button{background:none;border:0;cursor:pointer}
 .it .th{height:56px;display:grid;place-items:center;background:#fff;border-radius:2px;overflow:hidden}
 .it .th img{max-height:56px;max-width:100%;object-fit:contain}
 .it .th svg{width:48px;height:48px}
-.it b{font:700 12.5px/1.15 var(--f)}
-.it small{font-size:11px;color:var(--mute2)}
-.hint{padding:4px 14px 16px;font-size:12.5px;color:var(--mute2)}
+.it b{font:700 14px/1.15 var(--f)}
+.it small{font-size:12px;color:var(--mute2)}
+.hint{padding:4px 14px 16px;font-size:14px;color:var(--mute2)}
 .stage{position:relative;min-width:0;min-height:0;background:#E9E5DC;overflow:hidden;touch-action:none}
 .stage svg#cv{position:absolute;left:0;top:0;width:100%;height:100%;display:block;cursor:grab}
 .stage svg#cv.panning{cursor:grabbing}
@@ -62,20 +63,20 @@ button{background:none;border:0;cursor:pointer}
 .sel.on{display:flex}
 .sel button{min-height:44px;padding:0 12px;font:700 12px var(--f);letter-spacing:.08em;text-transform:uppercase;color:#fff;display:flex;align-items:center;gap:6px}
 .sel button svg{width:18px;height:18px}
-.msg{position:absolute;left:50%;top:12px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;font-size:13.5px;border-left:4px solid var(--gold);display:none;max-width:calc(100% - 24px);z-index:5}
+.msg{position:absolute;left:50%;top:12px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;font-size:14px;border-left:4px solid var(--gold);display:none;max-width:calc(100% - 24px);z-index:5}
 .msg.on{display:block}
 .side h3{font:900 14px var(--f);text-transform:uppercase;letter-spacing:.06em;color:var(--gold);margin:4px 0 10px}
 .side h3:not(:first-child){margin-top:22px}
 .kv{display:grid;grid-template-columns:1fr auto;gap:6px 10px;font-size:14px}
 .kv b{font-weight:800}
 .big{font:900 40px/1 var(--f)}
-.lst{list-style:none;display:grid;gap:6px;font-size:13.5px}
+.lst{list-style:none;display:grid;gap:6px;font-size:14px}
 .lst li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid rgba(255,255,255,.08);padding:6px 0}
 .lst .dot{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:8px;vertical-align:middle}
 .side .tb{width:100%;justify-content:center;margin-top:10px}
-.fine{font-size:12px;color:var(--mute2);margin-top:12px}
+.fine{font-size:14px;color:var(--mute2);margin-top:12px}
 .pv{display:inline-block;background:var(--gold);color:var(--ink);font:800 10px var(--f);letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;margin-right:6px}
-.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:#fff;color:var(--ink);padding:12px 18px;font-weight:700;font-size:14px;border-left:4px solid var(--gold);opacity:0;transition:.3s;pointer-events:none;z-index:50}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));max-width:calc(100% - 32px);transform:translateX(-50%) translateY(20px);background:#fff;color:var(--ink);padding:12px 18px;font-weight:700;font-size:14px;border-left:4px solid var(--gold);opacity:0;transition:.3s;pointer-events:none;z-index:50}
 .toast.on{opacity:1;transform:translateX(-50%)}
 .dlg{position:fixed;inset:0;background:rgba(10,12,15,.7);display:none;place-items:center;z-index:40;padding:16px}
 .dlg.on{display:grid}
@@ -105,7 +106,8 @@ button{background:none;border:0;cursor:pointer}
   .it{touch-action:auto}
   .pal,.side{display:none;position:fixed;left:0;right:0;bottom:calc(56px + env(safe-area-inset-bottom));max-height:55vh;z-index:20;border:0;border-top:3px solid var(--gold);box-shadow:0 -20px 40px rgba(0,0,0,.4)}
   .pal.on,.side.on{display:block}
-  .items{grid-template-columns:repeat(3,1fr)}
+  .items{grid-template-columns:repeat(2,1fr)}
+  .tabs button{font-size:11px;letter-spacing:.03em}
   .mtabs{display:grid;grid-template-columns:1fr 1fr;flex:none;position:relative;z-index:21;background:var(--ink);border-top:1px solid rgba(255,255,255,.12);padding-bottom:env(safe-area-inset-bottom)}
   .mtabs button{min-height:56px;font:800 12px var(--f);letter-spacing:.12em;text-transform:uppercase;color:#fff}
   .mtabs button.on{color:var(--gold)}
@@ -457,7 +459,7 @@ $('#mPal').onclick=function(){var on=!$('#pal').classList.contains('on');closeSh
 $('#mSide').onclick=function(){var on=!$('#side').classList.contains('on');closeSheets();if(on){$('#side').classList.add('on');this.classList.add('on')}};
 
 /* ---------- venues ---------- */
-var VEN=[{"id": "mtcc-north-300", "n": "Metro Toronto Convention Centre", "r": "North Building, Level 300: Exhibit Halls A, B, C", "c": "Toronto, ON", "w": 1828, "h": 676}, {"id": "mtcc-south-800", "n": "Metro Toronto Convention Centre", "r": "South Building, Level 800: Exhibit Halls D, E, F, G", "c": "Toronto, ON", "w": 1056, "h": 1045}, {"id": "mtcc-south-700", "n": "Metro Toronto Convention Centre", "r": "South Building, Level 700: meeting rooms", "c": "Toronto, ON", "w": 1310, "h": 931}, {"id": "tcc-north", "n": "Toronto Congress Centre", "r": "North Building: Halls H, I, J and ballroom", "c": "Toronto, ON", "w": 2400, "h": 1553}, {"id": "tcc-south", "n": "Toronto Congress Centre", "r": "South Building: Halls A to G", "c": "Toronto, ON", "w": 2400, "h": 1553}, {"id": "beanfield-main", "n": "Beanfield Centre", "r": "Main floor: Ballrooms A to D", "c": "Toronto, ON", "w": 1144, "h": 811}, {"id": "beanfield-second", "n": "Beanfield Centre", "r": "Second floor: meeting rooms", "c": "Toronto, ON", "w": 1144, "h": 769}, {"id": "liberty-grand", "n": "Liberty Grand", "r": "Full venue: Governor's, Renaissance, Centennial and Artifacts rooms", "c": "Toronto, ON", "w": 871, "h": 629}, {"id": "palais-montreal-level2", "n": "Palais des congrès de Montréal", "r": "Level 2: exhibition hall, rooms 210 to 230", "c": "Montréal, QC", "w": 1739, "h": 1229}];
+var VEN=[{"id": "mtcc-north-300", "n": "Metro Toronto Convention Centre", "r": "North Building, Level 300: Exhibit Halls A, B, C", "c": "Toronto, ON", "w": 1828, "h": 676}, {"id": "mtcc-south-800", "n": "Metro Toronto Convention Centre", "r": "South Building, Level 800: Exhibit Halls D, E, F, G", "c": "Toronto, ON", "w": 1056, "h": 1045}, {"id": "mtcc-south-700", "n": "Metro Toronto Convention Centre", "r": "South Building, Level 700: meeting rooms", "c": "Toronto, ON", "w": 1310, "h": 931}, {"id": "tcc-north", "n": "Toronto Congress Centre", "r": "North Building: Halls H, I, J and ballroom", "c": "Toronto, ON", "w": 2400, "h": 1553}, {"id": "tcc-south", "n": "Toronto Congress Centre", "r": "South Building: Halls A to G", "c": "Toronto, ON", "w": 2400, "h": 1553}, {"id": "beanfield-main", "n": "Beanfield Centre", "r": "Main floor: Ballrooms A to D", "c": "Toronto, ON", "w": 1144, "h": 811}, {"id": "beanfield-second", "n": "Beanfield Centre", "r": "Second floor: meeting rooms", "c": "Toronto, ON", "w": 1144, "h": 769}, {"id": "liberty-grand", "n": "Liberty Grand", "r": "Full venue: Governor's, Renaissance, Centennial and Artifacts rooms", "c": "Toronto, ON", "w": 871, "h": 629}, {"id": "mtcc-level-600", "n": "Metro Toronto Convention Centre", "r": "South Building, Level 600: meeting rooms", "c": "Toronto, ON", "w": 1407, "h": 1237}, {"id": "mtcc-level-400-500", "n": "Metro Toronto Convention Centre", "r": "Levels 400 and 500: pre-function and meeting space", "c": "Toronto, ON", "w": 1407, "h": 1237}, {"id": "palais-montreal-level2", "n": "Palais des congrès de Montréal", "r": "Level 2: exhibition hall, rooms 210 to 230", "c": "Montréal, QC", "w": 1739, "h": 1229}, {"id": "palais-montreal-level1", "n": "Palais des congrès de Montréal", "r": "Level 1: public and rental space", "c": "Montréal, QC", "w": 1870, "h": 1070}, {"id": "palais-montreal-level5", "n": "Palais des congrès de Montréal", "r": "Level 5: rooms 510 to 518 and ballroom", "c": "Montréal, QC", "w": 1870, "h": 1127}, {"id": "palais-montreal-level7", "n": "Palais des congrès de Montréal", "r": "Level 7 and Mezzanine 8: rooms 710 to 730", "c": "Montréal, QC", "w": 1870, "h": 1200}];
 function venList(q){q=(q||'').toLowerCase();var L=VEN.filter(function(v){return !q||(v.n+' '+v.r+' '+v.c).toLowerCase().indexOf(q)>-1});
   $('#venL').innerHTML=L.length?L.map(function(v){return '<button class="vrow" data-v="'+v.id+'"><img src="venues/'+v.id+'-t.jpg" alt="" loading="lazy"><span><small>'+v.c+'</small><b>'+v.n+'</b><span>'+v.r+'</span></span></button>'}).join(''):'<p style="margin:0">No venue matches yet. Use Upload a floor plan to add your own.</p>';
   $$('#venL .vrow').forEach(function(b){b.onclick=function(){pickVenue(b.dataset.v)}})}
@@ -481,6 +483,7 @@ if(!had){ // starter layout on the sample hall
 }
 function setAH(){var d=document.documentElement;if(navigator.standalone){var land=matchMedia('(orientation:landscape)').matches;d.style.setProperty('--ah',Math.max(innerHeight,land?Math.min(screen.width,screen.height):Math.max(screen.width,screen.height))+'px')}else{d.style.removeProperty('--ah')}}
 var fitW=0,fitH=0;function refit(){setAH();var r=cv.getBoundingClientRect();if(Math.abs(r.width-fitW)>1||Math.abs(r.height-fitH)>1){fitW=r.width;fitH=r.height;fit()}}
+['gesturestart','gesturechange'].forEach(function(n){document.addEventListener(n,function(e){e.preventDefault()},{passive:false})});
 setAH();tabs();drawPlan();fit();render();
 addEventListener('resize',refit);addEventListener('orientationchange',function(){setTimeout(refit,300)});addEventListener('pageshow',refit);
 requestAnimationFrame(refit);setTimeout(refit,300);setTimeout(refit,1200);
