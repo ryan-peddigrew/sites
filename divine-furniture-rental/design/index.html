@@ -523,7 +523,7 @@ function venList(){var q=$('#venQ').value.trim().toLowerCase().split(/\s+/).filt
   var key=so==='type'?vT:so==='event'?function(v){return vE(v)[0]}:so==='name'?function(v){return v.n.charAt(0).toUpperCase()}:function(v){return v.c};
   var pin=function(v){return so==='city'&&v.c==='Toronto, ON'?0:1};
   if(so)L=L.slice().sort(function(a,b){return pin(a)-pin(b)||key(a).localeCompare(key(b))||a.n.localeCompare(b.n)});
-  var nv={};L.forEach(function(v){nv[v.n]=1});
+  var nv={};L.forEach(function(v){nv[v.n+'|'+v.c]=1});
   $('#venN').textContent=L.length?L.length+' floor plan'+(L.length===1?'':'s')+' at '+Object.keys(nv).length+' venue'+(Object.keys(nv).length===1?'':'s'):'';
   var h='',last=null;L.slice(0,venMax).forEach(function(v){var g=so?key(v):null;if(so&&g!==last){h+='<div class="vgrp">'+esc(g)+'</div>';last=g}
     h+='<button class="vrow" data-v="'+v.id+'"><img src="venues/'+v.id+'-t.jpg" alt="" loading="lazy" width="96" height="64"><span><small>'+esc(so==='city'?vT(v):so==='type'?v.c:v.c+' · '+vT(v))+'</small><b>'+esc(v.n)+'</b><span>'+esc(v.r)+'</span></span></button>'});
