@@ -85,7 +85,7 @@ button{background:none;border:0;cursor:pointer}
 .dlg .row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
 .dlg .tb{color:var(--ink);border-color:var(--ivory2)}
 .dlg .tb.gold{color:var(--ink)}
-.vrow{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center;text-align:left;background:var(--ivory);padding:8px;border-radius:3px;min-height:76px;color:var(--ink);border:1.5px solid transparent}
+.vrow{flex:none;width:100%;display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center;text-align:left;background:var(--ivory);padding:8px;border-radius:3px;min-height:76px;color:var(--ink);border:1.5px solid transparent}
 .vrow:hover{border-color:var(--gold2)}
 .vrow img{width:96px;height:64px;object-fit:contain;background:#fff}
 .vrow b{display:block;font:800 15px/1.15 var(--f)}
@@ -177,7 +177,7 @@ button{background:none;border:0;cursor:pointer}
 <div class="dlg" id="ven"><div class="bx" style="max-width:620px;max-height:86vh;display:flex;flex-direction:column">
   <h4>Choose a venue</h4>
   <input id="venQ" type="search" placeholder="Search venue, room or city" style="margin-bottom:12px">
-  <div id="venL" style="overflow:auto;display:grid;gap:8px;flex:1;min-height:0"></div>
+  <div id="venL" style="overflow:auto;display:flex;flex-direction:column;gap:8px;flex:1;min-height:0"></div>
   <p style="font-size:12.5px;margin:12px 0 0">Plans are the ones each venue publishes for planners. Confirm the current layout with the venue before you finalize.</p>
   <div class="row"><button class="tb" id="venX">Close</button></div>
 </div></div>
