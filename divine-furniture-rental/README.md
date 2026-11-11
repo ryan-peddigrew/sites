@@ -25,3 +25,10 @@ Luxe Modern Rentals (Toronto lounge collections, in-house branding), CORT Events
 6. Charity list, timeline, sustainability text: from their site, confirm wording.
 7. Phone, fax, address: confirm.
 8. Remove "Design preview" in the footer and the Preview tag before going live.
+
+## Divine Design app (added 2026-11-11)
+`design/` is a drag-and-drop floor planner that installs to a phone home screen (manifest, icons, service worker). App: https://ryan-peddigrew.github.io/sites/divine-furniture-rental/design/ (add `?install=1` to open the install steps).
+- Upload a venue plan (image or PDF), tap two points to set the scale, place Divine pieces plus seating, catering and AV. Divine pieces go to the site's quote list.
+- Divine piece footprints are ESTIMATES (marked "approx."). Need real dimensions from Divine.
+- Venue plan library is NOT built. Each planner uploads their own plan for now. A library needs venue permission or published plans, added venue by venue.
+- Not tested on a real iPhone; tested in a phone-sized browser.

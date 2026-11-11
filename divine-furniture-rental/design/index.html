@@ -85,18 +85,20 @@ button{background:none;border:0;cursor:pointer}
 .dlg .tb.gold{color:var(--ink)}
 .steps{margin:0 0 12px 20px;color:var(--ink);font-size:14.5px;display:grid;gap:6px}
 .mtabs{display:none}
+.short{display:none}
 @media (display-mode:standalone){#instB{display:none}.top{padding-top:calc(10px + env(safe-area-inset-top))}}
 @media (max-width:980px){
-  body{grid-template-rows:auto auto 1fr}
-  .top{flex-wrap:wrap;gap:8px}.top h1{font-size:15px}.top .lbl{display:none}
-  .app{grid-template-columns:1fr;grid-template-rows:1fr auto;}
+  .top{gap:8px;padding:8px 10px;min-height:60px}.top img{height:30px}.top h1{font-size:14px}.top h1 small,.top .lbl,.top .sp{display:none}.top h1{flex:1}
+  .top .tb{padding:0 10px;font-size:11px;letter-spacing:.06em}.top .tb .short{display:inline}.top .tb .long{display:none}
+  .app{display:block;min-height:0;padding-bottom:calc(56px + env(safe-area-inset-bottom))}
+  .it{touch-action:auto}
   .pal,.side{display:none;position:fixed;left:0;right:0;bottom:56px;max-height:55vh;z-index:20;border:0;border-top:3px solid var(--gold);box-shadow:0 -20px 40px rgba(0,0,0,.4)}
   .pal.on,.side.on{display:block}
   .items{grid-template-columns:repeat(3,1fr)}
   .mtabs{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:21;background:var(--ink);border-top:1px solid rgba(255,255,255,.12);padding-bottom:env(safe-area-inset-bottom)}
   .mtabs button{min-height:56px;font:800 12px var(--f);letter-spacing:.12em;text-transform:uppercase;color:#fff}
   .mtabs button.on{color:var(--gold)}
-  .stage{height:calc(100svh - 120px - 56px)}
+  .stage{height:100%}
   .zoom{bottom:12px}.sel{bottom:12px}
 }
 </style>
@@ -106,10 +108,10 @@ button{background:none;border:0;cursor:pointer}
   <a href="../" aria-label="Back to Divine Furniture Rental"><img src="../img/logo-gold.png" alt="Divine Furniture Rental" width="668" height="236"></a>
   <h1>Divine Design<small>Lay out your event to scale</small></h1>
   <span class="sp"></span>
-  <label class="tb" for="upl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"/></svg><span>Upload a floor plan</span></label>
+  <label class="tb" for="upl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"/></svg><span class="long">Upload a floor plan</span><span class="short">Plan</span></label>
   <input type="file" id="upl" accept="image/*,application/pdf" hidden>
   <button class="tb" id="scaleBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 17l14-14 4 4L7 21z"/><path d="M8 8l2 2M11 5l2 2M5 11l2 2"/></svg><span class="lbl">Set scale</span></button>
-  <button class="tb gold" id="instB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 10l6 6 6-6M4 20h16"/></svg><span>Get the app</span></button>
+  <button class="tb gold" id="instB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 10l6 6 6-6M4 20h16"/></svg><span class="long">Get the app</span><span class="short">App</span></button>
   <a class="tb lbl" href="../">Divine site</a>
 </header>
 
@@ -117,7 +119,7 @@ button{background:none;border:0;cursor:pointer}
   <aside class="pal" id="pal">
     <div class="tabs" id="tabs"></div>
     <div class="items" id="items"></div>
-    <p class="hint">Drag a piece onto the plan, or tap it to drop it in the middle. Tap a piece on the plan to rotate, copy or remove it.</p>
+    <p class="hint">Tap a piece to drop it in the middle of the plan, then drag it into place. On a computer you can drag it straight on. Tap a piece on the plan to rotate, copy or remove it.</p>
   </aside>
 
   <div class="stage" id="stage">
@@ -297,7 +299,7 @@ function shape(o,g){
    default:R(-w/2,-h/2,w,h);
   }
   var fs=Math.max(.55,Math.min(1.1,Math.min(w,h)/3.2));
-  if(Math.max(w,h)>=4){var t=el('text',{x:0,y:it.k==='vig'?-2.4:fs*.35,'text-anchor':'middle','font-size':fs,'font-family':'Inter Tight','font-weight':800,fill:'#161B20','pointer-events':'none',transform:'rotate('+(-o.r)+')'},g);t.textContent=it.n.split(',')[0].replace(/ \(.*\)/,'')}
+  if(Math.min(w,h)>=2.4&&Math.max(w,h)>=6){var t=el('text',{x:0,y:it.k==='vig'?-2.4:fs*.35,'text-anchor':'middle','font-size':fs,'font-family':'Inter Tight','font-weight':800,fill:'#161B20','pointer-events':'none',transform:'rotate('+(-o.r)+')'},g);t.textContent=it.n.split(',')[0].replace(/ \(.*\)/,'')}
 }
 function render(){
   objG.innerHTML='';
@@ -332,7 +334,8 @@ function tabs(){
   $$('#tabs button').forEach(function(b){b.onclick=function(){curTab=b.dataset.k;tabs()}});
   $('#items').innerHTML=CAT[curTab].items.map(function(it){return '<button class="it" data-t="'+it.id+'"><span class="th">'+icon(it)+'</span><b>'+it.n+'</b><small>'+it.w+' × '+it.h+' ft'+(it.g==='div'?' · approx.':'')+'</small></button>'}).join('');
   $$('#items .it').forEach(function(b){
-    b.addEventListener('pointerdown',function(e){startPaletteDrag(e,b.dataset.t)});
+    b.addEventListener('pointerdown',function(e){if(e.pointerType==='touch'){b._touch=true;return}b._touch=false;startPaletteDrag(e,b.dataset.t)});
+    b.addEventListener('click',function(){if(!b._touch)return;add(b.dataset.t,VB.x+VB.w/2,VB.y+VB.h/2);closeSheets();toast('Added. Drag it into place.')});
   });
 }
 
