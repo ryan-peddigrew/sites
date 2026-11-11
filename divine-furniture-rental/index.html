@@ -375,6 +375,7 @@ h3{font-size:clamp(24px,2.6vw,34px);line-height:1}
       <a href="#plan">Plan an event</a>
       <a href="#looks">Book the look</a>
       <a href="#tradeshow">Trade shows</a>
+      <a href="design/">Divine Design</a>
       <a href="#catalogue">Catalogue</a>
       <a href="#story">Our story</a>
     </nav>
@@ -385,7 +386,7 @@ h3{font-size:clamp(24px,2.6vw,34px);line-height:1}
 
 <div class="drawer" id="drawer">
   <button class="x" id="menuX" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-  <a href="#plan">Plan an event</a><a href="#looks">Book the look</a><a href="#tradeshow">Trade shows</a><a href="#new">New pieces</a><a href="#catalogue">Catalogue</a><a href="#story">Our story</a><a href="#quote">Your quote (<span data-qn>0</span>)</a>
+  <a href="#plan">Plan an event</a><a href="#looks">Book the look</a><a href="#tradeshow">Trade shows</a><a href="design/">Divine Design app</a><a href="#new">New pieces</a><a href="#catalogue">Catalogue</a><a href="#story">Our story</a><a href="#quote">Your quote (<span data-qn>0</span>)</a>
 </div>
 
 <main id="top">
@@ -520,6 +521,18 @@ h3{font-size:clamp(24px,2.6vw,34px);line-height:1}
   </div>
 </section>
 
+<!-- DIVINE DESIGN -->
+<section class="sec" id="design" style="background:var(--gold);color:var(--ink)">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap">
+    <div>
+      <p class="k rv" style="color:var(--ink)">New: Divine Design</p>
+      <h2 class="rv">See it in<br>your venue.</h2>
+      <p class="rv" style="max-width:50ch;margin-top:16px;font-size:18px">Upload your venue's floor plan, then drag in our furniture with the seating, catering and AV. Everything sits to scale, and the list goes straight to your quote.</p>
+    </div>
+    <div class="rv" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn ink" href="design/">Open Divine Design</a><a class="btn line" href="design/?install=1">Get the app</a></div>
+  </div>
+</section>
+
 <!-- NEW -->
 <section class="sec nw" id="new">
   <div class="wrap grid">
@@ -650,7 +663,7 @@ h3{font-size:clamp(24px,2.6vw,34px);line-height:1}
   <div class="wrap">
     <div class="grid">
       <div><img src="img/logo-gold.png" alt="Divine Furniture Rental" width="668" height="236" style="height:60px;width:auto;margin-bottom:16px"><p style="color:var(--mute2);font-size:15px">Divine Furniture Rental Inc.<br>375 Kennedy Road, Toronto, Ontario M1K 2A1</p></div>
-      <div><h5>Rent</h5><a href="#plan">Plan an event</a><a href="#looks">Book the look</a><a href="#tradeshow">Trade show booths</a><a href="#catalogue">Catalogue</a></div>
+      <div><h5>Rent</h5><a href="#plan">Plan an event</a><a href="#looks">Book the look</a><a href="#tradeshow">Trade show booths</a><a href="design/">Divine Design app</a><a href="#catalogue">Catalogue</a></div>
       <div><h5>Company</h5><a href="#story">Our story</a><a href="#care">Sustainability</a><a href="#giving">Giving back</a><a href="https://divinefr.com/rental-agreement/" target="_blank" rel="noopener">Rental agreement</a></div>
       <div><h5>Contact</h5><a href="tel:+14167509272">416.750.9272</a><a href="mailto:info@divinefr.com">info@divinefr.com</a><a href="#quote">Request a quote</a></div>
     </div>
@@ -895,6 +908,7 @@ var STEPS=[
  {sel:'#plan',t:'Plan an event in a minute',w:'A four-step planner: event type, guests or booth size, a look, then date and venue. It builds a starter list from Divine\'s own catalogue.',y:'Most visitors don\'t know item numbers, and 1,000+ pieces is a lot to shop before asking for a quote.',r:'Every inquiry arrives already scoped: date, guest count, style and a list. Faster quotes, bigger orders.'},
  {sel:'#looks',t:'Book the look',w:'Ready-made vignettes from Divine\'s own range, added to the quote as a whole set in one tap.',y:'Planners buy rooms, not single chairs.',r:'Sells complete sets instead of single pieces, which lifts the size of each order.'},
  {sel:'#tradeshow',t:'Trade show booth packages',w:'Pick a booth size and see a furniture package for it. One tap adds it to the quote.',y:'Trade shows are a core Divine market. Exhibitors now get a path built just for them.',r:'An easy yes for exhibitors, and repeat business every show season.'},
+ {sel:'#design',t:'Divine Design, the floor plan app',w:'A drag-and-drop planner. Upload a venue floor plan, set the scale, and place Divine furniture beside the seating, catering and AV. It installs on a phone like an app.',y:'Planners want to see that it fits before they book.',r:'Every layout turns into a quote list in one tap, and planners keep Divine on their home screen.'},
  {sel:'#new',t:'New pieces up front',w:'The latest additions from Divine\'s own home page get a full feature with a lifestyle photo.',y:'Fresh stock gives planners a reason to come back.',r:'New pieces are the easiest upsell on an existing booking.'},
  {sel:'#catalogue',t:'The full catalogue, kept',w:'All 13 categories with their real piece counts, linking straight to Divine\'s existing online catalogue.',y:'Their shop keeps working as is. Nothing is lost.',r:''},
  {sel:'#planners',t:'A program for planners',w:'Planners can share a list with their client by link, plus a proposed trade account.',y:'Planners and designers book again and again. They should feel like regulars.',r:'Repeat business from the people who book the most events. Program details to confirm with Divine.'},

@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Divine Design</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Divine Design">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#161B20">
+<link rel="icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<style>
+:root{--ink:#161B20;--ink2:#1E252C;--ink3:#2A333B;--gold:#D8BE6E;--gold2:#A8873A;--ivory:#F3EEE4;--ivory2:#E7DFCF;--paper:#FBF9F4;--mute:#5B6168;--mute2:#AEB3B8;--f:'Inter Tight',system-ui,sans-serif;
+  --c-div:#D8BE6E;--c-seat:#8FB4D9;--c-cat:#E39A6F;--c-av:#B49BE0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--ink);color:#fff;font:400 15px/1.45 var(--f);display:grid;grid-template-rows:auto 1fr;overflow:hidden}
+button,input,select{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+.top{display:flex;align-items:center;gap:16px;padding:10px 16px;background:var(--ink);border-bottom:1px solid rgba(255,255,255,.1);min-height:64px}
+.top img{height:40px;width:auto}
+.top h1{font:900 18px/1 var(--f);text-transform:uppercase;letter-spacing:-.01em}
+.top h1 small{display:block;font:600 11px var(--f);letter-spacing:.18em;color:var(--gold);margin-top:4px}
+.top .sp{flex:1}
+.tb{min-height:44px;padding:0 14px;border:1.5px solid rgba(255,255,255,.2);border-radius:3px;font:700 12px var(--f);letter-spacing:.1em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;text-decoration:none;color:#fff}
+.tb.gold{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.tb svg{width:18px;height:18px}
+.app{display:grid;grid-template-columns:300px 1fr 280px;min-height:0}
+.pal,.side{background:var(--ink2);overflow:auto;min-height:0}
+.pal{border-right:1px solid rgba(255,255,255,.08)}
+.side{border-left:1px solid rgba(255,255,255,.08);padding:16px}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);position:sticky;top:0;background:var(--ink2);z-index:2;border-bottom:1px solid rgba(255,255,255,.08)}
+.tabs button{min-height:48px;font:800 11px var(--f);letter-spacing:.08em;text-transform:uppercase;color:var(--mute2);border-bottom:3px solid transparent}
+.tabs button.on{color:#fff;border-color:var(--gold)}
+.items{padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.it{background:var(--ink3);border-radius:3px;padding:8px;text-align:left;display:flex;flex-direction:column;gap:6px;min-height:118px;border:1.5px solid transparent;touch-action:none}
+.it:hover{border-color:var(--gold)}
+.it .th{height:56px;display:grid;place-items:center;background:#fff;border-radius:2px;overflow:hidden}
+.it .th img{max-height:56px;max-width:100%;object-fit:contain}
+.it .th svg{width:48px;height:48px}
+.it b{font:700 12.5px/1.15 var(--f)}
+.it small{font-size:11px;color:var(--mute2)}
+.hint{padding:4px 14px 16px;font-size:12.5px;color:var(--mute2)}
+.stage{position:relative;min-width:0;min-height:0;background:#E9E5DC;overflow:hidden;touch-action:none}
+.stage svg#cv{width:100%;height:100%;display:block;cursor:grab}
+.stage svg#cv.panning{cursor:grabbing}
+.stage svg#cv.scaling{cursor:crosshair}
+.zoom{position:absolute;right:12px;bottom:12px;display:flex;flex-direction:column;gap:6px}
+.zoom button{width:44px;height:44px;background:var(--ink);color:#fff;border-radius:3px;font:700 20px var(--f)}
+.sel{position:absolute;left:12px;bottom:12px;display:none;gap:6px;background:var(--ink);padding:6px;border-radius:3px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.sel.on{display:flex}
+.sel button{min-height:44px;padding:0 12px;font:700 12px var(--f);letter-spacing:.08em;text-transform:uppercase;color:#fff;display:flex;align-items:center;gap:6px}
+.sel button svg{width:18px;height:18px}
+.msg{position:absolute;left:50%;top:12px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;font-size:13.5px;border-left:4px solid var(--gold);display:none;max-width:calc(100% - 24px);z-index:5}
+.msg.on{display:block}
+.side h3{font:900 14px var(--f);text-transform:uppercase;letter-spacing:.06em;color:var(--gold);margin:4px 0 10px}
+.side h3:not(:first-child){margin-top:22px}
+.kv{display:grid;grid-template-columns:1fr auto;gap:6px 10px;font-size:14px}
+.kv b{font-weight:800}
+.big{font:900 40px/1 var(--f)}
+.lst{list-style:none;display:grid;gap:6px;font-size:13.5px}
+.lst li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid rgba(255,255,255,.08);padding:6px 0}
+.lst .dot{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:8px;vertical-align:middle}
+.side .tb{width:100%;justify-content:center;margin-top:10px}
+.fine{font-size:12px;color:var(--mute2);margin-top:12px}
+.pv{display:inline-block;background:var(--gold);color:var(--ink);font:800 10px var(--f);letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;margin-right:6px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:#fff;color:var(--ink);padding:12px 18px;font-weight:700;font-size:14px;border-left:4px solid var(--gold);opacity:0;transition:.3s;pointer-events:none;z-index:50}
+.toast.on{opacity:1;transform:translateX(-50%)}
+.dlg{position:fixed;inset:0;background:rgba(10,12,15,.7);display:none;place-items:center;z-index:40;padding:16px}
+.dlg.on{display:grid}
+.dlg .bx{background:#fff;color:var(--ink);padding:24px;max-width:460px;width:100%;border-top:4px solid var(--gold)}
+.dlg h4{font:900 22px/1.05 var(--f);text-transform:uppercase;margin-bottom:10px}
+.dlg p{color:var(--mute);font-size:14.5px;margin-bottom:14px}
+.dlg input{width:100%;min-height:48px;border:1.5px solid var(--ivory2);padding:10px 12px;font-size:16px;border-radius:3px}
+.dlg .row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.dlg .tb{color:var(--ink);border-color:var(--ivory2)}
+.dlg .tb.gold{color:var(--ink)}
+.steps{margin:0 0 12px 20px;color:var(--ink);font-size:14.5px;display:grid;gap:6px}
+.mtabs{display:none}
+@media (display-mode:standalone){#instB{display:none}.top{padding-top:calc(10px + env(safe-area-inset-top))}}
+@media (max-width:980px){
+  body{grid-template-rows:auto auto 1fr}
+  .top{flex-wrap:wrap;gap:8px}.top h1{font-size:15px}.top .lbl{display:none}
+  .app{grid-template-columns:1fr;grid-template-rows:1fr auto;}
+  .pal,.side{display:none;position:fixed;left:0;right:0;bottom:56px;max-height:55vh;z-index:20;border:0;border-top:3px solid var(--gold);box-shadow:0 -20px 40px rgba(0,0,0,.4)}
+  .pal.on,.side.on{display:block}
+  .items{grid-template-columns:repeat(3,1fr)}
+  .mtabs{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:21;background:var(--ink);border-top:1px solid rgba(255,255,255,.12);padding-bottom:env(safe-area-inset-bottom)}
+  .mtabs button{min-height:56px;font:800 12px var(--f);letter-spacing:.12em;text-transform:uppercase;color:#fff}
+  .mtabs button.on{color:var(--gold)}
+  .stage{height:calc(100svh - 120px - 56px)}
+  .zoom{bottom:12px}.sel{bottom:12px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <a href="../" aria-label="Back to Divine Furniture Rental"><img src="../img/logo-gold.png" alt="Divine Furniture Rental" width="668" height="236"></a>
+  <h1>Divine Design<small>Lay out your event to scale</small></h1>
+  <span class="sp"></span>
+  <label class="tb" for="upl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"/></svg><span>Upload a floor plan</span></label>
+  <input type="file" id="upl" accept="image/*,application/pdf" hidden>
+  <button class="tb" id="scaleBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 17l14-14 4 4L7 21z"/><path d="M8 8l2 2M11 5l2 2M5 11l2 2"/></svg><span class="lbl">Set scale</span></button>
+  <button class="tb gold" id="instB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 10l6 6 6-6M4 20h16"/></svg><span>Get the app</span></button>
+  <a class="tb lbl" href="../">Divine site</a>
+</header>
+
+<div class="app">
+  <aside class="pal" id="pal">
+    <div class="tabs" id="tabs"></div>
+    <div class="items" id="items"></div>
+    <p class="hint">Drag a piece onto the plan, or tap it to drop it in the middle. Tap a piece on the plan to rotate, copy or remove it.</p>
+  </aside>
+
+  <div class="stage" id="stage">
+    <svg id="cv" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M5 0H0V5" fill="none" stroke="rgba(22,27,32,.08)" stroke-width=".08"/></pattern>
+      </defs>
+      <g id="world">
+        <g id="plan"></g>
+        <rect id="gridR" fill="url(#grid)" pointer-events="none"/>
+        <g id="objs"></g>
+        <g id="scaleG"></g>
+      </g>
+    </svg>
+    <div class="msg" id="msg"></div>
+    <div class="sel" id="sel">
+      <button id="rotB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-3-6.2"/><path d="M20 4v5h-5"/></svg>Rotate</button>
+      <button id="dupB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg>Copy</button>
+      <button id="delB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7h14M10 7V4h4v3M7 7l1 13h8l1-13"/></svg>Remove</button>
+    </div>
+    <div class="zoom"><button id="zin" aria-label="Zoom in">+</button><button id="zout" aria-label="Zoom out">−</button><button id="zfit" aria-label="Fit plan" style="font-size:12px">FIT</button></div>
+  </div>
+
+  <aside class="side" id="side">
+    <h3>Your layout</h3>
+    <div class="kv"><span>Seats placed</span><b id="seats">0</b><span>Plan size</span><b id="psize">-</b><span>Scale</span><b id="pscale">-</b></div>
+    <h3>Divine pieces</h3>
+    <ul class="lst" id="divList"><li style="color:var(--mute2)">None yet</li></ul>
+    <button class="tb gold" id="toQuote">Add Divine pieces to my quote</button>
+    <h3>Everything on the plan</h3>
+    <ul class="lst" id="allList"></ul>
+    <button class="tb" id="shareB">Share this layout</button>
+    <button class="tb" id="pngB">Save as image</button>
+    <button class="tb" id="clrB">Clear the plan</button>
+    <p class="fine"><span class="pv">Preview</span>Piece sizes are approximate until Divine confirms each footprint. Seating, catering and AV blocks are standard sizes for planning.</p>
+  </aside>
+</div>
+<nav class="mtabs"><button id="mPal">Add pieces</button><button id="mSide">Layout and quote</button></nav>
+
+<div class="dlg" id="dlg"><div class="bx">
+  <h4 id="dlgH">Set the scale</h4>
+  <p id="dlgP">How long is the line you just drew, in feet?</p>
+  <input id="dlgI" type="number" min="1" step="0.5" inputmode="decimal" placeholder="For example, 40">
+  <div class="row"><button class="tb gold" id="dlgOk">Set scale</button><button class="tb" id="dlgX">Cancel</button></div>
+</div></div>
+<div class="dlg" id="inst"><div class="bx">
+  <h4>Get Divine Design on your phone</h4>
+  <p>It adds to your home screen like any app. No app store needed.</p>
+  <div id="instAuto" hidden><button class="tb gold" id="instGo" style="width:100%;justify-content:center;margin-bottom:14px">Install Divine Design</button></div>
+  <ol class="steps">
+    <li><b>iPhone or iPad:</b> open this page in Safari.</li>
+    <li>Tap the Share button (the square with the arrow).</li>
+    <li>Scroll down and tap <b>Add to Home Screen</b>, then <b>Add</b>.</li>
+  </ol>
+  <ol class="steps">
+    <li><b>Android:</b> open this page in Chrome.</li>
+    <li>Tap the three dots at the top right.</li>
+    <li>Tap <b>Install app</b> or <b>Add to Home screen</b>.</li>
+  </ol>
+  <div class="row"><button class="tb" id="instX">Close</button></div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var NS='http://www.w3.org/2000/svg';
+function el(t,a,p){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('on')},2400)}
+function msg(m){var x=$('#msg');if(!m){x.classList.remove('on');return}x.textContent=m;x.classList.add('on')}
+
+/* ---------- catalogue (sizes in feet; Divine sizes approximate, to confirm) ---------- */
+var CAT={
+ div:{n:'Divine',c:'#D8BE6E',items:[
+  {id:'SS-450-SETUP-001',n:'Eloise Vignette, Black Velvet',w:10,h:8,k:'vig',img:'../img/p/ss-450-setup-001.jpg',seats:5},
+  {id:'SS-650-SETUP-010',n:'Napa Cane Sofa Vignette',w:10,h:8,k:'vig',img:'../img/p/ss-650-setup-010.jpg',seats:5},
+  {id:'SS-600-SETUP-001',n:'Mia Corduroy Vignette, Yellow',w:10,h:8,k:'vig',img:'../img/p/ss-600-setup-001.jpg',seats:5},
+  {id:'SS-110-SETUP-001',n:'Open Back Vignette, Cognac',w:10,h:8,k:'vig',img:'../img/p/ss-110-setup-001.jpg',seats:5},
+  {id:'SS-810-SETUP-388',n:'Bellagio Sofa 90',w:7.5,h:3,k:'sofa',img:'../img/p/ss-810-setup-388.jpg',seats:3},
+  {id:'SS-810-SETUP-120',n:'Bellagio Compass Curved Sofa',w:12,h:5,k:'curve',img:'../img/p/ss-810-setup-120.jpg',seats:6},
+  {id:'CRU-SETUP-001',n:'Gatsby and Levi Cruiser Set',w:5,h:5,k:'cruiser4',img:'../img/p/cru-setup-001.jpg',seats:4},
+  {id:'CAT-CRUISER',n:'Cruiser table',w:2.5,h:2.5,k:'round',img:'../img/p/cruiser.jpg',seats:0},
+  {id:'BS-SET-252',n:'Levi Barstool, White',w:1.6,h:1.6,k:'stool',img:'../img/n/levi-white.jpg',seats:1},
+  {id:'BAR-SETUP-106',n:'Wine Barrel Bar',w:6,h:2.5,k:'bar',img:'../img/n/barrel-bar.jpg',seats:0},
+  {id:'CAT-BARS',n:'Bar',w:8,h:2.5,k:'bar',img:'../img/p/bars.jpg',seats:0},
+  {id:'COMM-SETUP-001',n:'Sydney Fluted Communal Table',w:10,h:3.5,k:'communal',img:'../img/p/comm-setup-001.jpg',seats:10},
+  {id:'DT-SETUP-001',n:'Sydney Fluted Oval Dining Table',w:8,h:4,k:'oval',img:'../img/p/dt-setup-001.jpg',seats:8},
+  {id:'CAT-COFFEE',n:'Coffee table',w:4,h:2,k:'rect',img:'../img/p/coffee.jpg',seats:0},
+  {id:'MISC-UMB-005',n:'Boho Fringe Umbrella',w:7,h:7,k:'umb',img:'../img/n/umbrella.jpg',seats:0}
+ ]},
+ seat:{n:'Seating',c:'#8FB4D9',items:[
+  {id:'R60',n:'60" round, 8 chairs',w:8.5,h:8.5,k:'roundT',d:5,ch:8,seats:8},
+  {id:'R72',n:'72" round, 10 chairs',w:9.5,h:9.5,k:'roundT',d:6,ch:10,seats:10},
+  {id:'B8',n:'8 ft banquet, 8 chairs',w:8,h:5,k:'banq',seats:8},
+  {id:'ROW10',n:'Theatre row, 10 chairs',w:15,h:2,k:'row',ch:10,seats:10},
+  {id:'CH',n:'Single chair',w:1.6,h:1.6,k:'chair',seats:1}
+ ]},
+ cat:{n:'Catering',c:'#E39A6F',items:[
+  {id:'BUF8',n:'Buffet line, 8 ft',w:8,h:2.5,k:'rect',seats:0},
+  {id:'BUF16',n:'Buffet line, 16 ft',w:16,h:2.5,k:'rect',seats:0},
+  {id:'STN',n:'Food station',w:6,h:6,k:'round',seats:0},
+  {id:'CAKE',n:'Cake or dessert table',w:3,h:3,k:'round',seats:0},
+  {id:'SRV',n:'Service area',w:10,h:8,k:'zone',seats:0}
+ ]},
+ av:{n:'AV and stage',c:'#B49BE0',items:[
+  {id:'STG',n:'Stage, 16 × 8 ft',w:16,h:8,k:'rect',seats:0},
+  {id:'SCR',n:'Screen, 12 ft',w:12,h:1,k:'rect',seats:0},
+  {id:'DF',n:'Dance floor, 20 × 20 ft',w:20,h:20,k:'dance',seats:0},
+  {id:'FOH',n:'Sound desk',w:8,h:4,k:'rect',seats:0},
+  {id:'SPK',n:'Speaker',w:2,h:2,k:'rect',seats:0},
+  {id:'DJ',n:'DJ booth',w:6,h:3,k:'rect',seats:0},
+  {id:'POD',n:'Podium',w:2,h:2,k:'rect',seats:0}
+ ]}
+};
+var BY={};Object.keys(CAT).forEach(function(g){CAT[g].items.forEach(function(it){it.g=g;BY[it.id]=it})});
+
+/* ---------- state ---------- */
+var S={plan:null,ftPerPx:null,pw:100,ph:60,objs:[]},nid=1,selId=null;
+var VB={x:-5,y:-5,w:110,h:70};
+var cv=$('#cv'),world=$('#world'),planG=$('#plan'),objG=$('#objs'),scaleG=$('#scaleG');
+
+function persist(){try{var o={ftPerPx:S.ftPerPx,pw:S.pw,ph:S.ph,objs:S.objs,hasPlan:!!S.plan};localStorage.setItem('dfr-plan',JSON.stringify(o));if(S.plan&&S.plan.length<4500000)localStorage.setItem('dfr-plan-img',S.plan)}catch(e){}}
+function restore(){try{var o=JSON.parse(localStorage.getItem('dfr-plan')||'null');if(!o)return false;S.objs=o.objs||[];S.ftPerPx=o.ftPerPx;S.pw=o.pw;S.ph=o.ph;if(o.hasPlan)S.plan=localStorage.getItem('dfr-plan-img');nid=S.objs.reduce(function(a,b){return Math.max(a,b.id+1)},1);return true}catch(e){return false}}
+
+/* ---------- plan drawing ---------- */
+function drawSample(){
+  planG.innerHTML='';
+  el('rect',{x:0,y:0,width:100,height:60,fill:'#FBF9F4',stroke:'#161B20','stroke-width':.6},planG);
+  // windows on north wall
+  for(var i=8;i<92;i+=12)el('line',{x1:i,y1:0,x2:i+7,y2:0,stroke:'#8FB4D9','stroke-width':.9},planG);
+  // doors
+  el('rect',{x:44,y:59.4,width:12,height:1.2,fill:'#E9E5DC'},planG);
+  el('path',{d:'M44 60 A6 6 0 0 1 50 54 M56 60 A6 6 0 0 0 50 54',fill:'none',stroke:'#161B20','stroke-width':.15},planG);
+  el('rect',{x:-0.6,y:20,width:1.2,height:8,fill:'#E9E5DC'},planG);
+  // columns
+  [[33,20],[67,20],[33,40],[67,40]].forEach(function(c){el('rect',{x:c[0]-.75,y:c[1]-.75,width:1.5,height:1.5,fill:'#161B20'},planG)});
+  // kitchen
+  el('rect',{x:84,y:40,width:16,height:20,fill:'#EFEAE0',stroke:'#161B20','stroke-width':.3},planG);
+  var t=el('text',{x:92,y:51,'text-anchor':'middle','font-size':1.6,'font-family':'Inter Tight','font-weight':700,fill:'#5B6168'},planG);t.textContent='KITCHEN';
+  var t2=el('text',{x:50,y:57,'text-anchor':'middle','font-size':1.4,'font-family':'Inter Tight','font-weight':700,fill:'#5B6168'},planG);t2.textContent='MAIN ENTRANCE';
+  var t3=el('text',{x:2,y:3,'font-size':1.6,'font-family':'Inter Tight','font-weight':800,fill:'#A8873A'},planG);t3.textContent='SAMPLE HALL · 100 × 60 FT';
+}
+function drawPlan(){
+  if(!S.plan){S.pw=100;S.ph=60;drawSample()}
+  else{planG.innerHTML='';el('image',{href:S.plan,x:0,y:0,width:S.pw,height:S.ph,preserveAspectRatio:'none'},planG)}
+  var g=$('#gridR');g.setAttribute('x',0);g.setAttribute('y',0);g.setAttribute('width',S.pw);g.setAttribute('height',S.ph);
+  $('#psize').textContent=Math.round(S.pw)+' × '+Math.round(S.ph)+' ft';
+  $('#pscale').textContent=S.plan?(S.ftPerPx?'Set':'Not set yet'):'Sample hall';
+}
+
+/* ---------- view ---------- */
+function applyVB(){cv.setAttribute('viewBox',VB.x+' '+VB.y+' '+VB.w+' '+VB.h)}
+function fit(){var r=cv.getBoundingClientRect(),ar=r.width/Math.max(1,r.height),m=4,w=S.pw+m*2,h=S.ph+m*2;if(w/h>ar){h=w/ar}else{w=h*ar}VB={x:S.pw/2-w/2,y:S.ph/2-h/2,w:w,h:h};applyVB()}
+function zoom(f,cx,cy){if(cx==null){cx=VB.x+VB.w/2;cy=VB.y+VB.h/2}var nw=Math.min(800,Math.max(8,VB.w*f)),k=nw/VB.w;VB.x=cx-(cx-VB.x)*k;VB.y=cy-(cy-VB.y)*k;VB.w=nw;VB.h*=k;applyVB()}
+function pt(e){var p=cv.createSVGPoint();p.x=e.clientX;p.y=e.clientY;return p.matrixTransform(cv.getScreenCTM().inverse())}
+$('#zin').onclick=function(){zoom(.8)};$('#zout').onclick=function(){zoom(1.25)};$('#zfit').onclick=fit;
+cv.addEventListener('wheel',function(e){e.preventDefault();var p=pt(e);zoom(e.deltaY>0?1.12:.89,p.x,p.y)},{passive:false});
+
+/* ---------- object rendering ---------- */
+function shape(o,g){
+  var it=BY[o.t],c=CAT[it.g].c,w=it.w,h=it.h,st={fill:c,'fill-opacity':.55,stroke:'#161B20','stroke-width':.12};
+  function R(x,y,ww,hh,extra){var a=Object.assign({x:x,y:y,width:ww,height:hh,rx:.25},st,extra||{});return el('rect',a,g)}
+  function C(x,y,r,extra){return el('circle',Object.assign({cx:x,cy:y,r:r},st,extra||{}),g)}
+  var lite={'fill-opacity':.9,fill:'#fff'};
+  switch(it.k){
+   case 'roundT':var d=it.d/2;C(0,0,d);for(var i=0;i<it.ch;i++){var a=i/it.ch*Math.PI*2;R(Math.cos(a)*(d+.9)-.7,Math.sin(a)*(d+.9)-.7,1.4,1.4,lite)}break;
+   case 'banq':R(-4,-1.25,8,2.5);for(var j=0;j<4;j++){R(-3.6+j*2-.0,-2.6,1.4,1.2,lite);R(-3.6+j*2,1.4,1.4,1.2,lite)}break;
+   case 'row':for(var k=0;k<it.ch;k++)R(-7.5+k*1.5+.05,-.75,1.4,1.5,lite);break;
+   case 'chair':case 'stool':R(-w/2,-h/2,w,h,{rx:it.k==='stool'?w/2:.2});break;
+   case 'round':case 'umb':C(0,0,w/2,it.k==='umb'?{'fill-opacity':.25,'stroke-dasharray':'.4 .3'}:null);break;
+   case 'oval':el('ellipse',Object.assign({cx:0,cy:0,rx:w/2,ry:h/2},st),g);break;
+   case 'vig':R(-4,-4,8,2.6);R(-4.6,-.4,2.4,2.4,{rx:.5});R(2.2,-.4,2.4,2.4,{rx:.5});R(-1.6,.4,3.2,1.8,lite);break;
+   case 'curve':el('path',Object.assign({d:'M-6 2 Q0 -6 6 2 L4.4 2.5 Q0 -3.4 -4.4 2.5Z'},st),g);break;
+   case 'cruiser4':C(0,0,1.25);[[0,-2],[2,0],[0,2],[-2,0]].forEach(function(q){C(q[0],q[1],.75,lite)});break;
+   case 'dance':R(-w/2,-h/2,w,h,{'fill-opacity':.25});for(var m=-w/2+2.5;m<w/2;m+=2.5){el('line',{x1:m,y1:-h/2,x2:m,y2:h/2,stroke:'#161B20','stroke-width':.05},g);el('line',{x1:-w/2,y1:m,x2:w/2,y2:m,stroke:'#161B20','stroke-width':.05},g)}break;
+   case 'zone':R(-w/2,-h/2,w,h,{'fill-opacity':.18,'stroke-dasharray':'.5 .35'});break;
+   default:R(-w/2,-h/2,w,h);
+  }
+  var fs=Math.max(.55,Math.min(1.1,Math.min(w,h)/3.2));
+  if(Math.max(w,h)>=4){var t=el('text',{x:0,y:it.k==='vig'?-2.4:fs*.35,'text-anchor':'middle','font-size':fs,'font-family':'Inter Tight','font-weight':800,fill:'#161B20','pointer-events':'none',transform:'rotate('+(-o.r)+')'},g);t.textContent=it.n.split(',')[0].replace(/ \(.*\)/,'')}
+}
+function render(){
+  objG.innerHTML='';
+  S.objs.forEach(function(o){
+    var g=el('g',{transform:'translate('+o.x+' '+o.y+') rotate('+o.r+')','data-id':o.id,style:'cursor:move'},objG);
+    shape(o,g);
+    if(o.id===selId){var it=BY[o.t];el('rect',{x:-it.w/2-.5,y:-it.h/2-.5,width:it.w+1,height:it.h+1,fill:'none',stroke:'#A8873A','stroke-width':.25,'stroke-dasharray':'.6 .4','pointer-events':'none'},g)}
+  });
+  $('#sel').classList.toggle('on',selId!=null);
+  summary();persist();
+}
+function summary(){
+  var seats=0,cnt={},div={};
+  S.objs.forEach(function(o){var it=BY[o.t];seats+=it.seats||0;cnt[o.t]=(cnt[o.t]||0)+1;if(it.g==='div')div[o.t]=(div[o.t]||0)+1});
+  $('#seats').textContent=seats;
+  var dk=Object.keys(div);
+  $('#divList').innerHTML=dk.length?dk.map(function(k){return '<li><span><i class="dot" style="background:var(--c-div)"></i>'+BY[k].n+'</span><b>× '+div[k]+'</b></li>'}).join(''):'<li style="color:var(--mute2)">None yet</li>';
+  var ak=Object.keys(cnt);
+  $('#allList').innerHTML=ak.length?ak.map(function(k){return '<li><span><i class="dot" style="background:'+CAT[BY[k].g].c+'"></i>'+BY[k].n+'</span><b>× '+cnt[k]+'</b></li>'}).join(''):'<li style="color:var(--mute2)">Nothing placed yet</li>';
+}
+function add(t,x,y){var o={id:nid++,t:t,x:+x.toFixed(2),y:+y.toFixed(2),r:0};S.objs.push(o);selId=o.id;render();return o}
+
+/* ---------- palette ---------- */
+var curTab='div';
+function icon(it){
+  if(it.img)return '<img src="'+it.img+'" alt="" loading="lazy">';
+  var w=it.w,h=it.h,s=Math.max(w,h)*1.15;var g=document.createElementNS(NS,'g');shape({t:it.id,r:0},g);
+  return '<svg viewBox="'+(-s/2)+' '+(-s/2)+' '+s+' '+s+'">'+g.innerHTML+'</svg>';
+}
+function tabs(){
+  $('#tabs').innerHTML=Object.keys(CAT).map(function(k){return '<button data-k="'+k+'" class="'+(k===curTab?'on':'')+'">'+CAT[k].n+'</button>'}).join('');
+  $$('#tabs button').forEach(function(b){b.onclick=function(){curTab=b.dataset.k;tabs()}});
+  $('#items').innerHTML=CAT[curTab].items.map(function(it){return '<button class="it" data-t="'+it.id+'"><span class="th">'+icon(it)+'</span><b>'+it.n+'</b><small>'+it.w+' × '+it.h+' ft'+(it.g==='div'?' · approx.':'')+'</small></button>'}).join('');
+  $$('#items .it').forEach(function(b){
+    b.addEventListener('pointerdown',function(e){startPaletteDrag(e,b.dataset.t)});
+  });
+}
+
+/* ---------- interaction ---------- */
+var drag=null;
+function startPaletteDrag(e,t){
+  e.preventDefault();
+  var ghost=document.createElement('div');ghost.style.cssText='position:fixed;z-index:60;pointer-events:none;width:64px;height:64px;background:#fff;border:2px solid #D8BE6E;border-radius:3px;display:grid;place-items:center;opacity:.9;transform:translate(-50%,-50%)';
+  ghost.innerHTML=icon(BY[t]).replace('<svg','<svg style="width:52px;height:52px"').replace('<img','<img style="max-width:56px;max-height:56px"');
+  var sx=e.clientX,sy=e.clientY,moved=false;
+  function mv(ev){if(Math.abs(ev.clientX-sx)+Math.abs(ev.clientY-sy)>6&&!moved){moved=true;document.body.appendChild(ghost);if(innerWidth<=980)closeSheets()}if(moved){ghost.style.left=ev.clientX+'px';ghost.style.top=ev.clientY+'px'}}
+  function up(ev){removeEventListener('pointermove',mv);removeEventListener('pointerup',up);if(ghost.parentNode)ghost.remove();
+    var r=cv.getBoundingClientRect();
+    if(moved&&ev.clientX>r.left&&ev.clientX<r.right&&ev.clientY>r.top&&ev.clientY<r.bottom){var p=pt(ev);add(t,p.x,p.y)}
+    else if(!moved){add(t,VB.x+VB.w/2,VB.y+VB.h/2);if(innerWidth<=980)closeSheets();toast('Added. Drag it into place.')}
+  }
+  addEventListener('pointermove',mv);addEventListener('pointerup',up);
+}
+var pointers={},pinch=null;
+cv.addEventListener('pointerdown',function(e){
+  pointers[e.pointerId]={x:e.clientX,y:e.clientY};
+  if(Object.keys(pointers).length===2){var ps=Object.values(pointers);pinch={d:Math.hypot(ps[0].x-ps[1].x,ps[0].y-ps[1].y)};drag=null;return}
+  if(scaling){scaleClick(e);return}
+  var g=e.target.closest('g[data-id]');var p=pt(e);
+  if(g){var id=+g.dataset.id,o=S.objs.find(function(x){return x.id===id});selId=id;render();drag={o:o,dx:p.x-o.x,dy:p.y-o.y}}
+  else{selId=null;render();drag={pan:true,sx:e.clientX,sy:e.clientY,vx:VB.x,vy:VB.y};cv.classList.add('panning')}
+  cv.setPointerCapture(e.pointerId);
+});
+cv.addEventListener('pointermove',function(e){
+  if(pointers[e.pointerId])pointers[e.pointerId]={x:e.clientX,y:e.clientY};
+  if(pinch&&Object.keys(pointers).length===2){var ps=Object.values(pointers),d=Math.hypot(ps[0].x-ps[1].x,ps[0].y-ps[1].y);var mid=pt({clientX:(ps[0].x+ps[1].x)/2,clientY:(ps[0].y+ps[1].y)/2});zoom(pinch.d/d,mid.x,mid.y);pinch.d=d;return}
+  if(scaling&&scaleA){var p0=pt(e);drawScaleLine(scaleA,p0);return}
+  if(!drag)return;
+  if(drag.pan){var r=cv.getBoundingClientRect(),k=VB.w/r.width;VB.x=drag.vx-(e.clientX-drag.sx)*k;VB.y=drag.vy-(e.clientY-drag.sy)*k;applyVB();return}
+  var p=pt(e);drag.o.x=+(Math.round((p.x-drag.dx)*4)/4).toFixed(2);drag.o.y=+(Math.round((p.y-drag.dy)*4)/4).toFixed(2);
+  var g=objG.querySelector('g[data-id="'+drag.o.id+'"]');if(g)g.setAttribute('transform','translate('+drag.o.x+' '+drag.o.y+') rotate('+drag.o.r+')');
+});
+function endPtr(e){delete pointers[e.pointerId];if(Object.keys(pointers).length<2)pinch=null;if(drag&&!drag.pan)render();drag=null;cv.classList.remove('panning')}
+cv.addEventListener('pointerup',endPtr);cv.addEventListener('pointercancel',endPtr);
+function selObj(){return S.objs.find(function(x){return x.id===selId})}
+$('#rotB').onclick=function(){var o=selObj();if(o){o.r=(o.r+45)%360;render()}};
+$('#dupB').onclick=function(){var o=selObj();if(o){add(o.t,o.x+2,o.y+2).r=o.r;render()}};
+$('#delB').onclick=function(){S.objs=S.objs.filter(function(x){return x.id!==selId});selId=null;render()};
+addEventListener('keydown',function(e){if(e.target.tagName==='INPUT')return;if(e.key==='r'||e.key==='R')$('#rotB').click();if((e.key==='Delete'||e.key==='Backspace')&&selId!=null){e.preventDefault();$('#delB').click()}});
+
+/* ---------- upload + scale ---------- */
+$('#upl').onchange=function(){var f=this.files[0];if(!f)return;
+  if(f.type==='application/pdf'){if(!window.pdfjsLib){toast('PDF reader did not load. Try an image.');return}
+    pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    f.arrayBuffer().then(function(buf){return pdfjsLib.getDocument({data:buf}).promise}).then(function(pdf){return pdf.getPage(1)}).then(function(pg){
+      var vp=pg.getViewport({scale:2.5}),c=document.createElement('canvas');var mx=3200,s=Math.min(1,mx/Math.max(vp.width,vp.height));vp=pg.getViewport({scale:2.5*s});c.width=vp.width;c.height=vp.height;
+      return pg.render({canvasContext:c.getContext('2d'),viewport:vp}).promise.then(function(){loadPlan(c.toDataURL('image/jpeg',.85),c.width,c.height)})
+    }).catch(function(){toast('Could not read that PDF')})}
+  else{var rd=new FileReader();rd.onload=function(){var im=new Image();im.onload=function(){var mx=3200,s=Math.min(1,mx/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);loadPlan(c.toDataURL('image/jpeg',.85),c.width,c.height)};im.src=rd.result};rd.readAsDataURL(f)}
+  this.value='';
+};
+var imgPx={w:0,h:0};
+function loadPlan(url,w,h){S.plan=url;imgPx={w:w,h:h};S.ftPerPx=100/w;S.pw=100;S.ph=h*S.ftPerPx;S.ftPerPx=null;drawPlan();fit();render();startScale();}
+var scaling=false,scaleA=null;
+function startScale(){scaling=true;scaleA=null;cv.classList.add('scaling');msg('Set the scale: tap the two ends of a wall or door you know the length of.')}
+$('#scaleBtn').onclick=startScale;
+function drawScaleLine(a,b){scaleG.innerHTML='';var sw=VB.w/300;el('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,stroke:'#A8873A','stroke-width':sw*2},scaleG);[a,b].forEach(function(q){el('circle',{cx:q.x,cy:q.y,r:sw*4,fill:'#A8873A'},scaleG)})}
+var scaleB=null;
+function scaleClick(e){var p=pt(e);if(!scaleA){scaleA=p;drawScaleLine(p,p);return}scaleB=p;drawScaleLine(scaleA,scaleB);$('#dlg').classList.add('on');$('#dlgI').value='';setTimeout(function(){$('#dlgI').focus()},50)}
+$('#dlgOk').onclick=function(){var v=parseFloat($('#dlgI').value);if(!(v>0)){toast('Enter the length in feet');return}
+  var cur=Math.hypot(scaleB.x-scaleA.x,scaleB.y-scaleA.y);if(cur<=0)return;var k=v/cur;
+  S.pw*=k;S.ph*=k;S.objs.forEach(function(o){o.x*=k;o.y*=k});S.ftPerPx=S.pw/(imgPx.w||1);
+  endScale();drawPlan();fit();render();toast('Scale set. Pieces now show at true size.')};
+$('#dlgX').onclick=endScale;
+function endScale(){scaling=false;scaleA=scaleB=null;scaleG.innerHTML='';cv.classList.remove('scaling');msg();$('#dlg').classList.remove('on')}
+
+/* ---------- side actions ---------- */
+$('#toQuote').onclick=function(){
+  var div={};S.objs.forEach(function(o){var it=BY[o.t];if(it.g==='div')div[o.t]=(div[o.t]||0)+1});
+  var ks=Object.keys(div);if(!ks.length){toast('Place some Divine pieces first');return}
+  var Q=[];try{Q=JSON.parse(localStorage.getItem('dfr-q2')||'[]')}catch(e){}
+  ks.forEach(function(k){var it=BY[k],f=Q.find(function(x){return x.s===k});if(f)f.q=div[k];else Q.push({s:k,n:it.n,i:it.img,q:div[k]})});
+  try{localStorage.setItem('dfr-q2',JSON.stringify(Q))}catch(e){}
+  toast('Added to your quote');setTimeout(function(){location.href='../#quote'},900);
+};
+$('#shareB').onclick=function(){
+  var data=btoa(JSON.stringify({w:S.pw,h:S.ph,s:!S.plan,o:S.objs.map(function(o){return [o.t,o.x,o.y,o.r]})}));
+  var url=location.origin+location.pathname+'#layout='+data;
+  var note=S.plan?' The floor plan image stays on this device, so send it along too.':'';
+  if(navigator.share)navigator.share({title:'Our Divine Design layout',url:url}).catch(function(){});
+  else if(navigator.clipboard)navigator.clipboard.writeText(url).then(function(){toast('Link copied.'+note)});
+};
+$('#pngB').onclick=function(){
+  var clone=cv.cloneNode(true);clone.setAttribute('viewBox',(-3)+' '+(-3)+' '+(S.pw+6)+' '+(S.ph+6));var W=2000,H=Math.round(W*(S.ph+6)/(S.pw+6));clone.setAttribute('width',W);clone.setAttribute('height',H);
+  var bg=document.createElementNS(NS,'rect');bg.setAttribute('x',-3);bg.setAttribute('y',-3);bg.setAttribute('width',S.pw+6);bg.setAttribute('height',S.ph+6);bg.setAttribute('fill','#fff');clone.insertBefore(bg,clone.firstChild);
+  var s=new XMLSerializer().serializeToString(clone),img=new Image();
+  img.onload=function(){var c=document.createElement('canvas');c.width=W;c.height=H;c.getContext('2d').drawImage(img,0,0);var a=document.createElement('a');a.download='divine-design-layout.png';a.href=c.toDataURL('image/png');a.click()};
+  img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(s);
+};
+$('#clrB').onclick=function(){if(!confirm('Clear every piece and the floor plan?'))return;S={plan:null,ftPerPx:null,pw:100,ph:60,objs:[]};selId=null;try{localStorage.removeItem('dfr-plan-img')}catch(e){}drawPlan();fit();render()};
+
+/* phone sheets */
+function closeSheets(){$('#pal').classList.remove('on');$('#side').classList.remove('on');$('#mPal').classList.remove('on');$('#mSide').classList.remove('on')}
+$('#mPal').onclick=function(){var on=!$('#pal').classList.contains('on');closeSheets();if(on){$('#pal').classList.add('on');this.classList.add('on')}};
+$('#mSide').onclick=function(){var on=!$('#side').classList.contains('on');closeSheets();if(on){$('#side').classList.add('on');this.classList.add('on')}};
+
+/* ---------- install ---------- */
+var dp=null;addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;$('#instAuto').hidden=false});
+$('#instB').onclick=function(){$('#inst').classList.add('on')};$('#instX').onclick=function(){$('#inst').classList.remove('on')};
+$('#instGo').onclick=function(){if(dp){dp.prompt();dp=null;$('#inst').classList.remove('on')}};
+if(/[?&]install=1/.test(location.search))$('#inst').classList.add('on');
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(function(){});
+/* ---------- start ---------- */
+var shared=location.hash.match(/layout=([^&]+)/),had=false;
+if(shared){try{var d=JSON.parse(atob(shared[1]));S.pw=d.w;S.ph=d.h;S.objs=d.o.map(function(a,i){return {id:i+1,t:a[0],x:a[1],y:a[2],r:a[3]}}).filter(function(o){return BY[o.t]});nid=S.objs.length+1;had=true;if(!d.s)toast('Layout loaded. Upload the same floor plan to see it underneath.')}catch(e){}}
+if(!had)had=restore();
+if(!had){ // starter layout on the sample hall
+  [['STG',50,6],['SCR',50,1.2],['DF',50,20],['R60',20,22],['R60',20,38],['R60',80,22],['R60',80,38],['R60',38,46],['R60',62,46],['SS-450-SETUP-001',10,50],['SS-650-SETUP-010',24,52],['CAT-BARS',92,30],['BUF16',74,52],['FOH',50,40],['CRU-SETUP-001',8,8],['CRU-SETUP-001',92,8]].forEach(function(a){S.objs.push({id:nid++,t:a[0],x:a[1],y:a[2],r:0})});
+  S.objs.forEach(function(o){if(o.t==='CAT-BARS')o.r=90});
+}
+tabs();drawPlan();fit();render();addEventListener('resize',fit);
+})();
+</script>
+</body>
+</html>
