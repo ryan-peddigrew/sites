@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bushwood Golf Club | Markham, Ontario</title>
+<meta name="description" content="Two unique public courses in northeastern Markham, just north of Toronto. Book a tee time, plan a tournament or event, join a league.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/gopher-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Graduate&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1D232A;--ink2:#262E37;--gold:#D2A84E;--gold2:#E4C47E;--bone:#F4F0E6;--bone2:#EAE3D2;--fair:#2F4A35;--grey:#B9B8BD;--w:#FAFDFF;--mu:#5d636b}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:400 17px/1.6 'Instrument Sans',system-ui,sans-serif;color:var(--ink);background:var(--bone);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.g{font-family:'Graduate',serif;font-weight:400;text-transform:uppercase;letter-spacing:.02em;line-height:1.02}
+.wrap{width:min(1240px,100% - 40px);margin-inline:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:4px;font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:var(--ink)}.btn-gold:hover{background:var(--gold2)}
+.btn-line{border:1.5px solid currentColor;background:transparent}
+.btn svg{width:18px;height:18px}
+.eyebrow{font-family:'Graduate',serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.ph{display:inline-block;background:repeating-linear-gradient(45deg,#fff3 0 6px,#fff1 6px 12px);border:1.5px dashed var(--gold);color:inherit;padding:2px 8px;border-radius:3px;font-size:.82em;font-weight:600}
+.on-light .ph{background:#d2a84e1f;border-color:#a8822e}
+
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s}
+header.solid{background:rgba(29,35,42,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 #ffffff14}
+.hd{display:flex;align-items:center;justify-content:space-between;height:84px;gap:20px}
+.logo img{height:54px;width:auto;filter:drop-shadow(0 6px 14px rgba(0,0,0,.45))}
+nav.main{display:flex;gap:26px;color:#fff}
+nav.main a{text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;opacity:.88;padding:12px 0}
+nav.main a:hover{opacity:1;color:var(--gold2)}
+.hd-r{display:flex;gap:12px;align-items:center}
+.menu-btn{display:none;background:none;border:1.5px solid #fff6;color:#fff;min-height:44px;padding:0 14px;border-radius:4px;font:600 13px 'Instrument Sans';letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:1020px){nav.main{display:none}.menu-btn{display:block}.hd-r .btn{display:none}.logo img{height:44px}}
+.drawer{position:fixed;inset:0;background:var(--ink);z-index:60;display:none;flex-direction:column;padding:24px 20px;color:#fff}
+.drawer.open{display:flex}
+.drawer a{font-family:'Graduate';font-size:28px;text-decoration:none;padding:10px 0;border-bottom:1px solid #ffffff14}
+.drawer .x{align-self:flex-end;background:none;border:1.5px solid #fff6;color:#fff;min-height:44px;padding:0 16px;border-radius:4px;font:600 13px 'Instrument Sans';text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+
+/* hero */
+.hero{position:relative;min-height:100svh;color:#fff;display:flex;align-items:flex-end;overflow:hidden;background:var(--ink)}
+.hero .bg{position:absolute;inset:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;animation:kb 26s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.04)}to{transform:scale(1.16) translate(-2%,-1%)}}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,35,42,.55) 0%,rgba(29,35,42,0) 30%,rgba(29,35,42,.15) 55%,rgba(29,35,42,.92) 100%)}
+.hero .in{position:relative;z-index:2;padding:120px 0 40px}
+.hero h1{font-size:clamp(40px,7.4vw,110px);max-width:13ch;text-shadow:0 4px 30px rgba(0,0,0,.35)}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p.lead{font-size:clamp(17px,1.6vw,21px);max-width:44ch;margin:18px 0 30px;opacity:.92}
+.status{display:inline-flex;align-items:center;gap:10px;background:#1d232acc;border:1px solid #ffffff22;padding:8px 14px;border-radius:4px;font-size:14px;margin-bottom:22px}
+.status i{width:9px;height:9px;background:var(--gold);border-radius:2px}
+.book{display:grid;grid-template-columns:1.3fr 1fr .8fr auto;background:var(--bone);color:var(--ink);border-radius:6px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.35);max-width:980px}
+.book label{display:flex;flex-direction:column;padding:14px 20px;border-right:1px solid var(--bone2);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
+.book select,.book input{border:0;background:none;font:600 17px 'Instrument Sans';color:var(--ink);padding:6px 0 0;min-height:32px;outline:none;width:100%}
+.book .btn{border-radius:0;min-height:76px;padding:0 30px}
+@media(max-width:760px){.book{grid-template-columns:1fr 1fr}.book label:first-child{grid-column:1/-1;border-right:0;border-bottom:1px solid var(--bone2)}.book .btn{grid-column:1/-1;min-height:56px}}
+
+/* courses split */
+.courses{display:grid;grid-template-columns:1fr 1fr;min-height:92vh;background:var(--ink)}
+.course{position:relative;overflow:hidden;color:#fff;display:flex;align-items:flex-end;min-height:560px}
+.course img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.course:hover img{transform:scale(1.05)}
+.course:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(29,35,42,.95))}
+.course .c{position:relative;z-index:2;padding:44px}
+.course .num{font-family:'Graduate';font-size:clamp(90px,12vw,180px);line-height:.8;color:var(--gold)}
+.course h2{font-size:clamp(28px,3vw,42px);margin:8px 0 12px}
+.course p{max-width:40ch;opacity:.9}
+.stats{display:flex;flex-wrap:wrap;gap:0;margin:20px 0 22px;border-top:1px solid #ffffff2a}
+.stats div{padding:12px 22px 0 0;margin-right:22px}
+.stats b{display:block;font-family:'Graduate';font-size:26px;font-weight:400}
+.stats span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+@media(max-width:860px){.courses{grid-template-columns:1fr}.course .c{padding:28px 20px}}
+
+/* intro statement */
+.statement{padding:120px 0 100px}
+.statement .wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:60px;align-items:start}
+.statement h2{font-size:clamp(34px,4.4vw,64px)}
+.statement p{font-size:19px;color:#3a4048;margin-bottom:18px;max-width:52ch}
+.feats{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:30px;border-top:2px solid var(--ink)}
+.feats div{padding:18px 0;border-bottom:1px solid #1d232a26;display:flex;gap:14px;align-items:center;font-weight:600}
+.feats svg{width:40px;height:40px;flex:none;stroke:var(--ink);fill:none;stroke-width:1.5}
+@media(max-width:860px){.statement{padding:80px 0 60px}.statement .wrap{grid-template-columns:1fr;gap:20px}.feats{grid-template-columns:1fr}}
+
+/* record */
+.record{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:110px 0}
+.record .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+.big61{font-family:'Graduate';font-size:clamp(180px,30vw,420px);line-height:.78;color:transparent;-webkit-text-stroke:2px var(--gold);letter-spacing:-.02em}
+.record h2{font-size:clamp(28px,3.4vw,48px);margin:14px 0}
+.record p{opacity:.85;max-width:46ch;margin-bottom:22px}
+.record .photo{position:relative}
+.record .photo img{border-radius:4px;box-shadow:0 40px 80px rgba(0,0,0,.5)}
+.record .card{position:absolute;left:-40px;bottom:-40px;width:70%;border-radius:3px;box-shadow:0 20px 50px rgba(0,0,0,.55);transform:rotate(-3deg);border:6px solid #fff}
+@media(max-width:860px){.record{padding:80px 0 100px}.record .wrap{grid-template-columns:1fr}.record .card{left:-6px;bottom:-50px}}
+
+/* groups (events / tournaments) */
+.groups{padding:120px 0;background:var(--bone)}
+.groups .top{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:46px;flex-wrap:wrap}
+.groups h2{font-size:clamp(34px,4.6vw,66px);max-width:14ch}
+.groups .top p{max-width:42ch;color:#3a4048}
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--ink);margin-bottom:0;overflow-x:auto}
+.tabs button{background:none;border:0;font:600 14px 'Instrument Sans';letter-spacing:.08em;text-transform:uppercase;padding:16px 22px;min-height:52px;cursor:pointer;color:var(--mu);white-space:nowrap}
+.tabs button.on{background:var(--ink);color:#fff}
+.panel{display:none;grid-template-columns:1.1fr 1fr;background:#fff;box-shadow:0 30px 60px #1d232a14}
+.panel.on{display:grid}
+.panel .pic{min-height:460px;position:relative}
+.panel .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.panel .tx{padding:44px}
+.panel h3{font-size:30px;margin-bottom:12px}
+.panel ul{list-style:none;margin:20px 0 26px}
+.panel li{padding:12px 0;border-bottom:1px solid #1d232a1a;display:flex;justify-content:space-between;gap:16px}
+.panel li b{font-weight:600}
+@media(max-width:860px){.groups{padding:80px 0}.panel{grid-template-columns:1fr}.panel .pic{min-height:260px}.panel .tx{padding:28px 20px}}
+
+/* quote builder */
+.builder{margin-top:60px;background:var(--ink);color:#fff;border-radius:6px;padding:44px;display:grid;grid-template-columns:1fr 1.4fr;gap:50px}
+.builder h3{font-size:clamp(26px,3vw,38px)}
+.builder p{opacity:.8;margin-top:12px}
+.bfield{margin-bottom:22px}
+.bfield>span{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.7;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{cursor:pointer}
+.chips input{position:absolute;opacity:0}
+.chips em{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1.5px solid #ffffff3a;border-radius:4px;font-style:normal;font-weight:600;font-size:15px}
+.chips input:checked+em{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.range{display:flex;align-items:center;gap:18px}
+.range input{flex:1;accent-color:var(--gold);height:44px}
+.range b{font-family:'Graduate';font-size:40px;min-width:3ch;color:var(--gold);font-weight:400}
+.summary{border-top:1px solid #ffffff26;padding-top:20px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+@media(max-width:860px){.builder{grid-template-columns:1fr;padding:28px 20px;gap:20px}}
+
+/* clubhouse collage */
+.club{background:var(--fair);color:#fff;padding:120px 0;overflow:hidden}
+.club .wrap{display:grid;grid-template-columns:1fr 1.25fr;gap:60px;align-items:center}
+.club h2{font-size:clamp(34px,4.4vw,62px)}
+.club p{opacity:.88;margin:18px 0;max-width:44ch}
+.collage{position:relative;height:620px}
+.collage img{position:absolute;object-fit:cover;border-radius:4px;box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.collage .a{width:68%;height:62%;right:0;top:0}
+.collage .b{width:48%;height:46%;left:0;top:32%}
+.collage .c{width:44%;height:38%;right:8%;bottom:0}
+.contact-line{display:flex;gap:22px;flex-wrap:wrap;margin-top:24px;font-weight:600}
+.contact-line a{text-decoration:none;border-bottom:1.5px solid var(--gold);padding:10px 0}
+@media(max-width:860px){.club{padding:80px 0}.club .wrap{grid-template-columns:1fr}.collage{height:440px}}
+
+/* practice */
+.practice{padding:120px 0;background:var(--bone)}
+.practice .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.practice h2{font-size:clamp(34px,4.4vw,62px);grid-column:1/8}
+.practice .intro{grid-column:8/13;align-self:end;color:#3a4048}
+.prow{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-top:40px;border-top:2px solid var(--ink)}
+.prow>div{padding:30px 30px 30px 0;border-right:1px solid #1d232a22}
+.prow>div+div{padding-left:30px}
+.prow>div:last-child{border-right:0}
+.prow h3{font-size:22px;margin:14px 0 10px}
+.price{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dotted #1d232a40}
+.price b{font-family:'Graduate';font-weight:400}
+.prow img{aspect-ratio:4/3;object-fit:cover;border-radius:3px}
+.fine{font-size:14px;color:var(--mu);margin-top:12px}
+@media(max-width:860px){.practice{padding:80px 0}.practice h2,.practice .intro{grid-column:1/-1}.prow{grid-template-columns:1fr}.prow>div,.prow>div+div{padding:26px 0;border-right:0;border-bottom:1px solid #1d232a22}}
+
+/* gopher squad */
+.squad{background:var(--gold);color:var(--ink);overflow:hidden;position:relative}
+.squad .wrap{display:grid;grid-template-columns:auto 1fr auto;gap:50px;align-items:center;padding:70px 0}
+.squad img.g1{width:220px;background:var(--ink);padding:22px;border-radius:6px;box-shadow:0 18px 30px rgba(29,35,42,.3)}
+.squad h2{font-size:clamp(32px,4vw,56px)}
+.squad .pts{display:flex;gap:40px;margin-top:16px;flex-wrap:wrap}
+.squad .pts b{font-family:'Graduate';font-size:44px;font-weight:400;display:block;line-height:1}
+.squad .pts span{font-size:14px;font-weight:600}
+.squad .btn{background:var(--ink);color:#fff}
+@media(max-width:860px){.squad .wrap{grid-template-columns:1fr;gap:20px;padding:60px 0}.squad img.g1{width:140px}}
+
+/* shop strip */
+.shop{display:grid;grid-template-columns:1fr 1fr;background:var(--ink);color:#fff}
+.shop .pic{min-height:560px;position:relative}
+.shop .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.shop .tx{padding:80px 60px;display:flex;flex-direction:column;justify-content:center}
+.shop h2{font-size:clamp(32px,4vw,56px)}
+.giftcard{margin:30px 0;width:min(380px,100%);aspect-ratio:1.586;border-radius:10px;background:linear-gradient(135deg,#262e37,#1d232a 60%);border:1px solid #d2a84e66;padding:22px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 30px 60px rgba(0,0,0,.5);transform:rotate(-4deg)}
+.giftcard img{height:46px;width:auto;align-self:flex-start}
+.giftcard div{display:flex;justify-content:space-between;align-items:end;font-family:'Graduate';color:var(--gold)}
+.brands{display:flex;flex-wrap:wrap;gap:6px 16px;opacity:.7;font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-top:24px}
+@media(max-width:860px){.shop{grid-template-columns:1fr}.shop .pic{min-height:340px}.shop .tx{padding:50px 20px}}
+
+/* reviews */
+.reviews{padding:110px 0;background:var(--bone)}
+.reviews h2{font-size:clamp(34px,4.4vw,60px);margin-bottom:30px}
+.reviews .box{border:2px dashed #a8822e;border-radius:6px;padding:40px;display:flex;justify-content:space-between;gap:30px;align-items:center;flex-wrap:wrap;background:#fff}
+
+/* visit */
+.visit{background:var(--ink);color:#fff;padding:110px 0}
+.visit .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:70px}
+.visit h2{font-size:clamp(34px,4.4vw,60px);margin-bottom:24px}
+.faq details{border-bottom:1px solid #ffffff1f}
+.faq summary{list-style:none;cursor:pointer;padding:20px 0;font-weight:600;font-size:18px;display:flex;justify-content:space-between;gap:20px;min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";font-family:'Graduate';color:var(--gold);font-size:24px;line-height:1}
+.faq details[open] summary:after{content:"–"}
+.faq p{padding:0 0 20px;opacity:.82;max-width:60ch}
+.addr p{opacity:.85;margin-bottom:8px}
+.addr a.big{display:block;font-family:'Graduate';font-size:clamp(26px,3vw,36px);text-decoration:none;color:var(--gold);margin:6px 0 18px;padding:6px 0}
+@media(max-width:860px){.visit{padding:80px 0}.visit .wrap{grid-template-columns:1fr;gap:40px}}
+
+footer{background:#151a20;color:#fff;padding:60px 0 110px;font-size:14px}
+footer .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px}
+footer h4{font-family:'Graduate';font-weight:400;color:var(--gold);font-size:14px;letter-spacing:.1em;margin-bottom:14px}
+footer a{display:block;text-decoration:none;opacity:.8;padding:6px 0}
+footer a:hover{opacity:1}
+footer .fl img{height:120px;width:auto;margin-bottom:16px}
+footer .legal{grid-column:1/-1;border-top:1px solid #ffffff1a;padding-top:20px;opacity:.6;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:860px){footer .wrap{grid-template-columns:1fr 1fr}footer .fl{grid-column:1/-1}}
+
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(29,35,42,.96);backdrop-filter:blur(10px)}
+.dock .btn{min-height:50px}
+.dock .btn-line{color:#fff}
+@media(max-width:760px){.dock{display:grid}}
+
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.hero .bg img{animation:none}.rv{opacity:1;transform:none;transition:none}}
+.draftnote{position:fixed;top:92px;right:14px;z-index:45;background:var(--gold);color:var(--ink);font-size:12px;font-weight:700;padding:6px 10px;border-radius:3px;letter-spacing:.06em;text-transform:uppercase}
+@media(max-width:760px){.draftnote{top:auto;bottom:84px;right:10px}}
+</style>
+</head>
+<body>
+<div class="draftnote">Concept A · Draft</div>
+
+<header id="hd"><div class="wrap hd">
+  <a class="logo" href="#top" aria-label="Bushwood Golf Club home"><img src="brand/logo-horizontal-reverse.svg" alt="Bushwood Golf Club"></a>
+  <nav class="main" aria-label="Main">
+    <a href="#courses">Courses</a><a href="#groups">Tournaments &amp; events</a><a href="#groups" data-tab="leagues">Leagues</a><a href="#clubhouse">Clubhouse</a><a href="#practice">Range &amp; lessons</a><a href="#shop">Shop</a>
+  </nav>
+  <div class="hd-r"><a class="btn btn-gold" href="https://www.chronogolf.com/club/bushwood-golf-club" target="_blank" rel="noopener">Book a tee time</a><button class="menu-btn" id="mOpen">Menu</button></div>
+</div></header>
+
+<div class="drawer" id="drawer">
+  <button class="x" id="mClose">Close</button>
+  <a href="#courses">Courses</a><a href="#groups">Tournaments &amp; events</a><a href="#groups">Leagues</a><a href="#clubhouse">Clubhouse</a><a href="#practice">Range &amp; lessons</a><a href="#squad">Gopher Squad</a><a href="#shop">Shop &amp; gift cards</a><a href="#visit">Plan your visit</a>
+</div>
+
+<section class="hero" id="top">
+  <div class="bg"><img src="img/aerial-hero.jpg" alt="Aerial view of Bushwood's tree-lined fairways"></div>
+  <div class="wrap in">
+    <div class="status"><i></i>The 2026 season has wrapped. See you in the spring. Opening day 2027: <span class="ph">date TBC</span></div>
+    <h1 class="g">Not just another golf course. <em>We're Bushwood.</em></h1>
+    <p class="lead">Two unique public courses in northeastern Markham, just north of Toronto. Tee it up, bring the crew, stay for the patio.</p>
+    <form class="book" action="https://www.chronogolf.com/club/bushwood-golf-club" target="_blank">
+      <label>Course<select><option>18-hole Championship (par 72)</option><option>9-hole Executive (par 30)</option></select></label>
+      <label>Date<input type="date"></label>
+      <label>Golfers<select><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label>
+      <button class="btn btn-gold" type="submit">Book a tee time</button>
+    </form>
+  </div>
+</section>
+
+<section class="courses" id="courses">
+  <a class="course" href="https://www.chronogolf.com/club/bushwood-golf-club" target="_blank" rel="noopener" style="text-decoration:none">
+    <img src="img/aerial-pond.jpg" alt="Championship course from above, with the pond and cart path">
+    <div class="c">
+      <div class="num">18</div>
+      <h2 class="g">The Championship</h2>
+      <p>A parkland-style layout designed by Rene Muylaert. Tree-lined fairways and natural carries over streams, with multiple tees so it plays right for everyone.</p>
+      <div class="stats"><div><b>72</b><span>Par</span></div><div><b>6,600</b><span>Yards, max</span></div><div><b>&lt;4 hrs</b><span>Most rounds</span></div><div><b>12+</b><span>With an adult</span></div></div>
+      <span class="btn btn-gold">Book the 18</span>
+    </div>
+  </a>
+  <a class="course" href="https://www.chronogolf.com/club/bushwood-golf-club" target="_blank" rel="noopener" style="text-decoration:none">
+    <img src="img/putt-flag.jpg" alt="Golfer putting at the flag on the executive course">
+    <div class="c">
+      <div class="num">9</div>
+      <h2 class="g">The Executive</h2>
+      <p>A quicker round for friends, family or juniors. Perfect after work, before dinner, or for a first time on a real course.</p>
+      <div class="stats"><div><b>30</b><span>Par</span></div><div><b>90–110</b><span>Minutes</span></div><div><b>8+</b><span>With an adult</span></div></div>
+      <span class="btn btn-gold">Book the 9</span>
+    </div>
+  </a>
+</section>
+
+<section class="statement on-light">
+  <div class="wrap">
+    <div class="rv"><div class="eyebrow" style="color:#a8822e">Markham, Ontario</div><h2 class="g" style="margin-top:12px">Golf the way it should feel.</h2></div>
+    <div class="rv">
+      <p>Nestled in northeastern Markham, about three miles south of Stouffville, Bushwood is two public courses, a bent grass range, and the Caddy Shack Lounge, all on one property.</p>
+      <p>We look after it properly: computerized irrigation, wildflower plantings, Purple Martin birdhouses, a ball mark repair program, and real attention on the greens, tee decks and fairways.</p>
+      <div class="feats">
+        <div><svg viewBox="0 0 40 40"><path d="M12 36V5l16 6-16 6"/><path d="M5 36h30"/></svg>Two unique public courses</div>
+        <div><svg viewBox="0 0 40 40"><circle cx="20" cy="22" r="9"/><path d="M14 20h.01M20 18h.01M25 21h.01M18 25h.01M23 26h.01"/><path d="M8 38h24"/></svg>Bent grass driving range</div>
+        <div><svg viewBox="0 0 40 40"><path d="M8 18l12-10 12 10v18H8z"/><path d="M16 36V26h8v10"/></svg>Event facilities and patio</div>
+        <div><svg viewBox="0 0 40 40"><rect x="5" y="10" width="30" height="20" rx="2"/><path d="M5 16h30M10 25h7"/></svg>Cashless convenience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="record" id="record">
+  <div class="wrap">
+    <div class="rv">
+      <div class="big61">61</div>
+      <div class="eyebrow">The course record</div>
+      <h2 class="g">Bubba was here.</h2>
+      <p>Bubba Watson holds the Bushwood course record: 11-under 61 in July 2006. He came back in May and shot 63 at 6 a.m. Your turn.</p>
+      <a class="btn btn-gold" href="https://www.chronogolf.com/club/bushwood-golf-club" target="_blank" rel="noopener">Chase the record</a>
+      <a class="btn btn-line" style="margin-left:8px" href="https://www.youtube.com/watch?v=vwR3R0OJflA" target="_blank" rel="noopener">Swing like Bubba</a>
+    </div>
+    <div class="photo rv">
+      <img src="img/bubba.jpg" alt="Bubba Watson with the Bushwood team outside the clubhouse">
+      <img class="card" src="img/bubba-scorecard.jpg" alt="Bubba Watson's signed Bushwood scorecard">
+    </div>
+  </div>
+</section>
+
+<section class="groups on-light" id="groups">
+  <div class="wrap">
+    <div class="top rv">
+      <div><div class="eyebrow" style="color:#a8822e">Bring the group</div><h2 class="g" style="margin-top:12px">Tournaments, events and leagues.</h2></div>
+      <p>Charity classics, company days, stag and stagette rounds, weekly league nights. Two courses and a banquet hall mean we can host it all on one property.</p>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="on" data-p="t">Tournaments</button><button data-p="e">Corporate &amp; private events</button><button data-p="l" id="tab-leagues">Leagues</button><button data-p="c">Celebrations</button>
+    </div>
+    <div class="panel on" id="p-t">
+      <div class="pic"><img src="img/group-sunset.jpg" alt="A group of golfers at sunset"></div>
+      <div class="tx">
+        <h3 class="g">Tournaments &amp; outings</h3>
+        <p>Shotgun starts or tee times, on the 18 or the 9. Golf, carts, prizes and dinner in the banquet hall, handled by our team.</p>
+        <ul>
+          <li><span>Group size</span><b><span class="ph">min / max TBC</span></b></li>
+          <li><span>Golf + cart package</span><b><span class="ph">$ per golfer TBC</span></b></li>
+          <li><span>Golf, cart + dinner</span><b><span class="ph">$ per golfer TBC</span></b></li>
+          <li><span>Hole sponsorship signs</span><b><span class="ph">TBC</span></b></li>
+        </ul>
+        <a class="btn btn-gold" href="#quote">Plan a tournament</a>
+      </div>
+    </div>
+    <div class="panel" id="p-e">
+      <div class="pic"><img src="img/lounge-interior.jpg" alt="Inside the Caddy Shack Lounge banquet room"></div>
+      <div class="tx">
+        <h3 class="g">Corporate &amp; private events</h3>
+        <p>Team days, client golf, holiday parties and meetings. Book the banquet hall or the patio overlooking the 9th hole, with or without golf.</p>
+        <ul>
+          <li><span>Banquet hall capacity</span><b><span class="ph">TBC</span></b></li>
+          <li><span>Patio capacity</span><b><span class="ph">TBC</span></b></li>
+          <li><span>Food and drink packages</span><b><span class="ph">menu needed</span></b></li>
+        </ul>
+        <a class="btn btn-gold" href="#quote">Plan an event</a>
+      </div>
+    </div>
+    <div class="panel" id="p-l">
+      <div class="pic"><img src="img/cart-laughs.jpg" alt="Golfers laughing in a cart"></div>
+      <div class="tx">
+        <h3 class="g">League nights</h3>
+        <p>Same crew, same night, all season. A standing weekly tee time, a season-long leaderboard, and the patio after.</p>
+        <ul>
+          <li><span>Men's league</span><b><span class="ph">night &amp; fee TBC</span></b></li>
+          <li><span>Women's league</span><b><span class="ph">night &amp; fee TBC</span></b></li>
+          <li><span>Mixed / couples</span><b><span class="ph">night &amp; fee TBC</span></b></li>
+          <li><span>Corporate league</span><b><span class="ph">TBC</span></b></li>
+        </ul>
+        <a class="btn btn-gold" href="#quote">Join a league</a>
+      </div>
+    </div>
+    <div class="panel" id="p-c">
+      <div class="pic"><img src="img/muskoka-cheers.jpg" alt="Two friends cheersing in Muskoka chairs by the course"></div>
+      <div class="tx">
+        <h3 class="g">Celebrations</h3>
+        <p>Birthdays, stags and stagettes, retirements and showers. Nine holes, a long table, and a view of the course.</p>
+        <ul>
+          <li><span>Party packages</span><b><span class="ph">TBC</span></b></li>
+          <li><span>Private room</span><b><span class="ph">confirm</span></b></li>
+        </ul>
+        <a class="btn btn-gold" href="#quote">Plan a celebration</a>
+      </div>
+    </div>
+
+    <form class="builder rv" id="quote" onsubmit="event.preventDefault();this.querySelector('.sent').hidden=false">
+      <div>
+        <div class="eyebrow">Get a quote in a minute</div>
+        <h3 class="g" style="margin-top:10px">Build your day.</h3>
+        <p>Tell us the basics and our events team gets back to you with dates and a quote. Hold your date with a deposit online.</p>
+        <p style="margin-top:18px;font-size:14px">Or call <a href="tel:9056401233">(905) 640-1233</a></p>
+      </div>
+      <div>
+        <div class="bfield"><span>What are you planning?</span><div class="chips">
+          <label><input type="radio" name="k" checked><em>Tournament</em></label><label><input type="radio" name="k"><em>Corporate day</em></label><label><input type="radio" name="k"><em>League</em></label><label><input type="radio" name="k"><em>Celebration</em></label></div></div>
+        <div class="bfield"><span>Golfers</span><div class="range"><input type="range" min="8" max="144" step="4" value="72" oninput="g.textContent=this.value"><b id="g">72</b></div></div>
+        <div class="bfield"><span>Add to the day</span><div class="chips">
+          <label><input type="checkbox" checked><em>Power carts</em></label><label><input type="checkbox" checked><em>Dinner</em></label><label><input type="checkbox"><em>Prizes</em></label><label><input type="checkbox"><em>Hole sponsors</em></label><label><input type="checkbox"><em>Range warm-up</em></label></div></div>
+        <div class="summary"><span>Pricing: <span class="ph">needs Bushwood's packages</span></span><button class="btn btn-gold">Request my quote</button></div>
+        <p class="sent" hidden style="margin-top:14px;color:var(--gold2)">Preview only: this form isn't connected yet.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="club" id="clubhouse">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow">The Caddy Shack Lounge</div>
+      <h2 class="g" style="margin-top:12px">Where great memories begin.</h2>
+      <p>Casual lunches, happy hours and long evenings. The patio looks over the 9th hole, the kitchen runs a full menu, and the banquet hall is ready when the group gets bigger.</p>
+      <p>Where great views meet great flavour.</p>
+      <div class="contact-line"><a href="#">See the menu <span class="ph">menu needed</span></a><a href="mailto:john@bushwood.ca">john@bushwood.ca</a><a href="tel:9056401233,221">(905) 640-1233 x 221</a></div>
+    </div>
+    <div class="collage rv">
+      <img class="a" src="img/clubhouse-dusk.jpg" alt="The clubhouse and patio at dusk">
+      <img class="b" src="img/lounge-drink.jpg" alt="A drink being served in the lounge">
+      <img class="c" src="img/patio.jpg" alt="The back patio">
+    </div>
+  </div>
+</section>
+
+<section class="practice on-light" id="practice">
+  <div class="wrap grid">
+    <h2 class="g rv"><span class="eyebrow" style="display:block;color:#a8822e;margin-bottom:12px">Practise &amp; improve</span>Range, clinics and lessons.</h2>
+    <p class="intro rv">A bent grass tee deck open from 30 minutes after sunrise, and coaching from Gord Burns Golf School.</p>
+    <div class="prow rv">
+      <div>
+        <img src="img/range-line.jpg" alt="Golfers hitting on the range">
+        <h3 class="g">Driving range</h3>
+        <div class="price"><span>Small bucket (35–40 balls)</span><b>$15</b></div>
+        <div class="price"><span>Large bucket (75–80 balls)</span><b>$20</b></div>
+        <p class="fine">Plus HST. Open daily 30 min after sunrise to 1 hour before sundown. Mondays close at 5 p.m. (last bucket 4 p.m.).</p>
+      </div>
+      <div>
+        <img src="img/foursome-green.jpg" alt="Players on the green during a clinic">
+        <h3 class="g">Five-week clinics</h3>
+        <div class="price"><span>Five one-hour sessions</span><b>$249</b></div>
+        <div class="price"><span>Group size</span><b>5–6</b></div>
+        <p class="fine">Plus HST. Junior clinics for ages 6 to 12. 2027 schedule coming soon. Paid to Gord Burns Golf School.</p>
+      </div>
+      <div>
+        <img src="img/gord-burns.jpg" alt="Gord Burns, golf professional" style="object-position:50% 25%">
+        <h3 class="g">Private lessons</h3>
+        <div class="price"><span>One hour</span><b>$175</b></div>
+        <div class="price"><span>Three one-hour lessons</span><b>$480</b></div>
+        <p class="fine">Plus HST. Book with Gord: <a href="mailto:gord@gburnsgolfschool.com">gord@gburnsgolfschool.com</a> or (416) 451-1063.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="squad" id="squad">
+  <div class="wrap">
+    <img class="g1" src="brand/gopher.svg" alt="">
+    <div>
+      <div class="eyebrow" style="color:var(--ink)">Free loyalty program</div>
+      <h2 class="g" style="margin-top:8px">Join the Gopher Squad.</h2>
+      <div class="pts"><div><b>1 pt</b><span>for every $1 spent</span></div><div><b>20 pts</b><span>= $1 off green fees</span></div><div><b>Members</b><span>only events and giveaways</span></div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px"><a class="btn" href="https://bushwoodgiftcard.loyalaction.com/en/registration/" target="_blank" rel="noopener">Join free</a><a class="btn btn-line" href="https://bushwoodgiftcard.loyalaction.com/en/" target="_blank" rel="noopener">Check my points</a></div>
+  </div>
+</section>
+
+<section class="shop" id="shop">
+  <div class="pic"><img src="img/hat-portrait.jpg" alt="Golfer in a Bushwood jacket"></div>
+  <div class="tx rv">
+    <div class="eyebrow">Pro shop</div>
+    <h2 class="g" style="margin-top:10px">Shop in person or online.</h2>
+    <div class="giftcard"><img src="brand/logo-horizontal-reverse.svg" alt=""><div><span>Gift card</span><span>$</span></div></div>
+    <p style="opacity:.85">Give the gift of golf. Gift cards and Bushwood gear ship from our online shop.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
+      <a class="btn btn-gold" href="https://bushwood-golf-club.shoplightspeed.com/giftcard/" target="_blank" rel="noopener">Buy a gift card</a>
+      <a class="btn btn-line" href="https://bushwood-golf-club.shoplightspeed.com/brands/bushwood/" target="_blank" rel="noopener">Bushwood gear</a>
+    </div>
+    <div class="brands"><span>Titleist</span><span>Callaway</span><span>TaylorMade</span><span>FootJoy</span><span>Nike</span><span>Adidas</span><span>Wilson</span><span>Level Wear</span><span>Vice Golf</span><span>Gildan</span></div>
+  </div>
+</section>
+
+<section class="reviews on-light">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#a8822e">Fore!</div>
+    <h2 class="g" style="margin-top:10px">The reviews are in.</h2>
+    <div class="box"><p><span class="ph">Live Google reviews go here</span> pulled straight from Bushwood's Google profile, the same way the current site does.</p><a class="btn btn-line" href="https://www.google.com/maps/place/?q=place_id:ChIJwfMj7JUo1YkRGFVxwjcBYUs" target="_blank" rel="noopener">Read them on Google</a></div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="addr">
+      <div class="eyebrow">Talk to the caddy</div>
+      <h2 class="g" style="margin-top:10px">Plan your visit.</h2>
+      <a class="big" href="tel:9056401233">(905) 640-1233</a>
+      <p>Press 1 for the pro shop.<br><a href="mailto:info@bushwood.ca">info@bushwood.ca</a></p>
+      <p style="margin-top:18px">10905 Reesor Rd<br>Markham, ON L6B 1A8</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px"><a class="btn btn-gold" href="https://maps.app.goo.gl/g8UE7WZ31PpKkEKX7" target="_blank" rel="noopener">Get directions</a><a class="btn btn-line" href="https://waiver.smartwaiver.com/w/gspxucx4q7ztkkwafs6hfj/web/" target="_blank" rel="noopener">Sign the waiver</a></div>
+    </div>
+    <div class="faq">
+      <details open><summary>How do I book a tee time?</summary><p>Online any time, or call the pro shop at 905-640-1233 and press 1. Please cancel at least 24 hours ahead; unused or no-show tee times are charged to the booking party.</p></details>
+      <details><summary>What are your rates?</summary><p>Rates change with demand, season and promotions, so the live price shows when you book. Prices are subject to change and HST.</p></details>
+      <details><summary>Do I need to sign a waiver?</summary><p>Yes, every golfer signs one. It takes a minute online.</p></details>
+      <details><summary>Power carts and walking</summary><p>Cart renters must be 21+, hold a valid driver's licence and sign a cart waiver in the pro shop. Walkers, when allowed, pay a walker's fee, stay with their group and must be 10 or older.</p></details>
+      <details><summary>How long is a round?</summary><p>Most Championship rounds are under four hours; the front nine takes 20 to 30 minutes longer than the back. The Executive course takes 90 to 110 minutes. No fivesomes, and every golfer needs their own clubs (rentals in the pro shop).</p></details>
+      <details><summary>Age limits</summary><p>Executive course: 8+ with an adult. Championship course: 12+ with an adult.</p></details>
+      <details><summary>Rain cheques</summary><p>Issued after a torrential downpour. Wait 30 minutes at the pro shop with your original receipt. Valid only in the season issued, no cash value.</p></details>
+      <details><summary>Dress code</summary><p>Golf pants, shorts, skirts and skorts. Collared shirts preferred; mock necks and T-shirts are fine, as are ladies' sleeveless golf shirts. No men's tank tops, sleeveless T-shirts, spaghetti straps, track or fleece pants. Denim discouraged. Soft spikes or soft soles.</p></details>
+      <details><summary>Directions</summary><p>From Hwy 401 or 407: east to Hwy 48 (Markham Rd) north, right on Elgin Mills Rd E, right on Reesor Rd. From the north: Hwy 48 south, left on Elgin Mills, right on Reesor.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fl"><img src="brand/logo-stacked-reverse.svg" alt="Bushwood Golf Club"><p style="opacity:.7">10905 Reesor Rd, Markham, ON L6B 1A8<br>(905) 640-1233 · info@bushwood.ca</p></div>
+    <div><h4>Play</h4><a href="#courses">Courses</a><a href="#practice">Range &amp; lessons</a><a href="https://waiver.smartwaiver.com/w/gspxucx4q7ztkkwafs6hfj/web/">Waiver</a><a href="#visit">FAQ</a></div>
+    <div><h4>Club</h4><a href="#groups">Tournaments &amp; events</a><a href="#clubhouse">Clubhouse</a><a href="#squad">Gopher Squad</a><a href="#record">Bubba's best</a><a href="#">Careers</a></div>
+    <div><h4>Follow</h4><a href="https://www.instagram.com/bushwoodgolfclub/">Instagram</a><a href="https://www.facebook.com/bushwoodgolfclub">Facebook</a><a href="https://bushwood-golf-club.shoplightspeed.com/">Shop online</a></div>
+    <div class="legal"><span>© 2026 Bushwood Golf Club. All rights reserved.</span><a href="#" style="display:inline;padding:0">Privacy policy</a></div>
+  </div>
+</footer>
+
+<div class="dock"><a class="btn btn-gold" href="https://www.chronogolf.com/club/bushwood-golf-club">Book a tee time</a><a class="btn btn-line" href="tel:9056401233">Call</a></div>
+
+<script>
+const hd=document.getElementById('hd');const sc=()=>hd.classList.toggle('solid',scrollY>40);addEventListener('scroll',sc,{passive:true});sc();
+const dr=document.getElementById('drawer');mOpen.onclick=()=>dr.classList.add('open');mClose.onclick=()=>dr.classList.remove('open');dr.querySelectorAll('a').forEach(a=>a.onclick=()=>dr.classList.remove('open'));
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+b.dataset.p))});
+document.querySelectorAll('[data-tab=leagues]').forEach(a=>a.addEventListener('click',()=>document.getElementById('tab-leagues').click()));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
