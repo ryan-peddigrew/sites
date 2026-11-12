@@ -362,7 +362,7 @@ setTimeout(function(){l.classList.add('out');document.documentElement.style.over
       <a href="#jobs">Our work</a>
       <a href="#about">About</a>
       <a href="#help">Contact</a>
-      <a class="btn btn-red" href="tel:+16472676798"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z"/></svg>Call 24/7</a>
+      <a class="btn btn-red" href="#help">Get in touch</a>
     </nav>
     <div class="hdr-r">
       <a class="ic-btn ic-call" href="tel:+16472676798" aria-label="Call MapleTrust 24/7"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z"/></svg></a>
@@ -381,7 +381,7 @@ setTimeout(function(){l.classList.add('out');document.documentElement.style.over
       <a href="#about">About<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a href="#help">Contact<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </nav>
-    <a class="btn btn-red" href="tel:+16472676798">Call 24/7: 647-267-6798</a>
+    <a class="btn btn-red" href="#help">Get in touch</a>
   </div>
 </div>
 
@@ -394,8 +394,8 @@ setTimeout(function(){l.classList.add('out');document.documentElement.style.over
       <h1>Water, fire or mould? <span class="wave">We've got it.<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 12C40 2 70 2 100 10S160 18 200 9 270 4 298 10" fill="none" stroke="#2F7DE1" stroke-width="5" stroke-linecap="round"/></svg></span></h1>
       <p class="lead">Expert restoration in Toronto and the GTA, ensuring your property is safely restored with care. When disaster strikes, let us take the weight off your shoulders.</p>
       <div class="ctas">
-        <a class="btn btn-red" href="tel:+16472676798"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z"/></svg>Call now 647-267-6798</a>
-        <a class="btn btn-line" href="#help">Tell us what happened</a>
+        <a class="btn btn-red" href="#help">Build your quote</a>
+        <a class="btn btn-line" href="mailto:info@mapletrustinc.com">Get in touch</a>
       </div>
       <div class="proof">
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 7v5l3 2"/><path d="M12 3a9 9 0 100 18 9 9 0 000-18z"/></svg>Answering 24/7</span>
@@ -536,7 +536,7 @@ setTimeout(function(){l.classList.add('out');document.documentElement.style.over
       <div class="q"><b><span>2</span>Is it happening right now?</b>
         <div class="chips now"><button type="button" aria-pressed="false">Yes, right now</button><button type="button" aria-pressed="false">In the last day</button><button type="button" aria-pressed="false">Earlier</button><button type="button" aria-pressed="false">Just planning</button></div>
       </div>
-      <div class="urgent" id="urgent"><b>Please call us now.<br>We answer 24/7.</b><a class="btn" href="tel:+16472676798">647-267-6798</a></div>
+      <div class="urgent" id="urgent"><b>Please call us now: <a href="tel:+16472676798" style="color:inherit">647-267-6798</a>.<br>We answer 24/7.</b></div>
       <div class="q"><b><span>3</span>Your details</b>
         <div class="two"><label>Name<input name="name" autocomplete="name"></label><label>Phone<input name="phone" type="tel" autocomplete="tel"></label></div>
         <label>Property address or area<input name="addr" autocomplete="street-address"></label>
@@ -577,8 +577,8 @@ setTimeout(function(){l.classList.add('out');document.documentElement.style.over
 </footer>
 
 <div class="callbar" aria-label="Quick actions">
-  <a class="btn btn-red" href="tel:+16472676798">Call 24/7</a>
-  <a class="btn btn-line" href="#help">Get help</a>
+  <a class="btn btn-red" href="#help">Build your quote</a>
+  <a class="btn btn-line" href="mailto:info@mapletrustinc.com">Get in touch</a>
 </div>
 <button class="tour-btn" type="button" id="tour-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>See what's new</button>
 <div class="tour" id="tour" role="dialog" aria-label="Tour of the new website"><span class="n" id="tr-n"></span><h4 id="tr-h"></h4><p id="tr-p"></p><div class="bar"><i id="tr-bar"></i></div><div class="row"><button type="button" id="tr-pause">Pause</button><button type="button" class="go" id="tr-next">Next</button><button type="button" id="tr-x">Close</button></div></div>
@@ -631,7 +631,7 @@ setTimeout(function(){l.classList.add('out');document.documentElement.style.over
     if(open===i){open=-1;det.hidden=true;tl.forEach(function(t){t.setAttribute('aria-expanded','false')});return}
     open=i;var s=S[i],c=cols(),after=tl[Math.min(tl.length-1,Math.floor(i/c)*c+c-1)];after.after(det);
     tl.forEach(function(t,k){t.setAttribute('aria-expanded',k===i)});
-    det.innerHTML='<div><span class="eyebrow">'+(s.em?'Emergency service · 24/7':'Clean-up service')+'</span><h3>'+s.n+'</h3><p>'+s.intro+'</p><div class="ctas"><a class="btn btn-red" href="tel:+16472676798">Call 647-267-6798</a><button type="button" class="btn btn-line" data-pick="'+s.n+'">Tell us about it</button></div></div><ul>'+s.list.map(function(x){return '<li><b>'+x[0]+'</b>'+x[1]+'</li>'}).join('')+'</ul>';
+    det.innerHTML='<div><span class="eyebrow">'+(s.em?'Emergency service · 24/7':'Clean-up service')+'</span><h3>'+s.n+'</h3><p>'+s.intro+'</p><div class="ctas"><button type="button" class="btn btn-red" data-pick="'+s.n+'">Build your quote</button><a class="btn btn-line" href="#help">Get in touch</a></div></div><ul>'+s.list.map(function(x){return '<li><b>'+x[0]+'</b>'+x[1]+'</li>'}).join('')+'</ul>';
     det.hidden=false;det.scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'})}
   tiles.addEventListener('click',function(e){var p=e.target.closest('[data-pick]');if(p){pick(p.dataset.pick);$('#help').scrollIntoView({behavior:reduce?'auto':'smooth'});return}var t=e.target.closest('.tile');if(t)openTile(+t.dataset.i)});
   $('#foot-svc').innerHTML=S.map(function(s,i){return '<a href="#services" data-open="'+i+'">'+s.n+'</a>'}).join('');
