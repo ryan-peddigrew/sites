@@ -13,7 +13,7 @@
       }
     },
     crew: {
-      head: `<img src="../img/logos/psi-logo.png" alt="PSI" width="40" height="40"><span class="a-name">Crew Call</span>`,
+      head: `<img src="../img/logos/psi-logo-bw.png" alt="PSI" width="40" height="40"><span class="a-name">Crew Call</span>`,
       tabs: {
         "Shifts": () => [[3, "Audio A2", "Concert, Niagara"], [6, "Stagehand", "Gala, Toronto"], [12, "Lighting tech", "Festival, Hamilton"]].map(([d, r, w]) => `<div class="a-card"><span class="a-k">${day(d)} · sample</span><b>${r}</b><p>${w}</p><div class="a-two"><button class="a-btn">Accept</button><button class="a-btn ghost">Pass</button></div></div>`).join(""),
         "My days": () => `<p class="a-k">Tap the days you're free</p><div class="a-cal">${Array.from({ length: 28 }, (_, i) => `<button class="${[2, 3, 6, 9, 10, 16, 17, 23].includes(i) ? "on" : ""}">${T.addDays(T.today, i).getDate()}</button>`).join("")}</div>`,
