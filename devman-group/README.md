@@ -27,3 +27,10 @@ Separate brand: Devman and MapleTrust must look completely different, with no li
 6. Confirm the 5-step order of how a project runs.
 
 Older versions: ../archive/devman-group-v1-2026-11-02/, ../archive/devman-group-v2-index-2026-11-02.html, ../archive/devman-group-v3-2026-11-11/
+
+## Review and referral page (12 Nov 2026, preview)
+https://ryan-peddigrew.github.io/sites/devman-group/review/?name=Olivia&job=the%20Shaw%20lobby
+- Devman texts or emails this link when a job is done. `name` and `job` are optional and personalise the greeting.
+- Stars, quick tags, optional note. "Post my review on Google" copies the note and opens Google; "send it to the team privately" emails team@devmaninc.com. Both are always offered, whatever the rating (Google doesn't allow steering only happy customers to post).
+- Thank-you screen with a personal share link (`?ref=Name`). When a friend opens it, the contact form's subject reads "Referred by Name".
+- To fill in: Devman's direct Google "write a review" link (from their Google Business Profile, "Ask for reviews"); the referral reward (marked placeholder on the page).
