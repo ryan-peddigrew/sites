@@ -7,14 +7,12 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{min-height:100svh;background:#23211F;color:#F3F1E8;font:400 17px/1.5 'Work Sans',sans-serif;display:grid;place-items:center;padding:28px 20px}
 main{width:min(460px,100%);text-align:center}
-.lg{display:inline-flex;flex-direction:column;align-items:flex-start;line-height:1;transform:rotate(-5deg);transform-origin:left center}
-.lg .w{display:inline-flex;align-items:flex-end;white-space:nowrap;font:400 1em/.9 'Yellowtail',cursive;padding-right:.06em}
-.lg .h{height:.58em;width:auto;fill:currentColor;transform:rotate(12deg);margin:0 -.08em .03em .04em;overflow:visible;flex:none}
-.lg i{font:700 .255em/1 'Oswald',sans-serif;font-style:normal;letter-spacing:.1em;text-transform:uppercase;margin:.12em 0 0 .08em}
-.lg .bar{display:block;height:max(.03em,2px);width:2.03em;background:#8E3B32;margin:.085em 0 .085em .02em}
-.lg .tg{display:flex;align-items:center;font:600 max(.092em,9.5px)/1 'Oswald',sans-serif;font-style:normal;letter-spacing:.24em;text-transform:uppercase;margin-left:.05em;white-space:nowrap}
-.lg .tg svg{width:1.5em;height:1.5em;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;margin-left:.55em;flex:none}
-.lg.mini .bar,.lg.mini .tg{display:none}
+.lg{display:inline-flex;flex-direction:column;align-items:center;line-height:1;transform:rotate(-5deg);transform-origin:left center}
+.lg .w{position:relative;z-index:2;display:inline-flex;align-items:flex-end;white-space:nowrap;font:400 1em/.9 'Yellowtail',cursive;padding-right:.06em}
+.lg .h{height:.69em;width:auto;fill:currentColor;transform:skewX(-14deg);margin:0 -.06em .093em .123em;overflow:visible;flex:none}
+.lg i{position:relative;z-index:1;align-self:stretch;display:flex;justify-content:center;font:700 .255em/1 'Oswald',sans-serif;font-style:normal;letter-spacing:.1em;text-transform:uppercase;background:#8E3B32;color:#F3F1E8;padding:.16em 0 .16em .1em;margin:.02em 0 0}
+.lg .tg{display:block;font:600 max(.092em,9.5px)/1 'Oswald',sans-serif;font-style:normal;letter-spacing:.24em;padding-left:.24em;text-transform:uppercase;margin-top:.8em;white-space:nowrap}
+.lg.mini .tg{display:none}
 .lg{font-size:110px;margin-bottom:44px}
 h1{font:900 clamp(48px,13vw,68px)/.92 'Big Shoulders Display',sans-serif;text-transform:uppercase}
 p{color:#d9d4c7;margin:14px 0 26px}
@@ -25,7 +23,7 @@ small{display:block;margin-top:22px;color:#a39d90;font-size:13.5px}
 small a{color:#C2925C}
 </style></head><body>
 <main>
-  <div class="lg"><span class="w"><span>S</span><svg class="h" viewBox="0 0 130 172" aria-hidden="true"><path d="M4 6h28a4 4 0 0 1 4 4v6h14v-6a4 4 0 0 1 4-4h26c22-2 40 12 46 40 1 5-5 7-8 3-8-13-20-18-36-15v10a4 4 0 0 1-4 4h-2l3 110c0 8-5 12-12 12s-12-4-12-12l3-110h-2a4 4 0 0 1-4-4v-2H36v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z"/></svg><span>eady</span></span><i>Improvements</i><b class="bar"></b><em class="tg">Carpentry you can count on<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg></em></div>
+  <div class="lg"><span class="w"><span>S</span><svg class="h" viewBox="0 0 130 172" aria-hidden="true"><path d="M4 6h28a4 4 0 0 1 4 4v6h14v-6a4 4 0 0 1 4-4h26c22-2 40 12 46 40 1 5-5 7-8 3-8-13-20-18-36-15v10a4 4 0 0 1-4 4h-2l3 110c0 8-5 12-12 12s-12-4-12-12l3-110h-2a4 4 0 0 1-4-4v-2H36v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z"/></svg><span>eady</span></span><i>Improvements</i><em class="tg">Carpentry you can count on</em></div>
   <h1>How did we do?</h1>
   <p>Thanks for having us in. A quick review helps a small local team more than you'd think. Pick whichever is easier.</p>
   <a class="b" href="#" id="g">Review us on Google <svg viewBox="0 0 22 22"><path d="M4 11h14M12 5l6 6-6 6"/></svg></a>
