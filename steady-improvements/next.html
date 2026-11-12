@@ -888,6 +888,10 @@ header.top.solid{background:none;box-shadow:none}
 @media(prefers-reduced-motion:reduce){.l23b,.l23w,.l23s,.l23i{animation:none}.l23i{clip-path:none}}
 
 /* ===== pass 24 ===== */
+.zb svg.zs{width:34px;height:38px;animation:zshake 5.5s ease-in-out 3s infinite;transform-origin:50% 90%}
+.zb,.zb:hover{font-size:8.5px}
+@keyframes zshake{0%,84%,100%{transform:none}86%{transform:rotate(-13deg) translateY(-2px)}88.5%{transform:rotate(11deg) translateY(-3px)}91%{transform:rotate(-9deg)}93.5%{transform:rotate(7deg)}96%{transform:rotate(-4deg)}98%{transform:rotate(2deg)}}
+@media(prefers-reduced-motion:reduce){.zb svg.zs{animation:none}}
 /* dock: four even buttons, icon over label */
 .dock{grid-template-columns:repeat(4,1fr)}
 .dock a{flex-direction:column;gap:5px;min-height:60px;padding:8px 2px 7px;font:700 10.5px/1 var(--lab);letter-spacing:.14em;white-space:nowrap}
