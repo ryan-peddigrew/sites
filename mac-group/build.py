@@ -98,7 +98,7 @@ group = head("group", "index.html", "", "MAC Group of Companies", "MAC Group of 
 <main>
 <section class="hero" id="hero">
   <div class="slides">
-    <img src="img/mac-arena.jpg" alt="Arena concert with stage lighting" data-label="Live production">
+    <img src="img/mac-hero.webp" alt="MAC Show Systems outdoor stage at dusk" data-label="MAC Show Systems">
     <img src="img/psi-olg-wall.jpg" alt="LED video wall on the OLG Stage at Fallsview" data-label="Installations">
     <img src="img/truck-mountain.jpg" alt="Transport truck on a mountain highway" data-label="On the road">
   </div>
@@ -113,14 +113,14 @@ group = head("group", "index.html", "", "MAC Group of Companies", "MAC Group of 
 </section>
 
 <section id="companies" class="cos cos3">
-  <a class="co" href="show-systems/index.html"><img src="img/mac-phone-stage.jpg" alt="">
+  <a class="co" href="show-systems/index.html"><img src="img/mac-venue-1.webp" alt="">
     <div class="in"><img class="co-logo" src="img/mac-logo.png" alt="MAC Show Systems" width="240" height="67">
     <p>Sound, lighting, video, LED and staging. Rentals, sales, setup and national tours.</p><span class="go">Visit MAC Show Systems {icon("arrow","sm")}</span></div></a>
   <a class="co" href="psi/index.html"><img src="img/psi-concert.jpg" alt="">
     <div class="in"><img class="co-logo sq" src="img/psi-webclip.png" alt="PSI" width="72" height="72">
     <p>Production Service Industries. Concerts, festivals, galas, technical staffing and training.</p><span class="go">Visit PSI {icon("arrow","sm")}</span></div></a>
   <a class="co" href="tour-trucking/index.html"><img src="img/truck-mountain.jpg" alt="">{STANDIN}
-    <div class="in"><div class="tt-wm"><b>TOUR</b><span>TRUCKING</span></div>
+    <div class="in"><img class="co-logo" src="img/tt-logo.png" alt="Tour Trucking Logistics" width="170" height="42">
     <p>Specialized transport for the entertainment industry. Full loads, partial loads and warehousing.</p><span class="go">Visit Tour Trucking {icon("arrow","sm")}</span></div></a>
 </section>
 
@@ -158,7 +158,7 @@ group = head("group", "index.html", "", "MAC Group of Companies", "MAC Group of 
 </div></section>
 
 <section id="careers" class="about">
-  <div class="ph"><img src="img/stage-lights.jpg" alt=""></div>
+  <div class="ph"><img src="img/mac-work-2.webp" alt="Concert crowd under stage lights"></div>
   <div class="tx"><span class="eyebrow">Work with us</span><h2>Build shows for a living.</h2>
   <div class="extras" style="grid-template-columns:1fr">
     <div>{icon("light")}<div><h3>Show technicians</h3><p>Audio, lighting, video and staging at MAC Show Systems.</p></div></div>
@@ -170,7 +170,7 @@ group = head("group", "index.html", "", "MAC Group of Companies", "MAC Group of 
 <section id="close" class="pad close"><div class="wrap">
   <h2>Got a show<br>in mind?</h2>{two_buttons("#whole-event")}
   <div class="owner-list"><span class="owner-note">For the owners: what we need to go live</span>
-  <ol><li>Your real inventory list, in any format (spreadsheet or rental software export).</li><li>Photos of your own gear, crews, trucks and warehouse.</li><li>Logos as vector files (MAC Show Systems, PSI). Tour Trucking needs a logo.</li><li>A yes on the brand direction for MAC Group.</li><li>Where quote requests should go for each company.</li></ol></div>
+  <ol><li>Your real inventory list, in any format (spreadsheet or rental software export).</li><li>Photos of your own gear, crews, trucks and warehouse.</li><li>Logos as vector files (MAC Show Systems, PSI). Tour Trucking: a larger logo file.</li><li>A yes on the brand direction for MAC Group.</li><li>Where quote requests should go for each company.</li></ol></div>
 </div></section>
 </main>
 ''' + contact("Talk to MAC Group.", "For partnerships, large accounts and anything that spans more than one company.", "125 Bermondsey Rd, North York, ON", "info@macshowsystems.com <span class=\"todo\">confirm group email</span>", ["Gear for an event", "Crew", "Trucking", "Partnership", "Careers"]) + foot("", '<div><b class="wm" style="font-size:22px">MAC</b> Group of Companies<br><span class="mute">© 2026</span></div><div><a href="show-systems/index.html">MAC Show Systems</a><br><a href="psi/index.html">PSI</a><br><a href="tour-trucking/index.html">Tour Trucking</a></div>') + '''<script>document.querySelectorAll("[data-form]").forEach(f=>f.addEventListener("submit",e=>{e.preventDefault();f.innerHTML='<h3>Got it.</h3><p>The right team will get back to you.</p><p class="mute">Preview only: nothing is sent yet.</p>'}));</script>
@@ -196,9 +196,10 @@ mac = head("mac", "show-systems/index.html", R, "MAC Show Systems", "Sound, ligh
 <main>
 <section class="hero" id="hero">
   <div class="slides">
-    <img src="{R}img/mac-arena.jpg" alt="Arena concert" data-label="Concerts">
-    <img src="{R}img/mac-phone-stage.jpg" alt="Stage with LED screens" data-label="Video and LED">
-    <img src="{R}img/room-screen.jpg" alt="Conference keynote with a large screen" data-label="Conferences">
+    <img src="{R}img/mac-hero.webp" alt="Outdoor festival stage at dusk" data-label="Festivals">
+    <img src="{R}img/mac-work-2.webp" alt="Concert crowd under stage lights" data-label="Concerts">
+    <img src="{R}img/mac-venue-1.webp" alt="Gala dinner with stage lighting" data-label="Galas">
+    <img src="{R}img/mac-solution-staging.webp" alt="Wedding with draping and truss" data-label="Staging and draping">
   </div>
   <div class="now">Now showing<br><b></b></div>
   <div class="wrap">
@@ -215,12 +216,20 @@ mac = head("mac", "show-systems/index.html", R, "MAC Show Systems", "Sound, ligh
   <div class="extras">{svc_html}</div>
 </div></section>
 
+<section class="mac-gal" aria-label="Recent work">
+  <figure><img src="{R}img/mac-venue-2.webp" alt="Wedding reception with floral installations"><figcaption>Weddings</figcaption></figure>
+  <figure><img src="{R}img/mac-solution-video.webp" alt="Video screens over a stage in a historic venue"><figcaption>Video</figcaption></figure>
+  <figure><img src="{R}img/mac-venue-3.webp" alt="Gala in a heritage building lit in purple"><figcaption>Galas</figcaption></figure>
+  <figure><img src="{R}img/mac-solution-backline.webp" alt="Theatre stage lit in blue and red"><figcaption>Theatre</figcaption></figure>
+  <figure><img src="{R}img/mac-work-3.webp" alt="Dance floor and screen at a reception"><figcaption>Receptions</figcaption></figure>
+  <figure><img src="{R}img/mac-venue-4.webp" alt="Candlelit dinner with uplighting"><figcaption>Dinners</figcaption></figure>
+</section>
 <section id="availability" class="pad" style="padding-top:0"><div class="wrap split">
   <div><span class="eyebrow"><span class="live-dot"></span>Live availability</span><h2>See what's free on your dates.</h2>
   <p class="lead" style="margin-top:22px">Pick your dates and you'll see what's available right now. No prices, no waiting for a callback just to find out it's booked.</p>
   <div class="rows" id="peek"></div>
   <div class="btns" style="margin-top:24px"><a class="btn" href="#quote">Check everything</a></div></div>
-  <div class="photo-tall"><img src="{R}img/stage-lights.jpg" alt="">{STANDIN}</div>
+  <div class="photo-tall"><img src="{R}img/mac-solution-audio.webp" alt="Line array speakers on an outdoor stage"></div>
 </div></section>
 
 <section id="planner" class="pad" style="padding-top:0"><div class="wrap">
@@ -234,7 +243,7 @@ mac = head("mac", "show-systems/index.html", R, "MAC Show Systems", "Sound, ligh
   <div class="tool"><span class="sample-tag">Sample inventory for preview. Real stock connects once MAC shares its inventory list.</span><div id="quote-tool"></div></div>
 </div></section>
 
-<section class="plan-band"><img src="{R}img/mac-arena.jpg" alt="">
+<section class="plan-band"><img src="{R}img/mac-work-1.webp" alt="Outdoor stage build in a park">
   <div class="wrap"><span class="eyebrow">National rentals and tours</span><h2 style="max-width:15ch">Any city. Same show.</h2>
   <p class="lead" style="margin-top:20px;color:#E6E2D8">Touring takes serious logistics. We plan it so the show runs the same way in every city.</p>{two_buttons("#quote")}</div>
 </section>
@@ -332,7 +341,7 @@ write("psi/index.html", psi)
 # =====================================================================================
 # TOUR TRUCKING
 # =====================================================================================
-t_mark = '<a class="mark" href="index.html"><span class="tt-wm sm"><b>TOUR</b><span>TRUCKING</span></span></a>'
+t_mark = '<a class="mark" href="index.html"><img src="../img/tt-logo.png" alt="Tour Trucking Logistics" width="150" height="37"></a>'
 tt = head("tt", "tour-trucking/index.html", R, "Tour Trucking Logistics", "Specialized transport for the entertainment industry.") + header(
     t_mark, [("Services", "#services"), ("Request a route", "#route"), ("Space calculator", "#space"), ("Drive with us", "#drivers")], "#route", R) + f'''
 <main>
@@ -383,7 +392,7 @@ tt = head("tt", "tour-trucking/index.html", R, "Tour Trucking Logistics", "Speci
   <button class="btn">Apply to drive</button></form></div>
 </section>
 </main>
-''' + contact("Talk to dispatch.", "Questions about a load, a tour or storage? Send us a note.", "125 Bermondsey Rd, North York, ON <span class=\"todo\">confirm address</span>", "<span class=\"todo\">Tour Trucking email needed</span>", ["One load", "A tour", "Storage", "Driving with us"]) + foot(R, '<div><span class="tt-wm sm"><b>TOUR</b><span>TRUCKING</span></span><br><span class="mute">© 2026 Tour Trucking Logistics Inc.</span></div>') + f'''<script src="{R}tools.js"></script>
+''' + contact("Talk to dispatch.", "Questions about a load, a tour or storage? Send us a note.", "125 Bermondsey Rd, North York, ON <span class=\"todo\">confirm address</span>", "<span class=\"todo\">Tour Trucking email needed</span>", ["One load", "A tour", "Storage", "Driving with us"]) + foot(R, '<div><img src="../img/tt-logo.png" alt="Tour Trucking Logistics" width="150" height="37"><br><span class="mute">© 2026 Tour Trucking Logistics Inc.</span></div>') + f'''<script src="{R}tools.js"></script>
 <script>
 const T = window.MACTOOLS;
 T.route(document.getElementById("route-tool")); T.space(document.getElementById("space-tool"));
