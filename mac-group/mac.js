@@ -83,6 +83,8 @@
     { p: "apps/ttl/index.html", s: "#cmain", k: "Tour Trucking app", t: "Track my load", d: "Shippers and tour managers see where the truck is, when it arrives, every leg of the tour, paperwork and a line to dispatch." },
     { p: "hub/index.html", s: "#hub", k: "MAC Hub · staff only", t: "One back office for all three", d: "Live stock across all three companies, quotes sent under the right brand, and flags when a job needs a sister company's trucks or crew." },
     { p: "hub/quote.html", s: "#quote", k: "MAC Hub · staff only", t: "Quote Builder", d: "Pick the selling company, add gear checked live against stock, type your rates, and send a branded quote or PDF. Sister-company trucks and crew show under the selling brand only." },
+    { p: "brand/group.html", s: "#guide", k: "Brand guides", t: "A brand and style guide for every company", d: "Logo rules, colours, fonts, voice, photos and email signature for MAC Group, MAC Show Systems, PSI and Tour Trucking. Each company stays clearly its own." },
+    { p: "brand/apps.html", s: "#guide", k: "Apps", t: "App names and icons", d: "My MAC Show, My PSI and My Tour Trucking for clients. MAC Hub and MAC Hub Quotes for staff. Pick one icon per app; each installs on a phone or desktop." },
     { p: "apps/index.html", s: "#apps", k: "Apps", t: "Every app in one place", d: "Three client apps, one per brand, plus MAC Hub for your team. All of them run on the same system." },
     { p: "index.html", s: "#close", k: "Next", t: "What we need from you", d: "Real inventory list, photos of your trucks, and a yes on the brand direction. Then we connect everything for real." }
   ];
@@ -120,7 +122,7 @@
     $(".ctl .pri", box).textContent = n === TOUR.length - 1 ? "Finish" : "Next";
     $$(".tour-hi").forEach(x => x.classList.remove("tour-hi"));
     const t = $(st.s);
-    if (t) { t.scrollIntoView({ behavior: "smooth", block: "start" }); if (!["#hero", "#cmain", "#hub", "#quote"].includes(st.s)) t.classList.add("tour-hi"); }
+    if (t) { t.scrollIntoView({ behavior: "smooth", block: "start" }); if (!["#hero", "#cmain", "#hub", "#quote", "#guide"].includes(st.s)) t.classList.add("tour-hi"); }
     if (!paused) arm();
   }
   window.MAC.startTour = (n = 0) => { paused = false; go(n); };

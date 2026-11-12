@@ -16,7 +16,7 @@
 }
 [data-site="psi"] {
   --bg: #F4F2EC; --bg2: #E6E9E2; --ink: #0D1F17; --mute: #4F5E56; --line: rgba(13,31,23,.15);
-  --accent: #00693E; --on-accent: #FFFFFF; --ok: #00693E; --warn: #9A6400; --no: #B3261E;
+  --accent: #015330; --on-accent: #FFFFFF; --ok: #015330; --warn: #9A6400; --no: #B3261E;
   --shade: linear-gradient(180deg, rgba(5,25,16,.15), rgba(5,25,16,.88));
   --head: "Space Grotesk", sans-serif; --head-stretch: 100%; --head-weight: 700; --head-case: none; --head-track: -.035em;
   --body: "IBM Plex Sans", sans-serif; --mono: "IBM Plex Mono", monospace; --radius: 10px; color-scheme: light;
@@ -430,3 +430,4 @@ img { -webkit-user-drag: none; user-select: none; }
 .qb-grid .field, .qb-pane .field { min-width: 0; } .qb-pane .field input { width: 100%; min-width: 0; box-sizing: border-box; }
 @media (max-width: 820px) { .wm-badge { display: none; } }
 @media (max-width: 900px) { .hub-rail .hub-brand, .hub-rail .hub-back { display: none !important; } }
+@media (max-width: 860px) { .hub-tabs .hub-tablink, .hub-tabs button { flex-direction: column; gap: 4px; font-size: 11px; line-height: 1.15; padding: 6px 2px; justify-content: center; text-align: center; min-height: 58px; } }

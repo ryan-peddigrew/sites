@@ -1,6 +1,6 @@
 {
-  "name": "MAC Show Systems",
-  "short_name": "MAC Show",
+  "name": "My MAC Show",
+  "short_name": "My MAC Show",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
