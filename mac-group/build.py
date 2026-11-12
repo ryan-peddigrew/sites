@@ -91,7 +91,7 @@ def mlogo(key, w, root, cls=""):
     src, W, H, alt = LOGOS[key]
     return f'<span class="mlogo {cls}" role="img" aria-label="{alt}" style="width:{w}px;aspect-ratio:{W}/{H};-webkit-mask-image:url({root}img/{src});mask-image:url({root}img/{src})"></span>'
 def psilogo(w, root):
-    return f'<img class="psi-logo" src="{root}img/logos/psi-logo.png" alt="PSI" width="{w}" height="{w}">'
+    return f'<img class="psi-logo" src="{root}img/logos/psi-logo-bw.png" alt="PSI" width="{w}" height="{w}">'
 
 def write(path, html):
     p = os.path.join(HERE, path); os.makedirs(os.path.dirname(p), exist_ok=True)
@@ -414,7 +414,7 @@ print("built")
 # =====================================================================================
 # MAC HUB (staff app demo)
 # =====================================================================================
-hub = head("hub", "hub/index.html", R, "MAC Hub", "Staff app for MAC Group of Companies.").replace('<link rel="stylesheet"', '<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="../icons/hub-180.png"><meta name="theme-color" content="#0F1115"><link rel="stylesheet"', 1).replace('<div class="sample">', '<div class="sample" style="background:#7C9CFF;color:#0F1115">') + f'''
+hub = head("hub", "hub/index.html", R, "MAC Hub", "Staff app for MAC Group of Companies.").replace('<link rel="stylesheet"', '<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="../icons/hub-180.png"><meta name="theme-color" content="#0F1115"><link rel="stylesheet"', 1).replace('<div class="sample">', '<div class="sample" style="background:#FFFFFF;color:#0F1115">') + f'''
 <div class="hub" id="hub">
   <aside class="hub-rail">
     <div class="hub-brand">{mlogo("mgcm", 110, R)}<b>Hub</b><span>Staff only</span></div>
@@ -491,9 +491,9 @@ def manifest(path, name, short, start, bg, theme, icon):
     write(path, json.dumps(m, indent=2))
 
 CAPPS = [
-    ("mss", "mac", "MAC Show Systems", "MAC Show Systems", "#0A0A0B", "#0A0A0B", lambda r: mlogo("mss", 210, r), "show-systems", "Your events, quotes and requests in one place."),
-    ("psi", "psi", "PSI", "PSI", "#F4F2EC", "#015330", lambda r: psilogo(56, r), "psi", "Your shows, crew and quotes in one place."),
-    ("ttl", "tt", "Tour Trucking", "Tour Trucking", "#141516", "#141516", lambda r: mlogo("ttl", 150, r), "tour-trucking", "Every load, every leg, live."),
+    ("mss", "mac", "MAC Show Systems", "MAC Show Systems", "#0A0A0A", "#0A0A0A", lambda r: mlogo("mss", 210, r), "show-systems", "Your events, quotes and requests in one place."),
+    ("psi", "psi", "PSI", "PSI", "#FFFFFF", "#0A0A0A", lambda r: psilogo(56, r), "psi", "Your shows, crew and quotes in one place."),
+    ("ttl", "tt", "Tour Trucking", "Tour Trucking", "#0A0A0A", "#0A0A0A", lambda r: mlogo("ttl", 150, r), "tour-trucking", "Every load, every leg, live."),
 ]
 RR = "../../"
 for key, site, name, short, bg, theme, logo, sitedir, desc in CAPPS:
@@ -524,7 +524,7 @@ write("hub/manifest.webmanifest", json.dumps({"id": "mac-hub", "name": "MAC Hub"
 HUBHEAD = '<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="../icons/hub-180.png"><meta name="theme-color" content="#0F1115"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="stylesheet"'
 write("hub/quote.webmanifest", json.dumps({"id": "mac-hub-quotes", "name": "MAC Hub Quotes", "short_name": "Quotes", "start_url": "./quote.html", "scope": "./", "display": "standalone",
       "background_color": "#0F1115", "theme_color": "#0F1115", "icons": [{"src": "../icons/options/quote-C-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "../icons/options/quote-C.png", "sizes": "512x512", "type": "image/png"}]}, indent=2))
-qhtml = head("hub", "hub/quote.html", R, "MAC Hub Quotes", "Staff quoting app.").replace('<link rel="stylesheet"', HUBHEAD, 1).replace("</head>", f'<link rel="stylesheet" href="{R}app.css"></head>').replace('<div class="sample">', '<div class="sample" style="background:#7C9CFF;color:#0F1115">') + f'''
+qhtml = head("hub", "hub/quote.html", R, "MAC Hub Quotes", "Staff quoting app.").replace('<link rel="stylesheet"', HUBHEAD, 1).replace("</head>", f'<link rel="stylesheet" href="{R}app.css"></head>').replace('<div class="sample">', '<div class="sample" style="background:#FFFFFF;color:#0F1115">') + f'''
 <div class="hub" id="quote">
   <aside class="hub-rail">
     <div class="hub-brand">{mlogo("mgcm", 110, R)}<b>Hub</b><span>Staff only</span></div>
@@ -577,25 +577,25 @@ print("built client apps + quote builder")
 BG = [
   dict(key="group", site="group", name="MAC Group of Companies", file="group.html", logo=lambda r: mlogo("mgc", 260, r), logo_sm=lambda r: mlogo("mgcm", 120, r),
        role="The parent brand. For owners, hiring, partners and large accounts. It never sells to event clients directly.",
-       colours=[("Bone", "#EEEAE2", "Page background"), ("Ink", "#141414", "Text, logo on light"), ("Kiln", "#B4441C", "Buttons and accents"), ("Stone", "#E2DDD2", "Panels")],
+       colours=[("White", "#FFFFFF", "Page background"), ("Black", "#0A0A0A", "Text, logo, buttons"), ("Light grey", "#F2F2F2", "Panels"), ("Grey", "#5C5C5C", "Small print")],
        fonts=[("Archivo Expanded", "Headings, extra bold, in capitals", "Archivo", "font-stretch:125%;font-weight:800;text-transform:uppercase"), ("Manrope", "Body text and buttons", "Manrope", "font-weight:400"), ("JetBrains Mono", "Labels and small print", "JetBrains Mono", "font-weight:600;text-transform:uppercase;letter-spacing:.12em")],
        voice=["Calm and confident. We speak as the group, never as a salesperson.", "Name all three companies when we talk about the group, never just one.", "Short sentences. Canadian spelling."],
        photos=["mac-hero.webp", "psi-concert.jpg", "mac-work-2.webp"], app=None, site_link="../index.html"),
   dict(key="mss", site="mac", name="MAC Show Systems", file="mac-show-systems.html", logo=lambda r: mlogo("mss", 360, r), logo_sm=lambda r: f'<img src="{r}img/logos/mss-circle.png" alt="MAC Show Systems" width="120" height="120">',
        role="Audio, video, lighting and staging rental and sales for events. Planners deal only with MAC Show Systems.",
-       colours=[("Stage Black", "#0A0A0B", "Page background"), ("Amber", "#FFB000", "Buttons, live status, highlights"), ("House White", "#F5F5F2", "Text on black"), ("Graphite", "#151517", "Panels")],
+       colours=[("Black", "#0A0A0A", "Page background"), ("White", "#FFFFFF", "Text, logo, buttons"), ("Charcoal", "#161616", "Panels"), ("Grey", "#A3A3A3", "Small print")],
        fonts=[("Big Shoulders Display", "Headings, black weight, in capitals", "Big Shoulders Display", "font-weight:900;text-transform:uppercase"), ("Work Sans", "Body text and buttons", "Work Sans", "font-weight:400"), ("DM Mono", "Labels, availability counts", "DM Mono", "font-weight:500;text-transform:uppercase;letter-spacing:.12em")],
        voice=["Talk like a crew chief who has done this a thousand times: direct, specific, unflustered.", "Lead with what the event needs. Never show prices, gear lists or stock.", "Buttons say Build your quote and Get in touch."],
        photos=["mac-work-1.webp", "mac-venue-1.webp", "mac-solution-lighting.webp"], app=("MAC Show Systems app", "mss", "../apps/mss/index.html"), site_link="../show-systems/index.html"),
   dict(key="psi", site="psi", name="PSI · Production Service Industries", file="psi.html", logo=lambda r: psilogo(160, r), logo_sm=lambda r: psilogo(120, r),
        role="Concerts, galas, festivals, technical staffing and training. Producers deal only with PSI.",
-       colours=[("PSI Green", "#015330", "From the logo. Buttons and accents"), ("Paper", "#F4F2EC", "Page background"), ("Forest Ink", "#0D1F17", "Text"), ("Sage", "#E6E9E2", "Panels")],
+       colours=[("White", "#FFFFFF", "Page background"), ("Black", "#0A0A0A", "Text, logo, buttons"), ("Light grey", "#F2F2F2", "Panels"), ("Grey", "#5C5C5C", "Small print")],
        fonts=[("Space Grotesk", "Headings, bold, sentence case", "Space Grotesk", "font-weight:700"), ("IBM Plex Sans", "Body text and buttons", "IBM Plex Sans", "font-weight:400"), ("IBM Plex Mono", "Labels, call times", "IBM Plex Mono", "font-weight:600;text-transform:uppercase;letter-spacing:.12em")],
        voice=["Warm, organised and people first. PSI is the team that runs the show.", "Name the work: real venues and projects, never invented ones.", "Sentence case headings. Canadian spelling."],
        photos=["psi-concert.jpg", "psi-olg-wall.jpg", "psi-taiwanfest.jpg"], app=("PSI app", "psi", "../apps/psi/index.html"), site_link="../psi/index.html"),
   dict(key="ttl", site="tt", name="Tour Trucking Logistics", file="tour-trucking.html", logo=lambda r: mlogo("ttl", 300, r), logo_sm=lambda r: mlogo("ttl", 150, r),
        role="Entertainment freight: full and partial loads, multi-city tours and warehousing. Shippers deal only with Tour Trucking.",
-       colours=[("Asphalt", "#141516", "Page background"), ("Hazard Yellow", "#FFD400", "Buttons, route lines"), ("Chalk", "#F2F0EA", "Text on dark"), ("Diesel", "#1E2022", "Panels")],
+       colours=[("Black", "#0A0A0A", "Page background"), ("White", "#FFFFFF", "Text, logo, buttons"), ("Charcoal", "#161616", "Panels"), ("Grey", "#A3A3A3", "Small print")],
        fonts=[("Barlow Condensed", "Headings, extra bold, in capitals", "Barlow Condensed", "font-weight:800;text-transform:uppercase"), ("Barlow", "Body text and buttons", "Barlow", "font-weight:400"), ("JetBrains Mono", "Load numbers, times", "JetBrains Mono", "font-weight:600;text-transform:uppercase;letter-spacing:.12em")],
        voice=["Plain-spoken and on time. Every line answers: where is it, and when does it arrive.", "Use real cities and real trailer sizes.", "No hype. Canadian spelling."],
        photos=["truck-mountain.jpg", "warehouse.jpg"], app=("Tour Trucking app", "ttl", "../apps/ttl/index.html"), site_link="../tour-trucking/index.html"),
@@ -603,9 +603,9 @@ BG = [
 GFONTS = {"group": FONTS["group"], "mac": FONTS["mac"], "psi": FONTS["psi"], "tt": FONTS["tt"]}
 def figs(k, n, w):
     out = ""
-    for o in ("H" if k == "mss" else "ABC"):
-        cur = " · chosen" if o == "H" else (" · current" if o == "A" else "")
-        out += f'<figure><img src="../icons/options/{k}-{o}.png" alt="{n} option {o}" width="{w}" height="{w}"><figcaption>Option {o}{cur}</figcaption></figure>'
+    for o in ("BW",):
+        cur = ""
+        out += f'<figure><img src="../icons/options/{k}-{o}.png" alt="{n} option {o}" width="{w}" height="{w}"><figcaption>Black and white</figcaption></figure>'
     return out
 def guide_nav(cur):
     return '<nav class="bg-nav">' + "".join(f'<a class="{"on" if b["key"] == cur else ""}" href="{b["file"]}">{b["name"].split(" ·")[0]}</a>' for b in BG) + f'<a class="{"on" if cur == "apps" else ""}" href="apps.html">Apps</a></nav>'
@@ -644,7 +644,7 @@ rows = "".join(f'<div class="bg-arow"><div><h3>{n}</h3><p class="mute">{w}</p><a
 appsg = head("group", "brand/apps.html", R, "App names and icons", "App icon options.").replace("</head>", f'<link rel="stylesheet" href="{R}brand.css"></head>') + f'''
 <main class="bg" id="guide">
   {guide_nav("apps")}
-  <header class="bg-hero"><span class="bg-k">Apps · pick one option per app</span><h1>App names and icons</h1><p class="lead">Every app installs on a phone or a desktop with its own name and icon. Client apps carry one brand only. Staff apps carry MAC Group.</p></header>
+  <header class="bg-hero"><span class="bg-k">Apps · black and white</span><h1>App names and icons</h1><p class="lead">Every app installs on a phone or a desktop with its own name and icon. Client apps carry one brand only. Staff apps carry MAC Group.</p></header>
   <section class="bg-sec">{rows}</section>
   <section class="bg-sec"><span class="bg-k">Install</span><h2>Put an app on a phone or desktop</h2><ul class="bg-rules"><li>iPhone: open the app link in Safari, tap Share, then Add to Home Screen.</li><li>Android: open it in Chrome, tap the menu, then Install app.</li><li>Desktop: open it in Chrome or Edge and click the install icon at the right of the address bar. On a Mac in Safari: File, then Add to Dock.</li></ul></section>
 </main>
@@ -737,7 +737,7 @@ CONN = [("BrightHR or ADP", "HR and payroll", "Not connected · needs sign-off",
          ["Quotes go out from the selling company's own address", "Load-ins and shows land on the right calendars"]),
         ("Accounting", "Invoices and payments", "To confirm which system", ["Approved quotes become invoices under the right company"])]
 cards = "".join(f'''<div class="cx"><div class="cx-h"><div><h3>{n}</h3><p class="mute">{w}</p></div><span class="pill wait">{st}</span></div><ul>{"".join(f"<li>{x}</li>" for x in l)}</ul><button class="btn ghost sm" data-req>Request access</button></div>''' for n, w, st, l in CONN)
-chtml = head("hub", "hub/connections.html", R, "MAC Hub Connections", "Systems MAC Hub connects to.").replace('<link rel="stylesheet"', HUBHEAD, 1).replace("</head>", f'<link rel="stylesheet" href="{R}app.css"></head>').replace('<div class="sample">', '<div class="sample" style="background:#7C9CFF;color:#0F1115">') + f'''
+chtml = head("hub", "hub/connections.html", R, "MAC Hub Connections", "Systems MAC Hub connects to.").replace('<link rel="stylesheet"', HUBHEAD, 1).replace("</head>", f'<link rel="stylesheet" href="{R}app.css"></head>').replace('<div class="sample">', '<div class="sample" style="background:#FFFFFF;color:#0F1115">') + f'''
 <div class="hub" id="conn">
   <aside class="hub-rail">
     <div class="hub-brand">{mlogo("mgcm", 110, R)}<b>Hub</b><span>Staff only</span></div>

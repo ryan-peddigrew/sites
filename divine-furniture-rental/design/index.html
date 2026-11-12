@@ -250,7 +250,7 @@ button{background:none;border:0;cursor:pointer}
     <select id="venC" aria-label="City"></select>
     <select id="venT" aria-label="Venue type"></select>
     <select id="venE" aria-label="Event type"></select>
-    <select id="venF" aria-label="Plan type"><option value="">All plans</option><option value="c">Confirmed plans only</option></select>
+    <select id="venF" aria-label="Plan type" hidden style="display:none"><option value="">All plans</option></select>
     <select id="venS" aria-label="Sort"><option value="city">Sort by city</option><option value="type">Sort by venue type</option><option value="event">Sort by event type</option><option value="name">Sort A to Z</option></select>
   </div>
   <div class="vcount" id="venN"></div>
@@ -621,9 +621,9 @@ function venList(){var q=$('#venQ').value.trim().toLowerCase().split(/\s+/).filt
   if(so)L=L.slice().sort(function(a,b){return pin(a)-pin(b)||key(a).localeCompare(key(b))||a.n.localeCompare(b.n)});
   var nv={};L.forEach(function(v){nv[v.n+'|'+v.c]=1});
   var ne=L.filter(function(v){return v.est}).length;
-  $('#venN').textContent=L.length?(L.length-ne)+' confirmed plan'+(L.length-ne===1?'':'s')+(ne?' and '+ne+' estimated':'')+' at '+Object.keys(nv).length+' venue'+(Object.keys(nv).length===1?'':'s'):'';
+  $('#venN').textContent=L.length?L.length+' floor plan'+(L.length===1?'':'s')+' at '+Object.keys(nv).length+' venue'+(Object.keys(nv).length===1?'':'s'):'';
   var h='',last=null;L.slice(0,venMax).forEach(function(v){var g=so?key(v):null;if(g!==null&&g!==last){h+='<div class="vgrp">'+esc(g)+'</div>';last=g}
-    h+='<div class="vrow'+(v.dv?' vd':'')+(v.est?' ve':'')+'" role="button" tabindex="0" data-v="'+v.id+'"><img src="venues/'+v.id+'-t.jpg" alt="" loading="lazy" width="96" height="64"><span>'+'<small>'+esc(so==='city'?vT(v):so==='type'?v.c:v.c+' · '+vT(v))+'</small><b>'+esc(v.n)+'</b><span>'+esc(v.r)+(v.est?'<i title="Drawn to the room\'s published dimensions" style="font-style:normal">*</i>':'')+'</span>'+(v.vt?'<a class="vtour" href="'+esc(v.vt)+'" target="_blank" rel="noopener">View 3D tour</a>':'')+'</span>'+(v.dv?'<a class="vpast" href="#" data-vp="'+v.id+'">Click to view past layouts here</a>':'')+'</div>'});
+    h+='<div class="vrow'+(v.dv?' vd':'')+(v.est?' ve':'')+'" role="button" tabindex="0" data-v="'+v.id+'"><img src="'+(v.d?estImg(v,1).u:'venues/'+v.id+'-t.jpg')+'" alt="" loading="lazy" width="96" height="64"><span>'+'<small>'+esc(so==='city'?vT(v):so==='type'?v.c:v.c+' · '+vT(v))+'</small><b>'+esc(v.n)+'</b><span>'+esc(String(v.r).replace(/ \*$/,''))+(v.est?'<i title="Drawn to the room\'s published dimensions" style="font-style:normal">*</i>':'')+'</span>'+(v.vt?'<a class="vtour" href="'+esc(v.vt)+'" target="_blank" rel="noopener">View 3D tour</a>':'')+'</span>'+(v.dv?'<a class="vpast" href="#" data-vp="'+v.id+'">Click to view past layouts here</a>':'')+'</div>'});
   if(L.length>venMax)h+='<button class="tb" id="venMore" style="flex:none;justify-content:center">Show more venues</button>';
   $('#venL').innerHTML=L.length?h:'<p style="margin:0">No venue matches yet. Clear a filter, or upload your own floor plan.</p>';
   $$('#venL .vrow').forEach(function(b){b.onclick=function(e){if(e.target.closest&&e.target.closest('.vtour'))return;if(e.target.closest&&e.target.closest('.vpast')){e.preventDefault();openPastV(b.dataset.v);return}pickVenue(b.dataset.v)};b.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pickVenue(b.dataset.v)}}});
@@ -635,7 +635,9 @@ function openPastV(id){var v=VEN.find(function(x){return x.id===id});if(!v)retur
   $('#pastv').classList.add('on')}
 $('#pastvX').onclick=function(){$('#pastv').classList.remove('on')};
 $('#pastvPlan').onclick=function(){$('#pastv').classList.remove('on');if(pastVid)pickVenue(pastVid)};
+function estImg(v,t){var a=v.d[0],b=v.d[1],w=900,h=Math.max(Math.round(b*900/a),60),W=w+200,H=h+260,k=t?240/W:1,c=document.createElement('canvas');c.width=Math.round(W*k);c.height=Math.round(H*k);var x=c.getContext('2d');x.scale(k,k);x.fillStyle='#fff';x.fillRect(0,0,W,H);x.strokeStyle='#000';x.lineWidth=6;x.strokeRect(100,130,w,h);if(!t){x.fillStyle='#000';x.textBaseline='top';x.font='34px sans-serif';x.fillText(String(v.r).replace(/ \*$/,''),100,30,W-120);x.font='28px sans-serif';x.fillText(a+' ft',100+w/2-60,130+h+20);x.fillText(b+' ft',100+w+12,130+h/2-14);x.fillStyle='#5a5a5a';x.font='24px sans-serif';x.fillText('* Drawn from published room size.',100,130+h+80)}return{u:c.toDataURL(t?'image/png':'image/jpeg',.8),w:W,h:H}}
 function pickVenue(id){if(!venOK){venLoad(function(){pickVenue(id)});return}var v=VEN.find(function(x){return x.id===id});if(!v)return;$('#ven').classList.remove('on');toast('Loading '+v.n);
+  if(v.d){var ei=estImg(v);S.objs=[];selId=null;loadPlan(ei.u,ei.w,ei.h);setTimeout(function(){toast('* Drawn to the room\'s published dimensions')},900);return}
   fetch('venues/'+v.id+'.jpg').then(function(r){return r.blob()}).then(function(b){var rd=new FileReader();rd.onload=function(){S.objs=[];selId=null;loadPlan(rd.result,v.w,v.h);if(v.est)setTimeout(function(){toast('* Drawn to the room\'s published dimensions')},900)};rd.readAsDataURL(b)}).catch(function(){toast('Could not load that plan')})}
 function openVen(first){if(!venOK){toast('Loading venues');venLoad(function(){openVen(first)});return}venMax=40;$('#venQ').value='';['#venK','#venP','#venC','#venT','#venE','#venF'].forEach(function(x){$(x).value=''});venFill();venList();
   $('#venH').textContent=first?'Choose your venue':'Choose a venue';$('#venSample').style.display=first?'':'none';$('#ven').classList.add('on');$('#venL').scrollTop=0}
