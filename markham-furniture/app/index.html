@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Markham Furniture app | Concept</title>
 <meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#0c0c0c">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Markham">
 <link rel="manifest" href="manifest.webmanifest">
@@ -18,20 +18,20 @@
 html{scroll-padding-top:0}
 body{background:#ddd9d2}
 .app{max-width:460px;margin:0 auto;min-height:100svh;background:var(--paper);display:flex;flex-direction:column;position:relative}
-.abar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);padding:calc(env(safe-area-inset-top) + 10px) 16px 10px;display:flex;justify-content:space-between;align-items:center}
+.abar{position:sticky;top:0;z-index:20;background:#0c0c0c;color:#fff;padding:calc(env(safe-area-inset-top) + 10px) 16px 10px;display:flex;justify-content:space-between;align-items:center}
 .abar img{width:118px}
-.abar button{border:0;background:none;font:600 12px var(--bd);letter-spacing:.1em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px;min-height:44px;cursor:pointer;color:var(--ink)}
+.abar button{border:0;background:none;font:600 12px var(--bd);letter-spacing:.1em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px;min-height:44px;cursor:pointer;color:#fff}
 .view{flex:1;padding:18px 16px 110px;display:none;animation:in .45s both}.view.on{display:block}
 .view h2{font-size:34px;margin-bottom:6px}.view>p.s{color:#444;font-size:15px;margin-bottom:18px}
 .tabs{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(460px,100%);z-index:30;background:var(--ink);display:grid;grid-template-columns:repeat(5,1fr);padding-bottom:env(safe-area-inset-bottom)}
 .tabs button{border:0;background:none;color:#9a9a9a;min-height:62px;font:600 10.5px var(--bd);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;display:grid;place-items:center;gap:0;padding:8px 0}
 .tabs svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;margin:0 auto 3px;display:block}
 .tabs button.on{color:#fff}.tabs button.on:after{content:"";display:block;width:22px;height:2px;background:#fff;margin:4px auto 0}
-.hero-card{background:var(--ink);color:#fff;padding:16px;margin-bottom:14px}
-.hero-card img{background:#fff;width:100%;aspect-ratio:16/10;object-fit:contain;margin:10px 0}
-.hero-card .pbar{background:#333}.hero-card .pbar i{background:#fff}
+.hero-card{position:relative;color:#fff;margin-bottom:14px;min-height:430px;display:flex;align-items:flex-end;background:#111 url(../img/room-blue.webp) 62% center/cover;overflow:hidden}.hero-card:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 25%,rgba(0,0,0,.88) 78%)}.hc-tx{position:relative;padding:16px;width:100%}.hc-tx h3{font-size:30px;margin:4px 0 8px}.hc-tx p{font-size:14px}
+
+.hero-card .pbar{background:rgba(255,255,255,.3)}.hero-card .pbar i{background:#fff}
 .qa{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.qa button{background:#fff;border:1px solid var(--line);min-height:84px;text-align:left;padding:12px;font:800 15px/1.05 var(--hd);text-transform:uppercase;cursor:pointer;color:var(--ink)}
+.qa button{background:#ece7de;border:1px solid var(--line);min-height:84px;text-align:left;padding:12px;font:800 15px/1.05 var(--hd);text-transform:uppercase;cursor:pointer;color:var(--ink)}
 .qa small{display:block;font:400 12px var(--bd);text-transform:none;color:var(--mid);margin-top:5px}
 .sheet{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.6);display:none;align-items:flex-end;justify-content:center}.sheet.on{display:flex}
 .sheet>div{background:#fff;width:min(460px,100%);padding:22px 18px calc(22px + env(safe-area-inset-bottom));animation:in .4s both}
@@ -45,11 +45,11 @@ body{background:#ddd9d2}
 </head>
 <body>
 <div class="app">
-  <div class="abar"><img src="../img/logo-crop.png" alt="Markham Furniture"><button id="inst" type="button">Add to phone</button></div>
+  <div class="abar"><img src="../img/logo-white.png" alt="Markham Furniture"><button id="inst" type="button">Add to phone</button></div>
 
   <section class="view on" id="v-home">
     <p class="eyebrow">Welcome back, Sample Client</p>
-    <div class="hero-card"><span class="st-no">ORDER MF-20714</span><h3 style="font-size:26px;margin-top:4px">Your Olivia is on the bench.</h3><img src="../img/p-2071-olivia.webp" alt=""><p style="font-size:14px">Upholstery, stage 5 of 7</p><div class="pbar"><i id="hp" style="width:0"></i></div><button class="btn wh sm" type="button" data-go="track" style="width:100%">Follow my order</button></div>
+    <div class="hero-card"><div class="hc-tx"><span class="st-no">ORDER MF-20714</span><h3>Your sofa is on the bench.</h3><p>Upholstery, stage 5 of 7</p><div class="pbar"><i id="hp" style="width:0"></i></div><button class="btn wh sm" type="button" data-go="track" style="width:100%">Follow my order</button></div></div>
     <div class="qa">
       <button type="button" data-go="design">Design a piece<small>Price it as you go</small></button>
       <button type="button" data-go="floor">On the floor<small>Take home this week</small></button>
