@@ -284,6 +284,16 @@ footer{border-top:1px solid var(--line);margin-top:20px}
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .rv{opacity:1;transform:none}
 }
+.cs-strip{display:grid;grid-template-columns:auto 1fr;gap:14px 18px;align-items:center;margin-top:26px;padding:12px;border-radius:var(--r);background:var(--y);color:var(--ink);text-decoration:none}
+.cs-strip .pics{display:flex}
+.cs-strip .pics img{width:72px;height:72px;object-fit:cover;border-radius:14px}
+.cs-strip .pics img+img{margin-left:-18px;box-shadow:-4px 0 0 var(--y)}
+.cs-strip .tx{display:flex;flex-direction:column;gap:3px}
+.cs-strip small{font:700 11px/1 'Space Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+.cs-strip b{font:900 clamp(18px,2.6vw,28px)/1.05 var(--disp);text-transform:uppercase;letter-spacing:-.02em}
+.cs-strip em{font-style:normal;font-size:14px}
+.cs-strip .go{grid-column:1/-1;justify-self:start;min-height:46px;display:flex;align-items:center;padding:0 18px;border-radius:12px;background:var(--ink);color:var(--paper);font:700 14px var(--body)}
+@media(min-width:760px){.cs-strip{grid-template-columns:auto 1fr auto}.cs-strip .go{grid-column:auto}}
 </style>
 </head>
 <body>
@@ -378,6 +388,7 @@ footer{border-top:1px solid var(--line);margin-top:20px}
       <button class="w" data-t="AXE van"><img loading="lazy" src="img/axe-van.jpg" alt="Branded AXE van"><span class="cap"><b>AXE van</b><i><svg><use href="#plus"/></svg></i></span></button>
       <button class="w" data-t="Nike shoes, paint detail"><img loading="lazy" src="img/nike-detail.jpg" alt="Close-up of painted shoe surface"><span class="cap"><b>Paint detail</b><i><svg><use href="#plus"/></svg></i></span></button>
     </div>
+    <a class="cs-strip" href="work/"><span class="pics"><img src="img/youtube-shop.jpg" alt="" loading="lazy"><img src="img/youtube-mirror.jpg" alt="" loading="lazy"></span><span class="tx"><small>Case studies</small><b>Build stories: shop to show</b><em>Five builds, each in two photos</em></span><span class="go">See them</span></a>
   </div>
 </section>
 
