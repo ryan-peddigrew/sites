@@ -13,7 +13,7 @@ setTimeout(function(){$('#loader').classList.add('out');document.body.classList.
 var hmk=$('.hero-mk'),rwi=$('#rwImg');addEventListener('scroll',function(){var y=scrollY;if(y<innerHeight){hmk.style.transform='rotate('+y*.15+'deg)';$('.rw-big').style.transform='translateX('+(-y*.4)+'px)'}},{passive:true});
 
 /* hero: runway of their own pieces */
-var RW=[['2068-soho','s-2068'],['2071-olivia','s-2071'],['2020-leather-cigar'],['2076-toronto','s-2076'],['2032-william'],['2009-swivel-nest'],['2014-leather-ellie']].map(function(r){var it=IT.filter(function(i){return i.h===r[0]})[0];return it?{it:it,src:r[1]?'img/'+r[1]+'.webp':img(it)}:null}).filter(Boolean),ri0=-1,words=['your size.','by hand.','to last.','your way.'];
+var RW=[['2073-rizk'],['2020-leather-cigar'],['2071-olivia','s-2071'],['2014-leather-ellie'],['2009-swivel-nest'],['2076-toronto','s-2076']].map(function(r){var it=IT.filter(function(i){return i.h===r[0]})[0];return it?{it:it,src:r[1]?'img/'+r[1]+'.webp':img(it)}:null}).filter(Boolean),ri0=-1,words=['your size.','by hand.','to last.','your way.'];
 RW.forEach(function(i){var p=new Image();p.src=i.src});
 $('#rwT').textContent=('0'+RW.length).slice(-2);
 function rwNext(){var im=$('#rwImg'),lab=$('.rw-lab');im.classList.remove('in');im.classList.add('out');lab.classList.remove('in');
