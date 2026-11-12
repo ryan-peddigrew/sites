@@ -19,10 +19,10 @@ body{font:400 16px/1.5 var(--f);background:var(--ivory);color:var(--ink);min-hei
 button,input,textarea{font:inherit;color:inherit}
 a{color:inherit}
 .top{background:var(--ink);color:#fff;padding:14px 16px;padding-top:calc(14px + env(safe-area-inset-top));display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.top img{height:44px;width:auto;display:block}
-.top .ttl{flex:1;min-width:150px}
-.top .ttl b{display:block;font:900 20px/1.05 var(--f);text-transform:uppercase;letter-spacing:.02em}
-.top .ttl small{display:block;font:600 11px var(--f);letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+.top img{height:60px;width:auto;display:block}.top>.btn{margin-left:auto}
+.top .ttl{order:3;flex:0 0 100%;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.14);padding-top:10px}
+.top .ttl b{font:800 12px/1.2 var(--f);text-transform:uppercase;letter-spacing:.16em;color:var(--gold)}
+.top .ttl small{font:500 12px/1.2 var(--f);color:rgba(255,255,255,.7)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 16px;border:1.5px solid var(--ivory2);background:#fff;color:var(--ink);font:800 12px/1.2 var(--f);letter-spacing:.1em;text-transform:uppercase;border-radius:2px;cursor:pointer;text-decoration:none;text-align:center}
 .btn.gold{background:var(--gold);border-color:var(--gold)}
 .btn.dark{background:transparent;border-color:var(--ink3);color:#fff}
