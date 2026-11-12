@@ -13,7 +13,7 @@ setTimeout(function(){$('#loader').classList.add('out');document.body.classList.
 var hmk=$('.hero-mk');addEventListener('scroll',function(){var y=scrollY;if(y<innerHeight){hph.style.transform='translateY('+y*.25+'px) scale('+(1+y/3000)+')';hmk.style.transform='translateY('+y*-.15+'px) rotate('+y*.12+'deg)'}},{passive:true});
 
 /* hero: blinds film from their own photos */
-var HP=['room-blue','room-grey','showroom-white','hero-loft-grey'],N=6,hph=$('#heroPh'),words=['your size.','by hand.','to last.','your way.'],hi=-1;
+var HP=['room-blue','showroom-white','storefront'],N=6,hph=$('#heroPh'),words=['your size.','by hand.','to last.'],hi=-1;
 HP.forEach(function(p){var d=document.createElement('div');d.className='sl';for(var k=0;k<N;k++){var st=document.createElement('i');st.style.cssText='left:'+(k*100/N)+'%;width:'+(100/N+.2)+'%;transition-delay:'+(k*90)+'ms';var im=document.createElement('b');im.style.cssText='background-image:url(img/'+p+'.webp);left:-'+(k*100)+'%;width:'+(N*100)+'%';st.appendChild(im);d.appendChild(st)}hph.appendChild(d)});
 var SL=$$('.sl',hph);
 function hnext(){var prev=SL[hi];hi=(hi+1)%SL.length;var c=SL[hi];SL.forEach(function(x){x.style.zIndex=x===c?2:x===prev?1:0});c.classList.remove('on');void c.offsetWidth;c.classList.add('on');
