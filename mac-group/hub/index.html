@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en-CA" data-site="hub" data-page="hub/index.html" data-root="../">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MAC Hub</title><meta name="description" content="Staff app for MAC Group of Companies."><meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Manrope:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../mac.css">
+</head>
+<body>
+<div class="sample" style="background:#7C9CFF;color:#0F1115">Private preview · sample data is marked</div>
+
+<div class="hub" id="hub">
+  <aside class="hub-rail">
+    <div class="hub-brand"><b>MAC</b> Hub<span>Staff only</span></div>
+    <nav class="hub-tabs">
+      <button class="on" data-v="today"><svg class="icon sm" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Today</button>
+      <button data-v="inv"><svg class="icon sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7 12 3l9 4v10l-9 4-9-4z"/><path d="m3 7 9 4 9-4M12 11v10"/></svg>Inventory</button>
+      <button data-v="quotes"><svg class="icon sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V3h9l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>Quotes</button>
+      <button data-v="flags"><svg class="icon sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="5" r="2"/><circle cx="20" cy="5" r="2"/><circle cx="12" cy="21" r="2"/><path d="m5.6 6.3 4.2 3.8M18.4 6.3l-4.2 3.8M12 15v4"/></svg>Cross-sell</button>
+      <button data-v="clients"><svg class="icon sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="7" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4a3 3 0 0 1 0 6M18 14c2 .7 3 2.6 3 6"/></svg>Clients</button>
+    </nav>
+    <a class="hub-back" href="../index.html">Back to MAC Group</a>
+  </aside>
+  <main class="hub-main">
+    <div class="hub-top"><div><span class="eyebrow">Sample data</span><h1 class="hub-h" data-title>Today</h1></div>
+      <label class="field hub-as"><span>Working as</span><select data-as><option value="mac">MAC Show Systems</option><option value="psi">PSI</option><option value="tt">Tour Trucking</option><option value="all">All companies (owners)</option></select></label></div>
+    <section data-view="today">
+      <div class="kpis"><div><b>7</b><span>New quote requests</span></div><div><b>2</b><span>Holds ending in 24 hours</span></div><div><b>3</b><span>Waitlist matches</span></div><div><b>4</b><span>Trucks on the road</span></div></div>
+      <h3 class="hub-sub">Incoming</h3><div class="hub-list" data-incoming></div>
+    </section>
+    <section data-view="inv" hidden>
+      <div class="dates" data-hdates></div>
+      <div class="hub-table" data-inv></div>
+    </section>
+    <section data-view="quotes" hidden>
+      <div class="hub-split"><div class="hub-list" data-qlist></div><div class="hub-mail" data-mail></div></div>
+    </section>
+    <section data-view="flags" hidden><div class="hub-list" data-flags></div></section>
+    <section data-view="clients" hidden><p class="mute">Past clients with no booking this season. One tap drafts a check-in, sent under the company they know.</p><div class="hub-list" data-clients></div></section>
+  </main>
+</div>
+<script src="../mac.js"></script><script src="../tools.js"></script><script src="../hub.js"></script>
+</body></html>
