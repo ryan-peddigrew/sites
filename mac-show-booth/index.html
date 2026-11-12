@@ -32,6 +32,15 @@ h1{font-family:var(--display);font-stretch:118%;font-weight:300;letter-spacing:.
 .tag{position:absolute;left:12px;top:12px;font-family:var(--display);font-stretch:118%;font-weight:600;letter-spacing:.16em;font-size:14px;
   border:1px solid var(--fg);padding:6px 12px;background:rgba(0,0,0,.55);pointer-events:none}
 .hint{position:absolute;right:12px;bottom:10px;font-family:var(--mono);font-size:11px;color:var(--mute);pointer-events:none}
+.tourbtn,.tourcap button{font-family:var(--display);font-stretch:118%;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:#000;background:var(--fg);border:1px solid var(--fg);padding:10px 16px;cursor:pointer;border-radius:0}
+.tourbtn{position:absolute;left:12px;bottom:12px}
+.tourbtn:focus-visible,.tourcap button:focus-visible{outline:2px solid var(--glow);outline-offset:2px}
+.tourcap{position:absolute;left:12px;bottom:12px;max-width:min(420px,calc(100% - 24px));background:rgba(0,0,0,.78);border:1px solid var(--fg);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.tourcap h3{font-family:var(--display);font-stretch:118%;font-weight:500;letter-spacing:.1em;text-transform:uppercase;font-size:17px;margin:0}
+.tourcap p{margin:0;font-size:14px;color:var(--fg)}
+.tourcap .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.tourcap button{padding:7px 12px;font-size:12px}
+.tourcap button[data-d="0"],.tourcap button[data-d="-1"]{background:transparent;color:var(--fg)}
 .info{padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px}
 .info h2{font-family:var(--display);font-stretch:118%;font-weight:500;letter-spacing:.1em;text-transform:uppercase;font-size:18px;margin:0}
 .info p{margin:0;color:var(--mute);max-width:65ch}
@@ -43,7 +52,7 @@ h1{font-family:var(--display);font-stretch:118%;font-weight:300;letter-spacing:.
 video{width:100%;display:block;background:#000}
 .note{border-top:1px solid var(--line);padding-top:18px;color:var(--mute);font-size:14px;max-width:80ch}
 .note b{color:var(--fg);font-weight:600}
-@media (max-width:860px){.grid{grid-template-columns:1fr}.hero .info{grid-template-columns:1fr}.grid .stage{aspect-ratio:16/11}}
+@media (max-width:860px){.grid{grid-template-columns:1fr}.hero .info{grid-template-columns:1fr}.grid .stage{aspect-ratio:16/11}.hero .stage{aspect-ratio:4/3.6}.tourcap p{font-size:13px}}
 </style>
 <div class="wrap">
 <header>
@@ -61,10 +70,10 @@ video{width:100%;display:block;background:#000}
     <div>
       <div class="eyebrow">Option A · the target</div>
       <h2>20 × 20 island, open on four sides</h2>
-      <p>A 16 ft truss box frames the whole space. A double-sided LED tower in the middle plays to every aisle, with a lit logo ring flown above it so the booth reads from across the hall.</p>
+      <p>A 16 ft truss box frames the whole space. A double-sided LED tower in the middle plays to every aisle, with a lit logo ring flown above it so the booth reads from across the hall. A coffee bar on the back aisle keeps people in the booth. Press Take the tour for a guided walk through it.</p>
     </div>
     <div>
-      <ul class="spec"><li>400 sq ft</li><li>16 ft truss box</li><li>2 LED walls, 11 × 6 ft</li><li>Flown logo ring</li><li>8 moving lights</li><li>2 line array hangs</li><li>Demo riser + console</li><li>Welcome desk</li><li>Meeting lounge</li><li>Storage in LED tower</li></ul>
+      <ul class="spec"><li>400 sq ft</li><li>16 ft truss box</li><li>2 LED walls, 11 × 6 ft</li><li>Flown logo ring</li><li>8 moving lights</li><li>2 line array hangs</li><li>Demo riser + console</li><li>Welcome desk</li><li>Coffee bar</li><li>Meeting lounge</li><li>Storage in LED tower</li></ul>
     </div>
   </div>
 </section>
@@ -186,6 +195,18 @@ function pipeDrape(S,w,d){var z=-d/2-.15;box(S.root,w+20,8,.1,M.drape,0,0,z-.2);
 function console_(p,x,y,z,ry){var g=new T.Group();g.position.set(x,y,z);g.rotation.y=ry||0;box(g,4,2.6,1.8,M.black,0,0,0);var c=box(g,3.6,.3,1.6,M.grey,0,2.6,0);c.rotation.x=-.18;
   for(var i=0;i<12;i++){var d=new T.Mesh(new T.BoxGeometry(.12,.05,.5),M.glow);d.position.set(-1.5+i*.27,2.95,.1+((i*7)%5)*.08-.2);g.add(d);}p.add(g);}
 
+function textTex(txt,w,h,bg,fg){var o=canvasTex(w,h),c=o.c;c.fillStyle=bg;c.fillRect(0,0,w,h);c.fillStyle=fg;c.strokeStyle=fg;c.lineWidth=h*.03;c.font='400 '+(h*.36)+'px '+FONT;c.textBaseline='middle';var tw=0,i;for(i=0;i<txt.length;i++)tw+=c.measureText(txt[i]).width;var bw=w*.86;c.strokeRect((w-bw)/2,h*.2,bw,h*.6);spaced(c,txt,w/2,h*.52,(bw*.88-tw)/(txt.length-1));return o.tx;}
+function coffeeBar(p,x,z,ry){var g=new T.Group();g.position.set(x,.12,z);g.rotation.y=ry||0;var tx=textTex('COFFEE BAR',1024,256,'#000','#fff');
+  box(g,6.4,3.4,2,M.black,0,0,0);box(g,6.8,.15,2.4,M.white,0,3.4,0);
+  var f=new T.Mesh(new T.PlaneGeometry(5.6,1.4),new T.MeshBasicMaterial({map:tx,toneMapped:false}));f.position.set(0,1.9,1.01);g.add(f);
+  var s=new T.Mesh(new T.BoxGeometry(6.4,.08,.08),M.glow);s.position.set(0,.06,1.03);g.add(s);
+  box(g,1.9,1.3,1.3,M.truss,-1.9,3.55,-.2);box(g,2.1,.12,1.5,M.black,-1.9,4.85,-.2);cyl(g,.09,.5,M.black,-2.3,3.75,.5);cyl(g,.09,.5,M.black,-1.5,3.75,.5);
+  box(g,.9,1.1,.9,M.black,-.1,3.55,-.3);cyl(g,.3,.5,M.truss,-.1,4.65,-.3,.38);
+  for(var i=0;i<5;i++){cyl(g,.16,.34+(i%2)*.34,M.white,1+i*.45,3.55,.5,.2);}
+  cyl(g,.07,7.6,M.truss,-3,0,-2.6);cyl(g,.07,7.6,M.truss,3,0,-2.6);box(g,6.4,1.5,.2,M.black,0,6.2,-2.6);
+  var h=new T.Mesh(new T.PlaneGeometry(6,1.3),new T.MeshBasicMaterial({map:tx,toneMapped:false}));h.position.set(0,6.95,-2.49);g.add(h);
+  var pl=new T.PointLight(0xffe6c4,.9,10,1.6);pl.position.set(0,6,0);g.add(pl);
+  person(g,.6,-1.5,.96);stool(g,-1.6,2.6);stool(g,1.6,2.6);p.add(g);return g;}
 function build(kind){
   var S={scene:new T.Scene(),root:new T.Group(),movers:[],leds:[],spin:[]};var sc=S.scene;sc.add(S.root);
   sc.background=new T.Color(0x050608);sc.fog=new T.Fog(0x050608,55,170);
@@ -206,12 +227,20 @@ function build(kind){
     desk(S.root,-5.5,7.2,0,5,deskTex);stool(S.root,-5.5,5);
     box(S.root,7,1,5,M.black,5.6,.12,6.3);var e=new T.Mesh(new T.BoxGeometry(7,.06,.06),M.glow);e.position.set(5.6,.75,8.83);S.root.add(e);
     console_(S.root,5.6,1.12,6.6,0);speakerStick(S.root,2.9,1.2,.2);speakerStick(S.root,8.6,7.6,-.4);
-    box(S.root,6,1.4,2.4,M.grey,-4.5,.12,-7.6);box(S.root,6,1.5,.6,M.grey,-4.5,1.5,-8.5);box(S.root,2.4,1.4,2.4,M.grey,3.2,.12,-7.8);box(S.root,2.4,1.4,2.4,M.grey,6.4,.12,-7.8);cyl(S.root,1.2,1.3,M.white,1,.12,-5.2);
+    box(S.root,6,1.4,2.4,M.grey,-4.5,.12,-7.6);box(S.root,6,1.5,.6,M.grey,-4.5,1.5,-8.5);cyl(S.root,1.1,1.3,M.white,-4.5,.12,-4.6);coffeeBar(S.root,5,-5.4,Math.PI);
     lineArray(S.root,-7.4,H-.5,q,.25,6);lineArray(S.root,7.4,H-.5,q,-.25,6);
     [-4,-1.3,1.3,4].forEach(function(x,i){mover(S,x,H-.5,q,0xffffff,17,false,i%2===0);mover(S,x,H-.5,-q,0xcfe0ff,17,false,i%2===1);});
     [[-q,-4],[-q,4],[q,-4],[q,4]].forEach(function(c){mover(S,c[0],H-.5,c[1],0xdfe9ff,16,false,false);});
-    person(S.root,-5.5,9.6);person(S.root,3.2,9.4,.95);person(S.root,-1.6,-5.4);person(S.root,4.4,-5.2,.96);person(S.root,-7,4.6,.97);
+    person(S.root,-5.5,9.6);person(S.root,3.2,9.4,.95);person(S.root,-7.6,-4.6);person(S.root,3.6,-9.3,.96);person(S.root,-7,4.6,.97);
     S.cam={r:46,h:15,ty:6,full:true,a0:.6};
+    S.tour=[
+     {p:[0,7,31],l:[0,7,0],h:'Arrive',t:'The 16 ft truss box and the flown logo ring read from across the hall.'},
+     {p:[-7,5.6,18],l:[-5.5,3,7],h:'Welcome desk',t:'First hello, badge scans and a place to book a site visit.'},
+     {p:[0,5.6,14],l:[0,6.2,1.5],h:'LED tower',t:'Two 11 x 6 ft walls, back to back, so every aisle sees content. Storage hides inside.'},
+     {p:[12.5,5.6,15],l:[5.6,3,6.5],h:'Live demo',t:'A riser with a working console and speakers. Visitors push the faders.'},
+     {p:[13,5.8,-16],l:[5,3.4,-6],h:'Coffee bar',t:'Barista coffee gives people a reason to stop and stay for a conversation.'},
+     {p:[-11,5.8,-17],l:[-4.5,2.4,-7],h:'Meeting lounge',t:'A quieter corner behind the LED tower for longer talks.'},
+     {p:[-17,2.6,-15],l:[0,13,0],h:'Look up',t:'Eight moving lights and two line array hangs, all rental stock, all running.'}];
   } else if(kind==='b1020'){
     carpet(S,20,10);pipeDrape(S,20,10);
     box(S.root,19.6,8,.5,M.black,0,.12,-4.6);ledWall(S,12,6.4,0,1.2,-4.3,0,main);
@@ -248,7 +277,7 @@ function build(kind){
     S.spin.forEach(function(o){o.rotation.y=-t*.25;});
     S.movers.forEach(function(m){m.pan.rotation.y=Math.sin(t*.35+m.ph)*1.1+m.ph;m.tilt.rotation.x=.45+Math.sin(t*.5+m.ph*1.7)*.35;});
     var c=S.cam,a=ang!=null?ang:(c.full?c.a0+t*.14:Math.sin(t*.25)*c.sw);
-    S.camera.position.set(Math.sin(a)*c.r,c.h,Math.cos(a)*c.r);S.camera.lookAt(0,c.ty,0);
+    if(S.override){S.camera.position.copy(S.override.p);S.camera.lookAt(S.override.l);}else{S.camera.position.set(Math.sin(a)*c.r,c.h,Math.cos(a)*c.r);S.camera.lookAt(0,c.ty,0);}
   };
   return S;
 }
@@ -263,11 +292,22 @@ document.querySelectorAll('.stage').forEach(function(el){
   function size(){var w=el.clientWidth,h=el.clientHeight;if(!w||!h)return;r.setSize(w,h,false);S.camera.aspect=w/h;S.camera.fov=w/h<1.5?44:38;S.camera.updateProjectionMatrix();}
   size();new ResizeObserver(function(){size();frame(true);}).observe(el);
   function curAng(){var c=S.cam;return c.full?c.a0+tt*.14:Math.sin(tt*.25)*c.sw;}
-  function frame(force){var now=performance.now();if(!force&&(!vis||reduce&&last))return;if(user==null)tt+=reduce?0:Math.min(.05,(now-t0)/1000);t0=now;last=1;S.update(tt+(user!=null?(now/1000)%1000*0:0),user);r.render(S.scene,S.camera);}
+  var tour=null,go=function(){},hint=el.querySelector('.hint');
+  if(S.tour){var btn=document.createElement('button');btn.className='tourbtn';btn.type='button';btn.textContent='Take the tour';
+    var cap=document.createElement('div');cap.className='tourcap';cap.hidden=true;cap.innerHTML='<div class="eyebrow"></div><h3></h3><p></p><div class="row"><button type="button" data-d="-1">Back</button><button type="button" data-d="1">Next</button><button type="button" data-d="0">Exit tour</button></div>';
+    el.appendChild(btn);el.appendChild(cap);[btn,cap].forEach(function(n){n.addEventListener('pointerdown',function(e){e.stopPropagation();});});
+    var end=function(){tour=null;S.override=null;cap.hidden=true;btn.hidden=false;if(hint)hint.hidden=false;t0=performance.now();};
+    go=function(i){if(i<0)i=0;if(i>=S.tour.length){end();return;}var st=S.tour[i];
+      tour={i:i,fp:S.camera.position.clone(),fl:tour?tour.cl.clone():new T.Vector3(0,S.cam.ty,0),tp:new T.Vector3(st.p[0],st.p[1],st.p[2]),tl:new T.Vector3(st.l[0],st.l[1],st.l[2]),t0:performance.now(),cl:new T.Vector3()};
+      cap.querySelector('.eyebrow').textContent='Stop '+(i+1)+' of '+S.tour.length;cap.querySelector('h3').textContent=st.h;cap.querySelector('p').textContent=st.t;
+      cap.querySelector('[data-d="1"]').textContent=i===S.tour.length-1?'Finish':'Next';cap.hidden=false;btn.hidden=true;if(hint)hint.hidden=true;user=null;drag=null;};
+    btn.addEventListener('click',function(){go(0);});cap.addEventListener('click',function(e){var d=e.target.getAttribute&&e.target.getAttribute('data-d');if(d==null)return;if(d==='0')end();else go(tour.i+(+d));});}
+  function frame(force){var now=performance.now();if(!force&&(!vis||reduce&&last&&!tour))return;
+    if(tour){var k=Math.min(1,(now-tour.t0)/2400);k=k*k*(3-2*k);tour.cl.copy(tour.fl).lerp(tour.tl,k);S.override={p:tour.fp.clone().lerp(tour.tp,k),l:tour.cl};if(now-tour.t0>9000){go(tour.i+1);}}if(user==null)tt+=reduce?0:Math.min(.05,(now-t0)/1000);t0=now;last=1;S.update(tt+(user!=null?(now/1000)%1000*0:0),user);r.render(S.scene,S.camera);}
   var lt=4;function loop(){requestAnimationFrame(loop);if(!vis)return;if(user!=null&&!drag){lt-=1/60;if(lt<0){var c=S.cam;if(c.full){c.a0=user-tt*.14;}user=null;t0=performance.now();}}
     if(user!=null){S.leds.forEach(function(l){l.draw(performance.now()/1000);});}frame();}
   new IntersectionObserver(function(en){vis=en[0].isIntersecting;t0=performance.now();}).observe(el);
-  el.addEventListener('pointerdown',function(e){drag={x:e.clientX,a:user!=null?user:curAng()};user=drag.a;el.setPointerCapture(e.pointerId);});
+  el.addEventListener('pointerdown',function(e){if(tour)return;drag={x:e.clientX,a:user!=null?user:curAng()};user=drag.a;el.setPointerCapture(e.pointerId);});
   el.addEventListener('pointermove',function(e){if(!drag)return;user=drag.a-(e.clientX-drag.x)*.008;if(!S.cam.full)user=Math.max(-1.3,Math.min(1.3,user));});
   ['pointerup','pointercancel'].forEach(function(n){el.addEventListener(n,function(){drag=null;lt=S.cam.full?2.5:4;if(!S.cam.full){/* ease back by resuming swing */}});});
   frame(true);loop();
