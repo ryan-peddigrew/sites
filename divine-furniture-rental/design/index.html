@@ -102,6 +102,8 @@ button{background:none;border:0;cursor:pointer}
 .vbx .row .tb{flex:1 1 auto;justify-content:center}
 @media (max-width:640px){.vfil{grid-template-columns:1fr 1fr}.vfil #venE,.vfil #venD,.vfil #venS{grid-column:1/-1}.dlg#ven{padding:0;place-items:stretch}.vbx{display:block!important;max-width:none!important;max-height:none;height:100%;overflow:auto;-webkit-overflow-scrolling:touch;padding:calc(16px + env(safe-area-inset-top)) 16px 0!important}.vbx h4{font-size:20px}#venL{overflow:visible;flex:none}.vnote{display:none}.vgrp{top:-1px}.vbx .row{position:sticky;bottom:0;background:#fff;margin:12px -16px 0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--ivory2);flex-wrap:nowrap;gap:8px}.vbx .row .tb{padding:0 8px;font-size:11px;letter-spacing:.04em;white-space:normal;text-align:center;line-height:1.15;min-height:48px}}
 .vrow{flex:none;width:100%;display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center;text-align:left;background:var(--ivory);padding:8px;border-radius:3px;min-height:76px;color:var(--ink);border:1.5px solid transparent}
+.vtour{display:inline-flex;align-items:center;min-height:44px;margin-top:6px;padding:0 12px;background:var(--gold);color:var(--ink);font:800 11px var(--f);letter-spacing:.08em;text-transform:uppercase;border-radius:2px;text-decoration:none}
+.vrow{cursor:pointer}
 .vrow:hover{border-color:var(--gold2)}
 .vrow img{width:96px;height:64px;object-fit:contain;background:#fff}
 .vrow b{display:block;font:800 15px/1.15 var(--f)}
@@ -530,10 +532,10 @@ function venList(){var q=$('#venQ').value.trim().toLowerCase().split(/\s+/).filt
   var nv={};L.forEach(function(v){nv[v.n+'|'+v.c]=1});
   $('#venN').textContent=L.length?L.length+' floor plan'+(L.length===1?'':'s')+' at '+Object.keys(nv).length+' venue'+(Object.keys(nv).length===1?'':'s'):'';
   var h='',last=null;L.slice(0,venMax).forEach(function(v){var g=v.dv?'Divine has worked here':(so?key(v):null);if(g!==null&&g!==last){h+='<div class="vgrp">'+esc(g)+'</div>';last=g}
-    h+='<button class="vrow" data-v="'+v.id+'"><img src="venues/'+v.id+'-t.jpg" alt="" loading="lazy" width="96" height="64"><span>'+(v.dv?'<em class="vdv" style="font-style:normal">Divine has worked here</em><br>':'')+'<small>'+esc(so==='city'?vT(v):so==='type'?v.c:v.c+' · '+vT(v))+'</small><b>'+esc(v.n)+'</b><span>'+esc(v.r)+'</span></span></button>'});
+    h+='<div class="vrow" role="button" tabindex="0" data-v="'+v.id+'"><img src="venues/'+v.id+'-t.jpg" alt="" loading="lazy" width="96" height="64"><span>'+(v.dv?'<em class="vdv" style="font-style:normal">Divine has worked here</em><br>':'')+'<small>'+esc(so==='city'?vT(v):so==='type'?v.c:v.c+' · '+vT(v))+'</small><b>'+esc(v.n)+'</b><span>'+esc(v.r)+'</span>'+(v.vt?'<a class="vtour" href="'+esc(v.vt)+'" target="_blank" rel="noopener">View 3D tour</a>':'')+'</span></div>'});
   if(L.length>venMax)h+='<button class="tb" id="venMore" style="flex:none;justify-content:center">Show more venues</button>';
   $('#venL').innerHTML=L.length?h:'<p style="margin:0">No venue matches yet. Clear a filter, or upload your own floor plan.</p>';
-  $$('#venL .vrow').forEach(function(b){b.onclick=function(){pickVenue(b.dataset.v)}});
+  $$('#venL .vrow').forEach(function(b){b.onclick=function(e){if(e.target.closest&&e.target.closest('.vtour'))return;pickVenue(b.dataset.v)};b.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pickVenue(b.dataset.v)}}});
   if($('#venMore'))$('#venMore').onclick=function(){venMax+=60;venList()}}
 function pickVenue(id){var v=VEN.find(function(x){return x.id===id});if(!v)return;$('#ven').classList.remove('on');toast('Loading '+v.n);
   fetch('venues/'+v.id+'.jpg').then(function(r){return r.blob()}).then(function(b){var rd=new FileReader();rd.onload=function(){S.objs=[];selId=null;loadPlan(rd.result,v.w,v.h)};rd.readAsDataURL(b)}).catch(function(){toast('Could not load that plan')})}
