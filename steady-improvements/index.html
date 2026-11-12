@@ -326,6 +326,13 @@ body.touring .zb{display:none}
  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}
  .rv{opacity:1;transform:none}
 }
+.cs-link{display:grid;grid-template-columns:110px 1fr;align-items:center;gap:18px;margin-top:22px;background:var(--ink);color:var(--paper);text-decoration:none;min-height:110px;overflow:hidden}
+.cs-link img{width:110px;height:100%;min-height:110px;object-fit:cover}
+.cs-link span{display:flex;flex-direction:column;gap:4px;padding:14px 16px 14px 0}
+.cs-link small{font:600 11px/1 'Oswald',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--timber)}
+.cs-link b{font:900 clamp(24px,4vw,36px)/.95 var(--disp);text-transform:uppercase}
+.cs-link em{font-style:normal;font-size:14px;color:#cfcabd}
+.cs-link:hover b{color:var(--timber)}
 </style>
 </head>
 <body>
@@ -476,6 +483,7 @@ body.touring .zb{display:none}
     <figure><img src="img/balcony-grey.jpg" alt="Grey composite balcony flooring" loading="lazy"><figcaption>Balcony<span>Composite</span></figcaption></figure>
     <figure><img src="img/blind.jpg" alt="Roller shade" loading="lazy"><figcaption>Window coverings<span>Roller shade</span></figcaption></figure>
   </div>
+  <div class="wrap"><a class="cs-link" href="work/"><img src="img/framing.jpg" alt="" loading="lazy"><span><small>Case study</small><b>A bathroom, start to finish</b><em>See it stage by stage</em></span></a></div>
 </section>
 
 <section id="trade">

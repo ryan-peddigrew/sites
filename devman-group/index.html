@@ -359,6 +359,11 @@ html.touring .actbar{display:none}
   .br-card::after{content:"Devman Group Inc. · 2651 John St, Unit 6, Markham, ON L3R 2W5 · 905-604-0555 · team@devmaninc.com";display:block;margin-top:18px;font:500 10px var(--mono);color:#555}
 }
 @media(max-width:600px){.kx{display:none}}
+.cs-band{position:relative;display:grid;gap:8px;padding:clamp(40px,7vw,80px) var(--gut);background:linear-gradient(90deg,rgba(11,14,16,.94),rgba(11,14,16,.55)),url(img/shaw-corridor.jpg) center 55%/cover;color:#fff;text-decoration:none}
+.cs-band .mono{color:var(--teal-l)}
+.cs-band b{font:800 clamp(40px,7vw,84px)/.9 var(--display);text-transform:uppercase;max-width:14ch}
+.cs-band em{font-style:normal;color:#cdd3d4}
+.cs-band .btn{justify-self:start;margin-top:10px;font-style:normal}
 </style>
 </head>
 <body>
@@ -459,6 +464,7 @@ html.touring .actbar{display:none}
     <div class="work-prog"><i id="wk-p"></i></div>
   </div>
 </section>
+<a class="cs-band" href="work/"><span class="mono">Case study</span><b>Walk through 1 Shaw St</b><em>Lobby to suite door, stop by stop</em><i class="btn btn-teal">See it</i></a>
 
 <section class="explore" id="floors">
   <div class="wrap">
@@ -631,7 +637,7 @@ html.touring .actbar{display:none}
     <div style="display:grid;gap:14px">
       <img src="img/logo-white.png" alt="Devman Group Incorporated">
       <span class="mono">Communication. Quality. Service.</span>
-      <nav class="fnav" aria-label="Footer"><a href="#work">Projects</a><a href="#floors">Services</a><a href="#brief">Board brief</a><a href="#contact">Contact</a><a href="?tour=1" data-tour>Take the tour</a></nav>
+      <nav class="fnav" aria-label="Footer"><a href="#work">Projects</a><a href="#floors">Services</a><a href="#brief">Board brief</a><a href="work/">Case study</a><a href="#contact">Contact</a><a href="?tour=1" data-tour>Take the tour</a></nav>
       <span style="font-size:14px">© 2026 Devman Group Inc. · 2651 John St, Unit 6, Markham, ON</span>
     </div>
     <div class="news">
