@@ -74,8 +74,8 @@ h1,h2,h3{font-family:var(--disp);font-weight:900;text-transform:uppercase;line-h
 .ticks i.now{background:var(--brick2)}
 
 .stages{list-style:none;padding:0 var(--gut)}
-.stage{min-height:78svh;display:flex;flex-direction:column;justify-content:center;padding:48px 0;border-bottom:1px solid #d7d2c3;max-width:560px}
-.stage:last-child{border-bottom:0;min-height:62svh}
+.stage{min-height:46svh;display:flex;flex-direction:column;justify-content:flex-start;padding:28px 0 36px;border-bottom:1px solid #d7d2c3;max-width:560px}
+.stage:last-child{border-bottom:0;min-height:40svh}
 .stage .k{color:var(--brick)}
 .stage h2{font-size:clamp(44px,9vw,84px);margin-top:10px}
 .stage p{margin-top:14px;max-width:42ch}
@@ -86,7 +86,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:900;text-transform:uppercase;line-h
   .story{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
   .stage-ph{grid-column:1;grid-row:1;height:calc(100svh - 64px)}
   .stages{grid-column:2;grid-row:1;padding:0 clamp(28px,4vw,64px)}
-  .stage{min-height:calc(100svh - 64px)}
+  .stage{min-height:62svh;justify-content:center}.stage:first-child{padding-top:18svh}.stage:last-child{min-height:62svh;padding-bottom:18svh}
 }
 
 /* more work */
