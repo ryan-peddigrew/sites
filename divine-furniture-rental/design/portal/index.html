@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Client dashboard | Divine Design</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#161B20">
+<link rel="icon" href="../icon-192.png?v=2">
+<link rel="apple-touch-icon" href="../icon-180.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#161B20;--ink2:#1E252C;--ink3:#2A333B;--gold:#D8BE6E;--gold2:#A8873A;--ivory:#F3EEE4;--ivory2:#E7DFCF;--paper:#FBF9F4;--mute:#5B6168;--mute2:#AEB3B8;--ok:#2E6B4A;--f:'Inter Tight',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font:400 16px/1.5 var(--f);background:var(--ivory);color:var(--ink);min-height:100vh}
+button,input,textarea{font:inherit;color:inherit}
+a{color:inherit}
+.top{background:var(--ink);color:#fff;padding:14px 16px;padding-top:calc(14px + env(safe-area-inset-top));display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.top img{height:44px;width:auto;display:block}
+.top .ttl{flex:1;min-width:150px}
+.top .ttl b{display:block;font:900 20px/1.05 var(--f);text-transform:uppercase;letter-spacing:.02em}
+.top .ttl small{display:block;font:600 11px var(--f);letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 16px;border:1.5px solid var(--ivory2);background:#fff;color:var(--ink);font:800 12px/1.2 var(--f);letter-spacing:.1em;text-transform:uppercase;border-radius:2px;cursor:pointer;text-decoration:none;text-align:center}
+.btn.gold{background:var(--gold);border-color:var(--gold)}
+.btn.dark{background:transparent;border-color:var(--ink3);color:#fff}
+.btn.sm{min-height:44px;padding:0 12px;font-size:11px}
+.btn:disabled{opacity:.5;cursor:default}
+.prev{background:var(--gold);color:var(--ink);font:800 12px/1.35 var(--f);letter-spacing:.06em;text-transform:uppercase;padding:9px 16px;text-align:center}
+.wrap{max-width:1040px;margin:0 auto;padding:20px 16px 80px}
+.hello{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.hello h1{font:900 30px/1 var(--f);text-transform:uppercase}
+.hello p{color:var(--mute);font-size:15px;margin-top:6px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
+.kpi{background:var(--ink);color:#fff;padding:14px;border-left:4px solid var(--gold)}
+.kpi b{display:block;font:900 28px/1 var(--f)}
+.kpi span{display:block;font:700 11px/1.25 var(--f);letter-spacing:.1em;text-transform:uppercase;color:var(--mute2);margin-top:6px}
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--ink);margin-bottom:18px;overflow-x:auto}
+.tabs button{flex:1 1 0;min-height:52px;padding:6px 8px;line-height:1.2;background:none;border:0;border-bottom:4px solid transparent;font:800 13px var(--f);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);cursor:pointer}
+.tabs button.on{color:var(--ink);border-bottom-color:var(--gold)}
+.pane{display:none}.pane.on{display:block}
+.lead{color:var(--mute);font-size:15px;margin-bottom:14px;max-width:62ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.card{background:#fff;border-top:4px solid var(--gold);padding:16px;display:flex;flex-direction:column;gap:10px}
+.card h3{font:900 19px/1.1 var(--f);text-transform:uppercase}
+.card .meta{font-size:14px;color:var(--mute)}
+.mini{background:var(--paper);border:1.5px solid var(--ivory2);aspect-ratio:5/3;width:100%;display:block}
+.chip{display:inline-block;font:800 11px/1 var(--f);letter-spacing:.1em;text-transform:uppercase;padding:6px 8px;background:var(--ivory2);color:var(--ink);border-radius:2px}
+.chip.g{background:var(--gold)}.chip.k{background:var(--ink);color:#fff}.chip.ok{background:var(--ok);color:#fff}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+.acts .btn{flex:1 1 46%}
+.empty{background:#fff;padding:22px 16px;border-top:4px solid var(--ivory2);color:var(--mute)}
+.empty b{display:block;color:var(--ink);font:900 18px/1.1 var(--f);text-transform:uppercase;margin-bottom:6px}
+.link{background:none;border:0;min-height:44px;color:var(--mute);font:700 13px var(--f);text-decoration:underline;cursor:pointer;padding:0 4px}
+.row{background:#fff;border-left:4px solid var(--gold);padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:8px 14px;align-items:center;margin-bottom:10px}
+.row h3{font:900 17px/1.15 var(--f);text-transform:uppercase}
+.row .meta{font-size:14px;color:var(--mute)}
+.row .amt{font:900 20px/1 var(--f);text-align:right}
+.row .acts{grid-column:1/-1}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:14px 0}
+.steps span{font:800 10.5px/1.2 var(--f);letter-spacing:.08em;text-transform:uppercase;padding:9px 6px;background:var(--ivory2);color:var(--mute);text-align:center}
+.steps span.on{background:var(--ink);color:#fff}.steps span.now{background:var(--gold);color:var(--ink)}
+.dlg{position:fixed;inset:0;background:rgba(10,12,15,.72);display:none;place-items:center;z-index:40;padding:14px}
+.dlg.on{display:grid}
+.bx{background:#fff;padding:22px;max-width:480px;width:100%;max-height:94vh;overflow:auto;border-top:4px solid var(--gold)}
+.bx.wide{max-width:720px}
+.bx h4{font:900 22px/1.05 var(--f);text-transform:uppercase;margin-bottom:10px}
+.bx p{color:var(--mute);font-size:14.5px;margin-bottom:12px}
+.gl{display:block;font:800 11px/1 var(--f);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.gl input,.gl textarea{display:block;width:100%;margin-top:6px;min-height:48px;border:1.5px solid var(--ivory2);padding:10px 12px;font:400 16px var(--f);letter-spacing:0;text-transform:none;border-radius:3px;background:#fff}
+.gl textarea{min-height:110px;resize:vertical}
+.gerr{color:#b3261e;font-weight:700;min-height:18px;margin:0 0 8px!important}
+.fine{font-size:13px;color:var(--mute)}
+.inv{font-size:14.5px}
+.inv .hd{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:12px}
+.inv .hd img{height:52px;width:auto;background:var(--ink);padding:6px 10px}
+.inv .hd .no{text-align:right}.inv .hd .no b{display:block;font:900 22px/1 var(--f);text-transform:uppercase}
+.inv .two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px}
+.inv h5{font:800 11px/1 var(--f);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:5px}
+.inv table{width:100%;border-collapse:collapse;margin-bottom:10px}
+.inv th{font:800 11px/1 var(--f);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);text-align:left;padding:8px 6px;border-bottom:1.5px solid var(--ink)}
+.inv td{padding:9px 6px;border-bottom:1px solid var(--ivory2);vertical-align:top}
+.inv th.r,.inv td.r{text-align:right;white-space:nowrap}
+.inv .tot td{border:0;padding:5px 6px}.inv .tot tr.big td{font:900 19px/1.1 var(--f);border-top:2px solid var(--ink);padding-top:10px}
+.inv .note{background:var(--ivory);padding:10px 12px;font-size:13px;color:var(--mute);margin-top:6px}
+.stars{display:flex;gap:6px;margin:6px 0 14px}
+.stars button{width:48px;height:48px;background:#fff;border:1.5px solid var(--ivory2);border-radius:2px;cursor:pointer;display:grid;place-items:center}
+.stars svg{width:28px;height:28px;fill:none;stroke:var(--gold2);stroke-width:1.6;stroke-linejoin:round}
+.stars button.on{background:var(--ink);border-color:var(--ink)}.stars button.on svg{fill:var(--gold);stroke:var(--gold)}
+.rv{background:#fff;border-left:4px solid var(--gold);padding:14px 16px;margin-bottom:10px}
+.rv .st{display:flex;gap:3px;margin-bottom:6px}.rv .st svg{width:18px;height:18px;fill:var(--ivory2)}.rv .st svg.on{fill:var(--gold2)}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 18px}
+.how div{background:var(--ink);color:#fff;padding:14px}
+.how b{display:block;font:900 15px/1.15 var(--f);text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.how span{font-size:14px;color:#D9DDE0}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 16px;font:700 14px var(--f);border-left:4px solid var(--gold);z-index:60;max-width:92vw;display:none}
+.toast.on{display:block}
+.conn{margin-top:28px;padding-top:16px;border-top:1.5px solid var(--ivory2);text-align:center;font-size:14px}
+.conn small{display:block;font:800 11px/1 var(--f);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+.conn a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;font:800 13px var(--f)}
+@media(max-width:720px){.tabs button{font-size:11.5px}.kpis{grid-template-columns:repeat(2,1fr)}.how{grid-template-columns:1fr}.hello h1{font-size:26px}.inv .two{grid-template-columns:1fr}.steps span{font-size:9.5px;padding:8px 3px}}
+@media print{body{background:#fff}.top,.prev,.wrap,.toast,.noprint{display:none!important}.dlg{position:static;display:block!important;background:none;padding:0}.dlg:not(#invD){display:none!important}.bx{max-width:none;max-height:none;border:0;padding:0}}
+</style>
+</head>
+<body>
+<header class="top">
+  <a href="../" aria-label="Back to Divine Design"><img src="../divine-design-logo.png" alt="Divine Design"></a>
+  <div class="ttl"><b>Client dashboard</b><small>Layouts, quotes, invoices and reviews</small></div>
+  <a class="btn dark" href="../">Open the planner</a>
+</header>
+<div class="prev">Preview with sample rates. No payment is taken and nothing here is a real charge.</div>
+
+<main class="wrap" id="app" hidden>
+  <div class="hello">
+    <div><h1 id="hi">Welcome</h1><p id="hiSub"></p></div>
+    <button class="link" id="outB">Sign out on this device</button>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><b id="kL">0</b><span>Saved layouts</span></div>
+    <div class="kpi"><b id="kQ">0</b><span>Quotes open</span></div>
+    <div class="kpi"><b id="kI">0</b><span>Invoices</span></div>
+    <div class="kpi"><b id="kR">0</b><span>Reviews given</span></div>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button class="on" data-t="lay" role="tab">My layouts</button>
+    <button data-t="inv" role="tab">Quotes and invoices</button>
+    <button data-t="rev" role="tab">Reviews</button>
+  </nav>
+
+  <section class="pane on" id="p-lay">
+    <p class="lead">Every layout you save in the planner lands here. Open one to keep working, or send it to Divine as a quote request.</p>
+    <div class="grid" id="layG"></div>
+    <div id="arcW" hidden><button class="link" id="arcT">Show archived layouts</button><div class="grid" id="arcG" hidden style="margin-top:10px"></div></div>
+  </section>
+
+  <section class="pane" id="p-inv">
+    <div class="how">
+      <div><b>Quote from the layout</b><span>The pieces on your floor plan become the quote lines. Nothing is typed twice.</span></div>
+      <div><b>Approve in one tap</b><span>Approve the quote here and the invoice is created automatically.</span></div>
+      <div><b>Print or save</b><span>Each invoice prints clean or saves as a PDF, with deposit and balance shown.</span></div>
+    </div>
+    <div id="invL"></div>
+  </section>
+
+  <section class="pane" id="p-rev">
+    <p class="lead">After an event, each client gets a review request. Happy reviews can be shared publicly with one tap. Anything lower goes privately to Divine first, so the team can make it right.</p>
+    <div id="revAsk"></div>
+    <h2 style="font:900 18px/1.1 var(--f);text-transform:uppercase;margin:20px 0 10px">Your reviews</h2>
+    <div id="revL"></div>
+  </section>
+
+  <div class="conn"><small>Connect with us</small><a href="https://www.linkedin.com/company/divine-furniture-rental/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/divinefurniturerental/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/Divine-Furniture-Rental-190292080982745/" target="_blank" rel="noopener">Facebook</a><a href="https://divinefr.com" target="_blank" rel="noopener">divinefr.com</a></div>
+</main>
+
+<div class="dlg" id="gate"><div class="bx">
+  <h4>Sign in to your dashboard</h4>
+  <p>Enter your details to see your saved layouts, quotes and invoices.</p>
+  <form id="gateF" novalidate>
+    <label class="gl">Your name<input id="gName" autocomplete="name" required></label>
+    <label class="gl">Email<input id="gEmail" type="email" autocomplete="email" inputmode="email" required></label>
+    <label class="gl">Company or event<input id="gCo" autocomplete="organization" required></label>
+    <label class="gl">Phone (optional)<input id="gPh" type="tel" autocomplete="tel" inputmode="tel"></label>
+    <p class="gerr" id="gErr" role="alert"></p>
+    <button class="btn gold" id="gGo" type="submit" style="width:100%">Continue</button>
+  </form>
+  <p class="fine" style="margin:10px 0 0">Your details are only used to set up your Divine Furniture Rental plan and are never sold or shared with third parties. You stay signed in on this device.</p>
+</div></div>
+
+<div class="dlg" id="nameD"><div class="bx">
+  <h4>Rename this layout</h4>
+  <label class="gl">Layout name<input id="nameI" maxlength="60"></label>
+  <div class="acts"><button class="btn gold" id="nameOk">Save name</button><button class="btn" id="nameX">Cancel</button></div>
+</div></div>
+
+<div class="dlg" id="invD"><div class="bx wide">
+  <div class="inv" id="invB"></div>
+  <div class="acts noprint" id="invA" style="margin-top:14px"></div>
+</div></div>
+
+<div class="dlg" id="revD"><div class="bx">
+  <h4 id="revH">How did it go?</h4>
+  <p>Tap a rating, then tell us about your event.</p>
+  <div class="stars" id="revS"></div>
+  <label class="gl">Your review<textarea id="revT" maxlength="800" placeholder="What stood out? What could be better?"></textarea></label>
+  <p class="gerr" id="revE" role="alert"></p>
+  <div class="acts"><button class="btn gold" id="revOk">Send my review</button><button class="btn" id="revX">Cancel</button></div>
+</div></div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)},$$=function(s){return [].slice.call(document.querySelectorAll(s))};
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function get(k,d){try{var v=JSON.parse(localStorage.getItem(k)||'null');return v==null?d:v}catch(e){return d}}
+function set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var tT;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tT);tT=setTimeout(function(){t.classList.remove('on')},3200)}
+function money(n){return '$'+n.toLocaleString('en-CA',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function day(iso){try{return new Date(iso).toLocaleDateString('en-CA',{year:'numeric',month:'short',day:'numeric'})}catch(e){return ''}}
+var STAR='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5l-5.9 3.1 1.2-6.5L2.5 9.5l6.6-.9z"/></svg>';
+
+/* Sample rates in Canadian dollars. Divine's real price list replaces these. */
+var RATE={'SS-450-SETUP-001':495,'SS-650-SETUP-010':495,'SS-600-SETUP-001':495,'SS-110-SETUP-001':495,'SS-810-SETUP-388':275,'SS-810-SETUP-120':425,'CRU-SETUP-001':165,'CAT-CRUISER':45,'BS-SET-252':22,'BAR-SETUP-106':285,'CAT-BARS':225,'COMM-SETUP-001':240,'DT-SETUP-001':210,'CAT-COFFEE':60,'MISC-UMB-005':95};
+var DELIVERY=250,HST=.13,DEPOSIT=.5;
+var SAMPLE={id:'sample',sample:1,name:'Sample: gala dinner for 72',at:'2026-11-01T15:00:00.000Z',pw:100,ph:60,seats:72,status:'Draft',
+  items:[{t:'CAT-BARS',n:'Bar',g:'div',q:2},{t:'SS-450-SETUP-001',n:'Eloise Vignette, Black Velvet',g:'div',q:2},{t:'CAT-CRUISER',n:'Cruiser table',g:'div',q:6},{t:'BS-SET-252',n:'Levi Barstool, White',g:'div',q:12},{t:'R60',n:'60" round, 8 chairs',g:'seat',q:9}],
+  objs:[['R60',20,33],['R60',50,33],['R60',80,33],['R60',20,42],['R60',50,42],['R60',80,42],['R60',20,51],['R60',50,51],['R60',80,51],['CAT-BARS',92,6],['CAT-BARS',8,6],['SS-450-SETUP-001',30,14],['SS-450-SETUP-001',70,14]].map(function(a,i){return {id:i+1,t:a[0],x:a[1],y:a[2],r:0}})};
+
+var FS='https://formsubmit.co/ajax/ryan@usechairlift.com';
+function send(subject,fields){var b={_subject:subject,_template:'table',_captcha:'false'};Object.keys(fields).forEach(function(k){b[k]=fields[k]});b.page=location.origin+location.pathname;
+  return fetch(FS,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(b)}).then(function(r){return r.ok}).catch(function(){return false})}
+
+var U=get('dfr-user',null);
+function layouts(){return get('dfr-saved',[])}
+function invs(){return get('dfr-inv',[])}
+function revs(){return get('dfr-rev',[])}
+function allLay(){var L=layouts();return L.filter(function(l){return !l.arch}).concat(L.some(function(l){return !l.arch})?[]:[sampleState()])}
+function sampleState(){var s=get('dfr-sample',{});var o={};Object.keys(SAMPLE).forEach(function(k){o[k]=SAMPLE[k]});if(s.status)o.status=s.status;return o}
+function findLay(id){if(id==='sample')return sampleState();return layouts().find(function(l){return l.id===id})}
+function saveLay(l){if(l.sample){set('dfr-sample',{status:l.status});return}var L=layouts(),i=L.findIndex(function(x){return x.id===l.id});if(i>=0){L[i]=l;set('dfr-saved',L)}}
+function divItems(l){return (l.items||[]).filter(function(i){return i.g==='div'})}
+function lines(l){return divItems(l).map(function(i){var r=RATE[i.t]||150;return {n:i.n,q:i.q,r:r,a:r*i.q}})}
+function totals(l){var ls=lines(l),sub=ls.reduce(function(a,b){return a+b.a},0)+(ls.length?DELIVERY:0),tax=Math.round(sub*HST*100)/100,tot=sub+tax;return {lines:ls,sub:sub,tax:tax,tot:tot,dep:Math.round(tot*DEPOSIT*100)/100}}
+
+function mini(l){var W=l.pw||100,H=l.ph||60,col={div:'#A8873A',seat:'#6F94BA',cat:'#C97E53',av:'#8C74BE'};
+  var gm={};(l.items||[]).forEach(function(i){gm[i.t]=i.g});
+  var s='<svg class="mini" viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Layout preview"><rect x=".5" y=".5" width="'+(W-1)+'" height="'+(H-1)+'" fill="#FBF9F4" stroke="#161B20" stroke-width=".6"/>';
+  (l.objs||[]).slice(0,400).forEach(function(o){var g=gm[o.t]||'seat',r=g==='seat'?2.6:2.2;s+=g==='seat'?'<circle cx="'+o.x+'" cy="'+o.y+'" r="'+r+'" fill="'+col[g]+'"/>':'<rect x="'+(o.x-r*1.4)+'" y="'+(o.y-r*.8)+'" width="'+r*2.8+'" height="'+r*1.6+'" fill="'+(col[g]||'#888')+'"/>'});
+  return s+'</svg>'}
+function openLink(l){var d={w:l.pw||100,h:l.ph||60,s:1,o:(l.objs||[]).map(function(o){return [o.t,Math.round(o.x*10)/10,Math.round(o.y*10)/10,o.r||0]})};return '../#layout='+btoa(JSON.stringify(d))}
+function chip(st){var c=st==='Paid'?'ok':st==='Draft'?'':st==='Quote requested'?'g':'k';return '<span class="chip '+c+'">'+esc(st)+'</span>'}
+
+function drawLay(){
+  var L=allLay(),h='';
+  L.forEach(function(l){var d=divItems(l).reduce(function(a,b){return a+b.q},0);
+    h+='<article class="card">'+mini(l)+'<div class="chips">'+chip(l.status||'Draft')+(l.sample?'<span class="chip">Sample</span>':'')+'</div><h3>'+esc(l.name)+'</h3>'+
+    '<p class="meta">Saved '+esc(day(l.at))+' · '+(l.seats||0)+' seats · '+d+' Divine piece'+(d===1?'':'s')+'</p>'+
+    '<div class="acts"><a class="btn" href="'+openLink(l)+'">Open in planner</a>'+
+    ((l.status||'Draft')==='Draft'?'<button class="btn gold" data-q="'+l.id+'">Request a quote</button>':'<button class="btn gold" data-v="'+l.id+'">View quote</button>')+
+    (l.sample?'':'<button class="btn sm" data-n="'+l.id+'">Rename</button><button class="btn sm" data-a="'+l.id+'">Archive</button>')+'</div></article>'});
+  if(!layouts().some(function(l){return !l.arch}))h+='<div class="empty"><b>No saved layouts yet</b>Build a layout in the planner, open Layout and quote, then tap Save to my dashboard. It will show up here.<div class="acts" style="margin-top:12px"><a class="btn gold" href="../">Open the planner</a></div></div>';
+  $('#layG').innerHTML=h;
+  var A=layouts().filter(function(l){return l.arch});$('#arcW').hidden=!A.length;
+  $('#arcG').innerHTML=A.map(function(l){return '<article class="card"><h3>'+esc(l.name)+'</h3><p class="meta">Archived. Saved '+esc(day(l.at))+'</p><div class="acts"><button class="btn" data-r="'+l.id+'">Restore</button></div></article>'}).join('');
+  $$('#layG [data-q]').forEach(function(b){b.onclick=function(){reqQuote(b.dataset.q)}});
+  $$('#layG [data-v]').forEach(function(b){b.onclick=function(){var i=invs().find(function(x){return x.lay===b.dataset.v});if(i)openInv(i.no)}});
+  $$('#layG [data-n]').forEach(function(b){b.onclick=function(){rename(b.dataset.n)}});
+  $$('#layG [data-a]').forEach(function(b){b.onclick=function(){var l=findLay(b.dataset.a);l.arch=1;saveLay(l);toast('Archived. You can restore it any time.');draw()}});
+  $$('#arcG [data-r]').forEach(function(b){b.onclick=function(){var l=findLay(b.dataset.r);delete l.arch;saveLay(l);toast('Layout restored');draw()}});
+}
+$('#arcT').onclick=function(){var g=$('#arcG');g.hidden=!g.hidden;this.textContent=g.hidden?'Show archived layouts':'Hide archived layouts'};
+
+var renId=null;
+function rename(id){renId=id;$('#nameI').value=findLay(id).name;$('#nameD').classList.add('on');$('#nameI').focus()}
+$('#nameX').onclick=function(){$('#nameD').classList.remove('on')};
+$('#nameOk').onclick=function(){var v=$('#nameI').value.trim();if(!v)return;var l=findLay(renId);l.name=v;saveLay(l);$('#nameD').classList.remove('on');draw()};
+
+function reqQuote(id){var l=findLay(id);if(!l)return;
+  if(!divItems(l).length){toast('This layout has no Divine pieces yet. Add some in the planner first.');return}
+  var I=invs(),no='DFR-'+String(1001+I.length);var t=totals(l);
+  I.push({no:no,lay:l.id,name:l.name,at:new Date().toISOString(),status:'Quote requested',sample:l.sample?1:0});set('dfr-inv',I);
+  l.status='Quote requested';saveLay(l);draw();openInv(no);toast('Quote request sent');
+  if(!l.sample)send('Divine Design quote request: '+l.name,{name:U.name,email:U.email,company:U.co||'',phone:U.ph||'',layout:l.name,quote_number:no,seats:l.seats||0,pieces:t.lines.map(function(x){return x.q+' x '+x.n}).join('; '),sample_total:money(t.tot)});
+}
+
+var ST=['Quote requested','Approved','Invoice sent','Paid'];
+function drawInv(){var I=invs().slice().reverse();
+  $('#invL').innerHTML=I.length?I.map(function(i){var l=findLay(i.lay)||{items:[]};var t=totals(l);
+    return '<div class="row"><div><div class="chips" style="margin-bottom:6px">'+chip(i.status)+(i.sample?'<span class="chip">Sample</span>':'')+'</div><h3>'+esc(i.no)+' · '+esc(i.name)+'</h3><p class="meta">'+(i.status==='Quote requested'?'Quote requested ':'Invoice dated ')+esc(day(i.inv||i.at))+'</p></div><div class="amt">'+money(t.tot)+'</div><div class="acts"><button class="btn gold" data-o="'+i.no+'">'+(i.status==='Quote requested'?'Review and approve':'View invoice')+'</button></div></div>'}).join('')
+  :'<div class="empty"><b>No quotes yet</b>Open My layouts and tap Request a quote on any layout. The quote is built from the pieces on your floor plan.</div>';
+  $$('#invL [data-o]').forEach(function(b){b.onclick=function(){openInv(b.dataset.o)}});
+}
+var curNo=null;
+function openInv(no){curNo=no;var i=invs().find(function(x){return x.no===no});if(!i)return;var l=findLay(i.lay)||{items:[]},t=totals(l),si=ST.indexOf(i.status),isInv=si>=1;
+  var due=new Date(new Date(i.inv||i.at).getTime()+14*864e5).toISOString();
+  var h='<div class="hd"><img src="../../img/logo-gold.png" alt="Divine Furniture Rental"><div class="no"><b>'+(isInv?'Invoice':'Quote')+'</b>'+esc(i.no)+'<br>'+esc(day(i.inv||i.at))+'</div></div>'+
+   '<div class="steps noprint">'+ST.map(function(s,k){return '<span class="'+(k<si?'on':k===si?'now':'')+'">'+s+'</span>'}).join('')+'</div>'+
+   '<div class="two"><div><h5>Prepared for</h5><b>'+esc(U.name)+'</b><br>'+esc(U.co||'')+'<br>'+esc(U.email)+'</div><div><h5>Event layout</h5><b>'+esc(i.name)+'</b><br>'+(l.seats||0)+' seats'+(isInv?'<br>Deposit due on receipt, balance due '+esc(day(due)):'')+'</div></div>'+
+   '<table><thead><tr><th>Item</th><th class="r">Qty</th><th class="r">Rate</th><th class="r">Amount</th></tr></thead><tbody>'+
+   t.lines.map(function(x){return '<tr><td>'+esc(x.n)+'</td><td class="r">'+x.q+'</td><td class="r">'+money(x.r)+'</td><td class="r">'+money(x.a)+'</td></tr>'}).join('')+
+   '<tr><td>Delivery, setup and pickup</td><td class="r">1</td><td class="r">'+money(DELIVERY)+'</td><td class="r">'+money(DELIVERY)+'</td></tr></tbody></table>'+
+   '<table class="tot"><tr><td class="r">Subtotal</td><td class="r" style="width:130px">'+money(t.sub)+'</td></tr><tr><td class="r">HST (13%)</td><td class="r">'+money(t.tax)+'</td></tr><tr class="big"><td class="r">Total (CAD)</td><td class="r">'+money(t.tot)+'</td></tr>'+
+   (isInv?'<tr><td class="r">Deposit (50%)'+(i.status==='Paid'?', paid':'')+'</td><td class="r">'+money(t.dep)+'</td></tr><tr><td class="r">Balance</td><td class="r">'+money(i.status==='Paid'?0:t.tot-t.dep)+'</td></tr>':'')+'</table>'+
+   '<p class="note">Sample rates for this preview. Divine’s real price list, delivery zones and terms replace these. No payment is taken here.</p>';
+  $('#invB').innerHTML=h;
+  var a='';
+  if(i.status==='Quote requested')a+='<button class="btn gold" data-s="Approved">Approve this quote</button>';
+  if(i.status==='Approved'||i.status==='Invoice sent')a+='<button class="btn gold" data-s="Paid">Mark deposit paid (demo)</button>';
+  if(isInv)a+='<button class="btn" id="invP">Print or save as PDF</button>';
+  if(i.status==='Paid')a+='<button class="btn gold" id="invR">Leave a review</button>';
+  a+='<button class="btn" id="invX">Close</button>';
+  $('#invA').innerHTML=a;
+  $$('#invA [data-s]').forEach(function(b){b.onclick=function(){setSt(no,b.dataset.s)}});
+  if($('#invP'))$('#invP').onclick=function(){window.print()};
+  if($('#invR'))$('#invR').onclick=function(){$('#invD').classList.remove('on');tab('rev');askRev(i.lay)};
+  $('#invX').onclick=function(){$('#invD').classList.remove('on')};
+  $('#invD').classList.add('on');
+}
+function setSt(no,st){var I=invs(),i=I.find(function(x){return x.no===no});if(!i)return;
+  if(st==='Approved'){i.status='Invoice sent';i.inv=new Date().toISOString();toast('Quote approved. Your invoice was created automatically.')}
+  else{i.status=st;toast('Marked as paid in this preview. No payment was taken.')}
+  set('dfr-inv',I);var l=findLay(i.lay);if(l){l.status=i.status;saveLay(l)}draw();openInv(no);
+  if(!i.sample)send('Divine Design: '+i.no+' is now '+i.status,{name:U.name,email:U.email,company:U.co||'',quote_number:i.no,layout:i.name,status:i.status});
+}
+
+var revLay=null,revN=0;
+function drawRev(){var done={};revs().forEach(function(r){done[r.lay]=1});
+  var el=invs().filter(function(i){return (i.status==='Paid'||i.status==='Invoice sent')&&!done[i.lay]});
+  $('#revAsk').innerHTML=el.length?el.map(function(i){return '<div class="row"><div><h3>'+esc(i.name)+'</h3><p class="meta">How did your event go? It takes about a minute.</p></div><div></div><div class="acts"><button class="btn gold" data-rv="'+i.lay+'">Leave a review</button></div></div>'}).join('')
+   :'<div class="empty"><b>No review requests yet</b>Once a quote is approved and the event is done, the review request shows here.</div>';
+  $$('#revAsk [data-rv]').forEach(function(b){b.onclick=function(){askRev(b.dataset.rv)}});
+  var R=revs().slice().reverse();
+  $('#revL').innerHTML=R.length?R.map(function(r){var s='';for(var k=1;k<=5;k++)s+=STAR.replace('<svg','<svg class="'+(k<=r.n?'on':'')+'"');
+    return '<div class="rv"><div class="st">'+s+'</div><b>'+esc(r.name)+'</b><p style="margin-top:4px">'+esc(r.t)+'</p><p class="fine" style="margin-top:6px">'+esc(day(r.at))+' · '+(r.n>=4?'Ready to share publicly':'Sent privately to Divine')+'</p></div>'}).join('')
+   :'<p class="fine">You have not left a review yet.</p>';
+}
+function askRev(lay){revLay=lay;revN=0;var l=findLay(lay);$('#revH').textContent='How did '+(l?l.name.replace(/^Sample: /,''):'your event')+' go?';$('#revT').value='';$('#revE').textContent='';stars();$('#revD').classList.add('on')}
+function stars(){var h='';for(var k=1;k<=5;k++)h+='<button type="button" class="'+(k<=revN?'on':'')+'" data-k="'+k+'" aria-label="'+k+' star'+(k>1?'s':'')+'">'+STAR+'</button>';$('#revS').innerHTML=h;$$('#revS button').forEach(function(b){b.onclick=function(){revN=+b.dataset.k;stars()}})}
+$('#revX').onclick=function(){$('#revD').classList.remove('on')};
+$('#revOk').onclick=function(){var t=$('#revT').value.trim();if(!revN){$('#revE').textContent='Please tap a star rating.';return}if(t.length<5){$('#revE').textContent='Please add a few words.';return}
+  var l=findLay(revLay)||{name:'Your event'},R=revs();R.push({lay:revLay,name:l.name,n:revN,t:t,at:new Date().toISOString()});set('dfr-rev',R);$('#revD').classList.remove('on');draw();
+  toast(revN>=4?'Thank you. Your review is ready to share.':'Thank you. This goes privately to the Divine team.');
+  if(!l.sample)send('Divine Design review: '+revN+' of 5',{name:U.name,email:U.email,company:U.co||'',layout:l.name,rating:revN+' of 5',review:t});
+};
+
+function tab(t){$$('.tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.t===t)});$$('.pane').forEach(function(p){p.classList.toggle('on',p.id==='p-'+t)})}
+$$('.tabs button').forEach(function(b){b.onclick=function(){tab(b.dataset.t)}});
+function draw(){drawLay();drawInv();drawRev();
+  $('#kL').textContent=layouts().filter(function(l){return !l.arch}).length;
+  $('#kQ').textContent=invs().filter(function(i){return i.status==='Quote requested'}).length;
+  $('#kI').textContent=invs().filter(function(i){return i.status!=='Quote requested'}).length;
+  $('#kR').textContent=revs().length}
+function start(){$('#gate').classList.remove('on');$('#app').hidden=false;$('#hi').textContent='Welcome, '+(U.name||'').split(' ')[0];$('#hiSub').textContent=(U.co?U.co+' · ':'')+U.email;draw();
+  if(/[#&]tab=(inv|rev)/.test(location.hash))tab(RegExp.$1)}
+$('#outB').onclick=function(){if(!confirm('Sign out on this device? Your saved layouts stay on this device.'))return;try{localStorage.removeItem('dfr-user')}catch(e){}location.reload()};
+$('#gateF').onsubmit=function(e){e.preventDefault();var n=$('#gName').value.trim(),m=$('#gEmail').value.trim(),c=$('#gCo').value.trim(),err=$('#gErr');
+  if(!n){err.textContent='Please enter your name.';$('#gName').focus();return}
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m)){err.textContent='Please enter a valid email.';$('#gEmail').focus();return}
+  if(!c){err.textContent='Please enter your company or event.';$('#gCo').focus();return}
+  err.textContent='';U={name:n,email:m,co:c,ph:$('#gPh').value.trim(),at:new Date().toISOString(),sent:0};set('dfr-user',U);start();
+  send('Divine Design sign-in: '+n,{name:n,email:m,company:c,phone:U.ph,signed_in:U.at}).then(function(ok){if(ok){U.sent=1;set('dfr-user',U)}})};
+if(U&&U.email)start();else $('#gate').classList.add('on');
+})();
+</script>
+</body>
+</html>
