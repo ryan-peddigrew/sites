@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en-CA">
-<head><script>(function(){var B="1794491363";try{fetch("ver.txt?"+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():B}).then(function(t){t=(t||"").trim();if(/^\d+$/.test(t)&&+t>+B){var u=new URL(location.href);if(u.searchParams.get("_v")!==t){u.searchParams.set("_v",t);location.replace(u.toString())}}}).catch(function(){})}catch(e){}})()</script>
+<head><script>(function(){var B="1794491584";try{fetch("ver.txt?"+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():B}).then(function(t){t=(t||"").trim();if(/^\d+$/.test(t)&&+t>+B){var u=new URL(location.href);if(u.searchParams.get("_v")!==t){u.searchParams.set("_v",t);location.replace(u.toString())}}}).catch(function(){})}catch(e){}})()</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Steady Improvements | Interior finishes, done properly.</title><meta property="og:type" content="website"><meta property="og:site_name" content="Steady Improvements"><meta property="og:title" content="Steady Improvements | Interior finishes, done properly."><meta property="og:description" content="Take the tour of the new Steady Improvements site."><meta property="og:image" content="https://ryan-peddigrew.github.io/sites/steady-improvements/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://ryan-peddigrew.github.io/sites/steady-improvements/og.png">
@@ -1085,6 +1085,23 @@ header.top .mbtn.tb b::after{content:"";width:24px;height:11px;border-top:3px so
 header.top .mbtn.tb{width:52px!important;justify-content:flex-end!important}
 header.top .mbtn.tb .rul{width:46px;height:auto;display:block;transition:transform .2s}
 header.top .mbtn.tb:active .rul{transform:scale(.94)}
+
+header.top .mbtn.tb{width:48px!important;height:48px!important;justify-content:center!important}
+header.top .mbtn.tb .rul.sq{width:38px;height:auto;display:block;transform-origin:22% 82%;transition:transform .45s cubic-bezier(.3,1.5,.5,1)}
+header.top .mbtn.tb:active .rul.sq{transform:rotate(-18deg)}
+header.top .mbtn.tb[aria-expanded=true] .rul.sq{transform:rotate(90deg)}
+@media(max-width:980px){.top .brand>svg{width:128px!important}}
+.mnav{overflow:hidden}
+.mnav::before,.mnav::after{content:"";position:absolute;background-color:var(--ink);z-index:0;pointer-events:none}
+.mnav::before{left:0;top:18%;bottom:0;width:30px;background-image:repeating-linear-gradient(0deg,#6FAEE3 0 2px,#0000 2px 14px),repeating-linear-gradient(0deg,#6FAEE3 0 2px,#0000 2px 56px);background-size:10px 100%,18px 100%;background-repeat:no-repeat;background-position:100% 0,100% 0;animation:sqv .6s cubic-bezier(.2,.9,.25,1) both}
+.mnav::after{left:0;right:22%;bottom:0;height:30px;background-image:repeating-linear-gradient(90deg,#6FAEE3 0 2px,#0000 2px 14px),repeating-linear-gradient(90deg,#6FAEE3 0 2px,#0000 2px 56px);background-size:100% 10px,100% 18px;background-repeat:no-repeat;background-position:0 0,0 0;animation:sqh .6s cubic-bezier(.2,.9,.25,1) .08s both}
+@keyframes sqv{from{translate:0 110%}to{translate:0 0}}
+@keyframes sqh{from{translate:-110% 0}to{translate:0 0}}
+.mnav>a,.mnav>p{position:relative;z-index:1;margin-left:26px}
+.mnav>a{animation:mnin .5s cubic-bezier(.2,.9,.25,1) both}
+.mnav>a:nth-of-type(2){animation-delay:.05s}.mnav>a:nth-of-type(3){animation-delay:.1s}.mnav>a:nth-of-type(4){animation-delay:.15s}.mnav>a:nth-of-type(5){animation-delay:.2s}.mnav>a:nth-of-type(6){animation-delay:.25s}
+@keyframes mnin{from{translate:-40px 0;opacity:0}to{translate:0 0;opacity:1}}
+@media(prefers-reduced-motion:reduce){.mnav::before,.mnav::after,.mnav>a{animation:none}}
 </style>
 </head>
 <body class="hx-clean">
@@ -1104,7 +1121,7 @@ header.top .mbtn.tb:active .rul{transform:scale(.94)}
       <svg class="logo hd" viewBox="-4 -184 646 242" role="img" aria-label="Steady Improvements"><use href="#lg1"/></svg>
     </a>
     <p class="htag"><span>Carpentry<br class="hbr"> <em>you can count on.</em></span><a class="gq" href="#quote">Get a quote</a><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#smi"/></svg></p>
-    <button class="mbtn tb" id="mbtn" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><svg class="rul" viewBox="0 0 44 30" aria-hidden="true"><rect x="1" y="2" width="42" height="10" rx="1.6" fill="#111111"/><g stroke="#6FAEE3" stroke-width="1.3" fill="none"><path d="M8.0 2 v3.2"/><path d="M12.0 2 v3.2"/><path d="M16.0 2 v3.2"/><path d="M20.0 2 v5.5"/><path d="M24.0 2 v3.2"/><path d="M28.0 2 v3.2"/><path d="M32.0 2 v3.2"/><path d="M36.0 2 v5.5"/><path d="M40.0 2 v3.2"/></g><rect x="1" y="18" width="42" height="10" rx="1.6" fill="#111111"/><g stroke="#6FAEE3" stroke-width="1.3" fill="none"><path d="M8.0 18 v3.2"/><path d="M12.0 18 v3.2"/><path d="M16.0 18 v3.2"/><path d="M20.0 18 v5.5"/><path d="M24.0 18 v3.2"/><path d="M28.0 18 v3.2"/><path d="M32.0 18 v3.2"/><path d="M36.0 18 v5.5"/><path d="M40.0 18 v3.2"/></g></svg></button>
+    <button class="mbtn tb" id="mbtn" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><svg class="rul sq" viewBox="0 0 36 34" aria-hidden="true"><path d="M3 2h8v21h23v8H3z" fill="#111111"/><g stroke="#6FAEE3" stroke-width="1.2" fill="none"><path d="M3 6.4h3"/><path d="M3 9.8h3"/><path d="M3 13.2h3"/><path d="M3 16.6h5"/><path d="M3 20.0h3"/><path d="M3 23.4h3"/><path d="M3 26.8h3"/><path d="M14.4 31v-3"/><path d="M17.8 31v-3"/><path d="M21.2 31v-3"/><path d="M24.6 31v-5"/><path d="M28.0 31v-3"/><path d="M31.4 31v-3"/></g></svg></button>
     <nav class="nav" aria-label="Main">
       <a class="l" href="#services">Services</a>
       
