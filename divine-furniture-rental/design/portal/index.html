@@ -155,6 +155,12 @@ a{color:inherit}
   <div class="conn"><small>Connect with us</small><a href="https://www.linkedin.com/company/divine-furniture-rental/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/divinefurniturerental/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/Divine-Furniture-Rental-190292080982745/" target="_blank" rel="noopener">Facebook</a><a href="https://divinefr.com" target="_blank" rel="noopener">divinefr.com</a></div>
 </main>
 
+<div class="dlg" id="gnote"><div class="bx" style="text-align:center">
+  <h4>Your client dashboard</h4>
+  <p style="margin-bottom:6px">Client sign-in will be prompted here.</p>
+  <p class="fine" style="margin:0 0 14px">It is switched off for this preview, so you can go straight in.</p>
+  <button class="btn gold" id="gnoteGo" style="width:100%;justify-content:center;min-height:48px">Continue</button>
+</div></div>
 <div class="dlg" id="gate"><div class="bx">
   <h4>Sign in to your dashboard</h4>
   <p>Enter your details to see your saved layouts, quotes and invoices.</p>
@@ -210,7 +216,7 @@ var SAMPLE={id:'sample',sample:1,name:'Sample: gala dinner for 72',at:'2026-11-0
   objs:[['R60',20,33],['R60',50,33],['R60',80,33],['R60',20,42],['R60',50,42],['R60',80,42],['R60',20,51],['R60',50,51],['R60',80,51],['CAT-BARS',92,6],['CAT-BARS',8,6],['SS-450-SETUP-001',30,14],['SS-450-SETUP-001',70,14]].map(function(a,i){return {id:i+1,t:a[0],x:a[1],y:a[2],r:0}})};
 
 var FS='https://formsubmit.co/ajax/ryan@usechairlift.com';
-function send(subject,fields){var b={_subject:subject,_template:'table',_captcha:'false'};Object.keys(fields).forEach(function(k){b[k]=fields[k]});b.page=location.origin+location.pathname;
+function send(subject,fields){if(U&&U.guest)return Promise.resolve(false);var b={_subject:subject,_template:'table',_captcha:'false'};Object.keys(fields).forEach(function(k){b[k]=fields[k]});b.page=location.origin+location.pathname;
   return fetch(FS,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(b)}).then(function(r){return r.ok}).catch(function(){return false})}
 
 var U=get('dfr-user',null);
@@ -278,7 +284,7 @@ function openInv(no){curNo=no;var i=invs().find(function(x){return x.no===no});i
   var due=new Date(new Date(i.inv||i.at).getTime()+14*864e5).toISOString();
   var h='<div class="hd"><img src="../../img/logo-gold.png" alt="Divine Furniture Rental"><div class="no"><b>'+(isInv?'Invoice':'Quote')+'</b>'+esc(i.no)+'<br>'+esc(day(i.inv||i.at))+'</div></div>'+
    '<div class="steps noprint">'+ST.map(function(s,k){return '<span class="'+(k<si?'on':k===si?'now':'')+'">'+s+'</span>'}).join('')+'</div>'+
-   '<div class="two"><div><h5>Prepared for</h5><b>'+esc(U.name)+'</b><br>'+esc(U.co||'')+'<br>'+esc(U.email)+'</div><div><h5>Event layout</h5><b>'+esc(i.name)+'</b><br>'+(l.seats||0)+' seats'+(isInv?'<br>Deposit due on receipt, balance due '+esc(day(due)):'')+'</div></div>'+
+   '<div class="two"><div><h5>Prepared for</h5>'+(U.guest?'<b>Client name</b><br>Filled in from sign-in':'<b>'+esc(U.name)+'</b><br>'+esc(U.co||'')+'<br>'+esc(U.email))+'</div><div><h5>Event layout</h5><b>'+esc(i.name)+'</b><br>'+(l.seats||0)+' seats'+(isInv?'<br>Deposit due on receipt, balance due '+esc(day(due)):'')+'</div></div>'+
    '<table><thead><tr><th>Item</th><th class="r">Qty</th><th class="r">Rate</th><th class="r">Amount</th></tr></thead><tbody>'+
    t.lines.map(function(x){return '<tr><td>'+esc(x.n)+'</td><td class="r">'+x.q+'</td><td class="r">'+money(x.r)+'</td><td class="r">'+money(x.a)+'</td></tr>'}).join('')+
    '<tr><td>Delivery, setup and pickup</td><td class="r">1</td><td class="r">'+money(DELIVERY)+'</td><td class="r">'+money(DELIVERY)+'</td></tr></tbody></table>'+
@@ -333,7 +339,7 @@ function draw(){drawLay();drawInv();drawRev();
   $('#kQ').textContent=invs().filter(function(i){return i.status==='Quote requested'}).length;
   $('#kI').textContent=invs().filter(function(i){return i.status!=='Quote requested'}).length;
   $('#kR').textContent=revs().length}
-function start(){$('#gate').classList.remove('on');$('#app').hidden=false;$('#hi').textContent='Welcome, '+(U.name||'').split(' ')[0];$('#hiSub').textContent=(U.co?U.co+' · ':'')+U.email;draw();
+function start(){$('#gate').classList.remove('on');$('#app').hidden=false;$('#hi').textContent=U.guest?'Welcome':'Welcome, '+(U.name||'').split(' ')[0];$('#hiSub').textContent=U.guest?'Preview mode. Client sign-in will be prompted here.':(U.co?U.co+' · ':'')+U.email;$('#outB').hidden=!!U.guest;draw();
   if(/[#&]tab=(inv|rev)/.test(location.hash))tab(RegExp.$1)}
 $('#outB').onclick=function(){if(!confirm('Sign out on this device? Your saved layouts stay on this device.'))return;try{localStorage.removeItem('dfr-user')}catch(e){}location.reload()};
 $('#gateF').onsubmit=function(e){e.preventDefault();var n=$('#gName').value.trim(),m=$('#gEmail').value.trim(),c=$('#gCo').value.trim(),err=$('#gErr');
@@ -342,7 +348,7 @@ $('#gateF').onsubmit=function(e){e.preventDefault();var n=$('#gName').value.trim
   if(!c){err.textContent='Please enter your company or event.';$('#gCo').focus();return}
   err.textContent='';U={name:n,email:m,co:c,ph:$('#gPh').value.trim(),at:new Date().toISOString(),sent:0};set('dfr-user',U);start();
   send('Divine Design sign-in: '+n,{name:n,email:m,company:c,phone:U.ph,signed_in:U.at}).then(function(ok){if(ok){U.sent=1;set('dfr-user',U)}})};
-if(U&&U.email)start();else $('#gate').classList.add('on');
+if(U&&U.email)start();else{U={name:'',email:'',co:'',guest:1};var gDone=false,gIn=function(){if(gDone)return;gDone=true;$('#gnote').classList.remove('on');start()};$('#gnote').classList.add('on');$('#gnoteGo').onclick=gIn;setTimeout(gIn,3500)}
 })();
 </script>
 </body>

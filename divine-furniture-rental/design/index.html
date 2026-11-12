@@ -268,6 +268,12 @@ button{background:none;border:0;cursor:pointer}
   <p class="vnote">Layouts from Divine's own past events will be added here.</p>
   <div class="row"><button class="tb" id="pastX">Close</button></div>
 </div></div>
+<div class="dlg" id="gnote"><div class="bx" style="text-align:center">
+  <h4>Welcome to Divine Design</h4>
+  <p style="margin-bottom:6px">Client sign-in will be prompted here.</p>
+  <p class="fine" style="margin:0 0 14px">It is switched off for this preview, so you can go straight in.</p>
+  <button class="tb gold" id="gnoteGo" style="width:100%;justify-content:center;min-height:48px">Continue</button>
+</div></div>
 <div class="dlg" id="gate"><div class="bx sbx">
   <h4>Sign in to Divine Design</h4>
   <p>Enter your details to use the planner. We use them to follow up about your event.</p>
@@ -692,7 +698,7 @@ $('#gateF').onsubmit=function(e){e.preventDefault();var n=$('#gName').value.trim
   var fin=function(ok){u.sent=ok?1:0;try{localStorage.setItem('dfr-user',JSON.stringify(u))}catch(x){}$('#gate').classList.remove('on');$('#gGo').disabled=false;$('#gGo').textContent='Continue';if(!had)openStart()};
   var done=false,t=setTimeout(function(){if(!done){done=true;fin(false)}},6000);
   gSend(u).then(function(ok){if(!done){done=true;clearTimeout(t);fin(ok)}}).catch(function(){if(!done){done=true;clearTimeout(t);fin(false)}})};
-if(!/[?&]install=1/.test(location.search)){if(gUser()){gRetry();if(!had)openStart()}else{hold=true;$('#gate').classList.add('on')}}
+if(!/[?&]install=1/.test(location.search)){if(gUser()){gRetry();if(!had)openStart()}else{hold=true;var gDone=false,gIn=function(){if(gDone)return;gDone=true;$('#gnote').classList.remove('on');hold=false;if(!had)openStart()};$('#gnote').classList.add('on');$('#gnoteGo').onclick=gIn;setTimeout(gIn,3500)}}
 $('#pastG').innerHTML=CAT.div.items.filter(function(it){return it.img}).map(function(it){return '<button type="button" data-i="'+it.id+'"><img src="'+it.img+'" alt="" loading="lazy"><span>'+esc(it.n)+'</span></button>'}).join('');
 $$('#pastG button').forEach(function(b){b.onclick=function(){$('#past').classList.remove('on');$('#ven').classList.remove('on');add(b.dataset.i,S.pw/2,S.ph/2);try{persist()}catch(e){}toast('Added to your layout. Drag it into place.')}});
 function openPast(){$('#past').classList.add('on')}
