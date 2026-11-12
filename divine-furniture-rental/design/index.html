@@ -117,6 +117,9 @@ button{background:none;border:0;cursor:pointer}
 .vpast:hover{background:var(--gold)}
 .vest{display:block;font:700 11px/1.3 var(--f);font-style:normal;color:#8a5a00;margin-top:2px}
 .vrow.ve img{opacity:.8}
+.gl{display:block;font:800 11px/1 var(--f);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.gl input{display:block;margin-top:6px;font-weight:400;letter-spacing:0;text-transform:none}
+.gerr{color:#b3261e;font-weight:700;min-height:18px;margin:0 0 8px!important}
 .sbx{max-width:480px;max-height:92vh;overflow:auto}
 .sst{margin:0 0 14px 18px;font-size:14px;color:var(--mute);line-height:1.4}.sst li{margin-bottom:6px}.sst b{color:var(--ink)}
 .sbtn{width:100%;justify-content:center;margin-bottom:8px;min-height:48px}
@@ -260,6 +263,19 @@ button{background:none;border:0;cursor:pointer}
   <div class="pg" id="pastG"></div>
   <p class="vnote">Layouts from Divine's own past events will be added here.</p>
   <div class="row"><button class="tb" id="pastX">Close</button></div>
+</div></div>
+<div class="dlg" id="gate"><div class="bx sbx">
+  <h4>Sign in to Divine Design</h4>
+  <p>Enter your details to use the planner. We use them to follow up about your event.</p>
+  <form id="gateF" novalidate>
+    <label class="gl">Your name<input id="gName" autocomplete="name" required></label>
+    <label class="gl">Email<input id="gEmail" type="email" autocomplete="email" inputmode="email" required></label>
+    <label class="gl">Company or event (optional)<input id="gCo" autocomplete="organization"></label>
+    <label class="gl">Phone (optional)<input id="gPh" type="tel" autocomplete="tel" inputmode="tel"></label>
+    <p class="gerr" id="gErr" role="alert"></p>
+    <button class="tb gold sbtn" id="gGo" type="submit">Continue</button>
+  </form>
+  <p class="fine" style="margin:6px 0 0">Your details are sent only to the team behind this tool and are never shared or sold. You stay signed in on this device.</p>
 </div></div>
 <div class="dlg" id="start"><div class="bx sbx">
   <h4>Plan your event</h4>
@@ -644,7 +660,19 @@ $('#pastEv').innerHTML=Object.keys(EVT).map(function(k){return '<button type="bu
 $$('#pastEv button').forEach(function(b){b.onclick=function(){$('#past').classList.remove('on');$('#ven').classList.remove('on');evApply(b.dataset.e)}});
 $('#stEv').innerHTML=Object.keys(EVT).map(function(k){return '<button type="button" data-e="'+k+'">'+EVT[k].n+'</button>'}).join('');
 $$('#stEv button').forEach(function(b){b.onclick=function(){hold=false;$('#start').classList.remove('on');S={plan:null,ftPerPx:null,pw:100,ph:60,objs:[]};selId=null;drawPlan();fit();evApply(b.dataset.e)}});
-if(!had&&!/[?&]install=1/.test(location.search))openStart();
+var GATE_TO='https://formsubmit.co/ajax/ryan@usechairlift.com';
+function gUser(){try{return JSON.parse(localStorage.getItem('dfr-user')||'null')}catch(e){return null}}
+function gSend(u){return fetch(GATE_TO,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'Divine Design sign-in: '+u.name,_template:'table',_captcha:'false',name:u.name,email:u.email,company:u.co||'',phone:u.ph||'',signed_in:u.at,page:location.origin+location.pathname})}).then(function(r){return r.ok})}
+function gRetry(){var u=gUser();if(u&&!u.sent){gSend(u).then(function(ok){if(ok){u.sent=1;try{localStorage.setItem('dfr-user',JSON.stringify(u))}catch(e){}}}).catch(function(){})}}
+$('#gateF').onsubmit=function(e){e.preventDefault();var n=$('#gName').value.trim(),m=$('#gEmail').value.trim(),err=$('#gErr');
+  if(!n){err.textContent='Please enter your name.';$('#gName').focus();return}
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m)){err.textContent='Please enter a valid email.';$('#gEmail').focus();return}
+  err.textContent='';var u={name:n,email:m,co:$('#gCo').value.trim(),ph:$('#gPh').value.trim(),at:new Date().toISOString()};
+  $('#gGo').disabled=true;$('#gGo').textContent='One moment';
+  var fin=function(ok){u.sent=ok?1:0;try{localStorage.setItem('dfr-user',JSON.stringify(u))}catch(x){}$('#gate').classList.remove('on');$('#gGo').disabled=false;$('#gGo').textContent='Continue';if(!had)openStart()};
+  var done=false,t=setTimeout(function(){if(!done){done=true;fin(false)}},6000);
+  gSend(u).then(function(ok){if(!done){done=true;clearTimeout(t);fin(ok)}}).catch(function(){if(!done){done=true;clearTimeout(t);fin(false)}})};
+if(!/[?&]install=1/.test(location.search)){if(gUser()){gRetry();if(!had)openStart()}else{hold=true;$('#gate').classList.add('on')}}
 $('#pastG').innerHTML=CAT.div.items.filter(function(it){return it.img}).map(function(it){return '<button type="button" data-i="'+it.id+'"><img src="'+it.img+'" alt="" loading="lazy"><span>'+esc(it.n)+'</span></button>'}).join('');
 $$('#pastG button').forEach(function(b){b.onclick=function(){$('#past').classList.remove('on');$('#ven').classList.remove('on');add(b.dataset.i,S.pw/2,S.ph/2);try{persist()}catch(e){}toast('Added to your layout. Drag it into place.')}});
 function openPast(){$('#past').classList.add('on')}
