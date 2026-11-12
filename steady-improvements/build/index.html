@@ -1,0 +1,120 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><meta name="theme-color" content="#B6DFED">
+<title>Steady Build</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bb:#B6DFED;--ink:#002941;--paper:#FFF8E7;--yel:#FFD23F;--org:#F47B20;--stone:#33526B;--lab:'Oswald','Arial Narrow',sans-serif;--sans:'Work Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font:400 16px/1.5 var(--sans);padding-bottom:78px}
+h1,h2,h3{font-family:var(--lab);text-transform:uppercase;line-height:.95;letter-spacing:.01em}
+button,input,select{font:inherit;color:inherit}button{cursor:pointer}
+.top{position:sticky;top:0;z-index:20;background:var(--bb);display:flex;align-items:center;gap:12px;padding:10px 16px;min-height:64px;border-bottom:3px solid var(--ink)}
+.mk{display:flex;align-items:center;gap:10px;font:700 24px/1 var(--lab);letter-spacing:.08em;text-transform:uppercase}.mk svg{width:30px;height:26px}
+.who{margin-left:auto;display:flex;border:2px solid var(--ink)}.who button{min-height:44px;padding:0 14px;border:0;background:transparent;font:600 12px var(--lab);letter-spacing:.16em;text-transform:uppercase}.who .on{background:var(--ink);color:var(--paper)}
+main{max-width:1100px;margin:0 auto;padding:20px 16px}
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--ink);display:grid;grid-auto-flow:column;grid-auto-columns:1fr}
+.nav button{min-height:62px;border:0;background:transparent;color:var(--paper);font:600 12px var(--lab);letter-spacing:.16em;text-transform:uppercase;display:grid;place-items:center;gap:3px;padding-top:6px}
+.nav svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8}.nav .on{background:var(--bb);color:var(--ink)}
+.blk{display:table;background:var(--ink);color:var(--paper);padding:.06em .14em .1em;margin-top:-1px}.blk.a{background:var(--bb);color:var(--ink)}
+.hd1{font-size:clamp(40px,9vw,92px)}
+.eyebrow{font:600 12px/1 var(--lab);letter-spacing:.22em;text-transform:uppercase;display:flex;gap:10px;align-items:center;margin-bottom:12px}.eyebrow::before{content:"";width:26px;height:8px;background:var(--org)}
+.card{background:#fff;box-shadow:0 0 0 2px var(--ink);padding:18px;margin-top:16px}
+.card h3{font-size:22px;margin-bottom:12px}.sample{font:600 11px var(--lab);letter-spacing:.18em;text-transform:uppercase;background:var(--yel);padding:4px 8px;display:inline-block;margin-bottom:10px}
+.grid{display:grid;gap:16px;grid-template-columns:1fr}@media(min-width:860px){.grid.two{grid-template-columns:1.4fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
+.next{background:var(--ink);color:var(--paper);padding:18px;margin-top:18px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}.next b{font:700 24px/1.05 var(--lab);text-transform:uppercase;display:block}
+.btn{min-height:48px;padding:0 20px;border:0;background:var(--bb);color:var(--ink);font:700 14px var(--lab);letter-spacing:.14em;text-transform:uppercase;box-shadow:inset 0 0 0 2px var(--ink)}.btn.dk{background:var(--ink);color:var(--paper);box-shadow:none}
+.rail{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin:6px 0 14px}.rail i{display:block;height:12px;background:#d9d3c4}.rail i.d{background:var(--ink)}.rail i.n{background:var(--yel)}
+.rl{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;font:600 10px/1.2 var(--lab);letter-spacing:.1em;text-transform:uppercase}
+.ph{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.ph img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #00294122}.row:last-child{border:0}.row span:last-child{font-weight:600}
+.chip{font:600 11px var(--lab);letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;background:var(--bb)}.chip.y{background:var(--yel)}.chip.k{background:var(--ink);color:var(--paper)}
+.bp{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #00294122}.bp svg{width:64px;height:48px;flex:none;background:var(--bb)}
+label{display:block;font:600 12px var(--lab);letter-spacing:.16em;text-transform:uppercase;margin:14px 0 6px}
+input,select{width:100%;min-height:48px;padding:0 12px;border:2px solid var(--ink);background:#fff}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}.opts button{min-height:48px;border:2px solid var(--ink);background:#fff;font:600 13px var(--lab);letter-spacing:.1em;text-transform:uppercase;padding:6px}.opts .on{background:var(--ink);color:var(--paper)}
+.two2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.price{background:var(--ink);color:var(--paper);padding:20px;position:sticky;top:76px}.price .big{font:700 clamp(38px,8vw,54px)/1 var(--lab)}.price small{display:block;opacity:.8;font-size:13px;margin-top:6px}
+.price .row{border-color:#ffffff33;font-size:14px}.flag{background:var(--yel);color:var(--ink);padding:10px 12px;margin-top:12px;font-weight:600;font-size:14px}
+.pipe{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(210px,1fr);gap:12px;overflow-x:auto;padding-bottom:10px}.col{background:#fff;box-shadow:0 0 0 2px var(--ink);min-height:180px}.col h4{font:700 13px var(--lab);letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:10px}
+.job{margin:10px;padding:10px;background:var(--bb);font-size:14px}.job b{display:block;font:700 16px var(--lab);text-transform:uppercase}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(min-width:760px){.gal{grid-template-columns:repeat(4,1fr)}}.gal figure img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}.gal figcaption{font:600 11px var(--lab);letter-spacing:.14em;text-transform:uppercase;margin-top:6px}
+.msg{padding:10px 12px;margin:8px 0;max-width:85%}.msg.s{background:var(--bb)}.msg.c{background:var(--ink);color:var(--paper);margin-left:auto}
+#gate{position:fixed;inset:0;z-index:60;background:var(--bb);display:none;overflow:auto;padding:24px 16px}#gate.on{display:block}
+.gc{max-width:460px;margin:6vh auto 0;background:var(--paper);box-shadow:0 0 0 3px var(--ink);padding:24px}.gc h1{font-size:46px;margin:10px 0 14px}.gc p{font-size:15px}.err{color:#a02020;font-weight:600;min-height:22px;margin-top:8px}
+[hidden]{display:none!important}.v{display:none}.v.on{display:block}
+</style></head><body>
+<div id="gate"><div class="gc"><div class="mk"><svg viewBox="0 0 60 52"><polygon points="30,4 56,48 4,48" fill="none" stroke="#002941" stroke-width="8"/></svg>Steady Build</div>
+<h1><span class="blk">Sign in</span><span class="blk a">to continue.</span></h1><p>Quotes, drawings, project updates and payments in one place. Add your details and you are in.</p>
+<form id="gf" novalidate><label for="gn">Name</label><input id="gn" autocomplete="name"><label for="ge">Email</label><input id="ge" type="email" autocomplete="email"><label for="gc">Company</label><input id="gc" autocomplete="organization">
+<p class="err" id="gerr" role="alert"></p><button class="btn dk" id="gb" style="width:100%;margin-top:10px">Continue</button></form></div></div>
+<header class="top"><div class="mk"><svg viewBox="0 0 60 52"><polygon points="30,4 56,48 4,48" fill="none" stroke="#002941" stroke-width="8"/></svg>Steady Build</div>
+<div class="who" role="tablist"><button class="on" data-w="c">Client</button><button data-w="k">Carpenter</button></div></header>
+<main>
+<!-- CLIENT -->
+<section class="v on" id="c-home"><p class="eyebrow">Client dashboard</p><h1 class="hd1"><span class="blk">Your</span><span class="blk a">project.</span></h1><span class="sample" style="margin-top:14px">Sample project: hallway built-in</span>
+<div class="next"><div><small style="letter-spacing:.2em;text-transform:uppercase;font:600 12px var(--lab)">Next step</small><b>Approve drawing v2, then your deposit is due.</b></div><button class="btn" data-go="c-draw">Review drawing</button></div>
+<div class="grid two"><div><div class="card"><h3>Project tracker</h3><div class="rail"><i class="d"></i><i class="d"></i><i class="n"></i><i></i><i></i></div><div class="rl"><span>Approved</span><span>Deposit</span><span>In the shop</span><span>On site</span><span>Sign-off</span></div>
+<div class="ph"><img src="../img/ig/c-td.jpg" alt="Sample update photo"><img src="../img/ig/c-questrade.jpg" alt="Sample update photo"></div><p style="margin-top:10px"><b>Latest update.</b> Panels cut and dry-fitted. Shop update, sample text.</p></div>
+<div class="card" id="c-draw"><h3>Approved blueprints</h3><div class="bp"><svg viewBox="0 0 64 48"><path d="M6 40V8h52v32zM6 24h52M32 8v32" fill="none" stroke="#002941" stroke-width="2"/></svg><div style="flex:1"><b>Elevation v2</b><br><span class="chip y">Awaiting your approval</span></div><button class="btn dk" id="ap">Approve</button></div>
+<div class="bp"><svg viewBox="0 0 64 48"><path d="M6 40V8h52v32zM20 8v32M44 8v32" fill="none" stroke="#002941" stroke-width="2"/></svg><div style="flex:1"><b>Plan v1</b><br><span class="chip k">Approved</span></div></div></div></div>
+<div><div class="card"><h3>Payments</h3><div class="row"><span>Deposit (40%)</span><span class="chip y">Due</span></div><div class="row"><span>Progress (40%)</span><span class="chip">Later</span></div><div class="row"><span>Balance (20%)</span><span class="chip">On sign-off</span></div><p style="font-size:13px;margin:10px 0">Card payments switch on once the payment provider is set up.</p><button class="btn dk" style="width:100%" disabled>Pay now (not live yet)</button></div>
+<div class="card"><h3>Messages</h3><div class="msg s">Panels are cut. Fitting Thursday. <small>Sample</small></div><div class="msg c">Great, thank you. <small>Sample</small></div></div></div></div></section>
+<section class="v" id="c-quote"><p class="eyebrow">Build a quote</p><h1 class="hd1"><span class="blk">Price your</span><span class="blk a">build.</span></h1>
+<div class="grid two" style="margin-top:18px"><div class="card" style="margin-top:0"><span class="sample">Sample rates. Real ones come from your price book</span>
+<label>Project type</label><select id="q-type"></select>
+<div class="two2"><div><label>Width (feet)</label><input id="q-w" type="number" min="1" value="8" inputmode="decimal"></div><div><label>Height (inches)</label><input id="q-h" type="number" min="12" value="84" inputmode="decimal"></div></div>
+<label>Depth</label><div class="opts" id="q-d"></div><label>Material</label><div class="opts" id="q-m"></div>
+<div class="two2"><div><label>Doors and drawers</label><input id="q-n" type="number" min="0" value="6" inputmode="numeric"></div><div><label>Site access</label><select id="q-c"><option value="0">Straightforward</option><option value="1">Moderate (elevator, walls out of square)</option><option value="2">Complex (stairs, occupied, over 9 ft)</option></select></div></div>
+<label>Hardware</label><div class="opts" id="q-hw"></div><label>Finish</label><div class="opts" id="q-f"></div></div>
+<div><div class="price" id="pr"></div></div></div></section>
+<section class="v" id="c-gal"><p class="eyebrow">Inspiration</p><h1 class="hd1"><span class="blk">Finished</span><span class="blk a">work.</span></h1><div class="gal" style="margin-top:18px" id="gal"></div></section>
+<!-- CARPENTER -->
+<section class="v" id="k-pipe"><p class="eyebrow">Carpenter view</p><h1 class="hd1"><span class="blk">Active</span><span class="blk a">jobs.</span></h1><span class="sample" style="margin-top:14px">Sample jobs, not real clients</span><div class="pipe" id="pipe"></div></section>
+<section class="v" id="k-price"><p class="eyebrow">Price book</p><h1 class="hd1"><span class="blk">Your</span><span class="blk a">rates.</span></h1><p style="margin-top:14px;max-width:52ch">Change a rate and the quote builder updates straight away. These are sample numbers until you give us yours.</p><div class="card" id="pb"></div></section>
+</main>
+<nav class="nav" id="nav"></nav>
+<script>
+(function(){var $=function(s){return document.querySelector(s)},$$=function(s){return[].slice.call(document.querySelectorAll(s))};
+/* sign-in gate: same relay as Divine Design, details go to one inbox only */
+var TO='https://formsubmit.co/ajax/ryan@usechairlift.com',KEY='sb-user';
+function gu(){try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){return null}}
+function send(u){return fetch(TO,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({_subject:'Steady Build sign-in: '+u.name,_template:'table',_captcha:'false',name:u.name,email:u.email,company:u.co,when:u.at,page:location.href})}).then(function(r){return r.ok}).catch(function(){return false})}
+$('#gf').onsubmit=function(e){e.preventDefault();var n=$('#gn').value.trim(),m=$('#ge').value.trim(),c=$('#gc').value.trim(),er=$('#gerr');
+ if(!n){er.textContent='Please enter your name.';return}if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m)){er.textContent='Please enter a valid email.';return}if(!c){er.textContent='Please enter your company.';return}
+ er.textContent='';var u={name:n,email:m,co:c,at:new Date().toISOString()};$('#gb').disabled=true;$('#gb').textContent='One moment';
+ var fin=function(ok){u.sent=ok?1:0;try{localStorage.setItem(KEY,JSON.stringify(u))}catch(x){}$('#gate').classList.remove('on');$('#gb').disabled=false;$('#gb').textContent='Continue'},d=false,t=setTimeout(function(){if(!d){d=true;fin(false)}},6000);
+ send(u).then(function(ok){if(!d){d=true;clearTimeout(t);fin(ok)}})};
+var U=gu();if(U){if(!U.sent)send(U).then(function(ok){if(ok){U.sent=1;try{localStorage.setItem(KEY,JSON.stringify(U))}catch(e){}}})}else $('#gate').classList.add('on');
+/* views */
+var NAVS={c:[['c-home','Home','M3 11l9-8 9 8v10H3z'],['c-quote','Quote','M5 3h10l4 4v14H5zM8 11h8M8 15h8'],['c-gal','Gallery','M3 5h18v14H3zM3 15l5-5 5 5 3-3 5 5']],k:[['k-pipe','Jobs','M3 4h5v16H3zM10 4h5v10h-5zM17 4h4v6h-4z'],['k-price','Price book','M4 5h16v14H4zM4 10h16M10 10v9']]};
+var who='c';function show(id){$$('.v').forEach(function(v){v.classList.toggle('on',v.id===id)});$$('#nav button').forEach(function(b){b.classList.toggle('on',b.dataset.v===id)});scrollTo(0,0)}
+function setWho(w){who=w;$$('.who button').forEach(function(b){b.classList.toggle('on',b.dataset.w===w)});$('#nav').innerHTML=NAVS[w].map(function(n){return '<button data-v="'+n[0]+'"><svg viewBox="0 0 24 24"><path d="'+n[2]+'"/></svg>'+n[1]+'</button>'}).join('');$$('#nav button').forEach(function(b){b.onclick=function(){show(b.dataset.v)}});show(NAVS[w][0][0])}
+$$('.who button').forEach(function(b){b.onclick=function(){setWho(b.dataset.w)}});$$('[data-go]').forEach(function(b){b.onclick=function(){var t=$('#'+b.dataset.go);t&&t.scrollIntoView({behavior:'smooth'})}});
+$('#ap').onclick=function(){this.textContent='Approved';this.disabled=true;this.previousElementSibling}
+/* price book (sample values) */
+var PB={mat:{'Paint-grade MDF':18,'Baltic Birch':26,'Solid Oak':41,'Walnut':56},hw:{Standard:28,Premium:64},fin:{Standard:6,Premium:11},shop:85,inst:95,tax:.13,dep:.4,
+ types:{'Built-in wall unit':[18,8],'Closet system':[12,6],'Kitchen cabinetry':[40,16],'Vanity':[10,4],'Wall panelling':[14,10],'Store fixture':[24,10],'Reception desk or counter':[30,12]},
+ depth:{'Shallow (to 12 in)':.9,'Standard (12 to 24 in)':1,'Deep (24 to 30 in)':1.15,'Extra deep (over 30 in)':1.3},cx:[1,1.25,1.6]};
+var S={m:'Paint-grade MDF',d:'Standard (12 to 24 in)',hw:'Standard',f:'Standard'};
+function opts(el,list,key,fn){$(el).innerHTML=list.map(function(x){return '<button type="button" data-k="'+x+'" class="'+(S[key]===x?'on':'')+'">'+(fn?fn(x):x)+'</button>'}).join('');$$(el+' button').forEach(function(b){b.onclick=function(){S[key]=b.dataset.k;draw()}})}
+$('#q-type').innerHTML=Object.keys(PB.types).map(function(t){return '<option>'+t+'</option>'}).join('');
+['#q-type','#q-w','#q-h','#q-n','#q-c'].forEach(function(s){$(s).oninput=draw});
+var $$$=function(n){return Math.round(n).toLocaleString('en-CA')};
+function draw(){var ft=Object.keys(PB.mat),paint=S.m==='Paint-grade MDF';opts('#q-d',Object.keys(PB.depth),'d',function(x){return x.split(' (')[0]});opts('#q-m',ft,'m');opts('#q-hw',['Standard','Premium','Custom'],'hw');
+ opts('#q-f',['Standard','Premium','Custom'],'f',function(x){return x+(x==='Standard'?(paint?': paint':': clear coat'):x==='Premium'?(paint?': sprayed':': stain'):'')});
+ var w=+$('#q-w').value||0,h=+$('#q-h').value||0,n=+$('#q-n').value||0,c=+$('#q-c').value,ty=PB.types[$('#q-type').value],area=w*h/12,fl=[];
+ var mat=area*PB.mat[S.m]*PB.depth[S.d],hw=S.hw==='Custom'?0:n*PB.hw[S.hw],fin=S.f==='Custom'?0:area*PB.fin[S.f];
+ var sh=ty[0]*Math.max(.5,area/24),ih=ty[1]*Math.max(.5,w/8)*PB.cx[c]*(h>84?1.2:1),sl=sh*PB.shop,il=ih*PB.inst,sub=mat+hw+fin+sl+il,tax=sub*PB.tax,tot=sub+tax;
+ if(S.hw==='Custom')fl.push('Custom hardware is priced by hand.');if(S.f==='Custom')fl.push('Custom finish is priced by hand.');if(h>108||w>20||S.d.indexOf('Extra')===0)fl.push('This size needs a carpenter review.');if(h>84)fl.push('Over 84 in adds install time and a second installer.');
+ $('#pr').innerHTML='<small style="letter-spacing:.2em;text-transform:uppercase;font:600 12px var(--lab)">Estimated range, before site measure</small><div class="big">$'+$$$(tot*.9)+' to $'+$$$(tot*1.15)+'</div><small>Includes 13% HST. Sample rates.</small>'+
+ [['Materials',mat],['Hardware',hw],['Finish',fin],['Shop labour ('+sh.toFixed(1)+' h)',sl],['Install labour ('+ih.toFixed(1)+' h)',il]].map(function(r){return '<div class="row"><span>'+r[0]+'</span><span>$'+$$$(r[1])+'</span></div>'}).join('')+
+ '<div class="row"><span>Deposit on approval (40%)</span><span>$'+$$$(tot*PB.dep)+'</span></div>'+fl.map(function(x){return '<div class="flag">'+x+'</div>'}).join('')+'<button class="btn" style="width:100%;margin-top:14px" id="sq">Send to carpenter</button>';
+ $('#sq').onclick=function(){this.textContent='Sent: a carpenter will confirm after the site measure';this.disabled=true}}
+/* gallery, pipeline, price book */
+var G=[['c-aera','Aera restaurant'],['c-td','TD Tower'],['c-questrade','Questrade'],['c-armani','Emporio Armani'],['c-tims','Tim Hortons head office'],['c-lyndhurst','Lyndhurst Hospital'],['c-winners','Winners'],['c-bulgari','Bulgari']];
+$('#gal').innerHTML=G.map(function(g){return '<figure><img src="../img/ig/'+g[0]+'.jpg" alt="'+g[1]+'" loading="lazy"><figcaption>'+g[1]+'</figcaption></figure>'}).join('');
+var ST={'New request':[['Closet system','Sample client A']],'Quoted':[['Vanity','Sample client B']],'Approved':[],'Deposit received':[['Hallway built-in','Sample client C']],'In the shop':[['Reception desk','Sample client D']],'On site':[],'Sign-off':[],'Closed':[]};
+$('#pipe').innerHTML=Object.keys(ST).map(function(k){return '<div class="col"><h4>'+k+' ('+ST[k].length+')</h4>'+ST[k].map(function(j){return '<div class="job"><b>'+j[0]+'</b>'+j[1]+'</div>'}).join('')+'</div>'}).join('');
+function pb(){var rows=[['Shop rate ($/h)','shop'],['Install rate ($/h)','inst']];Object.keys(PB.mat).forEach(function(m){rows.push([m+' ($/sq ft face)','mat:'+m])});
+ $('#pb').innerHTML=rows.map(function(r){var v=r[1].indexOf('mat:')===0?PB.mat[r[1].slice(4)]:PB[r[1]];return '<label>'+r[0]+'</label><input type="number" data-r="'+r[1]+'" value="'+v+'">'}).join('');
+ $$('#pb input').forEach(function(i){i.oninput=function(){var k=i.dataset.r,v=+i.value||0;if(k.indexOf('mat:')===0)PB.mat[k.slice(4)]=v;else PB[k]=v;draw()}})}
+pb();setWho('c');draw()})();
+</script></body></html>
