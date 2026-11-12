@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Steady Improvements | Carpentry you can count on</title>
+<meta name="description" content="Residential and commercial renovations: bathrooms, kitchens, balcony flooring, flooring, window coverings, demolition and handyman services. Call (647) 458-6365.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#A9D6F5">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/balcony-teak.jpg">
+<style>
+:root{--paper:#F3F1E8;--paper2:#E9E5D8;--ink:#23211F;--ink2:#2E2B28;--brick:#8E3B32;--brick2:#A9483D;--timber:#C2925C;--stone:#6B665E;
+--disp:'Big Shoulders Display',Impact,sans-serif;--slab:'Zilla Slab',Georgia,serif;--sans:'Work Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--sans);overflow-x:hidden}
+img{display:block;max-width:100%}
+section{scroll-margin-top:80px}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+.wrap{width:min(1240px,100% - 40px);margin:0 auto}
+.eyebrow{font:600 12px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--brick)}
+.on-ink .eyebrow{color:var(--timber)}
+h1,h2,h3{font-family:var(--disp);font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:.005em}
+h2{font-size:clamp(46px,7.4vw,104px)}
+.lead{font-size:clamp(17px,1.5vw,20px);max-width:52ch;color:var(--stone)}
+.on-ink{background:var(--ink);color:var(--paper)}
+.on-ink .lead{color:#d9d4c7}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;font:600 14px var(--sans);letter-spacing:.12em;text-transform:uppercase;border:0;cursor:pointer;transition:transform .2s,background .2s}
+.btn:active{transform:translateY(1px)}
+.btn-brick{background:var(--brick);color:#fff}.btn-brick:hover{background:var(--brick2)}
+.btn-line{border:2px solid currentColor;background:transparent}
+.btn svg{width:20px;height:20px}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* brand: brush lettering, the hammer is the T */
+.brand{display:inline-flex;align-items:center;line-height:1}
+.lg{display:inline-flex;flex-direction:column;align-items:center;line-height:1;transform:rotate(-5deg);transform-origin:left center}
+.lg .w{position:relative;z-index:2;display:inline-flex;align-items:flex-end;white-space:nowrap;font:400 1em/.9 'Yellowtail',cursive;padding-right:.06em}
+.lg .h{height:.69em;width:auto;fill:currentColor;transform:skewX(-14deg);margin:0 -.06em .093em .123em;overflow:visible;flex:none}
+.lg i{position:relative;z-index:1;align-self:stretch;display:flex;justify-content:center;font:700 .255em/1 'Oswald',sans-serif;font-style:normal;letter-spacing:.1em;text-transform:uppercase;background:#8E3B32;color:#F3F1E8;padding:.16em 0 .16em .1em;margin:.02em 0 0}
+.lg .tg{display:block;font:600 max(.092em,9.5px)/1 'Oswald',sans-serif;font-style:normal;letter-spacing:.24em;padding-left:.24em;text-transform:uppercase;margin-top:.8em;white-space:nowrap}
+.lg.mini .tg{display:none}
+.lg{font-size:42px}
+
+/* loader */
+#ld{position:fixed;inset:0;z-index:100}
+#ld .door{position:absolute;top:0;bottom:0;width:50.5%;background:var(--paper);transition:transform .85s cubic-bezier(.7,0,.2,1)}
+#ld .door.l{left:0}#ld .door.r{right:0}
+#ld.out .door.l{transform:translateX(-101%)}#ld.out .door.r{transform:translateX(101%)}
+#ld .ldc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--ink);transition:opacity .3s}
+#ld.out .ldc{opacity:0}
+#ld .ldm{overflow:hidden;padding:26px 30px 16px}
+#ld .ldm .brand{transform:translateY(120%);animation:ldup .7s cubic-bezier(.2,.8,.2,1) .15s forwards}
+#ld .lg{font-size:clamp(96px,20vw,180px)}
+@keyframes ldup{to{transform:none}}
+#ld .ldr{height:4px;width:min(420px,60vw);background:var(--ink);margin-top:10px;transform:scaleX(0);transform-origin:left;animation:ldrule .7s cubic-bezier(.6,0,.2,1) .8s forwards}
+@keyframes ldrule{to{transform:none}}
+
+/* header */
+header.top{position:fixed;top:0;left:0;right:0;z-index:50;color:var(--paper);transition:background .3s,color .3s,box-shadow .3s}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:92px}
+header.top.solid{background:var(--paper);color:var(--ink);box-shadow:0 1px 0 #0000001a}
+header.top .brand{filter:drop-shadow(0 2px 10px #0006)}
+header.top.solid .brand{filter:none}
+.nav{display:flex;gap:28px;align-items:center}
+.nav a.l{font:600 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;min-height:44px;display:inline-flex;align-items:center;border-bottom:2px solid transparent}
+.nav a.l:hover{border-color:currentColor}
+.nav .btn{min-height:46px;padding:0 18px}
+
+/* hero */
+.hero{position:relative;height:100svh;min-height:620px;background:var(--ink);color:var(--paper);overflow:hidden}
+.slides,.slides figure{position:absolute;inset:0}
+.slides figure{opacity:0;transition:opacity 1.4s ease}
+.slides figure.on{opacity:1}
+.slides img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 7s linear}
+.slides figure.on img{transform:scale(1.0)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0007 0%,#0000 20%,#0000 50%,#000000b8 100%)}
+.hero .copy{position:absolute;z-index:2;left:0;right:0;bottom:0;padding-bottom:clamp(92px,11vh,120px)}
+.hero h1{font-size:clamp(40px,6.2vw,92px);line-height:.95}
+.hero h1 .ln{display:block;overflow:hidden;padding-top:.03em}
+.hero h1 .ln span{display:block;transform:translateY(105%);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.hero.go h1 .ln span{transform:none}
+.hero.go h1 .ln:nth-child(2) span{transition-delay:.12s}.hero.go h1 .ln:nth-child(3) span{transition-delay:.24s}
+.hero h1 .ln:nth-child(3){color:var(--timber)}
+.rot{margin-top:18px;display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;font:600 clamp(16px,1.7vw,21px)/1.3 var(--sans)}
+.rot .w{display:inline-block;min-width:11ch;color:#fff;border-bottom:3px solid var(--brick2);padding-bottom:2px}
+.rot .w.swap{animation:swap .5s ease}
+@keyframes swap{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.hero .ctas .btn-line{color:#fff}
+.hero .meta{position:absolute;z-index:2;right:20px;bottom:30px;font:600 11px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:#ffffffb3;display:flex;gap:10px;align-items:center}
+.hero .meta .bar{display:flex;gap:5px}.hero .meta .bar i{width:26px;height:3px;background:#ffffff40}.hero .meta .bar i.on{background:var(--timber)}
+
+/* ticker */
+.ticker{background:var(--brick);color:#fff;overflow:hidden;white-space:nowrap;border-top:1px solid #0003}
+.ticker div{display:inline-flex;gap:46px;padding:16px 0;animation:tick 32s linear infinite;font:800 clamp(20px,2.4vw,30px)/1 var(--disp);text-transform:uppercase;letter-spacing:.04em}
+.ticker span{display:inline-flex;align-items:center;gap:46px}
+.ticker span::after{content:"";width:14px;height:14px;background:var(--ink);transform:rotate(45deg)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* intro */
+.intro{padding:clamp(80px,11vw,150px) 0 clamp(60px,8vw,110px)}
+.intro .g{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(30px,6vw,90px);align-items:end}
+.intro h2{margin-top:18px}
+.intro .facts{display:grid;gap:0;border-top:2px solid var(--ink)}
+.intro .facts div{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:18px 0;border-bottom:1px solid #23211f2e;font-size:16px}
+.intro .facts svg{width:40px;height:40px;stroke:var(--ink);fill:none;stroke-width:1.6}
+.intro .facts b{display:block;font:800 21px/1.1 var(--disp);text-transform:uppercase;letter-spacing:.02em;margin-bottom:3px}
+
+/* balcony */
+#balcony{padding:clamp(80px,10vw,140px) 0;position:relative;overflow:hidden}
+#balcony .g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+#balcony .pics{position:relative;height:clamp(460px,52vw,680px)}
+#balcony .pics img{position:absolute;object-fit:cover;box-shadow:0 30px 60px #0008}
+#balcony .pics .a{left:0;top:0;width:64%;height:86%}
+#balcony .pics .b{right:0;bottom:0;width:52%;height:58%;border:8px solid var(--ink)}
+#balcony .pics .lab{position:absolute;z-index:2;background:var(--paper);color:var(--ink);font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;padding:8px 12px}
+#balcony .pics .la{left:12px;top:12px}#balcony .pics .lb{right:12px;bottom:12px}
+#balcony h2{margin:16px 0 20px}
+.ticks{list-style:none;margin:26px 0 30px;display:grid;gap:12px}
+.ticks li{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start;font-size:17px}
+.ticks svg{width:26px;height:26px;stroke:var(--timber);fill:none;stroke-width:2.2;margin-top:1px}
+.calc{background:var(--ink2);border-top:3px solid var(--timber);padding:24px}
+.calc h3{font-size:30px;letter-spacing:.02em}
+.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.calc label{font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#d9d4c7;display:grid;gap:8px}
+.calc input{width:100%;min-height:52px;background:var(--paper);border:0;padding:0 14px;font:600 20px var(--sans);color:var(--ink);border-radius:0}
+.tone{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.tone button{display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:center;text-align:left;background:transparent;border:2px solid #ffffff2e;padding:6px;min-height:64px;cursor:pointer;font:600 14px var(--sans)}
+.tone button img{width:52px;height:52px;object-fit:cover}
+.tone button[aria-pressed=true]{border-color:var(--timber);background:#ffffff0d}
+.calc .out{font:800 clamp(36px,4vw,48px)/1 var(--disp);color:#fff;margin:4px 0 4px}
+.calc .note{font-size:13.5px;color:#bdb7aa;margin-bottom:16px}
+
+/* services: giant type list */
+#services{padding:clamp(80px,10vw,140px) 0}
+#services .head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:clamp(30px,5vw,60px)}
+.svc{border-top:2px solid var(--ink)}
+.svc article{display:grid;grid-template-columns:70px 1fr 1.05fr 300px;gap:clamp(16px,3vw,40px);align-items:center;padding:clamp(20px,3vw,34px) 0;border-bottom:1px solid #23211f33;position:relative}
+.svc .n{font:800 22px var(--disp);color:var(--brick)}
+.svc h3{font-size:clamp(38px,5.2vw,74px);transition:color .3s}
+.svc p{font-size:16px;color:var(--stone);max-width:46ch}
+.svc .ph{aspect-ratio:4/3;overflow:hidden;background:var(--paper2)}
+.svc .ph img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.svc article:hover .ph img{transform:scale(1.06)}
+.svc article:hover h3{color:var(--brick)}
+.svc .q{white-space:nowrap;grid-column:3;justify-self:start;margin-top:-6px;font:600 12px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--brick);min-height:44px;display:inline-flex;align-items:center;gap:8px;border:0;background:none;cursor:pointer}
+.svc .q svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
+.svc .noph{aspect-ratio:4/3;background:var(--ink);color:var(--paper);display:grid;place-items:center}
+.svc .noph svg{width:64px;height:64px;stroke:var(--timber);fill:none;stroke-width:1.4}
+
+/* process */
+#process{padding:clamp(80px,10vw,140px) 0}
+#process .g{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,80px)}
+#process .pic{position:sticky;top:96px;align-self:start}
+#process .pic img{width:100%;aspect-ratio:3/4;object-fit:cover}
+#process .pic figcaption{margin-top:12px;font-size:14px;color:#bdb7aa}
+.steps{list-style:none;margin-top:36px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:26px 0;border-top:1px solid #ffffff26}
+.steps li::before{counter-increment:s;content:"0" counter(s);font:900 72px/.8 var(--disp);color:transparent;-webkit-text-stroke:1.5px var(--timber)}
+.steps b{display:block;font:800 30px/1 var(--disp);text-transform:uppercase;letter-spacing:.02em;margin-bottom:8px}
+.steps p{color:#d9d4c7;font-size:16px;max-width:48ch}
+
+/* work wall */
+#work{padding:clamp(80px,10vw,130px) 0 clamp(60px,8vw,100px);overflow:hidden}
+#work .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.wall{scroll-padding-left:max(20px,calc((100% - 1240px)/2));display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:36px max(20px,calc((100% - 1240px)/2)) 14px;scrollbar-width:thin}
+.wall figure{flex:none;width:clamp(250px,26vw,360px);scroll-snap-align:start}
+.wall figure:nth-child(even){margin-top:46px}
+.wall img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.wall figcaption{display:flex;justify-content:space-between;margin-top:10px;font:600 12px var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.wall figcaption span{color:var(--stone)}
+.swipehint{font:600 12px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--stone);display:flex;gap:8px;align-items:center}
+.swipehint svg{width:28px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8}
+
+/* trade */
+#trade{padding:clamp(70px,9vw,120px) 0;background:var(--paper2)}
+#trade .g{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:start}
+#trade h2{font-size:clamp(42px,6vw,84px);margin-top:16px}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.cols div{border-top:3px solid var(--ink);padding-top:16px}
+.cols svg{width:40px;height:40px;stroke:var(--ink);fill:none;stroke-width:1.6;margin-bottom:12px}
+.cols b{display:block;font:800 23px/1.05 var(--disp);text-transform:uppercase;margin-bottom:8px}
+.cols p{font-size:15.5px;color:var(--stone)}
+#trade .btn{margin-top:30px}
+
+/* reviews hub */
+#reviews{padding:clamp(70px,9vw,120px) 0}
+.flag{display:inline-block;background:var(--brick);color:#fff;font:600 11px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:7px 10px}
+.rhead{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.rgrid{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:16px}
+.rsrc{background:var(--ink);color:var(--paper);padding:26px;display:flex;flex-direction:column;gap:8px;border-top:6px solid var(--timber);min-height:230px}
+.rsrc .k{font:600 12px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--timber)}
+.rsrc b{font:900 38px/.95 var(--disp);text-transform:uppercase}
+.rsrc p{font-size:15px;color:#d9d4c7}
+.rsrc .go{margin-top:auto;font:600 12px var(--sans);letter-spacing:.16em;text-transform:uppercase;display:inline-flex;gap:8px;align-items:center;min-height:44px}
+.rsrc .go svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
+.rq{border:2px dashed #23211f66;padding:26px;display:flex;flex-direction:column;gap:14px;justify-content:center}
+.rq svg{width:44px;height:44px;stroke:var(--brick);fill:none;stroke-width:1.6}
+.rq p{font-size:16px;color:var(--stone)}
+.rask{margin-top:16px;background:var(--paper2);padding:24px 26px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.rask b{font:900 30px/1 var(--disp);text-transform:uppercase;display:block;margin-bottom:4px}
+.rask p{font-size:15.5px;color:var(--stone);max-width:52ch}
+
+/* quote builder */
+#quote{padding:clamp(80px,10vw,140px) 0}
+#quote .g{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,80px);align-items:start}
+#quote h2{margin:16px 0 20px}
+.qb{background:var(--paper);color:var(--ink);padding:clamp(20px,3vw,34px);border-top:6px solid var(--brick)}
+.qb fieldset{border:0;margin-bottom:22px}
+.qb legend{font:800 22px/1 var(--disp);text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;display:flex;gap:10px;align-items:baseline}
+.qb legend em{font:600 11px var(--sans);letter-spacing:.18em;color:var(--brick);font-style:normal}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{min-height:46px;padding:0 14px;border:2px solid #23211f40;background:#fff;font:500 15px var(--sans);cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.qb .f{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.qb input,.qb textarea{width:100%;min-height:52px;border:2px solid #23211f40;background:#fff;padding:12px 14px;font:400 16px var(--sans);color:var(--ink);border-radius:0}
+.qb textarea{min-height:110px;resize:vertical;grid-column:1/-1}
+.qb .full{grid-column:1/-1}
+.qb input:focus,.qb textarea:focus,.calc input:focus{outline:3px solid var(--timber);outline-offset:0}
+.qb .send{width:100%;margin-top:18px;min-height:58px;font-size:15px}
+.qb .alt{margin-top:14px;font-size:14.5px;color:var(--stone);text-align:center}
+.qb .alt a{color:var(--brick);font-weight:600;border-bottom:1px solid}
+.qb .ok{display:none;background:var(--ink);color:var(--paper);padding:16px;margin-top:14px;font-size:15px}
+.direct{display:grid;gap:0;margin-top:30px;border-top:1px solid #ffffff26}
+.direct a{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid #ffffff26;min-height:64px}
+.direct svg{width:36px;height:36px;stroke:var(--timber);fill:none;stroke-width:1.6}
+.direct b{display:block;font:800 24px/1 var(--disp);text-transform:uppercase;letter-spacing:.02em}
+.direct span{font-size:14px;color:#bdb7aa}
+
+/* footer */
+footer{background:#171513;color:#d9d4c7;padding:60px 0 120px}
+footer .g{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:30px}
+footer h4{font:600 11px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--timber);margin-bottom:14px}
+footer a,footer li{display:block;font-size:15px;line-height:1.9}
+footer ul{list-style:none}
+footer .brand{color:var(--paper);margin-bottom:20px}footer .lg{font-size:112px}
+footer .fine{margin-top:44px;padding-top:18px;border-top:1px solid #ffffff1a;font-size:13px;color:#8f897d;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a.ig{display:inline-flex;align-items:center;gap:10px;min-height:44px}
+footer a.ig svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.6}
+
+/* Zai chat */
+.zb{position:fixed;right:16px;bottom:18px;z-index:64;min-height:50px;padding:0 18px;border:0;cursor:pointer;background:var(--brick);color:#fff;font:600 15px var(--sans);letter-spacing:.03em;box-shadow:0 10px 30px #0005;display:flex;align-items:center;gap:9px}
+.zb:hover{background:var(--brick2)}.zb svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8}
+.zp{position:fixed;right:16px;bottom:18px;z-index:75;width:min(380px,calc(100% - 32px));height:min(560px,calc(100% - 110px));background:var(--paper);box-shadow:0 24px 70px #000a;border-top:4px solid var(--brick);display:flex;flex-direction:column}
+.zp[hidden],.zb[hidden]{display:none}
+.zh{background:var(--ink);color:var(--paper);padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+.zh b{font:800 22px var(--disp,'Big Shoulders Display');letter-spacing:.08em}.zh small{display:block;font:500 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.zh button{background:none;border:0;color:#fff;font:600 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;min-height:44px;padding:0 6px;cursor:pointer}
+.zm{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.zm p{margin:0;padding:10px 13px;max-width:86%;font-size:15px;line-height:1.4}
+.zm .bot{background:#fff;align-self:flex-start;border-left:3px solid var(--timber)}
+.zm .me{background:var(--ink);color:#fff;align-self:flex-end}
+.zm a{color:var(--brick);font-weight:600;text-decoration:underline}
+.zq{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 10px}
+.zq button{min-height:44px;padding:0 12px;border:1.5px solid var(--ink);background:transparent;font:600 12px var(--sans);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;color:var(--ink)}
+.zq button:hover{background:var(--ink);color:#fff}
+.zf{display:flex;border-top:1px solid #0002}
+.zf input{flex:1;min-height:52px;border:0;padding:0 14px;font:16px var(--sans);background:#fff;min-width:0}
+.zf button{min-width:76px;border:0;background:var(--brick);color:#fff;font:600 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+body.touring .zb{display:none}
+@media(max-width:820px){.zb{bottom:78px;right:12px}.zp{right:8px;bottom:8px;width:calc(100% - 16px);height:calc(100% - 70px);z-index:90}}
+/* phone dock */
+.dock{display:none}
+/* tour */
+.tourbtn{position:fixed;left:16px;bottom:18px;z-index:65;min-height:50px;font-size:12px;background:var(--ink);color:var(--paper);box-shadow:0 10px 30px #0005}
+.tourbtn[hidden]{display:none}
+.tourbar{position:fixed;z-index:70;left:50%;transform:translateX(-50%);bottom:20px;width:min(640px,calc(100% - 24px));background:var(--ink);color:#fff;box-shadow:0 24px 70px #000a;border-top:4px solid var(--timber);padding:16px 20px 0}
+.tourbar[hidden]{display:none}
+.tourbar .k{display:flex;justify-content:space-between;font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--timber)}
+.tourbar h5{font:900 26px/1.02 var(--disp);text-transform:uppercase;margin:7px 0 6px;letter-spacing:.01em}
+.tourbar p{font-size:14.5px;line-height:1.45;color:#ffffffd6}
+.tourbar p+p{margin-top:5px}
+.tourbar .why{color:#E8C9A0}
+.tourbar .rev{color:#A8E0B5}
+.tourbar .ctl{display:flex;gap:22px;align-items:center;margin-top:10px;border-top:1px solid #ffffff1f}
+.tourbar .ctl button{background:none;border:0;font:600 12px var(--sans);letter-spacing:.16em;text-transform:uppercase;min-height:46px;cursor:pointer;padding:0;color:#fff}
+.tourbar .ctl .go{color:#fff;background:var(--brick);padding:0 18px;min-height:40px}
+.tourbar .sp{flex:1}
+.tourbar .pg{height:3px;background:#ffffff1f;margin:0 -20px}.tourbar .pg i{display:block;height:3px;background:var(--timber);width:0}
+.spot{outline:4px solid var(--timber);outline-offset:-4px}
+
+@media (max-width:980px){
+ .nav a.l{display:none}
+ .intro .g,#balcony .g,#process .g,#trade .g,#quote .g{grid-template-columns:1fr}
+ .svc article{grid-template-columns:44px 1fr;grid-template-areas:"n h" "ph ph" "p p" "q q";row-gap:14px}
+ .svc .n{grid-area:n}.svc h3{grid-area:h}.svc .ph,.svc .noph{grid-area:ph}.svc p{grid-area:p}.svc .q{grid-area:q;grid-column:auto;margin-top:-8px}
+ #process .pic{position:relative;top:0}
+ #process .pic img{aspect-ratio:4/3}
+ .cols{grid-template-columns:1fr}
+ .rgrid{grid-template-columns:1fr 1fr}.rq{grid-column:1/-1}
+ footer .g{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+ body{font-size:16px}
+ header.top .wrap{height:80px}
+ .lg{font-size:36px}
+ .nav .btn{display:none}
+ .hero{min-height:600px}
+ .hero h1{font-size:clamp(40px,12.5vw,60px)}.hero::after{background:linear-gradient(180deg,#0007 0%,#0000 18%,#0000 40%,#000000d4 72%,#000000f0 100%)}
+ body.touring .hero .copy{bottom:auto;top:96px;padding-bottom:0}
+ body.touring .hero .ctas{display:none}
+ body.touring .hero::after{background:linear-gradient(180deg,#141210d9 0%,#14121099 45%,#141210e6 100%)}
+ .hero .copy{padding-bottom:104px}
+ .hero .ctas .btn{flex:1 1 auto}
+ .hero .meta{left:20px;right:auto;bottom:80px;display:none}
+ #balcony .pics{height:420px}
+ .calc .row,.tone{grid-template-columns:1fr 1fr}
+ .tone button{grid-template-columns:40px 1fr;font-size:13px}.tone button img{width:40px;height:40px}
+ .qb .f{grid-template-columns:1fr}
+ .steps li{grid-template-columns:64px 1fr}.steps li::before{font-size:52px}
+ .rgrid{grid-template-columns:1fr}.rsrc{min-height:0}
+ footer .g{grid-template-columns:1fr}
+ .dock{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--ink);border-top:1px solid #ffffff1f;padding-bottom:env(safe-area-inset-bottom)}
+ .dock a{min-height:58px;display:flex;align-items:center;justify-content:center;gap:7px;font:600 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--paper);border-left:1px solid #ffffff1a}
+ .dock a:first-child{background:var(--brick);border:0}
+ .dock svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8}
+ .tourbtn{display:none}
+ .tourbar{bottom:calc(66px + env(safe-area-inset-bottom));padding:12px 14px 0}.tourbar h5{font-size:22px}.tourbar p{font-size:13.5px;line-height:1.4}.tourbar .pg{margin:0 -14px}
+}
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}
+ .rv{opacity:1;transform:none}
+}
+.cs-link{display:grid;grid-template-columns:110px 1fr;align-items:center;gap:18px;margin-top:22px;background:var(--ink);color:var(--paper);text-decoration:none;min-height:110px;overflow:hidden}
+.cs-link img{width:110px;height:100%;min-height:110px;object-fit:cover}
+.cs-link span{display:flex;flex-direction:column;gap:4px;padding:14px 16px 14px 0}
+.cs-link small{font:600 11px/1 'Oswald',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--timber)}
+.cs-link b{font:900 clamp(24px,4vw,36px)/.95 var(--disp);text-transform:uppercase}
+.cs-link em{font-style:normal;font-size:14px;color:#cfcabd}
+.cs-link:hover b{color:var(--timber)}
+
+/* ===== new identity: approved logo, baby blue / yellow / orange, navy type ===== */
+:root{--paper:#FFF8E7;--paper2:#F6ECCD;--ink:#16264A;--ink2:#1E3260;--brick:#F47B20;--brick2:#FFD23F;--timber:#FFD23F;--stone:#3D4A69;--bb:#A9D6F5;--yel:#FFD23F;--org:#F47B20;
+--disp:'Oswald','Arial Narrow',sans-serif;--head:'Syne',system-ui,sans-serif;--lab:'Oswald','Arial Narrow',sans-serif}
+h1,h2,.svc h3,.calc h3{font-family:var(--head);font-weight:800;text-transform:lowercase;letter-spacing:-.035em;line-height:1}
+h2{font-size:clamp(29px,4.2vw,56px)}
+#trade h2{font-size:clamp(27px,3.7vw,50px)}
+.hero h1{font-size:clamp(38px,6vw,84px);line-height:.98}
+.svc h3{font-size:clamp(25px,3.1vw,40px)}
+.calc h3{font-size:22px;letter-spacing:-.02em}
+.eyebrow{font:600 13px/1 var(--lab);letter-spacing:.22em;color:var(--ink);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:8px;background:var(--org);flex:none}
+.on-ink{background:var(--bb);color:var(--ink)}
+.on-ink .eyebrow{color:var(--ink)}
+.lead,.on-ink .lead{color:var(--stone)}
+.btn-brick{background:var(--org);color:var(--ink)}.btn-brick:hover{background:var(--yel)}
+.logo{display:block;height:66px;width:auto}
+header.top,header.top.solid{background:var(--bb);color:var(--ink);box-shadow:0 2px 0 #16264a1f}
+header.top .brand{filter:none}
+#ld .door{background:var(--bb)}
+#ld .ldm{padding:10px 20px 6px}
+.logo.ldl{height:auto;width:min(500px,76vw)}
+.spin{transform-origin:323.3px -75.84px;animation:ldspin 1.25s cubic-bezier(.15,.7,.2,1) both}
+@keyframes ldspin{from{transform:rotate(-420deg)}to{transform:none}}
+.hero{background:var(--ink)}
+.hero h1 .ln:nth-child(3){color:var(--yel)}
+.rot .w{border-bottom-color:var(--org)}
+.ticker{background:var(--org);color:var(--ink);border-top:0;border-bottom:12px solid var(--yel)}
+.ticker span::after{background:var(--paper)}
+.intro .facts div{border-bottom-color:#16264a2e}
+#balcony .pics img{box-shadow:0 24px 50px #16264a47}
+#balcony .pics .b{border-color:var(--bb)}
+.ticks svg{stroke:var(--org);stroke-width:3}
+.calc{background:var(--paper);border-top:8px solid var(--org)}
+.calc label{color:var(--ink)}
+.calc input{background:#fff;border:2px solid #16264a59}
+.tone button{border-color:#16264a59}
+.tone button[aria-pressed=true]{border-color:var(--ink);background:var(--yel)}
+.calc .out{color:var(--ink)}
+.calc .note{color:var(--stone)}
+.svc .n{color:var(--ink)}
+.svc article{border-bottom-color:#16264a33}
+.svc article:hover h3{color:var(--org)}
+.svc .q{color:var(--ink);border-bottom:3px solid var(--org);min-height:44px}
+.svc .noph{background:var(--bb);color:var(--ink)}.svc .noph svg{stroke:var(--ink)}
+.flag{background:var(--yel);color:var(--ink)}
+.rsrc{background:var(--bb);color:var(--ink);border-top:8px solid var(--org)}
+.rsrc .k{color:var(--ink)}.rsrc p{color:var(--stone)}
+.rq{border-color:#16264a66}
+.qb{border-top:8px solid var(--org)}
+.qb legend em,.qb .alt a{color:var(--ink)}
+.chips button,.qb input,.qb textarea{border-color:#16264a59}
+.qb input:focus,.qb textarea:focus,.calc input:focus{outline-color:var(--org)}
+.direct,.direct a{border-color:#16264a40}
+.direct svg{stroke:var(--ink)}.direct span{color:var(--stone)}
+footer{background:var(--paper);color:var(--ink);border-top:14px solid var(--org);box-shadow:inset 0 14px 0 var(--yel);padding-top:74px}
+footer h4{color:var(--ink);font-family:var(--lab);font-size:13px}
+footer .brand{color:var(--ink);margin-bottom:16px;display:inline-block}
+footer .logo{height:auto;width:min(270px,70vw)}
+footer .fine{border-top-color:#16264a33;color:var(--stone)}
+.zb{background:var(--org);color:var(--ink)}.zb:hover{background:var(--yel)}
+.zp{border-top-color:var(--org)}
+.zm a{color:var(--ink)}
+.zf button{background:var(--org);color:var(--ink)}
+.tourbar .ctl .go{background:var(--org);color:var(--ink)}
+.spot{outline-color:var(--org)}
+.cs-link{background:var(--bb);color:var(--ink)}
+.cs-link small{color:var(--ink)}.cs-link em{color:var(--stone)}
+.cs-link:hover b{color:var(--ink);text-decoration:underline}
+/* scroll build */
+#process{padding:clamp(70px,9vw,120px) 0 clamp(60px,8vw,100px)}
+.btrack{height:380vh;margin-top:26px}
+.bstage{position:sticky;top:92px;height:calc(100svh - 92px);display:flex;align-items:center}
+.bgrid{display:grid;grid-template-columns:1.3fr .8fr;gap:clamp(24px,4vw,60px);align-items:center;width:min(1240px,100% - 40px)}
+.bscene svg{display:block;width:100%;height:auto;max-height:calc(100svh - 170px);box-shadow:0 18px 40px #16264a33}
+.bscene [data-t]{transform-box:fill-box;transform-origin:50% 100%}
+.bscene [data-fx=wipe]{transform-origin:0 50%}.bscene [data-fx=pop]{transform-origin:50% 50%}
+.bprog{height:8px;background:#16264a26;margin-top:12px}.bprog i{display:block;height:8px;background:var(--org);transform-origin:0 50%;transform:scaleX(0)}
+.bsteps{list-style:none}
+.bsteps li{display:grid;grid-template-columns:54px 1fr;gap:14px;padding:18px 0;border-top:2px solid #16264a33;opacity:.4;transition:opacity .35s}
+.bsteps li.on{opacity:1;border-top-color:var(--ink)}
+.bsteps span{font:700 34px/1 var(--lab)}
+.bsteps b{display:block;font:700 24px/1.1 var(--lab);text-transform:uppercase;letter-spacing:.02em;margin-bottom:6px}
+.bsteps p{font-size:16px;max-width:44ch}
+.bfoot{display:grid;grid-template-columns:240px 1fr;gap:24px;align-items:center;margin-top:44px}
+.bfoot img{width:240px;aspect-ratio:4/3;object-fit:cover}
+.bfoot p{font-size:18px;max-width:46ch}
+@media(max-width:980px){.bgrid{grid-template-columns:1fr;gap:12px}.bsteps li{display:none}.bsteps li.on{display:grid;border-top:0;padding:4px 0}.bsteps p{font-size:15.5px}}
+@media(max-width:640px){.logo{height:58px}.hero h1{font-size:clamp(34px,10.6vw,50px)}.bstage{top:80px;height:calc(100svh - 80px - 58px)}.btrack{height:340vh}
+ .bscene svg{max-height:calc(100svh - 330px)}.bsteps b{font-size:21px}.bfoot{grid-template-columns:1fr}.bfoot img{width:100%}
+ .dock a:first-child{color:var(--ink)}}
+@media(prefers-reduced-motion:reduce){.btrack{height:auto}.bstage{position:static;height:auto}.bsteps li,.bsteps li.on{display:grid;opacity:1}.spin{animation:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="ws" d="M0.2 -21.1H26.8Q28.4 -18 33.2 -16.8Q37.9 -15.6 46.8 -15.6Q53.6 -15.6 56.9 -16.3Q60.2 -17 61.3 -18.2Q62.3 -19.4 62.3 -20.8Q62.3 -22.8 60.1 -23.6Q57.8 -24.4 52.6 -24.5Q47.3 -24.7 38 -24.7Q29.3 -24.7 22.4 -25.5Q15.5 -26.3 10.7 -28Q5.9 -29.8 3.4 -32.9Q0.8 -36 0.8 -40.7Q0.8 -46.4 4.6 -50.3Q8.3 -54.2 14.6 -56.5Q21 -58.7 29.3 -59.6Q37.7 -60.6 46.8 -60.6Q61.9 -60.6 71.5 -57.5Q81.1 -54.5 85.7 -49.3Q90.2 -44.2 90.1 -37.7H64.3Q63 -40.8 59.3 -42Q55.7 -43.2 46.8 -43.2Q38.4 -43.2 34.6 -41.9Q30.8 -40.7 30.8 -37.9Q30.8 -36.1 32.7 -35.2Q34.6 -34.3 39.8 -34Q45 -33.6 55.1 -33.6Q62 -33.6 68.7 -33.1Q75.4 -32.6 80.7 -31.1Q86 -29.5 89.2 -26.3Q92.3 -23 92.3 -17.4Q92.3 -10.6 86.7 -6.3Q81.1 -2 70.9 -0.1Q60.7 1.8 46.8 1.8Q34.7 1.8 26.3 0.2Q18 -1.3 12.7 -3.9Q7.4 -6.5 4.6 -9.5Q1.8 -12.6 0.9 -15.7Q0 -18.7 0.2 -21.1ZM94.1 -58.8H164.6V-40.8H94.1ZM115 -76.8H143.8V0H115ZM248.8 -21.1H277.1Q276 -14.2 270.2 -9Q264.4 -3.8 253.3 -1Q242.2 1.8 225 1.8Q206.9 1.8 193.7 -1.1Q180.6 -4 173.5 -10.8Q166.4 -17.6 166.4 -29.3Q166.4 -40.8 173.3 -47.7Q180.2 -54.6 193.3 -57.6Q206.4 -60.6 225 -60.6Q243.2 -60.6 254.9 -57.4Q266.5 -54.1 272 -46.9Q277.6 -39.6 277.3 -27.2H195.7Q196.3 -24.1 199.1 -21.5Q202 -18.8 207.9 -17.2Q213.8 -15.6 223.8 -15.6Q234.1 -15.6 240.8 -17Q247.4 -18.5 248.8 -21.1ZM223.8 -43.2Q211.1 -43.2 204.4 -40.4Q197.8 -37.7 196.6 -34.9H249.4Q248.5 -38 242.6 -40.6Q236.8 -43.2 223.8 -43.2ZM325.7 1.7Q312.7 1.7 302.6 -2Q292.6 -5.6 286.7 -12.6Q280.9 -19.6 280.9 -29.4Q280.9 -39.7 286.7 -46.7Q292.6 -53.6 302.6 -57.1Q312.7 -60.6 325.7 -60.6Q340.1 -60.6 350.6 -56.7Q361.1 -52.8 366.8 -45.8Q372.5 -38.8 372.5 -29.4Q372.5 -22.4 369.2 -16.7Q366 -11 359.9 -6.9Q353.8 -2.8 345.1 -0.5Q336.5 1.7 325.7 1.7ZM336.5 -16.6Q345.6 -16.6 353.2 -17.7Q360.8 -18.8 365.5 -21.6Q370.1 -24.4 370.1 -29.4Q370.1 -34.6 365.5 -37.3Q360.8 -40.1 353.2 -41.2Q345.6 -42.2 336.5 -42.2Q324.2 -42.2 317.5 -39.1Q310.8 -35.9 310.8 -29.4Q310.8 -25.2 313.8 -22.3Q316.8 -19.4 322.6 -18Q328.3 -16.6 336.5 -16.6ZM370.1 -58.8H398.9V0H371.8Q371.8 0 371.3 -2.8Q370.9 -5.5 370.5 -10.7Q370.1 -15.8 370.1 -22.8ZM448.4 1.7Q435.5 1.7 425.4 -2Q415.3 -5.6 409.5 -12.6Q403.7 -19.6 403.7 -29.4Q403.7 -39.7 409.5 -46.7Q415.3 -53.6 425.4 -57.1Q435.5 -60.6 448.4 -60.6Q459.2 -60.6 467.9 -58.4Q476.5 -56.2 482.6 -52Q488.8 -47.9 492 -42.1Q495.2 -36.4 495.2 -29.4Q495.2 -22.4 492 -16.7Q488.8 -11 482.6 -6.9Q476.5 -2.8 467.9 -0.5Q459.2 1.7 448.4 1.7ZM459.2 -16.6Q468.4 -16.6 476 -17.7Q483.6 -18.8 488.2 -21.6Q492.8 -24.4 492.8 -29.4Q492.8 -34.6 488.2 -37.3Q483.6 -40.1 476 -41.2Q468.4 -42.2 459.2 -42.2Q447 -42.2 440.3 -39.1Q433.6 -35.9 433.6 -29.4Q433.6 -25.2 436.6 -22.3Q439.6 -19.4 445.3 -18Q451.1 -16.6 459.2 -16.6ZM492.8 -82.8H521.6V0H494.5Q494 -2.8 493.4 -8.9Q492.8 -15.1 492.8 -22.8ZM527 -58.8H557.6L592.7 -2.4L567.8 0ZM637.4 -58.8 579 24H549.6L574.7 -10L606.8 -58.8Z"/><path id="wi" d="M10.4 -30.6V-24.5H0V-30.6ZM0.3 -20.1H10.1V0H0.3ZM20.4 -20.1H30.2V0H20.4ZM45 -20.7Q47.4 -20.7 49.6 -20.2Q51.9 -19.7 53.7 -18.5Q55.5 -17.2 56.5 -15.1Q57.6 -13 57.6 -9.7V0H47.8V-8.5Q47.8 -11.6 46.2 -12.9Q44.6 -14.1 40.4 -14.1Q38.2 -14.1 36.1 -13.7Q34 -13.2 32.4 -12.5Q30.7 -11.8 29.8 -11.2L29.7 -12.7Q29.9 -13.4 30.9 -14.8Q31.8 -16.1 33.7 -17.5Q35.5 -18.8 38.3 -19.8Q41.1 -20.7 45 -20.7ZM71.9 -20.7Q74.3 -20.7 76.5 -20.2Q78.8 -19.7 80.6 -18.5Q82.4 -17.2 83.4 -15.1Q84.5 -13 84.5 -9.7V0H74.7V-8.5Q74.7 -11.6 73.1 -12.9Q71.5 -14.1 67.3 -14.1Q65.1 -14.1 63 -13.7Q60.9 -13.2 59.3 -12.5Q57.6 -11.8 56.7 -11.2L56.6 -13.1Q56.8 -13.7 57.9 -15Q58.9 -16.2 60.9 -17.5Q62.8 -18.8 65.6 -19.8Q68.3 -20.7 71.9 -20.7ZM119.1 0.6Q115.4 0.6 112.4 -0.1Q109.5 -0.9 107.4 -2.3Q105.3 -3.7 104.2 -5.7Q103.1 -7.7 103.1 -10Q103.1 -12.4 104.2 -14.4Q105.3 -16.3 107.4 -17.7Q109.5 -19.1 112.4 -19.9Q115.4 -20.7 119.1 -20.7Q123.5 -20.7 127 -19.4Q130.4 -18.2 132.4 -15.8Q134.4 -13.4 134.4 -10Q134.4 -6.5 132.4 -4.1Q130.4 -1.8 127 -0.6Q123.5 0.6 119.1 0.6ZM115.4 -5.7Q118.2 -5.7 120.1 -6.2Q122.1 -6.6 123.1 -7.6Q124.1 -8.6 124.1 -10Q124.1 -12.2 121.8 -13.3Q119.6 -14.4 115.4 -14.4Q112.3 -14.4 109.7 -14.1Q107 -13.7 105.5 -12.7Q103.9 -11.8 103.9 -10Q103.9 -8.3 105.5 -7.4Q107 -6.4 109.7 -6Q112.3 -5.7 115.4 -5.7ZM94.1 -20.1H103.3L103.9 -12.3V8.2H94.1ZM143.5 -20.1H153.3V0H143.5ZM163.9 -12.5Q161.2 -12.5 159 -12Q156.8 -11.5 155.3 -10.8Q153.7 -10.2 152.9 -9.5L152.8 -11.5Q153 -12.3 153.5 -13.5Q154 -14.7 154.9 -15.9Q155.8 -17.2 157.1 -18.3Q158.5 -19.4 160.2 -20Q161.9 -20.7 163.9 -20.7ZM191.5 0.6Q185 0.6 180.7 -0.5Q176.3 -1.5 174.2 -3.9Q172 -6.2 172 -10Q172 -13.8 174.2 -16.2Q176.3 -18.5 180.7 -19.6Q185 -20.7 191.5 -20.7Q198 -20.7 202.3 -19.6Q206.6 -18.5 208.7 -16.2Q210.8 -13.8 210.8 -10Q210.8 -6.2 208.7 -3.9Q206.6 -1.5 202.3 -0.5Q198 0.6 191.5 0.6ZM191.5 -5.3Q194.5 -5.3 196.6 -5.8Q198.6 -6.4 199.7 -7.4Q200.8 -8.4 200.8 -10Q200.8 -11.6 199.7 -12.6Q198.7 -13.7 196.6 -14.2Q194.6 -14.8 191.5 -14.8Q188.5 -14.8 186.4 -14.2Q184.2 -13.7 183.2 -12.6Q182.1 -11.6 182.1 -10Q182.1 -8.4 183.1 -7.4Q184.2 -6.4 186.3 -5.8Q188.4 -5.3 191.5 -5.3ZM239 -3.7 234.4 -3.8 244.7 -20.1H255.5L241.2 0H232L218.3 -20.1H229.1ZM291.2 -7.2H300.9Q300.5 -4.8 298.5 -3.1Q296.5 -1.3 292.7 -0.3Q288.9 0.6 283.1 0.6Q276.9 0.6 272.4 -0.4Q267.9 -1.4 265.5 -3.7Q263 -6 263 -10Q263 -13.9 265.4 -16.3Q267.8 -18.7 272.2 -19.7Q276.7 -20.7 283.1 -20.7Q289.3 -20.7 293.3 -19.6Q297.2 -18.5 299.1 -16Q301 -13.5 300.9 -9.3H273.1Q273.3 -8.2 274.2 -7.3Q275.2 -6.4 277.2 -5.9Q279.2 -5.3 282.6 -5.3Q286.2 -5.3 288.4 -5.8Q290.7 -6.3 291.2 -7.2ZM282.6 -14.8Q278.3 -14.8 276 -13.8Q273.8 -12.9 273.3 -11.9H291.4Q291.1 -13 289.1 -13.9Q287.1 -14.8 282.6 -14.8ZM310.1 -20.1H319.9V0H310.1ZM334.7 -20.7Q337.1 -20.7 339.3 -20.2Q341.6 -19.7 343.4 -18.5Q345.2 -17.2 346.2 -15.1Q347.3 -13 347.3 -9.7V0H337.5V-8.5Q337.5 -11.6 335.9 -12.9Q334.3 -14.1 330.1 -14.1Q327.9 -14.1 325.8 -13.7Q323.7 -13.2 322.1 -12.5Q320.4 -11.8 319.5 -11.2L319.4 -12.7Q319.6 -13.4 320.6 -14.8Q321.5 -16.1 323.4 -17.5Q325.2 -18.8 328 -19.8Q330.8 -20.7 334.7 -20.7ZM361.6 -20.7Q364 -20.7 366.2 -20.2Q368.5 -19.7 370.3 -18.5Q372.1 -17.2 373.1 -15.1Q374.2 -13 374.2 -9.7V0H364.4V-8.5Q364.4 -11.6 362.8 -12.9Q361.2 -14.1 357 -14.1Q354.8 -14.1 352.7 -13.7Q350.6 -13.2 349 -12.5Q347.3 -11.8 346.4 -11.2L346.3 -13.1Q346.5 -13.7 347.5 -15Q348.6 -16.2 350.6 -17.5Q352.5 -18.8 355.3 -19.8Q358 -20.7 361.6 -20.7ZM411.5 -7.2H421.1Q420.8 -4.8 418.8 -3.1Q416.8 -1.3 413 -0.3Q409.2 0.6 403.3 0.6Q397.2 0.6 392.7 -0.4Q388.2 -1.4 385.8 -3.7Q383.3 -6 383.3 -10Q383.3 -13.9 385.7 -16.3Q388.1 -18.7 392.5 -19.7Q397 -20.7 403.3 -20.7Q409.6 -20.7 413.6 -19.6Q417.5 -18.5 419.4 -16Q421.3 -13.5 421.2 -9.3H393.3Q393.6 -8.2 394.5 -7.3Q395.5 -6.4 397.5 -5.9Q399.5 -5.3 402.9 -5.3Q406.5 -5.3 408.7 -5.8Q411 -6.3 411.5 -7.2ZM402.9 -14.8Q398.6 -14.8 396.3 -13.8Q394 -12.9 393.6 -11.9H411.7Q411.4 -13 409.4 -13.9Q407.4 -14.8 402.9 -14.8ZM430.4 -20.1H440.2V0H430.4ZM455 -20.7Q457.4 -20.7 459.6 -20.2Q461.9 -19.7 463.7 -18.5Q465.5 -17.2 466.5 -15.1Q467.6 -13 467.6 -9.7V0H457.8V-8.5Q457.8 -11.6 456.2 -12.9Q454.6 -14.1 450.4 -14.1Q448.2 -14.1 446.1 -13.7Q444 -13.2 442.4 -12.5Q440.7 -11.8 439.8 -11.2L439.7 -12.7Q439.9 -13.4 440.8 -14.8Q441.8 -16.1 443.7 -17.5Q445.5 -18.8 448.3 -19.8Q451.1 -20.7 455 -20.7ZM476.1 -20.1H500.2V-13.9H476.1ZM483.3 -26.2H493.1V0H483.3ZM508.6 -7.2H517.6Q518.2 -6.2 519.8 -5.7Q521.4 -5.3 524.5 -5.3Q526.8 -5.3 527.9 -5.6Q529.1 -5.8 529.4 -6.2Q529.7 -6.6 529.7 -7.1Q529.7 -7.8 529 -8.1Q528.2 -8.3 526.4 -8.4Q524.6 -8.4 521.5 -8.4Q518.5 -8.4 516.1 -8.7Q513.8 -9 512.1 -9.6Q510.5 -10.2 509.6 -11.2Q508.8 -12.3 508.8 -13.9Q508.8 -15.9 510 -17.2Q511.3 -18.5 513.5 -19.3Q515.6 -20 518.5 -20.4Q521.3 -20.7 524.5 -20.7Q529.6 -20.7 532.9 -19.7Q536.2 -18.6 537.7 -16.9Q539.3 -15.1 539.3 -12.9H530.4Q530 -13.9 528.7 -14.4Q527.5 -14.8 524.5 -14.8Q521.6 -14.8 520.3 -14.3Q519 -13.9 519 -13Q519 -12.3 519.6 -12Q520.3 -11.7 522.1 -11.6Q523.8 -11.5 527.3 -11.5Q529.7 -11.5 531.9 -11.3Q534.2 -11.2 536 -10.6Q537.9 -10.1 538.9 -9Q540 -7.9 540 -5.9Q540 -3.6 538.1 -2.2Q536.2 -0.7 532.7 -0Q529.2 0.6 524.5 0.6Q520.3 0.6 517.5 0.1Q514.6 -0.5 512.8 -1.3Q511 -2.2 510 -3.3Q509.1 -4.3 508.8 -5.4Q508.5 -6.4 508.6 -7.2Z"/><g id="lg1"><path d="M211.3 -68A112 112 0 0 1 435.3 -68Z" fill="#16264A"/><path d="M227 -75.8L227.2 -81.9L249.1 -102.9L235 -114.4L262.8 -126.6L253.5 -142.3L283.8 -144.2L280.5 -162.1L309.6 -153.6L312.6 -171.6L337 -153.6L345.9 -169.5L362.8 -144.2L376.6 -156.1L383.8 -126.6L400.8 -133L397.5 -102.9L415.7 -103L402.3 -75.8Z" fill="#FFD23F"/><path d="M282.8 -75.8A40.5 40.5 0 0 1 363.8 -75.8Z" fill="#F47B20"/><use href="#ws" fill="#16264A"/><use href="#wi" y="44" fill="#16264A"/></g></defs></svg>
+
+<!-- loading screen: the name is set letter by letter, a line is ruled under it, then two doors slide open -->
+<div id="ld" aria-hidden="true">
+  <div class="door l"></div><div class="door r"></div>
+  <div class="ldc"><div class="ldm"><div class="brand"><svg class="logo ldl" viewBox="-4 -184 646 242" role="img" aria-label="Steady Improvements"><path d="M211.3 -68A112 112 0 0 1 435.3 -68Z" fill="#16264A"/><clipPath id="ldclip"><rect x="211.3" y="-180" width="224" height="104.2"/></clipPath><g clip-path="url(#ldclip)"><path class="spin" d="M244.3 -75.8L227.2 -81.9L249.1 -102.9L235 -114.4L262.8 -126.6L253.5 -142.3L283.8 -144.2L280.5 -162.1L309.6 -153.6L312.6 -171.6L337 -153.6L345.9 -169.5L362.8 -144.2L376.6 -156.1L383.8 -126.6L400.8 -133L397.5 -102.9L415.7 -103L402.3 -75.8L419.4 -69.8L397.5 -48.8L411.6 -37.3L383.8 -25.1L393.1 -9.4L362.8 -7.4L366.1 10.4L337 1.9L334 19.9L309.6 1.9L300.7 17.8L283.8 -7.4L270 4.4L262.8 -25.1L245.8 -18.7L249.1 -48.8L230.9 -48.6L244.3 -75.8Z" fill="#FFD23F"/></g><path d="M227 -75.8L227.2 -81.9L244.3 -75.8Z" fill="#FFD23F"/><path d="M282.8 -75.8A40.5 40.5 0 0 1 363.8 -75.8Z" fill="#F47B20"/><use href="#ws" fill="#16264A"/><use href="#wi" y="44" fill="#16264A"/></svg></div></div><div class="ldr"></div></div>
+</div>
+
+<header class="top" id="hd">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Steady Improvements, home">
+      <svg class="logo hd" viewBox="-4 -184 646 242" role="img" aria-label="Steady Improvements"><use href="#lg1"/></svg>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a class="l" href="#services">Services</a>
+      <a class="l" href="#balcony">Balcony flooring</a>
+      <a class="l" href="#process">How we work</a>
+      <a class="l" href="#work">Our work</a>
+      <a class="btn btn-brick" href="#quote">Get a quote</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" id="hero">
+  <div class="slides" id="slides">
+    <figure class="on"><img src="img/balcony-teak.jpg" alt="Warm composite balcony flooring on a long condo balcony" style="object-position:50% 60%"></figure>
+    <figure><img src="img/feature-wall.jpg" alt="Marble-look tile feature wall with a mounted TV" loading="lazy" style="object-position:50% 35%"></figure>
+    <figure><img src="img/bathroom.jpg" alt="Renovated bathroom with marble-look tile and floating vanity" loading="lazy" style="object-position:50% 80%"></figure>
+  </div>
+  <div class="copy">
+    <div class="wrap">
+      <h1><span class="ln"><span>Carpentry</span></span><span class="ln"><span>you can</span></span><span class="ln"><span>count on.</span></span></h1>
+      <p class="rot">Residential and commercial <span class="w" id="rw">bathrooms</span></p>
+      <div class="ctas">
+        <a class="btn btn-brick" href="#quote">Build your quote</a>
+        <a class="btn btn-line" href="mailto:Steadyimprovements@gmail.com"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" style="flex:none;vertical-align:-4px;margin-right:8px"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg>Get in touch</a>
+      </div>
+    </div>
+  </div>
+  <div class="meta"><span id="cap">Balcony flooring</span><span class="bar" id="bar"><i class="on"></i><i></i><i></i></span></div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div>
+  <span>Bathrooms</span><span>Kitchens</span><span>Balcony flooring</span><span>Hardwood and laminate</span><span>Tile</span><span>Window coverings</span><span>Demolition</span><span>Handyman</span>
+  <span>Bathrooms</span><span>Kitchens</span><span>Balcony flooring</span><span>Hardwood and laminate</span><span>Tile</span><span>Window coverings</span><span>Demolition</span><span>Handyman</span>
+</div></div>
+
+<section class="intro" id="about">
+  <div class="wrap g">
+    <div class="rv">
+      <p class="eyebrow">Small, local, hands-on</p>
+      <h2>Interior finishes, done properly.</h2>
+      <p class="lead" style="margin-top:22px">We're a small local construction company that specialises in interior finishes: new construction, repairs and restorations, for homes and businesses.</p>
+    </div>
+    <div class="facts rv">
+      <div><svg viewBox="0 0 40 40"><path d="M6 34V14l14-9 14 9v20H6z"/><path d="M15 34V22h10v12"/></svg><p><b>Occupied sites, no problem</b>Live-in homes and fully operating businesses.</p></div>
+      <div><svg viewBox="0 0 40 40"><rect x="5" y="8" width="30" height="26"/><path d="M5 16h30M13 4v8M27 4v8M11 23h6M11 28h12"/></svg><p><b>Multi-phase jobs</b>We plan, manage and build them, start to finish.</p></div>
+      <div><svg viewBox="0 0 40 40"><path d="M8 21l8 8L33 11"/><path d="M4 36h32"/></svg><p><b>Client sign-off</b>Every project ends with your sign-off.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="on-ink" id="balcony">
+  <div class="wrap g">
+    <div class="pics rv">
+      <img class="a" src="img/balcony-teak.jpg" alt="Long condo balcony finished in warm composite flooring" loading="lazy">
+      <span class="lab la">Warm tone</span>
+      <img class="b" src="img/balcony-grey.jpg" alt="Grey composite balcony flooring next to glass railings" loading="lazy">
+      <span class="lab lb">Cool grey</span>
+    </div>
+    <div class="rv">
+      <p class="eyebrow">For condo owners</p>
+      <h2>The balcony upgrade.</h2>
+      <p class="lead">A trendy, unique composite balcony floor that turns bare concrete into a real outdoor room. We supply it, deliver it and install it.</p>
+      <ul class="ticks">
+        <li><svg viewBox="0 0 26 26"><path d="M4 13l6 6L22 6"/></svg>Condo board approved</li>
+        <li><svg viewBox="0 0 26 26"><path d="M4 13l6 6L22 6"/></svg>Zero maintenance for 20 years</li>
+        <li><svg viewBox="0 0 26 26"><path d="M4 13l6 6L22 6"/></svg>Installed by our own team, with real attention to detail</li>
+      </ul>
+      <div class="calc" id="calc">
+        <h3>Measure your balcony</h3>
+        <div class="row">
+          <label>Length (ft)<input id="bl" type="number" inputmode="decimal" min="1" step="0.5" placeholder="20"></label>
+          <label>Depth (ft)<input id="bw" type="number" inputmode="decimal" min="1" step="0.5" placeholder="6"></label>
+        </div>
+        <div class="tone" role="group" aria-label="Pick a tone">
+          <button type="button" data-tone="Warm tone" aria-pressed="true"><img src="img/balcony-teak.jpg" alt="">Warm tone</button>
+          <button type="button" data-tone="Cool grey" aria-pressed="false"><img src="img/balcony-grey.jpg" alt="">Cool grey</button>
+        </div>
+        <p class="out" id="bout">0 sq ft</p>
+        <p class="note">Send us the size and we'll come back with a quote. Your measurements go straight into the request.</p>
+        <button class="btn btn-brick" id="bsend" type="button" style="width:100%">Quote my balcony</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head rv">
+      <div><p class="eyebrow">We do it all</p><h2 style="margin-top:16px">What we build.</h2></div>
+      <p class="lead">Tap any service to start a quote for it.</p>
+    </div>
+    <div class="svc">
+      <article class="rv"><span class="n">01</span><h3>Bathrooms</h3><p>We factor in materials, structural upgrades and labour so you get a reasonable quote at the start. We fix underlying issues before we finish, and we'll even pick up and deliver custom fixtures.</p><div class="ph"><img src="img/bathroom.jpg" alt="Finished bathroom renovation" loading="lazy" style="object-position:50% 70%"></div><button class="q" data-svc="Bathroom">Quote a bathroom <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button></article>
+      <article class="rv"><span class="n">02</span><h3>Kitchens</h3><p>Design, renovation and remodelling, including premium appliances, cabinetry and fixtures. Finished on time and within your budget.</p><div class="ph"><img src="img/kitchen.jpg" alt="Renovated kitchen with island" loading="lazy" style="object-position:50% 50%"></div><button class="q" data-svc="Kitchen">Quote a kitchen <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button></article>
+      <article class="rv"><span class="n">03</span><h3>Flooring</h3><p>Composite balcony flooring, plus laminate, hardwood, vinyl tile and ceramic tile inside.</p><div class="ph"><img src="img/balcony-teak.jpg" alt="Composite balcony flooring" loading="lazy" style="object-position:50% 70%"></div><button class="q" data-svc="Flooring">Quote flooring <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button></article>
+      <article class="rv"><span class="n">04</span><h3>Window coverings</h3><p>Blinds, shades and shutters in styles that suit any room. We'll walk you through choosing them, then install them.</p><div class="ph"><img src="img/blind.jpg" alt="Roller shade installed over condo windows" loading="lazy" style="object-position:50% 40%"></div><button class="q" data-svc="Window coverings">Quote window coverings <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button></article>
+      <article class="rv"><span class="n">05</span><h3>Demolition</h3><p>Every demolition is different. We plan it properly, with the skills and manpower to keep your project on schedule and on budget.</p><div class="ph"><img src="img/framing.jpg" alt="Bathroom stripped back to the studs" loading="lazy" style="object-position:50% 50%"></div><button class="q" data-svc="Demolition">Quote demolition <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button></article>
+      <article class="rv"><span class="n">06</span><h3>Handyman</h3><p>Basic handyman services for the smaller jobs on your list.</p><div class="noph" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M10 54l26-26"/><path d="M30 14h16l6 6-6 6-8-4-6 6"/><path d="M38 22l-4 4"/></svg></div><button class="q" data-svc="Handyman">Quote a small job <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button></article>
+    </div>
+  </div>
+</section>
+
+<section class="on-ink" id="process">
+  <div class="wrap bhead rv"><p class="eyebrow">How we work</p><h2 style="margin-top:16px">No short cuts. Start to finish.</h2></div>
+  <div class="btrack" id="build"><div class="bstage"><div class="wrap bgrid">
+    <div class="bscene"><svg viewBox="0 0 800 560" role="img" aria-label="A bathroom renovation, from a measured plan, to framing, to tile and fixtures, to the finished room"><rect width="800" height="560" fill="#FFF8E7"/><g fill="none" stroke="#16264A" stroke-width="3" stroke-dasharray="10 8" data-t="0.5,0.58" data-fx="out"><rect x="80" y="60" width="640" height="380"/><rect x="110" y="350" width="280" height="90" rx="14"/><rect x="470" y="330" width="210" height="110"/><path d="M520 290V190a55 55 0 0 1 110 0v100z"/><rect x="150" y="100" width="180" height="120"/></g><rect x="80" y="26" width="640" height="10" fill="#F47B20" data-t="0.02,0.2" data-fx="wipe"/><g fill="#16264A" data-t="0.05,0.22" data-fx="fade"><rect x="78.5" y="18" width="3" height="26"/><rect x="118.5" y="24" width="3" height="14"/><rect x="158.5" y="24" width="3" height="14"/><rect x="198.5" y="24" width="3" height="14"/><rect x="238.5" y="18" width="3" height="26"/><rect x="278.5" y="24" width="3" height="14"/><rect x="318.5" y="24" width="3" height="14"/><rect x="358.5" y="24" width="3" height="14"/><rect x="398.5" y="18" width="3" height="26"/><rect x="438.5" y="24" width="3" height="14"/><rect x="478.5" y="24" width="3" height="14"/><rect x="518.5" y="24" width="3" height="14"/><rect x="558.5" y="18" width="3" height="26"/><rect x="598.5" y="24" width="3" height="14"/><rect x="638.5" y="24" width="3" height="14"/><rect x="678.5" y="24" width="3" height="14"/><rect x="718.5" y="18" width="3" height="26"/></g><rect x="40" y="60" width="10" height="380" fill="#F47B20" data-t="0.08,0.24" data-fx="grow"/><g fill="#16264A" data-t="0.1,0.25" data-fx="fade"><rect x="32" y="58.5" width="26" height="3"/><rect x="38" y="96.5" width="14" height="3"/><rect x="38" y="134.5" width="14" height="3"/><rect x="38" y="172.5" width="14" height="3"/><rect x="32" y="210.5" width="26" height="3"/><rect x="38" y="248.5" width="14" height="3"/><rect x="38" y="286.5" width="14" height="3"/><rect x="38" y="324.5" width="14" height="3"/><rect x="32" y="362.5" width="26" height="3"/><rect x="38" y="400.5" width="14" height="3"/><rect x="38" y="438.5" width="14" height="3"/></g><rect x="80" y="428" width="640" height="12" fill="#F47B20" data-t="0.25,0.31" data-fx="wipe"/><rect x="80" y="72" width="14" height="356" fill="#F47B20" data-t="0.280,0.360" data-fx="grow"/><rect x="158.2" y="72" width="14" height="356" fill="#F47B20" data-t="0.297,0.377" data-fx="grow"/><rect x="236.5" y="72" width="14" height="356" fill="#F47B20" data-t="0.314,0.394" data-fx="grow"/><rect x="314.8" y="72" width="14" height="356" fill="#F47B20" data-t="0.331,0.411" data-fx="grow"/><rect x="393" y="72" width="14" height="356" fill="#F47B20" data-t="0.348,0.428" data-fx="grow"/><rect x="471.2" y="72" width="14" height="356" fill="#F47B20" data-t="0.365,0.445" data-fx="grow"/><rect x="549.5" y="72" width="14" height="356" fill="#F47B20" data-t="0.382,0.462" data-fx="grow"/><rect x="627.8" y="72" width="14" height="356" fill="#F47B20" data-t="0.399,0.479" data-fx="grow"/><rect x="706" y="72" width="14" height="356" fill="#F47B20" data-t="0.416,0.496" data-fx="grow"/><rect x="80" y="60" width="640" height="12" fill="#F47B20" data-t="0.44,0.5" data-fx="down" data-d="40"/><rect x="80" y="60" width="640" height="380" fill="#A9D6F5" data-t="0.5,0.58" data-fx="grow"/><g fill="#FFF8E7" data-t="0.56,0.61" data-fx="up" data-d="18"><rect x="82" y="391" width="40.5" height="48"/><rect x="124.5" y="391" width="40.5" height="48"/><rect x="167" y="391" width="40.5" height="48"/><rect x="209.5" y="391" width="40.5" height="48"/><rect x="252" y="391" width="40.5" height="48"/><rect x="294.5" y="391" width="40.5" height="48"/><rect x="337" y="391" width="40.5" height="48"/><rect x="379.5" y="391" width="40.5" height="48"/></g><g fill="#FFF8E7" data-t="0.59,0.64" data-fx="up" data-d="18"><rect x="82" y="341" width="40.5" height="48"/><rect x="124.5" y="341" width="40.5" height="48"/><rect x="167" y="341" width="40.5" height="48"/><rect x="209.5" y="341" width="40.5" height="48"/><rect x="252" y="341" width="40.5" height="48"/><rect x="294.5" y="341" width="40.5" height="48"/><rect x="337" y="341" width="40.5" height="48"/><rect x="379.5" y="341" width="40.5" height="48"/></g><g fill="#FFF8E7" data-t="0.62,0.67" data-fx="up" data-d="18"><rect x="82" y="291" width="40.5" height="48"/><rect x="124.5" y="291" width="40.5" height="48"/><rect x="167" y="291" width="40.5" height="48"/><rect x="209.5" y="291" width="40.5" height="48"/><rect x="252" y="291" width="40.5" height="48"/><rect x="294.5" y="291" width="40.5" height="48"/><rect x="337" y="291" width="40.5" height="48"/><rect x="379.5" y="291" width="40.5" height="48"/></g><g fill="#FFF8E7" data-t="0.65,0.70" data-fx="up" data-d="18"><rect x="82" y="241" width="40.5" height="48"/><rect x="124.5" y="241" width="40.5" height="48"/><rect x="167" y="241" width="40.5" height="48"/><rect x="209.5" y="241" width="40.5" height="48"/><rect x="252" y="241" width="40.5" height="48"/><rect x="294.5" y="241" width="40.5" height="48"/><rect x="337" y="241" width="40.5" height="48"/><rect x="379.5" y="241" width="40.5" height="48"/></g><rect x="80" y="232" width="342" height="8" fill="#16264A" data-t="0.66,0.7" data-fx="wipe"/><rect x="150" y="100" width="180" height="120" fill="#FFF8E7" data-t="0.6,0.68" data-fx="pop"/><clipPath id="wclip"><rect x="153" y="103" width="174" height="114"/></clipPath><g clip-path="url(#wclip)"><g data-t="0.82,0.97" data-fx="up" data-d="80" data-keep="1"><path d="M174 220L174.1 215.9L189.1 201.5L179.5 193.6L198.5 185.2L192.2 174.5L212.9 173.1L210.7 160.9L230.6 166.7L232.6 154.4L249.4 166.7L255.5 155.9L267.1 173.1L276.5 165L281.5 185.2L293.1 180.8L290.9 201.5L303.3 201.4L294.1 220Z" fill="#FFD23F"/><path d="M213 220A27 27 0 0 1 267 220Z" fill="#F47B20"/></g></g><g fill="none" stroke="#16264A" data-t="0.6,0.68" data-fx="pop"><rect x="150" y="100" width="180" height="120" stroke-width="7"/><path d="M240 100v120M150 160h180" stroke-width="4"/></g><g data-t="0.64,0.74" data-fx="left" data-d="170"><path d="M112 356H388v44a40 40 0 0 1-40 40H152a40 40 0 0 1-40-40z" fill="#FFF8E7" stroke="#16264A" stroke-width="5"/><rect x="98" y="342" width="304" height="16" rx="8" fill="#16264A"/></g><g data-t="0.66,0.76" data-fx="up" data-d="130" data-keep="1"><rect x="470" y="332" width="210" height="108" fill="#16264A"/><rect x="573" y="342" width="4" height="90" fill="#A9D6F5"/><rect x="553" y="376" width="8" height="26" fill="#FFD23F"/><rect x="589" y="376" width="8" height="26" fill="#FFD23F"/><rect x="460" y="318" width="230" height="16" fill="#FFF8E7" stroke="#16264A" stroke-width="4"/><path d="M571 318v-24h24v8h-16v16z" fill="#16264A"/></g><rect x="60" y="440" width="680" height="120" fill="#FFF8E7"/><g data-t="0.5,0.6" data-fx="wipe"><rect x="80" y="440" width="40" height="30" fill="#16264A"/><rect x="120" y="440" width="40" height="30" fill="#FFF8E7"/><rect x="160" y="440" width="40" height="30" fill="#16264A"/><rect x="200" y="440" width="40" height="30" fill="#FFF8E7"/><rect x="240" y="440" width="40" height="30" fill="#16264A"/><rect x="280" y="440" width="40" height="30" fill="#FFF8E7"/><rect x="320" y="440" width="40" height="30" fill="#16264A"/><rect x="360" y="440" width="40" height="30" fill="#FFF8E7"/><rect x="400" y="440" width="40" height="30" fill="#16264A"/><rect x="440" y="440" width="40" height="30" fill="#FFF8E7"/><rect x="480" y="440" width="40" height="30" fill="#16264A"/><rect x="520" y="440" width="40" height="30" fill="#FFF8E7"/><rect x="560" y="440" width="40" height="30" fill="#16264A"/><rect x="600" y="440" width="40" height="30" fill="#FFF8E7"/><rect x="640" y="440" width="40" height="30" fill="#16264A"/><rect x="680" y="440" width="40" height="30" fill="#FFF8E7"/><rect x="80" y="470" width="40" height="30" fill="#FFF8E7"/><rect x="120" y="470" width="40" height="30" fill="#16264A"/><rect x="160" y="470" width="40" height="30" fill="#FFF8E7"/><rect x="200" y="470" width="40" height="30" fill="#16264A"/><rect x="240" y="470" width="40" height="30" fill="#FFF8E7"/><rect x="280" y="470" width="40" height="30" fill="#16264A"/><rect x="320" y="470" width="40" height="30" fill="#FFF8E7"/><rect x="360" y="470" width="40" height="30" fill="#16264A"/><rect x="400" y="470" width="40" height="30" fill="#FFF8E7"/><rect x="440" y="470" width="40" height="30" fill="#16264A"/><rect x="480" y="470" width="40" height="30" fill="#FFF8E7"/><rect x="520" y="470" width="40" height="30" fill="#16264A"/><rect x="560" y="470" width="40" height="30" fill="#FFF8E7"/><rect x="600" y="470" width="40" height="30" fill="#16264A"/><rect x="640" y="470" width="40" height="30" fill="#FFF8E7"/><rect x="680" y="470" width="40" height="30" fill="#16264A"/><rect x="80" y="440" width="640" height="60" fill="none" stroke="#16264A" stroke-width="4"/></g><g data-t="0.72,0.8" data-fx="down" data-d="70"><path d="M520 290V190a55 55 0 0 1 110 0v100z" fill="#FFF8E7" stroke="#16264A" stroke-width="6"/><path d="M540 252l34-46M560 268l50-66" stroke="#A9D6F5" stroke-width="7" stroke-linecap="round"/></g><g fill="#16264A" data-t="0.8,0.85" data-fx="fade"><rect x="540" y="112" width="70" height="11"/><rect x="572" y="98" width="6" height="14"/></g><path d="M540 123h70l44 180H496z" fill="#FFD23F" fill-opacity=".42" data-t="0.85,0.93" data-fx="fade"/><g transform="rotate(-6 690 500)"><g data-t="0.9,0.98" data-fx="pop"><rect x="646" y="458" width="88" height="92" rx="6" fill="#FFF8E7" stroke="#16264A" stroke-width="5"/><rect x="672" y="450" width="36" height="14" rx="4" fill="#16264A"/><path d="M664 508l16 16 32-36" fill="none" stroke="#F47B20" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></g></g></svg><div class="bprog" aria-hidden="true"><i></i></div></div>
+    <ol class="bsteps"><li class=on><span>01</span><p><b>A clear quote up front</b>Materials, structural work and labour, all factored in from the beginning.</p></li><li><span>02</span><p><b>Planned and managed</b>Budgeting, staffing and on-site organisation, with seamless communication the whole way.</p></li><li><span>03</span><p><b>Built properly</b>We work with architects and designers, and we take no short cuts on quality.</p></li><li><span>04</span><p><b>Your sign-off</b>When every project is complete, you sign off to confirm you're satisfied.</p></li></ol>
+  </div></div></div>
+  <div class="wrap bfoot rv"><img src="img/framing.jpg" alt="A bathroom opened to the studs before rebuilding" loading="lazy"><p>Behind the walls first. We deal with what's underneath before anything gets finished.</p></div>
+</section>
+
+<section id="work">
+  <div class="wrap head rv">
+    <div><p class="eyebrow">Recent work</p><h2 style="margin-top:16px">From the job site.</h2></div>
+    <p class="swipehint"><svg viewBox="0 0 28 14"><path d="M1 7h26M21 1l6 6-6 6"/></svg>Swipe</p>
+  </div>
+  <div class="wall">
+    <figure><img src="img/balcony-teak.jpg" alt="Warm composite balcony flooring" loading="lazy"><figcaption>Balcony<span>Composite</span></figcaption></figure>
+    <figure><img src="img/kitchen.jpg" alt="Finished kitchen" loading="lazy"><figcaption>Kitchen<span>Full renovation</span></figcaption></figure>
+    <figure><img src="img/feature-wall.jpg" alt="Tile feature wall" loading="lazy"><figcaption>Feature wall<span>Tile</span></figcaption></figure>
+    <figure><img src="img/bathroom.jpg" alt="Finished bathroom" loading="lazy"><figcaption>Bathroom<span>Full renovation</span></figcaption></figure>
+    <figure><img src="img/framing.jpg" alt="Bathroom opened to the studs" loading="lazy"><figcaption>Bathroom<span>Demolition</span></figcaption></figure>
+    <figure><img src="img/balcony-grey.jpg" alt="Grey composite balcony flooring" loading="lazy"><figcaption>Balcony<span>Composite</span></figcaption></figure>
+    <figure><img src="img/blind.jpg" alt="Roller shade" loading="lazy"><figcaption>Window coverings<span>Roller shade</span></figcaption></figure>
+  </div>
+  <div class="wrap"><a class="cs-link" href="work/"><img src="img/framing.jpg" alt="" loading="lazy"><span><small>Case study</small><b>A bathroom, start to finish</b><em>See it stage by stage</em></span></a></div>
+</section>
+
+<section id="trade">
+  <div class="wrap g">
+    <div class="rv">
+      <p class="eyebrow">For architects, designers and property managers</p>
+      <h2>A builder your projects can lean on.</h2>
+      <a class="btn btn-brick" href="#quote" data-pre="Commercial">Send us a scope</a>
+    </div>
+    <div class="cols rv">
+      <div><svg viewBox="0 0 40 40"><path d="M5 35V9h14v26M19 35V3h16v32M9 15h6M9 21h6M9 27h6M23 9h8M23 15h8M23 21h8M23 27h8"/></svg><b>Live sites</b><p>Occupied and fully operational job sites are never a problem.</p></div>
+      <div><svg viewBox="0 0 40 40"><path d="M4 32h32M8 32V20h8v12M18 32V12h8v20M28 32V6h6v26"/></svg><b>Multi-phase</b><p>We plan, manage and build jobs in phases.</p></div>
+      <div><svg viewBox="0 0 40 40"><path d="M6 34l8-22 8 22M9 26h10"/><path d="M24 6h12v28H24z"/><path d="M24 12h5M24 18h5M24 24h5"/></svg><b>Your drawings</b><p>We work with architects and designers to build what was drawn.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="rhead rv">
+      <div><p class="eyebrow">Reviews</p><h2 style="margin-top:16px">Don't take our word for it.</h2></div>
+      <span class="flag">Preview: your ratings and quotes appear here with your go-ahead</span>
+    </div>
+    <div class="rgrid rv">
+      <a class="rsrc" href="https://homestars.com/companies/2963366-steady-improvements" target="_blank" rel="noopener">
+        <span class="k">HomeStars</span><b>Your HomeStars rating</b><p>Your score and review count, pulled from your profile.</p><span class="go">Read every review <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></span>
+      </a>
+      <a class="rsrc" href="#reviews" data-todo="google">
+        <span class="k">Google</span><b>Your Google rating</b><p>Your stars from Google Maps and Search. Google link to come.</p><span class="go">Read every review <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></span>
+      </a>
+      <div class="rq"><svg viewBox="0 0 44 44"><path d="M6 8h32v22H18l-8 7v-7H6z"/><path d="M13 16h18M13 22h12"/></svg><p>Three of your best reviews sit here, word for word, each tagged with where it came from. We never write reviews for you.</p></div>
+    </div>
+    <div class="rask rv">
+      <div><b>Worked with us?</b><p>Leave a review where it suits you. It takes a minute and it means a lot to a small team.</p></div>
+      <a class="btn btn-brick" href="review.html">Leave a review</a>
+    </div>
+  </div>
+</section>
+
+<section class="on-ink" id="quote">
+  <div class="wrap g">
+    <div class="rv">
+      <p class="eyebrow">Get a quote</p>
+      <h2>Tell us about the job.</h2>
+      <p class="lead">Takes about 30 seconds. Photos help, so feel free to text them over too.</p>
+      <div class="direct">
+        <a href="tel:+16474586365"><svg viewBox="0 0 36 36"><path d="M8 5h6l3 7-4 2.5a16 16 0 0 0 8.5 8.5L24 19l7 3v6a3 3 0 0 1-3 3A23 23 0 0 1 5 8a3 3 0 0 1 3-3"/></svg><p><b>(647) 458-6365</b><span>Get in touch, Monday to Friday, 9 a.m. to 5 p.m.</span></p></a>
+        <a href="sms:+16474586365"><svg viewBox="0 0 36 36"><path d="M5 7h26v18H15l-7 6v-6H5z"/><path d="M11 14h14M11 19h9"/></svg><p><b>Text us photos</b><span>Snap the space and send it over.</span></p></a>
+        <a href="mailto:Steadyimprovements@gmail.com"><svg viewBox="0 0 36 36"><rect x="4" y="8" width="28" height="20"/><path d="M4 9l14 11L32 9"/></svg><p><b>Email</b><span>Steadyimprovements@gmail.com</span></p></a>
+      </div>
+    </div>
+    <form class="qb rv" id="qb" novalidate>
+      <fieldset><legend>The job <em>Pick any</em></legend>
+        <div class="chips" data-k="Job" data-multi="1">
+          <button type="button">Bathroom</button><button type="button">Kitchen</button><button type="button">Balcony flooring</button><button type="button">Flooring</button><button type="button">Window coverings</button><button type="button">Demolition</button><button type="button">Handyman</button><button type="button">Commercial</button>
+        </div></fieldset>
+      <fieldset><legend>The place</legend>
+        <div class="chips" data-k="Property"><button type="button">Condo</button><button type="button">House</button><button type="button">Business</button></div></fieldset>
+      <fieldset><legend>Timing</legend>
+        <div class="chips" data-k="Timing"><button type="button">As soon as possible</button><button type="button">Next 1 to 3 months</button><button type="button">Just planning</button></div></fieldset>
+      <fieldset><legend>You</legend>
+        <div class="f">
+          <input name="name" placeholder="Your name" autocomplete="name" aria-label="Your name">
+          <input name="phone" type="tel" placeholder="Phone" autocomplete="tel" aria-label="Phone">
+          <input class="full" name="email" type="email" placeholder="Email" autocomplete="email" aria-label="Email">
+          <textarea name="details" id="det" placeholder="Anything else? Size, address area, what you have in mind." aria-label="Details"></textarea>
+        </div></fieldset>
+      <button class="btn btn-brick send" type="submit">Send my quote request</button>
+      <p class="ok" id="ok">Thanks. Your email app has opened with everything filled in. Hit send and we'll be in touch.</p>
+      <a class="btn" href="quote/" style="width:100%;margin-top:12px;background:transparent;border:2px solid currentColor;justify-content:center">Or get an instant estimate</a>
+      <p class="alt">Rather talk? <a href="tel:+16474586365">Get in touch: (647) 458-6365</a> or <a href="sms:+16474586365">text us photos</a>.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="g">
+      <div>
+        <a href="#top" class="brand"><svg class="logo ft" viewBox="-4 -184 646 242" role="img" aria-label="Steady Improvements"><use href="#lg1"/></svg></a>
+        <p style="font-size:15px;max-width:34ch">Residential and commercial renovations. Carpentry you can count on.</p>
+      </div>
+      <div><h4>Contact</h4><a href="tel:+16474586365">(647) 458-6365</a><a href="mailto:Steadyimprovements@gmail.com">Steadyimprovements@gmail.com</a><a class="ig" href="https://www.instagram.com/steadyimprovements/" target="_blank" rel="noopener"><svg viewBox="0 0 26 26"><rect x="3" y="3" width="20" height="20" rx="5"/><circle cx="13" cy="13" r="4.5"/><path d="M18.5 7.5h.01"/></svg>@steadyimprovements</a></div>
+      <div><h4>Hours</h4><ul><li>Monday to Friday</li><li>9 a.m. to 5 p.m.</li><li>Saturday and Sunday closed</li></ul></div>
+      <div><h4>Services</h4><ul><li>Bathrooms</li><li>Kitchens</li><li>Balcony and interior flooring</li><li>Window coverings</li><li>Demolition and handyman</li></ul></div>
+    </div>
+    <div class="fine"><span>&copy; <span id="yr">2026</span> Steady Improvements. All rights reserved.</span><span>Concept preview by Chairlift. <a href="brand/style-guide-new.html" style="display:inline;border-bottom:1px solid">Style guide</a> · <a href="https://cal.com/chairlift/5min" target="_blank" rel="noopener" style="display:inline;border-bottom:1px solid">Start a conversation</a></span></div>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Quick actions">
+  <a href="#quote"><svg viewBox="0 0 20 20"><path d="M4 2h9l3 3v13H4z"/><path d="M7 8h6M7 12h6"/></svg>Quote</a>
+  <a href="tel:+16474586365"><svg viewBox="0 0 20 20"><path d="M4 2h3l2 4-2 1.3a9 9 0 0 0 5 5L13 11l4 2v3a2 2 0 0 1-2 2A14 14 0 0 1 2 4a2 2 0 0 1 2-2"/></svg>Get in touch</a>
+  <a href="sms:+16474586365"><svg viewBox="0 0 20 20"><path d="M2 3h16v11H8l-4 4v-4H2z"/></svg>Text</a>
+  <a href="#" id="dtour">Tour</a>
+</nav>
+
+<button class="zb" id="zb" aria-label="Chat with Zai"><svg viewBox="0 0 20 20"><path d="M2 3h16v11H8l-4 4v-4H2z"/></svg>Ask Zai</button>
+<section class="zp" id="zp" hidden aria-label="Chat with Zai">
+  <div class="zh"><div><b>Zai</b><small>Steady Improvements assistant</small></div><button id="zx">Close</button></div>
+  <div class="zm" id="zm" aria-live="polite"></div>
+  <div class="zq" id="zq"></div>
+  <form class="zf" id="zf"><input id="zi" placeholder="Ask about a job" autocomplete="off" aria-label="Your message"><button>Send</button></form>
+</section>
+
+<button class="btn tourbtn" id="tb">Take the tour</button>
+<div class="tourbar" id="tour" hidden>
+  <div class="k"><span id="tk">What we changed</span><span id="tn"></span></div>
+  <h5 id="th">See what changed, and why.</h5>
+  <p id="tp">A short guided tour of the new Steady Improvements site. It plays by itself.</p>
+  <p class="why" id="ty" hidden></p>
+  <p class="rev" id="tr" hidden></p>
+  <div class="ctl"><button class="go" id="tgo">Start the tour</button><button id="tpause" hidden>Pause</button><button id="tnext" hidden>Next</button><span class="sp"></span><button id="tx">Close</button></div>
+  <div class="pg"><i id="tpg"></i></div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+$('#yr').textContent=new Date().getFullYear();
+
+/* loader -> hero -> tour */
+const ld=$('#ld');
+function ready(){ld.classList.add('out');$('#hero').classList.add('go');setTimeout(()=>{ld.remove();dispatchEvent(new Event('siready'))},900)}
+setTimeout(ready,RM?300:2300);
+
+/* header */
+const hd=$('#hd');const onS=()=>hd.classList.toggle('solid',scrollY>innerHeight*.75);addEventListener('scroll',onS,{passive:true});onS();
+
+/* hero slides + rotating word */
+const figs=$$('#slides figure'),bars=$$('#bar i'),caps=['Balcony flooring','Feature wall','Bathroom'];
+const words=['bathrooms','kitchens','balcony floors','flooring','window coverings','demolition'];let si=0,wi=0;
+setInterval(()=>{figs[si].classList.remove('on');bars[si].classList.remove('on');si=(si+1)%figs.length;figs[si].classList.add('on');bars[si].classList.add('on');$('#cap').textContent=caps[si]},4800);
+setInterval(()=>{wi=(wi+1)%words.length;const w=$('#rw');w.textContent=words[wi];w.classList.remove('swap');void w.offsetWidth;w.classList.add('swap')},2400);
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+$$('.rv').forEach(el=>io.observe(el));
+
+/* balcony calculator */
+let tone='Warm tone';
+const calc=()=>{const l=parseFloat($('#bl').value)||0,w=parseFloat($('#bw').value)||0;const a=Math.round(l*w);$('#bout').textContent=a+' sq ft';return {l,w,a}};
+['#bl','#bw'].forEach(s=>$(s).addEventListener('input',calc));
+$$('.tone button').forEach(b=>b.onclick=()=>{$$('.tone button').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');tone=b.dataset.tone});
+
+/* quote builder */
+const pick=(k,label,on=true)=>{const g=$(`.chips[data-k="${k}"]`);if(!g)return;[...g.children].forEach(b=>{if(b.textContent===label)b.setAttribute('aria-pressed',on?'true':'false');else if(!g.dataset.multi)b.setAttribute('aria-pressed','false')})};
+$$('.chips button').forEach(b=>{b.setAttribute('aria-pressed','false');b.onclick=()=>{const g=b.parentElement,on=b.getAttribute('aria-pressed')!=='true';if(!g.dataset.multi)[...g.children].forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed',on?'true':'false')}});
+const goQuote=()=>$('#quote').scrollIntoView({behavior:'smooth'});
+$$('.svc .q').forEach(b=>b.onclick=()=>{pick('Job',b.dataset.svc);goQuote()});
+$$('[data-pre]').forEach(a=>a.addEventListener('click',()=>pick('Job',a.dataset.pre)));
+$('#bsend').onclick=()=>{const {l,w,a}=calc();pick('Job','Balcony flooring');pick('Property','Condo');
+  if(a){const t=$('#det');const line=`Balcony: about ${l} ft by ${w} ft (${a} sq ft), ${tone.toLowerCase()}.`;if(!t.value.includes('Balcony:'))t.value=(line+' '+t.value).trim()}goQuote()};
+$('#qb').addEventListener('submit',e=>{e.preventDefault();const f=e.target,sel=k=>[...$(`.chips[data-k="${k}"]`).children].filter(b=>b.getAttribute('aria-pressed')==='true').map(b=>b.textContent).join(', ')||'Not picked';
+  const body=`Job: ${sel('Job')}\nPlace: ${sel('Property')}\nTiming: ${sel('Timing')}\n\nName: ${f.name.value}\nPhone: ${f.phone.value}\nEmail: ${f.email.value}\n\n${f.details.value}`;
+  location.href=`mailto:Steadyimprovements@gmail.com?subject=${encodeURIComponent('Quote request: '+sel('Job'))}&body=${encodeURIComponent(body)}`;$('#ok').style.display='block'});
+
+/* guided tour: what changed, why, and how it brings in work */
+const TOUR=[
+ ['#top','A new site for Steady Improvements','A concept redesign built from your own photos, words and services.','It plays by itself. Tap Pause any time, or Next to skip ahead.','Why: show the work first, and make it easy to ask for a quote from any screen.'],
+ ['#hero','Your best work, first','Was: a white page with a heading and three paragraphs.','Now: your finished jobs fill the screen and change every few seconds, with Get a quote and Call right there.','Why: people hire renovators with their eyes. The work sells before any words do.'],
+ ['#hd','A new logo and colours','Was: a round stamp with a stock hammer.','Now: a bold wordmark with a saw blade rising over it like a sunrise, in baby blue, yellow and orange.','Why: one mark that reads at a glance and works on trucks, shirts, job signs and a phone screen.'],
+ ['#balcony','Balcony flooring gets its own spotlight','Was: buried halfway down the Services page.','Now: its own section with your two finishes and a tool that measures the balcony.','Revenue: other balcony flooring companies in the city lead with this and take requests online. Now you do too, and owners send their exact size so quotes go out faster.'],
+ ['#services','Every service, one tap from a quote','Was: long paragraphs with small cropped photos.','Now: six services, each with a real job photo and a short version of your own words.','Revenue: each one has its own Quote button that pre-fills the request.'],
+ ['#process','How a job runs, step by step','Was: one "Why choose us" paragraph.','Now: a bathroom that gets built as you scroll, matched to your four steps, from the quote up front to your sign-off.','Why: the biggest fear in a renovation is not knowing what happens next. This answers it.'],
+ ['#work','A wall of real jobs','Was: photos spread across pages.','Now: one swipeable wall of finished and in-progress work.','Why: proof in one place, easy to scroll on a phone.'],
+ ['#trade','A door for repeat business','Was: one line about working with architects and designers.','Now: a section for architects, designers and property managers, with Send us a scope.','Revenue: one property manager or designer can send work across many units and projects.'],
+ ['#reviews','All your reviews in one place','Was: an empty Testimonials page, while your real reviews sit on HomeStars and Google.','Now: one hub that shows both ratings, features your best reviews, and gives you one Leave a review link to text clients after a job.','Revenue: more reviews on Google and HomeStars push you up in local search, and people check reviews before they call.'],
+ ['#quote','A 30-second quote builder','Was: a form asking only for an email and phone number.','Now: tap the job, the place and the timing, then send. Call and text-a-photo sit right beside it.','Revenue: you get the job details on the first message, so you can price faster and win more of them.'],
+ ['#quote','New: an instant estimate app','Was: every price meant a phone call and a site visit before anyone knew if the job was a fit.','Now: Steady Quote. A customer taps the job, adds the size and finish, and sees a price range in a minute. You set your own rates.','Revenue: serious buyers arrive already knowing the ballpark, and you stop driving out to quote jobs that were never going to happen.']
+];
+const tour=$('#tour');let ti=-1,tt=null,paused=false;const DUR=9000;
+function clr(){$$('.spot').forEach(e=>e.classList.remove('spot'))}
+function show(i){if(i>=TOUR.length)return end();ti=i;clr();const [sel,h,was,now,why]=TOUR[i];const el=$(sel);
+ if(sel==='#top'||sel==='#hero'||sel==='#hd'){scrollTo({top:0,behavior:'smooth'})}else{el.scrollIntoView({behavior:'smooth',block:'start'})}
+ if(sel!=='#top')el.classList.add('spot');$('#tk').textContent=i?'What we changed':'Concept preview';$('#tn').textContent=i?`${i} / ${TOUR.length-1}`:'';$('#th').textContent=h;$('#tp').innerHTML=`${esc(was)}<br>${esc(now)}`;
+ const y=$('#ty'),r=$('#tr');y.hidden=r.hidden=true;if(why.startsWith('Revenue')){r.textContent=why;r.hidden=false}else{y.textContent=why;y.hidden=false}
+ $('#tgo').hidden=true;$('#tpause').hidden=false;$('#tnext').hidden=false;tick()}
+function tick(){clearTimeout(tt);const pg=$('#tpg');pg.style.transition='none';pg.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>{pg.style.transition=`width ${DUR}ms linear`;pg.style.width='100%'}));if(!paused)tt=setTimeout(()=>show(ti+1),DUR)}
+function end(){clearTimeout(tt);clr();$('#tk').textContent="That's the tour";$('#tn').textContent='';$('#th').textContent='Want this live? Talk to Ryan.';$('#tp').innerHTML='This is a working concept built from your own photos, words and services. Ryan at Chairlift can walk you through it and what it takes to switch it on. <a href="https://cal.com/chairlift/5min" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;background:#F47B20;color:#16264A;padding:12px 16px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:12px">Start a conversation</a>';$('#ty').hidden=$('#tr').hidden=true;$('#tpause').hidden=$('#tnext').hidden=true;$('#tgo').hidden=false;$('#tgo').textContent='Replay';ti=-1;scrollTo({top:0,behavior:'smooth'})}
+$('#tgo').onclick=()=>{paused=false;$('#tpause').textContent='Pause';show(0)};
+$('#tnext').onclick=()=>show(ti+1);
+$('#tpause').onclick=()=>{paused=!paused;$('#tpause').textContent=paused?'Resume':'Pause';if(paused){clearTimeout(tt);const pg=$('#tpg');pg.style.transition='none'}else tick()};
+const openTour=()=>{document.body.classList.add('touring');$('#tb').hidden=true;tour.hidden=false;$('#tgo').click()};
+$('#tb').onclick=openTour;$('#dtour').onclick=e=>{e.preventDefault();openTour()};
+$('#tx').onclick=()=>{clearTimeout(tt);clr();tour.hidden=true;$('#tb').hidden=false;document.body.classList.remove('touring')};
+/* preview: the tour starts by itself right after the loading screen (?tour=0 turns it off) */
+let tourStarted=false;const autoTour=()=>{if(tourStarted||new URLSearchParams(location.search).get('tour')==='0')return;tourStarted=true;setTimeout(openTour,400)};
+addEventListener('siready',autoTour);setTimeout(autoTour,6000);
+/* Zai: answers only from what the business has published; no prices are ever quoted */
+(()=>{const m=$('#zm'),q=$('#zq'),p=$('#zp'),b=$('#zb');let said=false,last=[];
+const PH='<a href="tel:+16474586365">(647) 458-6365</a>',TX='<a href="sms:+16474586365">text photos</a>';
+const say=(h,who='bot')=>{const e=document.createElement('p');e.className=who;e.innerHTML=h;m.appendChild(e);m.scrollTop=m.scrollHeight};
+const chips=a=>{q.innerHTML='';a.forEach(t=>{const x=document.createElement('button');x.type='button';x.textContent=t;x.onclick=()=>ask(t);q.appendChild(x)})};
+const QUOTE='<a href="#quote" data-q>Start a quote</a>';
+const R=[
+[/^(hi|hello|hey|yo|good (morning|afternoon|evening))\b/,'Hi, I am Zai. Ask me about our services, balcony flooring or getting a quote.'],
+[/price|cost|how much|estimate|budget|cheap|afford/,'Every job is different, so prices are set after we see the details. I will not guess a number. Try the instant estimate in our <a href="quote/">Steady Quote app</a>, or '+QUOTE+' and we will come back with a clear quote.'],
+[/balcon|deck|composite|teak|terrace/,'Balcony flooring is one of our specialties: composite finishes in a warm tone or a grey tone. Use the measuring tool on this page to send your size, or '+QUOTE+'.'],
+[/bath|shower|tub|vanity/,'Bathrooms: we plan materials, structural upgrades and labour up front, fix underlying issues before we finish, and can pick up and deliver custom fixtures. '+QUOTE+'.'],
+[/kitchen|cabinet|counter|island/,'Kitchens: design, renovation and remodelling, including premium appliances, cabinetry and fixtures, finished on time and within your budget. '+QUOTE+'.'],
+[/floor|laminate|hardwood|vinyl|tile|ceramic/,'Flooring: composite for balconies, plus laminate, hardwood, vinyl tile and ceramic tile inside. '+QUOTE+'.'],
+[/blind|shade|shutter|window|curtain/,'Window coverings: blinds, shades and shutters. We walk you through choosing them, then install them. '+QUOTE+'.'],
+[/demo|tear|gut|strip/,'Demolition: we plan it properly, with the skills and people to keep the project on schedule. '+QUOTE+'.'],
+[/handyman|small job|repair|fix|odd job|install/,'Yes, we take smaller handyman jobs too. '+QUOTE+' or '+TX+' of what needs doing.'],
+[/service|offer|what (do|can) you|do you do|carpentry|custom/,'We do bathrooms, kitchens, flooring (including composite balcony flooring), window coverings, demolition and handyman work. Which one are you thinking about?',['Bathrooms','Kitchens','Balcony flooring','Handyman']],
+[/call|phone|number|talk|speak|reach|contact/,'Get in touch at '+PH+' or '+TX+' of the space. Email: <a href="mailto:Steadyimprovements@gmail.com">Steadyimprovements@gmail.com</a>.'],
+[/hour|open|when|available|weekend|monday/,'We are available Monday to Friday, 9 to 5. Outside those hours, leave a message and we will reply.'],
+[/area|where|located|toronto|gta|travel|serve/,'I do not have our full service area. Get in touch at '+PH+' and tell us where the job is.'],
+[/review|rating|homestar|google|testimonial|reference/,'See what clients say in the <a href="#reviews">reviews section</a>, with ratings from HomeStars and Google.'],
+[/architect|designer|property manager|contractor|trade|condo board/,'We work with architects, designers and property managers on repeat projects. Use Send us a scope in the <a href="#trade">trade section</a>.'],
+[/quote|book|start|hire|get going|visit|consult/,'Easy: '+QUOTE+', pick the job, place and timing, then send. Or get in touch at '+PH+'.'],
+[/thank|thanks|cheers/,'Anytime. If you want to go ahead, '+QUOTE+' or get in touch at '+PH+'.'],
+[/human|person|real|bot|ryan/,'I am Zai, a virtual assistant. For a person, get in touch at '+PH+' during business hours.']
+];
+function reply(t){const s=t.toLowerCase().trim();for(const [re,a,c] of R)if(re.test(s)){say(a);chips(c||['Get a quote','Services','Get in touch']);return}
+ say('I am not sure about that one. Get in touch at '+PH+' or '+TX+', and the team will answer properly. Or ask about services, balcony flooring or quotes.');chips(['Services','Get a quote','Get in touch'])}
+function ask(t){if(/^get a quote$/i.test(t)){say(t,'me');say('Great. '+QUOTE+' and pick the job, place and timing.');chips(['Services','Get in touch']);return}
+ if(/^(call or text|get in touch)$/i.test(t))t='call';say(t,'me');setTimeout(()=>reply(t),350)}
+function open(){p.hidden=false;b.hidden=true;if(!said){said=true;say('Hi, I am Zai, the Steady Improvements assistant. What can I help with?');chips(['Services','Balcony flooring','Get a quote','Get in touch'])}setTimeout(()=>$('#zi').focus(),50)}
+b.onclick=open;$('#zx').onclick=()=>{p.hidden=true;b.hidden=false};
+$('#zf').onsubmit=e=>{e.preventDefault();const i=$('#zi'),v=i.value.trim();if(v){i.value='';ask(v)}};
+m.addEventListener('click',e=>{if(e.target.matches('[data-q]')){e.preventDefault();p.hidden=true;b.hidden=false;goQuote()}else if(e.target.matches('a[href^="#"]')){p.hidden=true;b.hidden=false}});
+})();
+
+/* scroll build: the bathroom assembles as the page scrolls */
+(function(){const tr=document.getElementById('build');if(!tr)return;const st=tr.firstElementChild;
+const ps=[...tr.querySelectorAll('[data-t]')].map(e=>{const [a,b]=e.dataset.t.split(',').map(Number);return{e,a,b,fx:e.dataset.fx,d:+(e.dataset.d||40),keep:e.dataset.keep}});
+const li=[...tr.querySelectorAll('.bsteps li')],bar=tr.querySelector('.bprog i');let tk=false;
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function draw(){tk=false;const r=tr.getBoundingClientRect(),tot=r.height-st.offsetHeight,top0=parseFloat(getComputedStyle(st).top)||0;
+ let p=tot>0?Math.min(1,Math.max(0,(top0-r.top)/tot)):1;if(rm)p=1;
+ ps.forEach(({e,a,b,fx,d,keep})=>{let k=Math.min(1,Math.max(0,(p-a)/(b-a)));k=1-Math.pow(1-k,3);const s=e.style;
+  if(fx==='out'){s.opacity=1-k;return}
+  s.opacity=(fx==='grow'||fx==='wipe'||keep)?(k>0?1:0):k;
+  s.transform=fx==='up'?`translateY(${(1-k)*d}px)`:fx==='down'?`translateY(${-(1-k)*d}px)`:fx==='left'?`translateX(${-(1-k)*d}px)`:fx==='grow'?`scaleY(${k})`:fx==='wipe'?`scaleX(${k})`:fx==='pop'?`scale(${.6+.4*k})`:''});
+ const n=Math.min(3,Math.floor(p*4));li.forEach((l,i)=>l.classList.toggle('on',rm||i===n));bar.style.transform=`scaleX(${p})`}
+addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(draw)}},{passive:true});addEventListener('resize',draw);draw()})();
+</script>
+</body>
+</html>
