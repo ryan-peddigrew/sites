@@ -112,6 +112,9 @@ button{background:none;border:0;cursor:pointer}
 .v3n{font-size:13px;color:var(--mute2);margin:0;text-align:center}
 .v3row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .v3row .tb{min-height:48px;justify-content:center}
+.vrow.vd{grid-template-columns:96px 1fr 92px}
+.vpast{display:flex;align-items:center;justify-content:center;text-align:center;min-height:44px;padding:6px;border:1.5px solid var(--gold2);color:var(--ink);font:800 11px/1.2 var(--f);letter-spacing:.06em;text-transform:uppercase;border-radius:2px;text-decoration:none;background:#fff}
+.vpast:hover{background:var(--gold)}
 .vtour{display:inline-flex;align-items:center;min-height:44px;margin-top:6px;padding:0 12px;background:var(--gold);color:var(--ink);font:800 11px var(--f);letter-spacing:.08em;text-transform:uppercase;border-radius:2px;text-decoration:none}
 .vrow{cursor:pointer}
 .vrow:hover{border-color:var(--gold2)}
@@ -247,6 +250,11 @@ button{background:none;border:0;cursor:pointer}
   <div class="pg" id="pastG"></div>
   <p class="vnote">Layouts from Divine's own past events will be added here.</p>
   <div class="row"><button class="tb" id="pastX">Close</button></div>
+</div></div>
+<div class="dlg" id="pastv"><div class="bx">
+  <h4 id="pastvH">Past layouts at this venue</h4>
+  <p id="pastvP"></p>
+  <div class="row"><button class="tb gold" id="pastvPlan">Open this venue's plan</button><button class="tb" id="pastvX">Close</button></div>
 </div></div>
 <div class="dlg" id="inst"><div class="bx">
   <h4>Get Divine Design on your phone</h4>
@@ -551,11 +559,18 @@ function venList(){var q=$('#venQ').value.trim().toLowerCase().split(/\s+/).filt
   var nv={};L.forEach(function(v){nv[v.n+'|'+v.c]=1});
   $('#venN').textContent=L.length?L.length+' floor plan'+(L.length===1?'':'s')+' at '+Object.keys(nv).length+' venue'+(Object.keys(nv).length===1?'':'s'):'';
   var h='',last=null;L.slice(0,venMax).forEach(function(v){var g=so?key(v):null;if(g!==null&&g!==last){h+='<div class="vgrp">'+esc(g)+'</div>';last=g}
-    h+='<div class="vrow" role="button" tabindex="0" data-v="'+v.id+'"><img src="venues/'+v.id+'-t.jpg" alt="" loading="lazy" width="96" height="64"><span>'+'<small>'+esc(so==='city'?vT(v):so==='type'?v.c:v.c+' · '+vT(v))+'</small><b>'+esc(v.n)+'</b><span>'+esc(v.r)+'</span>'+(v.vt?'<a class="vtour" href="'+esc(v.vt)+'" target="_blank" rel="noopener">View 3D tour</a>':'')+'</span></div>'});
+    h+='<div class="vrow'+(v.dv?' vd':'')+'" role="button" tabindex="0" data-v="'+v.id+'"><img src="venues/'+v.id+'-t.jpg" alt="" loading="lazy" width="96" height="64"><span>'+'<small>'+esc(so==='city'?vT(v):so==='type'?v.c:v.c+' · '+vT(v))+'</small><b>'+esc(v.n)+'</b><span>'+esc(v.r)+'</span>'+(v.vt?'<a class="vtour" href="'+esc(v.vt)+'" target="_blank" rel="noopener">View 3D tour</a>':'')+'</span>'+(v.dv?'<a class="vpast" href="#" data-vp="'+v.id+'">Click to view past layouts here</a>':'')+'</div>'});
   if(L.length>venMax)h+='<button class="tb" id="venMore" style="flex:none;justify-content:center">Show more venues</button>';
   $('#venL').innerHTML=L.length?h:'<p style="margin:0">No venue matches yet. Clear a filter, or upload your own floor plan.</p>';
-  $$('#venL .vrow').forEach(function(b){b.onclick=function(e){if(e.target.closest&&e.target.closest('.vtour'))return;pickVenue(b.dataset.v)};b.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pickVenue(b.dataset.v)}}});
+  $$('#venL .vrow').forEach(function(b){b.onclick=function(e){if(e.target.closest&&e.target.closest('.vtour'))return;if(e.target.closest&&e.target.closest('.vpast')){e.preventDefault();openPastV(b.dataset.v);return}pickVenue(b.dataset.v)};b.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pickVenue(b.dataset.v)}}});
   if($('#venMore'))$('#venMore').onclick=function(){venMax+=60;venList()}}
+var pastVid=null;
+function openPastV(id){var v=VEN.find(function(x){return x.id===id});if(!v)return;pastVid=id;
+  $('#pastvH').textContent='Past layouts at '+v.n;
+  $('#pastvP').textContent="We don't have Divine's past layouts for this venue yet. Once Divine shares a file, such as a spreadsheet of jobs, photos or past plans, they will show here for inspiration.";
+  $('#pastv').classList.add('on')}
+$('#pastvX').onclick=function(){$('#pastv').classList.remove('on')};
+$('#pastvPlan').onclick=function(){$('#pastv').classList.remove('on');if(pastVid)pickVenue(pastVid)};
 function pickVenue(id){var v=VEN.find(function(x){return x.id===id});if(!v)return;$('#ven').classList.remove('on');toast('Loading '+v.n);
   fetch('venues/'+v.id+'.jpg').then(function(r){return r.blob()}).then(function(b){var rd=new FileReader();rd.onload=function(){S.objs=[];selId=null;loadPlan(rd.result,v.w,v.h)};rd.readAsDataURL(b)}).catch(function(){toast('Could not load that plan')})}
 function openVen(first){venMax=40;$('#venQ').value='';['#venK','#venP','#venC','#venT','#venE'].forEach(function(x){$(x).value=''});venFill();venList();
