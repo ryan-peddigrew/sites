@@ -37,7 +37,7 @@ $('#rz').innerHTML=RS.map(function(i,k){return '<button type="button" class="chi
 function place(h){var c=$('.cam'),o=$('.cam img.pc');if(!o){o=document.createElement('img');o.className='pc';c.appendChild(o)}o.src='../img/p-'+h+'.webp';$$('#rz .chip').forEach(function(b){b.classList.toggle('on',b.dataset.h===h)})}
 $('#rz').onclick=function(e){var b=e.target.closest('.chip');if(b)place(b.dataset.h)};
 $('#snap').onclick=function(){$('#snapf').click()};
-$('#snapf').onchange=function(){var f=this.files[0];if(f){$('.cam img.bg').src=URL.createObjectURL(f);if(!$('.cam img.pc'))place(RS[0].h)}};
+$('#snapf').onchange=function(){var f=this.files[0];if(f){var g=$('.cam img.bg');g.src=URL.createObjectURL(f);g.hidden=false;if(!$('.cam img.pc'))place(RS[0].h)}};
 
 /* visit */
 (function(){var days=[],d=new Date();for(var k=1;days.length<4;k++){var x=new Date(d.getTime()+k*864e5);if(x.getDay()!==0)days.push(x.toLocaleDateString('en-CA',{weekday:'short',month:'short',day:'numeric'}))}

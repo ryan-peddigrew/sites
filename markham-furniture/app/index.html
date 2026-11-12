@@ -36,7 +36,7 @@ body{background:#ddd9d2}
 .sheet{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.6);display:none;align-items:flex-end;justify-content:center}.sheet.on{display:flex}
 .sheet>div{background:#fff;width:min(460px,100%);padding:22px 18px calc(22px + env(safe-area-inset-bottom));animation:in .4s both}
 .sheet ol{padding-left:20px;margin:12px 0 18px;font-size:15px}.sheet li{margin:8px 0}
-.cam{position:relative;background:#111;height:230px;overflow:hidden;margin-bottom:12px}
+.cam{position:relative;background:linear-gradient(#ece8e1 0 68%,#cfc6b8 68% 100%);height:230px;overflow:hidden;margin-bottom:12px}
 .cam img.bg{width:100%;height:100%;object-fit:cover;opacity:.9}
 .cam img.pc{position:absolute;left:50%;bottom:6%;width:74%;transform:translateX(-50%);mix-blend-mode:multiply;transition:.5s}
 .cam span{position:absolute;left:10px;top:10px;background:#fff;font:600 10px var(--bd);letter-spacing:.14em;text-transform:uppercase;padding:5px 8px}
@@ -66,10 +66,10 @@ body{background:#ddd9d2}
   <section class="view" id="v-floor"><h2>On the floor</h2><p class="s">Floor models you can take home this week. Reserve one for 48 hours.</p><div class="tiles" id="fz"></div><p class="note dark">Sample floor stock. Live, this reads from your Shopify inventory.</p></section>
 
   <section class="view" id="v-room"><h2>See it at home</h2><p class="s">Take a photo of your room and place a piece in it, to scale, before you order.</p>
-    <div class="cam"><img class="bg" src="../img/hero-loft-white.webp" alt=""><span>Your room</span></div>
+    <div class="cam"><img class="bg" alt="" hidden><span>Your room</span></div>
     <span class="lab">Try a style</span><div class="chips" id="rz"></div>
     <button class="btn" type="button" id="snap" style="width:100%;margin-top:14px">Use my own room photo</button><input type="file" accept="image/*" capture="environment" id="snapf" hidden>
-    <p class="note dark">A preview of the idea using one of your own showroom photos. The full version places the piece to scale.</p></section>
+    <p class="note dark">A simple preview of the idea. The full version places the piece to scale in the photo.</p></section>
 
   <section class="view" id="v-visit"><h2>Visit us</h2><p class="s">Reserve time with a design consultant. Your saved design arrives with you.</p><div id="vz"></div></section>
 
