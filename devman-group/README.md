@@ -34,3 +34,9 @@ https://ryan-peddigrew.github.io/sites/devman-group/review/?name=Olivia&job=the%
 - Stars, quick tags, optional note. "Post my review on Google" copies the note and opens Google; "send it to the team privately" emails team@devmaninc.com. Both are always offered, whatever the rating (Google doesn't allow steering only happy customers to post).
 - Thank-you screen with a personal share link (`?ref=Name`). When a friend opens it, the contact form's subject reads "Referred by Name".
 - To fill in: Devman's direct Google "write a review" link (from their Google Business Profile, "Ask for reviews"); the referral reward (marked placeholder on the page).
+
+## Case study page (12 Nov 2026, preview, not linked from home yet)
+https://ryan-peddigrew.github.io/sites/devman-group/work/
+- 1 Shaw St walked through stop by stop (lobby, elevators, corridor, suite doors) with a lift-style stop indicator, then Ken's existing review from Goldview.
+- Only Devman's own 1 Shaw St photos and their published review. Descriptions say only what the photos show.
+- To confirm with Devman: scope and year; that all four photos are their work at 1 Shaw St; before photos if they have them (would let us add a before/after stage).

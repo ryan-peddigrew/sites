@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>1 Shaw St, Toronto: case study | Devman Group Inc.</title>
+<meta name="description" content="Walk through 1 Shaw St, Toronto, one space at a time: lobby, elevators, corridors and suite doors.">
+<meta name="theme-color" content="#0B0E10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Schibsted+Grotesk:wght@400;500;700&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0E10;--bg2:#12171A;--bg3:#181E22;--line:#262E33;--fg:#EEF1F1;--mute:#9AA3A6;--teal:#0088A3;--teal-l:#3FD3EE;
+  --display:'Big Shoulders Display',Impact,sans-serif;--body:'Schibsted Grotesk',system-ui,sans-serif;--mono:'Martian Mono',ui-monospace,monospace;
+  --gut:clamp(16px,4vw,56px);
+  --cut:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font:400 17px/1.55 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%}
+.mono{font:500 11px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+h1,h2{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.9}
+:focus-visible{outline:3px solid var(--teal-l);outline-offset:3px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;font:700 15px/1 var(--body);text-decoration:none;border:0;cursor:pointer;clip-path:var(--cut)}
+.btn-teal{background:var(--teal);color:#fff}.btn-teal:hover{background:#00a0bf}
+.btn-dark{background:var(--bg3);color:#fff;box-shadow:inset 0 0 0 1px var(--line)}
+.ph-tag{display:inline-block;background:#3a2f00;color:#ffd24a;font:500 11px/1.6 var(--mono);padding:2px 8px;letter-spacing:.04em}
+
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(11,14,16,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07)}
+.hdr .in{display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 var(--gut)}
+.hdr .logo{display:flex;align-items:center;min-height:44px}
+.hdr .logo img{height:34px;width:auto;filter:drop-shadow(0 6px 10px rgba(0,0,0,.6)) drop-shadow(0 1px 2px rgba(0,0,0,.4))}
+.hdr .back{min-height:44px;display:flex;align-items:center;text-decoration:none;color:var(--mute)}
+.hdr .back:hover{color:var(--fg)}
+
+/* opener: address set big over the lobby */
+.open{position:relative;min-height:92svh;display:flex;align-items:flex-end;padding:120px var(--gut) clamp(36px,6vw,72px);overflow:hidden}
+.open .bgi{position:absolute;inset:0;background:url(../img/shaw-lobby.jpg) center 40%/cover;transform:scale(1.08);transition:transform 8s ease}
+.open.in .bgi{transform:scale(1)}
+.open::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,14,16,.55) 0%,rgba(11,14,16,.35) 25%,rgba(11,14,16,.88) 55%,rgba(11,14,16,.97) 100%)}
+.open .tx{position:relative;z-index:2;max-width:900px}
+.open .mono{color:var(--teal-l)}
+.open h1{font-size:clamp(84px,22vw,260px);margin-top:10px;letter-spacing:-.005em}
+.open h1 span{display:inline-block;opacity:0;transform:translateY(.25em);transition:opacity .6s,transform .6s}
+.open.in h1 span{opacity:1;transform:none}
+.open h1 span:nth-child(2){transition-delay:.12s}
+.open p{max-width:44ch;margin-top:14px;color:#cdd3d4}
+.spec{display:flex;flex-wrap:wrap;gap:0;margin-top:26px;border-top:1px solid rgba(255,255,255,.18)}
+.spec div{padding:12px 22px 0 0;margin-right:22px;min-width:120px}
+.spec b{display:block;font:500 10px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+
+/* the walk-through: full-bleed photo pinned, a lift-style indicator, panels ride up over it */
+.walk{position:relative}
+.stage{position:sticky;top:0;height:100svh;overflow:hidden;z-index:1}
+.stage figure{position:absolute;inset:0;opacity:0;transition:opacity .8s ease}
+.stage figure.on{opacity:1}
+.stage img{width:100%;height:100%;object-fit:cover;transform:scale(1.05);transition:transform 7s ease}
+.stage figure.on img{transform:scale(1)}
+.stage::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,14,16,.55),rgba(11,14,16,0) 50%),linear-gradient(0deg,rgba(11,14,16,.7),rgba(11,14,16,0) 45%);pointer-events:none}
+.lift{position:absolute;z-index:3;right:var(--gut);top:84px;display:flex;flex-direction:column;align-items:flex-end;gap:2px;background:rgba(11,14,16,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:12px 14px;clip-path:var(--cut)}
+.lift .now{font:900 54px/1 var(--display);color:var(--teal-l);min-width:1.4em;text-align:right}
+.lift ol{list-style:none;display:flex;flex-direction:column;gap:4px;margin-top:6px}
+.lift li{font:500 10px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;justify-content:flex-end;gap:8px}
+.lift li i{width:14px;height:3px;background:var(--line)}
+.lift li.on{color:#fff}
+.lift li.on i{background:var(--teal-l)}
+
+.stops{position:relative;z-index:2;margin-top:-100svh;list-style:none}
+.stop{min-height:100svh;display:flex;align-items:flex-end;padding:0 var(--gut) calc(40px + env(safe-area-inset-bottom))}
+.panel{max-width:470px;background:rgba(11,14,16,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px var(--line);clip-path:var(--cut);padding:22px 22px 24px}
+.panel .mono{color:var(--teal-l)}
+.panel h2{font-size:clamp(40px,9vw,72px);margin-top:8px}
+.panel p{margin-top:10px;color:#cdd3d4}
+.panel ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.panel li{font:500 13px var(--body);padding:6px 10px;background:var(--bg3);box-shadow:inset 0 0 0 1px var(--line)}
+
+/* client's words, from the reviews already on devmaninc.com */
+.word{background:var(--teal);color:#fff;padding:clamp(56px,9vw,120px) var(--gut);position:relative;overflow:hidden}
+.word::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:48px 48px}
+.word>*{position:relative;z-index:1}
+.word blockquote{font:800 clamp(36px,6vw,80px)/1.02 var(--display);text-transform:uppercase;max-width:20ch;margin-top:16px}
+.word .by{margin-top:22px}
+.word .by b{display:block;font:800 28px/1 var(--display);text-transform:uppercase}
+
+.next{padding:clamp(56px,8vw,110px) var(--gut)}
+.next h2{font-size:clamp(46px,8vw,100px);max-width:13ch}
+.next .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:40px}
+.grid figure{position:relative;aspect-ratio:3/4;overflow:hidden;clip-path:var(--cut);background:var(--bg2)}
+.grid img{width:100%;height:100%;object-fit:cover}
+.grid figcaption{position:absolute;inset:auto 0 0 0;padding:10px;background:linear-gradient(transparent,rgba(11,14,16,.9))}
+.grid b{display:block;font:800 20px/1 var(--display);text-transform:uppercase}
+.foot{padding:22px var(--gut) calc(26px + env(safe-area-inset-bottom));border-top:1px solid var(--line);color:var(--mute);font-size:14px}
+.foot a{text-decoration:none}
+
+@media(max-width:899px){.lift{top:76px;padding:8px 12px;flex-direction:row;align-items:center;gap:10px}.lift ol{display:none}.lift .now{font-size:40px;min-width:0}.lift .mono{display:none}.lift::after{content:attr(data-nm);font:500 11px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#fff}}
+@media(min-width:900px){.stop{align-items:center}.panel{padding:30px 30px 32px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.open h1 span{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="in">
+    <a class="logo" href="../" aria-label="Devman Group Inc. home"><img src="../img/logo-white.png" alt="Devman Group Incorporated" width="95" height="34"></a>
+    <a class="back mono" href="../">Back to home</a>
+  </div>
+</header>
+
+<section class="open" id="open">
+  <div class="bgi" aria-hidden="true"></div>
+  <div class="tx">
+    <span class="mono">Case study &middot; Toronto</span>
+    <h1><span>1 Shaw</span> <span>St.</span></h1>
+    <p>One building, walked through the way a resident sees it: from the front door, up the elevator, down the hall, to their own suite.</p>
+    <div class="spec">
+      <div><b>Managed by</b>Goldview Property Management</div>
+      <div><b>Spaces</b>Lobby, elevators, corridors, suite doors</div>
+      <div><b>Scope and year</b><span class="ph-tag">[Devman to confirm]</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="walk" aria-label="Walk through 1 Shaw St">
+  <div class="stage" id="stage" aria-hidden="true">
+    <figure data-s="0" class="on"><img src="../img/shaw-lobby.jpg" alt="" style="object-position:50% 55%"></figure>
+    <figure data-s="1"><img src="../img/shaw-elevators.jpg" alt=""></figure>
+    <figure data-s="2"><img src="../img/shaw-corridor.jpg" alt="" style="object-position:50% 60%"></figure>
+    <figure data-s="3"><img src="../img/shaw-door.jpg" alt=""></figure>
+    <div class="lift"><span class="mono" style="color:var(--mute)">Stop</span><span class="now" id="now">1</span><ol id="lift"></ol></div>
+  </div>
+  <ol class="stops" id="stops">
+    <li class="stop" data-s="0" data-k="1" data-nm="Lobby"><div class="panel">
+      <span class="mono">Stop 1 &middot; Lobby</span><h2>First impression</h2>
+      <p>Two-tone plank floor laid in a woven pattern, stacked stone feature walls, a new concierge desk and a sculptural pendant under the open mezzanine.</p>
+      <ul><li>Flooring</li><li>Stone walls</li><li>Concierge desk</li><li>Lighting</li></ul>
+    </div></li>
+    <li class="stop" data-s="1" data-k="2" data-nm="Elevators"><div class="panel">
+      <span class="mono">Stop 2 &middot; Elevator landing</span><h2>The same floor carries through</h2>
+      <p>The lobby floor runs right up to the elevators, framed by dark stone-look panels and new pot lights.</p>
+      <ul><li>Flooring</li><li>Wall panels</li><li>Pot lights</li></ul>
+    </div></li>
+    <li class="stop" data-s="2" data-k="3" data-nm="Corridor"><div class="panel">
+      <span class="mono">Stop 3 &middot; Residential corridor</span><h2>A quieter, warmer hall</h2>
+      <p>Textured wallcovering, a wood-look herringbone floor at each landing and carpet down the hall, with pot lights the whole way.</p>
+      <ul><li>Wallcovering</li><li>Carpet and plank</li><li>Base trim</li><li>Lighting</li></ul>
+    </div></li>
+    <li class="stop" data-s="3" data-k="4" data-nm="Suite door"><div class="panel">
+      <span class="mono">Stop 4 &middot; Suite doors</span><h2>All the way home</h2>
+      <p>Black suite doors and frames, wall sconces at each entry and clear floor and suite-number signs.</p>
+      <ul><li>Doors and frames</li><li>Sconces</li><li>Signage</li></ul>
+    </div></li>
+  </ol>
+</section>
+
+<section class="word" aria-label="What the property manager said">
+  <span class="mono">From the property manager</span>
+  <blockquote>The team on-site was professional, organized and focused on delivering a great job.</blockquote>
+  <div class="by"><b>Ken</b><span>Director, Goldview Property Management (1 Shaw St, Toronto)</span></div>
+</section>
+
+<section class="next">
+  <span class="mono" style="color:var(--teal-l)">More buildings</span>
+  <h2 style="margin-top:10px">Your building could be next.</h2>
+  <div class="acts">
+    <a class="btn btn-teal" href="../#brief">Start a board brief</a>
+    <a class="btn btn-dark" href="tel:+19056040555">Call 905-604-0555</a>
+  </div>
+  <div class="grid">
+        <figure><img src="../img/bayview-entrance.jpg" alt="Entrance at 1818 Bayview" loading="lazy"><figcaption><b>1818 Bayview</b><span class="ph-tag">Story coming</span></figcaption></figure>
+    <figure><img src="../img/richmond-lobby.jpg" alt="Lobby at 670 Richmond St W" loading="lazy"><figcaption><b>670 Richmond St W</b><span class="ph-tag">Story coming</span></figcaption></figure>
+    <figure><img src="../img/antibes-lobby.jpg" alt="Lobby desk at 80 Antibes Dr" loading="lazy"><figcaption><b>80 Antibes Dr</b><span class="ph-tag">Story coming</span></figcaption></figure>
+  </div>
+</section>
+
+<footer class="foot">Devman Group Inc. &middot; 2651 John St, Unit 6, Markham &middot; <a href="mailto:team@devmaninc.com">team@devmaninc.com</a></footer>
+
+<script>
+(function(){
+  var open=document.getElementById('open');requestAnimationFrame(function(){setTimeout(function(){open.classList.add('in')},100)});
+  var figs=[].slice.call(document.querySelectorAll('#stage figure')),stops=[].slice.call(document.querySelectorAll('.stop')),lift=document.getElementById('lift'),now=document.getElementById('now'),cur=-1;
+  stops.forEach(function(s){var li=document.createElement('li');li.innerHTML=s.dataset.nm+'<i></i>';lift.appendChild(li)});
+  var lis=[].slice.call(lift.children);
+  function show(i){if(i===cur)return;cur=i;figs.forEach(function(f){f.classList.toggle('on',+f.dataset.s===i)});lis.forEach(function(l,ix){l.classList.toggle('on',ix===i)});now.textContent=stops[i].dataset.k;now.parentNode.setAttribute('data-nm',stops[i].dataset.nm)}
+  show(0);
+  function pick(){var best=0,bd=1e9,mid=innerHeight*.55;stops.forEach(function(s,ix){var r=s.getBoundingClientRect(),d=Math.abs((r.top+r.bottom)/2-mid);if(d<bd){bd=d;best=ix}});show(best)}
+  var raf=0;addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(function(){raf=0;pick()})},{passive:true});
+})();
+</script>
+</body>
+</html>
