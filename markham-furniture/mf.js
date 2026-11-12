@@ -160,6 +160,7 @@ var STOPS=[
  ['#stage','6. Swatches to your door','The step before a big purchase. You capture a name and address from people still deciding.',function(){open(6,false);[3,6,9].forEach(function(n,k){setTimeout(function(){clk('#stBody [data-c]',n)},1200+k*700)})}],
  ['#stage','7. Will it fit?','The number one doubt, answered with your real dimensions. If it does not fit, it offers a custom size.',function(){open(7,false);setTimeout(function(){T[7].s.wall=80;T[7].draw()},2400)}],
  ['#stage','8, 9 and 10. More revenue','A floor model outlet with reserve buttons, a trade program for designers, and reviews and referrals that run on their own after delivery.',function(){open(8,false);setTimeout(function(){open(9,false)},3000);setTimeout(function(){open(10,false)},6000)},9500],
+ ['#appband','And an app with your name on it','Markham Furniture on your client\'s home screen. Design, track, reserve and try a sofa in their own room. Tap "Tour the app" after this.'],
  ['#collection','Your collection, easier to shop','Every style, photo and price from your current site, in a swipe row. Tap any piece and it opens in the quote builder.'],
  ['#made','Your craft, front and centre','Hardwood frames and hand-tied springs are why people pay more. Now it is the story, not a paragraph.'],
  ['#visit','Two ways in, on every screen','Build your quote, or get in touch. Both showrooms, always one tap away. That is the tour. Tell us which of the ten you want.']
