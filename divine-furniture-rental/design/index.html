@@ -222,6 +222,8 @@ button{background:none;border:0;cursor:pointer}
     <h3>Divine pieces</h3>
     <ul class="lst" id="divList"><li style="color:var(--mute2)">None yet</li></ul>
     <button class="tb gold" id="toQuote">Add Divine pieces to my quote</button>
+    <button class="tb" id="saveB" style="margin-top:8px;width:100%;justify-content:center">Save to my dashboard</button>
+    <a class="tb" id="dashB" href="portal/" style="margin-top:8px;width:100%;justify-content:center;text-decoration:none">Open my dashboard</a>
     <h3>Everything on the plan</h3>
     <ul class="lst" id="allList"></ul>
     <div class="acts"><button class="tb gold" id="v3B">View in 3D</button><button class="tb" id="pastB">View past layouts</button><button class="tb" id="shareB">Share this layout</button>
@@ -287,6 +289,7 @@ button{background:none;border:0;cursor:pointer}
   <button class="tb sbtn" id="stUp">Upload my own floor plan</button>
   <div class="sev"><small>Or start with an event type</small><div id="stEv"></div></div>
   <button class="tb sbtn" id="stCont" style="display:none">Continue my last layout</button>
+  <a class="tb sbtn" href="portal/" style="text-decoration:none">My dashboard: layouts, quotes and invoices</a>
   <button class="sskip" id="stSkip">Skip, start with an empty room</button>
   <div class="conn"><small>Connect with us</small><a class="sol" href="https://www.linkedin.com/company/divine-furniture-rental/" target="_blank" rel="noopener">LinkedIn</a><a class="sol" href="https://www.instagram.com/divinefurniturerental/" target="_blank" rel="noopener">Instagram</a><a class="sol" href="https://www.facebook.com/Divine-Furniture-Rental-190292080982745/" target="_blank" rel="noopener">Facebook</a><a class="sol" href="https://divinefr.com" target="_blank" rel="noopener">divinefr.com</a></div>
 </div></div>
@@ -540,6 +543,14 @@ $('#dlgX').onclick=endScale;
 function endScale(){scaling=false;scaleA=scaleB=null;scaleG.innerHTML='';cv.classList.remove('scaling');msg();$('#dlg').classList.remove('on')}
 
 /* ---------- side actions ---------- */
+$('#saveB').onclick=function(){
+  if(!S.objs.length){toast('Place some pieces first');return}
+  var L=[];try{L=JSON.parse(localStorage.getItem('dfr-saved')||'[]')}catch(e){}
+  var nm=prompt('Name this layout','Layout '+(L.length+1));if(nm===null)return;nm=nm.trim()||('Layout '+(L.length+1));
+  var m={},seats=0;S.objs.forEach(function(o){var it=BY[o.t];if(!it)return;seats+=it.seats||0;if(!m[o.t])m[o.t]={t:o.t,n:it.n,g:it.g,q:0};m[o.t].q++});
+  L.push({id:'L'+Date.now(),name:nm.slice(0,60),at:new Date().toISOString(),pw:S.pw,ph:S.ph,seats:seats,status:'Draft',items:Object.keys(m).map(function(k){return m[k]}),objs:S.objs.map(function(o){return {id:o.id,t:o.t,x:o.x,y:o.y,r:o.r||0}})});
+  try{localStorage.setItem('dfr-saved',JSON.stringify(L));toast('Saved. Open my dashboard to see it.')}catch(e){toast('Could not save on this device')}
+};
 $('#toQuote').onclick=function(){
   var div={};S.objs.forEach(function(o){var it=BY[o.t];if(it.g==='div')div[o.t]=(div[o.t]||0)+1});
   var ks=Object.keys(div);if(!ks.length){toast('Place some Divine pieces first');return}
