@@ -8,7 +8,8 @@
   // Header goes solid on scroll; phone menu
   const top = $(".top");
   if (top) {
-    const f = () => top.classList.toggle("solid", scrollY > 30);
+    const hasHero = !!document.querySelector(".hero");
+    const f = () => top.classList.toggle("solid", !hasHero || scrollY > 30);
     addEventListener("scroll", f, { passive: true }); f();
   }
   const mb = $(".menu-btn"), nav = $(".nav");
@@ -16,6 +17,19 @@
     mb.addEventListener("click", () => { const o = nav.classList.toggle("open"); mb.setAttribute("aria-expanded", o); });
     $$("a", nav).forEach(a => a.addEventListener("click", () => nav.classList.remove("open")));
   }
+
+
+  // Chairlift watermark on every page (preview protection)
+  (function () {
+    const t = "CHAIRLIFT CONCEPT · DO NOT COPY";
+    const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='520' height='300'><g transform='rotate(-24 260 150)' font-family='Arial,Helvetica,sans-serif' font-weight='800' text-anchor='middle'><text x='260' y='140' font-size='40' fill='rgba(128,128,128,.24)'>Chairlift</text><text x='260' y='172' font-size='13' letter-spacing='3' fill='rgba(128,128,128,.28)'>${t}</text></g></svg>`;
+    const w = document.createElement("div"); w.className = "wm"; w.setAttribute("aria-hidden", "true");
+    w.style.backgroundImage = `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
+    const b = document.createElement("div"); b.className = "wm-badge"; b.innerHTML = "Concept by <b>Chairlift</b> · usechairlift.com · Confidential";
+    document.body.append(w, b);
+    const sb = document.querySelector(".sample"); if (sb) sb.innerHTML = innerWidth < 600 ? "Chairlift concept · Confidential · Do not copy" : "Chairlift concept · Confidential · Do not copy · Sample data is marked";
+    document.addEventListener("contextmenu", e => { if (e.target.closest("img,.mlogo,.hero,.co")) e.preventDefault(); });
+  })();
 
   // Reveal on scroll
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 });
@@ -47,26 +61,30 @@
 
   // ---------- Tour of what's changed (?tour=1). One tour across every site and app. ----------
   const TOUR = [
-    { p: "index.html", s: "#hero", k: "MAC Group", t: "One parent brand", d: "MAC Group of Companies gets its own home. It's for owners, hiring and big accounts, and it links out to all three companies. No selling happens here." },
-    { p: "index.html", s: "#companies", k: "MAC Group", t: "Three companies, three front doors", d: "Each company keeps its own name, look, email and salespeople. Clients only ever see the company they deal with." },
-    { p: "index.html", s: "#behind", k: "MAC Group", t: "One system behind them", d: "Behind the scenes, one inventory, one calendar, one client list and one truck schedule. That's MAC Hub, and only your team sees it." },
-    { p: "index.html", s: "#whole-event", k: "Revenue", t: "Bring us your whole event", d: "One request form. Your team routes it to the right company behind the scenes, so no lead is lost between companies." },
+    { p: "index.html", s: "#hero", k: "MAC Group of Companies", t: "One parent brand", d: "MAC Group of Companies gets its own home. It's for owners, hiring and big accounts, and it links out to all three companies. No selling happens here." },
+    { p: "index.html", s: "#companies", k: "MAC Group of Companies", t: "Three companies, three front doors", d: "Each company keeps its own name, look, email and salespeople. Clients only ever see the company they deal with." },
+    { p: "index.html", s: "#behind", k: "MAC Group of Companies", t: "One system behind them", d: "Behind the scenes, one inventory, one calendar, one client list and one truck schedule. That's MAC Hub, and only your team sees it." },
+    { p: "index.html", s: "#whole-event", k: "MAC Group of Companies", t: "Bring us your whole event", d: "One request form. Your team routes it to the right company behind the scenes, so no lead is lost between companies." },
     { p: "show-systems/index.html", s: "#hero", k: "MAC Show Systems", t: "A complete redesign", d: "The 2018 site is replaced with a photo-led site built around what planners want: what's free on my dates, and what my room will look like." },
-    { p: "show-systems/index.html", s: "#availability", k: "Revenue", t: "Live availability, never prices", d: "Planners pick dates and see what's available right now. Booked items offer a waitlist, so a lost booking becomes a lead." },
-    { p: "show-systems/index.html", s: "#planner", k: "Revenue", t: "Floor planner to quote", d: "Drag stages, screens and speakers into a room. The layout drops straight into the quote request." },
-    { p: "show-systems/index.html", s: "#quote", k: "Revenue", t: "Bigger quotes, automatically", d: "Every quote suggests what's often booked together, plus delivery and crew. A 48-hour hold locks dates before a competitor does." },
-    { p: "show-systems/index.html", s: "#sales", k: "Revenue", t: "Equipment sales", d: "MAC Show Systems also sells gear. That now has its own request, so sales leads aren't buried in rental emails." },
+    { p: "show-systems/index.html", s: "#availability", k: "MAC Show Systems", t: "Live availability, never prices", d: "Planners pick dates and see what's available right now. Booked items offer a waitlist, so a lost booking becomes a lead." },
+    { p: "show-systems/index.html", s: "#planner", k: "MAC Show Systems", t: "Floor planner to quote", d: "Drag stages, screens and speakers into a room. The layout drops straight into the quote request." },
+    { p: "show-systems/index.html", s: "#quote", k: "MAC Show Systems", t: "Bigger quotes, automatically", d: "Every quote suggests what's often booked together, plus delivery and crew. A 48-hour hold locks dates before a competitor does." },
+    { p: "show-systems/index.html", s: "#sales", k: "MAC Show Systems", t: "Equipment sales", d: "MAC Show Systems also sells gear. That now has its own request, so sales leads aren't buried in rental emails." },
+    { p: "apps/mss/index.html", s: "#cmain", k: "MAC Show Systems app", t: "A client dashboard for planners", d: "Next event with a countdown, run of show, gear list, quotes to approve in one tap, live availability, messages and documents. It installs on a phone." },
     { p: "psi/index.html", s: "#hero", k: "PSI", t: "PSI, rebuilt around its work", d: "Real PSI projects lead the page: OLG Stage at Fallsview, Cicada, Harbourfront Centre." },
-    { p: "psi/index.html", s: "#crew", k: "Revenue", t: "Book a crew", d: "Pick dates, roles and headcount. Technical staffing is income PSI already earns, and now it books in a minute." },
-    { p: "psi/index.html", s: "#packages", k: "Revenue", t: "Package builder", d: "Concert, festival or gala: answer three questions and PSI gets a full stage, sound, light and crew request." },
-    { p: "psi/index.html", s: "#training", k: "Revenue", t: "Training sign-ups", d: "PSI's training and education gets dates, seats and a waitlist, so courses fill themselves." },
+    { p: "psi/index.html", s: "#crew", k: "PSI", t: "Book a crew", d: "Pick dates, roles and headcount. Technical staffing is income PSI already earns, and now it books in a minute." },
+    { p: "psi/index.html", s: "#packages", k: "PSI", t: "Package builder", d: "Concert, festival or gala: answer three questions and PSI gets a full stage, sound, light and crew request." },
+    { p: "psi/index.html", s: "#training", k: "PSI", t: "Training sign-ups", d: "PSI's training and education gets dates, seats and a waitlist, so courses fill themselves." },
+    { p: "apps/psi/index.html", s: "#cmain", k: "PSI app", t: "A client dashboard for producers", d: "Each show with its call times, crew confirmed role by role, quotes to approve and training seats. Only PSI appears." },
     { p: "tour-trucking/index.html", s: "#hero", k: "Tour Trucking", t: "A real brand for Tour Trucking", d: "Tour Trucking keeps its logo and gets a site built around touring freight, with its own look and voice." },
-    { p: "tour-trucking/index.html", s: "#route", k: "Revenue", t: "Route and tour requests", d: "One leg or a whole multi-city tour in one request, with trailer size and dates." },
-    { p: "tour-trucking/index.html", s: "#space", k: "Revenue", t: "Truck space calculator", d: "Enter the gear and see how much trailer it needs. It turns a guess into a booking." },
-    { p: "tour-trucking/index.html", s: "#drivers", k: "Growth", t: "Drive with us", d: "A proper recruiting page, because more drivers means more loads." },
-    { p: "hub/index.html", s: "#hub", k: "Staff app", t: "MAC Hub", d: "Live stock across all three companies, quotes sent under the right brand, and flags when a job needs a sister company's trucks or crew." },
-    { p: "apps/index.html", s: "#apps", k: "Client apps", t: "One app per brand", d: "MAC Show Systems Planner, PSI Crew Call and Tour Trucking Track My Load. Each one only shows its own brand, and all of them run on MAC Hub." },
-    { p: "index.html", s: "#close", k: "Next", t: "What we need from you", d: "Real inventory list, photos of your trucks, logos as vector files, and a yes on the brand direction. Then we connect everything for real." }
+    { p: "tour-trucking/index.html", s: "#route", k: "Tour Trucking", t: "Route and tour requests", d: "One leg or a whole multi-city tour in one request, with trailer size and dates." },
+    { p: "tour-trucking/index.html", s: "#space", k: "Tour Trucking", t: "Truck space calculator", d: "Enter the gear and see how much trailer it needs. It turns a guess into a booking." },
+    { p: "tour-trucking/index.html", s: "#drivers", k: "Tour Trucking", t: "Drive with us", d: "A proper recruiting page, because more drivers means more loads." },
+    { p: "apps/ttl/index.html", s: "#cmain", k: "Tour Trucking app", t: "Track my load", d: "Shippers and tour managers see where the truck is, when it arrives, every leg of the tour, paperwork and a line to dispatch." },
+    { p: "hub/index.html", s: "#hub", k: "MAC Hub · staff only", t: "One back office for all three", d: "Live stock across all three companies, quotes sent under the right brand, and flags when a job needs a sister company's trucks or crew." },
+    { p: "hub/quote.html", s: "#quote", k: "MAC Hub · staff only", t: "Quote Builder", d: "Pick the selling company, add gear checked live against stock, type your rates, and send a branded quote or PDF. Sister-company trucks and crew show under the selling brand only." },
+    { p: "apps/index.html", s: "#apps", k: "Apps", t: "Every app in one place", d: "Three client apps, one per brand, plus MAC Hub for your team. All of them run on the same system." },
+    { p: "index.html", s: "#close", k: "Next", t: "What we need from you", d: "Real inventory list, photos of your trucks, and a yes on the brand direction. Then we connect everything for real." }
   ];
   const PAGE = document.documentElement.dataset.page || "index.html";
   const q = new URLSearchParams(location.search);
@@ -102,7 +120,7 @@
     $(".ctl .pri", box).textContent = n === TOUR.length - 1 ? "Finish" : "Next";
     $$(".tour-hi").forEach(x => x.classList.remove("tour-hi"));
     const t = $(st.s);
-    if (t) { t.scrollIntoView({ behavior: "smooth", block: "start" }); if (st.s !== "#hero") t.classList.add("tour-hi"); }
+    if (t) { t.scrollIntoView({ behavior: "smooth", block: "start" }); if (!["#hero", "#cmain", "#hub", "#quote"].includes(st.s)) t.classList.add("tour-hi"); }
     if (!paused) arm();
   }
   window.MAC.startTour = (n = 0) => { paused = false; go(n); };
