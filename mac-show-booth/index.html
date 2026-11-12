@@ -72,10 +72,10 @@ video{width:100%;display:block;background:#000}
     <div>
       <div class="eyebrow">Concept 1 · 20 × 20 island</div>
       <h2>The Stage: built around a live show</h2>
-      <p>The stage is the booth. A 14 ft deck sits in front of an 18 × 10 ft LED wall under a 16 ft truss box, with line arrays, subs and moving lights running all day. The welcome desk and coffee bar hold the front corners and leave a clear lane from the aisle to the stage. Press Take the tour for a guided walk through it.</p>
+      <p>A mini concert stage to showcase live entertainment. A 14 ft deck with band backline sits in front of an 18 × 10 ft video wall, with flown line arrays, subs, front and rear lighting, and a 16 ft truss box lit from the inside. The welcome desk and coffee bar hold the front corners and leave a clear lane from the aisle to the stage. Press Take the tour for a guided walk through it.</p>
     </div>
     <div>
-      <ul class="spec"><li>400 sq ft</li><li>14 ft stage</li><li>LED wall, 18 × 10 ft</li><li>16 ft truss box</li><li>Flown logo ring</li><li>17 moving lights</li><li>2 line array hangs + subs</li><li>Mix position</li><li>Coffee bar</li><li>Welcome desk</li><li>Lounge + high-tops</li></ul>
+      <ul class="spec"><li>400 sq ft</li><li>14 ft stage</li><li>LED wall, 18 × 10 ft</li><li>16 ft truss, lit inside</li><li>Front + rear lighting</li><li>Flown logo ring</li><li>22 moving lights</li><li>2 line array hangs + subs</li><li>Mix position</li><li>Coffee bar</li><li>Welcome desk</li><li>Lounge + high-tops</li></ul>
     </div>
   </div>
 </section>
@@ -151,7 +151,7 @@ video{width:100%;display:block;background:#000}
   <div class="info"><div class="eyebrow">Walk-around video · 1080p</div><h2>All four options in one pass</h2></div>
 </section>
 
-<p class="note"><b>What is real and what is assumed.</b> The logo and the line "Audio . Video . Lighting . Staging" are MAC's own, taken from the logo file in your Drive, and the look is MAC's black and white. The neighbouring booths and people are generic stand-ins to show scale on a show floor. Gear counts, sizes and layouts are a concept to react to, not a quote or an engineered drawing. Inline booths are drawn to the usual 8 ft back-wall limit; each show's rules need a check before anything is built.</p>
+<p class="note"><b>What is real and what is assumed.</b> The logo and the line "Audio . Video . Lighting . Staging" are MAC's own, taken from the logo file in your Drive, and the look is MAC's black and white. The neighbouring booths and the few grey figures are generic stand-ins to show scale on a show floor. Gear counts, sizes and layouts are a concept to react to, not a quote or an engineered drawing. Inline booths are drawn to the usual 8 ft back-wall limit; each show's rules need a check before anything is built.</p>
 </div>
 <script src="three.min.js"></script>
 <script>
@@ -202,7 +202,7 @@ function backdropTex(){var o=canvasTex(2048,1280),c=o.c;var g=c.createLinearGrad
   c.globalCompositeOperation='lighter';for(var i=0;i<9;i++){var x=120+i*230,gg=c.createLinearGradient(x-110,0,x+110,0);gg.addColorStop(0,'rgba(220,230,255,0)');gg.addColorStop(.5,'rgba(220,230,255,.13)');gg.addColorStop(1,'rgba(220,230,255,0)');c.save();c.translate(x,-60);c.rotate((i-4)*0.13);c.fillStyle=gg;c.fillRect(-110,0,220,1600);c.restore();}
   c.globalCompositeOperation='source-over';drawLogo(c,1024,430,1500,'#fff');
   c.fillStyle='#fff';c.font='300 58px '+FONT;c.textBaseline='middle';spaced(c,'RENTALS  ·  PRODUCTION  ·  INSTALLS',1024,900,10);return o.tx;}
-function truss(p,a,b){var g=new T.Group(),L=a.distanceTo(b),s=.42,i;
+var TG=null;function truss(p,a,b){var g=new T.Group(),L=a.distanceTo(b),s=.42,i;if(TG){g.add(new T.Mesh(new T.BoxGeometry(L,.26,.26),TG));}
   [[s,s],[s,-s],[-s,s],[-s,-s]].forEach(function(q){var m=new T.Mesh(new T.CylinderGeometry(.085,.085,L,8),M.truss);m.rotation.z=Math.PI/2;m.position.set(0,q[0],q[1]);m.castShadow=true;g.add(m);});
   var n=Math.max(1,Math.round(L/1.5)),st=L/n,dl=Math.sqrt(st*st+4*s*s),an=Math.atan2(2*s,st);
   for(i=0;i<n;i++){var cx=-L/2+st*(i+.5),sg=i%2?1:-1;
@@ -240,16 +240,16 @@ var SKIN=[0xf1c9a5,0xd9a57b,0xa5714a,0x70482c,0xe8b894],HAIR=[0x1b1512,0x3a2a1c,
 var HG=null;function hg(){if(!HG)HG={leg:new T.CylinderGeometry(.2,.16,2.75,8),torso:new T.CylinderGeometry(.57,.4,2,10),arm:new T.CylinderGeometry(.14,.11,1.9,6),head:new T.SphereGeometry(.36,14,12),hair:new T.SphereGeometry(.405,14,10,0,Math.PI*2,0,Math.PI*.62),neck:new T.CylinderGeometry(.14,.16,.3,8),badge:new T.BoxGeometry(.26,.34,.03),shoe:new T.BoxGeometry(.3,.18,.6)};return HG;}
 function pick(a){return a[Math.floor(rnd()*a.length)];}
 // low-poly attendee: legs, torso, arms, head, hair, lanyard badge
-function human(p,x,z,ry,o){o=o||{};var G=hg(),g=new T.Group(),s=.93+rnd()*.13;g.position.set(x,o.y||0,z);g.rotation.y=ry||0;g.scale.set(s,s,s);
-  var sk=mat(pick(SKIN)),tp=mat(o.top!=null?o.top:pick(TOP)),pt=mat(pick(PANT)),hr=mat(pick(HAIR));
+var HN=0;function human(p,x,z,ry,o){o=o||{};var staff=o.top===0x15171b;if(!staff){HN++;if(HN%5!==2)return null;}var G=hg(),g=new T.Group(),s=.93+rnd()*.13;g.position.set(x,o.y||0,z);g.rotation.y=ry||0;g.scale.set(s,s,s);
+  var fg=mat(staff?0x2a2d33:0x8e949d),sk=fg,tp=fg,pt=fg,hr=fg;
   function add(geo,m,px,py,pz){var e=new T.Mesh(geo,m);e.position.set(px,py,pz);e.castShadow=true;g.add(e);return e;}
-  add(G.leg,pt,-.22,1.5,0);add(G.leg,pt,.22,1.5,0);add(G.shoe,mat(0x0e0e10),-.22,.09,.1);add(G.shoe,mat(0x0e0e10),.22,.09,.1);
+  add(G.leg,pt,-.22,1.5,0);add(G.leg,pt,.22,1.5,0);add(G.shoe,fg,-.22,.09,.1);add(G.shoe,fg,.22,.09,.1);
   var t=add(G.torso,tp,0,3.85,0);t.scale.z=.62;
   var a1=add(G.arm,tp,-.6,3.85,0);a1.rotation.z=-.1;var a2=add(G.arm,tp,.6,3.85,0);a2.rotation.z=.1;
   if(o.arm===1){a2.rotation.set(-1.25,0,.1);a2.position.set(.58,4.25,.55);add(G.neck,mat(0xf2f3f4),.58,4.0,1.25).scale.set(1.2,1.4,1.2);}
   if(o.arm===2){a2.rotation.set(-2.6,0,.15);a2.position.set(.6,5.3,.35);add(G.badge,mat(0x0e0e10),.62,6.25,.75).scale.set(1.2,1.8,1);}
   add(G.neck,sk,0,4.95,0);add(G.head,sk,0,5.4,0);var h=add(G.hair,hr,0,5.43,-.05);h.rotation.x=-.3;
-  add(G.badge,mat(0xf2f3f4),0,4.1,.3);p.add(g);return g;}
+  p.add(g);return g;}
 function person(p,x,z,s,ry){return human(p,x,z,ry!=null?ry:Math.PI+(rnd()-.5)*1.2,{arm:rnd()<.3?1:0});}
 var NBC=[0x2b5a5e,0x6e3636,0x2a436e,0x7a652c,0x4a3862,0x38603f,0x62402c,0x345670];
 // a generic neighbouring 10x10: carpet, colour back wall, counter, banner, a couple of people
@@ -297,7 +297,7 @@ function coffeeBar(p,x,z,ry,low){var g=new T.Group();g.position.set(x,.12,z);g.r
   var pl=new T.PointLight(0xffe6c4,.9,10,1.6);pl.position.set(0,6,0);g.add(pl);
   human(g,.6,-1.6,0,{top:0x15171b});if(!low){stool(g,-1.6,2.6);stool(g,1.6,2.6);}p.add(g);return g;}
 function build(kind){
-  seed=kind.length*131+kind.charCodeAt(1)*17+7;var S={scene:new T.Scene(),root:new T.Group(),movers:[],leds:[],spin:[]};var sc=S.scene;sc.add(S.root);
+  seed=kind.length*131+kind.charCodeAt(1)*17+7;HN=0;TG=null;var S={scene:new T.Scene(),root:new T.Group(),movers:[],leds:[],spin:[]};var sc=S.scene;sc.add(S.root);
   sc.background=new T.Color(0x050608);sc.fog=new T.Fog(0x050608,55,170);
   sc.add(new T.HemisphereLight(0xb4c0d6,0x15181d,.44));
   var dl=new T.DirectionalLight(0xffffff,.55);dl.position.set(18,40,26);dl.castShadow=true;dl.shadow.mapSize.set(kind==='b2020'?2048:1024,kind==='b2020'?2048:1024);var sh=dl.shadow.camera;sh.left=-26;sh.right=26;sh.top=26;sh.bottom=-26;sh.far=120;dl.shadow.bias=-.0005;sc.add(dl);
@@ -307,7 +307,7 @@ function build(kind){
   if(kind==='b2020'||kind==='wall'||kind==='corner'){
     var mode=kind==='b2020'?'island':kind;
     showFloor(S,mode);
-    carpet(S,20,20);var H=16,q=9.4;
+    carpet(S,20,20);var H=16,q=9.4;TG=new T.MeshBasicMaterial({color:0x3f7dff});
     [[q,q],[q,-q],[-q,q],[-q,-q]].forEach(function(c){truss(S.root,V(c[0],0,c[1]),V(c[0],H,c[1]));box(S.root,2,.12,2,M.black,c[0],.12,c[1]);
       var st=new T.Mesh(new T.BoxGeometry(.14,14.5,.14),M.glow);st.position.set(c[0]+(c[0]>0?.62:-.62),7.6,c[1]+(c[1]>0?.62:-.62));S.root.add(st);});
     truss(S.root,V(-q,H,q),V(q,H,q));truss(S.root,V(-q,H,-q),V(q,H,-q));truss(S.root,V(-q,H,-q),V(-q,H,q));truss(S.root,V(q,H,-q),V(q,H,q));truss(S.root,V(-q,H,-2),V(q,H,-2));
@@ -322,15 +322,24 @@ function build(kind){
     if(mode==='island'){ledWall(S,18,10.5,0,1.7,-9.6,Math.PI,reel);}else{box(S.root,19.6,12,.3,M.black,0,.12,-9.85);}
     if(mode==='corner'){box(S.root,.3,12,14,M.black,-9.85,.12,-2.9);var lw=new T.Mesh(new T.PlaneGeometry(13,11),new T.MeshBasicMaterial({map:logoTex(1300,1100,'#0a0b0d','#fff',.8),toneMapped:false}));lw.position.set(-9.68,6,-2.9);lw.rotation.y=Math.PI/2;S.root.add(lw);}
     if(mode==='wall'){[-1,1].forEach(function(s){box(S.root,.25,8,10,M.black,s*9.88,.12,-5);});}
-    var dj=box(S.root,5,3,1.6,M.black,0,1.62,-7.2);var djf=new T.Mesh(new T.PlaneGeometry(4.8,2.6),new T.MeshBasicMaterial({map:deskTex,toneMapped:false}));djf.position.set(0,0,.81);dj.add(djf);
-    box(S.root,5.2,.12,1.8,M.white,0,4.62,-7.2);
-    human(S.root,0,-8.3,0,{y:1.62,top:0x15171b});human(S.root,-3.6,-5,.25,{y:1.62,arm:1,top:0xe9e9ea});
+    box(S.root,5,.7,3.4,M.black,0,1.62,-7.2);var ch=new T.MeshStandardMaterial({color:0xd8dbe0,metalness:.9,roughness:.25}),dm=new T.MeshStandardMaterial({color:0x101114,roughness:.4});
+    var kick=new T.Mesh(new T.CylinderGeometry(.95,.95,1.3,24),dm);kick.rotation.x=Math.PI/2;kick.position.set(0,3.3,-6.6);S.root.add(kick);var kh=new T.Mesh(new T.CircleGeometry(.9,24),M.white);kh.position.set(0,3.3,-5.94);S.root.add(kh);
+    [[-1.1,3.6,-7,.5],[1.2,3.2,-7.1,.65],[-.45,4.5,-6.9,.42],[.5,4.5,-6.9,.45]].forEach(function(d){cyl(S.root,d[3],.55,dm,d[0],d[1],d[2]);});
+    [[-1.9,5.2,-7.2,.75],[1.9,5.4,-7.4,.8],[-1.5,4.6,-6.4,.5]].forEach(function(d){cyl(S.root,.03,d[1]-2.32,ch,d[0],2.32,d[2]);var cy=new T.Mesh(new T.CylinderGeometry(d[3],d[3],.04,20),ch);cy.position.set(d[0],d[1],d[2]);cy.rotation.z=.15;S.root.add(cy);});
+    [[-5,-7.6],[5,-7.6]].forEach(function(c){box(S.root,2.2,2.4,1.1,M.black,c[0],1.62,c[1]);var gr=new T.Mesh(new T.PlaneGeometry(2,1.6),M.dark);gr.position.set(c[0],2.6,c[1]+.56);S.root.add(gr);});
+    [[0,-4.4],[-3.4,-4.8],[3.4,-4.8]].forEach(function(c){cyl(S.root,.5,.05,M.black,c[0],1.62,c[1]);cyl(S.root,.035,4.6,ch,c[0],1.62,c[1]);box(S.root,.14,.14,.5,M.black,c[0],6.2,c[1]+.2);});
+    human(S.root,0,-5.2,0,{y:1.62,top:0x15171b});human(S.root,-3.4,-5.6,.2,{y:1.62,top:0x15171b});human(S.root,3.4,-5.6,-.2,{y:1.62,top:0x15171b});human(S.root,0,-8.3,0,{y:2.32,top:0x15171b});
     [-4.6,4.6].forEach(function(x){var w=box(S.root,1.6,.8,1.2,M.black,x,1.62,-4.3);w.rotation.x=.35;});
     mover(S,-6.2,2.5,-8.3,0x4d86ff,15,true,false);mover(S,6.2,2.5,-8.3,0x4d86ff,15,true,false);mover(S,-2.6,2.5,-8.5,0xffffff,15,true,false);mover(S,2.6,2.5,-8.5,0xffffff,15,true,false);
-    [-1,1].forEach(function(s){box(S.root,2.4,1.5,2,M.black,s*8.5,.12,-5);box(S.root,2.4,1.5,2,M.black,s*8.5,1.62,-5);lineArray(S.root,s*8.4,H-.5,-4.2,-s*.2,7);});
+    [-1,1].forEach(function(s){box(S.root,2.4,1.5,2,M.black,s*8.5,.12,-5);box(S.root,2.4,1.5,2,M.black,s*8.5,1.62,-5);lineArray(S.root,s*8.4,H-.5,-3.8,-s*.2,8);});
     [-6,-3,0,3,6].forEach(function(x,i){mover(S,x,H-.5,-2,i%2?0x6f9dff:0xffffff,17,false,i%2===0);});
     [-5,-1.7,1.7,5].forEach(function(x,i){mover(S,x,H-.5,q,0xffffff,17,false,i===1);});
     [-4,4].forEach(function(z){mover(S,-q,H-.5,z,0xdfe9ff,16,false,false);mover(S,q,H-.5,z,0xdfe9ff,16,false,false);});
+    var par=function(x,y,z,col,sz){box(S.root,.7,.7,.7,M.black,x,y,z);var sp=new T.Sprite(new T.SpriteMaterial({map:glowTex(),color:col,blending:T.AdditiveBlending,depthWrite:false,transparent:true}));sp.scale.set(sz,sz,1);sp.position.set(x,y+.2,z);S.root.add(sp);};
+    [-7.5,-5,-2.5,0,2.5,5,7.5].forEach(function(x){par(x,H-1.6,-q+.2,0xffe2b0,3.2);});[-7,-3.5,3.5,7].forEach(function(x){par(x,H-1.6,-2.6,0xffffff,2.2);});
+    [-6,-3,0,3,6].forEach(function(x,i){mover(S,x,H-.5,-q+.9,i%2?0x4d86ff:0xffffff,16,false,false);});
+    [-6,-2,2,6].forEach(function(x){par(x,1.9,-8.7,0x4d86ff,2.6);});
+    var fw=new T.SpotLight(0xfff1dc,2.2,34,.5,.6,1);fw.position.set(0,H-1,q);var fwt=new T.Object3D();fwt.position.set(0,3,-6.5);S.root.add(fw);S.root.add(fwt);fw.target=fwt;
     var ring=new T.Mesh(new T.CylinderGeometry(4.4,4.4,1.8,64,1,true),new T.MeshBasicMaterial({map:ringTex(),side:T.DoubleSide,toneMapped:false}));ring.position.set(0,12.8,3.5);S.root.add(ring);S.spin.push(ring);
     // front edge: welcome desk left, coffee bar right, clear centre lane to the stage
     desk(S.root,-6.6,8.3,0,5,deskTex);human(S.root,-6.6,6.7,0,{top:0x15171b});
@@ -350,7 +359,7 @@ function build(kind){
      {p:[-11,5.6,18],l:[-6.6,3,8],h:'Welcome desk',t:'First hello on the left: badge scans and a place to book a site visit.'},
      {p:[11,5.6,18],l:[6.4,3.2,8],h:'Coffee bar',t:'Barista coffee on the right pulls people off the aisle and keeps them talking.'},
      {p:[0,6.2,12],l:[0,4,-3],h:'Mix position',t:'A real console in the middle of the floor. Visitors run the sound and lights themselves.'},
-     {p:[0,5.4,2.5],l:[0,6.4,-8],h:'The stage',t:'14 ft of deck in front of an 18 x 10 ft LED wall, with line arrays, subs and moving lights. This is the product.'},
+     {p:[0,5.4,2.5],l:[0,6.4,-8],h:'The stage',t:'A mini concert stage: band backline, line arrays, subs, an 18 x 10 ft video wall behind, front and rear lighting. Live entertainment all day.'},
      {p:[3,5.6,4],l:[-8,2.6,-.5],h:'Lounge',t:'Seats on the quiet side for longer talks, with the stage still in view.'},
      {p:[-15,2.6,15],l:[0,13,-3],h:'Look up',t:'Sixteen moving lights and two line array hangs, all rental stock, all running.'}];}
     else if(mode==='wall'){S.cam={r:40,h:11,ty:6,full:false,base:0,sw:.75};}
