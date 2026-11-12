@@ -1253,20 +1253,24 @@ const TOUR=[
  ['#quote','New: an instant estimate app','Was: every price meant a phone call and a site visit before anyone knew if the job was a fit.','Now: Steady Quote. A customer taps the job, adds the size and finish, and sees a price range in a minute. You set your own rates.','Revenue: serious buyers arrive already knowing the ballpark, and you stop driving out to quote jobs that were never going to happen.']
 ];
 const tour=$('#tour');let ti=-1,tt=null,paused=false;const DUR=9000;
+let au=null;
+function voice(i){if(au){au.pause();au=null}const a=new Audio('audio/tour-'+(i+1)+'.mp3');a.preload='auto';
+ a.addEventListener('loadedmetadata',()=>{if(au!==a)return;clearTimeout(tt);const pg=$('#tpg');pg.style.transition='none';pg.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>{pg.style.transition='width '+(a.duration*1000)+'ms linear';pg.style.width='100%'}))});
+ a.addEventListener('ended',()=>{if(au===a&&!paused&&i<TOUR.length)show(i+1)});au=a;if(!paused)a.play().catch(()=>{})}
 function clr(){$$('.spot').forEach(e=>e.classList.remove('spot'))}
 function show(i){if(i>=TOUR.length)return end();ti=i;clr();const [sel,h,was,now,why]=TOUR[i];const el=$(sel);
  if(sel==='#top'||sel==='#hero'||sel==='#hd'){scrollTo({top:0,behavior:'smooth'})}else{el.scrollIntoView({behavior:'smooth',block:'start'})}
  if(sel!=='#top')el.classList.add('spot');$('#tk').textContent=i?'What we changed':'Concept preview';$('#tn').textContent=i?`${i} / ${TOUR.length-1}`:'';$('#th').textContent=h;$('#tp').innerHTML=`${esc(was)}<br>${esc(now)}`;
  const y=$('#ty'),r=$('#tr');y.hidden=r.hidden=true;if(why.startsWith('Revenue')){r.textContent=why;r.hidden=false}else{y.textContent=why;y.hidden=false}
- $('#tgo').hidden=true;$('#tpause').hidden=false;$('#tnext').hidden=false;tick()}
+ $('#tgo').hidden=true;$('#tpause').hidden=false;$('#tnext').hidden=false;tick();voice(i)}
 function tick(){clearTimeout(tt);const pg=$('#tpg');pg.style.transition='none';pg.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>{pg.style.transition=`width ${DUR}ms linear`;pg.style.width='100%'}));if(!paused)tt=setTimeout(()=>show(ti+1),DUR)}
-function end(){clearTimeout(tt);clr();$('#tk').textContent="That's the tour";$('#tn').textContent='';$('#th').textContent='Want this live? Talk to Peddi.';$('#tp').innerHTML='This is a working concept built from your own photos, words and services. Peddi at Chairlift can walk you through it and what it takes to switch it on. <a href="https://cal.com/chairlift/5min" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;background:#6FAEE3;color:#111111;padding:12px 16px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:12px">Start a conversation</a>';$('#ty').hidden=$('#tr').hidden=true;$('#tpause').hidden=$('#tnext').hidden=true;$('#tgo').hidden=false;$('#tgo').textContent='Replay';ti=-1;scrollTo({top:0,behavior:'smooth'})}
+function end(){clearTimeout(tt);clr();voice(TOUR.length);$('#tk').textContent="That's the tour";$('#tn').textContent='';$('#th').textContent='Want this live? Talk to Peddi.';$('#tp').innerHTML='This is a working concept built from your own photos, words and services. Peddi at Chairlift can walk you through it and what it takes to switch it on. <a href="https://cal.com/chairlift/5min" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;background:#6FAEE3;color:#111111;padding:12px 16px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:12px">Start a conversation</a>';$('#ty').hidden=$('#tr').hidden=true;$('#tpause').hidden=$('#tnext').hidden=true;$('#tgo').hidden=false;$('#tgo').textContent='Replay';ti=-1;scrollTo({top:0,behavior:'smooth'})}
 $('#tgo').onclick=()=>{paused=false;$('#tpause').textContent='Pause';show(0)};
 $('#tnext').onclick=()=>show(ti+1);
-$('#tpause').onclick=()=>{paused=!paused;$('#tpause').textContent=paused?'Resume':'Pause';if(paused){clearTimeout(tt);const pg=$('#tpg');pg.style.transition='none'}else tick()};
+$('#tpause').onclick=()=>{paused=!paused;$('#tpause').textContent=paused?'Resume':'Pause';if(paused){clearTimeout(tt);if(au)au.pause();const pg=$('#tpg');pg.style.transition='none'}else{if(au&&au.readyState>0){au.play().catch(()=>{})}else tick()}};
 const openTour=()=>{document.body.classList.add('touring');$('#tb').hidden=true;tour.hidden=false;$('#tgo').click()};
 $('#tb').onclick=openTour;$('#dtour').onclick=e=>{e.preventDefault();openTour()};
-$('#tx').onclick=()=>{clearTimeout(tt);clr();tour.hidden=true;$('#tb').hidden=false;document.body.classList.remove('touring')};
+$('#tx').onclick=()=>{clearTimeout(tt);if(au){au.pause();au=null}clr();tour.hidden=true;$('#tb').hidden=false;document.body.classList.remove('touring')};
 /* preview: the tour starts by itself right after the loading screen (?tour=0 turns it off) */
 let tourStarted=false;const autoTour=()=>{if(tourStarted||!window.__tw)return;tourStarted=true;setTimeout(openTour,400)};
 addEventListener('siready',autoTour);setTimeout(autoTour,6000);
