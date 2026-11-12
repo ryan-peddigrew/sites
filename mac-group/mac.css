@@ -454,3 +454,7 @@ img { -webkit-user-drag: none; user-select: none; }
 .q-size { max-width: 360px; margin: 14px 0 4px; }
 .q-x { min-height: 44px; min-width: 44px; border: 0; background: none; color: var(--mute); font-size: 22px; cursor: pointer; }
 .q-line { align-items: center; }
+.cap-list { list-style: none; padding: 0; margin: 26px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; }
+.cap-list li { border-top: 2px solid var(--accent); padding-top: 12px; color: var(--mute); font-size: 15px; } .cap-list b { display: block; color: var(--ink); font-size: 17px; margin-bottom: 4px; }
+@media (max-width: 520px) { .cap-list { grid-template-columns: 1fr; } }
+.q-two { display: flex; flex-wrap: wrap; gap: 0 14px; } .q-two .q-size { flex: 1 1 240px; }

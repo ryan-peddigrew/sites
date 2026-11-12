@@ -1,6 +1,6 @@
 {
-  "name": "My Tour Trucking",
-  "short_name": "My Tour Trucking",
+  "name": "Tour Trucking",
+  "short_name": "Tour Trucking",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

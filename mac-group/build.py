@@ -214,8 +214,8 @@ mac = head("mac", "show-systems/index.html", R, "MAC Show Systems", "Sound, ligh
   <div class="now">Now showing<br><b></b></div>
   <div class="wrap">
     <span class="eyebrow">Toronto · Audio · Video · Lighting · Staging</span>
-    <h1 data-lines='["Make your event.", "See what&#39;s free on your dates.", "Plan the room. Then book it."]'>Make your event.</h1>
-    <p class="lede">Sound, lighting, video, LED and staging from a production company in Toronto. Check what's available on your dates, plan your room and build your quote in minutes.</p>
+    <h1 data-lines='["Make your event.", "Any size. Indoors or out.", "Plan the room. Then book it."]'>Make your event.</h1>
+    <p class="lede">Sound, lighting, video, LED and staging from a production company in Toronto. Tell us what your event needs, plan your room and send your quote request in minutes.</p>
     {two_buttons("quote.html")}
     <div class="ticker"><a href="#" data-tour>Take a tour of what's changed</a><span>Rentals · Sales · Setup · National tours</span></div>
   </div>
@@ -234,23 +234,23 @@ mac = head("mac", "show-systems/index.html", R, "MAC Show Systems", "Sound, ligh
   <figure><img src="{R}img/mac-work-3.webp" alt="Dance floor and screen at a reception"><figcaption>Receptions</figcaption></figure>
   <figure><img src="{R}img/mac-venue-4.webp" alt="Candlelit dinner with uplighting"><figcaption>Dinners</figcaption></figure>
 </section>
-<section id="availability" class="pad" style="padding-top:0"><div class="wrap split">
-  <div><span class="eyebrow"><span class="live-dot"></span>Live availability</span><h2>See what's free on your dates.</h2>
-  <p class="lead" style="margin-top:22px">Pick your dates and tell us what you need. You'll see right away whether we have it, or something that works just as well. No prices, no waiting for a callback.</p>
-  <div class="rows" id="peek"></div>
-  <div class="btns" style="margin-top:24px"><a class="btn" href="#quote">Check everything</a></div></div>
+<section id="capacity" class="pad" style="padding-top:0"><div class="wrap split">
+  <div><span class="eyebrow">Capacity</span><h2>Built for big. Ready for small.</h2>
+  <p class="lead" style="margin-top:22px">From a boardroom to a festival field, we have the gear, the space and the crew to handle it. Tell us what your event needs and we'll build the right setup.</p>
+  <ul class="cap-list"><li><b>Everything under one roof</b>Audio, video, LED, lighting, staging and podiums.</li><li><b>Our own warehouse</b>Prepped, tested and loaded in North York.</li><li><b>Any size, indoors or out</b>Ballrooms, theatres, parks and festival sites.</li><li><b>Delivery to show day</b>Delivery, setup, show crew and strike.</li></ul>
+  <div class="btns" style="margin-top:24px"><a class="btn" href="quote.html">Build your quote</a></div></div>
   <div class="photo-tall"><img src="{R}img/mac-solution-audio.webp" alt="Speakers on an outdoor stage"></div>
 </div></section>
 
 <section id="planner" class="pad" style="padding-top:0"><div class="wrap">
   <span class="eyebrow">Plan your room</span><h2>Drop it into your room before you book it.</h2>
   <p class="lead" style="margin-top:18px">Pick a room, tap gear to drop it in, and drag it into place. Everything you place goes straight into your quote.</p>
-  <div class="tool"><span class="sample-tag">Sample inventory</span><div id="planner-tool"></div></div>
+  <div class="tool"><span class="sample-tag">Preview</span><div id="planner-tool"></div></div>
 </div></section>
 
 <section id="quote" class="pad" style="padding-top:0"><div class="wrap">
   <span class="eyebrow">Build your quote</span><h2>Your gear. Your dates.</h2>
-  <div class="tool"><span class="sample-tag">Sample availability for preview. Real stock connects once MAC shares its inventory list.</span><div id="quote-tool"></div></div>
+  <div class="tool"><span class="sample-tag">Preview: requests are not sent yet</span><div id="quote-tool"></div></div>
 </div></section>
 
 <section class="plan-band"><img src="{R}img/mac-work-1.webp" alt="Outdoor stage build in a park">
@@ -274,8 +274,7 @@ mac = head("mac", "show-systems/index.html", R, "MAC Show Systems", "Sound, ligh
 const T = window.MACTOOLS;
 T.quote(document.getElementById("quote-tool"), {{ prefix: "mac" }});
 T.planner(document.getElementById("planner-tool"), {{ prefix: "mac" }});
-function peek() {{ const d = T.dates("mac"); document.getElementById("peek").innerHTML = ["ostage","concert","led","slight"].map(k => {{ const n = T.NEEDS.find(x => x.k === k); return `<div class="row"><div><div class="nm">${{n.n}}</div><div class="ct">${{d.a.toLocaleDateString("en-CA",{{month:"short",day:"numeric"}})}} to ${{d.b.toLocaleDateString("en-CA",{{month:"short",day:"numeric"}})}}</div></div>${{T.needStatus(k, "M", d)}}</div>`; }}).join(""); }}
-peek(); document.addEventListener("macdates", peek);
+
 document.querySelectorAll("[data-form]").forEach(f => T.sendForm(f, "Our team will get back to you shortly."));
 </script>
 </body></html>'''
@@ -424,8 +423,10 @@ hub = head("hub", "hub/index.html", R, "MAC Hub", "Staff app for MAC Group of Co
       <button data-v="inv">{icon("box","sm")}Inventory</button>
       <button data-v="quotes">{icon("tag","sm")}Quotes</button>
       <a class="hub-tablink" href="quote.html">{icon("show","sm")}Quote Builder</a>
+      <a class="hub-tablink" href="connections.html">{icon("hub","sm")}Connections</a>
       <button data-v="flags">{icon("hub","sm")}Cross-sell</button>
       <button data-v="clients">{icon("crew","sm")}Clients</button>
+      <a class="hub-tablink" href="connections.html">{icon("hub","sm")}Connections</a>
     </nav>
     <a class="hub-back" href="../index.html">Back to MAC Group</a>
   </aside>
@@ -461,10 +462,10 @@ apps = head("group", "apps/index.html", R, "Client apps", "One client app per br
   <span class="eyebrow">Client apps</span><h2 style="max-width:16ch">One app per brand. One system behind them.</h2>
   <p class="lead" style="margin-top:18px">Each app installs to a phone's home screen from the brand's own site. Clients only ever see that one brand. Everything they do lands in MAC Hub.</p>
   <div class="app-links">
-    <a class="app-link" data-site="mac" href="mss/index.html"><img src="../icons/mss-192.png" alt="" width="72" height="72"><b>MAC Show Systems</b><span>Client dashboard: events, run of show, quotes to approve, live availability, messages, documents</span><em>Open the app</em></a>
-    <a class="app-link" data-site="psi" href="psi/index.html"><img src="../icons/psi-192.png" alt="" width="72" height="72"><b>PSI</b><span>Client dashboard: shows, crew confirmed by role, quotes, training seats, messages</span><em>Open the app</em></a>
-    <a class="app-link" data-site="tt" href="ttl/index.html"><img src="../icons/ttl-192.png" alt="" width="72" height="72"><b>Tour Trucking</b><span>Client dashboard: live loads, multi-city tour, quotes, paperwork, dispatch messages</span><em>Open the app</em></a>
-    <a class="app-link" data-site="hub" href="../hub/quote.html"><img src="../icons/hub-192.png" alt="" width="72" height="72"><b>MAC Hub Quote Builder</b><span>Staff only: live stock, rep-typed rates, conflict flags, branded PDF quote</span><em>Open the app</em></a>
+    <a class="app-link" data-site="mac" href="mss/index.html"><img src="../icons/mss-192.png" alt="" width="72" height="72"><b>MAC Show Systems</b><span>For clients. Their events, quotes to approve, new requests, messages and documents. Only MAC Show Systems appears.</span><em>Open the app</em></a>
+    <a class="app-link" data-site="psi" href="psi/index.html"><img src="../icons/psi-192.png" alt="" width="72" height="72"><b>PSI</b><span>For clients. Their shows, crew confirmed by role, quotes, training seats and messages. Only PSI appears.</span><em>Open the app</em></a>
+    <a class="app-link" data-site="tt" href="ttl/index.html"><img src="../icons/ttl-192.png" alt="" width="72" height="72"><b>Tour Trucking</b><span>For shippers. Where the truck is, every leg of the tour, quotes, paperwork and dispatch. Only Tour Trucking appears.</span><em>Open the app</em></a>
+    <a class="app-link" data-site="hub" href="../hub/quote.html"><img src="../icons/hub-192.png" alt="" width="72" height="72"><b>MAC Hub</b><span>For staff at all three companies. Requests, quoting, shared inventory and calendar, cross-company flags, and links to HR and rental software.</span><em>Open the app</em></a>
   </div>
   <p class="mute" style="margin-top:14px">Each one installs to a phone: open it, then Share and Add to Home Screen.</p>
   <h3 style="margin:56px 0 18px;font-size:28px">Phone previews</h3>
@@ -490,9 +491,9 @@ def manifest(path, name, short, start, bg, theme, icon):
     write(path, json.dumps(m, indent=2))
 
 CAPPS = [
-    ("mss", "mac", "My MAC Show", "My MAC Show", "#0A0A0B", "#0A0A0B", lambda r: mlogo("mss", 210, r), "show-systems", "Your events, quotes and live availability in one place."),
-    ("psi", "psi", "My PSI", "My PSI", "#F4F2EC", "#015330", lambda r: psilogo(56, r), "psi", "Your shows, crew and quotes in one place."),
-    ("ttl", "tt", "My Tour Trucking", "My Tour Trucking", "#141516", "#141516", lambda r: mlogo("ttl", 150, r), "tour-trucking", "Every load, every leg, live."),
+    ("mss", "mac", "MAC Show Systems", "MAC Show Systems", "#0A0A0B", "#0A0A0B", lambda r: mlogo("mss", 210, r), "show-systems", "Your events, quotes and requests in one place."),
+    ("psi", "psi", "PSI", "PSI", "#F4F2EC", "#015330", lambda r: psilogo(56, r), "psi", "Your shows, crew and quotes in one place."),
+    ("ttl", "tt", "Tour Trucking", "Tour Trucking", "#141516", "#141516", lambda r: mlogo("ttl", 150, r), "tour-trucking", "Every load, every leg, live."),
 ]
 RR = "../../"
 for key, site, name, short, bg, theme, logo, sitedir, desc in CAPPS:
@@ -523,7 +524,7 @@ write("hub/manifest.webmanifest", json.dumps({"id": "mac-hub", "name": "MAC Hub"
 HUBHEAD = '<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="../icons/hub-180.png"><meta name="theme-color" content="#0F1115"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="stylesheet"'
 write("hub/quote.webmanifest", json.dumps({"id": "mac-hub-quotes", "name": "MAC Hub Quotes", "short_name": "Quotes", "start_url": "./quote.html", "scope": "./", "display": "standalone",
       "background_color": "#0F1115", "theme_color": "#0F1115", "icons": [{"src": "../icons/options/quote-C-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "../icons/options/quote-C.png", "sizes": "512x512", "type": "image/png"}]}, indent=2))
-qhtml = head("hub", "hub/quote.html", R, "MAC Hub Quotes", "Staff quoting app.").replace('<link rel="stylesheet"', HUBHEAD.replace("manifest.webmanifest", "quote.webmanifest").replace("hub-180.png", "options/quote-C-180.png"), 1).replace("</head>", f'<link rel="stylesheet" href="{R}app.css"></head>').replace('<div class="sample">', '<div class="sample" style="background:#7C9CFF;color:#0F1115">') + f'''
+qhtml = head("hub", "hub/quote.html", R, "MAC Hub Quotes", "Staff quoting app.").replace('<link rel="stylesheet"', HUBHEAD, 1).replace("</head>", f'<link rel="stylesheet" href="{R}app.css"></head>').replace('<div class="sample">', '<div class="sample" style="background:#7C9CFF;color:#0F1115">') + f'''
 <div class="hub" id="quote">
   <aside class="hub-rail">
     <div class="hub-brand">{mlogo("mgcm", 110, R)}<b>Hub</b><span>Staff only</span></div>
@@ -531,7 +532,7 @@ qhtml = head("hub", "hub/quote.html", R, "MAC Hub Quotes", "Staff quoting app.")
       <a class="hub-tablink" href="index.html">{icon("calendar","sm")}Today</a>
       <a class="hub-tablink on" href="quote.html">{icon("tag","sm")}Quote Builder</a>
       <a class="hub-tablink" href="index.html#inv">{icon("box","sm")}Inventory</a>
-      <a class="hub-tablink" href="../apps/index.html">{icon("app","sm")}Client apps</a>
+      <a class="hub-tablink" href="connections.html">{icon("hub","sm")}Connections</a>
     </nav>
     <a class="hub-back" href="../index.html">Back to MAC Group</a>
   </aside>
@@ -584,26 +585,26 @@ BG = [
        role="Audio, video, lighting and staging rental and sales for events. Planners deal only with MAC Show Systems.",
        colours=[("Stage Black", "#0A0A0B", "Page background"), ("Amber", "#FFB000", "Buttons, live status, highlights"), ("House White", "#F5F5F2", "Text on black"), ("Graphite", "#151517", "Panels")],
        fonts=[("Big Shoulders Display", "Headings, black weight, in capitals", "Big Shoulders Display", "font-weight:900;text-transform:uppercase"), ("Work Sans", "Body text and buttons", "Work Sans", "font-weight:400"), ("DM Mono", "Labels, availability counts", "DM Mono", "font-weight:500;text-transform:uppercase;letter-spacing:.12em")],
-       voice=["Talk like a crew chief who has done this a thousand times: direct, specific, unflustered.", "Lead with what's free on their dates, never with prices.", "Buttons say Build your quote and Get in touch."],
-       photos=["mac-work-1.webp", "mac-venue-1.webp", "mac-solution-lighting.webp"], app=("My MAC Show", "mss", "../apps/mss/index.html"), site_link="../show-systems/index.html"),
+       voice=["Talk like a crew chief who has done this a thousand times: direct, specific, unflustered.", "Lead with what the event needs. Never show prices, gear lists or stock.", "Buttons say Build your quote and Get in touch."],
+       photos=["mac-work-1.webp", "mac-venue-1.webp", "mac-solution-lighting.webp"], app=("MAC Show Systems app", "mss", "../apps/mss/index.html"), site_link="../show-systems/index.html"),
   dict(key="psi", site="psi", name="PSI · Production Service Industries", file="psi.html", logo=lambda r: psilogo(160, r), logo_sm=lambda r: psilogo(120, r),
        role="Concerts, galas, festivals, technical staffing and training. Producers deal only with PSI.",
        colours=[("PSI Green", "#015330", "From the logo. Buttons and accents"), ("Paper", "#F4F2EC", "Page background"), ("Forest Ink", "#0D1F17", "Text"), ("Sage", "#E6E9E2", "Panels")],
        fonts=[("Space Grotesk", "Headings, bold, sentence case", "Space Grotesk", "font-weight:700"), ("IBM Plex Sans", "Body text and buttons", "IBM Plex Sans", "font-weight:400"), ("IBM Plex Mono", "Labels, call times", "IBM Plex Mono", "font-weight:600;text-transform:uppercase;letter-spacing:.12em")],
        voice=["Warm, organised and people first. PSI is the team that runs the show.", "Name the work: real venues and projects, never invented ones.", "Sentence case headings. Canadian spelling."],
-       photos=["psi-concert.jpg", "psi-olg-wall.jpg", "psi-taiwanfest.jpg"], app=("My PSI", "psi", "../apps/psi/index.html"), site_link="../psi/index.html"),
+       photos=["psi-concert.jpg", "psi-olg-wall.jpg", "psi-taiwanfest.jpg"], app=("PSI app", "psi", "../apps/psi/index.html"), site_link="../psi/index.html"),
   dict(key="ttl", site="tt", name="Tour Trucking Logistics", file="tour-trucking.html", logo=lambda r: mlogo("ttl", 300, r), logo_sm=lambda r: mlogo("ttl", 150, r),
        role="Entertainment freight: full and partial loads, multi-city tours and warehousing. Shippers deal only with Tour Trucking.",
        colours=[("Asphalt", "#141516", "Page background"), ("Hazard Yellow", "#FFD400", "Buttons, route lines"), ("Chalk", "#F2F0EA", "Text on dark"), ("Diesel", "#1E2022", "Panels")],
        fonts=[("Barlow Condensed", "Headings, extra bold, in capitals", "Barlow Condensed", "font-weight:800;text-transform:uppercase"), ("Barlow", "Body text and buttons", "Barlow", "font-weight:400"), ("JetBrains Mono", "Load numbers, times", "JetBrains Mono", "font-weight:600;text-transform:uppercase;letter-spacing:.12em")],
        voice=["Plain-spoken and on time. Every line answers: where is it, and when does it arrive.", "Use real cities and real trailer sizes.", "No hype. Canadian spelling."],
-       photos=["truck-mountain.jpg", "warehouse.jpg"], app=("My Tour Trucking", "ttl", "../apps/ttl/index.html"), site_link="../tour-trucking/index.html"),
+       photos=["truck-mountain.jpg", "warehouse.jpg"], app=("Tour Trucking app", "ttl", "../apps/ttl/index.html"), site_link="../tour-trucking/index.html"),
 ]
 GFONTS = {"group": FONTS["group"], "mac": FONTS["mac"], "psi": FONTS["psi"], "tt": FONTS["tt"]}
 def figs(k, n, w):
     out = ""
-    for o in ("AEFG" if k == "mss" else "ABC"):
-        cur = " · current" if o == "A" else ""
+    for o in ("H" if k == "mss" else "ABC"):
+        cur = " · chosen" if o == "H" else (" · current" if o == "A" else "")
         out += f'<figure><img src="../icons/options/{k}-{o}.png" alt="{n} option {o}" width="{w}" height="{w}"><figcaption>Option {o}{cur}</figcaption></figure>'
     return out
 def guide_nav(cur):
@@ -616,7 +617,7 @@ for b in BG:
     app = ""
     if b["app"]:
         an, ak, ah = b["app"]
-        app = f'<section class="bg-sec"><span class="bg-k">05 · App</span><h2>{an}</h2><div class="bg-app">{figs(ak, an, 120)}</div><p>The client app shows only {b["name"].split(" ·")[0]}. <a href="{ah}">Open {an}</a></p></section>'
+        app = f'<section class="bg-sec"><span class="bg-k">05 · App</span><h2>{an}</h2><div class="bg-app">{figs(ak, an, 120)}</div><p>The client app shows only {b["name"].split(" ·")[0]}. <a href="{ah}">Open the app</a></p></section>'
     page = head(b["site"], "brand/" + b["file"], R, f'{b["name"]} brand guide', "Brand and style guide.").replace("</head>", f'<link rel="stylesheet" href="{R}brand.css"></head>') + f'''
 <main class="bg" id="guide">
   {guide_nav(b["key"])}
@@ -637,8 +638,8 @@ for b in BG:
     write("brand/" + b["file"], page)
 
 # App icon options side by side + index
-APPS_OPT = [("My MAC Show", "mss", "Clients of MAC Show Systems", "../apps/mss/index.html"), ("My PSI", "psi", "Clients of PSI", "../apps/psi/index.html"),
-            ("My Tour Trucking", "ttl", "Shippers and tour managers", "../apps/ttl/index.html"), ("MAC Hub", "hub", "Staff: employee dashboard", "../hub/index.html"), ("MAC Hub Quotes", "quote", "Staff: quoting app", "../hub/quote.html")]
+APPS_OPT = [("MAC Show Systems", "mss", "Clients of MAC Show Systems", "../apps/mss/index.html"), ("PSI", "psi", "Clients of PSI", "../apps/psi/index.html"),
+            ("Tour Trucking", "ttl", "Shippers and tour managers", "../apps/ttl/index.html"), ("MAC Hub", "hub", "Staff: employee dashboard, with Quotes inside", "../hub/index.html")]
 rows = "".join(f'<div class="bg-arow"><div><h3>{n}</h3><p class="mute">{w}</p><a href="{h}">Open the app</a></div>{figs(k, n, 150)}</div>' for n, k, w, h in APPS_OPT)
 appsg = head("group", "brand/apps.html", R, "App names and icons", "App icon options.").replace("</head>", f'<link rel="stylesheet" href="{R}brand.css"></head>') + f'''
 <main class="bg" id="guide">
@@ -674,15 +675,15 @@ STARTERS = [("Outdoor festival", "ostage:L,concert:L,slight:L,led:L", "mac-hero.
             ("Gala dinner", "stage:M,speech:M,led:M,uplight:M,slight:S,podium:M", "mac-venue-1.webp"),
             ("Wedding reception", "speech:S,uplight:M,truss:S,slight:S", "mac-venue-2.webp")]
 st = "".join(f'<a class="starter" href="quote.html?need={q}#quote"><img src="{R}img/{im}" alt=""><span>Start with</span><b>{n}</b></a>' for n, q, im in STARTERS)
-mpage("quote.html", "Build your quote", "Check live availability and build your quote.", "mac-solution-staging.webp", "Stage with draping and truss", "Build your quote", "Your dates. Your gear. Your quote.",
-  "Tell us your dates and what you need. You'll see right away whether we have it or something that works. Our team matches the equipment and sends your quote.", f'''
+mpage("quote.html", "Build your quote", "Build your quote request.", "mac-solution-staging.webp", "Stage with draping and truss", "Build your quote", "Your dates. Your gear. Your quote.",
+  "Tell us your dates and what your event needs. Our team builds the right setup and sends your quote.", f'''
 <section class="pad" style="padding-bottom:0"><div class="wrap"><span class="eyebrow">Step 1 · Start fast</span><h2>Start from an event like yours.</h2>
   <p class="lead" style="margin-top:16px">Pick a starting point and change anything. Or start from scratch below.</p><div class="starters">{st}</div></div></section>
 <section id="quote" class="pad"><div class="wrap"><span class="eyebrow">Step 2 · Dates and needs</span><h2>Tell us what you need.</h2>
-  <div class="tool"><span class="sample-tag">Sample availability for preview</span><div id="quote-tool"></div></div></div></section>
+  <div class="tool"><span class="sample-tag">Preview: requests are not sent yet</span><div id="quote-tool"></div></div></div></section>
 <section id="planner" class="pad" style="padding-top:0"><div class="wrap"><span class="eyebrow">Step 3 · Optional</span><h2>Lay out the room.</h2>
   <p class="lead" style="margin-top:16px">Drag stages, screens and speakers into your room. The layout goes with your request.</p>
-  <div class="tool"><span class="sample-tag">Sample inventory</span><div id="planner-tool"></div></div></div></section>''',
+  <div class="tool"><span class="sample-tag">Preview</span><div id="planner-tool"></div></div></div></section>''',
   'T.quote(document.getElementById("quote-tool"), { prefix: "mac" }); T.planner(document.getElementById("planner-tool"), { prefix: "mac" });')
 
 CASES = [("mac-hero.webp", "Outdoor festival stage", "Festival", ["Outdoor stage", "Concert sound", "LED wall", "Stage lighting"]),
@@ -710,7 +711,7 @@ mpage("venues.html", "Venues", "Venue partners and in-house AV.", "mac-venue-4.w
   <form class="tool" data-form><div class="form-grid"><label class="field"><span>Venue</span><input required></label><label class="field"><span>City</span><input></label><label class="field"><span>Your name</span><input required></label><label class="field"><span>Email</span><input type="email" required></label></div>
   <label class="field"><span>Rooms and capacity</span><textarea rows="3"></textarea></label><button class="btn">Apply to partner</button></form></div></section>''')
 
-FAQ = [("How far ahead should I book?", "As early as you can. Check live availability for your dates any time; busy season fills first."),
+FAQ = [("How far ahead should I book?", "As early as you can. Send a quote request any time; busy season fills first."),
        ("Do you deliver, set up and run the show?", "Yes. Delivery, setup, show technicians and strike can all be added to your quote."),
        ("Can I see the gear in my room first?", "Use the floor planner to lay out your room, and our team will check it against the venue."),
        ("Do I need power or rigging information?", "Send what you have from the venue. We'll confirm power and rigging before load-in."),
@@ -726,3 +727,37 @@ mpage("planning.html", "Plan your event", "Planning help, FAQ and documents.", "
   <label class="field"><span>Event date</span><input type="date"></label><label class="field"><span>Venue</span><input></label><label class="field"><span>Email</span><input type="email" required></label></div><button class="btn">Request documents</button></form></div></section>
 <section class="pad" style="padding-top:0"><div class="wrap"><span class="eyebrow">Next step</span><h2>Ready when you are.</h2>{two_buttons("quote.html")}</div></section>''')
 print("built MSS pages")
+
+# MAC Hub: Connections (pitch mock-up; nothing is connected)
+CONN = [("BrightHR or ADP", "HR and payroll", "Not connected · needs sign-off",
+         ["Staff list, roles and who works for which company", "Time off and sick days block crew from being booked", "Hours from Crew Call go to payroll", "New hires get MAC Hub access automatically, and leavers lose it"]),
+        ("Current RMS", "Rental software in use today", "Not connected · needs sign-off",
+         ["Inventory and bookings stay in Current RMS: no double entry", "MAC Hub reads live stock for staff quotes", "Approved quotes become Current RMS orders", "Client apps show event status, never gear lists"]),
+        ("Email and calendar", "Each company's own email", "Not connected · needs sign-off",
+         ["Quotes go out from the selling company's own address", "Load-ins and shows land on the right calendars"]),
+        ("Accounting", "Invoices and payments", "To confirm which system", ["Approved quotes become invoices under the right company"])]
+cards = "".join(f'''<div class="cx"><div class="cx-h"><div><h3>{n}</h3><p class="mute">{w}</p></div><span class="pill wait">{st}</span></div><ul>{"".join(f"<li>{x}</li>" for x in l)}</ul><button class="btn ghost sm" data-req>Request access</button></div>''' for n, w, st, l in CONN)
+chtml = head("hub", "hub/connections.html", R, "MAC Hub Connections", "Systems MAC Hub connects to.").replace('<link rel="stylesheet"', HUBHEAD, 1).replace("</head>", f'<link rel="stylesheet" href="{R}app.css"></head>').replace('<div class="sample">', '<div class="sample" style="background:#7C9CFF;color:#0F1115">') + f'''
+<div class="hub" id="conn">
+  <aside class="hub-rail">
+    <div class="hub-brand">{mlogo("mgcm", 110, R)}<b>Hub</b><span>Staff only</span></div>
+    <nav class="hub-tabs">
+      <a class="hub-tablink" href="index.html">{icon("calendar","sm")}Today</a>
+      <a class="hub-tablink" href="quote.html">{icon("tag","sm")}Quote Builder</a>
+      <a class="hub-tablink" href="index.html#inv">{icon("box","sm")}Inventory</a>
+      <a class="hub-tablink on" href="connections.html">{icon("hub","sm")}Connections</a>
+    </nav>
+    <a class="hub-back" href="../index.html">Back to MAC Group</a>
+  </aside>
+  <main class="hub-main">
+    <div class="hub-top"><div><span class="eyebrow">Connections · ready to set up once approved</span><h1 class="hub-h">One hub. The systems you already use.</h1></div></div>
+    <p class="mute" style="max-width:62ch">MAC Hub sits on top of what MAC already runs, so nobody changes how they work. Nothing is connected yet: each connection needs sign-off on permissions first, and only reads what it needs.</p>
+    <div class="cxs">{cards}</div>
+  </main>
+</div>
+<div id="toast" role="status"></div>
+<script src="{R}mac.js"></script>
+<script>document.addEventListener("click", e => {{ const b = e.target.closest("[data-req]"); if (!b) return; b.textContent = "Access request drafted (demo)"; b.disabled = true; }});</script>
+</body></html>'''
+write("hub/connections.html", chtml)
+print("built connections")

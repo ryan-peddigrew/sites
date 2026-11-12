@@ -1,5 +1,5 @@
-/* MAC Group preview tools. SAMPLE DATA ONLY: real stock connects once the client shares its inventory list.
-   Availability only, never prices. Requests are saved in this browser for the preview; nothing is sent. */
+/* MAC Group preview tools. SAMPLE DATA ONLY.
+   Public pages never show inventory, availability, counts, gear names or prices: clients send needs, staff match gear in MAC Hub. Requests are saved in this browser for the preview; nothing is sent. */
 (function () {
   const { $, $$ } = window.MAC;
   const store = {
@@ -115,8 +115,9 @@
   function quote(root, opts) {
     const P = opts.prefix;
     root.innerHTML = `
-      <div class="q-head"><div class="dates" data-dates></div><div class="q-live"><span class="live-dot"></span><span data-upd>Checked just now</span></div></div>
-      <label class="field q-size"><span>Event size</span><select data-size>${Object.entries(SIZES).map(([k, v]) => `<option value="${k}">${v}</option>`).join("")}</select></label>
+      <div class="q-head"><div class="dates" data-dates></div></div>
+      <div class="q-two"><label class="field q-size"><span>Type of event</span><select data-type><option>Outdoor festival</option><option>Conference</option><option>Gala</option><option>Wedding</option><option>Something else</option></select></label>
+      <label class="field q-size"><span>Event size</span><select data-size>${Object.entries(SIZES).map(([k, v]) => `<option value="${k}">${v}</option>`).join("")}</select></label></div>
       <div class="chips" data-chips></div>
       <div class="q-grid">
         <div class="rows" data-rows></div>
@@ -130,7 +131,7 @@
             <label class="tick"><input type="checkbox" data-addon> Show technician on the day</label>
             <label class="tick"><input type="checkbox" data-hold> Hold my dates for 48 hours</label>
           </div>
-          <p class="q-note mute">No prices and no gear lists here. Our team matches the right equipment to your event and sends your quote, usually within <span class="todo">one business day?</span></p>
+          <p class="q-note mute">Big or small, we have the capacity to handle it. Our team builds the right setup for your event and sends your quote, usually within <span class="todo">one business day?</span></p>
           <div class="btns"><button class="btn" data-send>Send my request</button><button class="btn ghost" data-share>Copy a link to this request</button></div>
           <div data-past></div>
         </aside>
@@ -149,11 +150,11 @@
     function draw() {
       const d = dates(P), c = cart(P), sz = sizeSel.value;
       $("[data-rows]", root).innerHTML = NEEDS.filter(i => cat === "All" || i.cat === cat).map(nd => {
-        const on = !!c[nd.k], v = check(nd.k, c[nd.k] || sz, d);
-        return `<div class="row q-row"><div><div class="nm">${esc(nd.n)}</div><div class="ct">${nd.cat}</div>${VERDICT[v]}</div><button class="btn ${on ? "ghost" : ""} sm" data-tg="${nd.k}">${on ? "Added" : "Add"}</button></div>`;
+        const on = !!c[nd.k];
+        return `<div class="row q-row"><div><div class="nm">${esc(nd.n)}</div><div class="ct">${nd.cat}</div></div><button class="btn ${on ? "ghost" : ""} sm" data-tg="${nd.k}">${on ? "Added" : "Add"}</button></div>`;
       }).join("");
       const ks = Object.keys(c).filter(k => NEEDS.find(i => i.k === k));
-      $("[data-lines]", root).innerHTML = ks.length ? ks.map(k => { const nd = NEEDS.find(i => i.k === k); return `<div class="q-line"><span>${esc(nd.n)}<br>${VERDICT[check(k, c[k], d)]}</span><button class="q-x" data-tg="${k}" aria-label="Remove">×</button></div>`; }).join("") : `<p class="mute">Nothing added yet. Pick your dates, then add what you need.</p>`;
+      $("[data-lines]", root).innerHTML = ks.length ? ks.map(k => { const nd = NEEDS.find(i => i.k === k); return `<div class="q-line"><span>${esc(nd.n)}<br><small class="mute">${SIZES[c[k]]}</small></span><button class="q-x" data-tg="${k}" aria-label="Remove">×</button></div>`; }).join("") : `<p class="mute">Nothing added yet. Pick your dates, then add what your event needs.</p>`;
       const past = store.get(P + "_requests", []);
       $("[data-past]", root).innerHTML = past.length ? `<div class="q-past"><span class="eyebrow">Your past requests</span>${past.slice(-3).reverse().map((r, i) => `<button class="q-sug" data-rebook="${past.length - 1 - i}"><span>${esc(r.when)}</span>${Object.keys(r.cart).length} needs<em>Book again</em></button>`).join("")}</div>` : "";
     }
@@ -174,16 +175,16 @@
         const past = store.get(P + "_requests", []);
         past.push({ when: new Date().toLocaleDateString("en-CA", { month: "short", day: "numeric" }), cart: c });
         store.set(P + "_requests", past);
-        modal(`<h3>Got it.</h3><p>Our team will match the right equipment to your event and send your quote. ${$("[data-hold]", root).checked ? "We've asked to hold your dates for 48 hours." : ""}</p><p class="mute">Preview only: requests are saved in this browser and not sent yet.</p><button class="btn" data-ok>Done</button>`);
+        modal(`<h3>Got it.</h3><p>Our team will build the right setup for your ${$("[data-type]", root).value.toLowerCase()} and send your quote. ${$("[data-hold]", root).checked ? "We've asked to hold your dates for 48 hours." : ""}</p><p class="mute">Preview only: requests are saved in this browser and not sent yet.</p><button class="btn" data-ok>Done</button>`);
       }
       if (t.hasAttribute("data-ok")) { $("[data-modal]", root).hidden = true; draw(); }
     });
     function modal(h) { const m = $("[data-modal]", root); m.innerHTML = `<div class="q-sheet">${h}</div>`; m.hidden = false; }
     document.addEventListener("macdates", draw); document.addEventListener("maccart", draw);
-    setInterval(() => { const u = $("[data-upd]", root); if (u) u.textContent = "Checked " + new Date().toLocaleTimeString("en-CA", { hour: "numeric", minute: "2-digit" }); }, 30000);
+    const ty = new URLSearchParams(location.search).get("type"); if (ty) $("[data-type]", root).value = ty;
     draw();
   }
-  // Generic verdict for a need, used by client apps and the home page (no names, no counts)
+  // Generic verdict (staff use only now) for a need, used by client apps and the home page (no names, no counts)
   function needStatus(k, size, d) { return VERDICT[check(k, size || "M", d || dates("mac"))]; }
 
   // ---------------- Floor planner ----------------
