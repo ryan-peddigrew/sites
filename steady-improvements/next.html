@@ -888,12 +888,21 @@ header.top.solid{background:none;box-shadow:none}
 @media(prefers-reduced-motion:reduce){.l23b,.l23w,.l23s,.l23i{animation:none}.l23i{clip-path:none}}
 
 /* ===== pass 24 ===== */
+/* dock: four even buttons, icon over label */
+.dock{grid-template-columns:repeat(4,1fr)}
+.dock a{flex-direction:column;gap:5px;min-height:60px;padding:8px 2px 7px;font:700 10.5px/1 var(--lab);letter-spacing:.14em;white-space:nowrap}
+.dock svg{width:21px;height:21px;flex:none}
+
 svg.logo{overflow:visible}
-.hm3{position:fixed;right:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 156px);z-index:45;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-width:44px;min-height:44px;
- font:700 9.5px/1 var(--lab);letter-spacing:.18em;text-transform:uppercase;color:var(--ink);-webkit-text-stroke:3px var(--paper);paint-order:stroke fill;opacity:0;translate:0 12px;pointer-events:none;transition:opacity .3s,translate .3s}
-.hm3 svg{width:30px;height:30px;filter:drop-shadow(0 0 1.5px var(--paper)) drop-shadow(0 0 1.5px var(--paper))}
 .htag em{display:inline-block;font-style:normal;transform:skewX(-9deg);transform-origin:0 100%}
-.hm3.on{opacity:1;translate:0 0;pointer-events:auto}
+.sl{position:fixed;left:0;top:150px;bottom:calc(env(safe-area-inset-bottom,0px) + 110px);width:44px;z-index:45;opacity:0;transition:opacity .35s;pointer-events:none}
+.sl.on{opacity:1}
+.sl::before{content:"";position:absolute;left:15px;top:0;bottom:0;width:2px;background:var(--ink);opacity:.28;box-shadow:0 0 0 1px #FFF8E755}
+.sl button{position:absolute;left:0;top:calc(var(--p,0)*(100% - 44px));width:44px;height:44px;padding:0;border:0;background:none;display:grid;place-items:center;pointer-events:none}
+.sl.on button{pointer-events:auto}
+.sl svg{width:26px;height:26px;margin-left:-12px;position:relative;filter:drop-shadow(0 2px 0 #0004);rotate:calc(var(--p,0)*360deg);transition:scale .2s}
+.sl button:hover svg{scale:1.18}
+@media(max-width:640px){.sl{width:26px}.sl::before{left:12px}.sl button{width:26px}.sl svg{width:20px;height:20px;margin-left:0}}
 </style>
 </head>
 <body class="hx-clean">
@@ -925,7 +934,7 @@ svg.logo{overflow:visible}
 </header>
 
 <div class="mnav" id="mnav" hidden><button class="mx" id="mx" aria-label="Close menu">Close</button><a href="#top">Home</a><a href="#quote">Build your quote</a><a href="#commercial">Our work</a><a href="#services">Services</a><a href="#process">How we work</a><a href="#reviews">Reviews</a><p>Interior finishes, done properly.</p></div>
-<a class="hm3" id="hm3" href="#top" aria-label="Back to the top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M12 20V5M5 11l7-7 7 7"/></svg><span>Top</span></a>
+<div class="sl" id="sl"><button type="button" aria-label="Back to the top"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#smi"/></svg></button></div>
 <main id="top">
 <section class="hx" id="hero" aria-label="Carpentry you can count on">
 <div class="hx-track" id="hxt" data-seq><div class="hx-st"><div class="hx-fr"><figure class="seq-l"><img src="img/ig/c-aera.jpg" alt="Arched millwork along a window wall at Aera restaurant" style="object-position:50% 50%"><figcaption>Aera restaurant</figcaption></figure><figure class="seq-l"><img src="img/ig/fifa-2.jpg" alt="Red FIFA fabric wrapped around the field at BMO Field" style="object-position:50% 62%" loading=lazy><figcaption>BMO Field</figcaption></figure><figure class="seq-l"><img src="img/ig/c-td.jpg" alt="Geometric acoustic wall tile at TD Tower" style="object-position:50% 50%" loading=lazy><figcaption>TD Tower</figcaption></figure><figure class="seq-l"><img src="img/ig/c-armani.jpg" alt="Wall panelling and display at Emporio Armani" style="object-position:50% 50%" loading=lazy><figcaption>Emporio Armani</figcaption></figure><div class="hx-shade"></div></div><div class="hx-sm" aria-hidden="true"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#smi"/></svg><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#smi"/></svg><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#smi"/></svg><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#smi"/></svg><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#smi"/></svg></div><p class="hx-side" aria-hidden="true"><b>The lookbook</b><span>Carpentry<br>Millwork<br>Builds</span></p><div class="hx-cs"><h1 class="seq-c hx-c on"><span>Carpentry</span><span>you can</span><span class=a>count on.</span></h1><p class="seq-c hx-c"><span>No short</span><span class=a>cuts.</span></p><p class="seq-c hx-c"><span>Start to</span><span class=a>finish.</span></p><p class="seq-c hx-c s"><span>Residential</span><span>and</span><span class=a>commercial.</span></p></div><div class="seq-bar" aria-hidden="true"><i></i></div><p class="seq-hint" aria-hidden="true"><svg class="sm" viewBox="0 0 100 100"><use href="#smi"/></svg><svg class="ar" viewBox="0 0 30 52" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="square"><path d="M15 2v46M3 36l12 13 12-13"/></svg></p></div></div>
@@ -1128,7 +1137,7 @@ svg.logo{overflow:visible}
   <a href="#quote"><svg viewBox="0 0 20 20"><path d="M4 2h9l3 3v13H4z"/><path d="M7 8h6M7 12h6"/></svg>Quote</a>
   <a href="tel:+16474586365"><svg viewBox="0 0 20 20"><path d="M4 2h3l2 4-2 1.3a9 9 0 0 0 5 5L13 11l4 2v3a2 2 0 0 1-2 2A14 14 0 0 1 2 4a2 2 0 0 1 2-2"/></svg>Get in touch</a>
   <a href="sms:+16474586365"><svg viewBox="0 0 20 20"><path d="M2 3h16v11H8l-4 4v-4H2z"/></svg>Text</a>
-  <a href="#" id="dtour">Tour</a>
+  <a href="#" id="dtour"><svg viewBox="0 0 20 20"><path d="M6 3.5v13l10-6.5z"/></svg>Tour</a>
 </nav>
 
 <button class="zb" id="zb" aria-label="Chat with Zai"><svg class="zav zs" viewBox="96 70 320 356" aria-hidden="true"><path d="M132 106c82-5 166-3 250-2 2 36 1 72-2 110-48 37-96 71-142 108 48 1 96-1 144 1 2 24 1 46-1 70-84 2-168 3-252-1-2-24-1-46 1-70 48-36 96-70 144-108-48-2-96 1-142-2-3-36-2-70 0-106z" fill="#F5DF3C" stroke="#F5DF3C" stroke-width="30" stroke-linejoin="round"/><ellipse cx="226" cy="134" rx="9" ry="16" fill="#111111"/><ellipse cx="288" cy="133" rx="9" ry="16" fill="#111111"/><path d="M206 168c10 18 28 26 51 26s42-9 51-27" fill="none" stroke="#111111" stroke-width="10" stroke-linecap="round"/></svg>Ask Zai</button>
@@ -1301,7 +1310,8 @@ addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(d)}},{passi
 function t(o){n.hidden=!o;b.setAttribute('aria-expanded',o);document.documentElement.style.overflow=o?'hidden':''}
 b.onclick=()=>t(true);x.onclick=()=>t(false);n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>t(false)));addEventListener('keydown',e=>{if(e.key==='Escape')t(false)})})();
 
-(function(){const h=document.getElementById('hm3');if(!h)return;const f=()=>h.classList.toggle('on',scrollY>innerHeight*.8);addEventListener('scroll',f,{passive:true});f()})();
+(function(){const h=document.getElementById('sl');if(!h)return;const f=()=>{const m=document.documentElement.scrollHeight-innerHeight;h.style.setProperty('--p',m>0?Math.min(1,scrollY/m):0);h.classList.toggle('on',scrollY>innerHeight*.6)};
+addEventListener('scroll',f,{passive:true});f();h.querySelector('button').onclick=()=>scrollTo({top:0,behavior:'smooth'})})();
 </script>
 </body>
 </html>
