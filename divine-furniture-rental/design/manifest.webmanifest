@@ -1,7 +1,7 @@
 {
   "name": "Divine Design",
   "short_name": "Divine Design",
-  "description": "Lay out your event to scale with Divine Furniture Rental.",
+  "description": "Plan your room on its REAL floor plan with Divine Furniture Rental.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
