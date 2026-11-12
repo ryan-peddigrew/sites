@@ -590,9 +590,19 @@ $('#mSide').onclick=function(){var on=!$('#side').classList.contains('on');close
 /* ---------- venues ---------- */
 var VEN=window.VEN||[],venOK=!!window.VEN,venCb=[];
 function venLoad(cb){if(venOK){cb&&cb();return}if(cb)venCb.push(cb);if(venLoad.go)return;venLoad.go=1;
-  var sc=document.createElement('script');sc.src='ven.js';sc.onload=function(){VEN=window.VEN||[];venOK=true;venCb.splice(0).forEach(function(f){f()})};
+  var sc=document.createElement('script');sc.src='ven.js';sc.onload=function(){VEN=window.VEN||[];var s2=document.createElement('script');s2.src='est/index.js';s2.onload=s2.onerror=function(){venOK=true;venCb.splice(0).forEach(function(f){f()})};document.head.appendChild(s2)};
   sc.onerror=function(){venLoad.go=0;venCb.length=0;toast('Could not load the venue list. Check your connection.')};document.head.appendChild(sc)}
 (window.requestIdleCallback||function(f){setTimeout(f,600)})(function(){venLoad()});
+/* room-size outlines live in est/<state>.js and load in the background; ESTS: 1 loading, 2 loaded, 3 failed */
+var ESTS={},estT=0;
+function estIx(){return window.ESTIX||{}}
+function estPend(){var ix=estIx();return Object.keys(ix).filter(function(p){return ESTS[p]!==2})}
+window.estAdd=function(p,k,G){G.forEach(function(g){g[3].forEach(function(r){VEN.push({id:r[0],n:g[0],c:g[1],t:g[2],p:p,k:k,r:r[1],est:1,d:[r[2],r[3]]})})});ESTS[p]=2;
+  if(!estT)estT=setTimeout(function(){estT=0;if($('#ven').classList.contains('on')){var a=$('#venL'),b=a.parentNode,sa=a.scrollTop,sb=b.scrollTop;venFill();venList();a.scrollTop=sa;b.scrollTop=sb}},500)};
+function estGo(){if(estGo.run)return;estGo.run=1;(function nx(){var ix=estIx(),ks=Object.keys(ix).filter(function(p){return !ESTS[p]});if(!ks.length){estGo.run=0;return}
+  var fp=$('#venP').value,fk=$('#venK').value,w=function(p){return p===fp?0:fk&&ix[p][2]===fk?1:p==='ON'?2:ix[p][2]==='Canada'?3:4};
+  ks.sort(function(a,b){return w(a)-w(b)||a.localeCompare(b)});var p=ks[0];ESTS[p]=1;
+  var s=document.createElement('script');s.src='est/'+p+'.js';s.onload=function(){if(ESTS[p]!==2)ESTS[p]=3;nx()};s.onerror=function(){ESTS[p]=3;nx()};document.head.appendChild(s)})()}
 var PRV={ON:'Ontario',QC:'Québec',BC:'British Columbia',AB:'Alberta',MB:'Manitoba',SK:'Saskatchewan',NS:'Nova Scotia',NB:'New Brunswick',NL:'Newfoundland and Labrador',PE:'Prince Edward Island',YT:'Yukon',NT:'Northwest Territories',NU:'Nunavut'};
 function vP(v){return v.p||((v.c||'').split(', ')[1]||'')}
 function vK(v){return v.k||(PRV[vP(v)]?'Canada':'USA')}
@@ -607,9 +617,11 @@ function vE(v){if(v.e&&v.e.length)return v.e;return EVD[vT(v)]||['Gala dinner']}
 function ecnt(){var m={};VEN.forEach(function(v){vE(v).forEach(function(e){m[e]=(m[e]||0)+1})});return m}
 var venMax=40;
 function venFill(){var fk=$('#venK').value,fp=$('#venP').value;
-  opts($('#venK'),'All countries',cnt(VEN,vK),null,fk);fk=$('#venK').value;
+  var ix=estIx(),pend=estPend(),mk=cnt(VEN,vK);pend.forEach(function(p){mk[ix[p][2]]=(mk[ix[p][2]]||0)+ix[p][0]});
+  opts($('#venK'),'All countries',mk,null,fk);fk=$('#venK').value;
   var A=VEN.filter(function(v){return !fk||vK(v)===fk});
-  opts($('#venP'),fk==='USA'?'All states':fk==='Canada'?'All provinces':'Province or state',cnt(A,vP),function(k){return PRV[k]||k},fp);fp=$('#venP').value;
+  var mp=cnt(A,vP);pend.forEach(function(p){if(!fk||ix[p][2]===fk)mp[p]=(mp[p]||0)+ix[p][0]});
+  opts($('#venP'),fk==='USA'?'All states':fk==='Canada'?'All provinces':'Province or state',mp,function(k){return PRV[k]||k},fp);fp=$('#venP').value;
   var B=A.filter(function(v){return !fp||vP(v)===fp});
   opts($('#venC'),'All cities',cnt(B,function(v){return v.c}),null,$('#venC').value);
   opts($('#venT'),'All venue types',cnt(VEN,vT),null,$('#venT').value);var em=ecnt();opts($('#venE'),'All event types',em,null,$('#venE').value)}
@@ -621,11 +633,13 @@ function venList(){var q=$('#venQ').value.trim().toLowerCase().split(/\s+/).filt
   if(so)L=L.slice().sort(function(a,b){return pin(a)-pin(b)||key(a).localeCompare(key(b))||a.n.localeCompare(b.n)});
   var nv={};L.forEach(function(v){nv[v.n+'|'+v.c]=1});
   var ne=L.filter(function(v){return v.est}).length;
-  $('#venN').textContent=L.length?L.length+' floor plan'+(L.length===1?'':'s')+' at '+Object.keys(nv).length+' venue'+(Object.keys(nv).length===1?'':'s'):'';
+  var ix=estIx(),pend=estPend(),pn=0,pv=0,nar=q.length||fc||ft||fe;if(!ff&&!nar)pend.forEach(function(p){if(fk&&ix[p][2]!==fk)return;if(fp&&p!==fp)return;pn+=ix[p][0];pv+=ix[p][1]});
+  var busy=!ff&&pend.some(function(p){return ESTS[p]!==3}),tn=L.length+pn,tv=Object.keys(nv).length+pv;
+  $('#venN').textContent=tn?tn+' floor plan'+(tn===1?'':'s')+' at '+tv+' venue'+(tv===1?'':'s')+(busy&&nar?' so far':''):'';
   var h='',last=null;L.slice(0,venMax).forEach(function(v){var g=so?key(v):null;if(g!==null&&g!==last){h+='<div class="vgrp">'+esc(g)+'</div>';last=g}
     h+='<div class="vrow'+(v.dv?' vd':'')+(v.est?' ve':'')+'" role="button" tabindex="0" data-v="'+v.id+'"><img src="'+(v.d?estImg(v,1).u:'venues/'+v.id+'-t.jpg')+'" alt="" loading="lazy" width="96" height="64"><span>'+'<small>'+esc(so==='city'?vT(v):so==='type'?v.c:v.c+' · '+vT(v))+'</small><b>'+esc(v.n)+'</b><span>'+esc(String(v.r).replace(/ \*$/,''))+(v.est?'<i title="Drawn to the room\'s published dimensions" style="font-style:normal">*</i>':'')+'</span>'+(v.vt?'<a class="vtour" href="'+esc(v.vt)+'" target="_blank" rel="noopener">View 3D tour</a>':'')+'</span>'+(v.dv?'<a class="vpast" href="#" data-vp="'+v.id+'">Click to view past layouts here</a>':'')+'</div>'});
   if(L.length>venMax)h+='<button class="tb" id="venMore" style="flex:none;justify-content:center">Show more venues</button>';
-  $('#venL').innerHTML=L.length?h:'<p style="margin:0">No venue matches yet. Clear a filter, or upload your own floor plan.</p>';
+  $('#venL').innerHTML=L.length?h:busy?'<p style="margin:0">Loading more venues.</p>':'<p style="margin:0">No venue matches yet. Clear a filter, or upload your own floor plan.</p>';
   $$('#venL .vrow').forEach(function(b){b.onclick=function(e){if(e.target.closest&&e.target.closest('.vtour'))return;if(e.target.closest&&e.target.closest('.vpast')){e.preventDefault();openPastV(b.dataset.v);return}pickVenue(b.dataset.v)};b.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pickVenue(b.dataset.v)}}});
   if($('#venMore'))$('#venMore').onclick=function(){venMax+=60;venList()}}
 var pastVid=null;
@@ -639,7 +653,7 @@ function estImg(v,t){var a=v.d[0],b=v.d[1],w=900,h=Math.max(Math.round(b*900/a),
 function pickVenue(id){if(!venOK){venLoad(function(){pickVenue(id)});return}var v=VEN.find(function(x){return x.id===id});if(!v)return;$('#ven').classList.remove('on');toast('Loading '+v.n);
   if(v.d){var ei=estImg(v);S.objs=[];selId=null;loadPlan(ei.u,ei.w,ei.h);setTimeout(function(){toast('* Drawn to the room\'s published dimensions')},900);return}
   fetch('venues/'+v.id+'.jpg').then(function(r){return r.blob()}).then(function(b){var rd=new FileReader();rd.onload=function(){S.objs=[];selId=null;loadPlan(rd.result,v.w,v.h);if(v.est)setTimeout(function(){toast('* Drawn to the room\'s published dimensions')},900)};rd.readAsDataURL(b)}).catch(function(){toast('Could not load that plan')})}
-function openVen(first){if(!venOK){toast('Loading venues');venLoad(function(){openVen(first)});return}venMax=40;$('#venQ').value='';['#venK','#venP','#venC','#venT','#venE','#venF'].forEach(function(x){$(x).value=''});venFill();venList();
+function openVen(first){if(!venOK){toast('Loading venues');venLoad(function(){openVen(first)});return}venMax=40;$('#venQ').value='';['#venK','#venP','#venC','#venT','#venE','#venF'].forEach(function(x){$(x).value=''});venFill();venList();estGo();
   $('#venH').textContent=first?'Choose your venue':'Choose a venue';$('#venSample').style.display=first?'':'none';$('#ven').classList.add('on');$('#venL').scrollTop=0}
 $('#venB').onclick=function(){openVen(false)};$('#venX').onclick=$('#venSample').onclick=function(){$('#ven').classList.remove('on')};
 $('#venUp').onclick=function(){$('#ven').classList.remove('on');$('#upl').click()};
