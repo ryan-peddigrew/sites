@@ -202,7 +202,7 @@ svc = [("audio", "Audio", "The best sound equipment available, tuned for your ro
        ("show", "Show management", "Strategy, content and show execution, start to finish.")]
 svc_html = "".join(f'<div>{icon(i)}<div><h3>{t}</h3><p>{d}</p></div></div>' for i, t, d in svc)
 mac = head("mac", "show-systems/index.html", R, "MAC Show Systems", "Sound, lighting, video, LED and staging rentals in Toronto.") + header(
-    m_mark, [("What we do", "#services"), ("Availability", "#availability"), ("Plan your room", "#planner"), ("Buy gear", "#sales")], "#quote", R) + f'''
+    m_mark, [("Rentals", "rentals.html"), ("Case studies", "case-studies.html"), ("Venues", "venues.html"), ("Plan your event", "planning.html")], "quote.html", R) + f'''
 <main>
 <section class="hero" id="hero">
   <div class="slides">
@@ -216,7 +216,7 @@ mac = head("mac", "show-systems/index.html", R, "MAC Show Systems", "Sound, ligh
     <span class="eyebrow">Toronto · Audio · Video · Lighting · Staging</span>
     <h1 data-lines='["Make your event.", "See what&#39;s free on your dates.", "Plan the room. Then book it."]'>Make your event.</h1>
     <p class="lede">Sound, lighting, video, LED and staging from a production company in Toronto. Check what's available on your dates, plan your room and build your quote in minutes.</p>
-    {two_buttons("#quote")}
+    {two_buttons("quote.html")}
     <div class="ticker"><a href="#" data-tour>Take a tour of what's changed</a><span>Rentals · Sales · Setup · National tours</span></div>
   </div>
 </section>
@@ -651,3 +651,96 @@ appsg = head("group", "brand/apps.html", R, "App names and icons", "App icon opt
 write("brand/apps.html", appsg)
 write("brand/index.html", '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=group.html"><title>Brand guides</title><a href="group.html">Brand guides</a>')
 print("built brand guides")
+
+# =====================================================================================
+# MAC SHOW SYSTEMS: extra pages (build your quote, rentals, case studies, venues, planning help)
+# =====================================================================================
+R = "../"
+MNAV = [("Rentals", "rentals.html"), ("Case studies", "case-studies.html"), ("Venues", "venues.html"), ("Plan your event", "planning.html")]
+def mpage(fname, title, desc, img, alt, eyebrow, h1, lede, body, scripts=""):
+    h = head("mac", f"show-systems/{fname}", R, f"{title} · MAC Show Systems", desc) + header(m_mark, MNAV, "quote.html", R) + f'''
+<main>
+<section class="hero short" id="hero"><div class="slides"><img src="{R}img/{img}" alt="{alt}" data-label=""></div>
+  <div class="wrap"><span class="eyebrow">{eyebrow}</span><h1>{h1}</h1><p class="lede">{lede}</p></div></section>
+{body}
+</main>
+''' + contact("Let's make your event.", "Questions about gear, a venue or a tour? Send us a note.", "125 Bermondsey Rd, North York, ON M4A 1X3", "info@macshowsystems.com", ["Rental", "Equipment purchase", "Venue installation", "National tour", "Show management"]) + foot(R, '<div>' + mlogo("mss", 200, R) + '<br><span class="mute">© 2026 MAC Show Systems Inc.</span></div>') + f'''<script src="{R}tools.js"></script>
+<script>const T = window.MACTOOLS; document.querySelectorAll("[data-form]").forEach(f => T.sendForm(f, "Our team will get back to you shortly."));{scripts}</script>
+</body></html>'''
+    write(f"show-systems/{fname}", h.replace('href="index.html"', 'href="index.html"'))
+
+STARTERS = [("Gala dinner, about 300 guests", "led:1,spk:1,upl:40,mov:12,pod:1,mic:6,tv:2", "mac-venue-1.webp"),
+            ("Conference with keynote", "prj:2,scr:2,pod:1,mic:8,tv:2,mix:1", "mac-solution-video.webp"),
+            ("Outdoor festival stage", "stgo:1,spk:2,sub:8,mon:8,mix:2,ledl:1,mov:24", "mac-hero.webp"),
+            ("Wedding reception", "upl:30,wash:12,spk:1,mic:4,trs:4,tow:4", "mac-venue-2.webp")]
+st = "".join(f'<a class="starter" href="quote.html?q={q}#quote"><img src="{R}img/{im}" alt=""><span>Start with</span><b>{n}</b></a>' for n, q, im in STARTERS)
+mpage("quote.html", "Build your quote", "Check live availability and build your quote.", "mac-solution-staging.webp", "Stage with draping and truss", "Build your quote", "Your dates. Your gear. Your quote.",
+  "Three steps: pick your dates, add what you need, and send it. You'll see what's free right now. Your team replies with a full quote.", f'''
+<section class="pad" style="padding-bottom:0"><div class="wrap"><span class="eyebrow">Step 1 · Start fast</span><h2>Start from an event like yours.</h2>
+  <p class="lead" style="margin-top:16px">Pick a starting point and change anything. Or start from scratch below.</p><div class="starters">{st}</div></div></section>
+<section id="quote" class="pad"><div class="wrap"><span class="eyebrow">Step 2 · Dates and gear</span><h2>Check what's free, then add it.</h2>
+  <div class="tool"><span class="sample-tag">Sample inventory for preview</span><div id="quote-tool"></div></div></div></section>
+<section id="planner" class="pad" style="padding-top:0"><div class="wrap"><span class="eyebrow">Step 3 · Optional</span><h2>Lay out the room.</h2>
+  <p class="lead" style="margin-top:16px">Drag stages, screens and speakers into your room. The layout goes with your request.</p>
+  <div class="tool"><span class="sample-tag">Sample inventory</span><div id="planner-tool"></div></div></div></section>''',
+  'T.quote(document.getElementById("quote-tool"), { prefix: "mac" }); T.planner(document.getElementById("planner-tool"), { prefix: "mac" });')
+
+cats = []
+for c in ["Staging", "Audio", "Video walls", "Projectors", "Video", "Lighting", "Podium"]:
+    cats.append(c)
+rent = "".join(f'<section class="pad cat" id="{c.lower().replace(" ", "-")}" style="padding:40px 0"><div class="wrap"><h2 style="font-size:clamp(32px,4vw,52px)">{c}</h2><div class="rows" data-cat="{c}"></div></div></section>' for c in cats)
+chips = "".join(f'<a class="chip" href="#{c.lower().replace(" ", "-")}">{c}</a>' for c in cats)
+mpage("rentals.html", "Rentals", "Rental catalogue with live availability.", "mac-solution-audio.webp", "Line array speakers on an outdoor stage", "Rentals · live availability", "Everything we rent. What's free on your dates.",
+  "Browse the full catalogue. Pick your dates once and every item shows what's available. Add anything to your quote in one tap.", f'''
+<section class="pad" style="padding-bottom:0"><div class="wrap"><div class="dates" id="rdates"></div><div class="chips" style="margin-top:18px">{chips}</div><p class="mute">Sample inventory for preview. Real stock connects once MAC shares its inventory list.</p></div></section>
+{rent}
+<section class="pad" style="padding-top:20px"><div class="wrap"><a class="btn" href="quote.html#quote">Review my quote</a></div></section>''',
+  '''
+const iso = d => d.toISOString().slice(0,10);
+function draw() { const d = T.dates("mac");
+  document.getElementById("rdates").innerHTML = `<label>From<input type="date" id="ra" value="${iso(d.a)}"></label><label>To<input type="date" id="rb" value="${iso(d.b)}"></label>`;
+  document.querySelectorAll("[data-cat]").forEach(r => r.innerHTML = T.INV.filter(i => i.cat === r.dataset.cat).map(i => { const f = T.free(i.id, d.a, d.b); return `<div class="row"><div><div class="nm">${i.n}</div>${T.status(f, i.q)}</div><a class="btn sm ${f ? "" : "ghost"}" href="quote.html?q=${i.id}:1#quote">${f ? "Add to quote" : "Join waitlist"}</a></div>`; }).join("")); }
+draw();
+document.addEventListener("change", e => { if (e.target.id === "ra" || e.target.id === "rb") { const a = document.getElementById("ra").value, b = document.getElementById("rb").value || a; try { localStorage.setItem("mac_dates", JSON.stringify({ a, b: b < a ? a : b })); } catch (x) {} draw(); } });''')
+
+CASES = [("mac-hero.webp", "Outdoor festival stage", "Festival", ["Outdoor stage with roof", "Line array and subwoofers", "LED wall", "Moving head lighting"]),
+         ("mac-venue-1.webp", "Gala dinner", "Gala", ["Stage and podium", "LED wall", "Uplighting and floral lighting", "Wireless microphones"]),
+         ("mac-venue-3.webp", "Gala in a heritage building", "Gala", ["Architectural uplighting", "Projection", "Audio for speeches"]),
+         ("mac-solution-backline.webp", "Theatre production", "Theatre", ["Stage lighting", "Sound reinforcement", "Show operation"]),
+         ("mac-venue-2.webp", "Wedding reception", "Wedding", ["Ambient lighting", "Dance floor audio", "Draping and truss"]),
+         ("mac-solution-video.webp", "Video in a historic venue", "Video", ["Screens over the stage", "Projection", "Camera and switching"])]
+cs = "".join(f'''<article class="case"><img src="{R}img/{im}" alt="{t}"><div class="case-b"><span class="eyebrow">{k}</span><h3>{t}</h3>
+  <dl><dt>The brief</dt><dd><span class="todo">Client, venue and brief from MAC</span></dd><dt>What we brought</dt><dd>{", ".join(g)}</dd><dt>How it went</dt><dd><span class="todo">Result and quote from the client, with their OK</span></dd></dl>
+  <a class="btn sm" href="quote.html?q={",".join(["led:1","spk:1","mov:12"])}#quote">Plan something like this</a></div></article>''' for im, t, k, g in CASES)
+mpage("case-studies.html", "Case studies", "Events MAC Show Systems has produced.", "mac-work-2.webp", "Concert crowd under stage lights", "Case studies", "Shows we've made.",
+  "Real MAC Show Systems events. Each one shows the brief, the gear and how it went, so planners can picture their own.", f'''
+<section class="pad"><div class="wrap"><p class="owner-note">Owners only: photos are MAC's own. Project names, briefs and results are placeholders until MAC confirms each one and the client agrees to be named.</p><div class="cases">{cs}</div></div></section>''')
+
+mpage("venues.html", "Venues", "Venue partners and in-house AV.", "mac-venue-4.webp", "Candlelit dinner with uplighting", "Venues", "Know the room before you walk in.",
+  "We know these rooms: power, rigging points, load-in and what looks best. Planners get a faster quote. Venues get a partner their clients trust.", f'''
+<section class="pad"><div class="wrap"><span class="eyebrow">Venues we work in</span><h2>Pick your venue. We'll start the plan.</h2>
+  <div class="venues">{"".join(f'<a class="venue" href="quote.html#quote"><img src="{R}img/{im}" alt=""><b><span class="todo">Venue name from MAC</span></b><span>Room layouts and load-in notes on file</span></a>' for im in ["mac-venue-1.webp", "mac-venue-2.webp", "mac-venue-3.webp", "mac-venue-4.webp"])}</div></div></section>
+<section class="plan-band"><img src="{R}img/mac-venue-3.webp" alt="Gala in a heritage building">
+  <div class="wrap"><span class="eyebrow">For venues</span><h2 style="max-width:15ch">Become a venue partner.</h2>
+  <p class="lead" style="margin-top:20px;color:#E6E2D8">Preferred-supplier status, your rooms pre-loaded in our floor planner, and a team that knows your building. Your clients get a faster, smoother event.</p>
+  <div class="btns"><a class="btn" href="#partner">Apply to partner</a></div></div></section>
+<section id="partner" class="pad"><div class="wrap split" style="align-items:start"><div><span class="eyebrow">Venue partner program</span><h2>Tell us about your venue.</h2><p class="lead" style="margin-top:18px">We'll visit, map your rooms and add them to the planner.</p></div>
+  <form class="tool" data-form><div class="form-grid"><label class="field"><span>Venue</span><input required></label><label class="field"><span>City</span><input></label><label class="field"><span>Your name</span><input required></label><label class="field"><span>Email</span><input type="email" required></label></div>
+  <label class="field"><span>Rooms and capacity</span><textarea rows="3"></textarea></label><button class="btn">Apply to partner</button></form></div></section>''')
+
+FAQ = [("How far ahead should I book?", "As early as you can. Check live availability for your dates any time; busy season fills first."),
+       ("Do you deliver, set up and run the show?", "Yes. Delivery, setup, show technicians and strike can all be added to your quote."),
+       ("Can I see the gear in my room first?", "Use the floor planner to lay out your room, and our team will check it against the venue."),
+       ("Do I need power or rigging information?", "Send what you have from the venue. We'll confirm power and rigging before load-in."),
+       ("Can I get a certificate of insurance?", "Yes. Request one below and we'll send it for your venue."),
+       ("Do you work outside Toronto?", "Yes. We handle national rentals and tours.")]
+faq = "".join(f"<details class='faq'><summary>{q}</summary><p>{a}</p></details>" for q, a in FAQ)
+mpage("planning.html", "Plan your event", "Planning help, FAQ and documents.", "mac-work-3.webp", "Dance floor and screen at a reception", "Plan your event", "Everything you need before load-in.",
+  "Answers to the questions planners ask most, plus the documents your venue will want.", f'''
+<section class="pad"><div class="wrap split" style="align-items:start"><div><span class="eyebrow">Questions</span><h2>Planner questions, answered.</h2><p class="owner-note" style="margin-top:16px">Owners only: answers to confirm with MAC.</p></div><div>{faq}</div></div></section>
+<section class="pad" style="padding-top:0"><div class="wrap split" style="align-items:start"><div><span class="eyebrow">Documents</span><h2>Get what your venue needs.</h2>
+  <p class="lead" style="margin-top:18px">Certificate of insurance, gear spec sheets, power needs and a load-in plan, sent for your event.</p></div>
+  <form class="tool" data-form><div class="form-grid"><label class="field"><span>What do you need?</span><select><option>Certificate of insurance</option><option>Spec sheets</option><option>Power requirements</option><option>Load-in plan</option></select></label>
+  <label class="field"><span>Event date</span><input type="date"></label><label class="field"><span>Venue</span><input></label><label class="field"><span>Email</span><input type="email" required></label></div><button class="btn">Request documents</button></form></div></section>
+<section class="pad" style="padding-top:0"><div class="wrap"><span class="eyebrow">Next step</span><h2>Ready when you are.</h2>{two_buttons("quote.html")}</div></section>''')
+print("built MSS pages")
