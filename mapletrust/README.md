@@ -33,3 +33,9 @@ All copy is taken or shortened from mapletrustinc.com. Photos and logos come fro
 ## Archive
 - archive/v1-2026-11-10/: first dark draft (replaced).
 - archive/v2-draft-2026-11-11/: unused thermal-lens draft.
+
+## Case study page (12 Nov 2026, preview, not linked from home yet)
+https://ryan-peddigrew.github.io/sites/mapletrust/work/
+- One water damage job told step by step (find, measure, open up, dry, restore) with a wet-to-dry bar and a pile of their own job photos that stacks as you scroll.
+- Uses only the 8 "On the job" photos (their own, Jan 2024). Descriptions say only what the photos show.
+- To confirm with MapleTrust: that these photos are one job; where; the cause; what was restored; an after photo if they have one.
