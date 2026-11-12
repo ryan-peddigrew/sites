@@ -1019,6 +1019,24 @@ header.top .mbtn.tb{background:none!important;border:0!important;box-shadow:none
 header.top .mbtn.tb b{font:700 14px/1 var(--lab);letter-spacing:.2em;text-transform:uppercase;padding:0 0 7px .2em;border-bottom:3px solid var(--ink)}
 header.top .mbtn.tb i,header.top .mbtn.tb span{display:none}
 .mnav{background-image:none!important}
+
+.tourbar{left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;transform:none!important;width:min(400px,calc(100% - 64px))!important;padding:13px 15px 0!important;border-radius:16px}
+.tourbar[data-pos=bl],.tourbar:not([data-pos]){left:12px!important;bottom:calc(14px + env(safe-area-inset-bottom))!important}
+.tourbar[data-pos=br]{right:12px!important;bottom:calc(14px + env(safe-area-inset-bottom))!important}
+.tourbar[data-pos=tr]{right:12px!important;top:104px!important}
+.tourbar[data-pos=tl]{left:12px!important;top:104px!important}
+.tourbar[data-pos=bl]{animation:tfl .7s cubic-bezier(.2,.9,.25,1.12) both}
+.tourbar[data-pos=tl]{animation:tfl .7s cubic-bezier(.2,.9,.25,1.12) both}
+.tourbar[data-pos=br],.tourbar[data-pos=tr]{animation:tfr .7s cubic-bezier(.2,.9,.25,1.12) both}
+@keyframes tfl{from{translate:-120% 0;rotate:-5deg;opacity:0}to{translate:0 0;rotate:0deg;opacity:1}}
+@keyframes tfr{from{translate:120% 0;rotate:5deg;opacity:0}to{translate:0 0;rotate:0deg;opacity:1}}
+.tourbar .k{font-size:10px}
+.tourbar h5{font-size:19px!important;margin:5px 0 4px}
+.tourbar p{font-size:12.5px!important;line-height:1.35!important}
+.tourbar .ctl{margin-top:9px!important;padding-bottom:11px!important;gap:8px!important}
+.tourbar .ctl button{min-height:38px!important;padding:0 14px!important;font-size:11px!important}
+.tourbar .pg{margin:0 -15px!important;height:4px!important}.tourbar .pg i{height:4px!important}
+@media(prefers-reduced-motion:reduce){.tourbar[data-pos]{animation:none}}
 </style>
 </head>
 <body class="hx-clean">
@@ -1340,13 +1358,13 @@ function voice(i){if(au){au.pause();au=null}const a=new Audio('audio/tour-'+(i+1
  a.addEventListener('loadedmetadata',()=>{if(au!==a)return;clearTimeout(tt);const pg=$('#tpg');pg.style.transition='none';pg.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>{pg.style.transition='width '+(a.duration*1000)+'ms linear';pg.style.width='100%'}))});
  a.addEventListener('ended',()=>{if(au===a&&!paused&&i<TOUR.length)show(i+1)});au=a;if(!paused)a.play().catch(()=>{})}
 function clr(){$$('.spot').forEach(e=>e.classList.remove('spot'))}
-function show(i){if(i>=TOUR.length)return end();ti=i;clr();const [sel,h,was,now,why]=TOUR[i];const el=$(sel);
+function show(i){if(i>=TOUR.length)return end();ti=i;clr();tour.removeAttribute('data-pos');void tour.offsetWidth;tour.dataset.pos=['bl','tr','br','tl'][i%4];const [sel,h,was,now,why]=TOUR[i];const el=$(sel);
  if(sel==='#top'||sel==='#hero'||sel==='#hd'){scrollTo({top:0,behavior:'smooth'})}else{el.scrollIntoView({behavior:'smooth',block:'start'})}
  if(sel!=='#top')el.classList.add('spot');$('#tk').textContent=i?'What we changed':'Concept preview';$('#tn').textContent=i?`${i} / ${TOUR.length-1}`:'';$('#th').textContent=h;$('#tp').innerHTML=`${esc(was)}<br>${esc(now)}`;
  const y=$('#ty'),r=$('#tr');y.hidden=r.hidden=true;if(why.startsWith('Revenue')){r.textContent=why;r.hidden=false}else{y.textContent=why;y.hidden=false}
  $('#tgo').hidden=true;$('#tpause').hidden=false;$('#tnext').hidden=false;tick();voice(i)}
 function tick(){clearTimeout(tt);const pg=$('#tpg');pg.style.transition='none';pg.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>{pg.style.transition=`width ${DUR}ms linear`;pg.style.width='100%'}));if(!paused)tt=setTimeout(()=>show(ti+1),DUR)}
-function end(){clearTimeout(tt);clr();voice(TOUR.length);$('#tk').textContent="That's the tour";$('#tn').textContent='';$('#th').textContent='Want this live? Talk to Peddi.';$('#tp').innerHTML='This is a working concept built from your own photos, words and services. Peddi at Chairlift can walk you through it and what it takes to switch it on. <a href="https://cal.com/chairlift/5min" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;background:#6FAEE3;color:#111111;padding:12px 16px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:12px">Start a conversation</a>';$('#ty').hidden=$('#tr').hidden=true;$('#tpause').hidden=$('#tnext').hidden=true;$('#tgo').hidden=false;$('#tgo').textContent='Replay';ti=-1;scrollTo({top:0,behavior:'smooth'})}
+function end(){clearTimeout(tt);clr();tour.removeAttribute('data-pos');void tour.offsetWidth;tour.dataset.pos='bl';voice(TOUR.length);$('#tk').textContent="That's the tour";$('#tn').textContent='';$('#th').textContent='Want this live? Talk to Peddi.';$('#tp').innerHTML='This is a working concept built from your own photos, words and services. Peddi at Chairlift can walk you through it and what it takes to switch it on. <a href="https://cal.com/chairlift/5min" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;background:#6FAEE3;color:#111111;padding:12px 16px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:12px">Start a conversation</a>';$('#ty').hidden=$('#tr').hidden=true;$('#tpause').hidden=$('#tnext').hidden=true;$('#tgo').hidden=false;$('#tgo').textContent='Replay';ti=-1;scrollTo({top:0,behavior:'smooth'})}
 $('#tgo').onclick=()=>{paused=false;$('#tpause').textContent='Pause';show(0)};
 $('#tnext').onclick=()=>show(ti+1);
 $('#tpause').onclick=()=>{paused=!paused;$('#tpause').textContent=paused?'Resume':'Pause';if(paused){clearTimeout(tt);if(au)au.pause();const pg=$('#tpg');pg.style.transition='none'}else{if(au&&au.readyState>0){au.play().catch(()=>{})}else tick()}};
