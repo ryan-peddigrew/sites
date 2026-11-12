@@ -1,5 +1,5 @@
-/* MAC Group preview tools. SAMPLE DATA ONLY: real stock connects once the client shares its inventory list.
-   Availability only, never prices. Requests are saved in this browser for the preview; nothing is sent. */
+/* MAC Group preview tools. SAMPLE DATA ONLY.
+   Public pages never show inventory, availability, counts, gear names or prices: clients send needs, staff match gear in MAC Hub. Requests are saved in this browser for the preview; nothing is sent. */
 (function () {
   const { $, $$ } = window.MAC;
   const store = {
@@ -17,27 +17,30 @@
   // ---------------- Sample inventory (MAC Show Systems categories from their own site) ----------------
   // w,d = floor footprint in metres for the planner; shape: rect | wedge | pole
   const INV = [
-    { id: "stg", cat: "Staging", n: "Stage deck, 2.4 × 1.2 m", q: 60, w: 2.4, d: 1.2, col: "#6B6B6B" },
-    { id: "stgo", cat: "Staging", n: "Outdoor stage with roof, 12 × 9 m", q: 2, w: 12, d: 9, col: "#4A4A4A" },
-    { id: "stair", cat: "Staging", n: "Stage stairs with rail", q: 12, w: 1.2, d: 1.5, col: "#7A7A7A" },
-    { id: "pod", cat: "Podium", n: "Custom podium", q: 8, w: .7, d: .6, col: "#9C7A54" },
-    { id: "spk", cat: "Audio", n: "Line array speaker hang (pair)", q: 6, w: 1.4, d: .8, col: "#2B2B2B" },
-    { id: "sub", cat: "Audio", n: "Subwoofer", q: 24, w: .8, d: .9, col: "#1F1F1F" },
-    { id: "mon", cat: "Audio", n: "Stage monitor wedge", q: 30, w: .6, d: .5, col: "#333" },
-    { id: "mix", cat: "Audio", n: "Digital mixing console + front of house desk", q: 6, w: 2.0, d: 1.2, col: "#3A3F46" },
-    { id: "mic", cat: "Audio", n: "Wireless microphone kit", q: 40, w: 0, d: 0 },
-    { id: "led", cat: "Video walls", n: "LED video wall, 4 × 2.5 m", q: 5, w: 4, d: .6, col: "#121A2E" },
-    { id: "ledl", cat: "Video walls", n: "LED video wall, 6 × 3.5 m", q: 2, w: 6, d: .8, col: "#121A2E" },
-    { id: "scr", cat: "Projectors", n: "Projection screen, 3 × 2.3 m", q: 10, w: 3.2, d: .5, col: "#D9D9D9" },
-    { id: "prj", cat: "Projectors", n: "LCD projector, large venue", q: 8, w: .6, d: .6, col: "#555" },
-    { id: "tv", cat: "Video", n: "Confidence monitor on stand", q: 14, w: .9, d: .6, col: "#2C2C2C" },
-    { id: "cam", cat: "Video", n: "Camera with operator position", q: 6, w: 1.2, d: 1.2, col: "#444" },
-    { id: "mov", cat: "Lighting", n: "Moving head light", q: 48, w: .5, d: .5, col: "#5A4A20" },
-    { id: "wash", cat: "Lighting", n: "LED wash light", q: 80, w: .4, d: .4, col: "#6A5A2A" },
-    { id: "upl", cat: "Lighting", n: "Uplight (ambient)", q: 120, w: .3, d: .3, col: "#7D6A30" },
-    { id: "trs", cat: "Lighting", n: "Lighting truss, 3 m", q: 40, w: 3, d: .3, col: "#8C8C8C" },
-    { id: "tow", cat: "Lighting", n: "Truss tower", q: 16, w: .5, d: .5, col: "#8C8C8C" }
+    { id: "stg", g: "Stage deck", cat: "Staging", q: 60, w: 2.4, d: 1.2, col: "#6B6B6B" },
+    { id: "stgo", g: "Outdoor stage", cat: "Staging", q: 2, w: 12, d: 9, col: "#4A4A4A" },
+    { id: "stair", g: "Stairs", cat: "Staging", q: 12, w: 1.2, d: 1.5, col: "#7A7A7A" },
+    { id: "pod", g: "Podium", cat: "Podium", q: 8, w: .7, d: .6, col: "#9C7A54" },
+    { id: "spk", g: "Speakers", cat: "Audio", q: 6, w: 1.4, d: .8, col: "#2B2B2B" },
+    { id: "sub", g: "Bass speakers", cat: "Audio", q: 24, w: .8, d: .9, col: "#1F1F1F" },
+    { id: "mon", g: "Stage monitor", cat: "Audio", q: 30, w: .6, d: .5, col: "#333" },
+    { id: "mix", g: "Sound desk", cat: "Audio", q: 6, w: 2.0, d: 1.2, col: "#3A3F46" },
+    { id: "mic", g: "Microphones", cat: "Audio", q: 40, w: 0, d: 0 },
+    { id: "led", g: "LED wall", cat: "Video walls", q: 5, w: 4, d: .6, col: "#121A2E" },
+    { id: "ledl", g: "Large LED wall", cat: "Video walls", q: 2, w: 6, d: .8, col: "#121A2E" },
+    { id: "scr", g: "Screen", cat: "Projectors", q: 10, w: 3.2, d: .5, col: "#D9D9D9" },
+    { id: "prj", g: "Projector", cat: "Projectors", q: 8, w: .6, d: .6, col: "#555" },
+    { id: "tv", g: "Confidence monitor", cat: "Video", q: 14, w: .9, d: .6, col: "#2C2C2C" },
+    { id: "cam", g: "Camera position", cat: "Video", q: 6, w: 1.2, d: 1.2, col: "#444" },
+    { id: "mov", g: "Stage light", cat: "Lighting", q: 48, w: .5, d: .5, col: "#5A4A20" },
+    { id: "wash", g: "Wash light", cat: "Lighting", q: 80, w: .4, d: .4, col: "#6A5A2A" },
+    { id: "upl", g: "Uplight", cat: "Lighting", q: 120, w: .3, d: .3, col: "#7D6A30" },
+    { id: "trs", g: "Truss", cat: "Lighting", q: 40, w: 3, d: .3, col: "#8C8C8C" },
+    { id: "tow", g: "Truss tower", cat: "Lighting", q: 16, w: .5, d: .5, col: "#8C8C8C" }
   ];
+  // Staff pages load inv-names.js (real item names). Public pages only ever see generic names.
+  const NAMES = window.MACNAMES || null; INV.forEach(i => i.n = NAMES ? NAMES[i.id] : i.g);
+  const PUBLIC = !NAMES;
   // Sample bookings over the next 150 days
   const BOOK = {};
   INV.forEach((it, idx) => {
@@ -82,86 +85,107 @@
     document.addEventListener("macdates", () => { const x = dates(prefix); a.value = iso(x.a); b.value = iso(x.b); });
   }
 
-  // ---------------- Availability + quote builder ----------------
+  // ---------------- Request builder (public). Clients ask for what they need; we answer
+  // "we have it" or "we have something that works". Never item names, models or counts. ----------------
+  const SIZES = { S: "Small, up to 150 guests", M: "Medium, 150 to 600", L: "Large, 600 plus" };
+  const NEEDS = [
+    { k: "ostage", cat: "Staging", n: "Outdoor stage with a roof", s: { S: [["stgo", 1]], M: [["stgo", 1]], L: [["stgo", 1]] }, alt: { stgo: ["stg", 24] } },
+    { k: "stage", cat: "Staging", n: "Indoor stage", s: { S: [["stg", 6]], M: [["stg", 12]], L: [["stg", 24]] } },
+    { k: "podium", cat: "Staging", n: "Podium", s: { S: [["pod", 1]], M: [["pod", 1]], L: [["pod", 2]] } },
+    { k: "speech", cat: "Sound", n: "Sound for speeches and presentations", s: { S: [["spk", 1], ["mic", 2]], M: [["spk", 1], ["mic", 4]], L: [["spk", 2], ["mic", 8]] } },
+    { k: "concert", cat: "Sound", n: "Concert sound system", s: { S: [["spk", 1], ["sub", 2], ["mon", 4], ["mix", 1]], M: [["spk", 2], ["sub", 6], ["mon", 8], ["mix", 1]], L: [["spk", 4], ["sub", 12], ["mon", 12], ["mix", 2]] } },
+    { k: "led", cat: "Video", n: "LED video wall", s: { S: [["led", 1]], M: [["led", 1]], L: [["ledl", 1]] }, alt: { led: ["ledl", 1], ledl: ["led", 2] } },
+    { k: "proj", cat: "Video", n: "Projector and screen", s: { S: [["prj", 1], ["scr", 1]], M: [["prj", 2], ["scr", 2]], L: [["prj", 4], ["scr", 4]] }, alt: { prj: ["led", 1] } },
+    { k: "conf", cat: "Video", n: "Confidence monitors for presenters", s: { S: [["tv", 1]], M: [["tv", 2]], L: [["tv", 4]] } },
+    { k: "cam", cat: "Video", n: "Live camera to the screens", s: { S: [["cam", 1]], M: [["cam", 2]], L: [["cam", 3]] } },
+    { k: "slight", cat: "Lighting", n: "Stage lighting", s: { S: [["mov", 6], ["trs", 4]], M: [["mov", 12], ["trs", 8]], L: [["mov", 24], ["trs", 12]] }, alt: { mov: ["wash", 2] } },
+    { k: "uplight", cat: "Lighting", n: "Room uplighting and colour", s: { S: [["upl", 20]], M: [["upl", 40]], L: [["upl", 80]] }, alt: { upl: ["wash", 1] } },
+    { k: "truss", cat: "Lighting", n: "Truss and rigging", s: { S: [["trs", 4], ["tow", 2]], M: [["trs", 10], ["tow", 4]], L: [["trs", 20], ["tow", 8]] } }
+  ];
+  function check(k, size, d) {
+    const nd = NEEDS.find(x => x.k === k); let worst = 0;
+    nd.s[size].forEach(([id, q]) => {
+      if (free(id, d.a, d.b) >= q) return;
+      const al = nd.alt && nd.alt[id];
+      worst = Math.max(worst, al && free(al[0], d.a, d.b) >= q * al[1] ? 1 : 2);
+    });
+    return worst;
+  }
+  const VERDICT = [`<span class="st ok">We have it for your dates</span>`, `<span class="st lim">We have something that works</span>`, `<span class="st no">Our team will find you options</span>`];
   function quote(root, opts) {
     const P = opts.prefix;
     root.innerHTML = `
-      <div class="q-head"><div class="dates" data-dates></div><div class="q-live"><span class="live-dot"></span><span data-upd>Checked just now</span></div></div>
+      <div class="q-head"><div class="dates" data-dates></div></div>
+      <div class="q-two"><label class="field q-size"><span>Type of event</span><select data-type><option>Outdoor festival</option><option>Conference</option><option>Gala</option><option>Wedding</option><option>Something else</option></select></label>
+      <label class="field q-size"><span>Event size</span><select data-size>${Object.entries(SIZES).map(([k, v]) => `<option value="${k}">${v}</option>`).join("")}</select></label></div>
       <div class="chips" data-chips></div>
       <div class="q-grid">
         <div class="rows" data-rows></div>
         <aside class="q-cart">
-          <span class="eyebrow">Your quote</span>
+          <span class="eyebrow">Your request</span>
           <div data-lines class="q-lines"></div>
-          <div data-suggest></div>
+          <label class="field"><span>Anything else you need?</span><input data-other placeholder="Describe it and we'll match it"></label>
           <div class="q-add">
-            <label class="tick"><input type="checkbox" data-addon="Delivery and pickup by our trucks"> Delivery and pickup by our trucks</label>
-            <label class="tick"><input type="checkbox" data-addon="Crew to set up and strike"> Crew to set up and strike</label>
-            <label class="tick"><input type="checkbox" data-addon="Show technician on the day"> Show technician on the day</label>
-            <label class="tick"><input type="checkbox" data-hold> Hold these items for 48 hours</label>
+            <label class="tick"><input type="checkbox" data-addon> Delivery and pickup</label>
+            <label class="tick"><input type="checkbox" data-addon> Crew to set up and strike</label>
+            <label class="tick"><input type="checkbox" data-addon> Show technician on the day</label>
+            <label class="tick"><input type="checkbox" data-hold> Hold my dates for 48 hours</label>
           </div>
-          <p class="q-note mute">No prices here. Our team checks every item and sends your quote, usually within <span class="todo">one business day?</span></p>
-          <div class="btns"><button class="btn" data-send>Send my quote request</button><button class="btn ghost" data-share>Copy a link to this quote</button></div>
+          <p class="q-note mute">Big or small, we have the capacity to handle it. Our team builds the right setup for your event and sends your quote, usually within <span class="todo">one business day?</span></p>
+          <div class="btns"><button class="btn" data-send>Send my request</button><button class="btn ghost" data-share>Copy a link to this request</button></div>
           <div data-past></div>
         </aside>
       </div>
       <div class="q-modal" data-modal hidden></div>`;
     dateInputs($("[data-dates]", root), P);
-    const cats = ["All", ...new Set(INV.map(i => i.cat))]; let cat = "All";
+    const cats = ["All", ...new Set(NEEDS.map(i => i.cat))]; let cat = "All";
     const chips = $("[data-chips]", root);
     chips.innerHTML = cats.map(c => `<button class="chip${c === cat ? " on" : ""}" data-c="${c}">${c}</button>`).join("");
     chips.addEventListener("click", e => { const c = e.target.dataset.c; if (!c) return; cat = c; $$(".chip", chips).forEach(x => x.classList.toggle("on", x.dataset.c === c)); draw(); });
-
-    // Shared link (?q=id:qty,id:qty)
-    const sp = new URLSearchParams(location.search).get("q");
-    if (sp) { const c = {}; sp.split(",").forEach(p => { const [k, v] = p.split(":"); if (INV.find(i => i.id === k)) c[k] = +v || 1; }); setCart(P, c); }
-
+    const sizeSel = $("[data-size]", root); sizeSel.value = store.get(P + "_size", "M");
+    sizeSel.addEventListener("change", () => { store.set(P + "_size", sizeSel.value); draw(); });
+    // Shared link (?need=key:size,key:size)
+    const sp = new URLSearchParams(location.search).get("need");
+    if (sp) { const c = {}; sp.split(",").forEach(p => { const [k, v] = p.split(":"); if (NEEDS.find(i => i.k === k)) c[k] = SIZES[v] ? v : "M"; }); setCart(P, c); }
     function draw() {
-      const d = dates(P), c = cart(P);
-      $("[data-rows]", root).innerHTML = INV.filter(i => cat === "All" || i.cat === cat).map(it => {
-        const left = free(it.id, d.a, d.b), n = c[it.id] || 0;
-        const ctl = left > 0
-          ? `<div class="step"><button data-m="${it.id}" aria-label="Fewer">−</button><b>${n}</b><button data-p="${it.id}" aria-label="More" ${n >= left ? "disabled" : ""}>+</button></div>`
-          : `<button class="btn ghost sm" data-wait="${it.id}">Join the waitlist</button>`;
-        return `<div class="row q-row"><div><div class="nm">${esc(it.n)}</div><div class="ct">${it.cat}</div>${status(left, it.q)}</div>${ctl}</div>`;
+      const d = dates(P), c = cart(P), sz = sizeSel.value;
+      $("[data-rows]", root).innerHTML = NEEDS.filter(i => cat === "All" || i.cat === cat).map(nd => {
+        const on = !!c[nd.k];
+        return `<div class="row q-row"><div><div class="nm">${esc(nd.n)}</div><div class="ct">${nd.cat}</div></div><button class="btn ${on ? "ghost" : ""} sm" data-tg="${nd.k}">${on ? "Added" : "Add"}</button></div>`;
       }).join("");
-      const ids = Object.keys(c).filter(k => c[k] > 0);
-      $("[data-lines]", root).innerHTML = ids.length ? ids.map(k => `<div class="q-line"><span>${esc(INV.find(i => i.id === k).n)}</span><b>× ${c[k]}</b></div>`).join("") : `<p class="mute">Nothing added yet. Pick your dates, then add gear.</p>`;
-      const sug = [...new Set(ids.map(k => PAIRS[k]).filter(k => k && !c[k]))].slice(0, 2);
-      $("[data-suggest]", root).innerHTML = sug.map(k => { const it = INV.find(i => i.id === k); return `<button class="q-sug" data-p="${k}"><span>Often booked together</span>${esc(it.n)}<em>Add</em></button>`; }).join("");
+      const ks = Object.keys(c).filter(k => NEEDS.find(i => i.k === k));
+      $("[data-lines]", root).innerHTML = ks.length ? ks.map(k => { const nd = NEEDS.find(i => i.k === k); return `<div class="q-line"><span>${esc(nd.n)}<br><small class="mute">${SIZES[c[k]]}</small></span><button class="q-x" data-tg="${k}" aria-label="Remove">×</button></div>`; }).join("") : `<p class="mute">Nothing added yet. Pick your dates, then add what your event needs.</p>`;
       const past = store.get(P + "_requests", []);
-      $("[data-past]", root).innerHTML = past.length ? `<div class="q-past"><span class="eyebrow">Your past requests</span>${past.slice(-3).reverse().map((r, i) => `<button class="q-sug" data-rebook="${past.length - 1 - i}"><span>${esc(r.when)}</span>${Object.keys(r.cart).length} items<em>Book again</em></button>`).join("")}</div>` : "";
-      const u = $("[data-upd]", root); u.textContent = "Checked just now";
+      $("[data-past]", root).innerHTML = past.length ? `<div class="q-past"><span class="eyebrow">Your past requests</span>${past.slice(-3).reverse().map((r, i) => `<button class="q-sug" data-rebook="${past.length - 1 - i}"><span>${esc(r.when)}</span>${Object.keys(r.cart).length} needs<em>Book again</em></button>`).join("")}</div>` : "";
     }
     root.addEventListener("click", e => {
       const t = e.target.closest("button"); if (!t) return;
       const c = cart(P);
-      if (t.dataset.p) { c[t.dataset.p] = (c[t.dataset.p] || 0) + 1; setCart(P, c); }
-      if (t.dataset.m) { c[t.dataset.m] = Math.max(0, (c[t.dataset.m] || 0) - 1); if (!c[t.dataset.m]) delete c[t.dataset.m]; setCart(P, c); }
-      if (t.dataset.wait) modal(`<h3>Join the waitlist</h3><p>${esc(INV.find(i => i.id === t.dataset.wait).n)} is booked on these dates. Leave your email and we'll tell you the moment one frees up, or suggest a close match.</p><label class="field"><span>Email</span><input type="email" placeholder="you@company.com"></label><button class="btn" data-ok>Add me to the waitlist</button>`);
+      if (t.dataset.tg) { c[t.dataset.tg] ? delete c[t.dataset.tg] : c[t.dataset.tg] = sizeSel.value; setCart(P, c); }
       if (t.dataset.rebook) { const r = store.get(P + "_requests", [])[+t.dataset.rebook]; setCart(P, r.cart); }
       if (t.hasAttribute("data-share")) {
-        const s = Object.entries(c).map(([k, v]) => k + ":" + v).join(",");
-        const url = location.origin + location.pathname + "?q=" + s + "#quote";
+        const url = location.origin + location.pathname + "?need=" + Object.entries(c).map(([k, v]) => k + ":" + v).join(",") + "#quote";
         (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(() => { t.textContent = "Link copied"; }, () => prompt("Copy this link", url));
       }
       if (t.hasAttribute("data-send")) {
-        if (!Object.keys(c).length) { modal(`<h3>Add some gear first</h3><p>Pick your dates and add at least one item.</p><button class="btn" data-ok>OK</button>`); return; }
-        modal(`<h3>Your details</h3><div class="form-grid"><label class="field"><span>Name</span><input></label><label class="field"><span>Company</span><input></label><label class="field"><span>Email</span><input type="email"></label><label class="field"><span>Phone</span><input type="tel"></label></div><label class="field"><span>Venue and anything else we should know</span><textarea rows="3"></textarea></label><button class="btn" data-final>Send my quote request</button>`);
+        if (!Object.keys(c).length && !$("[data-other]", root).value) { modal(`<h3>Add what you need first</h3><p>Pick your dates and add at least one thing.</p><button class="btn" data-ok>OK</button>`); return; }
+        modal(`<h3>Your details</h3><div class="form-grid"><label class="field"><span>Name</span><input></label><label class="field"><span>Company</span><input></label><label class="field"><span>Email</span><input type="email"></label><label class="field"><span>Phone</span><input type="tel"></label></div><label class="field"><span>Venue and anything else we should know</span><textarea rows="3"></textarea></label><button class="btn" data-final>Send my request</button>`);
       }
       if (t.hasAttribute("data-final")) {
         const past = store.get(P + "_requests", []);
-        past.push({ when: new Date().toLocaleDateString("en-CA", { month: "short", day: "numeric" }), cart: c, hold: $("[data-hold]", root).checked });
+        past.push({ when: new Date().toLocaleDateString("en-CA", { month: "short", day: "numeric" }), cart: c });
         store.set(P + "_requests", past);
-        modal(`<h3>Got it.</h3><p>Our team will check every item and get back to you. ${$("[data-hold]", root).checked ? "We've asked to hold these items for 48 hours." : ""}</p><p class="mute">Preview only: requests are saved in this browser and not sent yet.</p><button class="btn" data-ok>Done</button>`);
+        modal(`<h3>Got it.</h3><p>Our team will build the right setup for your ${$("[data-type]", root).value.toLowerCase()} and send your quote. ${$("[data-hold]", root).checked ? "We've asked to hold your dates for 48 hours." : ""}</p><p class="mute">Preview only: requests are saved in this browser and not sent yet.</p><button class="btn" data-ok>Done</button>`);
       }
       if (t.hasAttribute("data-ok")) { $("[data-modal]", root).hidden = true; draw(); }
     });
     function modal(h) { const m = $("[data-modal]", root); m.innerHTML = `<div class="q-sheet">${h}</div>`; m.hidden = false; }
     document.addEventListener("macdates", draw); document.addEventListener("maccart", draw);
-    setInterval(() => { const u = $("[data-upd]", root); if (u) u.textContent = "Checked " + new Date().toLocaleTimeString("en-CA", { hour: "numeric", minute: "2-digit" }); }, 30000);
+    const ty = new URLSearchParams(location.search).get("type"); if (ty) $("[data-type]", root).value = ty;
     draw();
   }
+  // Generic verdict (staff use only now) for a need, used by client apps and the home page (no names, no counts)
+  function needStatus(k, size, d) { return VERDICT[check(k, size || "M", d || dates("mac"))]; }
 
   // ---------------- Floor planner ----------------
   const ROOMS = {
@@ -183,7 +207,7 @@
     const placeable = INV.filter(i => i.w > 0);
     function pal() {
       const d = dates(P);
-      $("[data-pal]", root).innerHTML = placeable.map(it => { const left = free(it.id, d.a, d.b); const used = items.filter(x => x.id === it.id).length; return `<button class="pl-item" data-add="${it.id}" ${used >= left ? "disabled" : ""}><span class="sw" style="background:${it.col}"></span><span>${esc(it.n)}<small>${used >= left ? "None left on your dates" : left - used + " free on your dates"}</small></span></button>`; }).join("");
+      $("[data-pal]", root).innerHTML = placeable.map(it => { const left = free(it.id, d.a, d.b); const used = items.filter(x => x.id === it.id).length; return PUBLIC ? `<button class="pl-item" data-add="${it.id}"><span class="sw" style="background:${it.col}"></span><span>${esc(it.n)}</span></button>` : `<button class="pl-item" data-add="${it.id}" ${used >= left ? "disabled" : ""}><span class="sw" style="background:${it.col}"></span><span>${esc(it.n)}<small>${used >= left ? "None left on your dates" : left - used + " free on your dates"}</small></span></button>`; }).join("");
     }
     function draw() {
       const [W, H] = ROOMS[roomKey];
@@ -220,8 +244,8 @@
       if (t.hasAttribute("data-del") && sel >= 0) { items.splice(sel, 1); sel = -1; draw(); }
       if (t.hasAttribute("data-clear")) { items = []; sel = -1; draw(); }
       if (t.hasAttribute("data-toq")) {
-        const c = cart(P); const counts = {}; items.forEach(p => counts[p.id] = (counts[p.id] || 0) + 1);
-        Object.entries(counts).forEach(([k, v]) => c[k] = Math.max(c[k] || 0, v)); setCart(P, c);
+        const c = cart(P); const sz = store.get(P + "_size", "M");
+        items.forEach(p => { const nd = NEEDS.find(n => Object.values(n.s).some(l => l.some(([id]) => id === p.id))); if (nd && !c[nd.k]) c[nd.k] = sz; }); setCart(P, c);
         t.textContent = "Added. See your quote"; setTimeout(() => { location.hash = "quote"; t.textContent = "Add to my quote"; }, 700);
       }
     });
@@ -337,5 +361,5 @@
     n["Speaker / amp road case"] = 12; n["Lighting case"] = 8; n["Truss section, 10 ft"] = 10; draw();
   }
 
-  window.MACTOOLS = { INV, free, quote, planner, crew, packages, training, route, space, sendForm, status, dates, today, addDays };
+  window.MACTOOLS = { INV, NEEDS, SIZES, needStatus, PUBLIC, free, quote, planner, crew, packages, training, route, space, sendForm, status, dates, today, addDays };
 })();

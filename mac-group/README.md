@@ -18,3 +18,10 @@ Rules (Ryan): brands separate in public; clients only ever see the company they 
 3. Vector logos for MAC Show Systems and PSI; Tour Trucking has no logo (current site is another carrier's template). MAC Group mark is a typographic placeholder: logo options still to show Ryan.
 4. Forms don't send yet. Need a destination email per company; Tour Trucking email and address to confirm.
 5. Confirm which PSI photo goes with which project.
+
+## Added 2026-11-12 (6:00 AM ET)
+- Client dashboard apps (installable): apps/mss/, apps/psi/, apps/ttl/ (client-app.js, app.css). Sample data only.
+- Staff Quote Builder: hub/quote.html (quote.js). Rep types every rate; no prices stored or invented. Branded PDF via Save as PDF.
+- Chairlift watermark on every page (mac.js + mac.css `.wm`, `.wm-badge`). Remove before any hand-over.
+- Tour order: MAC Group, MAC Show Systems (+ app), PSI (+ app), Tour Trucking (+ app), MAC Hub, Quote Builder, apps, next steps.
+- Open: Ryan's logos carry "A Division of MAC Group of Companies", which conflicts with separate-in-public. Confirm which to use.
