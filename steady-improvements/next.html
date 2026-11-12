@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en-CA">
-<head>
+<head><script>(function(){var B="1794491948";try{fetch("ver.txt?"+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():B}).then(function(t){t=(t||"").trim();if(/^\d+$/.test(t)&&+t>+B){var u=new URL(location.href);if(u.searchParams.get("_v")!==t){u.searchParams.set("_v",t);location.replace(u.toString())}}}).catch(function(){})}catch(e){}})()</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Steady Improvements | Interior finishes, done properly.</title><meta property="og:type" content="website"><meta property="og:site_name" content="Steady Improvements"><meta property="og:title" content="Steady Improvements | Interior finishes, done properly."><meta property="og:description" content="Take the tour of the new Steady Improvements site."><meta property="og:image" content="https://ryan-peddigrew.github.io/sites/steady-improvements/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://ryan-peddigrew.github.io/sites/steady-improvements/og.png">
@@ -978,7 +978,7 @@ h2{font-size:clamp(25px,3.8vw,52px)}
 .on-ink .lead,.on-ink .eyebrow{color:var(--ink)}
 
 .l23r{opacity:0;animation:l23r 3.6s ease .9s both}
-@keyframes l23r{0%{opacity:0}12%{opacity:1}62%{opacity:1}100%{opacity:0}}
+@keyframes l23r{0%{opacity:0}30%{opacity:1}62%{opacity:1}100%{opacity:0}}
 @media(prefers-reduced-motion:reduce){.l23r{animation:none;opacity:0}}
 
 .tourbar{border:0;border-radius:18px;overflow:hidden;padding:18px 20px 0;box-shadow:0 18px 50px #0009}
@@ -1012,6 +1012,100 @@ footer a,footer p,footer li,footer span{color:var(--ink)}
 /* plaid only on the loading screen and the footer */
 #quote,#balcony,#services,#about,#trade,#reviews,#process,#work,#commercial,section.on-ink,section.intro{background-image:none!important}
 #quote::before,#quote::after,#about::before,#about::after,#trade::before,#trade::after,#reviews::before,#reviews::after,#process::before,#process::after,#work::before,#work::after,#balcony::before,#balcony::after{background-image:none!important}
+
+#quote .g>.rv:first-child{background-image:repeating-linear-gradient(0deg,#FFF8E712 0 2px,#0000 2px 64px),repeating-linear-gradient(90deg,#FFF8E712 0 2px,#0000 2px 64px),repeating-linear-gradient(0deg,#0000 0 22px,#6FAEE314 22px 30px,#0000 30px 64px),repeating-linear-gradient(90deg,#0000 0 22px,#6FAEE314 22px 30px,#0000 30px 64px)!important}
+
+header.top .mbtn.tb{background:none!important;border:0!important;box-shadow:none!important;border-radius:0!important;width:auto!important;height:48px!important;min-width:0!important;padding:0 2px!important;color:var(--ink)!important;display:inline-flex!important;align-items:center;justify-content:center}
+header.top .mbtn.tb b{font:700 14px/1 var(--lab);letter-spacing:.2em;text-transform:uppercase;padding:0 0 7px .2em;border-bottom:3px solid var(--ink)}
+header.top .mbtn.tb i,header.top .mbtn.tb span{display:none}
+.mnav{background-image:none!important}
+
+.tourbar{left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;transform:none!important;width:min(400px,calc(100% - 64px))!important;padding:13px 15px 0!important;border-radius:16px}
+.tourbar[data-pos=bl],.tourbar:not([data-pos]){left:12px!important;bottom:calc(14px + env(safe-area-inset-bottom))!important}
+.tourbar[data-pos=br]{right:12px!important;bottom:calc(14px + env(safe-area-inset-bottom))!important}
+.tourbar[data-pos=tr]{right:12px!important;top:104px!important}
+.tourbar[data-pos=tl]{left:12px!important;top:104px!important}
+.tourbar[data-pos=bl]{animation:tfl .7s cubic-bezier(.2,.9,.25,1.12) both}
+.tourbar[data-pos=tl]{animation:tfl .7s cubic-bezier(.2,.9,.25,1.12) both}
+.tourbar[data-pos=br],.tourbar[data-pos=tr]{animation:tfr .7s cubic-bezier(.2,.9,.25,1.12) both}
+@keyframes tfl{from{translate:-120% 0;rotate:-5deg;opacity:0}to{translate:0 0;rotate:0deg;opacity:1}}
+@keyframes tfr{from{translate:120% 0;rotate:5deg;opacity:0}to{translate:0 0;rotate:0deg;opacity:1}}
+.tourbar .k{font-size:10px}
+.tourbar h5{font-size:19px!important;margin:5px 0 4px}
+.tourbar p{font-size:12.5px!important;line-height:1.35!important}
+.tourbar .ctl{margin-top:9px!important;padding-bottom:11px!important;gap:8px!important}
+.tourbar .ctl button{min-height:38px!important;padding:0 14px!important;font-size:11px!important}
+.tourbar .pg{margin:0 -15px!important;height:4px!important}.tourbar .pg i{height:4px!important}
+@media(prefers-reduced-motion:reduce){.tourbar[data-pos]{animation:none}}
+
+.rpan{background:var(--ink);color:var(--paper);border-radius:22px;padding:clamp(22px,4vw,44px);overflow:hidden}
+.rpan .st{display:flex;gap:3px}.rpan .st svg{width:20px;height:20px}.rpan .st .on{fill:var(--yel)}.rpan .st .off{fill:none;stroke:#FFF8E766;stroke-width:1.4}
+.rfe{margin:0 0 clamp(22px,3vw,34px)}
+.rfe blockquote{margin:14px 0 14px;font:700 clamp(26px,4.4vw,52px)/1.04 var(--lab);text-transform:uppercase;letter-spacing:.005em;color:var(--paper);max-width:20ch}
+.rfe blockquote::first-line{color:var(--bb)}
+.rpan figcaption b{display:block;font:700 13px/1.2 var(--lab);letter-spacing:.16em;text-transform:uppercase}
+.rpan figcaption span{display:block;font-size:13px;opacity:.72;margin-top:3px}
+.rrow{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1*clamp(22px,4vw,44px));padding:4px clamp(22px,4vw,44px) 10px;scrollbar-width:none}
+.rrow::-webkit-scrollbar{display:none}
+.rc{flex:0 0 min(78%,330px);scroll-snap-align:start;margin:0;background:var(--paper);color:var(--ink);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.rc:nth-child(2n){background:var(--bb)}
+.rc .st .on{fill:var(--ink)}.rc .st .off{stroke:#11111166}
+.rc blockquote{margin:0;font-size:16.5px;line-height:1.42;font-weight:500;flex:1}
+.rc figcaption span{opacity:.75}
+.rsrcl{margin:18px 0 0;font-size:13.5px;color:#FFF8E7c4}.rsrcl a{color:var(--yel);text-decoration:underline;text-underline-offset:4px;display:inline-block;min-height:44px;line-height:44px}
+@media(min-width:900px){.rrow{overflow:visible;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr)}.rc{flex:none}.rc blockquote{font-size:15px}}
+
+.spot{outline-color:var(--yel)!important}
+header.top .htag .gq,.htag a.gq{background:var(--ink)!important;color:var(--paper)!important;border-radius:12px!important;height:44px!important;min-height:44px!important;padding:0 18px!important;font:700 13px/1 var(--lab)!important;letter-spacing:.14em!important;text-decoration:none!important;white-space:nowrap}
+header.top .htag .gq:hover{background:var(--paper)!important;color:var(--ink)!important}
+header.top .mbtn.tb{height:44px!important;padding:0!important}
+header.top .mbtn.tb b{display:flex;align-items:center;gap:9px;border:0!important;padding:0!important;font:700 13px/1 var(--lab)!important;letter-spacing:.16em}
+header.top .mbtn.tb b::after{content:"";width:24px;height:11px;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);box-sizing:border-box}
+@media(max-width:980px){
+ header.top .wrap{height:78px!important;gap:14px!important;padding-left:16px!important;padding-right:16px!important;justify-content:flex-start!important}
+ header.top .htag{margin:0 0 0 auto!important;flex-direction:row!important;align-items:center!important;gap:0!important;max-width:none!important}
+ header.top .htag>span{display:none!important}
+ .top .brand>svg{width:124px!important;height:auto!important}
+ header.top .htag .gq,.htag a.gq{padding:0 14px!important;font-size:12px!important}
+ header.top .mbtn.tb{margin-left:0!important;flex:none}
+ header.top .mbtn.tb b::after{width:20px}
+}
+@media(min-width:981px){header.top .mbtn.tb{display:none!important}header.top .htag .gq{display:none!important}header.top .nav .l{white-space:nowrap}header.top .nav .btn{white-space:nowrap}}
+@media(max-width:360px){.top .brand>svg{width:112px!important}header.top .htag .gq{padding:0 12px!important}header.top .wrap{gap:10px!important}}
+
+#trade{background:var(--yel)!important;color:var(--ink)}
+#trade .eyebrow,#trade h2,#trade p,#trade b{color:var(--ink)!important}
+#trade .eyebrow::before{background:var(--ink)}
+#trade svg{stroke:var(--ink)}
+#trade .btn-brick,.rask .btn-brick{background:var(--ink)!important;color:var(--paper)!important;border-radius:12px}
+#trade .btn-brick:hover,.rask .btn-brick:hover{background:var(--bb)!important;color:var(--ink)!important}
+.rask{background:var(--yel)!important;border-radius:22px;color:var(--ink)}
+.rask p{color:var(--ink)!important}
+
+header.top .mbtn.tb{width:52px!important;justify-content:flex-end!important}
+header.top .mbtn.tb .rul{width:46px;height:auto;display:block;transition:transform .2s}
+header.top .mbtn.tb:active .rul{transform:scale(.94)}
+
+header.top .mbtn.tb{width:48px!important;height:48px!important;justify-content:center!important}
+header.top .mbtn.tb .rul.sq{width:38px;height:auto;display:block;transform-origin:22% 82%;transition:transform .45s cubic-bezier(.3,1.5,.5,1)}
+header.top .mbtn.tb:active .rul.sq{transform:rotate(-18deg)}
+header.top .mbtn.tb[aria-expanded=true] .rul.sq{transform:rotate(90deg)}
+@media(max-width:980px){.top .brand>svg{width:128px!important}}
+.mnav{overflow:hidden}
+.mnav::before,.mnav::after{content:"";position:absolute;background-color:var(--ink);z-index:0;pointer-events:none}
+.mnav::before{left:0;top:18%;bottom:0;width:30px;background-image:repeating-linear-gradient(0deg,#6FAEE3 0 2px,#0000 2px 14px),repeating-linear-gradient(0deg,#6FAEE3 0 2px,#0000 2px 56px);background-size:10px 100%,18px 100%;background-repeat:no-repeat;background-position:100% 0,100% 0;animation:sqv .6s cubic-bezier(.2,.9,.25,1) both}
+.mnav::after{left:0;right:22%;bottom:0;height:30px;background-image:repeating-linear-gradient(90deg,#6FAEE3 0 2px,#0000 2px 14px),repeating-linear-gradient(90deg,#6FAEE3 0 2px,#0000 2px 56px);background-size:100% 10px,100% 18px;background-repeat:no-repeat;background-position:0 0,0 0;animation:sqh .6s cubic-bezier(.2,.9,.25,1) .08s both}
+@keyframes sqv{from{translate:0 110%}to{translate:0 0}}
+@keyframes sqh{from{translate:-110% 0}to{translate:0 0}}
+.mnav>a,.mnav>p{position:relative;z-index:1;margin-left:26px}
+.mnav>a{animation:mnin .5s cubic-bezier(.2,.9,.25,1) both}
+.mnav>a:nth-of-type(2){animation-delay:.05s}.mnav>a:nth-of-type(3){animation-delay:.1s}.mnav>a:nth-of-type(4){animation-delay:.15s}.mnav>a:nth-of-type(5){animation-delay:.2s}.mnav>a:nth-of-type(6){animation-delay:.25s}
+@keyframes mnin{from{translate:-40px 0;opacity:0}to{translate:0 0;opacity:1}}
+@media(prefers-reduced-motion:reduce){.mnav::before,.mnav::after,.mnav>a{animation:none}}
+
+#tsnd{margin:8px 0 0!important;display:inline-block;background:var(--yel);color:var(--ink)!important;font:700 11px/1 var(--lab)!important;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px;border-radius:8px;animation:tsn 1.2s ease-in-out infinite}
+#tsnd[hidden]{display:none}
+@keyframes tsn{50%{opacity:.55}}
 </style>
 </head>
 <body class="hx-clean">
@@ -1022,7 +1116,7 @@ footer a,footer p,footer li,footer span{color:var(--ink)}
 <div id="ld" aria-hidden="true">
   <div class="door l"><b>Steady</b></div><div class="door r"><b>Steady</b></div>
   <div class="ldc"><div class="ldf"><i class="pan"></i><i class="b t"></i><i class="b bt"></i><i class="b l"></i><i class="b r"></i><i class="n n1"></i><i class="n n2"></i><i class="n n3"></i><i class="n n4"></i><svg class="hm" viewBox="0 0 120 200" aria-hidden="true"><rect x="52" y="40" width="16" height="156" rx="7" fill="#C9A06B" stroke="#7a552a" stroke-width="3"/><path d="M14 14h74c14 0 22 8 22 18v10H88v8H40v-8H14z" fill="#FFF8E7" stroke="#111111" stroke-width="4" stroke-linejoin="round"/></svg></div><div class="ldm"><div class="brand"><svg class="logo ldl" viewBox="-4 -184 646 242" role="img" aria-label="Steady Improvements"><path d="M211.3 -68A112 112 0 0 1 435.3 -68Z" fill="#111111"/><clipPath id="ldclip"><rect x="211.3" y="-180" width="224" height="104.2"/></clipPath><g clip-path="url(#ldclip)"><path class="spin" d="M244.3 -75.8L227.2 -81.9L249.1 -102.9L235 -114.4L262.8 -126.6L253.5 -142.3L283.8 -144.2L280.5 -162.1L309.6 -153.6L312.6 -171.6L337 -153.6L345.9 -169.5L362.8 -144.2L376.6 -156.1L383.8 -126.6L400.8 -133L397.5 -102.9L415.7 -103L402.3 -75.8L419.4 -69.8L397.5 -48.8L411.6 -37.3L383.8 -25.1L393.1 -9.4L362.8 -7.4L366.1 10.4L337 1.9L334 19.9L309.6 1.9L300.7 17.8L283.8 -7.4L270 4.4L262.8 -25.1L245.8 -18.7L249.1 -48.8L230.9 -48.6L244.3 -75.8Z" fill="#F5DF3C"/></g><path d="M227 -75.8L227.2 -81.9L244.3 -75.8Z" fill="#F5DF3C"/><path d="M282.8 -75.8A40.5 40.5 0 0 1 363.8 -75.8Z" fill="#E9531F"/><use href="#ws" fill="#111111"/><use href="#wi" y="44" fill="#111111"/></svg></div></div><div class="ldw"><i style="background-image:url(img/ig/c-aera.jpg)"></i><i style="background-image:url(img/ig/c-armani.jpg)"></i><i style="background-image:url(img/ig/c-td.jpg)"></i></div><p class="ldt l"><b id="ldn">000</b></p><p class="ldt r">Carpentry &nbsp;/&nbsp; Millwork &nbsp;/&nbsp; Builds</p><div class="ld10"><i style="background-image:url(img/ig/c-aera.jpg);animation-delay:0.0s"></i><i style="background-image:url(img/ig/fifa-2.jpg);animation-delay:0.3s"></i><i style="background-image:url(img/ig/c-td.jpg);animation-delay:0.6s"></i><i style="background-image:url(img/ig/c-armani.jpg);animation-delay:0.9s"></i><i style="background-image:url(img/ig/c-winners.jpg);animation-delay:1.2s"></i><i style="background-image:url(img/ig/fifa-4.jpg);animation-delay:1.5s"></i></div><svg class="ldsm" viewBox="0 0 100 100" aria-hidden="true"><use href="#smi"/></svg><div class="ld8"><i class="kerf"></i><svg class="saw" viewBox="208.3 -190.84 230 230" aria-hidden="true"><g class="sawr"><path d="M244.3 -75.8L227.2 -81.9L249.1 -102.9L235 -114.4L262.8 -126.6L253.5 -142.3L283.8 -144.2L280.5 -162.1L309.6 -153.6L312.6 -171.6L337 -153.6L345.9 -169.5L362.8 -144.2L376.6 -156.1L383.8 -126.6L400.8 -133L397.5 -102.9L415.7 -103L402.3 -75.8L419.4 -69.8L397.5 -48.8L411.6 -37.3L383.8 -25.1L393.1 -9.4L362.8 -7.4L366.1 10.4L337 1.9L334 19.9L309.6 1.9L300.7 17.8L283.8 -7.4L270 4.4L262.8 -25.1L245.8 -18.7L249.1 -48.8L230.9 -48.6L244.3 -75.8Z" fill="#F5DF3C"/><svg x="265.3" y="-133.84" width="116" height="116" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#111111"/><use href="#smi"/></svg></g></svg><p class="ldk a">Steady Improvements</p><p class="ldk b">Carpentry you can count on</p></div></div>
-<div class="ld23"><svg class="l23b" viewBox="-128 -128 256 256"><path class="bl" d="M0.0 -80.0 L17.5 -96.4 L17.8 -78.0 L38.5 -90.1 L34.7 -72.1 L57.6 -79.3 L49.9 -62.5 L73.8 -64.5 L62.5 -49.9 L86.3 -46.4 L72.1 -34.7 L94.5 -26.1 L78.0 -17.8 L97.9 -4.4 L80.0 0.0 L96.4 17.5 L78.0 17.8 L90.1 38.5 L72.1 34.7 L79.3 57.6 L62.5 49.9 L64.5 73.8 L49.9 62.5 L46.4 86.3 L34.7 72.1 L26.1 94.5 L17.8 78.0 L4.4 97.9 L0.0 80.0 L-17.5 96.4 L-17.8 78.0 L-38.5 90.1 L-34.7 72.1 L-57.6 79.3 L-49.9 62.5 L-73.8 64.5 L-62.5 49.9 L-86.3 46.4 L-72.1 34.7 L-94.5 26.1 L-78.0 17.8 L-97.9 4.4 L-80.0 0.0 L-96.4 -17.5 L-78.0 -17.8 L-90.1 -38.5 L-72.1 -34.7 L-79.3 -57.6 L-62.5 -49.9 L-64.5 -73.8 L-49.9 -62.5 L-46.4 -86.3 L-34.7 -72.1 L-26.1 -94.5 L-17.8 -78.0 L-4.4 -97.9Z" fill="#F5DF3C"/><circle r="40.5" fill="#E9531F"/><circle r="9" fill="#111111" opacity=".85"/></svg><svg class="l23w" viewBox="-4 -70 646 130"><path class="l23s" pathLength="1" d="M0.2 -21.1H26.8Q28.4 -18 33.2 -16.8Q37.9 -15.6 46.8 -15.6Q53.6 -15.6 56.9 -16.3Q60.2 -17 61.3 -18.2Q62.3 -19.4 62.3 -20.8Q62.3 -22.8 60.1 -23.6Q57.8 -24.4 52.6 -24.5Q47.3 -24.7 38 -24.7Q29.3 -24.7 22.4 -25.5Q15.5 -26.3 10.7 -28Q5.9 -29.8 3.4 -32.9Q0.8 -36 0.8 -40.7Q0.8 -46.4 4.6 -50.3Q8.3 -54.2 14.6 -56.5Q21 -58.7 29.3 -59.6Q37.7 -60.6 46.8 -60.6Q61.9 -60.6 71.5 -57.5Q81.1 -54.5 85.7 -49.3Q90.2 -44.2 90.1 -37.7H64.3Q63 -40.8 59.3 -42Q55.7 -43.2 46.8 -43.2Q38.4 -43.2 34.6 -41.9Q30.8 -40.7 30.8 -37.9Q30.8 -36.1 32.7 -35.2Q34.6 -34.3 39.8 -34Q45 -33.6 55.1 -33.6Q62 -33.6 68.7 -33.1Q75.4 -32.6 80.7 -31.1Q86 -29.5 89.2 -26.3Q92.3 -23 92.3 -17.4Q92.3 -10.6 86.7 -6.3Q81.1 -2 70.9 -0.1Q60.7 1.8 46.8 1.8Q34.7 1.8 26.3 0.2Q18 -1.3 12.7 -3.9Q7.4 -6.5 4.6 -9.5Q1.8 -12.6 0.9 -15.7Q0 -18.7 0.2 -21.1ZM94.1 -58.8H164.6V-40.8H94.1ZM115 -76.8H143.8V0H115ZM248.8 -21.1H277.1Q276 -14.2 270.2 -9Q264.4 -3.8 253.3 -1Q242.2 1.8 225 1.8Q206.9 1.8 193.7 -1.1Q180.6 -4 173.5 -10.8Q166.4 -17.6 166.4 -29.3Q166.4 -40.8 173.3 -47.7Q180.2 -54.6 193.3 -57.6Q206.4 -60.6 225 -60.6Q243.2 -60.6 254.9 -57.4Q266.5 -54.1 272 -46.9Q277.6 -39.6 277.3 -27.2H195.7Q196.3 -24.1 199.1 -21.5Q202 -18.8 207.9 -17.2Q213.8 -15.6 223.8 -15.6Q234.1 -15.6 240.8 -17Q247.4 -18.5 248.8 -21.1ZM223.8 -43.2Q211.1 -43.2 204.4 -40.4Q197.8 -37.7 196.6 -34.9H249.4Q248.5 -38 242.6 -40.6Q236.8 -43.2 223.8 -43.2ZM325.7 1.7Q312.7 1.7 302.6 -2Q292.6 -5.6 286.7 -12.6Q280.9 -19.6 280.9 -29.4Q280.9 -39.7 286.7 -46.7Q292.6 -53.6 302.6 -57.1Q312.7 -60.6 325.7 -60.6Q340.1 -60.6 350.6 -56.7Q361.1 -52.8 366.8 -45.8Q372.5 -38.8 372.5 -29.4Q372.5 -22.4 369.2 -16.7Q366 -11 359.9 -6.9Q353.8 -2.8 345.1 -0.5Q336.5 1.7 325.7 1.7ZM336.5 -16.6Q345.6 -16.6 353.2 -17.7Q360.8 -18.8 365.5 -21.6Q370.1 -24.4 370.1 -29.4Q370.1 -34.6 365.5 -37.3Q360.8 -40.1 353.2 -41.2Q345.6 -42.2 336.5 -42.2Q324.2 -42.2 317.5 -39.1Q310.8 -35.9 310.8 -29.4Q310.8 -25.2 313.8 -22.3Q316.8 -19.4 322.6 -18Q328.3 -16.6 336.5 -16.6ZM370.1 -58.8H398.9V0H371.8Q371.8 0 371.3 -2.8Q370.9 -5.5 370.5 -10.7Q370.1 -15.8 370.1 -22.8ZM448.4 1.7Q435.5 1.7 425.4 -2Q415.3 -5.6 409.5 -12.6Q403.7 -19.6 403.7 -29.4Q403.7 -39.7 409.5 -46.7Q415.3 -53.6 425.4 -57.1Q435.5 -60.6 448.4 -60.6Q459.2 -60.6 467.9 -58.4Q476.5 -56.2 482.6 -52Q488.8 -47.9 492 -42.1Q495.2 -36.4 495.2 -29.4Q495.2 -22.4 492 -16.7Q488.8 -11 482.6 -6.9Q476.5 -2.8 467.9 -0.5Q459.2 1.7 448.4 1.7ZM459.2 -16.6Q468.4 -16.6 476 -17.7Q483.6 -18.8 488.2 -21.6Q492.8 -24.4 492.8 -29.4Q492.8 -34.6 488.2 -37.3Q483.6 -40.1 476 -41.2Q468.4 -42.2 459.2 -42.2Q447 -42.2 440.3 -39.1Q433.6 -35.9 433.6 -29.4Q433.6 -25.2 436.6 -22.3Q439.6 -19.4 445.3 -18Q451.1 -16.6 459.2 -16.6ZM492.8 -82.8H521.6V0H494.5Q494 -2.8 493.4 -8.9Q492.8 -15.1 492.8 -22.8ZM527 -58.8H557.6L592.7 -2.4L567.8 0ZM637.4 -58.8 579 24H549.6L574.7 -10L606.8 -58.8Z"/><path class="l23r" d="M97.0 -58.8v11M101.4 -58.8v5M105.8 -58.8v7.5M110.2 -58.8v5M114.6 -58.8v11M119.0 -58.8v5M123.4 -58.8v7.5M127.8 -58.8v5M132.2 -58.8v11M136.6 -58.8v5M141.0 -58.8v7.5M145.4 -58.8v5M149.8 -58.8v11M154.2 -58.8v5M158.6 -58.8v7.5M115 -73.0h13M115 -68.6h6M115 -64.2h9M115 -37.8h13M115 -33.4h6M115 -29.0h9M115 -24.6h6M115 -20.2h13M115 -15.8h6M115 -11.4h9M115 -7.0h6M115 -2.6h13" fill="none" stroke="#F5DF3C" stroke-width="1.5"/><g class="l23i"><use href="#wi" transform="translate(0 44)" fill="#111111"/></g></svg><div class="l23t"><button type="button" class="go" id="ltour">Take a tour with Peddi</button><button type="button" class="sk" id="lskip">Skip to the site</button></div><i class="l23ln"></i><i class="l23y"></i></div></div>
+<div class="ld23"><svg class="l23b" viewBox="-128 -128 256 256"><path class="bl" d="M0.0 -80.0 L17.5 -96.4 L17.8 -78.0 L38.5 -90.1 L34.7 -72.1 L57.6 -79.3 L49.9 -62.5 L73.8 -64.5 L62.5 -49.9 L86.3 -46.4 L72.1 -34.7 L94.5 -26.1 L78.0 -17.8 L97.9 -4.4 L80.0 0.0 L96.4 17.5 L78.0 17.8 L90.1 38.5 L72.1 34.7 L79.3 57.6 L62.5 49.9 L64.5 73.8 L49.9 62.5 L46.4 86.3 L34.7 72.1 L26.1 94.5 L17.8 78.0 L4.4 97.9 L0.0 80.0 L-17.5 96.4 L-17.8 78.0 L-38.5 90.1 L-34.7 72.1 L-57.6 79.3 L-49.9 62.5 L-73.8 64.5 L-62.5 49.9 L-86.3 46.4 L-72.1 34.7 L-94.5 26.1 L-78.0 17.8 L-97.9 4.4 L-80.0 0.0 L-96.4 -17.5 L-78.0 -17.8 L-90.1 -38.5 L-72.1 -34.7 L-79.3 -57.6 L-62.5 -49.9 L-64.5 -73.8 L-49.9 -62.5 L-46.4 -86.3 L-34.7 -72.1 L-26.1 -94.5 L-17.8 -78.0 L-4.4 -97.9Z" fill="#F5DF3C"/><circle r="40.5" fill="#E9531F"/><circle r="9" fill="#111111" opacity=".85"/></svg><svg class="l23w" viewBox="-4 -70 646 130"><path class="l23s" pathLength="1" d="M0.2 -21.1H26.8Q28.4 -18 33.2 -16.8Q37.9 -15.6 46.8 -15.6Q53.6 -15.6 56.9 -16.3Q60.2 -17 61.3 -18.2Q62.3 -19.4 62.3 -20.8Q62.3 -22.8 60.1 -23.6Q57.8 -24.4 52.6 -24.5Q47.3 -24.7 38 -24.7Q29.3 -24.7 22.4 -25.5Q15.5 -26.3 10.7 -28Q5.9 -29.8 3.4 -32.9Q0.8 -36 0.8 -40.7Q0.8 -46.4 4.6 -50.3Q8.3 -54.2 14.6 -56.5Q21 -58.7 29.3 -59.6Q37.7 -60.6 46.8 -60.6Q61.9 -60.6 71.5 -57.5Q81.1 -54.5 85.7 -49.3Q90.2 -44.2 90.1 -37.7H64.3Q63 -40.8 59.3 -42Q55.7 -43.2 46.8 -43.2Q38.4 -43.2 34.6 -41.9Q30.8 -40.7 30.8 -37.9Q30.8 -36.1 32.7 -35.2Q34.6 -34.3 39.8 -34Q45 -33.6 55.1 -33.6Q62 -33.6 68.7 -33.1Q75.4 -32.6 80.7 -31.1Q86 -29.5 89.2 -26.3Q92.3 -23 92.3 -17.4Q92.3 -10.6 86.7 -6.3Q81.1 -2 70.9 -0.1Q60.7 1.8 46.8 1.8Q34.7 1.8 26.3 0.2Q18 -1.3 12.7 -3.9Q7.4 -6.5 4.6 -9.5Q1.8 -12.6 0.9 -15.7Q0 -18.7 0.2 -21.1ZM94.1 -58.8H164.6V-40.8H94.1ZM115 -76.8H143.8V0H115ZM248.8 -21.1H277.1Q276 -14.2 270.2 -9Q264.4 -3.8 253.3 -1Q242.2 1.8 225 1.8Q206.9 1.8 193.7 -1.1Q180.6 -4 173.5 -10.8Q166.4 -17.6 166.4 -29.3Q166.4 -40.8 173.3 -47.7Q180.2 -54.6 193.3 -57.6Q206.4 -60.6 225 -60.6Q243.2 -60.6 254.9 -57.4Q266.5 -54.1 272 -46.9Q277.6 -39.6 277.3 -27.2H195.7Q196.3 -24.1 199.1 -21.5Q202 -18.8 207.9 -17.2Q213.8 -15.6 223.8 -15.6Q234.1 -15.6 240.8 -17Q247.4 -18.5 248.8 -21.1ZM223.8 -43.2Q211.1 -43.2 204.4 -40.4Q197.8 -37.7 196.6 -34.9H249.4Q248.5 -38 242.6 -40.6Q236.8 -43.2 223.8 -43.2ZM325.7 1.7Q312.7 1.7 302.6 -2Q292.6 -5.6 286.7 -12.6Q280.9 -19.6 280.9 -29.4Q280.9 -39.7 286.7 -46.7Q292.6 -53.6 302.6 -57.1Q312.7 -60.6 325.7 -60.6Q340.1 -60.6 350.6 -56.7Q361.1 -52.8 366.8 -45.8Q372.5 -38.8 372.5 -29.4Q372.5 -22.4 369.2 -16.7Q366 -11 359.9 -6.9Q353.8 -2.8 345.1 -0.5Q336.5 1.7 325.7 1.7ZM336.5 -16.6Q345.6 -16.6 353.2 -17.7Q360.8 -18.8 365.5 -21.6Q370.1 -24.4 370.1 -29.4Q370.1 -34.6 365.5 -37.3Q360.8 -40.1 353.2 -41.2Q345.6 -42.2 336.5 -42.2Q324.2 -42.2 317.5 -39.1Q310.8 -35.9 310.8 -29.4Q310.8 -25.2 313.8 -22.3Q316.8 -19.4 322.6 -18Q328.3 -16.6 336.5 -16.6ZM370.1 -58.8H398.9V0H371.8Q371.8 0 371.3 -2.8Q370.9 -5.5 370.5 -10.7Q370.1 -15.8 370.1 -22.8ZM448.4 1.7Q435.5 1.7 425.4 -2Q415.3 -5.6 409.5 -12.6Q403.7 -19.6 403.7 -29.4Q403.7 -39.7 409.5 -46.7Q415.3 -53.6 425.4 -57.1Q435.5 -60.6 448.4 -60.6Q459.2 -60.6 467.9 -58.4Q476.5 -56.2 482.6 -52Q488.8 -47.9 492 -42.1Q495.2 -36.4 495.2 -29.4Q495.2 -22.4 492 -16.7Q488.8 -11 482.6 -6.9Q476.5 -2.8 467.9 -0.5Q459.2 1.7 448.4 1.7ZM459.2 -16.6Q468.4 -16.6 476 -17.7Q483.6 -18.8 488.2 -21.6Q492.8 -24.4 492.8 -29.4Q492.8 -34.6 488.2 -37.3Q483.6 -40.1 476 -41.2Q468.4 -42.2 459.2 -42.2Q447 -42.2 440.3 -39.1Q433.6 -35.9 433.6 -29.4Q433.6 -25.2 436.6 -22.3Q439.6 -19.4 445.3 -18Q451.1 -16.6 459.2 -16.6ZM492.8 -82.8H521.6V0H494.5Q494 -2.8 493.4 -8.9Q492.8 -15.1 492.8 -22.8ZM527 -58.8H557.6L592.7 -2.4L567.8 0ZM637.4 -58.8 579 24H549.6L574.7 -10L606.8 -58.8Z"/><path class="l23r" d="M97.0 -58.8v11M101.4 -58.8v5M105.8 -58.8v7.5M110.2 -58.8v5M114.6 -58.8v11M119.0 -58.8v5M123.4 -58.8v7.5M127.8 -58.8v5M132.2 -58.8v11M136.6 -58.8v5M141.0 -58.8v7.5M145.4 -58.8v5M149.8 -58.8v11M154.2 -58.8v5M158.6 -58.8v7.5M115 -73.0h13M115 -68.6h6M115 -64.2h9M115 -37.8h13M115 -33.4h6M115 -29.0h9M115 -24.6h6M115 -20.2h13M115 -15.8h6M115 -11.4h9M115 -7.0h6M115 -2.6h13" fill="none" stroke="#6FAEE3" stroke-width="2"/><g class="l23i"><use href="#wi" transform="translate(0 44)" fill="#111111"/></g></svg><div class="l23t"><button type="button" class="go" id="ltour">Take a tour with Peddi</button><button type="button" class="sk" id="lskip">Skip to the site</button></div><i class="l23ln"></i><i class="l23y"></i></div></div>
 
 <div class="sp" aria-hidden="true"><i></i><svg viewBox="0 0 100 100"><use href="#smi"/></svg></div>
 <header class="top" id="hd">
@@ -1030,8 +1124,8 @@ footer a,footer p,footer li,footer span{color:var(--ink)}
     <a href="#top" class="brand" aria-label="Steady Improvements, home">
       <svg class="logo hd" viewBox="-4 -184 646 242" role="img" aria-label="Steady Improvements"><use href="#lg1"/></svg>
     </a>
-    <p class="htag"><span>Interior finishes,<br class="hbr"> <em>done properly.</em></span><a class="gq" href="#quote">Get a quote</a><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#smi"/></svg></p>
-    <button class="mbtn" id="mbtn" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><i></i><i></i><span>Menu</span></button>
+    <p class="htag"><span>Carpentry<br class="hbr"> <em>you can count on.</em></span><a class="gq" href="#quote">Get a quote</a><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#smi"/></svg></p>
+    <button class="mbtn tb" id="mbtn" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><svg class="rul sq" viewBox="0 0 36 34" aria-hidden="true"><path d="M3 2h8v21h23v8H3z" fill="#111111"/><g stroke="#6FAEE3" stroke-width="1.2" fill="none"><path d="M3 6.4h3"/><path d="M3 9.8h3"/><path d="M3 13.2h3"/><path d="M3 16.6h5"/><path d="M3 20.0h3"/><path d="M3 23.4h3"/><path d="M3 26.8h3"/><path d="M14.4 31v-3"/><path d="M17.8 31v-3"/><path d="M21.2 31v-3"/><path d="M24.6 31v-5"/><path d="M28.0 31v-3"/><path d="M31.4 31v-3"/></g></svg></button>
     <nav class="nav" aria-label="Main">
       <a class="l" href="#services">Services</a>
       
@@ -1042,7 +1136,7 @@ footer a,footer p,footer li,footer span{color:var(--ink)}
   </div>
 </header>
 
-<div class="mnav" id="mnav" hidden><button class="mx" id="mx" aria-label="Close menu">Close</button><a href="#top">Home</a><a href="#quote">Build your quote</a><a href="#commercial">Our work</a><a href="#services">Services</a><a href="#process">How we work</a><a href="#reviews">Reviews</a><p>Interior finishes, done properly.</p></div>
+<div class="mnav" id="mnav" hidden><button class="mx" id="mx" aria-label="Close menu">Close</button><a href="#top">Home</a><a href="#quote">Build your quote</a><a href="#commercial">Our work</a><a href="#services">Services</a><a href="#process">How we work</a><a href="#reviews">Reviews</a><p>Carpentry you can count on.</p></div>
 <div class="sl" id="sl"><button type="button" aria-label="Back to the top"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#smi"/></svg></button></div>
 <main id="top">
 <section class="hx" id="hero" aria-label="Carpentry you can count on">
@@ -1158,7 +1252,7 @@ footer a,footer p,footer li,footer span{color:var(--ink)}
       <article class="rv"><span class="n">03</span><h3>Flooring</h3><p>Composite balcony flooring, plus laminate, hardwood, vinyl tile and ceramic tile inside.</p><div class="ph"><img src="img/balcony-teak.jpg" alt="Composite balcony flooring" loading="lazy" style="object-position:50% 70%"></div><button class="q" data-svc="Flooring">Quote flooring <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button></article>
       <article class="rv"><span class="n">04</span><h3>Window coverings</h3><p>Blinds, shades and shutters in styles that suit any room. We'll walk you through choosing them, then install them.</p><div class="ph"><img src="img/blind.jpg" alt="Roller shade installed over condo windows" loading="lazy" style="object-position:50% 40%"></div><button class="q" data-svc="Window coverings">Quote window coverings <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button></article>
       <article class="rv"><span class="n">05</span><h3>Demolition</h3><p>Every demolition is different. We plan it properly, with the skills and manpower to keep your project on schedule and on budget.</p><div class="ph"><img src="img/framing.jpg" alt="Bathroom stripped back to the studs" loading="lazy" style="object-position:50% 50%"></div><button class="q" data-svc="Demolition">Quote demolition <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button></article>
-      <article class="rv"><span class="n">06</span><h3>Repairs and restorations</h3><p>Repairs and restorations for homes and businesses.</p><div class="noph" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M10 54l26-26"/><path d="M30 14h16l6 6-6 6-8-4-6 6"/><path d="M38 22l-4 4"/></svg></div><button class="q" data-svc="Repairs and restorations">Quote a repair <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button></article>
+      <article class="rv"><span class="n">06</span><h3>Repairs and restorations</h3><p>Repairs and restorations for homes and businesses.</p><div class="ph"><img src="img/ig/cr-3.jpg" alt="Commercial room stripped back and patched, ready for new finishes" loading="lazy" style="object-position:50% 40%"></div><button class="q" data-svc="Repairs and restorations">Quote a repair <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button></article>
     </div>
   </div>
 </section>
@@ -1205,21 +1299,10 @@ footer a,footer p,footer li,footer span{color:var(--ink)}
 
 <section id="reviews">
   <div class="wrap">
-    <div class="rhead rv">
-      <div><p class="eyebrow">Reviews</p><h2 style="margin-top:16px">Don't take our word for it.</h2></div>
-      <span class="flag">Preview: your ratings and quotes appear here with your go-ahead</span>
-    </div>
-    <div class="rgrid rv">
-      <a class="rsrc" href="https://homestars.com/companies/2963366-steady-improvements" target="_blank" rel="noopener">
-        <span class="k">HomeStars</span><b><span class="big">10/10</span>across 40 reviews</b><p>As listed on your HomeStars profile. We confirm the numbers with you before launch.</p><span class="go">Read every review <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></span>
-      </a>
-      <a class="rsrc" href="#reviews" data-todo="google">
-        <span class="k">Google</span><b>Your Google rating</b><p>Your stars from Google Maps and Search. Google link to come.</p><span class="go">Read every review <svg viewBox="0 0 18 18"><path d="M3 9h12M10 4l5 5-5 5"/></svg></span>
-      </a>
-      <div class="rq"><svg viewBox="0 0 44 44"><path d="M6 8h32v22H18l-8 7v-7H6z"/><path d="M13 16h18M13 22h12"/></svg><p>Three of your best reviews sit here, word for word, each tagged with where it came from. We never write reviews for you.</p></div>
-    </div>
+    <div class="rhead rv"><div><p class="eyebrow">Reviews</p><h2 style="margin-top:16px">Don&rsquo;t take our word for it.</h2></div></div>
+    <div class="rpan rv"><figure class="rfe"><span class="st" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg></span><blockquote>We&rsquo;re very impressed with the work that Everton did for us. I would not hesitate to recommend him for similar projects.</blockquote><figcaption><b>Lynn, Toronto</b><span>Trim and decorative mouldings</span></figcaption></figure><div class="rrow"><figure class="rc"><span class="st" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg></span><blockquote>Everton was punctual. Tidy, friendly and efficient. Will be my new go to for any work! Highly recommend!!!</blockquote><figcaption><b>HomeStars user, Toronto</b><span>Trim and decorative mouldings</span></figcaption></figure><figure class="rc"><span class="st" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg></span><blockquote>From the moment I put in a request on HomeStars, this company was excellent to work with.</blockquote><figcaption><b>Shell, Etobicoke</b><span>Trim and decorative mouldings</span></figcaption></figure><figure class="rc"><span class="st" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg></span><blockquote>We are very happy with the wall paneling that Everton installed for us.</blockquote><figcaption><b>Anisha, Toronto</b><span>Wall panelling</span></figcaption></figure><figure class="rc"><span class="st" role="img" aria-label="4 out of 5 stars"><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="off"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg></span><blockquote>Great working with Everton! We were able to create a custom desk and shelf unit that fit our space and needs.</blockquote><figcaption><b>Sophie, Toronto</b><span>Custom desk and shelving</span></figcaption></figure><figure class="rc"><span class="st" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg><svg viewBox="0 0 20 20" class="on"><path d="M10 1.6l2.6 5.4 5.9.8-4.300 4.100 1 5.900L10 15l-5.200 2.800 1-5.900L1.500 7.800l5.900-.8z"/></svg></span><blockquote>We had Everton create 3 feature walls in our home using picture frame style trim.</blockquote><figcaption><b>HomeStars user, Stouffville</b><span>Feature walls</span></figcaption></figure></div><p class="rsrcl">Word for word from our HomeStars page. <a href="https://homestars.com/companies/2963366-steady-improvements" target="_blank" rel="noopener">Read every review on HomeStars</a></p></div>
     <div class="rask rv">
-      <div><b>Worked with us?</b><p>Leave a review where it suits you. It takes a minute and it means a lot to a small team.</p></div>
+      <div><b>Worked with us?</b><p>Leave a review on HomeStars. It takes a minute and it means a lot to a small team.</p></div>
       <a class="btn btn-brick" href="review.html">Leave a review</a>
     </div>
   </div>
@@ -1264,7 +1347,7 @@ footer a,footer p,footer li,footer span{color:var(--ink)}
   <p id="tp">A short guided tour of the new Steady Improvements site. It plays by itself.</p>
   <p class="why" id="ty" hidden></p>
   <p class="rev" id="tr" hidden></p>
-  <div class="ctl"><button class="go" id="tgo">Start the tour</button><button id="tpause" hidden>Pause</button><button id="tnext" hidden>Next</button><span class="sp"></span><button id="tx">Close</button></div>
+  <p id="tsnd" hidden>Tap anywhere for sound</p><div class="ctl"><button class="go" id="tgo">Start the tour</button><button id="tpause" hidden>Pause</button><button id="tnext" hidden>Next</button><span class="sp"></span><button id="tx">Close</button></div>
   <div class="pg"><i id="tpg"></i></div>
 </div>
 
@@ -1323,7 +1406,7 @@ const TOUR=[
  ['#process','How a job runs, step by step','Was: one "Why choose us" paragraph.','Now: one of your own jobs, a Winners change room, built stage by stage as you scroll, in your own words.','Why: the biggest fear in a renovation is not knowing what happens next. This answers it.'],
  ['#work','A wall of real jobs','Was: photos spread across pages.','Now: one swipeable wall of finished and in-progress work.','Why: proof in one place, easy to scroll on a phone.'],
  ['#trade','A door for repeat business','Was: one line about working with architects and designers.','Now: a section for architects, designers and property managers, with Send us a scope.','Revenue: one property manager or designer can send work across many units and projects.'],
- ['#reviews','All your reviews in one place','Was: an empty Testimonials page, while your real reviews sit on HomeStars and Google.','Now: one hub that shows both ratings, features your best reviews, and gives you one Leave a review link to text clients after a job.','Revenue: more reviews on Google and HomeStars push you up in local search, and people check reviews before they call.'],
+ ['#reviews','All your reviews in one place','Was: an empty Testimonials page, while your real reviews sit on HomeStars.','Now: your real HomeStars reviews, word for word, and gives you one Leave a review link to text clients after a job.','Revenue: more reviews on HomeStars push you up in local search, and people check reviews before they call.'],
  ['#quote','A 30-second quote builder','Was: a form asking only for an email and phone number.','Now: tap the job, the place and the timing, then send. Call and text-a-photo sit right beside it.','Revenue: you get the job details on the first message, so you can price faster and win more of them.'],
  ['#quote','New: an instant estimate app','Was: every price meant a phone call and a site visit before anyone knew if the job was a fit.','Now: Steady Quote. A customer taps the job, adds the size and finish, and sees a price range in a minute. You set your own rates.','Revenue: serious buyers arrive already knowing the ballpark, and you stop driving out to quote jobs that were never going to happen.']
 ];
@@ -1333,19 +1416,25 @@ function voice(i){if(au){au.pause();au=null}const a=new Audio('audio/tour-'+(i+1
  a.addEventListener('loadedmetadata',()=>{if(au!==a)return;clearTimeout(tt);const pg=$('#tpg');pg.style.transition='none';pg.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>{pg.style.transition='width '+(a.duration*1000)+'ms linear';pg.style.width='100%'}))});
  a.addEventListener('ended',()=>{if(au===a&&!paused&&i<TOUR.length)show(i+1)});au=a;if(!paused)a.play().catch(()=>{})}
 function clr(){$$('.spot').forEach(e=>e.classList.remove('spot'))}
-function show(i){if(i>=TOUR.length)return end();ti=i;clr();const [sel,h,was,now,why]=TOUR[i];const el=$(sel);
+function show(i){if(i>=TOUR.length)return end();ti=i;clr();tour.removeAttribute('data-pos');void tour.offsetWidth;tour.dataset.pos=['bl','tr','br','tl'][i%4];const [sel,h,was,now,why]=TOUR[i];const el=$(sel);
  if(sel==='#top'||sel==='#hero'||sel==='#hd'){scrollTo({top:0,behavior:'smooth'})}else{el.scrollIntoView({behavior:'smooth',block:'start'})}
  if(sel!=='#top')el.classList.add('spot');$('#tk').textContent=i?'What we changed':'Concept preview';$('#tn').textContent=i?`${i} / ${TOUR.length-1}`:'';$('#th').textContent=h;$('#tp').innerHTML=`${esc(was)}<br>${esc(now)}`;
  const y=$('#ty'),r=$('#tr');y.hidden=r.hidden=true;if(why.startsWith('Revenue')){r.textContent=why;r.hidden=false}else{y.textContent=why;y.hidden=false}
- $('#tgo').hidden=true;$('#tpause').hidden=false;$('#tnext').hidden=false;tick();voice(i)}
+ $('#tgo').hidden=true;$('#tpause').hidden=false;$('#tnext').hidden=false;if(fmode){clearTimeout(tt)}else{tick();voice(i)}}
 function tick(){clearTimeout(tt);const pg=$('#tpg');pg.style.transition='none';pg.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>{pg.style.transition=`width ${DUR}ms linear`;pg.style.width='100%'}));if(!paused)tt=setTimeout(()=>show(ti+1),DUR)}
-function end(){clearTimeout(tt);clr();voice(TOUR.length);$('#tk').textContent="That's the tour";$('#tn').textContent='';$('#th').textContent='Want this live? Talk to Peddi.';$('#tp').innerHTML='This is a working concept built from your own photos, words and services. Peddi at Chairlift can walk you through it and what it takes to switch it on. <a href="https://cal.com/chairlift/5min" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;background:#6FAEE3;color:#111111;padding:12px 16px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:12px">Start a conversation</a>';$('#ty').hidden=$('#tr').hidden=true;$('#tpause').hidden=$('#tnext').hidden=true;$('#tgo').hidden=false;$('#tgo').textContent='Replay';ti=-1;scrollTo({top:0,behavior:'smooth'})}
-$('#tgo').onclick=()=>{paused=false;$('#tpause').textContent='Pause';show(0)};
-$('#tnext').onclick=()=>show(ti+1);
-$('#tpause').onclick=()=>{paused=!paused;$('#tpause').textContent=paused?'Resume':'Pause';if(paused){clearTimeout(tt);if(au)au.pause();const pg=$('#tpg');pg.style.transition='none'}else{if(au&&au.readyState>0){au.play().catch(()=>{})}else tick()}};
+function end(){fmode=false;fa.pause();clearTimeout(tt);clr();tour.removeAttribute('data-pos');void tour.offsetWidth;tour.dataset.pos='bl';voice(TOUR.length);$('#tk').textContent="That's the tour";$('#tn').textContent='';$('#th').textContent='Want this live? Talk to Peddi.';$('#tp').innerHTML='This is a working concept built from your own photos, words and services. Peddi at Chairlift can walk you through it and what it takes to switch it on. <a href="https://cal.com/chairlift/5min" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;background:#6FAEE3;color:#111111;padding:12px 16px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:12px">Start a conversation</a>';$('#ty').hidden=$('#tr').hidden=true;$('#tpause').hidden=$('#tnext').hidden=true;$('#tgo').hidden=false;$('#tgo').textContent='Replay';ti=-1;scrollTo({top:0,behavior:'smooth'})}
+let fmode=false;const CUES=[[0,0],[3.1,1],[8.5,2],[27,3],[37.6,4],[52.3,6],[60.3,8],[80,10],[118.5,9]];
+const fa=new Audio('audio/tour-full.mp3');fa.preload='auto';let fok=false;fa.addEventListener('canplay',()=>{fok=true});
+const cueAt=t=>{let k=0;for(let j=0;j<CUES.length;j++)if(t>=CUES[j][0])k=j;return k};
+const fstart=at=>{fa.currentTime=at;return fa.play().then(()=>{fmode=true;clearTimeout(tt);if(au){au.pause();au=null}const pg=$('#tpg');pg.style.transition='none'})};
+fa.addEventListener('timeupdate',()=>{if(!fmode)return;const k=cueAt(fa.currentTime),st=CUES[k][1];if(st!==ti)show(st);const a=CUES[k][0],b=k+1<CUES.length?CUES[k+1][0]:fa.duration;$('#tpg').style.width=Math.min(100,100*(fa.currentTime-a)/(b-a))+'%'});
+fa.addEventListener('ended',()=>{if(fmode){fmode=false;end()}});
+$('#tgo').onclick=()=>{paused=false;$('#tpause').textContent='Pause';fmode=false;fa.pause();show(0);const arm=()=>{const once=()=>{if(tour.hidden||fmode||ti<0){off();return}if(paused)return;const c=CUES.find(c=>c[1]===ti);fstart(c?c[0]:0).then(off).catch(()=>{})};const off=()=>{['pointerdown','touchend','click','keydown'].forEach(e=>removeEventListener(e,once,true));const h=$('#tsnd');if(h)h.hidden=true};['pointerdown','touchend','click','keydown'].forEach(e=>addEventListener(e,once,true));const h=$('#tsnd');if(h)h.hidden=false};fa.muted=false;fa.volume=1;fstart(0).then(()=>{const h=$('#tsnd');if(h)h.hidden=true}).catch(arm)};
+$('#tnext').onclick=()=>{if(fmode){const k=cueAt(fa.currentTime);if(k+1<CUES.length){fa.currentTime=CUES[k+1][0];show(CUES[k+1][1])}else{fmode=false;fa.pause();end()}}else show(ti+1)};
+$('#tpause').onclick=()=>{if(fmode){paused=!paused;$('#tpause').textContent=paused?'Resume':'Pause';if(paused)fa.pause();else fa.play().catch(()=>{});return}paused=!paused;$('#tpause').textContent=paused?'Resume':'Pause';if(paused){clearTimeout(tt);if(au)au.pause();const pg=$('#tpg');pg.style.transition='none'}else{if(au&&au.readyState>0){au.play().catch(()=>{})}else tick()}};
 const openTour=()=>{document.body.classList.add('touring');$('#tb').hidden=true;tour.hidden=false;$('#tgo').click()};
 $('#tb').onclick=openTour;$('#dtour').onclick=e=>{e.preventDefault();openTour()};
-$('#tx').onclick=()=>{clearTimeout(tt);if(au){au.pause();au=null}clr();tour.hidden=true;$('#tb').hidden=false;document.body.classList.remove('touring')};
+$('#tx').onclick=()=>{fmode=false;fa.pause();clearTimeout(tt);if(au){au.pause();au=null}clr();tour.hidden=true;$('#tb').hidden=false;document.body.classList.remove('touring')};
 /* preview: the tour starts by itself right after the loading screen (?tour=0 turns it off) */
 let tourStarted=false;const autoTour=()=>{if(tourStarted||!window.__tw)return;tourStarted=true;setTimeout(openTour,400)};
 addEventListener('siready',autoTour);setTimeout(autoTour,6000);
@@ -1369,7 +1458,7 @@ const R=[
 [/call|phone|number|talk|speak|reach|contact/,'Get in touch at '+PH+' or '+TX+' of the space. Email: <a href="mailto:Steadyimprovements@gmail.com">Steadyimprovements@gmail.com</a>.'],
 [/hour|open|when|available|weekend|monday/,'We are available Monday to Friday, 9 to 5. Outside those hours, leave a message and we will reply.'],
 [/area|where|located|toronto|gta|travel|serve/,'I do not have our full service area. Get in touch at '+PH+' and tell us where the job is.'],
-[/review|rating|homestar|google|testimonial|reference/,'See what clients say in the <a href="#reviews">reviews section</a>, with ratings from HomeStars and Google.'],
+[/review|rating|homestar|testimonial|reference/,'See what clients say in the <a href="#reviews">reviews section</a>, word for word from HomeStars.'],
 [/architect|designer|property manager|contractor|trade|condo board/,'We work with architects, designers and property managers on repeat projects. Use Send us a scope in the <a href="#trade">trade section</a>.'],
 [/quote|book|start|hire|get going|visit|consult/,'Easy: '+QUOTE+', pick the job, place and timing, then send. Or get in touch at '+PH+'.'],
 [/thank|thanks|cheers/,'Anytime. If you want to go ahead, '+QUOTE+' or get in touch at '+PH+'.'],
