@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Our work: a bathroom, start to finish | Steady Improvements</title>
+<meta name="description" content="One Steady Improvements bathroom, from the plan to the finished room.">
+<meta name="theme-color" content="#23211F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Yellowtail&family=Oswald:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3F1E8;--paper2:#E9E5D8;--ink:#23211F;--ink2:#2E2B28;--brick:#8E3B32;--brick2:#A9483D;--timber:#C2925C;--stone:#6B665E;
+  --disp:'Big Shoulders Display',Impact,sans-serif;--sans:'Work Sans',system-ui,sans-serif;--cond:'Oswald',sans-serif;
+  --gut:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--disp);font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:.005em}
+.k{font:600 12px/1.3 var(--cond);letter-spacing:.2em;text-transform:uppercase}
+:focus-visible{outline:3px solid var(--brick);outline-offset:3px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;font:600 14px var(--sans);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer}
+.btn-brick{background:var(--brick);color:#fff}.btn-brick:hover{background:var(--brick2)}
+.btn-line{border:2px solid currentColor}
+
+/* logo: same lockup as the home page */
+.lg{display:inline-flex;flex-direction:column;align-items:center;line-height:1;transform:rotate(-5deg);transform-origin:left center;font-size:34px}
+.lg .w{position:relative;z-index:2;display:inline-flex;align-items:flex-end;white-space:nowrap;font:400 1em/.9 'Yellowtail',cursive;padding-right:.06em}
+.lg .h{height:.69em;width:auto;fill:currentColor;transform:skewX(-14deg);margin:0 -.06em .093em .123em;overflow:visible;flex:none}
+.lg i{position:relative;z-index:1;align-self:stretch;display:flex;justify-content:center;font:700 .255em/1 'Oswald',sans-serif;font-style:normal;letter-spacing:.1em;text-transform:uppercase;background:var(--brick);color:var(--paper);padding:.16em 0 .16em .1em;margin:.02em 0 0}
+
+.hd{position:sticky;top:0;z-index:20;background:var(--ink);color:var(--paper)}
+.hd .in{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px;padding:8px var(--gut)}
+.hd a.brand{display:flex;align-items:center;min-height:48px;text-decoration:none;filter:drop-shadow(0 3px 6px rgba(0,0,0,.35))}
+.hd .back{font:600 13px var(--cond);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;min-height:44px;display:flex;align-items:center;opacity:.85}
+.hd .back:hover{opacity:1}
+
+/* intro */
+.intro{background:var(--ink);color:var(--paper);padding:clamp(36px,7vw,90px) var(--gut) clamp(40px,6vw,70px)}
+.intro .k{color:var(--timber)}
+.intro h1{font-size:clamp(54px,11vw,150px);margin-top:14px;max-width:11ch}
+.intro h1 .ln{display:block;overflow:hidden}
+.intro h1 .ln span{display:block;transform:translateY(105%);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.intro h1 .ln+.ln span{transition-delay:.1s;color:var(--timber)}
+.intro.in h1 .ln span{transform:none}
+.intro p{max-width:46ch;margin-top:18px;color:#cfcabd}
+.facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:26px}
+.facts div{border-top:2px solid var(--brick);padding-top:8px;min-width:120px}
+.facts b{display:block;font:600 12px var(--cond);letter-spacing:.18em;text-transform:uppercase;color:#a9a497}
+.facts span{font-weight:500}
+
+/* the story: one sticky photo, stages scroll beside it */
+.story{display:grid;grid-template-columns:1fr;position:relative}
+.stage-ph{position:sticky;top:64px;height:min(58svh,560px);z-index:5;background:var(--ink);overflow:hidden}
+.stage-ph figure{position:absolute;inset:0;opacity:0;transition:opacity .7s ease}
+.stage-ph figure.on{opacity:1}
+.stage-ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);transition:transform 6s ease}
+.stage-ph figure.on img{transform:scale(1)}
+.stage-ph .need{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px;height:100%;padding:0 clamp(20px,6vw,64px);background:var(--paper2);color:var(--ink);border:2px solid var(--stone)}
+.stage-ph .need b{font:900 clamp(30px,7vw,60px)/.95 var(--disp);text-transform:uppercase}
+.stage-ph .need span{max-width:34ch;color:var(--stone)}
+.tag-ph{display:inline-block;background:#3a2f00;color:#ffd24a;font:500 12px/1.6 ui-monospace,monospace;padding:2px 8px;letter-spacing:.04em}
+.bar{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding:14px var(--gut) 14px;background:linear-gradient(transparent,rgba(35,33,31,.82));color:#fff}
+.bar .nm{font:900 clamp(24px,5vw,40px)/.95 var(--disp);text-transform:uppercase}
+.bar .no{font:600 13px var(--cond);letter-spacing:.18em}
+.ticks{position:absolute;left:0;right:0;top:0;z-index:3;display:flex;gap:4px;padding:10px var(--gut) 0}
+.ticks i{flex:1;height:4px;background:rgba(255,255,255,.35);transition:background .3s}
+.ticks i.on{background:var(--paper)}
+.ticks i.now{background:var(--brick2)}
+
+.stages{list-style:none;padding:0 var(--gut)}
+.stage{min-height:46svh;display:flex;flex-direction:column;justify-content:flex-start;padding:28px 0 36px;border-bottom:1px solid #d7d2c3;max-width:560px}
+.stage:last-child{border-bottom:0;min-height:40svh}
+.stage .k{color:var(--brick)}
+.stage h2{font-size:clamp(44px,9vw,84px);margin-top:10px}
+.stage p{margin-top:14px;max-width:42ch}
+.stage .what{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.stage .what span{font:500 14px var(--sans);padding:7px 12px;background:var(--paper2)}
+
+@media(min-width:900px){
+  .story{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
+  .stage-ph{grid-column:1;grid-row:1;height:calc(100svh - 64px)}
+  .stages{grid-column:2;grid-row:1;padding:0 clamp(28px,4vw,64px)}
+  .stage{min-height:62svh;justify-content:center}.stage:first-child{padding-top:18svh}.stage:last-child{min-height:62svh;padding-bottom:18svh}
+}
+
+/* more work */
+.more{background:var(--ink);color:var(--paper);padding:clamp(48px,8vw,100px) 0}
+.more .hd2{padding:0 var(--gut);display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.more h2{font-size:clamp(46px,8vw,96px)}
+.more .hd2 p{color:#cfcabd;max-width:40ch}
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:26px var(--gut) 8px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.card{flex:0 0 min(72vw,300px);scroll-snap-align:start;background:var(--ink2);text-decoration:none}
+.card .ph{aspect-ratio:4/5;overflow:hidden}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover img{transform:scale(1.04)}
+.card .tx{padding:14px 16px 18px}
+.card b{display:block;font:900 26px/1 var(--disp);text-transform:uppercase}
+.card small{display:block;margin-top:8px;color:#a9a497;font-size:14px}
+.card.now{outline:3px solid var(--brick);outline-offset:-3px}
+
+.end{padding:clamp(48px,8vw,100px) var(--gut);text-align:left}
+.end h2{font-size:clamp(46px,8vw,96px);max-width:12ch}
+.end .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.foot{padding:20px var(--gut) calc(26px + env(safe-area-inset-bottom));font-size:14px;color:var(--stone);border-top:1px solid #d7d2c3}
+.foot a{text-decoration:none}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.intro h1 .ln span{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="in">
+    <a href="../" class="brand" aria-label="Steady Improvements, home">
+      <span class="lg"><span class="w"><span>S</span><svg class="h" viewBox="0 0 130 172" aria-hidden="true"><path d="M4 6h28a4 4 0 0 1 4 4v6h14v-6a4 4 0 0 1 4-4h26c22-2 40 12 46 40 1 5-5 7-8 3-8-13-20-18-36-15v10a4 4 0 0 1-4 4h-2l3 110c0 8-5 12-12 12s-12-4-12-12l3-110h-2a4 4 0 0 1-4-4v-2H36v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z"/></svg><span>eady</span></span><i>Improvements</i></span>
+    </a>
+    <a class="back" href="../">Back to home</a>
+  </div>
+</header>
+
+<section class="intro" id="intro">
+  <span class="k">Our work &middot; Case study</span>
+  <h1><span class="ln"><span>A bathroom,</span></span><span class="ln"><span>start to finish</span></span></h1>
+  <p>Scroll through one bathroom stage by stage: what it looked like, what we did, and how it turned out.</p>
+  <div class="facts">
+    <div><b>Room</b><span>Bathroom</span></div>
+    <div><b>Work</b><span>Full renovation</span></div>
+    <div><b>Where</b><span class="tag-ph">[Area: Steady to confirm]</span></div>
+  </div>
+</section>
+
+<section class="story" aria-label="The bathroom, stage by stage">
+  <div class="stage-ph" id="ph" aria-hidden="true">
+    <div class="ticks" id="ticks"></div>
+    <figure data-s="0" class="on"><img src="img/bath-plan.jpg" alt=""></figure>
+    <figure data-s="1"><img src="../img/framing.jpg" alt=""></figure>
+    <figure data-s="2"><div class="need"><span class="tag-ph">Photo needed</span><b>Rough-in and waterproofing</b><span>A photo from this stage would complete the story. Steady to send one if they have it.</span></div></figure>
+    <figure data-s="3"><img src="img/bath-tile.jpg" alt=""></figure>
+    <figure data-s="4"><img src="../img/bathroom.jpg" alt=""></figure>
+    <div class="bar"><span class="nm" id="nm">The plan</span><span class="no" id="no">01 / 05</span></div>
+  </div>
+
+  <ol class="stages" id="stages">
+    <li class="stage" data-s="0" data-nm="The plan">
+      <span class="k">01 &middot; The plan</span>
+      <h2>Start with the drawing</h2>
+      <p>Tub, toilet, vanity, mirror and lights: where everything goes is settled before a wall comes down.</p>
+    </li>
+    <li class="stage" data-s="1" data-nm="Strip to the studs">
+      <span class="k">02 &middot; Strip to the studs</span>
+      <h2>Back to the frame</h2>
+      <p>Walls opened to the studs and the floor taken back, so what's behind them can be checked and set right.</p>
+      <div class="what"><span>Demolition</span><span>Framing</span><span>Insulation</span></div>
+    </li>
+    <li class="stage" data-s="2" data-nm="Rough-in">
+      <span class="k">03 &middot; Rough-in</span>
+      <h2>Behind the walls</h2>
+      <p><span class="tag-ph">[Steady to confirm what was done at this stage]</span></p>
+    </li>
+    <li class="stage" data-s="3" data-nm="Tile and trim">
+      <span class="k">04 &middot; Tile and trim</span>
+      <h2>The finish goes on</h2>
+      <p>Large marble-look tile around the tub, a hand-held shower and new tub fixtures.</p>
+      <div class="what"><span>Wall tile</span><span>Shower</span><span>Fixtures</span></div>
+    </li>
+    <li class="stage" data-s="4" data-nm="Finished">
+      <span class="k">05 &middot; Finished</span>
+      <h2>Ready to use</h2>
+      <p>New tub and shower, toilet, floating vanity and tiled floor.</p>
+    </li>
+  </ol>
+</section>
+
+<section class="more" aria-labelledby="more-h">
+  <div class="hd2">
+    <h2 id="more-h">More work</h2>
+    <p>Each of these becomes a stage-by-stage story like the one above once we have the in-progress photos.</p>
+  </div>
+  <div class="rail">
+    <a class="card now" href="#intro"><div class="ph"><img src="../img/bathroom.jpg" alt="Finished bathroom" loading="lazy"></div><div class="tx"><b>Bathroom</b><small>You're here</small></div></a>
+    <div class="card"><div class="ph"><img src="../img/kitchen.jpg" alt="Kitchen with navy island" loading="lazy"></div><div class="tx"><b>Kitchen</b><small><span class="tag-ph">Stage photos needed</span></small></div></div>
+    <div class="card"><div class="ph"><img src="../img/feature-wall.jpg" alt="Marble-look feature wall" loading="lazy"></div><div class="tx"><b>Feature wall</b><small><span class="tag-ph">Stage photos needed</span></small></div></div>
+    <div class="card"><div class="ph"><img src="../img/balcony-teak.jpg" alt="Composite balcony flooring" loading="lazy" style="object-position:50% 70%"></div><div class="tx"><b>Balcony flooring</b><small><span class="tag-ph">Stage photos needed</span></small></div></div>
+    <div class="card"><div class="ph"><img src="../img/blind.jpg" alt="Roller blind" loading="lazy"></div><div class="tx"><b>Blinds</b><small><span class="tag-ph">Stage photos needed</span></small></div></div>
+  </div>
+</section>
+
+<section class="end">
+  <span class="k" style="color:var(--brick)">Your turn</span>
+  <h2 style="margin-top:10px">Picture your room here.</h2>
+  <div class="acts">
+    <a class="btn btn-brick" href="../quote/">Get an estimate</a>
+    <a class="btn btn-line" href="tel:+16474586365">Call (647) 458-6365</a>
+  </div>
+</section>
+
+<footer class="foot">Steady Improvements &middot; <a href="mailto:Steadyimprovements@gmail.com">Steadyimprovements@gmail.com</a> &middot; Mon to Fri, 9 to 5</footer>
+
+<script>
+(function(){
+  var intro=document.getElementById('intro');requestAnimationFrame(function(){setTimeout(function(){intro.classList.add('in')},100)});
+  var figs=[].slice.call(document.querySelectorAll('#ph figure')),stages=[].slice.call(document.querySelectorAll('.stage')),
+      nm=document.getElementById('nm'),no=document.getElementById('no'),ticks=document.getElementById('ticks'),n=stages.length,cur=-1;
+  for(var i=0;i<n;i++)ticks.appendChild(document.createElement('i'));
+  var tk=[].slice.call(ticks.children);
+  function show(s){if(s===cur)return;cur=s;figs.forEach(function(f){f.classList.toggle('on',+f.dataset.s===s)});
+    tk.forEach(function(t,ix){t.classList.toggle('on',ix<s);t.classList.toggle('now',ix===s)});
+    nm.textContent=stages[s].dataset.nm;no.textContent=('0'+(s+1)).slice(-2)+' / 0'+n;}
+  show(0);
+  /* pick the stage whose text sits nearest the middle of the reading area */
+  function pick(){var mid=innerWidth>=900?innerHeight/2:(document.getElementById('ph').getBoundingClientRect().bottom+innerHeight)/2,best=0,bd=1e9;
+    stages.forEach(function(st,ix){var r=st.getBoundingClientRect(),c=(r.top+r.bottom)/2,d=Math.abs(c-mid);if(d<bd){bd=d;best=ix}});show(best)}
+  var raf=0;addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(function(){raf=0;pick()})},{passive:true});addEventListener('resize',pick);
+})();
+</script>
+</body>
+</html>

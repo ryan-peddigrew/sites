@@ -38,14 +38,12 @@ h2{font-size:clamp(46px,7.4vw,104px)}
 
 /* brand: brush lettering, the hammer is the T */
 .brand{display:inline-flex;align-items:center;line-height:1}
-.lg{display:inline-flex;flex-direction:column;align-items:flex-start;line-height:1;transform:rotate(-5deg);transform-origin:left center}
-.lg .w{display:inline-flex;align-items:flex-end;white-space:nowrap;font:400 1em/.9 'Yellowtail',cursive;padding-right:.06em}
-.lg .h{height:.58em;width:auto;fill:currentColor;transform:rotate(12deg);margin:0 -.08em .03em .04em;overflow:visible;flex:none}
-.lg i{font:700 .255em/1 'Oswald',sans-serif;font-style:normal;letter-spacing:.1em;text-transform:uppercase;margin:.12em 0 0 .08em}
-.lg .bar{display:block;height:max(.03em,2px);width:2.03em;background:#8E3B32;margin:.085em 0 .085em .02em}
-.lg .tg{display:flex;align-items:center;font:600 max(.092em,9.5px)/1 'Oswald',sans-serif;font-style:normal;letter-spacing:.24em;text-transform:uppercase;margin-left:.05em;white-space:nowrap}
-.lg .tg svg{width:1.5em;height:1.5em;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;margin-left:.55em;flex:none}
-.lg.mini .bar,.lg.mini .tg{display:none}
+.lg{display:inline-flex;flex-direction:column;align-items:center;line-height:1;transform:rotate(-5deg);transform-origin:left center}
+.lg .w{position:relative;z-index:2;display:inline-flex;align-items:flex-end;white-space:nowrap;font:400 1em/.9 'Yellowtail',cursive;padding-right:.06em}
+.lg .h{height:.69em;width:auto;fill:currentColor;transform:skewX(-14deg);margin:0 -.06em .093em .123em;overflow:visible;flex:none}
+.lg i{position:relative;z-index:1;align-self:stretch;display:flex;justify-content:center;font:700 .255em/1 'Oswald',sans-serif;font-style:normal;letter-spacing:.1em;text-transform:uppercase;background:#8E3B32;color:#F3F1E8;padding:.16em 0 .16em .1em;margin:.02em 0 0}
+.lg .tg{display:block;font:600 max(.092em,9.5px)/1 'Oswald',sans-serif;font-style:normal;letter-spacing:.24em;padding-left:.24em;text-transform:uppercase;margin-top:.8em;white-space:nowrap}
+.lg.mini .tg{display:none}
 .lg{font-size:42px}
 
 /* loader */
@@ -80,9 +78,9 @@ header.top.solid .brand{filter:none}
 .slides figure.on{opacity:1}
 .slides img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 7s linear}
 .slides figure.on img{transform:scale(1.0)}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#000a 0%,#0000 24%,#0000 42%,#141210e6 82%,#141210 100%)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0007 0%,#0000 20%,#0000 50%,#000000b8 100%)}
 .hero .copy{position:absolute;z-index:2;left:0;right:0;bottom:0;padding-bottom:clamp(92px,11vh,120px)}
-.hero h1{font-size:clamp(64px,11.4vw,170px);line-height:.9}
+.hero h1{font-size:clamp(40px,6.2vw,92px);line-height:.95}
 .hero h1 .ln{display:block;overflow:hidden;padding-top:.03em}
 .hero h1 .ln span{display:block;transform:translateY(105%);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
 .hero.go h1 .ln span{transform:none}
@@ -245,6 +243,27 @@ footer .fine{margin-top:44px;padding-top:18px;border-top:1px solid #ffffff1a;fon
 footer a.ig{display:inline-flex;align-items:center;gap:10px;min-height:44px}
 footer a.ig svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.6}
 
+/* ZAI chat */
+.zb{position:fixed;right:16px;bottom:18px;z-index:64;min-height:50px;padding:0 18px;border:0;cursor:pointer;background:var(--brick);color:#fff;font:600 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;box-shadow:0 10px 30px #0005;display:flex;align-items:center;gap:9px}
+.zb:hover{background:var(--brick2)}.zb svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8}
+.zp{position:fixed;right:16px;bottom:18px;z-index:75;width:min(380px,calc(100% - 32px));height:min(560px,calc(100% - 110px));background:var(--paper);box-shadow:0 24px 70px #000a;border-top:4px solid var(--brick);display:flex;flex-direction:column}
+.zp[hidden],.zb[hidden]{display:none}
+.zh{background:var(--ink);color:var(--paper);padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+.zh b{font:800 22px var(--disp,'Big Shoulders Display');letter-spacing:.08em}.zh small{display:block;font:500 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.zh button{background:none;border:0;color:#fff;font:600 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;min-height:44px;padding:0 6px;cursor:pointer}
+.zm{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.zm p{margin:0;padding:10px 13px;max-width:86%;font-size:15px;line-height:1.4}
+.zm .bot{background:#fff;align-self:flex-start;border-left:3px solid var(--timber)}
+.zm .me{background:var(--ink);color:#fff;align-self:flex-end}
+.zm a{color:var(--brick);font-weight:600;text-decoration:underline}
+.zq{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 10px}
+.zq button{min-height:44px;padding:0 12px;border:1.5px solid var(--ink);background:transparent;font:600 12px var(--sans);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;color:var(--ink)}
+.zq button:hover{background:var(--ink);color:#fff}
+.zf{display:flex;border-top:1px solid #0002}
+.zf input{flex:1;min-height:52px;border:0;padding:0 14px;font:16px var(--sans);background:#fff;min-width:0}
+.zf button{min-width:76px;border:0;background:var(--brick);color:#fff;font:600 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+body.touring .zb{display:none}
+@media(max-width:820px){.zb{bottom:78px;right:12px}.zp{right:8px;bottom:8px;width:calc(100% - 16px);height:calc(100% - 70px);z-index:90}}
 /* phone dock */
 .dock{display:none}
 /* tour */
@@ -282,7 +301,7 @@ footer a.ig svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-widt
  .lg{font-size:36px}
  .nav .btn{display:none}
  .hero{min-height:600px}
- .hero h1{font-size:clamp(54px,16.5vw,84px)}
+ .hero h1{font-size:clamp(40px,12.5vw,60px)}.hero::after{background:linear-gradient(180deg,#0007 0%,#0000 18%,#0000 40%,#000000d4 72%,#000000f0 100%)}
  body.touring .hero .copy{bottom:auto;top:96px;padding-bottom:0}
  body.touring .hero .ctas{display:none}
  body.touring .hero::after{background:linear-gradient(180deg,#141210d9 0%,#14121099 45%,#141210e6 100%)}
@@ -307,6 +326,13 @@ footer a.ig svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-widt
  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}
  .rv{opacity:1;transform:none}
 }
+.cs-link{display:grid;grid-template-columns:110px 1fr;align-items:center;gap:18px;margin-top:22px;background:var(--ink);color:var(--paper);text-decoration:none;min-height:110px;overflow:hidden}
+.cs-link img{width:110px;height:100%;min-height:110px;object-fit:cover}
+.cs-link span{display:flex;flex-direction:column;gap:4px;padding:14px 16px 14px 0}
+.cs-link small{font:600 11px/1 'Oswald',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--timber)}
+.cs-link b{font:900 clamp(24px,4vw,36px)/.95 var(--disp);text-transform:uppercase}
+.cs-link em{font-style:normal;font-size:14px;color:#cfcabd}
+.cs-link:hover b{color:var(--timber)}
 </style>
 </head>
 <body>
@@ -314,13 +340,13 @@ footer a.ig svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-widt
 <!-- loading screen: the name is set letter by letter, a line is ruled under it, then two doors slide open -->
 <div id="ld" aria-hidden="true">
   <div class="door l"></div><div class="door r"></div>
-  <div class="ldc"><div class="ldm"><div class="brand"><span class="lg"><span class="w"><span>S</span><svg class="h" viewBox="0 0 130 172" aria-hidden="true"><path d="M4 6h28a4 4 0 0 1 4 4v6h14v-6a4 4 0 0 1 4-4h26c22-2 40 12 46 40 1 5-5 7-8 3-8-13-20-18-36-15v10a4 4 0 0 1-4 4h-2l3 110c0 8-5 12-12 12s-12-4-12-12l3-110h-2a4 4 0 0 1-4-4v-2H36v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z"/></svg><span>eady</span></span><i>Improvements</i><b class="bar"></b><em class="tg">Carpentry you can count on<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg></em></span></div></div><div class="ldr"></div></div>
+  <div class="ldc"><div class="ldm"><div class="brand"><span class="lg"><span class="w"><span>S</span><svg class="h" viewBox="0 0 130 172" aria-hidden="true"><path d="M4 6h28a4 4 0 0 1 4 4v6h14v-6a4 4 0 0 1 4-4h26c22-2 40 12 46 40 1 5-5 7-8 3-8-13-20-18-36-15v10a4 4 0 0 1-4 4h-2l3 110c0 8-5 12-12 12s-12-4-12-12l3-110h-2a4 4 0 0 1-4-4v-2H36v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z"/></svg><span>eady</span></span><i>Improvements</i><em class="tg">Carpentry you can count on</em></span></div></div><div class="ldr"></div></div>
 </div>
 
 <header class="top" id="hd">
   <div class="wrap">
     <a href="#top" class="brand" aria-label="Steady Improvements, home">
-      <span class="lg mini"><span class="w"><span>S</span><svg class="h" viewBox="0 0 130 172" aria-hidden="true"><path d="M4 6h28a4 4 0 0 1 4 4v6h14v-6a4 4 0 0 1 4-4h26c22-2 40 12 46 40 1 5-5 7-8 3-8-13-20-18-36-15v10a4 4 0 0 1-4 4h-2l3 110c0 8-5 12-12 12s-12-4-12-12l3-110h-2a4 4 0 0 1-4-4v-2H36v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z"/></svg><span>eady</span></span><i>Improvements</i><b class="bar"></b><em class="tg">Carpentry you can count on<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg></em></span>
+      <span class="lg mini"><span class="w"><span>S</span><svg class="h" viewBox="0 0 130 172" aria-hidden="true"><path d="M4 6h28a4 4 0 0 1 4 4v6h14v-6a4 4 0 0 1 4-4h26c22-2 40 12 46 40 1 5-5 7-8 3-8-13-20-18-36-15v10a4 4 0 0 1-4 4h-2l3 110c0 8-5 12-12 12s-12-4-12-12l3-110h-2a4 4 0 0 1-4-4v-2H36v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z"/></svg><span>eady</span></span><i>Improvements</i><em class="tg">Carpentry you can count on</em></span>
     </a>
     <nav class="nav" aria-label="Main">
       <a class="l" href="#services">Services</a>
@@ -457,6 +483,7 @@ footer a.ig svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-widt
     <figure><img src="img/balcony-grey.jpg" alt="Grey composite balcony flooring" loading="lazy"><figcaption>Balcony<span>Composite</span></figcaption></figure>
     <figure><img src="img/blind.jpg" alt="Roller shade" loading="lazy"><figcaption>Window coverings<span>Roller shade</span></figcaption></figure>
   </div>
+  <div class="wrap"><a class="cs-link" href="work/"><img src="img/framing.jpg" alt="" loading="lazy"><span><small>Case study</small><b>A bathroom, start to finish</b><em>See it stage by stage</em></span></a></div>
 </section>
 
 <section id="trade">
@@ -537,7 +564,7 @@ footer a.ig svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-widt
   <div class="wrap">
     <div class="g">
       <div>
-        <a href="#top" class="brand"><span class="lg"><span class="w"><span>S</span><svg class="h" viewBox="0 0 130 172" aria-hidden="true"><path d="M4 6h28a4 4 0 0 1 4 4v6h14v-6a4 4 0 0 1 4-4h26c22-2 40 12 46 40 1 5-5 7-8 3-8-13-20-18-36-15v10a4 4 0 0 1-4 4h-2l3 110c0 8-5 12-12 12s-12-4-12-12l3-110h-2a4 4 0 0 1-4-4v-2H36v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z"/></svg><span>eady</span></span><i>Improvements</i><b class="bar"></b><em class="tg">Carpentry you can count on<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg></em></span></a>
+        <a href="#top" class="brand"><span class="lg"><span class="w"><span>S</span><svg class="h" viewBox="0 0 130 172" aria-hidden="true"><path d="M4 6h28a4 4 0 0 1 4 4v6h14v-6a4 4 0 0 1 4-4h26c22-2 40 12 46 40 1 5-5 7-8 3-8-13-20-18-36-15v10a4 4 0 0 1-4 4h-2l3 110c0 8-5 12-12 12s-12-4-12-12l3-110h-2a4 4 0 0 1-4-4v-2H36v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z"/></svg><span>eady</span></span><i>Improvements</i><em class="tg">Carpentry you can count on</em></span></a>
         <p style="font-size:15px;max-width:34ch">Residential and commercial renovations. Carpentry you can count on.</p>
       </div>
       <div><h4>Contact</h4><a href="tel:+16474586365">(647) 458-6365</a><a href="mailto:Steadyimprovements@gmail.com">Steadyimprovements@gmail.com</a><a class="ig" href="https://www.instagram.com/steadyimprovements/" target="_blank" rel="noopener"><svg viewBox="0 0 26 26"><rect x="3" y="3" width="20" height="20" rx="5"/><circle cx="13" cy="13" r="4.5"/><path d="M18.5 7.5h.01"/></svg>@steadyimprovements</a></div>
@@ -554,6 +581,14 @@ footer a.ig svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-widt
   <a href="sms:+16474586365"><svg viewBox="0 0 20 20"><path d="M2 3h16v11H8l-4 4v-4H2z"/></svg>Text</a>
   <a href="#" id="dtour">Tour</a>
 </nav>
+
+<button class="zb" id="zb" aria-label="Chat with ZAI"><svg viewBox="0 0 20 20"><path d="M2 3h16v11H8l-4 4v-4H2z"/></svg>Ask ZAI</button>
+<section class="zp" id="zp" hidden aria-label="Chat with ZAI">
+  <div class="zh"><div><b>ZAI</b><small>Steady Improvements assistant</small></div><button id="zx">Close</button></div>
+  <div class="zm" id="zm" aria-live="polite"></div>
+  <div class="zq" id="zq"></div>
+  <form class="zf" id="zf"><input id="zi" placeholder="Ask about a job" autocomplete="off" aria-label="Your message"><button>Send</button></form>
+</section>
 
 <button class="btn tourbtn" id="tb">Take the tour</button>
 <div class="tourbar" id="tour" hidden>
@@ -640,6 +675,41 @@ $('#tx').onclick=()=>{clearTimeout(tt);clr();tour.hidden=true;$('#tb').hidden=fa
 /* preview: the tour starts by itself right after the loading screen (?tour=0 turns it off) */
 let tourStarted=false;const autoTour=()=>{if(tourStarted||new URLSearchParams(location.search).get('tour')==='0')return;tourStarted=true;setTimeout(openTour,400)};
 addEventListener('siready',autoTour);setTimeout(autoTour,6000);
+/* ZAI: answers only from what the business has published; no prices are ever quoted */
+(()=>{const m=$('#zm'),q=$('#zq'),p=$('#zp'),b=$('#zb');let said=false,last=[];
+const PH='<a href="tel:+16474586365">(647) 458-6365</a>',TX='<a href="sms:+16474586365">text photos</a>';
+const say=(h,who='bot')=>{const e=document.createElement('p');e.className=who;e.innerHTML=h;m.appendChild(e);m.scrollTop=m.scrollHeight};
+const chips=a=>{q.innerHTML='';a.forEach(t=>{const x=document.createElement('button');x.type='button';x.textContent=t;x.onclick=()=>ask(t);q.appendChild(x)})};
+const QUOTE='<a href="#quote" data-q>Start a quote</a>';
+const R=[
+[/^(hi|hello|hey|yo|good (morning|afternoon|evening))\b/,'Hi, I am ZAI. Ask me about our services, balcony flooring or getting a quote.'],
+[/price|cost|how much|estimate|budget|cheap|afford/,'Every job is different, so prices are set after we see the details. I will not guess a number. Try the instant estimate in our <a href="quote/">Steady Quote app</a>, or '+QUOTE+' and we will come back with a clear quote.'],
+[/balcon|deck|composite|teak|terrace/,'Balcony flooring is one of our specialties: composite finishes in a warm tone or a grey tone. Use the measuring tool on this page to send your size, or '+QUOTE+'.'],
+[/bath|shower|tub|vanity/,'Bathrooms: we plan materials, structural upgrades and labour up front, fix underlying issues before we finish, and can pick up and deliver custom fixtures. '+QUOTE+'.'],
+[/kitchen|cabinet|counter|island/,'Kitchens: design, renovation and remodelling, including premium appliances, cabinetry and fixtures, finished on time and within your budget. '+QUOTE+'.'],
+[/floor|laminate|hardwood|vinyl|tile|ceramic/,'Flooring: composite for balconies, plus laminate, hardwood, vinyl tile and ceramic tile inside. '+QUOTE+'.'],
+[/blind|shade|shutter|window|curtain/,'Window coverings: blinds, shades and shutters. We walk you through choosing them, then install them. '+QUOTE+'.'],
+[/demo|tear|gut|strip/,'Demolition: we plan it properly, with the skills and people to keep the project on schedule. '+QUOTE+'.'],
+[/handyman|small job|repair|fix|odd job|install/,'Yes, we take smaller handyman jobs too. '+QUOTE+' or '+TX+' of what needs doing.'],
+[/service|offer|what (do|can) you|do you do|carpentry|custom/,'We do bathrooms, kitchens, flooring (including composite balcony flooring), window coverings, demolition and handyman work. Which one are you thinking about?',['Bathrooms','Kitchens','Balcony flooring','Handyman']],
+[/call|phone|number|talk|speak|reach|contact/,'Call '+PH+' or '+TX+' of the space. Email: <a href="mailto:Steadyimprovements@gmail.com">Steadyimprovements@gmail.com</a>.'],
+[/hour|open|when|available|weekend|monday/,'We are available Monday to Friday, 9 to 5. Outside those hours, leave a message and we will reply.'],
+[/area|where|located|toronto|gta|travel|serve/,'I do not have our full service area. Call '+PH+' and tell us where the job is.'],
+[/review|rating|homestar|google|testimonial|reference/,'See what clients say in the <a href="#reviews">reviews section</a>, with ratings from HomeStars and Google.'],
+[/architect|designer|property manager|contractor|trade|condo board/,'We work with architects, designers and property managers on repeat projects. Use Send us a scope in the <a href="#trade">trade section</a>.'],
+[/quote|book|start|hire|get going|visit|consult/,'Easy: '+QUOTE+', pick the job, place and timing, then send. Or call '+PH+'.'],
+[/thank|thanks|cheers/,'Anytime. If you want to go ahead, '+QUOTE+' or call '+PH+'.'],
+[/human|person|real|bot|ryan/,'I am ZAI, a virtual assistant. For a person, call '+PH+' during business hours.']
+];
+function reply(t){const s=t.toLowerCase().trim();for(const [re,a,c] of R)if(re.test(s)){say(a);chips(c||['Get a quote','Services','Call or text']);return}
+ say('I am not sure about that one. Call '+PH+' or '+TX+', and the team will answer properly. Or ask about services, balcony flooring or quotes.');chips(['Services','Get a quote','Call or text'])}
+function ask(t){if(/^get a quote$/i.test(t)){say(t,'me');say('Great. '+QUOTE+' and pick the job, place and timing.');chips(['Services','Call or text']);return}
+ if(/^call or text$/i.test(t))t='call';say(t,'me');setTimeout(()=>reply(t),350)}
+function open(){p.hidden=false;b.hidden=true;if(!said){said=true;say('Hi, I am ZAI, the Steady Improvements assistant. What can I help with?');chips(['Services','Balcony flooring','Get a quote','Call or text'])}setTimeout(()=>$('#zi').focus(),50)}
+b.onclick=open;$('#zx').onclick=()=>{p.hidden=true;b.hidden=false};
+$('#zf').onsubmit=e=>{e.preventDefault();const i=$('#zi'),v=i.value.trim();if(v){i.value='';ask(v)}};
+m.addEventListener('click',e=>{if(e.target.matches('[data-q]')){e.preventDefault();p.hidden=true;b.hidden=false;goQuote()}else if(e.target.matches('a[href^="#"]')){p.hidden=true;b.hidden=false}});
+})();
 </script>
 </body>
 </html>
