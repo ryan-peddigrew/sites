@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Case study: a water damage call | MapleTrust Restoration</title>
+<meta name="description" content="One MapleTrust water damage job, step by step: finding the water, measuring it, opening up and drying out.">
+<meta name="theme-color" content="#0F2440">
+<link rel="icon" href="../img/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F2440;--navy-2:#173257;--red:#D62B1F;--red-d:#B5200F;--red-l:#FF4A3A;--blue:#2F7DE1;--blue-l:#DCEAFB;
+  --paper:#FBF8F3;--stone:#F1EBE1;--line:#E6E0D6;--ash:#55607A;
+  --head:'Bricolage Grotesque',system-ui,sans-serif;--body:'Instrument Sans',system-ui,sans-serif;
+  --gut:clamp(16px,4vw,44px);--r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--navy);font:400 17px/1.55 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%}
+h1,h2{font-family:var(--head);font-weight:800;letter-spacing:-.03em;line-height:.98}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.eyebrow{font:700 12px/1.3 var(--head);letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border-radius:10px;font:600 16px var(--body);text-decoration:none;border:0;cursor:pointer}
+.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:var(--red-d)}
+.btn-ghost{box-shadow:inset 0 0 0 2px var(--navy)}
+.ph-tag{display:inline-block;background:#3a2f00;color:#ffd24a;font:500 12px/1.6 ui-monospace,monospace;padding:2px 8px;border-radius:4px}
+
+.hd{position:sticky;top:0;z-index:30;background:var(--navy);color:#fff}
+.hd .in{display:flex;align-items:center;justify-content:space-between;min-height:64px;padding:6px var(--gut)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-height:48px}
+.brand img{width:40px;height:40px}
+.brand b{font:800 22px/1 var(--head);letter-spacing:-.03em;color:#fff}
+.brand b em{font-style:normal;color:var(--red-l)}
+.brand small{display:block;font:700 9px/1 var(--head);letter-spacing:.3em;margin-top:5px;color:#fff}
+.hd .call{display:flex;align-items:center;min-height:44px;font:600 15px var(--body);text-decoration:none}
+
+/* opener */
+.intro{padding:clamp(36px,7vw,84px) var(--gut) clamp(26px,4vw,40px);max-width:1100px}
+.intro h1{font-size:clamp(46px,9.5vw,112px);margin-top:12px;max-width:13ch}
+.intro h1 em{font-style:normal;color:var(--blue)}
+.intro p{max-width:46ch;margin-top:16px;color:var(--ash)}
+.file{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:24px;max-width:760px}
+.file div{background:var(--stone);border-radius:var(--r);padding:12px 14px}
+.file b{display:block;font:700 11px var(--head);letter-spacing:.16em;text-transform:uppercase;color:var(--ash);margin-bottom:4px}
+
+/* wet-to-dry track: stays at the top while you read */
+.track{position:sticky;top:64px;z-index:20;background:rgba(251,248,243,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:10px var(--gut) 12px}
+.track .row{display:flex;justify-content:space-between;font:700 11px var(--head);letter-spacing:.16em;text-transform:uppercase}
+.track .row .w{color:var(--blue)}.track .row .d{color:var(--red)}
+.track .bar{position:relative;height:8px;border-radius:8px;margin-top:8px;background:linear-gradient(90deg,var(--blue),#8AB4EE 45%,#E8C9A8 75%,var(--red));overflow:hidden}
+.track .bar i{position:absolute;inset:0 0 0 auto;background:var(--line);transition:width .5s ease}
+.track ol{list-style:none;display:flex;justify-content:space-between;margin-top:8px}
+.track li{font:600 12px var(--body);color:var(--ash);opacity:.55;transition:opacity .3s}
+.track li.on{opacity:1;color:var(--navy)}
+
+/* the job file: photos pile up like a stack of job snaps as you scroll */
+.job{display:grid;grid-template-columns:1fr;gap:0;padding:0 var(--gut)}
+.deck{position:sticky;top:150px;height:min(56svh,520px);z-index:5;margin:18px 0 0}
+.deck figure{position:absolute;inset:0;border-radius:var(--r);overflow:hidden;background:var(--stone);box-shadow:0 18px 40px -18px rgba(15,36,64,.45);transform:translateY(110%);opacity:0;transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .4s,filter .4s}
+.deck figure.on{transform:none;opacity:1;z-index:3}
+.deck figure.past{transform:translateY(-14px) scale(.94);opacity:1;z-index:2;filter:brightness(.75)}
+.deck figure.past2{transform:translateY(-26px) scale(.88);opacity:.6;z-index:1;filter:brightness(.6)}
+.deck img{width:100%;height:100%;object-fit:cover}
+.deck figcaption{position:absolute;left:10px;bottom:10px;background:rgba(15,36,64,.85);color:#fff;border-radius:8px;padding:6px 10px;font:600 13px var(--body)}
+.deck .need{height:100%;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:0 24px;background:var(--stone);border:2px solid var(--line);border-radius:var(--r)}
+.deck .need b{font:800 clamp(28px,6vw,46px)/1 var(--head);letter-spacing:-.03em}
+
+.steps{list-style:none;position:relative;z-index:6}
+.step{min-height:70svh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 0 40px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px 20px 22px;box-shadow:0 10px 30px -20px rgba(15,36,64,.35);max-width:520px}
+.card h2{font-size:clamp(32px,7vw,54px);margin-top:8px}
+.card p{margin-top:10px;color:var(--ash)}
+.card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.card .tags span{font:600 13px var(--body);background:var(--blue-l);color:var(--navy);border-radius:6px;padding:5px 9px}
+.step:first-child{min-height:60svh}
+
+@media(max-width:899px){
+  .deck{z-index:7;height:min(46svh,440px);top:140px}
+  .deck::before{content:"";position:absolute;left:calc(-1 * var(--gut));right:calc(-1 * var(--gut));top:-40px;bottom:-14px;background:var(--paper)}
+  .step{min-height:64svh}
+}
+@media(min-width:900px){
+  .job{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(30px,5vw,80px)}
+  .steps{grid-column:1;grid-row:1}
+  .deck{grid-column:2;grid-row:1;height:calc(100svh - 190px);top:160px;margin-top:24px}
+  .step{min-height:calc(100svh - 150px);justify-content:center;padding:0}
+  .step:first-child{min-height:calc(100svh - 150px)}
+}
+
+.after{background:var(--navy);color:#fff;border-radius:22px;margin:clamp(30px,6vw,70px) var(--gut);padding:clamp(34px,6vw,70px) clamp(20px,5vw,60px)}
+.after .eyebrow{color:var(--red-l)}
+.after h2{font-size:clamp(40px,8vw,90px);margin-top:10px;max-width:14ch}
+.after p{margin-top:14px;max-width:46ch;color:#c9d3e3}
+.after .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.after .btn-ghost{box-shadow:inset 0 0 0 2px #fff;color:#fff}
+.foot{padding:20px var(--gut) calc(26px + env(safe-area-inset-bottom));color:var(--ash);font-size:14px}
+.foot a{text-decoration:none}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="in">
+    <a class="brand" href="../" aria-label="MapleTrust Restoration home"><img src="../img/mark.svg" alt="" width="40" height="40"><span><b>Maple<em>Trust</em></b><small>RESTORATION</small></span></a>
+    <a class="call" href="tel:+16472676798">647-267-6798</a>
+  </div>
+</header>
+
+<section class="intro">
+  <span class="eyebrow">Case study &middot; Water damage</span>
+  <h1>From the first reading to <em>bone dry.</em></h1>
+  <p>One of our water damage jobs, in our own photos from the site. Scroll to follow it step by step.</p>
+  <div class="file">
+    <div><b>Job</b>Water damage</div>
+    <div><b>Where</b><span class="ph-tag">[MapleTrust to confirm]</span></div>
+    <div><b>Photos taken</b>January 2024</div>
+    <div><b>Cause</b><span class="ph-tag">[MapleTrust to confirm]</span></div>
+  </div>
+</section>
+
+<div class="track" aria-hidden="true">
+  <div class="row"><span class="w">Wet</span><span class="d">Dry</span></div>
+  <div class="bar"><i id="fill" style="width:100%"></i></div>
+  <ol id="trk"><li>Find</li><li>Measure</li><li>Open</li><li>Dry</li><li>Restore</li></ol>
+</div>
+
+<section class="job" aria-label="The job, step by step">
+  <div class="deck" id="deck" aria-hidden="true">
+    <figure data-s="0"><img src="../img/job-thermal-1.jpg" alt=""><figcaption>Thermal camera</figcaption></figure>
+    <figure data-s="1"><img src="../img/job-meter.jpg" alt=""><figcaption>Moisture meter</figcaption></figure>
+    <figure data-s="2"><img src="../img/job-mould-board.jpg" alt=""><figcaption>Behind the baseboard</figcaption></figure>
+    <figure data-s="3"><img src="../img/job-room-fans.jpg" alt=""><figcaption>Air movers and dehumidifier</figcaption></figure>
+    <figure data-s="4"><img src="../img/job-closet-fan.jpg" alt=""><figcaption>Closets too</figcaption></figure>
+    <figure data-s="5"><div class="need"><span class="ph-tag">Photo needed</span><b>The finished room</b><span>MapleTrust to send an after photo from this job, if they have one.</span></div></figure>
+  </div>
+  <ol class="steps" id="steps">
+    <li class="step" data-s="0" data-t="0"><div class="card">
+      <span class="eyebrow">Step 1 &middot; Find it</span>
+      <h2>See what the eye can't</h2>
+      <p>Water spreads behind walls and under floors before it shows. A thermal camera picks up the cold, wet patches so we know where to look.</p>
+      <div class="tags"><span>Thermal imaging</span><span>Finding the source</span></div>
+    </div></li>
+    <li class="step" data-s="1" data-t="1"><div class="card">
+      <span class="eyebrow">Step 2 &middot; Measure it</span>
+      <h2>Put a number on wet</h2>
+      <p>A moisture meter confirms what the camera shows, so drying is based on readings, not guesses.</p>
+      <div class="tags"><span>Moisture readings</span></div>
+    </div></li>
+    <li class="step" data-s="2" data-t="2"><div class="card">
+      <span class="eyebrow">Step 3 &middot; Open it up</span>
+      <h2>What was hiding</h2>
+      <p>Pulling the baseboard showed mould starting behind it. Damaged material comes out so the space underneath can dry properly.</p>
+      <div class="tags"><span>Baseboard removed</span><span>Mould found</span></div>
+    </div></li>
+    <li class="step" data-s="3" data-t="3"><div class="card">
+      <span class="eyebrow">Step 4 &middot; Dry it out</span>
+      <h2>Air moving in every room</h2>
+      <p>Air movers and a dehumidifier set up through the unit, from the living area down the hall.</p>
+      <div class="tags"><span>Air movers</span><span>Dehumidifier</span></div>
+    </div></li>
+    <li class="step" data-s="4" data-t="3"><div class="card">
+      <span class="eyebrow">Step 4 &middot; Dry it out</span>
+      <h2>Down to the closets</h2>
+      <p>Even the walk-in closet gets its own air mover. Small, closed spaces are where moisture hangs on longest.</p>
+    </div></li>
+    <li class="step" data-s="5" data-t="4"><div class="card">
+      <span class="eyebrow">Step 5 &middot; Restore</span>
+      <h2>Back the way it was</h2>
+      <p><span class="ph-tag">[MapleTrust to confirm what was restored on this job]</span></p>
+    </div></li>
+  </ol>
+</section>
+
+<section class="after">
+  <span class="eyebrow">Water where it shouldn't be?</span>
+  <h2>Call us. We answer 24/7.</h2>
+  <p>Tell us what happened and we'll talk you through the first steps.</p>
+  <div class="acts">
+    <a class="btn btn-red" href="tel:+16472676798">Call 647-267-6798</a>
+    <a class="btn btn-ghost" href="../#help">Tell us what happened</a>
+  </div>
+</section>
+
+<footer class="foot">MapleTrust Restoration &middot; <a href="mailto:info@mapletrustinc.com">info@mapletrustinc.com</a></footer>
+
+<script>
+(function(){
+  var figs=[].slice.call(document.querySelectorAll('#deck figure')),steps=[].slice.call(document.querySelectorAll('.step')),
+      fill=document.getElementById('fill'),trk=[].slice.call(document.querySelectorAll('#trk li')),cur=-1;
+  function show(i){if(i===cur)return;cur=i;var s=+steps[i].dataset.s,t=+steps[i].dataset.t;
+    figs.forEach(function(f){var k=+f.dataset.s;f.classList.toggle('on',k===s);f.classList.toggle('past',k===s-1);f.classList.toggle('past2',k<s-1)});
+    trk.forEach(function(l,ix){l.classList.toggle('on',ix<=t)});
+    fill.style.width=(100-((t+1)/trk.length)*100)+'%';}
+  show(0);
+  function pick(){var mid=innerWidth>=900?innerHeight*.55:(document.getElementById('deck').getBoundingClientRect().bottom+innerHeight)/2,best=0,bd=1e9;
+    steps.forEach(function(st,ix){var c=st.querySelector('.card').getBoundingClientRect(),d=Math.abs((c.top+c.bottom)/2-mid);if(d<bd){bd=d;best=ix}});show(best)}
+  var raf=0;addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(function(){raf=0;pick()})},{passive:true});addEventListener('resize',pick);
+})();
+</script>
+</body>
+</html>
