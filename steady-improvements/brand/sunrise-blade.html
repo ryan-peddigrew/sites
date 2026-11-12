@@ -1,0 +1,54 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Steady Improvements: sunrise blade logo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Syne:wght@800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}body{background:#131313;color:#eee;font-family:Oswald,sans-serif;padding:16px}
+h1{font:600 22px Oswald;letter-spacing:.12em;text-transform:uppercase;margin:6px 0 4px}
+h2{font:600 17px Oswald;letter-spacing:.12em;text-transform:uppercase;margin:26px 0 4px}
+p.s{font:500 14px/1.45 Oswald;opacity:.7;margin-bottom:12px;max-width:720px}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.c{position:relative;overflow:hidden}.c svg{display:block;width:100%;height:auto}
+.n{position:absolute;top:12px;left:14px;font:600 13px Oswald;letter-spacing:.12em;opacity:.85}
+.ic{background:#1d1d1d;padding:18px;display:flex;align-items:flex-end;gap:16px}
+.ic .n{position:static;display:block;margin-bottom:10px}.ic>div{flex:1}
+.ic svg.big{width:150px;height:150px}.ic svg.md{width:60px;height:60px}.ic svg.sm{width:30px;height:30px}
+</style></head><body>
+<h1>The sunrise blade, as an icon</h1>
+<p class="s">A compact half saw blade that reads as a sunrise, sitting above the name the way a sportswear mark does. Same wide "steady", same baby blue, yellow and orange.</p>
+<div class="g" id="logos"></div>
+<h2>The icon by itself</h2>
+<p class="s">Shown large, then at phone size and browser-tab size.</p>
+<div class="g" id="icons"></div>
+<script>
+const BB='#A9D6F5',Y='#FFD23F',O='#F47B20',N='#16264A',C='#FFF8E7';
+const P=(cx,cy,r,a)=>`${(cx+r*Math.cos(a*Math.PI/180)).toFixed(1)} ${(cy+r*Math.sin(a*Math.PI/180)).toFixed(1)}`;
+function blade(cx,cy,R,n,a0,a1,k=.84){const s=(a1-a0)/n,r=R*k;let d='M'+P(cx,cy,r,a0);for(let i=0;i<n;i++){const a=a0+i*s;d+='L'+P(cx,cy,R,a+s*.16)+'L'+P(cx,cy,r,a+s)}return d+'Z'}
+const hd=(cx,cy,r)=>`M${cx-r} ${cy}A${r} ${r} 0 0 1 ${cx+r} ${cy}Z`;
+const band=(cx,cy,r1,r2)=>`M${cx-r1} ${cy}A${r1} ${r1} 0 0 1 ${cx+r1} ${cy}H${cx+r2}A${r2} ${r2} 0 0 0 ${cx-r2} ${cy}Z`;
+/* the mark: half blade + inner sun. style: core | bands | plain */
+function mark(cx,cy,R,style,c){const n=11;let s=`<path d="${blade(cx,cy,R,n,180,360)}" fill="${c.blade}"/>`;
+ if(style==='core')s+=`<path d="${hd(cx,cy,R*.5)}" fill="${c.core}"/><path d="${hd(cx,cy,R*.15)}" fill="${c.hole}"/>`;
+ if(style==='bands')s+=`<path d="${band(cx,cy,R*.68,R*.5)}" fill="${c.core}"/><path d="${band(cx,cy,R*.34,R*.16)}" fill="${c.core}"/>`;
+ if(style==='plain')s+=`<path d="${hd(cx,cy,R*.15)}" fill="${c.hole}"/>`;
+ return s}
+const word=(x,y,fill,size=120,anchor='middle')=>`<text class="w" x="${x}" y="${y}" text-anchor="${anchor}" font-family="Syne" font-weight="800" font-size="${size}" letter-spacing="${-size*.04}" fill="${fill}">steady</text>`;
+const imp=(x,y,fill,size=41,anchor='middle')=>`<text x="${anchor=='middle'?x+size*.06:x}" y="${y}" text-anchor="${anchor}" font-family="Syne" font-weight="800" font-size="${size}" letter-spacing="${size*.115}" fill="${fill}">improvements</text>`;
+const tag=(y,fill)=>`<text x="403" y="${y}" text-anchor="middle" font-family="Oswald" font-weight="500" font-size="16" letter-spacing="5.4" fill="${fill}" opacity=".85">CARPENTRY YOU CAN COUNT ON</text>`;
+const cB={blade:Y,core:O,hole:BB},cC={blade:Y,core:O,hole:C},cN={blade:Y,core:O,hole:N},cY={blade:O,core:N,hole:Y};
+const stack=(style,c,fg,R=118,by=246)=>mark(400,by,R,style,c)+word(400,by+124,fg)+imp(400,by+174,fg)+tag(by+226,fg);
+const L=[
+ ['A  SUN CORE',BB,N,stack('core',cB,N)],
+ ['B  BANDS',BB,N,stack('bands',cB,N)],
+ ['C  PLAIN BLADE',BB,N,stack('plain',cB,N)],
+ ['D  BESIDE THE NAME',BB,N,mark(128,322,92,'core',cB)+word(244,312,N,88,'start')+imp(247,352,N,30,'start')],
+ ['E  CREAM GROUND',C,N,stack('core',cC,N)],
+ ['F  NIGHT VERSION',N,C,stack('core',cN,C)],
+ ['G  YELLOW GROUND',Y,N,stack('core',cY,N)],
+ ['H  SMALL AND TIGHT',BB,N,mark(400,268,78,'core',cB)+word(400,268+112,N)+imp(400,268+162,N)]
+];
+document.getElementById('logos').innerHTML=L.map(([n,bg,fg,s])=>`<div class="c" style="background:${bg};color:${fg}"><span class="n">${n}</span><svg viewBox="0 0 800 580">${s}</svg></div>`).join('');
+const sq=(bg,inner,id)=>`<defs><clipPath id="${id}"><rect width="200" height="200" rx="44"/></clipPath></defs><g clip-path="url(#${id})"><rect width="200" height="200" fill="${bg}"/>${inner}</g>`;
+const I=[['1  BLUE',BB,mark(100,138,78,'core',cB)],['2  NAVY',N,mark(100,138,78,'core',cN)],['3  CREAM',C,mark(100,138,78,'core',cC)],['4  YELLOW',Y,mark(100,138,78,'core',cY)]];
+document.getElementById('icons').innerHTML=I.map(([n,bg,s],k)=>`<div class="c ic"><div><span class="n">${n}</span><svg class="big" viewBox="0 0 200 200">${sq(bg,s,'a'+k)}</svg></div><svg class="md" viewBox="0 0 200 200">${sq(bg,s,'b'+k)}</svg><svg class="sm" viewBox="0 0 200 200">${sq(bg,s,'c'+k)}</svg></div>`).join('');
+</script></body></html>
