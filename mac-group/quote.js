@@ -7,7 +7,7 @@
   const cad = n => n.toLocaleString("en-CA", { style: "currency", currency: "CAD" });
   const BR = {
     mss: { n: "MAC Show Systems Inc.", a: "125 Bermondsey Rd, North York, ON", e: "info@macshowsystems.com", logo: "../img/logos/mss-logo.png", r: 1472 / 306, site: "mac" },
-    psi: { n: "PSI · Production Service Industries", a: "255 Bunting Rd, St. Catharines, ON", e: "info@psi.show", logo: "../img/logos/psi-logo.png", r: 1, site: "psi", img: true },
+    psi: { n: "PSI · Production Service Industries", a: "255 Bunting Rd, St. Catharines, ON", e: "info@psi.show", logo: "../img/logos/psi-logo-bw.png", r: 1, site: "psi", img: true },
     ttl: { n: "Tour Trucking Logistics Inc.", a: "Address to confirm", e: "Email to confirm", logo: "../img/logos/ttl-logo.png", r: 2849 / 975, site: "tt" }
   };
   // Services each brand sells as its own line (sister-company work shows under the selling brand)
