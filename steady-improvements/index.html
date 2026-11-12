@@ -998,6 +998,12 @@ h2{font-size:clamp(25px,3.8vw,52px)}
 .dock a:first-child{background:var(--yel);color:var(--ink)}
 body:has(#tour:not([hidden])) .dock,body:has(#tour:not([hidden])) .zb{display:none}
 @media(max-width:760px){.tourbar{bottom:calc(12px + env(safe-area-inset-bottom));padding:16px 16px 0}.tourbar .pg{margin:0 -16px}}
+
+.sl svg{rotate:0deg!important}
+.sl::before{display:none}
+.sl svg{opacity:.82;filter:drop-shadow(0 3px 6px #0005)}
+.sl button:hover svg{opacity:1}
+.zb svg.zs{width:30px;height:34px}
 </style>
 </head>
 <body class="hx-clean">
@@ -1235,7 +1241,7 @@ body:has(#tour:not([hidden])) .dock,body:has(#tour:not([hidden])) .zb{display:no
   <span id="dtour" hidden></span>
 </nav>
 
-<button class="zb" id="zb" aria-label="Chat with Zai"><svg class="zav zs" viewBox="96 70 320 356" aria-hidden="true"><path d="M132 106c82-5 166-3 250-2 2 36 1 72-2 110-48 37-96 71-142 108 48 1 96-1 144 1 2 24 1 46-1 70-84 2-168 3-252-1-2-24-1-46 1-70 48-36 96-70 144-108-48-2-96 1-142-2-3-36-2-70 0-106z" fill="#F5DF3C" stroke="#F5DF3C" stroke-width="30" stroke-linejoin="round"/><ellipse cx="226" cy="134" rx="9" ry="16" fill="#111111"/><ellipse cx="288" cy="133" rx="9" ry="16" fill="#111111"/><path d="M206 168c10 18 28 26 51 26s42-9 51-27" fill="none" stroke="#111111" stroke-width="10" stroke-linecap="round"/></svg></button>
+<button class="zb" id="zb" aria-label="Chat with Zai"><svg class="zav zs" viewBox="96 70 320 356" aria-hidden="true"><defs><linearGradient id="zg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9531F"/><stop offset=".36" stop-color="#E9531F"/><stop offset=".36" stop-color="#F5DF3C"/><stop offset=".66" stop-color="#F5DF3C"/><stop offset=".66" stop-color="#6FAEE3"/><stop offset="1" stop-color="#6FAEE3"/></linearGradient></defs><path d="M132 106c82-5 166-3 250-2 2 36 1 72-2 110-48 37-96 71-142 108 48 1 96-1 144 1 2 24 1 46-1 70-84 2-168 3-252-1-2-24-1-46 1-70 48-36 96-70 144-108-48-2-96 1-142-2-3-36-2-70 0-106z" fill="#111111" stroke="#111111" stroke-width="44" stroke-linejoin="round"/><path d="M132 106c82-5 166-3 250-2 2 36 1 72-2 110-48 37-96 71-142 108 48 1 96-1 144 1 2 24 1 46-1 70-84 2-168 3-252-1-2-24-1-46 1-70 48-36 96-70 144-108-48-2-96 1-142-2-3-36-2-70 0-106z" fill="url(#zg3)"/></svg></button>
 <section class="zp" id="zp" hidden aria-label="Chat with Zai">
   <div class="zh"><div class="zid"><svg class="zav zs" viewBox="96 70 320 356" aria-hidden="true"><path d="M132 106c82-5 166-3 250-2 2 36 1 72-2 110-48 37-96 71-142 108 48 1 96-1 144 1 2 24 1 46-1 70-84 2-168 3-252-1-2-24-1-46 1-70 48-36 96-70 144-108-48-2-96 1-142-2-3-36-2-70 0-106z" fill="#F5DF3C" stroke="#F5DF3C" stroke-width="30" stroke-linejoin="round"/><ellipse cx="226" cy="134" rx="9" ry="16" fill="#111111"/><ellipse cx="288" cy="133" rx="9" ry="16" fill="#111111"/><path d="M206 168c10 18 28 26 51 26s42-9 51-27" fill="none" stroke="#111111" stroke-width="10" stroke-linecap="round"/></svg><div><b>Zai</b><small>Steady Improvements assistant</small></div></div><button id="zx">Close</button></div>
   <div class="zm" id="zm" aria-live="polite"></div>
