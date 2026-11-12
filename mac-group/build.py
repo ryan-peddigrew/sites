@@ -83,6 +83,16 @@ def contact(title, line, addr, email, opts):
     <button class="btn">Send</button></form>
 </div></section>'''
 
+
+LOGOS = {"mgc": ("logos/mgc-logo.png", 1277, 721, "MAC Group of Companies"), "mgcm": ("logos/mgc-monogram.png", 1189, 721, "MAC Group of Companies"),
+         "mss": ("logos/mss-logo.png", 1472, 306, "MAC Show Systems"), "ttl": ("logos/ttl-logo.png", 2849, 975, "Tour Trucking Logistics")}
+def mlogo(key, w, root, cls=""):
+    """Client's own white logo shown in the text colour (CSS mask), never redrawn."""
+    src, W, H, alt = LOGOS[key]
+    return f'<span class="mlogo {cls}" role="img" aria-label="{alt}" style="width:{w}px;aspect-ratio:{W}/{H};-webkit-mask-image:url({root}img/{src});mask-image:url({root}img/{src})"></span>'
+def psilogo(w, root):
+    return f'<img class="psi-logo" src="{root}img/logos/psi-logo.png" alt="PSI" width="{w}" height="{w}">'
+
 def write(path, html):
     p = os.path.join(HERE, path); os.makedirs(os.path.dirname(p), exist_ok=True)
     open(p, "w").write(html)
@@ -92,7 +102,7 @@ STANDIN = '<span class="standin">Stand-in photo</span>'
 # =====================================================================================
 # MAC GROUP OF COMPANIES (parent)
 # =====================================================================================
-g_mark = '<a class="mark" href="index.html"><b>MAC</b><span>Group of Companies</span></a>'
+g_mark = '<a class="mark" href="index.html">' + mlogo("mgc", 84, "") + '</a>'
 group = head("group", "index.html", "", "MAC Group of Companies", "MAC Group of Companies: MAC Show Systems, PSI and Tour Trucking.") + header(
     g_mark, [("Our companies", "#companies"), ("Work with us", "#careers")], "#whole-event", "") + f'''
 <main>
@@ -114,13 +124,13 @@ group = head("group", "index.html", "", "MAC Group of Companies", "MAC Group of 
 
 <section id="companies" class="cos cos3">
   <a class="co" href="show-systems/index.html"><img src="img/mac-venue-1.webp" alt="">
-    <div class="in"><img class="co-logo" src="img/mac-logo.png" alt="MAC Show Systems" width="240" height="67">
+    <div class="in">{mlogo("mss", 260, "", "co-logo")}
     <p>Sound, lighting, video, LED and staging. Rentals, sales, setup and national tours.</p><span class="go">Visit MAC Show Systems {icon("arrow","sm")}</span></div></a>
   <a class="co" href="psi/index.html"><img src="img/psi-concert.jpg" alt="">
-    <div class="in"><img class="co-logo sq" src="img/psi-webclip.png" alt="PSI" width="72" height="72">
+    <div class="in"><span class="co-logo">{psilogo(84, "")}</span>
     <p>Production Service Industries. Concerts, festivals, galas, technical staffing and training.</p><span class="go">Visit PSI {icon("arrow","sm")}</span></div></a>
   <a class="co" href="tour-trucking/index.html"><img src="img/truck-mountain.jpg" alt="">{STANDIN}
-    <div class="in"><img class="co-logo" src="img/tt-logo.png" alt="Tour Trucking Logistics" width="170" height="42">
+    <div class="in">{mlogo("ttl", 210, "", "co-logo")}
     <p>Specialized transport for the entertainment industry. Full loads, partial loads and warehousing.</p><span class="go">Visit Tour Trucking {icon("arrow","sm")}</span></div></a>
 </section>
 
@@ -173,7 +183,7 @@ group = head("group", "index.html", "", "MAC Group of Companies", "MAC Group of 
   <ol><li>Your real inventory list, in any format (spreadsheet or rental software export).</li><li>Photos of your own gear, crews, trucks and warehouse.</li><li>Logos as vector files (MAC Show Systems, PSI). Tour Trucking: a larger logo file.</li><li>A yes on the brand direction for MAC Group.</li><li>Where quote requests should go for each company.</li></ol></div>
 </div></section>
 </main>
-''' + contact("Talk to MAC Group.", "For partnerships, large accounts and anything that spans more than one company.", "125 Bermondsey Rd, North York, ON", "info@macshowsystems.com <span class=\"todo\">confirm group email</span>", ["Gear for an event", "Crew", "Trucking", "Partnership", "Careers"]) + foot("", '<div><b class="wm" style="font-size:22px">MAC</b> Group of Companies<br><span class="mute">© 2026</span></div><div><a href="show-systems/index.html">MAC Show Systems</a><br><a href="psi/index.html">PSI</a><br><a href="tour-trucking/index.html">Tour Trucking</a></div>') + '''<script>document.querySelectorAll("[data-form]").forEach(f=>f.addEventListener("submit",e=>{e.preventDefault();f.innerHTML='<h3>Got it.</h3><p>The right team will get back to you.</p><p class="mute">Preview only: nothing is sent yet.</p>'}));</script>
+''' + contact("Talk to MAC Group.", "For partnerships, large accounts and anything that spans more than one company.", "125 Bermondsey Rd, North York, ON", "info@macshowsystems.com <span class=\"todo\">confirm group email</span>", ["Gear for an event", "Crew", "Trucking", "Partnership", "Careers"]) + foot("", '<div>' + mlogo("mgc", 110, "") + '<br><span class="mute">© 2026 MAC Group of Companies</span></div><div><a href="show-systems/index.html">MAC Show Systems</a><br><a href="psi/index.html">PSI</a><br><a href="tour-trucking/index.html">Tour Trucking</a></div>') + '''<script>document.querySelectorAll("[data-form]").forEach(f=>f.addEventListener("submit",e=>{e.preventDefault();f.innerHTML='<h3>Got it.</h3><p>The right team will get back to you.</p><p class="mute">Preview only: nothing is sent yet.</p>'}));</script>
 </body></html>'''
 write("index.html", group)
 
@@ -181,7 +191,7 @@ write("index.html", group)
 # MAC SHOW SYSTEMS
 # =====================================================================================
 R = "../"
-m_mark = f'<a class="mark" href="index.html"><img class="logo-img" src="{R}img/mac-logo.png" alt="MAC Show Systems" width="190" height="53"></a>'
+m_mark = '<a class="mark" href="index.html">' + mlogo("mss", 210, R) + '</a>'
 svc = [("audio", "Audio", "The best sound equipment available, tuned for your room."),
        ("video", "Video", "Video and projection to put your message in front of every seat."),
        ("wall", "Video walls", "LED walls for key content and sponsor moments."),
@@ -259,7 +269,7 @@ mac = head("mac", "show-systems/index.html", R, "MAC Show Systems", "Sound, ligh
     <button class="btn">Request purchase options</button></form>
 </div></section>
 </main>
-''' + contact("Let's make your event.", "Questions about gear, a venue install or a tour? Send us a note.", "125 Bermondsey Rd, North York, ON M4A 1X3", "info@macshowsystems.com", ["Rental", "Equipment purchase", "Venue installation", "National tour", "Show management"]) + foot(R, '<div><img src="../img/mac-logo.png" alt="MAC Show Systems" width="170" height="47"><br><span class="mute">© 2026 MAC Show Systems Inc.</span></div>') + f'''<script src="{R}tools.js"></script>
+''' + contact("Let's make your event.", "Questions about gear, a venue install or a tour? Send us a note.", "125 Bermondsey Rd, North York, ON M4A 1X3", "info@macshowsystems.com", ["Rental", "Equipment purchase", "Venue installation", "National tour", "Show management"]) + foot(R, '<div>' + mlogo("mss", 200, R) + '<br><span class="mute">© 2026 MAC Show Systems Inc.</span></div>') + f'''<script src="{R}tools.js"></script>
 <script>
 const T = window.MACTOOLS;
 T.quote(document.getElementById("quote-tool"), {{ prefix: "mac" }});
@@ -274,7 +284,7 @@ write("show-systems/index.html", mac)
 # =====================================================================================
 # PSI
 # =====================================================================================
-p_mark = f'<a class="mark" href="index.html"><img src="{R}img/psi-webclip.png" alt="PSI" width="48" height="48" class="psi-logo"><span>Production Service Industries</span></a>'
+p_mark = '<a class="mark" href="index.html">' + psilogo(52, R) + '<span>Production Service Industries</span></a>'
 psi = head("psi", "psi/index.html", R, "PSI · Production Service Industries", "Concerts, festivals, galas, technical staffing and training in Ontario.") + header(
     p_mark, [("Services", "#services"), ("Projects", "#projects"), ("Book a crew", "#crew"), ("Training", "#training")], "#packages", R) + f'''
 <main>
@@ -329,7 +339,7 @@ psi = head("psi", "psi/index.html", R, "PSI · Production Service Industries", "
   <div class="rows" id="train-tool" style="margin-top:12px"></div></div>
 </section>
 </main>
-''' + contact("Interested in hiring PSI?", "Tell us about your event or venue and we'll be in touch.", "255 Bunting Rd, St. Catharines, ON", "info@psi.show", ["Concert or festival", "Gala or special event", "Technical staffing", "Venue installation", "Training"]) + foot(R, f'<div><img src="{R}img/psi-webclip.png" alt="PSI" width="44" height="44" class="psi-logo"><br><span class="mute">© 2026 PSI</span></div><div><a href="https://www.instagram.com/psi.show/">Instagram</a><br><a href="https://www.facebook.com/PSIAV">Facebook</a></div>') + f'''<script src="{R}tools.js"></script>
+''' + contact("Interested in hiring PSI?", "Tell us about your event or venue and we'll be in touch.", "255 Bunting Rd, St. Catharines, ON", "info@psi.show", ["Concert or festival", "Gala or special event", "Technical staffing", "Venue installation", "Training"]) + foot(R, f'<div>{psilogo(64, R)}<br><span class="mute">© 2026 PSI</span></div><div><a href="https://www.instagram.com/psi.show/">Instagram</a><br><a href="https://www.facebook.com/PSIAV">Facebook</a></div>') + f'''<script src="{R}tools.js"></script>
 <script>
 const T = window.MACTOOLS;
 T.crew(document.getElementById("crew-tool")); T.packages(document.getElementById("pk-tool")); T.training(document.getElementById("train-tool"));
@@ -341,7 +351,7 @@ write("psi/index.html", psi)
 # =====================================================================================
 # TOUR TRUCKING
 # =====================================================================================
-t_mark = '<a class="mark" href="index.html"><img src="../img/tt-logo.png" alt="Tour Trucking Logistics" width="150" height="37"></a>'
+t_mark = '<a class="mark" href="index.html">' + mlogo("ttl", 150, R) + '</a>'
 tt = head("tt", "tour-trucking/index.html", R, "Tour Trucking Logistics", "Specialized transport for the entertainment industry.") + header(
     t_mark, [("Services", "#services"), ("Request a route", "#route"), ("Space calculator", "#space"), ("Drive with us", "#drivers")], "#route", R) + f'''
 <main>
@@ -392,7 +402,7 @@ tt = head("tt", "tour-trucking/index.html", R, "Tour Trucking Logistics", "Speci
   <button class="btn">Apply to drive</button></form></div>
 </section>
 </main>
-''' + contact("Talk to dispatch.", "Questions about a load, a tour or storage? Send us a note.", "125 Bermondsey Rd, North York, ON <span class=\"todo\">confirm address</span>", "<span class=\"todo\">Tour Trucking email needed</span>", ["One load", "A tour", "Storage", "Driving with us"]) + foot(R, '<div><img src="../img/tt-logo.png" alt="Tour Trucking Logistics" width="150" height="37"><br><span class="mute">© 2026 Tour Trucking Logistics Inc.</span></div>') + f'''<script src="{R}tools.js"></script>
+''' + contact("Talk to dispatch.", "Questions about a load, a tour or storage? Send us a note.", "125 Bermondsey Rd, North York, ON <span class=\"todo\">confirm address</span>", "<span class=\"todo\">Tour Trucking email needed</span>", ["One load", "A tour", "Storage", "Driving with us"]) + foot(R, '<div>' + mlogo("ttl", 160, R) + '<br><span class="mute">© 2026 Tour Trucking Logistics Inc.</span></div>') + f'''<script src="{R}tools.js"></script>
 <script>
 const T = window.MACTOOLS;
 T.route(document.getElementById("route-tool")); T.space(document.getElementById("space-tool"));
@@ -405,14 +415,15 @@ print("built")
 # =====================================================================================
 # MAC HUB (staff app demo)
 # =====================================================================================
-hub = head("hub", "hub/index.html", R, "MAC Hub", "Staff app for MAC Group of Companies.").replace('<div class="sample">', '<div class="sample" style="background:#7C9CFF;color:#0F1115">') + f'''
+hub = head("hub", "hub/index.html", R, "MAC Hub", "Staff app for MAC Group of Companies.").replace('<link rel="stylesheet"', '<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="../icons/hub-180.png"><meta name="theme-color" content="#0F1115"><link rel="stylesheet"', 1).replace('<div class="sample">', '<div class="sample" style="background:#7C9CFF;color:#0F1115">') + f'''
 <div class="hub" id="hub">
   <aside class="hub-rail">
-    <div class="hub-brand"><b>MAC</b> Hub<span>Staff only</span></div>
+    <div class="hub-brand">{mlogo("mgcm", 110, R)}<b>Hub</b><span>Staff only</span></div>
     <nav class="hub-tabs">
       <button class="on" data-v="today">{icon("calendar","sm")}Today</button>
       <button data-v="inv">{icon("box","sm")}Inventory</button>
       <button data-v="quotes">{icon("tag","sm")}Quotes</button>
+      <a class="hub-tablink" href="quote.html">{icon("show","sm")}Quote Builder</a>
       <button data-v="flags">{icon("hub","sm")}Cross-sell</button>
       <button data-v="clients">{icon("crew","sm")}Clients</button>
     </nav>
@@ -444,11 +455,19 @@ write("hub/index.html", hub)
 # CLIENT APPS
 # =====================================================================================
 apps = head("group", "apps/index.html", R, "Client apps", "One client app per brand, all running on MAC Hub.") + header(
-    '<a class="mark" href="../index.html"><b>MAC</b><span>Group of Companies</span></a>', [("MAC Hub", "../hub/index.html")], "../index.html#whole-event", R).replace('href="#contact"', 'href="../index.html#contact"') + f'''
+    '<a class="mark" href="../index.html">' + mlogo("mgc", 84, R) + '</a>', [("MAC Hub", "../hub/index.html")], "../index.html#whole-event", R).replace('href="#contact"', 'href="../index.html#contact"') + f'''
 <main id="apps" class="pad" style="padding-top:150px"><div class="wrap">
   <span class="owner-note">Owners only. Clickable demos on sample data.</span>
   <span class="eyebrow">Client apps</span><h2 style="max-width:16ch">One app per brand. One system behind them.</h2>
   <p class="lead" style="margin-top:18px">Each app installs to a phone's home screen from the brand's own site. Clients only ever see that one brand. Everything they do lands in MAC Hub.</p>
+  <div class="app-links">
+    <a class="app-link" data-site="mac" href="mss/index.html"><img src="../icons/mss-192.png" alt="" width="72" height="72"><b>MAC Show Systems</b><span>Client dashboard: events, run of show, quotes to approve, live availability, messages, documents</span><em>Open the app</em></a>
+    <a class="app-link" data-site="psi" href="psi/index.html"><img src="../icons/psi-192.png" alt="" width="72" height="72"><b>PSI</b><span>Client dashboard: shows, crew confirmed by role, quotes, training seats, messages</span><em>Open the app</em></a>
+    <a class="app-link" data-site="tt" href="ttl/index.html"><img src="../icons/ttl-192.png" alt="" width="72" height="72"><b>Tour Trucking</b><span>Client dashboard: live loads, multi-city tour, quotes, paperwork, dispatch messages</span><em>Open the app</em></a>
+    <a class="app-link" data-site="hub" href="../hub/quote.html"><img src="../icons/hub-192.png" alt="" width="72" height="72"><b>MAC Hub Quote Builder</b><span>Staff only: live stock, rep-typed rates, conflict flags, branded PDF quote</span><em>Open the app</em></a>
+  </div>
+  <p class="mute" style="margin-top:14px">Each one installs to a phone: open it, then Share and Add to Home Screen.</p>
+  <h3 style="margin:56px 0 18px;font-size:28px">Phone previews</h3>
   <div class="apps">
     <div class="app" data-site="mac" data-app="planner"><div class="app-cap"><b>MAC Show Systems Planner</b><span>For event planners</span></div><div class="scr" data-scr></div></div>
     <div class="app" data-site="psi" data-app="crew"><div class="app-cap"><b>PSI Crew Call</b><span>For PSI's freelance techs</span></div><div class="scr" data-scr></div></div>
@@ -460,3 +479,91 @@ apps = head("group", "apps/index.html", R, "Client apps", "One client app per br
 </body></html>'''
 write("apps/index.html", apps)
 print("built hub + apps")
+
+# =====================================================================================
+# CLIENT DASHBOARD APPS (installable) + STAFF QUOTE BUILDER
+# =====================================================================================
+import json
+def manifest(path, name, short, start, bg, theme, icon):
+    m = {"name": name, "short_name": short, "start_url": start, "scope": "./", "display": "standalone", "background_color": bg, "theme_color": theme,
+         "icons": [{"src": f"../../icons/{icon}-192.png", "sizes": "192x192", "type": "image/png"}, {"src": f"../../icons/{icon}-512.png", "sizes": "512x512", "type": "image/png"}]}
+    write(path, json.dumps(m, indent=2))
+
+CAPPS = [
+    ("mss", "mac", "MAC Show Systems", "MAC Show", "#0A0A0B", "#0A0A0B", lambda r: mlogo("mss", 210, r), "show-systems", "Your events, quotes and live availability in one place."),
+    ("psi", "psi", "PSI", "PSI", "#F4F2EC", "#00693E", lambda r: psilogo(56, r), "psi", "Your shows, crew and quotes in one place."),
+    ("ttl", "tt", "Tour Trucking", "Tour Trucking", "#141516", "#141516", lambda r: mlogo("ttl", 150, r), "tour-trucking", "Every load, every leg, live."),
+]
+RR = "../../"
+for key, site, name, short, bg, theme, logo, sitedir, desc in CAPPS:
+    manifest(f"apps/{key}/manifest.webmanifest", name, short, "./index.html", bg, theme, key)
+    page = head(site, f"apps/{key}/index.html", RR, f"{name} app", desc).replace("<html ", f'<html data-app="{key}" ').replace(
+        '<link rel="stylesheet"', f'<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="{RR}icons/{key}-180.png"><meta name="theme-color" content="{theme}"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="stylesheet"', 1).replace(
+        "</head>", f'<link rel="stylesheet" href="{RR}app.css"></head>').replace("<body>", '<body class="capp-body">') + f'''
+<div class="capp">
+  <aside class="c-side">
+    <a class="c-logo" href="{RR}{sitedir}/index.html">{logo(RR)}</a><span class="c-appname">Client app · sample account</span>
+    <nav class="ctabs" id="ctabs"></nav>
+    <a class="c-out" href="{RR}{sitedir}/index.html">Back to the {name} site</a>
+  </aside>
+  <main class="c-main">
+    <div class="c-bar"><a class="c-logo" href="{RR}{sitedir}/index.html">{logo(RR)}</a><h1 id="ctitle">Home</h1><span class="c-acct">Sample account</span></div>
+    <div id="cmain"></div>
+    <p id="install" hidden><b>Put it on your home screen.</b> iPhone: tap Share, then Add to Home Screen. Android: tap the menu, then Install app.</p>
+  </main>
+</div>
+<div id="toast" role="status"></div>
+<script src="{RR}mac.js"></script><script src="{RR}tools.js"></script><script src="{RR}client-app.js"></script>
+</body></html>'''
+    write(f"apps/{key}/index.html", page)
+
+# Hub manifest + Quote Builder
+write("hub/manifest.webmanifest", json.dumps({"name": "MAC Hub", "short_name": "MAC Hub", "start_url": "./index.html", "scope": "./", "display": "standalone",
+      "background_color": "#0F1115", "theme_color": "#0F1115", "icons": [{"src": "../icons/hub-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "../icons/hub-512.png", "sizes": "512x512", "type": "image/png"}]}, indent=2))
+HUBHEAD = '<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="../icons/hub-180.png"><meta name="theme-color" content="#0F1115"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="stylesheet"'
+qhtml = head("hub", "hub/quote.html", R, "MAC Hub Quote Builder", "Staff quoting app.").replace('<link rel="stylesheet"', HUBHEAD, 1).replace("</head>", f'<link rel="stylesheet" href="{R}app.css"></head>').replace('<div class="sample">', '<div class="sample" style="background:#7C9CFF;color:#0F1115">') + f'''
+<div class="hub" id="quote">
+  <aside class="hub-rail">
+    <div class="hub-brand">{mlogo("mgcm", 110, R)}<b>Hub</b><span>Staff only</span></div>
+    <nav class="hub-tabs">
+      <a class="hub-tablink" href="index.html">{icon("calendar","sm")}Today</a>
+      <a class="hub-tablink on" href="quote.html">{icon("tag","sm")}Quote Builder</a>
+      <a class="hub-tablink" href="index.html#inv">{icon("box","sm")}Inventory</a>
+      <a class="hub-tablink" href="../apps/index.html">{icon("app","sm")}Client apps</a>
+    </nav>
+    <a class="hub-back" href="../index.html">Back to MAC Group</a>
+  </aside>
+  <main class="hub-main">
+    <div class="hub-top"><div><span class="eyebrow">Quote Builder · sample inventory</span><h1 class="hub-h">Quote <span data-qno></span></h1></div>
+      <div class="qb-brands" role="group" aria-label="Selling company"><button data-b="mss">MAC Show Systems</button><button data-b="psi">PSI</button><button data-b="ttl">Tour Trucking</button></div></div>
+    <div class="qb">
+      <div class="qb-pane">
+        <h3>Client and dates</h3>
+        <div class="qb-grid">
+          <label class="field wide"><span>Client</span><input data-f="client"></label>
+          <label class="field"><span>Contact</span><input data-f="contact"></label>
+          <label class="field"><span>Event</span><input data-f="ev"></label>
+          <label class="field wide"><span>Venue</span><input data-f="venue"></label>
+          <label class="field"><span>From</span><input type="date" data-f="a"></label>
+          <label class="field"><span>To</span><input type="date" data-f="z"></label>
+        </div>
+        <h3>Live stock on these dates</h3>
+        <label class="field"><span>Find gear</span><input data-find placeholder="LED, speaker, stage..."></label>
+        <div class="qb-stock" data-stock></div>
+        <div class="qb-chips" data-svc></div>
+      </div>
+      <div>
+        <div class="qb-pane"><h3>Lines · you type every rate</h3><div data-lines></div>
+          <div class="qb-grid" style="margin-top:14px"><label class="field"><span>Tax %</span><input inputmode="decimal" data-f="tax"></label><label class="field"><span>Note to client</span><input data-f="note" placeholder="Optional"></label></div>
+          <h3 style="margin-top:18px">Staff flags · never shown to the client</h3><div data-flags></div></div>
+        <div class="qb-acts"><button class="btn" data-send>Send to client</button><button class="btn ghost" data-print>Save as PDF</button><button class="btn ghost" data-hold>Hold stock 48 hours</button><button class="btn ghost" data-new>New quote</button></div>
+        <div data-doc></div><div data-mail></div>
+      </div>
+    </div>
+  </main>
+</div>
+<div id="toast" role="status"></div>
+<script src="{R}mac.js"></script><script src="{R}tools.js"></script><script src="{R}quote.js"></script>
+</body></html>'''
+write("hub/quote.html", qhtml)
+print("built client apps + quote builder")
