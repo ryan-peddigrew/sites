@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en-CA">
-<head><!-- Steady Builds mock-up, generated from index.html by builds_site.py --><script>(function(){var B="1794491584";try{fetch("ver.txt?"+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():B}).then(function(t){t=(t||"").trim();if(/^\d+$/.test(t)&&+t>+B){var u=new URL(location.href);if(u.searchParams.get("_v")!==t){u.searchParams.set("_v",t);location.replace(u.toString())}}}).catch(function(){})}catch(e){}})()</script>
+<head><!-- Steady Builds mock-up, generated from index.html by builds_site.py --><script>(function(){var B="1794491948";try{fetch("ver.txt?"+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():B}).then(function(t){t=(t||"").trim();if(/^\d+$/.test(t)&&+t>+B){var u=new URL(location.href);if(u.searchParams.get("_v")!==t){u.searchParams.set("_v",t);location.replace(u.toString())}}}).catch(function(){})}catch(e){}})()</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Steady Builds | Interior finishes, done properly.</title><meta property="og:type" content="website"><meta property="og:site_name" content="Steady Builds"><meta property="og:title" content="Steady Builds | Interior finishes, done properly."><meta property="og:description" content="Take the tour of the new Steady Builds site."><meta property="og:image" content="https://ryan-peddigrew.github.io/sites/steady-improvements/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://ryan-peddigrew.github.io/sites/steady-improvements/og.png">
@@ -1102,6 +1102,10 @@ header.top .mbtn.tb[aria-expanded=true] .rul.sq{transform:rotate(90deg)}
 .mnav>a:nth-of-type(2){animation-delay:.05s}.mnav>a:nth-of-type(3){animation-delay:.1s}.mnav>a:nth-of-type(4){animation-delay:.15s}.mnav>a:nth-of-type(5){animation-delay:.2s}.mnav>a:nth-of-type(6){animation-delay:.25s}
 @keyframes mnin{from{translate:-40px 0;opacity:0}to{translate:0 0;opacity:1}}
 @media(prefers-reduced-motion:reduce){.mnav::before,.mnav::after,.mnav>a{animation:none}}
+
+#tsnd{margin:8px 0 0!important;display:inline-block;background:var(--yel);color:var(--ink)!important;font:700 11px/1 var(--lab)!important;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px;border-radius:8px;animation:tsn 1.2s ease-in-out infinite}
+#tsnd[hidden]{display:none}
+@keyframes tsn{50%{opacity:.55}}
 </style>
 </head>
 <body class="hx-clean">
@@ -1343,7 +1347,7 @@ header.top .mbtn.tb[aria-expanded=true] .rul.sq{transform:rotate(90deg)}
   <p id="tp">A short guided tour of the new Steady Builds site. It plays by itself.</p>
   <p class="why" id="ty" hidden></p>
   <p class="rev" id="tr" hidden></p>
-  <div class="ctl"><button class="go" id="tgo">Start the tour</button><button id="tpause" hidden>Pause</button><button id="tnext" hidden>Next</button><span class="sp"></span><button id="tx">Close</button></div>
+  <p id="tsnd" hidden>Tap anywhere for sound</p><div class="ctl"><button class="go" id="tgo">Start the tour</button><button id="tpause" hidden>Pause</button><button id="tnext" hidden>Next</button><span class="sp"></span><button id="tx">Close</button></div>
   <div class="pg"><i id="tpg"></i></div>
 </div>
 
@@ -1425,7 +1429,7 @@ const cueAt=t=>{let k=0;for(let j=0;j<CUES.length;j++)if(t>=CUES[j][0])k=j;retur
 const fstart=at=>{fa.currentTime=at;return fa.play().then(()=>{fmode=true;clearTimeout(tt);if(au){au.pause();au=null}const pg=$('#tpg');pg.style.transition='none'})};
 fa.addEventListener('timeupdate',()=>{if(!fmode)return;const k=cueAt(fa.currentTime),st=CUES[k][1];if(st!==ti)show(st);const a=CUES[k][0],b=k+1<CUES.length?CUES[k+1][0]:fa.duration;$('#tpg').style.width=Math.min(100,100*(fa.currentTime-a)/(b-a))+'%'});
 fa.addEventListener('ended',()=>{if(fmode){fmode=false;end()}});
-$('#tgo').onclick=()=>{paused=false;$('#tpause').textContent='Pause';fmode=false;fa.pause();show(0);if(fok||fa.readyState>1){fstart(0).catch(()=>{const once=()=>{removeEventListener('pointerdown',once,true);if(tour.hidden||paused||fmode||ti<0)return;const c=CUES.find(c=>c[1]===ti);fstart(c?c[0]:0).catch(()=>{})};addEventListener('pointerdown',once,true)})}};
+$('#tgo').onclick=()=>{paused=false;$('#tpause').textContent='Pause';fmode=false;fa.pause();show(0);const arm=()=>{const once=()=>{if(tour.hidden||fmode||ti<0){off();return}if(paused)return;const c=CUES.find(c=>c[1]===ti);fstart(c?c[0]:0).then(off).catch(()=>{})};const off=()=>{['pointerdown','touchend','click','keydown'].forEach(e=>removeEventListener(e,once,true));const h=$('#tsnd');if(h)h.hidden=true};['pointerdown','touchend','click','keydown'].forEach(e=>addEventListener(e,once,true));const h=$('#tsnd');if(h)h.hidden=false};fa.muted=false;fa.volume=1;fstart(0).then(()=>{const h=$('#tsnd');if(h)h.hidden=true}).catch(arm)};
 $('#tnext').onclick=()=>{if(fmode){const k=cueAt(fa.currentTime);if(k+1<CUES.length){fa.currentTime=CUES[k+1][0];show(CUES[k+1][1])}else{fmode=false;fa.pause();end()}}else show(ti+1)};
 $('#tpause').onclick=()=>{if(fmode){paused=!paused;$('#tpause').textContent=paused?'Resume':'Pause';if(paused)fa.pause();else fa.play().catch(()=>{});return}paused=!paused;$('#tpause').textContent=paused?'Resume':'Pause';if(paused){clearTimeout(tt);if(au)au.pause();const pg=$('#tpg');pg.style.transition='none'}else{if(au&&au.readyState>0){au.play().catch(()=>{})}else tick()}};
 const openTour=()=>{document.body.classList.add('touring');$('#tb').hidden=true;tour.hidden=false;$('#tgo').click()};
