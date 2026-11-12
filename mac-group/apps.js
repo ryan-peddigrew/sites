@@ -8,7 +8,7 @@
       tabs: {
         "My events": () => `<div class="a-card hero-card"><span class="a-k">Next event · sample</span><b>${day(21)}</b><p>Ballroom layout · 22 items</p><div class="a-row"><span>Load-in</span><b>7:00 AM</b></div><div class="a-row"><span>Crew lead</span><b>Name from MAC</b></div><div class="a-row"><span>Status</span><b class="ok">Confirmed</b></div></div>
           <button class="a-btn">Rebook last year's event</button><button class="a-btn ghost">Hold dates for 48 hours</button>`,
-        "Availability": () => `<p class="a-k">${day(21)}</p>` + ["led", "speech", "slight", "stage", "proj"].map(k => { const n = T.NEEDS.find(i => i.k === k); return `<div class="a-row col"><b>${n.n}</b>${T.needStatus(k, "M", T.dates("mac"))}</div>`; }).join(""),
+        "Request": () => `<p class="a-k">What does your next event need?</p>` + ["led", "speech", "slight", "stage", "proj"].map(k => { const n = T.NEEDS.find(i => i.k === k); return `<div class="a-row"><span>${n.n}</span><b>Add</b></div>`; }).join("") + `<button class="a-btn">Send my request</button>`,
         "Documents": () => ["Quote #1042", "Floor plan, ballroom", "Certificate of insurance", "Event-day sheet"].map(x => `<div class="a-row"><span>${x}</span><b>Open</b></div>`).join("")
       }
     },

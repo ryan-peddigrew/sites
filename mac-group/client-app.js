@@ -1,5 +1,5 @@
 /* Client dashboard apps, one per brand. SAMPLE DATA ONLY. Each app shows one brand only.
-   Availability only, never prices: quote totals live in the PDF the team sends. */
+   No inventory, availability, gear names or prices: quote totals live in the PDF the team sends. */
 (function () {
   const T = window.MACTOOLS, $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
   const BRAND = document.documentElement.dataset.app; // mss | psi | ttl
@@ -58,7 +58,7 @@
   }[BRAND];
 
   const TABS = {
-    home: ["Home", "home"], events: ["Events", "cal"], quotes: ["Quotes", "quote"], avail: ["Availability", "box"], chat: ["Messages", "chat"], docs: ["Documents", "doc"],
+    home: ["Home", "home"], events: ["Events", "cal"], quotes: ["Quotes", "quote"], avail: ["New request", "box"], chat: ["Messages", "chat"], docs: ["Documents", "doc"],
     crew: ["Crew", "crew"], train: ["Training", "school"], loads: ["Loads", "truck"], tour: ["Tour", "layout"]
   };
   const evById = id => (DATA.events || []).find(e => e.id === id);
@@ -77,7 +77,7 @@
     return `<p class="hello">Good to see you.</p>
       <div class="c-hero img" style="background-image:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.85)),url(${e.img})"><span class="k">Next event · ${e.status}</span><h2>${e.name}</h2><div class="count"><b>${e.d}</b> days to go · ${day(e.d)}</div><button class="cbtn" data-ev="${e.id}">Open event</button></div>
       ${needs(BRAND === "mss" ? [["Approve quote #1042", "quotes"], ["Confirm load-in time for " + day(21, { month: "short", day: "numeric" }), "chat"], ["Send your venue's floor plan", "docs"]] : [["Approve quote #P-208", "quotes"], ["Confirm crew call for " + day(9, { month: "short", day: "numeric" }), "crew"], ["Send your stage plot", "docs"]])}
-      <div class="quick">${(BRAND === "mss" ? [["box", "Check availability", "avail"], ["layout", "Plan a room", "plan"], ["cal", "Rebook last year", "rebook"], ["bell", "Hold dates 48 h", "hold"]] : [["crew", "Book a crew", "crew"], ["box", "Build a package", "pkg"], ["school", "Training seats", "train"], ["cal", "Rebook a show", "rebook"]]).map(q => `<button data-go="${q[2]}">${ic(q[0])}${q[1]}</button>`).join("")}</div>`;
+      <div class="quick">${(BRAND === "mss" ? [["box", "Request a quote", "avail"], ["layout", "Plan a room", "plan"], ["cal", "Rebook last year", "rebook"], ["bell", "Hold dates 48 h", "hold"]] : [["crew", "Book a crew", "crew"], ["box", "Build a package", "pkg"], ["school", "Training seats", "train"], ["cal", "Rebook a show", "rebook"]]).map(q => `<button data-go="${q[2]}">${ic(q[0])}${q[1]}</button>`).join("")}</div>`;
   }
   const needs = list => `<h3 class="sec">Needs you</h3><div class="list">${list.map(([t, g]) => `<button class="li" data-go="${g}"><span class="dot"></span>${t}<em>›</em></button>`).join("")}</div>`;
   const route = pct => `<svg class="route" viewBox="0 0 300 40"><line x1="10" y1="20" x2="290" y2="20"/><line class="done" x1="10" y1="20" x2="${10 + 2.8 * pct}" y2="20"/><rect x="${4 + 2.8 * pct}" y="13" width="14" height="14"/></svg>`;
@@ -99,9 +99,8 @@
     return `<div class="list">${DATA.quotes.map(q => { const s = st[q.id] || q.st; const e = q.ev && evById(q.ev); return `<div class="qcard"><div class="qh"><b>Quote ${q.id}</b><span class="pill ${s === "Approved" ? "ok" : "wait"}">${s}</span></div><p>${e ? e.name + " · " + day(e.d) : q.label}</p><p class="mute">Totals and terms are in the PDF your team sent.</p>${s !== "Approved" ? `<div class="two"><button class="cbtn" data-approve="${q.id}">${ic("check")}Approve</button><button class="cbtn ghost" data-go="chat">Ask for a change</button></div>` : `<button class="cbtn ghost" data-go="docs">View PDF</button>`}</div>`; }).join("")}</div>`;
   }
   function avail() {
-    const d = T.dates("mss");
-    return `<p class="mute">Your dates: ${d.a.toLocaleDateString("en-CA", { month: "short", day: "numeric" })} to ${d.b.toLocaleDateString("en-CA", { month: "short", day: "numeric" })}. Sample availability.</p>
-      <div class="list">${T.NEEDS.map(n => `<div class="li static"><span>${n.n}<br>${T.needStatus(n.k, "M", d)}</span><button class="mini" data-add="${n.k}">Add</button></div>`).join("")}</div>
+    return `<p class="mute">Tell us what your next event needs. Big or small, your team builds the setup and sends your quote.</p>
+      <div class="list">${T.NEEDS.map(n => `<div class="li static"><span>${n.n}<br><small class="mute">${n.cat}</small></span><button class="mini" data-add="${n.k}">Add</button></div>`).join("")}</div>
       <a class="cbtn" href="../../show-systems/quote.html#quote">Open the full request builder</a>`;
   }
   function chat() {

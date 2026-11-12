@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en-CA" data-site="hub" data-page="hub/connections.html" data-root="../">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MAC Hub Connections</title><meta name="description" content="Systems MAC Hub connects to."><meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Manrope:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="../icons/hub-180.png"><meta name="theme-color" content="#0F1115"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="stylesheet" href="../mac.css">
+<link rel="stylesheet" href="../app.css"></head>
+<body>
+<div class="sample" style="background:#7C9CFF;color:#0F1115">Private preview · sample data is marked</div>
+
+<div class="hub" id="conn">
+  <aside class="hub-rail">
+    <div class="hub-brand"><span class="mlogo " role="img" aria-label="MAC Group of Companies" style="width:110px;aspect-ratio:1189/721;-webkit-mask-image:url(../img/logos/mgc-monogram.png);mask-image:url(../img/logos/mgc-monogram.png)"></span><b>Hub</b><span>Staff only</span></div>
+    <nav class="hub-tabs">
+      <a class="hub-tablink" href="index.html"><svg class="icon sm" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Today</a>
+      <a class="hub-tablink" href="quote.html"><svg class="icon sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V3h9l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>Quote Builder</a>
+      <a class="hub-tablink" href="index.html#inv"><svg class="icon sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7 12 3l9 4v10l-9 4-9-4z"/><path d="m3 7 9 4 9-4M12 11v10"/></svg>Inventory</a>
+      <a class="hub-tablink on" href="connections.html"><svg class="icon sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="5" r="2"/><circle cx="20" cy="5" r="2"/><circle cx="12" cy="21" r="2"/><path d="m5.6 6.3 4.2 3.8M18.4 6.3l-4.2 3.8M12 15v4"/></svg>Connections</a>
+    </nav>
+    <a class="hub-back" href="../index.html">Back to MAC Group</a>
+  </aside>
+  <main class="hub-main">
+    <div class="hub-top"><div><span class="eyebrow">Connections · ready to set up once approved</span><h1 class="hub-h">One hub. The systems you already use.</h1></div></div>
+    <p class="mute" style="max-width:62ch">MAC Hub sits on top of what MAC already runs, so nobody changes how they work. Nothing is connected yet: each connection needs sign-off on permissions first, and only reads what it needs.</p>
+    <div class="cxs"><div class="cx"><div class="cx-h"><div><h3>BrightHR or ADP</h3><p class="mute">HR and payroll</p></div><span class="pill wait">Not connected · needs sign-off</span></div><ul><li>Staff list, roles and who works for which company</li><li>Time off and sick days block crew from being booked</li><li>Hours from Crew Call go to payroll</li><li>New hires get MAC Hub access automatically, and leavers lose it</li></ul><button class="btn ghost sm" data-req>Request access</button></div><div class="cx"><div class="cx-h"><div><h3>Current RMS</h3><p class="mute">Rental software in use today</p></div><span class="pill wait">Not connected · needs sign-off</span></div><ul><li>Inventory and bookings stay in Current RMS: no double entry</li><li>MAC Hub reads live stock for staff quotes</li><li>Approved quotes become Current RMS orders</li><li>Client apps show event status, never gear lists</li></ul><button class="btn ghost sm" data-req>Request access</button></div><div class="cx"><div class="cx-h"><div><h3>Email and calendar</h3><p class="mute">Each company's own email</p></div><span class="pill wait">Not connected · needs sign-off</span></div><ul><li>Quotes go out from the selling company's own address</li><li>Load-ins and shows land on the right calendars</li></ul><button class="btn ghost sm" data-req>Request access</button></div><div class="cx"><div class="cx-h"><div><h3>Accounting</h3><p class="mute">Invoices and payments</p></div><span class="pill wait">To confirm which system</span></div><ul><li>Approved quotes become invoices under the right company</li></ul><button class="btn ghost sm" data-req>Request access</button></div></div>
+  </main>
+</div>
+<div id="toast" role="status"></div>
+<script src="../mac.js"></script>
+<script>document.addEventListener("click", e => { const b = e.target.closest("[data-req]"); if (!b) return; b.textContent = "Access request drafted (demo)"; b.disabled = true; });</script>
+</body></html>

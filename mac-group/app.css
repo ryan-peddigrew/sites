@@ -142,3 +142,8 @@ body.capp-body { padding-top: 30px; }
   .qd { position: absolute; left: 0; top: 0; width: 100%; padding: 0; } .qd-ok, .sample, .tour { display: none !important; }
   .qd-top { margin: 0 0 20px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+.cxs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px; }
+.cx { background: var(--bg2); border-radius: var(--radius); padding: 20px; border: 1px solid var(--line); }
+.cx-h { display: flex; justify-content: space-between; gap: 12px; align-items: start; } .cx h3 { font-size: 24px; } .cx p { margin: 4px 0 0; }
+.cx ul { margin: 16px 0; padding-left: 18px; } .cx li { margin: 6px 0; }
+@media (max-width: 900px) { .cxs { grid-template-columns: 1fr; } }

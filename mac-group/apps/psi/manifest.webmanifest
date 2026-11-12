@@ -1,6 +1,6 @@
 {
-  "name": "My PSI",
-  "short_name": "My PSI",
+  "name": "PSI",
+  "short_name": "PSI",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
