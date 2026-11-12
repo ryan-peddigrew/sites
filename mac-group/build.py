@@ -202,7 +202,7 @@ svc = [("audio", "Audio", "The best sound equipment available, tuned for your ro
        ("show", "Show management", "Strategy, content and show execution, start to finish.")]
 svc_html = "".join(f'<div>{icon(i)}<div><h3>{t}</h3><p>{d}</p></div></div>' for i, t, d in svc)
 mac = head("mac", "show-systems/index.html", R, "MAC Show Systems", "Sound, lighting, video, LED and staging rentals in Toronto.") + header(
-    m_mark, [("Rentals", "rentals.html"), ("Case studies", "case-studies.html"), ("Venues", "venues.html"), ("Plan your event", "planning.html")], "quote.html", R) + f'''
+    m_mark, [("What we do", "#services"), ("Case studies", "case-studies.html"), ("Venues", "venues.html"), ("Plan your event", "planning.html")], "quote.html", R) + f'''
 <main>
 <section class="hero" id="hero">
   <div class="slides">
@@ -236,10 +236,10 @@ mac = head("mac", "show-systems/index.html", R, "MAC Show Systems", "Sound, ligh
 </section>
 <section id="availability" class="pad" style="padding-top:0"><div class="wrap split">
   <div><span class="eyebrow"><span class="live-dot"></span>Live availability</span><h2>See what's free on your dates.</h2>
-  <p class="lead" style="margin-top:22px">Pick your dates and you'll see what's available right now. No prices, no waiting for a callback just to find out it's booked.</p>
+  <p class="lead" style="margin-top:22px">Pick your dates and tell us what you need. You'll see right away whether we have it, or something that works just as well. No prices, no waiting for a callback.</p>
   <div class="rows" id="peek"></div>
   <div class="btns" style="margin-top:24px"><a class="btn" href="#quote">Check everything</a></div></div>
-  <div class="photo-tall"><img src="{R}img/mac-solution-audio.webp" alt="Line array speakers on an outdoor stage"></div>
+  <div class="photo-tall"><img src="{R}img/mac-solution-audio.webp" alt="Speakers on an outdoor stage"></div>
 </div></section>
 
 <section id="planner" class="pad" style="padding-top:0"><div class="wrap">
@@ -250,7 +250,7 @@ mac = head("mac", "show-systems/index.html", R, "MAC Show Systems", "Sound, ligh
 
 <section id="quote" class="pad" style="padding-top:0"><div class="wrap">
   <span class="eyebrow">Build your quote</span><h2>Your gear. Your dates.</h2>
-  <div class="tool"><span class="sample-tag">Sample inventory for preview. Real stock connects once MAC shares its inventory list.</span><div id="quote-tool"></div></div>
+  <div class="tool"><span class="sample-tag">Sample availability for preview. Real stock connects once MAC shares its inventory list.</span><div id="quote-tool"></div></div>
 </div></section>
 
 <section class="plan-band"><img src="{R}img/mac-work-1.webp" alt="Outdoor stage build in a park">
@@ -274,7 +274,7 @@ mac = head("mac", "show-systems/index.html", R, "MAC Show Systems", "Sound, ligh
 const T = window.MACTOOLS;
 T.quote(document.getElementById("quote-tool"), {{ prefix: "mac" }});
 T.planner(document.getElementById("planner-tool"), {{ prefix: "mac" }});
-function peek() {{ const d = T.dates("mac"); document.getElementById("peek").innerHTML = ["led","spk","mov","stgo"].map(id => {{ const it = T.INV.find(i => i.id === id); return `<div class="row"><div><div class="nm">${{it.n}}</div><div class="ct">${{d.a.toLocaleDateString("en-CA",{{month:"short",day:"numeric"}})}} to ${{d.b.toLocaleDateString("en-CA",{{month:"short",day:"numeric"}})}}</div></div>${{T.status(T.free(id, d.a, d.b), it.q)}}</div>`; }}).join(""); }}
+function peek() {{ const d = T.dates("mac"); document.getElementById("peek").innerHTML = ["ostage","concert","led","slight"].map(k => {{ const n = T.NEEDS.find(x => x.k === k); return `<div class="row"><div><div class="nm">${{n.n}}</div><div class="ct">${{d.a.toLocaleDateString("en-CA",{{month:"short",day:"numeric"}})}} to ${{d.b.toLocaleDateString("en-CA",{{month:"short",day:"numeric"}})}}</div></div>${{T.needStatus(k, "M", d)}}</div>`; }}).join(""); }}
 peek(); document.addEventListener("macdates", peek);
 document.querySelectorAll("[data-form]").forEach(f => T.sendForm(f, "Our team will get back to you shortly."));
 </script>
@@ -447,7 +447,7 @@ hub = head("hub", "hub/index.html", R, "MAC Hub", "Staff app for MAC Group of Co
     <section data-view="clients" hidden><p class="mute">Past clients with no booking this season. One tap drafts a check-in, sent under the company they know.</p><div class="hub-list" data-clients></div></section>
   </main>
 </div>
-<script src="{R}mac.js"></script><script src="{R}tools.js"></script><script src="{R}hub.js"></script>
+<script src="{R}mac.js"></script><script src="{R}inv-names.js"></script><script src="{R}tools.js"></script><script src="{R}hub.js"></script>
 </body></html>'''
 write("hub/index.html", hub)
 
@@ -565,7 +565,7 @@ qhtml = head("hub", "hub/quote.html", R, "MAC Hub Quotes", "Staff quoting app.")
   </main>
 </div>
 <div id="toast" role="status"></div>
-<script src="{R}mac.js"></script><script src="{R}tools.js"></script><script src="{R}quote.js"></script>
+<script src="{R}mac.js"></script><script src="{R}inv-names.js"></script><script src="{R}tools.js"></script><script src="{R}quote.js"></script>
 </body></html>'''
 write("hub/quote.html", qhtml)
 print("built client apps + quote builder")
@@ -602,7 +602,7 @@ BG = [
 GFONTS = {"group": FONTS["group"], "mac": FONTS["mac"], "psi": FONTS["psi"], "tt": FONTS["tt"]}
 def figs(k, n, w):
     out = ""
-    for o in "ABC":
+    for o in ("AEFG" if k == "mss" else "ABC"):
         cur = " · current" if o == "A" else ""
         out += f'<figure><img src="../icons/options/{k}-{o}.png" alt="{n} option {o}" width="{w}" height="{w}"><figcaption>Option {o}{cur}</figcaption></figure>'
     return out
@@ -656,7 +656,7 @@ print("built brand guides")
 # MAC SHOW SYSTEMS: extra pages (build your quote, rentals, case studies, venues, planning help)
 # =====================================================================================
 R = "../"
-MNAV = [("Rentals", "rentals.html"), ("Case studies", "case-studies.html"), ("Venues", "venues.html"), ("Plan your event", "planning.html")]
+MNAV = [("What we do", "index.html#services"), ("Case studies", "case-studies.html"), ("Venues", "venues.html"), ("Plan your event", "planning.html")]
 def mpage(fname, title, desc, img, alt, eyebrow, h1, lede, body, scripts=""):
     h = head("mac", f"show-systems/{fname}", R, f"{title} · MAC Show Systems", desc) + header(m_mark, MNAV, "quote.html", R) + f'''
 <main>
@@ -669,41 +669,23 @@ def mpage(fname, title, desc, img, alt, eyebrow, h1, lede, body, scripts=""):
 </body></html>'''
     write(f"show-systems/{fname}", h.replace('href="index.html"', 'href="index.html"'))
 
-STARTERS = [("Gala dinner, about 300 guests", "led:1,spk:1,upl:40,mov:12,pod:1,mic:6,tv:2", "mac-venue-1.webp"),
-            ("Conference with keynote", "prj:2,scr:2,pod:1,mic:8,tv:2,mix:1", "mac-solution-video.webp"),
-            ("Outdoor festival stage", "stgo:1,spk:2,sub:8,mon:8,mix:2,ledl:1,mov:24", "mac-hero.webp"),
-            ("Wedding reception", "upl:30,wash:12,spk:1,mic:4,trs:4,tow:4", "mac-venue-2.webp")]
-st = "".join(f'<a class="starter" href="quote.html?q={q}#quote"><img src="{R}img/{im}" alt=""><span>Start with</span><b>{n}</b></a>' for n, q, im in STARTERS)
+STARTERS = [("Outdoor festival", "ostage:L,concert:L,slight:L,led:L", "mac-hero.webp"),
+            ("Conference with keynote", "speech:M,proj:M,conf:M,podium:M,cam:S", "mac-solution-video.webp"),
+            ("Gala dinner", "stage:M,speech:M,led:M,uplight:M,slight:S,podium:M", "mac-venue-1.webp"),
+            ("Wedding reception", "speech:S,uplight:M,truss:S,slight:S", "mac-venue-2.webp")]
+st = "".join(f'<a class="starter" href="quote.html?need={q}#quote"><img src="{R}img/{im}" alt=""><span>Start with</span><b>{n}</b></a>' for n, q, im in STARTERS)
 mpage("quote.html", "Build your quote", "Check live availability and build your quote.", "mac-solution-staging.webp", "Stage with draping and truss", "Build your quote", "Your dates. Your gear. Your quote.",
-  "Three steps: pick your dates, add what you need, and send it. You'll see what's free right now. Your team replies with a full quote.", f'''
+  "Tell us your dates and what you need. You'll see right away whether we have it or something that works. Our team matches the equipment and sends your quote.", f'''
 <section class="pad" style="padding-bottom:0"><div class="wrap"><span class="eyebrow">Step 1 · Start fast</span><h2>Start from an event like yours.</h2>
   <p class="lead" style="margin-top:16px">Pick a starting point and change anything. Or start from scratch below.</p><div class="starters">{st}</div></div></section>
-<section id="quote" class="pad"><div class="wrap"><span class="eyebrow">Step 2 · Dates and gear</span><h2>Check what's free, then add it.</h2>
-  <div class="tool"><span class="sample-tag">Sample inventory for preview</span><div id="quote-tool"></div></div></div></section>
+<section id="quote" class="pad"><div class="wrap"><span class="eyebrow">Step 2 · Dates and needs</span><h2>Tell us what you need.</h2>
+  <div class="tool"><span class="sample-tag">Sample availability for preview</span><div id="quote-tool"></div></div></div></section>
 <section id="planner" class="pad" style="padding-top:0"><div class="wrap"><span class="eyebrow">Step 3 · Optional</span><h2>Lay out the room.</h2>
   <p class="lead" style="margin-top:16px">Drag stages, screens and speakers into your room. The layout goes with your request.</p>
   <div class="tool"><span class="sample-tag">Sample inventory</span><div id="planner-tool"></div></div></div></section>''',
   'T.quote(document.getElementById("quote-tool"), { prefix: "mac" }); T.planner(document.getElementById("planner-tool"), { prefix: "mac" });')
 
-cats = []
-for c in ["Staging", "Audio", "Video walls", "Projectors", "Video", "Lighting", "Podium"]:
-    cats.append(c)
-rent = "".join(f'<section class="pad cat" id="{c.lower().replace(" ", "-")}" style="padding:40px 0"><div class="wrap"><h2 style="font-size:clamp(32px,4vw,52px)">{c}</h2><div class="rows" data-cat="{c}"></div></div></section>' for c in cats)
-chips = "".join(f'<a class="chip" href="#{c.lower().replace(" ", "-")}">{c}</a>' for c in cats)
-mpage("rentals.html", "Rentals", "Rental catalogue with live availability.", "mac-solution-audio.webp", "Line array speakers on an outdoor stage", "Rentals · live availability", "Everything we rent. What's free on your dates.",
-  "Browse the full catalogue. Pick your dates once and every item shows what's available. Add anything to your quote in one tap.", f'''
-<section class="pad" style="padding-bottom:0"><div class="wrap"><div class="dates" id="rdates"></div><div class="chips" style="margin-top:18px">{chips}</div><p class="mute">Sample inventory for preview. Real stock connects once MAC shares its inventory list.</p></div></section>
-{rent}
-<section class="pad" style="padding-top:20px"><div class="wrap"><a class="btn" href="quote.html#quote">Review my quote</a></div></section>''',
-  '''
-const iso = d => d.toISOString().slice(0,10);
-function draw() { const d = T.dates("mac");
-  document.getElementById("rdates").innerHTML = `<label>From<input type="date" id="ra" value="${iso(d.a)}"></label><label>To<input type="date" id="rb" value="${iso(d.b)}"></label>`;
-  document.querySelectorAll("[data-cat]").forEach(r => r.innerHTML = T.INV.filter(i => i.cat === r.dataset.cat).map(i => { const f = T.free(i.id, d.a, d.b); return `<div class="row"><div><div class="nm">${i.n}</div>${T.status(f, i.q)}</div><a class="btn sm ${f ? "" : "ghost"}" href="quote.html?q=${i.id}:1#quote">${f ? "Add to quote" : "Join waitlist"}</a></div>`; }).join("")); }
-draw();
-document.addEventListener("change", e => { if (e.target.id === "ra" || e.target.id === "rb") { const a = document.getElementById("ra").value, b = document.getElementById("rb").value || a; try { localStorage.setItem("mac_dates", JSON.stringify({ a, b: b < a ? a : b })); } catch (x) {} draw(); } });''')
-
-CASES = [("mac-hero.webp", "Outdoor festival stage", "Festival", ["Outdoor stage with roof", "Line array and subwoofers", "LED wall", "Moving head lighting"]),
+CASES = [("mac-hero.webp", "Outdoor festival stage", "Festival", ["Outdoor stage", "Concert sound", "LED wall", "Stage lighting"]),
          ("mac-venue-1.webp", "Gala dinner", "Gala", ["Stage and podium", "LED wall", "Uplighting and floral lighting", "Wireless microphones"]),
          ("mac-venue-3.webp", "Gala in a heritage building", "Gala", ["Architectural uplighting", "Projection", "Audio for speeches"]),
          ("mac-solution-backline.webp", "Theatre production", "Theatre", ["Stage lighting", "Sound reinforcement", "Show operation"]),
@@ -711,7 +693,7 @@ CASES = [("mac-hero.webp", "Outdoor festival stage", "Festival", ["Outdoor stage
          ("mac-solution-video.webp", "Video in a historic venue", "Video", ["Screens over the stage", "Projection", "Camera and switching"])]
 cs = "".join(f'''<article class="case"><img src="{R}img/{im}" alt="{t}"><div class="case-b"><span class="eyebrow">{k}</span><h3>{t}</h3>
   <dl><dt>The brief</dt><dd><span class="todo">Client, venue and brief from MAC</span></dd><dt>What we brought</dt><dd>{", ".join(g)}</dd><dt>How it went</dt><dd><span class="todo">Result and quote from the client, with their OK</span></dd></dl>
-  <a class="btn sm" href="quote.html?q={",".join(["led:1","spk:1","mov:12"])}#quote">Plan something like this</a></div></article>''' for im, t, k, g in CASES)
+  <a class="btn sm" href="quote.html?need=led:M,speech:M,slight:M#quote">Plan something like this</a></div></article>''' for im, t, k, g in CASES)
 mpage("case-studies.html", "Case studies", "Events MAC Show Systems has produced.", "mac-work-2.webp", "Concert crowd under stage lights", "Case studies", "Shows we've made.",
   "Real MAC Show Systems events. Each one shows the brief, the gear and how it went, so planners can picture their own.", f'''
 <section class="pad"><div class="wrap"><p class="owner-note">Owners only: photos are MAC's own. Project names, briefs and results are placeholders until MAC confirms each one and the client agrees to be named.</p><div class="cases">{cs}</div></div></section>''')

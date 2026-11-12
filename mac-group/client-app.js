@@ -90,7 +90,7 @@
     return `<button class="back" data-go="events">${ic("back")}Events</button>
       <div class="c-hero img" style="background-image:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.85)),url(${e.img})"><span class="k">${past ? "Past event" : day(e.d)} · ${e.status}</span><h2>${e.name}</h2><p>${e.venue}</p></div>
       ${e.run.length ? `<h3 class="sec">Run of show</h3><div class="timeline">${RUN(e.run)}</div>` : ""}
-      <h3 class="sec">Gear on this event</h3><div class="list">${e.gear.map(([g, n]) => { const it = inv(g); return `<div class="li static"><span>${it.n}</span><b>× ${n}</b></div>`; }).join("")}</div>
+      <h3 class="sec">On this event</h3><div class="list">${[...new Set(e.gear.map(([g]) => inv(g).cat))].map(cat => `<div class="li static"><span>${cat}</span><b class="mute">Included</b></div>`).join("")}</div><p class="mute">Your full equipment list is in your quote PDF.</p>
       ${BRAND === "mss" && !past ? `<div class="two"><a class="cbtn" href="../../show-systems/index.html#planner">${ic("layout")}Open floor plan</a><button class="cbtn ghost" data-go="chat">Message your rep</button></div>` : ""}
       ${past ? `<button class="cbtn" data-go="rebook">Book this again for next year</button>` : ""}`;
   }
@@ -100,9 +100,9 @@
   }
   function avail() {
     const d = T.dates("mss");
-    return `<p class="mute">Live for ${day(0, { month: "short", day: "numeric" }) === "" ? "" : d.a.toLocaleDateString("en-CA", { month: "short", day: "numeric" })} to ${d.b.toLocaleDateString("en-CA", { month: "short", day: "numeric" })}. Sample inventory.</p>
-      <div class="list">${T.INV.slice(0, 14).map(it => `<div class="li static"><span>${it.n}<br>${T.status(T.free(it.id, d.a, d.b), it.q)}</span><button class="mini" data-add="${it.id}">Add</button></div>`).join("")}</div>
-      <a class="cbtn" href="../../show-systems/index.html#quote">Open the full quote builder</a>`;
+    return `<p class="mute">Your dates: ${d.a.toLocaleDateString("en-CA", { month: "short", day: "numeric" })} to ${d.b.toLocaleDateString("en-CA", { month: "short", day: "numeric" })}. Sample availability.</p>
+      <div class="list">${T.NEEDS.map(n => `<div class="li static"><span>${n.n}<br>${T.needStatus(n.k, "M", d)}</span><button class="mini" data-add="${n.k}">Add</button></div>`).join("")}</div>
+      <a class="cbtn" href="../../show-systems/quote.html#quote">Open the full request builder</a>`;
   }
   function chat() {
     const msgs = store.get("chat", [["them", "Hi! I'm here for anything you need on your events. (Sample conversation)"], ["me", "Can we move load-in to 8 AM?"], ["them", "Yes, 8 AM works. I've updated your event-day sheet."]]);
@@ -137,7 +137,7 @@
     const b = e.target.closest("[data-go],[data-ev],[data-approve],[data-add]"); if (!b) return;
     if (b.dataset.ev) return render("event", b.dataset.ev);
     if (b.dataset.approve) { const st = store.get("qst", {}); st[b.dataset.approve] = "Approved"; store.set("qst", st); toast("Quote approved. Your team has been told."); return render("quotes"); }
-    if (b.dataset.add) { b.textContent = "Added"; b.disabled = true; return toast("Added to your next quote request."); }
+    if (b.dataset.add) { b.textContent = "Added"; b.disabled = true; return toast("Added to your next request."); }
     const g = b.dataset.go;
     if (EXT[g]) { location.href = EXT[g]; return; }
     if (g === "rebook") { toast("Request sent: same setup as last year. Your team will confirm."); return; }
