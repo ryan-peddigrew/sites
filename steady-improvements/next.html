@@ -1004,6 +1004,14 @@ body:has(#tour:not([hidden])) .dock,body:has(#tour:not([hidden])) .zb{display:no
 .sl svg{opacity:.82;filter:drop-shadow(0 3px 6px #0005)}
 .sl button:hover svg{opacity:1}
 .zb svg.zs{width:30px;height:34px}
+
+:root{--stone:#111111}
+#about .eyebrow,#trade .eyebrow,#reviews .eyebrow,#process .eyebrow,#balcony .eyebrow,#work .eyebrow,#commercial .eyebrow{color:var(--ink)}
+#about h2,#trade h2,#reviews h2{color:var(--ink)}
+footer a,footer p,footer li,footer span{color:var(--ink)}
+/* plaid only on the loading screen and the footer */
+#quote,#balcony,#services,#about,#trade,#reviews,#process,#work,#commercial,section.on-ink,section.intro{background-image:none!important}
+#quote::before,#quote::after,#about::before,#about::after,#trade::before,#trade::after,#reviews::before,#reviews::after,#process::before,#process::after,#work::before,#work::after,#balcony::before,#balcony::after{background-image:none!important}
 </style>
 </head>
 <body class="hx-clean">
