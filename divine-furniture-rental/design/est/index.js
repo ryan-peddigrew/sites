@@ -1,0 +1,1 @@
+var ESTIX={"AB":[528,145,"Canada"],"AK":[76,27,"USA"],"AL":[422,291,"USA"],"AR":[266,163,"USA"],"AZ":[2099,336,"USA"],"BC":[244,124,"Canada"],"BLANK":[8,8,"USA"],"CA":[5178,341,"USA"],"MB":[31,28,"Canada"],"NB":[29,29,"Canada"],"NL":[18,18,"Canada"],"NS":[50,35,"Canada"],"ON":[682,226,"Canada"],"PE":[14,14,"Canada"],"QC":[137,29,"Canada"],"SK":[37,36,"Canada"]};

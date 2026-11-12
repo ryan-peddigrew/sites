@@ -1,5 +1,5 @@
-const C='divine-design-v123';
-self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(['./','ven.js','icon-192.png','../img/logo-gold.png'].map(u=>new Request(u,{cache:'reload'})))))});
+const C='divine-design-v124';
+self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(['./','ven.js','est/index.js','icon-192.png','../img/logo-gold.png'].map(u=>new Request(u,{cache:'reload'})))))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;
   const same=new URL(e.request.url).origin===location.origin;
