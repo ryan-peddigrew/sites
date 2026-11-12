@@ -695,6 +695,50 @@ header.top,header.top.solid{background:var(--bplaid)}
 .ldsm{position:absolute;z-index:2;bottom:7%;left:0;width:clamp(64px,13vw,104px);height:auto;aspect-ratio:1;filter:drop-shadow(0 5px 0 #0005);animation:ld10r 2s linear both}
 @keyframes ld10r{from{translate:-20vw 0;rotate:-200deg}to{translate:104vw 0;rotate:700deg}}
 @media(prefers-reduced-motion:reduce){.ld10 i{animation:none}.ld10 i:first-child{opacity:1}.ldsm,.hx-fr .seq-l img{animation:none}#ld .ldm{animation:none}}
+
+/* ===== pass 11 ===== */
+.hx-sm,.lb-sm,.ldsm,.nav .btn svg{display:none}
+header.top,header.top.solid{background:var(--bb)}
+#ld .ldc{background:var(--bb)}
+.hx .seq-bar{display:none}
+.sp{position:fixed;left:0;right:0;top:92px;height:5px;z-index:49;background:#1111112e;pointer-events:none}
+.sp i{position:absolute;inset:0;background:var(--yel);transform-origin:0 50%;transform:scaleX(0)}
+.sp svg{position:absolute;top:50%;left:0;width:38px;height:38px;margin:-19px 0 0 0;filter:drop-shadow(0 3px 0 #0004);will-change:transform}
+@media(max-width:640px){.sp{top:80px}.sp svg{width:32px;height:32px;margin-top:-16px}}
+/* lookbook: plaid behind the heading, photos run off the page */
+.lb-t{position:relative;isolation:isolate;padding-top:clamp(64px,9vw,120px);padding-bottom:clamp(44px,6vw,84px);margin-bottom:clamp(44px,6vw,90px)}
+.lb-t::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:-50vw;right:-50vw;background:var(--plaid);border-bottom:5px solid var(--ink)}
+.lb-sp{width:100%;column-gap:clamp(10px,2vw,30px)}
+.lb-a figcaption{padding:0 20px}.lb-b figcaption{padding:0 4px}
+.lb-a .lb-i{aspect-ratio:5/4;max-height:none}
+.lb-n{right:3vw}.lb-sp.r .lb-n{left:3vw}
+.lb-sp figcaption b{background:none;color:var(--ink);padding:0 0 5px;border-bottom:3px solid var(--org)}
+@media(max-width:640px){.lb-a,.lb-sp.r .lb-a{grid-column:1/-1}.lb-a .lb-i{aspect-ratio:1/1}.lb-b{grid-column:3/7;margin-top:18px}.lb-sp.r .lb-b{grid-column:1/5;margin-top:18px}.lb-b figcaption{padding:0 16px}}
+/* faint texture through the rest of the site */
+.lb,.intro{background-image:repeating-linear-gradient(0deg,#B98A5024 0 2px,#0000 2px 26px),repeating-linear-gradient(90deg,#B98A5024 0 2px,#0000 2px 26px)}
+.on-ink,.cine,.dock{background-image:repeating-linear-gradient(90deg,#ffffff09 0 2px,#0000 2px 6px)}
+
+/* ===== pass 12: loading screen ===== */
+.ld10{display:none}
+#ld{transition:opacity .3s linear .75s}#ld.out{opacity:0}
+#ld .ldc{background:var(--paper);background-image:none;transform:none!important;transition:none}
+#ld .ldm{position:absolute;left:0;right:0;top:clamp(34px,9vh,90px);display:flex;justify-content:center;background:none;box-shadow:none;border-radius:0;padding:0;animation:ld12f .9s ease .1s both;transition:opacity .3s}
+.logo.ldl{width:clamp(118px,15vw,170px)}
+.ldw{position:absolute;left:50%;top:50%;width:clamp(150px,22vw,300px);height:min(52vh,460px);translate:-50% -46%;overflow:hidden;background:var(--ink);clip-path:inset(100% 0 0 0);animation:ld12w 1s cubic-bezier(.7,0,.2,1) .25s forwards;transition:width .8s cubic-bezier(.7,0,.2,1),height .8s cubic-bezier(.7,0,.2,1),translate .8s cubic-bezier(.7,0,.2,1)}
+.ldw i{position:absolute;inset:0;background:center/cover no-repeat;scale:1.12;animation:ld12z 2.6s ease-out forwards}
+.ldw i:nth-child(1){z-index:3;animation:ld12z 2.6s ease-out forwards,ld12a 2.1s linear forwards}
+.ldw i:nth-child(2){z-index:2;animation:ld12z 2.6s ease-out forwards,ld12b 2.1s linear forwards}
+@keyframes ld12w{to{clip-path:inset(0)}}@keyframes ld12z{to{scale:1}}
+@keyframes ld12a{0%,38%{opacity:1}44%,84%{opacity:0}90%,100%{opacity:1}}
+@keyframes ld12b{0%,62%{opacity:1}68%,100%{opacity:0}}
+@keyframes ld12f{from{opacity:0;transform:translateY(10px)}}
+#ld.out .ldw{width:100vw;height:100vh;translate:-50% -50%}
+#ld.out .ldm,#ld.out .ldt{opacity:0}
+.ldt{position:absolute;bottom:clamp(22px,5vh,44px);margin:0;font:500 11px/1 var(--lab);letter-spacing:.34em;text-transform:uppercase;color:var(--ink);animation:ld12f .9s ease .3s both;transition:opacity .3s}
+.ldt.l{left:clamp(18px,4vw,48px)}.ldt.r{right:clamp(18px,4vw,48px)}
+.ldt b{font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:.2em}
+@media(max-width:640px){.ldw{width:46vw;height:44vh}.ldt{font-size:10px;letter-spacing:.26em}}
+@media(prefers-reduced-motion:reduce){.ldw,.ldw i,#ld .ldm,.ldt{animation:none!important}.ldw{clip-path:none}.ldw i{scale:1}}
 </style>
 </head>
 <body class="hx-clean">
@@ -704,9 +748,10 @@ header.top,header.top.solid{background:var(--bplaid)}
 <!-- loading screen: the name is set letter by letter, a line is ruled under it, then two doors slide open -->
 <div id="ld" aria-hidden="true">
   <div class="door l"><b>Steady</b></div><div class="door r"><b>Steady</b></div>
-  <div class="ldc"><div class="ldf"><i class="pan"></i><i class="b t"></i><i class="b bt"></i><i class="b l"></i><i class="b r"></i><i class="n n1"></i><i class="n n2"></i><i class="n n3"></i><i class="n n4"></i><svg class="hm" viewBox="0 0 120 200" aria-hidden="true"><rect x="52" y="40" width="16" height="156" rx="7" fill="#C9A06B" stroke="#7a552a" stroke-width="3"/><path d="M14 14h74c14 0 22 8 22 18v10H88v8H40v-8H14z" fill="#FFF8E7" stroke="#111111" stroke-width="4" stroke-linejoin="round"/></svg></div><div class="ldm"><div class="brand"><svg class="logo ldl" viewBox="-4 -184 646 242" role="img" aria-label="Steady Improvements"><path d="M211.3 -68A112 112 0 0 1 435.3 -68Z" fill="#111111"/><clipPath id="ldclip"><rect x="211.3" y="-180" width="224" height="104.2"/></clipPath><g clip-path="url(#ldclip)"><path class="spin" d="M244.3 -75.8L227.2 -81.9L249.1 -102.9L235 -114.4L262.8 -126.6L253.5 -142.3L283.8 -144.2L280.5 -162.1L309.6 -153.6L312.6 -171.6L337 -153.6L345.9 -169.5L362.8 -144.2L376.6 -156.1L383.8 -126.6L400.8 -133L397.5 -102.9L415.7 -103L402.3 -75.8L419.4 -69.8L397.5 -48.8L411.6 -37.3L383.8 -25.1L393.1 -9.4L362.8 -7.4L366.1 10.4L337 1.9L334 19.9L309.6 1.9L300.7 17.8L283.8 -7.4L270 4.4L262.8 -25.1L245.8 -18.7L249.1 -48.8L230.9 -48.6L244.3 -75.8Z" fill="#F5DF3C"/></g><path d="M227 -75.8L227.2 -81.9L244.3 -75.8Z" fill="#F5DF3C"/><path d="M282.8 -75.8A40.5 40.5 0 0 1 363.8 -75.8Z" fill="#E9531F"/><use href="#ws" fill="#111111"/><use href="#wi" y="44" fill="#111111"/></svg></div></div><div class="ld10"><i style="background-image:url(img/ig/c-aera.jpg);animation-delay:0.0s"></i><i style="background-image:url(img/ig/fifa-2.jpg);animation-delay:0.3s"></i><i style="background-image:url(img/ig/c-td.jpg);animation-delay:0.6s"></i><i style="background-image:url(img/ig/c-armani.jpg);animation-delay:0.9s"></i><i style="background-image:url(img/ig/c-winners.jpg);animation-delay:1.2s"></i><i style="background-image:url(img/ig/fifa-4.jpg);animation-delay:1.5s"></i></div><svg class="ldsm" viewBox="0 0 100 100" aria-hidden="true"><use href="#smi"/></svg><div class="ld8"><i class="kerf"></i><svg class="saw" viewBox="208.3 -190.84 230 230" aria-hidden="true"><g class="sawr"><path d="M244.3 -75.8L227.2 -81.9L249.1 -102.9L235 -114.4L262.8 -126.6L253.5 -142.3L283.8 -144.2L280.5 -162.1L309.6 -153.6L312.6 -171.6L337 -153.6L345.9 -169.5L362.8 -144.2L376.6 -156.1L383.8 -126.6L400.8 -133L397.5 -102.9L415.7 -103L402.3 -75.8L419.4 -69.8L397.5 -48.8L411.6 -37.3L383.8 -25.1L393.1 -9.4L362.8 -7.4L366.1 10.4L337 1.9L334 19.9L309.6 1.9L300.7 17.8L283.8 -7.4L270 4.4L262.8 -25.1L245.8 -18.7L249.1 -48.8L230.9 -48.6L244.3 -75.8Z" fill="#F5DF3C"/><svg x="265.3" y="-133.84" width="116" height="116" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#111111"/><use href="#smi"/></svg></g></svg><p class="ldk a">Steady Improvements</p><p class="ldk b">Carpentry you can count on</p></div></div>
+  <div class="ldc"><div class="ldf"><i class="pan"></i><i class="b t"></i><i class="b bt"></i><i class="b l"></i><i class="b r"></i><i class="n n1"></i><i class="n n2"></i><i class="n n3"></i><i class="n n4"></i><svg class="hm" viewBox="0 0 120 200" aria-hidden="true"><rect x="52" y="40" width="16" height="156" rx="7" fill="#C9A06B" stroke="#7a552a" stroke-width="3"/><path d="M14 14h74c14 0 22 8 22 18v10H88v8H40v-8H14z" fill="#FFF8E7" stroke="#111111" stroke-width="4" stroke-linejoin="round"/></svg></div><div class="ldm"><div class="brand"><svg class="logo ldl" viewBox="-4 -184 646 242" role="img" aria-label="Steady Improvements"><path d="M211.3 -68A112 112 0 0 1 435.3 -68Z" fill="#111111"/><clipPath id="ldclip"><rect x="211.3" y="-180" width="224" height="104.2"/></clipPath><g clip-path="url(#ldclip)"><path class="spin" d="M244.3 -75.8L227.2 -81.9L249.1 -102.9L235 -114.4L262.8 -126.6L253.5 -142.3L283.8 -144.2L280.5 -162.1L309.6 -153.6L312.6 -171.6L337 -153.6L345.9 -169.5L362.8 -144.2L376.6 -156.1L383.8 -126.6L400.8 -133L397.5 -102.9L415.7 -103L402.3 -75.8L419.4 -69.8L397.5 -48.8L411.6 -37.3L383.8 -25.1L393.1 -9.4L362.8 -7.4L366.1 10.4L337 1.9L334 19.9L309.6 1.9L300.7 17.8L283.8 -7.4L270 4.4L262.8 -25.1L245.8 -18.7L249.1 -48.8L230.9 -48.6L244.3 -75.8Z" fill="#F5DF3C"/></g><path d="M227 -75.8L227.2 -81.9L244.3 -75.8Z" fill="#F5DF3C"/><path d="M282.8 -75.8A40.5 40.5 0 0 1 363.8 -75.8Z" fill="#E9531F"/><use href="#ws" fill="#111111"/><use href="#wi" y="44" fill="#111111"/></svg></div></div><div class="ldw"><i style="background-image:url(img/ig/c-aera.jpg)"></i><i style="background-image:url(img/ig/c-armani.jpg)"></i><i style="background-image:url(img/ig/c-td.jpg)"></i></div><p class="ldt l"><b id="ldn">000</b></p><p class="ldt r">Carpentry &nbsp;/&nbsp; Millwork &nbsp;/&nbsp; Builds</p><div class="ld10"><i style="background-image:url(img/ig/c-aera.jpg);animation-delay:0.0s"></i><i style="background-image:url(img/ig/fifa-2.jpg);animation-delay:0.3s"></i><i style="background-image:url(img/ig/c-td.jpg);animation-delay:0.6s"></i><i style="background-image:url(img/ig/c-armani.jpg);animation-delay:0.9s"></i><i style="background-image:url(img/ig/c-winners.jpg);animation-delay:1.2s"></i><i style="background-image:url(img/ig/fifa-4.jpg);animation-delay:1.5s"></i></div><svg class="ldsm" viewBox="0 0 100 100" aria-hidden="true"><use href="#smi"/></svg><div class="ld8"><i class="kerf"></i><svg class="saw" viewBox="208.3 -190.84 230 230" aria-hidden="true"><g class="sawr"><path d="M244.3 -75.8L227.2 -81.9L249.1 -102.9L235 -114.4L262.8 -126.6L253.5 -142.3L283.8 -144.2L280.5 -162.1L309.6 -153.6L312.6 -171.6L337 -153.6L345.9 -169.5L362.8 -144.2L376.6 -156.1L383.8 -126.6L400.8 -133L397.5 -102.9L415.7 -103L402.3 -75.8L419.4 -69.8L397.5 -48.8L411.6 -37.3L383.8 -25.1L393.1 -9.4L362.8 -7.4L366.1 10.4L337 1.9L334 19.9L309.6 1.9L300.7 17.8L283.8 -7.4L270 4.4L262.8 -25.1L245.8 -18.7L249.1 -48.8L230.9 -48.6L244.3 -75.8Z" fill="#F5DF3C"/><svg x="265.3" y="-133.84" width="116" height="116" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#111111"/><use href="#smi"/></svg></g></svg><p class="ldk a">Steady Improvements</p><p class="ldk b">Carpentry you can count on</p></div></div>
 </div>
 
+<div class="sp" aria-hidden="true"><i></i><svg viewBox="0 0 100 100"><use href="#smi"/></svg></div>
 <header class="top" id="hd">
   <div class="wrap">
     <a href="#top" class="brand" aria-label="Steady Improvements, home">
@@ -1080,8 +1125,16 @@ addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(d)}},{passi
 /* hero photos play on their own until the page is scrolled */
 (function(){const tr=document.getElementById('hxt');if(!tr||matchMedia('(prefers-reduced-motion:reduce)').matches)return;const L=[...tr.querySelectorAll('.seq-l')],C=[...tr.querySelectorAll('.seq-c')];let i=0;
 function show(n){i=n;L.forEach((l,j)=>{l.style.visibility='visible';l.style.setProperty('--k',j<=n?1:0)});C.forEach((c,j)=>c.classList.toggle('on',j===n))}
-setInterval(()=>{if(scrollY<8&&!document.hidden&&!document.getElementById('ld'))show((i+1)%L.length)},3200);
+addEventListener('siready',()=>setInterval(()=>{if(scrollY<8&&!document.hidden)show((i+1)%L.length)},3400));
 addEventListener('scroll',()=>{if(scrollY>=8)i=0},{passive:true})})();
+
+/* the smiley rides the scroll bar */
+(function(){const sp=document.querySelector('.sp');if(!sp)return;const f=sp.firstElementChild,s=sp.lastElementChild;let tk=false;
+function d(){tk=false;const h=document.documentElement.scrollHeight-innerHeight,p=h>0?Math.min(1,Math.max(0,scrollY/h)):0,w=innerWidth-s.getBoundingClientRect().width*0+0;
+ f.style.transform='scaleX('+p+')';const sw=s.clientWidth||34;s.style.transform='translateX('+(p*(innerWidth-sw)).toFixed(1)+'px) rotate('+(p*1440).toFixed(1)+'deg)'}
+addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(d)}},{passive:true});addEventListener('resize',d);d()})();
+
+(function(){const n=document.getElementById('ldn');if(!n)return;const t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/2000);n.textContent=String(Math.round(p*100)).padStart(3,'0');if(p<1&&n.isConnected)requestAnimationFrame(f)})(t0)})();
 </script>
 </body>
 </html>
