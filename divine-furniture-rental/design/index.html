@@ -102,6 +102,13 @@ button{background:none;border:0;cursor:pointer}
 .vbx .row .tb{flex:1 1 auto;justify-content:center}
 @media (max-width:640px){.vfil{grid-template-columns:1fr 1fr}.vfil #venE,.vfil #venD,.vfil #venS{grid-column:1/-1}.dlg#ven{padding:0;place-items:stretch}.vbx{display:block!important;max-width:none!important;max-height:none;height:100%;overflow:auto;-webkit-overflow-scrolling:touch;padding:calc(16px + env(safe-area-inset-top)) 16px 0!important}.vbx h4{font-size:20px}#venL{overflow:visible;flex:none}.vnote{display:none}.vgrp{top:-1px}.vbx .row{position:sticky;bottom:0;background:#fff;margin:12px -16px 0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--ivory2);flex-wrap:nowrap;gap:8px}.vbx .row .tb{padding:0 8px;font-size:11px;letter-spacing:.04em;white-space:normal;text-align:center;line-height:1.15;min-height:48px}}
 .vrow{flex:none;width:100%;display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center;text-align:left;background:var(--ivory);padding:8px;border-radius:3px;min-height:76px;color:var(--ink);border:1.5px solid transparent}
+.v3{position:fixed;inset:0;z-index:60;display:none;grid-template-rows:1fr auto;background:#E9E5DC}
+.v3.on{display:grid}
+#v3c{width:100%;height:100%;display:block;touch-action:none;min-height:0}
+.v3bar{background:var(--ink);padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:grid;gap:8px;border-top:2px solid var(--gold)}
+.v3n{font-size:13px;color:var(--mute2);margin:0;text-align:center}
+.v3row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.v3row .tb{min-height:48px;justify-content:center}
 .vtour{display:inline-flex;align-items:center;min-height:44px;margin-top:6px;padding:0 12px;background:var(--gold);color:var(--ink);font:800 11px var(--f);letter-spacing:.08em;text-transform:uppercase;border-radius:2px;text-decoration:none}
 .vrow{cursor:pointer}
 .vrow:hover{border-color:var(--gold2)}
@@ -197,7 +204,7 @@ button{background:none;border:0;cursor:pointer}
     <button class="tb gold" id="toQuote">Add Divine pieces to my quote</button>
     <h3>Everything on the plan</h3>
     <ul class="lst" id="allList"></ul>
-    <div class="acts"><button class="tb" id="shareB">Share this layout</button>
+    <div class="acts"><button class="tb gold" id="v3B">View in 3D</button><button class="tb" id="shareB">Share this layout</button>
     <button class="tb" id="pngB">Save as image</button>
     <button class="tb" id="clrB">Clear the plan</button></div>
     <p class="fine"><span class="pv">Preview</span>Piece sizes are approximate until Divine confirms each footprint. Seating, catering and AV blocks are standard sizes for planning.</p>
@@ -211,6 +218,7 @@ button{background:none;border:0;cursor:pointer}
   <input id="dlgI" type="number" min="1" step="0.5" inputmode="decimal" placeholder="For example, 40">
   <div class="row"><button class="tb gold" id="dlgOk">Set scale</button><button class="tb" id="dlgX">Cancel</button></div>
 </div></div>
+<div class="v3" id="v3"><canvas id="v3c"></canvas><div class="v3bar"><p class="v3n">Drag to turn. Scroll or pinch to zoom. Heights are estimates until Divine confirms them.</p><div class="v3row"><button class="tb gold" id="v3w">Walk the room</button><button class="tb" id="v3x">Back to plan</button></div></div></div>
 <div class="dlg" id="ven"><div class="bx vbx">
   <h4 id="venH">Choose a venue</h4>
   <input id="venQ" type="search" placeholder="Search venue, room, city or type" autocomplete="off">
@@ -584,6 +592,52 @@ function evApply(k){var E=EVT[k];if(!E)return;
   toast('Starting layout placed. Drag pieces into place.')}
 $('#evs').innerHTML=Object.keys(EVT).map(function(k){return '<button type="button" data-e="'+k+'">'+EVT[k].n+'</button>'}).join('');
 $$('#evs button').forEach(function(b){b.onclick=function(){evApply(b.dataset.e)}});
+/* ---------- 3D view (three.js loaded on first use) ---------- */
+var v3={walk:false,walkT:0,built:null};
+function v3Load(cb){if(window.THREE)return cb();var sc=document.createElement('script');sc.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';sc.onload=cb;sc.onerror=function(){toast('Could not load the 3D view. Check your connection and try again.')};document.head.appendChild(sc)}
+function v3Init(){var c=$('#v3c');var r=new THREE.WebGLRenderer({canvas:c,antialias:true});r.setPixelRatio(Math.min(2,window.devicePixelRatio||1));
+  var sc=new THREE.Scene();sc.background=new THREE.Color(0xE9E5DC);var cam=new THREE.PerspectiveCamera(50,1,.5,3000);
+  sc.add(new THREE.HemisphereLight(0xffffff,0x8a8a8a,.95));var dl=new THREE.DirectionalLight(0xffffff,.55);dl.position.set(60,160,90);sc.add(dl);
+  Object.assign(v3,{r:r,sc:sc,cam:cam,theta:.5,phi:.85,dist:130,tg:new THREE.Vector3(0,0,0)});
+  var drag=null;
+  c.addEventListener('pointerdown',function(e){drag={x:e.clientX,y:e.clientY};try{c.setPointerCapture(e.pointerId)}catch(_){}});
+  c.addEventListener('pointermove',function(e){if(!drag)return;v3.theta-=(e.clientX-drag.x)*.008;v3.phi=Math.max(.12,Math.min(1.5,v3.phi+(e.clientY-drag.y)*.008));drag={x:e.clientX,y:e.clientY}});
+  c.addEventListener('pointerup',function(){drag=null});c.addEventListener('pointercancel',function(){drag=null});
+  c.addEventListener('wheel',function(e){e.preventDefault();v3.dist=Math.max(15,Math.min(500,v3.dist*(e.deltaY>0?1.08:.92)))},{passive:false});
+  function sz(){var w=c.clientWidth,h=c.clientHeight;if(!w||!h)return;r.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}
+  v3.sz=sz;window.addEventListener('resize',function(){if($('#v3').classList.contains('on'))sz()});
+  v3.loopF=function loop(){if(!$('#v3').classList.contains('on')){v3.raf=null;return}v3.raf=requestAnimationFrame(loop);
+    if(v3.walk){v3.walkT=Math.min(1,v3.walkT+.0022);if(v3.walkT>=1)v3.walk=false;v3.tg.set(-S.pw/2+S.pw*v3.walkT,1.5,0);v3.phi=1.2;v3.dist=34}
+    var t=v3.tg,d=v3.dist,p=v3.phi,th=v3.theta;
+    cam.position.set(t.x+d*Math.sin(p)*Math.sin(th),t.y+d*Math.cos(p),t.z+d*Math.sin(p)*Math.cos(th));cam.lookAt(t);r.render(sc,cam)};
+  sz()}
+function v3Build(){var sc=v3.sc,W=S.pw,H=S.ph;
+  if(v3.group){sc.remove(v3.group);v3.group.traverse(function(o){if(o.geometry)o.geometry.dispose();if(o.material){if(o.material.map)o.material.map.dispose();o.material.dispose()}})}
+  var g=new THREE.Group();v3.group=g;sc.add(g);
+  var floorMat;
+  if(S.plan){var tex=new THREE.TextureLoader().load(S.plan);tex.anisotropy=4;floorMat=new THREE.MeshBasicMaterial({map:tex})}else{floorMat=new THREE.MeshBasicMaterial({color:0xF3EEE4})}
+  var fl=new THREE.Mesh(new THREE.PlaneGeometry(W,H),floorMat);fl.rotation.x=-Math.PI/2;g.add(fl);
+  var wm=new THREE.MeshStandardMaterial({color:0xF3EEE4,transparent:true,opacity:.82});var WH=12,T=.6;
+  [[0,-H/2,W,T],[0,H/2,W,T],[-W/2,0,T,H],[W/2,0,T,H]].forEach(function(q){var m=new THREE.Mesh(new THREE.BoxGeometry(q[2]+T,WH,q[3]+T),wm);m.position.set(q[0],WH/2,q[1]);g.add(m)});
+  var ov=new THREE.Mesh(new THREE.PlaneGeometry(W,H),new THREE.MeshBasicMaterial({color:0x000000,transparent:true,opacity:0}));
+  S.objs.forEach(function(o){var it=BY[o.t];if(!it)return;var w=it.w,h=it.h,hgt=3,col=(CAT[it.g]||{c:'#999'}).c,x=o.x-W/2,z=o.y-H/2;
+    if(it.id==='SCR'){var sm=new THREE.Mesh(new THREE.BoxGeometry(w,5,.4),new THREE.MeshStandardMaterial({color:0x161B20}));sm.position.set(x,8,z);sm.rotation.y=-o.r*Math.PI/180;g.add(sm);return}
+    if(it.k==='roundT'||it.k==='round'||it.k==='umb'||it.id==='STN'||it.id==='CAKE'){
+      var rad=w/2;var top=it.k==='umb'?8:(it.k==='roundT'?2.5:3);var cy=new THREE.Mesh(new THREE.CylinderGeometry(rad,rad,top,24),new THREE.MeshStandardMaterial({color:it.k==='roundT'?0xF3EEE4:col}));cy.position.set(x,top/2,z);g.add(cy);
+      var nch=it.ch||0;for(var ci=0;ci<nch;ci++){var ang=ci/nch*Math.PI*2;var chm=new THREE.Mesh(new THREE.BoxGeometry(1.4,2.2,1.4),new THREE.MeshStandardMaterial({color:0x8FB4D9}));chm.position.set(x+Math.cos(ang)*(rad+1.6),1.1,z+Math.sin(ang)*(rad+1.6));chm.rotation.y=-ang;g.add(chm)}
+      if(it.k==='roundT'){var cl=new THREE.Mesh(new THREE.CylinderGeometry(rad-.5,rad-.5,.4,24),new THREE.MeshStandardMaterial({color:0xffffff}));cl.position.set(x,top+.2,z);g.add(cl)}
+      return}
+    if(it.k==='vig'||it.k==='sofa'||it.k==='curve'||it.k==='cruiser4'||it.k==='chair'||it.k==='stool'||it.k==='banq'||it.k==='row'){hgt=it.k==='stool'?2.5:(it.k==='chair'?3:2.6)}
+    else if(it.id==='STG')hgt=3.5;else if(it.id==='DF')hgt=.5;else if(it.id==='SPK')hgt=6;else if(it.id==='POD')hgt=4;else if(it.g==='av')hgt=3;else if(it.g==='cat')hgt=3.2;
+    if(it.k==='zone'||it.k==='dance')hgt=.3;
+    var m=new THREE.Mesh(new THREE.BoxGeometry(w,hgt,h),new THREE.MeshStandardMaterial({color:col}));m.position.set(x,hgt/2,z);m.rotation.y=-o.r*Math.PI/180;g.add(m)});
+  v3.tg.set(0,0,0);v3.dist=Math.max(W,H)*1.15;v3.phi=.85;v3.theta=.5;v3.built=S.objs.length+'|'+W+'|'+H+'|'+(S.plan?S.plan.length:0)}
+function open3D(){v3Load(function(){$('#v3').classList.add('on');if(!v3.r)v3Init();v3.walk=false;v3.walkT=0;v3.sz();
+  var key=S.objs.length+'|'+S.pw+'|'+S.ph+'|'+(S.plan?S.plan.length:0);if(v3.built!==key||!v3.group){v3Build()}
+  v3.sz();if(!v3.raf)v3.loopF()})}
+$('#v3B').onclick=open3D;
+$('#v3x').onclick=function(){$('#v3').classList.remove('on');v3.walk=false};
+$('#v3w').onclick=function(){v3.walk=!v3.walk;v3.walkT=0;this.textContent=v3.walk?'Stop walk':'Walk the room'};
 setAH();tabs();drawPlan();fit();render();
 addEventListener('resize',refit);addEventListener('orientationchange',function(){setTimeout(refit,300)});addEventListener('pageshow',refit);
 requestAnimationFrame(refit);setTimeout(refit,300);setTimeout(refit,1200);
