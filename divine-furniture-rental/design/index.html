@@ -660,7 +660,7 @@ function v3Build(){var sc=v3.sc,W=S.pw,H=S.ph;
   var floorMat;
   if(S.plan){var tex=new THREE.TextureLoader().load(S.plan);tex.anisotropy=4;floorMat=new THREE.MeshBasicMaterial({map:tex})}else{floorMat=new THREE.MeshStandardMaterial({color:0xD8C4A4,roughness:.85})}
   var fl=new THREE.Mesh(new THREE.PlaneGeometry(W,H),floorMat);fl.rotation.x=-Math.PI/2;g.add(fl);
-  var wm=new THREE.MeshStandardMaterial({color:0xF3EEE4,transparent:true,opacity:.82});var WH=12,T=.6;
+  var wm=new THREE.MeshStandardMaterial({color:0xF3EEE4,roughness:.9,side:THREE.BackSide});var WH=12,T=.6;
   [[0,-H/2,W,T],[0,H/2,W,T],[-W/2,0,T,H],[W/2,0,T,H]].forEach(function(q){var m=new THREE.Mesh(new THREE.BoxGeometry(q[2]+T,WH,q[3]+T),wm);m.position.set(q[0],WH/2,q[1]);g.add(m)});
   var ov=new THREE.Mesh(new THREE.PlaneGeometry(W,H),new THREE.MeshBasicMaterial({color:0x000000,transparent:true,opacity:0}));
   S.objs.forEach(function(o){var it=BY[o.t];if(!it)return;var w=it.w,h=it.h,hgt=3,col=(CAT[it.g]||{c:'#999'}).c,x=o.x-W/2,z=o.y-H/2;
