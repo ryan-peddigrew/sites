@@ -9,11 +9,12 @@ var qs=new URLSearchParams(location.search);
 
 /* loader */
 var tourWanted=qs.get('tour')==='1';
-setTimeout(function(){$('#loader').classList.add('out');document.body.classList.remove('loading');if(tourWanted)setTimeout(startTour,900)},2400);
+setTimeout(function(){$('#loader').classList.add('out');document.body.classList.remove('loading');document.body.classList.add('ready');if(tourWanted)setTimeout(startTour,1500);setTimeout(function(){$('#loader').style.display='none'},1500)},3300);
+var hph=$('.hero-ph'),hmk=$('.hero-mk');addEventListener('scroll',function(){var y=scrollY;if(y<innerHeight){hph.style.transform='translateY('+y*.25+'px) scale('+(1+y/3000)+')';hmk.style.transform='translateY('+y*-.15+'px) rotate('+y*.12+'deg)'}},{passive:true});
 
 /* hero */
-var hi=0,hs=$$('.hero-ph img'),words=['your size.','your fabric.','your way.','to last.'];
-setInterval(function(){hs[hi].classList.remove('on');hi=(hi+1)%hs.length;hs[hi].classList.add('on');$('#hcount').textContent='0'+(hi+1);
+var hi=0,hs=$$('.hero-ph img'),words=['your size.','by hand.'];
+setInterval(function(){hs[hi].classList.remove('on');hi=(hi+1)%hs.length;hs[hi].classList.add('on');
   var r=$('#rot');r.textContent=words[hi];r.classList.remove('sw');void r.offsetWidth;r.classList.add('sw')},4200);
 
 /* collection */
