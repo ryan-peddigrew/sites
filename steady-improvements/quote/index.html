@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en-CA"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Steady Quote | Instant renovation estimates</title>
+<meta name="description" content="Price a bathroom, kitchen, floor, balcony or small job in about a minute.">
+<meta name="robots" content="noindex"><meta name="theme-color" content="#23211F">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-180.png"><link rel="icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Steady Quote">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Yellowtail&family=Oswald:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F3F1E8;--paper2:#E9E5D8;--ink:#23211F;--ink2:#2E2B28;--brick:#8E3B32;--timber:#C2925C;--stone:#6B665E;--line:#d6d1c2}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.5 'Work Sans',sans-serif;min-height:100svh;padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+.wrap{width:min(720px,100%);margin:0 auto;padding:0 18px}
+header{background:var(--ink);color:var(--paper);position:sticky;top:0;z-index:20;padding-top:env(safe-area-inset-top)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.lg{display:inline-flex;flex-direction:column;align-items:flex-start;line-height:1;color:inherit;text-decoration:none}
+.lg .w{display:inline-flex;align-items:flex-end;white-space:nowrap;font:400 38px/.9 'Yellowtail',cursive;transform:rotate(-5deg);padding-right:.06em}
+.lg .h{height:.58em;width:auto;fill:currentColor;transform:rotate(12deg);margin:0 -.08em .03em .04em;overflow:visible;flex:none}
+.lg i{font:600 7.5px/1 'Oswald';font-style:normal;letter-spacing:.34em;text-transform:uppercase;background:var(--brick);color:var(--paper);padding:.5em .7em .5em 1.04em;margin:.55em 0 0 .2em;transform:rotate(-5deg)}
+.tag{font:600 12px/1 'Oswald';letter-spacing:.24em;text-transform:uppercase;color:var(--timber)}
+.prog{height:4px;background:var(--ink2)}.prog b{display:block;height:100%;width:25%;background:var(--timber);transition:width .35s}
+.eyebrow{font:600 12.5px/1 'Oswald';letter-spacing:.26em;text-transform:uppercase;color:var(--brick);margin:28px 0 12px}
+h1{font:900 clamp(44px,12vw,68px)/.9 'Big Shoulders Display',sans-serif;text-transform:uppercase;letter-spacing:.005em}
+h2{font:900 30px/1 'Big Shoulders Display',sans-serif;text-transform:uppercase}
+.lead{color:var(--stone);margin:12px 0 22px;max-width:46ch}
+.screen{display:none;animation:in .3s ease}.screen.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.jobs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.job{position:relative;aspect-ratio:1/1.05;overflow:hidden;background:var(--ink);color:#fff;text-align:left;display:flex;align-items:flex-end}
+.job img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.job:active img{transform:scale(1.05)}
+.job::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(35,33,31,0) 35%,rgba(35,33,31,.88))}
+.job span{position:relative;z-index:1;padding:14px;font:900 25px/1 'Big Shoulders Display';text-transform:uppercase;width:100%}
+.job small{display:block;font:500 12px/1.2 'Work Sans';letter-spacing:.02em;text-transform:none;color:#e7e2d4;margin-top:6px}
+.job.plain{background:var(--ink)}.job.plain::after{display:none}
+.job.plain svg{position:absolute;top:16px;left:14px;width:56px;height:56px;stroke:var(--timber);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.back{display:inline-flex;align-items:center;gap:8px;min-height:48px;margin-top:10px;font:600 13px 'Oswald';letter-spacing:.2em;text-transform:uppercase;color:var(--stone)}
+.back svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
+fieldset{border:0;margin-top:26px}
+legend{font:600 12.5px/1 'Oswald';letter-spacing:.24em;text-transform:uppercase;color:var(--stone);margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{min-height:52px;padding:0 16px;border:2px solid var(--ink);font-weight:600;font-size:15.5px;background:transparent;text-align:left;line-height:1.15}
+.chips button small{display:block;font-weight:400;font-size:12.5px;color:var(--stone)}
+.chips button.on{background:var(--ink);color:var(--paper)}.chips button.on small{color:#cfc9ba}
+.dims{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:end}
+.dims .x{font:900 26px 'Big Shoulders Display';padding-bottom:12px;color:var(--stone)}
+label.in{display:block;font-size:13.5px;color:var(--stone)}
+label.in input{display:block;width:100%;height:60px;margin-top:6px;padding:0 14px;border:2px solid var(--ink);background:#fff;font:800 28px 'Big Shoulders Display';border-radius:0;-moz-appearance:textfield}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none}
+.area{margin-top:10px;font-weight:600}
+.step{display:flex;align-items:center;gap:0;border:2px solid var(--ink);width:max-content;background:#fff}
+.step button{width:60px;height:60px;font:900 30px 'Big Shoulders Display'}
+.step output{min-width:76px;text-align:center;font:900 30px 'Big Shoulders Display'}
+.live{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:var(--paper);padding:12px 0 calc(12px + env(safe-area-inset-bottom))}
+.live .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.live p{line-height:1.1}.live p small{display:block;font:600 11px 'Oswald';letter-spacing:.22em;text-transform:uppercase;color:var(--timber);margin-bottom:5px}
+.live p b{font:900 clamp(21px,6.4vw,30px)/1 'Big Shoulders Display';letter-spacing:.01em;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 22px;background:var(--brick);color:#fff;font:600 14px 'Work Sans';letter-spacing:.12em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn.wide{width:100%;margin-top:12px}
+.btn[disabled]{opacity:.4}
+.items{border-top:2px solid var(--ink);margin-top:8px}
+.item{display:grid;grid-template-columns:1fr auto;gap:4px 14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.item h3{font:900 24px/1 'Big Shoulders Display';text-transform:uppercase}
+.item .p{font:900 22px/1 'Big Shoulders Display';white-space:nowrap;text-align:right}
+.item ul{grid-column:1/-1;list-style:none;color:var(--stone);font-size:14.5px}
+.item .rm{grid-column:1/-1;justify-self:start;min-height:44px;font-size:13.5px;color:var(--brick);font-weight:600;border-bottom:0;text-decoration:underline}
+.total{background:var(--ink);color:var(--paper);padding:22px 20px;margin-top:20px}
+.total small{font:600 11.5px 'Oswald';letter-spacing:.24em;text-transform:uppercase;color:var(--timber)}
+.total b{display:block;font:900 clamp(40px,11vw,58px)/1 'Big Shoulders Display';margin:8px 0 10px}
+.total p{font-size:14px;color:#d9d4c7}
+.f{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.f input{height:56px;padding:0 14px;border:2px solid var(--ink);background:#fff;border-radius:0;width:100%}
+.f .full{grid-column:1/-1}
+.note{font-size:13.5px;color:var(--stone);margin-top:14px}
+.note a{color:var(--brick);font-weight:600}
+.preview{background:var(--paper2);border-left:4px solid var(--timber);padding:12px 14px;font-size:13.5px;margin-top:22px}
+.ok{display:none;margin-top:14px;padding:14px;background:var(--paper2);font-weight:600}.ok.on{display:block}
+table{width:100%;border-collapse:collapse;margin-top:6px}
+td{padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+td:last-child{width:128px;text-align:right}
+td input{width:100%;height:48px;padding:0 10px;border:2px solid var(--ink);background:#fff;text-align:right;font-weight:600;border-radius:0}
+td small{color:var(--stone);display:block;font-size:12.5px}
+.foot{margin:34px 0 0;font-size:13px;color:var(--stone);display:flex;flex-wrap:wrap;gap:6px 18px}
+.foot a,.foot button{color:var(--stone);text-decoration:underline;min-height:44px;display:inline-flex;align-items:center;font-size:13px}
+.sheet{display:none}
+@media(min-width:640px){.jobs{grid-template-columns:repeat(3,1fr)}}
+@media print{
+ body{background:#fff;padding:0}header,.live,.screen,.foot{display:none!important}
+ .sheet{display:block;padding:10mm;color:#000;font-size:12pt}
+ .sheet .top{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid #000;padding-bottom:14px;margin-bottom:18px}
+ .sheet .lg .w{font-size:44px}.sheet .lg i{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .sheet h2{font-size:26pt}.sheet .item{break-inside:avoid}
+ .sheet .tot{margin-top:18px;border-top:2px solid #000;padding-top:12px;font:900 24pt 'Big Shoulders Display'}
+}
+</style></head><body>
+<header>
+  <div class="wrap">
+    <a class="lg" href="../" aria-label="Steady Improvements home"><span class="w"><span>S</span><svg class="h" viewBox="0 0 130 172" aria-hidden="true"><path d="M4 6h28a4 4 0 0 1 4 4v6h14v-6a4 4 0 0 1 4-4h26c22-2 40 12 46 40 1 5-5 7-8 3-8-13-20-18-36-15v10a4 4 0 0 1-4 4h-2l3 110c0 8-5 12-12 12s-12-4-12-12l3-110h-2a4 4 0 0 1-4-4v-2H36v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z"/></svg><span>eady</span></span><i>Improvements</i></a>
+    <span class="tag">Instant estimate</span>
+  </div>
+  <div class="prog"><b id="pg"></b></div>
+</header>
+
+<main class="wrap">
+  <section class="screen on" id="s-home">
+    <p class="eyebrow">Step 1 of 3</p>
+    <h1>What are we building?</h1>
+    <p class="lead">Pick a job and get a price range in about a minute. Add as many jobs as you like.</p>
+    <div class="jobs" id="jobs"></div>
+    <p class="preview" id="pv">Preview: these are sample rates so you can try the tool. Steady sets the real prices on the Rates screen.</p>
+  </section>
+
+  <section class="screen" id="s-job">
+    <button class="back" id="bk"><svg viewBox="0 0 18 18"><path d="M15 9H3M8 4L3 9l5 5"/></svg>All jobs</button>
+    <p class="eyebrow" style="margin-top:10px">Step 2 of 3</p>
+    <h1 id="jt"></h1>
+    <p class="lead" id="jl"></p>
+    <div id="form"></div>
+  </section>
+
+  <section class="screen" id="s-quote">
+    <p class="eyebrow">Step 3 of 3</p>
+    <h1>Your estimate.</h1>
+    <div class="items" id="items" style="margin-top:22px"></div>
+    <button class="btn ghost wide" id="more">Add another job</button>
+    <div class="total"><small>Estimated range</small><b id="tot"></b><p>Plus HST. This is a ballpark from what you told us. A firm quote follows a quick look at the space.</p></div>
+    <fieldset><legend>Where do we send it?</legend>
+      <div class="f">
+        <input id="nm" placeholder="Your name" autocomplete="name" aria-label="Your name">
+        <input id="ph" type="tel" placeholder="Phone" autocomplete="tel" aria-label="Phone">
+        <input id="ar" class="full" placeholder="Neighbourhood or postal code" autocomplete="postal-code" aria-label="Neighbourhood or postal code">
+      </div>
+    </fieldset>
+    <a class="btn wide" id="em" href="#">Email this to Steady</a>
+    <a class="btn ghost wide" id="tx" href="#">Text it with photos</a>
+    <button class="btn ghost wide" id="pr">Save as PDF</button>
+    <p class="ok" id="ok">Thanks. Your message is filled in and ready. Hit send and we'll be in touch.</p>
+    <p class="note">Rather talk it through? <a href="tel:+16474586365">Call (647) 458-6365</a>, Monday to Friday, 9 a.m. to 5 p.m.</p>
+  </section>
+
+  <section class="screen" id="s-rates">
+    <button class="back" id="rb"><svg viewBox="0 0 18 18"><path d="M15 9H3M8 4L3 9l5 5"/></svg>Back to the app</button>
+    <p class="eyebrow" style="margin-top:10px">For Steady only</p>
+    <h1>Your rates.</h1>
+    <p class="lead">Change any number and every estimate updates right away. Nothing here is shown to customers except the final range.</p>
+    <div id="rates"></div>
+    <button class="btn wide" id="rs">Save rates</button>
+    <button class="btn ghost wide" id="rr">Reset to sample rates</button>
+    <p class="ok" id="rok">Saved. Estimates now use your numbers on this device.</p>
+  </section>
+
+  <p class="foot"><a href="../">Back to the website</a><button id="tor">For Steady: set your rates</button><span>Concept preview by Chairlift.</span></p>
+</main>
+
+<div class="live" id="live" hidden><div class="wrap"><p><small id="ll">This job</small><b id="lp">$0</b></p><button class="btn" id="add" style="padding:0 16px;flex:none">Add job</button></div></div>
+
+<div class="sheet" id="sheet"></div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const LOGO=$('.lg').innerHTML;
+/* SAMPLE rates in CAD. Placeholders only: Steady replaces these on the Rates screen. */
+const DEF={
+ bath_s:9000,bath_m:16000,bath_l:26000,bath_tub:3200,bath_van:1800,bath_tile:2800,
+ kit_s:22000,kit_m:36000,kit_l:55000,kit_back:1800,kit_floor:3500,kit_app:900,
+ up_mid:1.2,up_prem:1.5,
+ bal_sq:18,bal_min:900,
+ fl_lam:7,fl_vin:8,fl_hw:14,fl_cer:16,fl_rem:2,fl_min:800,
+ win_roll:320,win_blind:260,win_shut:650,
+ demo_sq:6,demo_bin:650,demo_min:900,
+ hand_hr:85,hand_min:2,
+ range:15
+};
+const LAB={
+ bath_s:['Bathroom: powder room','base'],bath_m:['Bathroom: standard','base'],bath_l:['Bathroom: large ensuite','base'],
+ bath_tub:['Bathroom: new tub or shower','add'],bath_van:['Bathroom: new vanity','add'],bath_tile:['Bathroom: full wall tile','add'],
+ kit_s:['Kitchen: galley or condo','base'],kit_m:['Kitchen: mid-size','base'],kit_l:['Kitchen: large with island','base'],
+ kit_back:['Kitchen: tile backsplash','add'],kit_floor:['Kitchen: new flooring','add'],kit_app:['Kitchen: appliance install','add'],
+ up_mid:['Finish: upgraded','multiplier'],up_prem:['Finish: premium','multiplier'],
+ bal_sq:['Balcony flooring','per sq ft'],bal_min:['Balcony: minimum job','flat'],
+ fl_lam:['Flooring: laminate','per sq ft'],fl_vin:['Flooring: vinyl tile','per sq ft'],fl_hw:['Flooring: hardwood','per sq ft'],fl_cer:['Flooring: ceramic tile','per sq ft'],
+ fl_rem:['Flooring: remove old floor','per sq ft'],fl_min:['Flooring: minimum job','flat'],
+ win_roll:['Window: roller shade','per window'],win_blind:['Window: blinds','per window'],win_shut:['Window: shutters','per window'],
+ demo_sq:['Demolition','per sq ft'],demo_bin:['Demolition: disposal bin','flat'],demo_min:['Demolition: minimum job','flat'],
+ hand_hr:['Handyman','per hour'],hand_min:['Handyman: minimum hours','hours'],
+ range:['Range shown either side of the price','percent']
+};
+let R={...DEF},custom=false;
+try{const s=JSON.parse(localStorage.getItem('si-rates')||'null');if(s){R={...DEF,...s};custom=true}}catch(e){}
+const FIN=[['Standard','Solid, clean finishes',()=>1],['Upgraded','Better fixtures and tile',()=>R.up_mid],['Premium','Custom and high-end',()=>R.up_prem]];
+const JOBS={
+ bath:{t:'Bathroom',s:'Full renovation',img:'bathroom.jpg',pos:'50% 70%',lead:'We fix what is behind the walls before we finish, so the price covers materials, structural work and labour.',
+  f:[['size','Size',[['Powder room','Toilet and sink','bath_s'],['Standard','Tub or shower','bath_m'],['Large ensuite','Double vanity','bath_l']]],['fin','Finish level'],['ext','Add to it',[['New tub or shower','bath_tub'],['New vanity','bath_van'],['Full wall tile','bath_tile']]]]},
+ kit:{t:'Kitchen',s:'Renovation and remodel',img:'kitchen.jpg',pos:'50% 50%',lead:'Design, cabinetry, fixtures and install.',
+  f:[['size','Size',[['Galley or condo','Up to about 100 sq ft','kit_s'],['Mid-size','Around 150 sq ft','kit_m'],['Large with island','200 sq ft and up','kit_l']]],['fin','Finish level'],['ext','Add to it',[['Tile backsplash','kit_back'],['New flooring','kit_floor'],['Appliance install','kit_app']]]]},
+ bal:{t:'Balcony flooring',s:'Composite, measured to fit',img:'balcony-teak.jpg',pos:'50% 70%',lead:'Measure the longest and widest points of your balcony in feet.',
+  f:[['dim','Balcony size'],['pick','Finish',[['Teak',''],['Grey','']]]]},
+ floor:{t:'Flooring',s:'Laminate, vinyl, hardwood, tile',ico:'<path d="M6 14h52v36H6z"/><path d="M6 26h52M6 38h52M24 14v12M42 26v12M18 38v12M36 38v12"/>',lead:'Measure the room in feet. Add each room as its own job if they differ.',
+  f:[['mat','Material',[['Laminate','','fl_lam'],['Vinyl tile','','fl_vin'],['Hardwood','','fl_hw'],['Ceramic tile','','fl_cer']]],['dim','Room size'],['ext','Add to it',[['Remove the old floor','fl_rem','sq']]]]},
+ win:{t:'Window coverings',s:'Blinds, shades, shutters',img:'blind.jpg',pos:'50% 40%',lead:'Supplied and installed. Count each window or door you want covered.',
+  f:[['mat','Style',[['Roller shades','','win_roll'],['Blinds','','win_blind'],['Shutters','','win_shut']]],['qty','How many windows?','windows',1]]},
+ demo:{t:'Demolition',s:'Planned and hauled away',img:'framing.jpg',pos:'50% 50%',lead:'Measure the floor area being stripped out, in feet.',
+  f:[['dim','Area to strip out'],['ext','Add to it',[['Disposal bin','demo_bin']]]]},
+ hand:{t:'Handyman',s:'The smaller jobs on your list',lead:'Tell us roughly how long the list is. We will firm it up when we see it.',
+  f:[['qty','How many hours of work?','hours',2]]}
+};
+const money=n=>'$'+Math.round(n).toLocaleString('en-CA');
+const r50=n=>Math.round(n/50)*50;
+const rng=n=>{const p=R.range/100;return money(r50(n*(1-p)))+' to '+money(r50(n*(1+p)))};
+let cur=null,st={},cart=[];
+try{cart=JSON.parse(sessionStorage.getItem('si-cart')||'[]')}catch(e){}
+
+function show(id){$$('.screen').forEach(s=>s.classList.toggle('on',s.id===id));$('#live').hidden=id!=='s-job';
+ $('#pg').style.width={'s-home':'33%','s-job':'66%','s-quote':'100%','s-rates':'0'}[id];scrollTo(0,0);$('#pv').hidden=custom}
+
+$('#jobs').innerHTML=Object.entries(JOBS).map(([k,j])=>`<button class="job ${j.img?'':'plain'}" data-j="${k}">${j.img?`<img src="../img/${j.img}" alt="" style="object-position:${j.pos}" loading="lazy">`:'<svg viewBox="0 0 64 64">'+(j.ico||'<path d="M10 54l26-26"/><path d="M30 14h16l6 6-6 6-8-4-6 6"/><path d="M38 22l-4 4"/>')+'</svg>'}<span>${j.t}<small>${j.s}</small></span></button>`).join('');
+$('#jobs').onclick=e=>{const b=e.target.closest('.job');if(b)open(b.dataset.j)};
+
+function open(k){cur=k;const j=JOBS[k];st={ext:{}};$('#jt').textContent=j.t+'.';$('#jl').textContent=j.lead;
+ $('#form').innerHTML=j.f.map(([type,label,opts,min])=>{
+  if(type==='size'||type==='mat'||type==='pick')return `<fieldset><legend>${label}</legend><div class="chips" data-t="${type}">${opts.map((o,i)=>`<button type="button" data-i="${i}">${o[0]}${o[1]?`<small>${o[1]}</small>`:''}</button>`).join('')}</div></fieldset>`;
+  if(type==='fin')return `<fieldset><legend>${label}</legend><div class="chips" data-t="fin">${FIN.map((o,i)=>`<button type="button" data-i="${i}">${o[0]}<small>${o[1]}</small></button>`).join('')}</div></fieldset>`;
+  if(type==='ext')return `<fieldset><legend>${label} <span style="letter-spacing:.1em;opacity:.7">Optional</span></legend><div class="chips" data-t="ext">${opts.map((o,i)=>`<button type="button" data-i="${i}">${o[0]}</button>`).join('')}</div></fieldset>`;
+  if(type==='dim')return `<fieldset><legend>${label}</legend><div class="dims"><label class="in">Length (ft)<input id="dl" type="number" inputmode="decimal" min="0" placeholder="0"></label><span class="x">x</span><label class="in">Width (ft)<input id="dw" type="number" inputmode="decimal" min="0" placeholder="0"></label></div><p class="area" id="da"></p></fieldset>`;
+  if(type==='qty'){st.qty=min;st.unit=opts;st.qmin=1;return `<fieldset><legend>${label}</legend><div class="step"><button type="button" id="qm" aria-label="Fewer">-</button><output id="qo">${min}</output><button type="button" id="qp" aria-label="More">+</button></div></fieldset>`}
+ }).join('');
+ $$('#form .chips').forEach(c=>{const t=c.dataset.t;if(t!=='ext'){st[t]=0;c.children[0].classList.add('on')}});
+ calc();show('s-job')}
+
+$('#form').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+ const c=b.closest('.chips');
+ if(c){const t=c.dataset.t,i=+b.dataset.i;if(t==='ext'){st.ext[i]=!st.ext[i];b.classList.toggle('on',st.ext[i])}else{st[t]=i;[...c.children].forEach(x=>x.classList.toggle('on',x===b))}}
+ if(b.id==='qm')st.qty=Math.max(st.qmin,st.qty-1);if(b.id==='qp')st.qty=Math.min(99,st.qty+1);
+ if($('#qo'))$('#qo').textContent=st.qty;calc()});
+$('#form').addEventListener('input',calc);
+
+function calc(){const j=JOBS[cur];if(!j)return;const F=Object.fromEntries(j.f.map(f=>[f[0],f]));
+ let sq=0;if(F.dim){sq=(+$('#dl').value||0)*(+$('#dw').value||0);$('#da').textContent=sq?Math.round(sq)+' sq ft':''}
+ let p=0,lines=[],ok=true;
+ if(cur==='bath'||cur==='kit'){const o=F.size[2][st.size];p=R[o[2]]*FIN[st.fin][2]();lines.push(o[0],FIN[st.fin][0]+' finish')}
+ if(cur==='bal'){ok=sq>0;p=Math.max(sq*R.bal_sq,ok?R.bal_min:0);lines.push(Math.round(sq)+' sq ft',F.pick[2][st.pick][0]+' finish')}
+ if(cur==='floor'){ok=sq>0;const o=F.mat[2][st.mat];p=sq*R[o[2]];lines.push(o[0],Math.round(sq)+' sq ft')}
+ if(cur==='win'){const o=F.mat[2][st.mat];p=st.qty*R[o[2]];lines.push(o[0],st.qty+(st.qty===1?' window':' windows'))}
+ if(cur==='demo'){ok=sq>0;p=sq*R.demo_sq;lines.push(Math.round(sq)+' sq ft')}
+ if(cur==='hand'){const h=Math.max(st.qty,R.hand_min);p=h*R.hand_hr;lines.push('About '+st.qty+(st.qty===1?' hour':' hours'))}
+ if(F.ext)F.ext[2].forEach((o,i)=>{if(st.ext[i]){p+=o[2]==='sq'?sq*R[o[1]]:R[o[1]];lines.push(o[0])}});
+ if(cur==='floor'&&ok)p=Math.max(p,R.fl_min);if(cur==='demo'&&ok)p=Math.max(p,R.demo_min);
+ st.p=p;st.lines=lines;st.ok=ok;
+ $('#lp').textContent=ok?rng(p):'Add the size';$('#add').disabled=!ok}
+
+$('#add').onclick=()=>{if(!st.ok)return;cart.push({k:cur,t:JOBS[cur].t,lines:st.lines,p:st.p});save();quote()};
+$('#bk').onclick=()=>show('s-home');$('#more').onclick=()=>show('s-home');
+function save(){try{sessionStorage.setItem('si-cart',JSON.stringify(cart))}catch(e){}}
+function quote(){if(!cart.length)return show('s-home');
+ $('#items').innerHTML=cart.map((c,i)=>`<div class="item"><h3>${c.t}</h3><span class="p">${rng(c.p)}</span><ul>${c.lines.map(l=>`<li>${l}</li>`).join('')}</ul><button class="rm" data-i="${i}">Remove</button></div>`).join('');
+ $('#tot').textContent=rng(cart.reduce((a,c)=>a+c.p,0));links();show('s-quote')}
+$('#items').onclick=e=>{const b=e.target.closest('.rm');if(b){cart.splice(+b.dataset.i,1);save();quote()}};
+
+function text(){const tot=rng(cart.reduce((a,c)=>a+c.p,0));
+ return ['Hi Steady Improvements, here is my estimate request.','',...cart.map(c=>`${c.t}: ${c.lines.join(', ')} (${rng(c.p)})`),'',`Estimated range: ${tot} plus HST`,'',`Name: ${$('#nm').value}`,`Phone: ${$('#ph').value}`,`Area: ${$('#ar').value}`,'','I can send photos of the space.'].join('\n')}
+function links(){const b=encodeURIComponent(text());
+ $('#em').href='mailto:Steadyimprovements@gmail.com?subject='+encodeURIComponent('Estimate request: '+cart.map(c=>c.t).join(', '))+'&body='+b;
+ $('#tx').href='sms:+16474586365?&body='+b}
+['nm','ph','ar'].forEach(i=>$('#'+i).addEventListener('input',links));
+$('#em').onclick=$('#tx').onclick=()=>setTimeout(()=>$('#ok').classList.add('on'),600);
+$('#pr').onclick=()=>{const d=new Date(),tot=rng(cart.reduce((a,c)=>a+c.p,0));
+ $('#sheet').innerHTML=`<div class="top"><span class="lg">${LOGO}</span><div style="text-align:right"><b>Estimate</b><br>${d.toLocaleDateString('en-CA',{year:'numeric',month:'long',day:'numeric'})}<br>(647) 458-6365<br>Steadyimprovements@gmail.com</div></div>
+ <p>${[$('#nm').value,$('#ph').value,$('#ar').value].filter(Boolean).join(' · ')}</p>
+ <div class="items">${cart.map(c=>`<div class="item"><h3>${c.t}</h3><span class="p">${rng(c.p)}</span><ul>${c.lines.map(l=>`<li>${l}</li>`).join('')}</ul></div>`).join('')}</div>
+ <p class="tot">Estimated range: ${tot}</p><p style="margin-top:10px">Plus HST. This is a ballpark from the details provided. A firm quote follows a look at the space.</p>`;print()};
+
+function rates(){$('#rates').innerHTML='<table>'+Object.keys(DEF).map(k=>`<tr><td>${LAB[k][0]}<small>${LAB[k][1]}</small></td><td><input type="number" inputmode="decimal" step="any" data-k="${k}" value="${R[k]}" aria-label="${LAB[k][0]}"></td></tr>`).join('')+'</table>'}
+$('#tor').onclick=()=>{rates();$('#rok').classList.remove('on');show('s-rates')};
+$('#rb').onclick=()=>cart.length?quote():show('s-home');
+$('#rs').onclick=()=>{$$('#rates input').forEach(i=>{const v=parseFloat(i.value);if(v>=0)R[i.dataset.k]=v});custom=true;try{localStorage.setItem('si-rates',JSON.stringify(R))}catch(e){}$('#rok').classList.add('on')};
+$('#rr').onclick=()=>{R={...DEF};custom=false;try{localStorage.removeItem('si-rates')}catch(e){}rates()};
+
+const pre=new URLSearchParams(location.search).get('job');
+if(pre&&JOBS[pre])open(pre);else if(cart.length)quote();else show('s-home');
+if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body></html>
