@@ -589,8 +589,8 @@ body.hx-clean .zb,body.hx-clean .tourbtn{opacity:0;transform:translateY(16px);po
 
 <main id="top">
 <section class="hx" id="hero" aria-label="Carpentry you can count on">
-<div class="hx-track" id="hxt"><div class="hx-st"><div class="hx-fr"><canvas id="hxc" width="1280" height="720" role="img" aria-label="Film of a carpenter cutting, planing and fixing boards, then a framed room going up"></canvas><div class="hx-shade"></div><div class="hx-w"></div></div><div class="hx-top"><p class="hx-k">Residential and commercial <span class="w" id="rw">store builds</span></p><p class="hx-n"><b>01</b> / 04</p></div><div class="hx-cs"><h1 class="hx-c on"><span>Carpentry</span><span>you can</span><span class=a>count on.</span></h1><p class="hx-c"><span>No short</span><span class=a>cuts.</span></p><p class="hx-c"><span>Start to</span><span class=a>finish.</span></p><p class="hx-c s"><span>Residential</span><span>and</span><span class=a>commercial.</span></p></div><div class="seq-bar" aria-hidden="true"><i></i></div><p class="seq-hint" aria-hidden="true">Scroll</p></div></div>
-<div id="slides" hidden><figure class="on"></figure></div><span id="bar" hidden><i class="on"></i></span><span id="cap" hidden></span>
+<div class="hx-track" id="hxt" data-seq><div class="hx-st"><div class="hx-fr"><figure class="seq-l"><img src="img/ig/c-aera.jpg" alt="Arched millwork along a window wall at Aera restaurant" style="object-position:50% 50%"></figure><figure class="seq-l"><img src="img/ig/fifa-2.jpg" alt="Red FIFA fabric wrapped around the field at BMO Field" style="object-position:50% 62%" loading=lazy></figure><figure class="seq-l"><img src="img/ig/c-td.jpg" alt="Geometric acoustic wall tile at TD Tower" style="object-position:50% 50%" loading=lazy></figure><figure class="seq-l"><img src="img/ig/c-armani.jpg" alt="Wall panelling and display at Emporio Armani" style="object-position:50% 50%" loading=lazy></figure><div class="hx-shade"></div></div><div class="hx-cs"><h1 class="seq-c hx-c on"><span>Carpentry</span><span>you can</span><span class=a>count on.</span></h1><p class="seq-c hx-c"><span>No short</span><span class=a>cuts.</span></p><p class="seq-c hx-c"><span>Start to</span><span class=a>finish.</span></p><p class="seq-c hx-c s"><span>Residential</span><span>and</span><span class=a>commercial.</span></p></div><div class="seq-bar" aria-hidden="true"><i></i></div><p class="seq-hint" aria-hidden="true">Scroll</p></div></div>
+<div id="slides" hidden><figure class="on"></figure></div><span id="bar" hidden><i class="on"></i></span><span id="cap" hidden></span><span id="rw" hidden></span>
 </section>
 
 <div class="ticker" aria-hidden="true"><div>
@@ -936,23 +936,6 @@ function draw(){tk=false;const r=tr.getBoundingClientRect(),tot=r.height-st.offs
   if(!rm)l.firstElementChild.style.transform='scale('+(1.14-.14*(j<i?1:j===i?t:0)).toFixed(4)+')'});
  C.forEach((c,j)=>c.classList.toggle('on',j===i));if(bar)bar.style.transform='scaleX('+p+')';if(num)num.textContent='0'+(i+1)}
 addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(draw)}},{passive:true});addEventListener('resize',draw);draw()})})();
-
-/* scroll film hero: frames play as the page scrolls, headlines swap per scene */
-(function(){const tr=document.getElementById('hxt');if(!tr)return;const st=tr.firstElementChild,cv=document.getElementById('hxc'),cx=cv.getContext('2d'),fr=tr.querySelector('.hx-fr'),wp=tr.querySelector('.hx-w'),
-C=[...tr.querySelectorAll('.hx-c')],bar=tr.querySelector('.seq-bar i'),num=tr.querySelector('.hx-n b');
-const rm=matchMedia('(prefers-reduced-motion:reduce)').matches,set=innerWidth/innerHeight<.85?'m':'d',N=120,S=4,P=N/S,F=[];
-if(set==='m'){cv.width=540;cv.height=960}
-let cur=0,tgt=0,last=-1,idle=0,dir=1,stage=0,shown=0,on=false,wt=null;
-function load(i){return new Promise(r=>{const im=new Image();im.onload=()=>{F[i]=im;if(i===0)paint(true);r()};im.onerror=()=>r();im.src='img/hero/'+set+'/'+String(i).padStart(3,'0')+'.webp'})}
-(async()=>{await load(0);const q=[];for(let i=1;i<N;i++)q.push(i);const run=async()=>{while(q.length)await load(q.shift())};for(let k=0;k<6;k++)run()})();
-function paint(force){let i=Math.max(shown*P,Math.min(shown*P+P-1,Math.round(cur)));while(i>shown*P&&!F[i])i--;if(!F[i])return;if(i!==last||force){cx.drawImage(F[i],0,0,cv.width,cv.height);last=i}}
-function frame(){const r=tr.getBoundingClientRect(),tot=r.height-st.offsetHeight,p=tot>0?Math.min(1,Math.max(0,-r.top/tot)):0,q=Math.min(1,p/.9),i=Math.min(S-1,Math.floor(q*S));
- if(i!==stage){stage=i;C.forEach((c,j)=>c.classList.toggle('on',j===i));num.textContent='0'+(i+1);
-  if(rm){shown=i}else{wp.classList.remove('go');void wp.offsetWidth;wp.classList.add('go');clearTimeout(wt);wt=setTimeout(()=>{shown=stage;paint(true)},270)}}
- bar.style.transform='scaleX('+q+')';const o=Math.max(0,(p-.9)/.1);fr.style.clipPath=o>0?'inset('+(o*5).toFixed(2)+'% '+(o*5).toFixed(2)+'% '+(o*7).toFixed(2)+'% '+(o*5).toFixed(2)+'%)':'';
- if(scrollY<6&&!rm){idle+=dir*.2;if(idle>P-1){idle=P-1;dir=-1}if(idle<0){idle=0;dir=1}tgt=idle}else tgt=q*(N-1);
- cur+=(tgt-cur)*(rm?1:.16);if(Math.abs(tgt-cur)<.03)cur=tgt;paint();if(on)requestAnimationFrame(frame)}
-new IntersectionObserver(e=>{const v=e[0].isIntersecting;if(v&&!on){on=true;requestAnimationFrame(frame)}else if(!v)on=false}).observe(tr)})();
 
 /* the bottom buttons stay off the hero until the first scroll */
 (function(){const c=()=>document.body.classList.toggle('hx-clean',scrollY<innerHeight*.4&&!document.body.classList.contains('touring'));addEventListener('scroll',c,{passive:true});addEventListener('siready',c);c()})();
