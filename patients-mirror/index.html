@@ -327,6 +327,13 @@ footer a:hover{color:var(--green)}
 .tour .row button.go{background:var(--navy);border-color:var(--navy);color:#fff}
 .tour-hl{outline:4px solid var(--green);outline-offset:-4px}
 @media(prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+.cs-film{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;margin-top:28px;padding:12px;border-radius:12px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);text-decoration:none;color:#fff}
+.cs-film img{width:150px;aspect-ratio:16/9;object-fit:cover;border-radius:8px}
+.cs-film span{display:flex;flex-direction:column;gap:4px}
+.cs-film small{font:700 10px/1 var(--head);letter-spacing:.22em;text-transform:uppercase;color:var(--green)}
+.cs-film b{font:800 clamp(19px,2.6vw,26px)/1.1 var(--head);letter-spacing:-.02em}
+.cs-film em{font:400 14px var(--body);font-style:normal;color:var(--mist)}
+@media(max-width:520px){.cs-film{grid-template-columns:110px 1fr}.cs-film img{width:110px}.cs-film em{display:none}}
 </style>
 </head>
 <body>
@@ -407,6 +414,7 @@ footer a:hover{color:var(--green)}
       <button class="film" data-v="https://patientsmirror.com/wp-content/uploads/2024/06/promo5.mp4"><span class="fr"><img src="img/film5.jpg" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>Play</span></span><span class="t">You deserve more</span><span class="s">Film 05</span></button>
       <button class="film" data-v="https://patientsmirror.com/wp-content/uploads/2024/08/PM-JoinUs.mp4"><span class="fr"><img src="img/care.jpg" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>Play</span></span><span class="t">Join us: transforming healthcare through storytelling</span><span class="s">Film 06</span></button>
     </div>
+    <a class="cs-film" href="work/"><img src="work/film-poster.jpg" alt="" loading="lazy"><span><small>Case study</small><b>Activate yourself, scene by scene</b><em>Scroll through one film and see why each moment is there</em></span></a>
   </div>
 </section>
 
