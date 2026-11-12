@@ -12,7 +12,7 @@
 <header class="top">
   <a class="mark" href="index.html"><span class="mlogo " role="img" aria-label="MAC Show Systems" style="width:210px;aspect-ratio:1472/306;-webkit-mask-image:url(../img/logos/mss-logo.png);mask-image:url(../img/logos/mss-logo.png)"></span></a>
   <button class="menu-btn" aria-label="Menu" aria-expanded="false"><svg class="icon sm" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
-  <nav class="nav"><a href="rentals.html">Rentals</a><a href="case-studies.html">Case studies</a><a href="venues.html">Venues</a><a href="planning.html">Plan your event</a><a class="btn ghost" href="#contact"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg>Get in touch</a><a class="btn" href="quote.html">Build your quote</a></nav>
+  <nav class="nav"><a href="#services">What we do</a><a href="case-studies.html">Case studies</a><a href="venues.html">Venues</a><a href="planning.html">Plan your event</a><a class="btn ghost" href="#contact"><svg class="icon " viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg>Get in touch</a><a class="btn" href="quote.html">Build your quote</a></nav>
 </header>
 <main>
 <section class="hero" id="hero">
@@ -47,10 +47,10 @@
 </section>
 <section id="availability" class="pad" style="padding-top:0"><div class="wrap split">
   <div><span class="eyebrow"><span class="live-dot"></span>Live availability</span><h2>See what's free on your dates.</h2>
-  <p class="lead" style="margin-top:22px">Pick your dates and you'll see what's available right now. No prices, no waiting for a callback just to find out it's booked.</p>
+  <p class="lead" style="margin-top:22px">Pick your dates and tell us what you need. You'll see right away whether we have it, or something that works just as well. No prices, no waiting for a callback.</p>
   <div class="rows" id="peek"></div>
   <div class="btns" style="margin-top:24px"><a class="btn" href="#quote">Check everything</a></div></div>
-  <div class="photo-tall"><img src="../img/mac-solution-audio.webp" alt="Line array speakers on an outdoor stage"></div>
+  <div class="photo-tall"><img src="../img/mac-solution-audio.webp" alt="Speakers on an outdoor stage"></div>
 </div></section>
 
 <section id="planner" class="pad" style="padding-top:0"><div class="wrap">
@@ -61,7 +61,7 @@
 
 <section id="quote" class="pad" style="padding-top:0"><div class="wrap">
   <span class="eyebrow">Build your quote</span><h2>Your gear. Your dates.</h2>
-  <div class="tool"><span class="sample-tag">Sample inventory for preview. Real stock connects once MAC shares its inventory list.</span><div id="quote-tool"></div></div>
+  <div class="tool"><span class="sample-tag">Sample availability for preview. Real stock connects once MAC shares its inventory list.</span><div id="quote-tool"></div></div>
 </div></section>
 
 <section class="plan-band"><img src="../img/mac-work-1.webp" alt="Outdoor stage build in a park">
@@ -96,7 +96,7 @@
 const T = window.MACTOOLS;
 T.quote(document.getElementById("quote-tool"), { prefix: "mac" });
 T.planner(document.getElementById("planner-tool"), { prefix: "mac" });
-function peek() { const d = T.dates("mac"); document.getElementById("peek").innerHTML = ["led","spk","mov","stgo"].map(id => { const it = T.INV.find(i => i.id === id); return `<div class="row"><div><div class="nm">${it.n}</div><div class="ct">${d.a.toLocaleDateString("en-CA",{month:"short",day:"numeric"})} to ${d.b.toLocaleDateString("en-CA",{month:"short",day:"numeric"})}</div></div>${T.status(T.free(id, d.a, d.b), it.q)}</div>`; }).join(""); }
+function peek() { const d = T.dates("mac"); document.getElementById("peek").innerHTML = ["ostage","concert","led","slight"].map(k => { const n = T.NEEDS.find(x => x.k === k); return `<div class="row"><div><div class="nm">${n.n}</div><div class="ct">${d.a.toLocaleDateString("en-CA",{month:"short",day:"numeric"})} to ${d.b.toLocaleDateString("en-CA",{month:"short",day:"numeric"})}</div></div>${T.needStatus(k, "M", d)}</div>`; }).join(""); }
 peek(); document.addEventListener("macdates", peek);
 document.querySelectorAll("[data-form]").forEach(f => T.sendForm(f, "Our team will get back to you shortly."));
 </script>
