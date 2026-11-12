@@ -10,16 +10,19 @@ var qs=new URLSearchParams(location.search);
 /* loader */
 var tourWanted=qs.get('tour')==='1';
 setTimeout(function(){$('#loader').classList.add('out');document.body.classList.remove('loading');document.body.classList.add('ready');if(tourWanted)setTimeout(startTour,1500);setTimeout(function(){$('#loader').style.display='none'},1500)},3300);
-var hmk=$('.hero-mk');addEventListener('scroll',function(){var y=scrollY;if(y<innerHeight){hph.style.transform='translateY('+y*.25+'px) scale('+(1+y/3000)+')';hmk.style.transform='translateY('+y*-.15+'px) rotate('+y*.12+'deg)'}},{passive:true});
+var hmk=$('.hero-mk'),rwi=$('#rwImg');addEventListener('scroll',function(){var y=scrollY;if(y<innerHeight){hmk.style.transform='rotate('+y*.15+'deg)';$('.rw-big').style.transform='translateX('+(-y*.4)+'px)'}},{passive:true});
 
-/* hero: blinds film from their own photos */
-var HP=['room-blue','showroom-white','storefront'],N=6,hph=$('#heroPh'),words=['your size.','by hand.','to last.'],hi=-1;
-HP.forEach(function(p){var d=document.createElement('div');d.className='sl';for(var k=0;k<N;k++){var st=document.createElement('i');st.style.cssText='left:'+(k*100/N)+'%;width:'+(100/N+.2)+'%;transition-delay:'+(k*90)+'ms';var im=document.createElement('b');im.style.cssText='background-image:url(img/'+p+'.webp);left:-'+(k*100)+'%;width:'+(N*100)+'%';st.appendChild(im);d.appendChild(st)}hph.appendChild(d)});
-var SL=$$('.sl',hph);
-function hnext(){var prev=SL[hi];hi=(hi+1)%SL.length;var c=SL[hi];SL.forEach(function(x){x.style.zIndex=x===c?2:x===prev?1:0});c.classList.remove('on');void c.offsetWidth;c.classList.add('on');
-  if(prev)setTimeout(function(){prev.classList.remove('on')},1700);
-  var r=$('#rot');r.textContent=words[hi];r.classList.remove('sw');void r.offsetWidth;r.classList.add('sw')}
-setTimeout(function(){hnext();setInterval(hnext,4600)},3000);
+/* hero: runway of their own pieces */
+var RW=[['2068-soho','s-2068'],['2071-olivia','s-2071'],['2020-leather-cigar'],['2076-toronto','s-2076'],['2032-william'],['2009-swivel-nest'],['2014-leather-ellie']].map(function(r){var it=IT.filter(function(i){return i.h===r[0]})[0];return it?{it:it,src:r[1]?'img/'+r[1]+'.webp':img(it)}:null}).filter(Boolean),ri0=-1,words=['your size.','by hand.','to last.','your way.'];
+RW.forEach(function(i){var p=new Image();p.src=i.src});
+$('#rwT').textContent=('0'+RW.length).slice(-2);
+function rwNext(){var im=$('#rwImg'),lab=$('.rw-lab');im.classList.remove('in');im.classList.add('out');lab.classList.remove('in');
+  setTimeout(function(){ri0=(ri0+1)%RW.length;var it=RW[ri0].it;im.src=RW[ri0].src;$('#rwNo').textContent='STYLE '+it.n;$('#rwName').textContent=it.t;$('#rwPrice').textContent=it.y.replace('Chairs & Accents','Chair').replace(/s$/,'')+' from '+money(it.p);$('#rwC').textContent=('0'+(ri0+1)).slice(-2);
+    im.classList.remove('out');void im.offsetWidth;im.classList.add('in');lab.classList.add('in');
+    var b=$('#rwBar');b.style.transition='none';b.style.width='0';void b.offsetWidth;b.style.transition='width 3600ms linear';b.style.width='100%';
+    var r=$('#rot');r.textContent=words[ri0%words.length];r.classList.remove('sw');void r.offsetWidth;r.classList.add('sw')},ri0<0?0:650)}
+setTimeout(function(){rwNext();setInterval(rwNext,4300)},3300);
+$('#runway').onclick=function(){if(ri0>=0){Q.h=RW[ri0].it.h;open(1,true)}};
 
 /* collection */
 function rail(f){$('#rail').innerHTML=by(f).map(function(i){return '<article class="pc" data-h="'+i.h+'"><img loading="lazy" src="'+img(i)+'" alt="'+i.t+' '+f+'"><i>STYLE '+i.n+'</i><b>'+i.t+'</b><p><span>From '+money(i.p)+'</span><u>Build this one</u></p></article>'}).join('')}

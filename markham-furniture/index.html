@@ -9,7 +9,7 @@
 <link rel="icon" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="mf.css">
+<link rel="stylesheet" href="mf.css?v=6">
 </head>
 <body class="loading">
 
@@ -38,20 +38,25 @@
 </header>
 
 <main>
-<section class="hero" id="hero">
-  <div class="hero-ph" id="heroPh"></div>
-  <div class="hero-big" aria-hidden="true"><div>Made to order <b>Made in Markham</b> Made to order <b>Made in Markham</b> Made to order <b>Made in Markham</b> Made to order <b>Made in Markham</b> </div></div>
-  <div class="hero-mk" aria-hidden="true"><img src="img/mark-ring-white.png" alt="" class="ring"><img src="img/mark-inner-white.png" alt="" class="inner"></div>
-  <div class="hero-tx">
+<section class="hero hero5" id="hero">
+  <div class="h5-top">
     <p class="eyebrow">Built in Markham, Ontario since 1998</p>
     <h1><span class="ln"><span>Your sofa.</span></span><span class="ln"><span>Built <em id="rot">your size.</em></span></span></h1>
+    <div class="hero-mk" aria-hidden="true"><img src="img/mark-ring-white.png" alt="" class="ring"><img src="img/mark-inner-white.png" alt="" class="inner"></div>
+  </div>
+  <div class="runway" id="runway">
+    <div class="rw-big" aria-hidden="true"><div>Made to order / Made in Markham / Made to order / Made in Markham / Made to order / Made in Markham / </div></div>
+    <img id="rwImg" alt="" src="img/s-2068.webp">
+    <div class="rw-lab"><i id="rwNo">STYLE 2068</i><b id="rwName">Soho</b><span id="rwPrice"></span></div>
+    <div class="rw-ct"><span id="rwC">01</span><u><s id="rwBar"></s></u><span id="rwT">08</span></div>
+  </div>
+  <div class="h5-bot">
     <p class="sub">Solid Canadian hardwood frames. Eight-way hand-tied springs. Your fabric or Italian leather. Now with the tools to design it, price it and follow it home.</p>
     <div class="acts">
       <a class="btn" href="#menu" data-open="1">Build your quote</a>
       <a class="btn ghost" href="#visit"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Get in touch</a>
     </div>
   </div>
-  <span id="hcount" hidden></span>
 </section>
 
 <div class="ticker" aria-hidden="true"><div>
@@ -155,7 +160,7 @@
   <div class="t-ctl"><button id="tPrev" type="button">Back</button><button id="tPause" type="button">Pause</button><button id="tNext" type="button" class="pri">Next</button></div>
 </div>
 
-<script src="data.js"></script>
-<script src="mf.js"></script>
+<script src="data.js?v=6"></script>
+<script src="mf.js?v=6"></script>
 </body>
 </html>
