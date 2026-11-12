@@ -270,7 +270,7 @@ button{background:none;border:0;cursor:pointer}
   <form id="gateF" novalidate>
     <label class="gl">Your name<input id="gName" autocomplete="name" required></label>
     <label class="gl">Email<input id="gEmail" type="email" autocomplete="email" inputmode="email" required></label>
-    <label class="gl">Company or event (optional)<input id="gCo" autocomplete="organization"></label>
+    <label class="gl">Company or event<input id="gCo" autocomplete="organization" required></label>
     <label class="gl">Phone (optional)<input id="gPh" type="tel" autocomplete="tel" inputmode="tel"></label>
     <p class="gerr" id="gErr" role="alert"></p>
     <button class="tb gold sbtn" id="gGo" type="submit">Continue</button>
@@ -667,6 +667,7 @@ function gRetry(){var u=gUser();if(u&&!u.sent){gSend(u).then(function(ok){if(ok)
 $('#gateF').onsubmit=function(e){e.preventDefault();var n=$('#gName').value.trim(),m=$('#gEmail').value.trim(),err=$('#gErr');
   if(!n){err.textContent='Please enter your name.';$('#gName').focus();return}
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m)){err.textContent='Please enter a valid email.';$('#gEmail').focus();return}
+  if(!$('#gCo').value.trim()){err.textContent='Please enter your company or event.';$('#gCo').focus();return}
   err.textContent='';var u={name:n,email:m,co:$('#gCo').value.trim(),ph:$('#gPh').value.trim(),at:new Date().toISOString()};
   $('#gGo').disabled=true;$('#gGo').textContent='One moment';
   var fin=function(ok){u.sent=ok?1:0;try{localStorage.setItem('dfr-user',JSON.stringify(u))}catch(x){}$('#gate').classList.remove('on');$('#gGo').disabled=false;$('#gGo').textContent='Continue';if(!had)openStart()};
