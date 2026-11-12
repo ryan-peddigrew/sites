@@ -853,6 +853,24 @@ header.top,header.top.solid{background:var(--bb)}
 /* Ask Zai, quieter */
 .zb,.zb:hover{font-size:9.5px;letter-spacing:.18em;gap:3px;-webkit-text-stroke:3px var(--paper);right:14px}
 .zb svg.zs{width:40px;height:45px;rotate:-5deg;filter:drop-shadow(0 3px 0 #0005)}
+
+/* ===== pass 22 ===== */
+.hbr{display:none}
+@media(max-width:980px){.hbr{display:inline}}
+.hx-fr,.hx .hx-fr{inset:0 !important}
+header.top{background:none;box-shadow:none}
+header.top::before{content:"";position:absolute;left:0;right:0;top:0;height:calc(100% + 70px);z-index:-1;pointer-events:none;
+ background:linear-gradient(180deg,var(--bb) 0,var(--bb) 50%,#6FAEE3b0 68%,#6FAEE340 86%,#6FAEE300 100%);transition:height .3s}
+header.top.solid{background:none;box-shadow:none}
+.top .wrap{gap:clamp(22px,3vw,48px)}
+@media(max-width:980px){
+ .top .wrap{gap:20px;padding-left:22px;padding-right:22px}
+ .top .brand{flex:none}
+ .top .brand>svg{width:128px !important;height:auto !important}
+ .htag{margin:0 0 0 auto;max-width:none;white-space:nowrap;font-size:9.5px;line-height:1.45;letter-spacing:.14em}
+ .htag span::after{content:none}
+ .mbtn{margin-left:6px}
+}
 </style>
 </head>
 <body class="hx-clean">
@@ -871,7 +889,7 @@ header.top,header.top.solid{background:var(--bb)}
     <a href="#top" class="brand" aria-label="Steady Improvements, home">
       <svg class="logo hd" viewBox="-4 -184 646 242" role="img" aria-label="Steady Improvements"><use href="#lg1"/></svg>
     </a>
-    <p class="htag"><span>Interior finishes, done properly.</span><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#smi"/></svg></p>
+    <p class="htag"><span>Interior finishes,<br class="hbr"> done properly.</span><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#smi"/></svg></p>
     <button class="mbtn" id="mbtn" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><i></i><i></i><span>Menu</span></button>
     <nav class="nav" aria-label="Main">
       <a class="l" href="#services">Services</a>
