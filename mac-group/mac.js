@@ -60,13 +60,13 @@
     { p: "psi/index.html", s: "#crew", k: "Revenue", t: "Book a crew", d: "Pick dates, roles and headcount. Technical staffing is income PSI already earns, and now it books in a minute." },
     { p: "psi/index.html", s: "#packages", k: "Revenue", t: "Package builder", d: "Concert, festival or gala: answer three questions and PSI gets a full stage, sound, light and crew request." },
     { p: "psi/index.html", s: "#training", k: "Revenue", t: "Training sign-ups", d: "PSI's training and education gets dates, seats and a waitlist, so courses fill themselves." },
-    { p: "tour-trucking/index.html", s: "#hero", k: "Tour Trucking", t: "A real brand for Tour Trucking", d: "The old site was a template from another carrier. Tour Trucking gets its own name, look and voice." },
+    { p: "tour-trucking/index.html", s: "#hero", k: "Tour Trucking", t: "A real brand for Tour Trucking", d: "Tour Trucking keeps its logo and gets a site built around touring freight, with its own look and voice." },
     { p: "tour-trucking/index.html", s: "#route", k: "Revenue", t: "Route and tour requests", d: "One leg or a whole multi-city tour in one request, with trailer size and dates." },
     { p: "tour-trucking/index.html", s: "#space", k: "Revenue", t: "Truck space calculator", d: "Enter the gear and see how much trailer it needs. It turns a guess into a booking." },
     { p: "tour-trucking/index.html", s: "#drivers", k: "Growth", t: "Drive with us", d: "A proper recruiting page, because more drivers means more loads." },
     { p: "hub/index.html", s: "#hub", k: "Staff app", t: "MAC Hub", d: "Live stock across all three companies, quotes sent under the right brand, and flags when a job needs a sister company's trucks or crew." },
     { p: "apps/index.html", s: "#apps", k: "Client apps", t: "One app per brand", d: "MAC Show Systems Planner, PSI Crew Call and Tour Trucking Track My Load. Each one only shows its own brand, and all of them run on MAC Hub." },
-    { p: "index.html", s: "#close", k: "Next", t: "What we need from you", d: "Real inventory list, photos of your own gear and trucks, logos as vector files, and a yes on the brand direction. Then we connect everything for real." }
+    { p: "index.html", s: "#close", k: "Next", t: "What we need from you", d: "Real inventory list, photos of your trucks, logos as vector files, and a yes on the brand direction. Then we connect everything for real." }
   ];
   const PAGE = document.documentElement.dataset.page || "index.html";
   const q = new URLSearchParams(location.search);

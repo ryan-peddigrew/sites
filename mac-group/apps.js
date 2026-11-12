@@ -21,7 +21,7 @@
       }
     },
     track: {
-      head: `<span class="tt-wm sm"><b>TOUR</b><span>TRUCKING</span></span>`,
+      head: `<img src="../img/tt-logo.png" alt="Tour Trucking Logistics" width="150" height="37">`,
       tabs: {
         "My loads": () => `<div class="a-card hero-card"><span class="a-k">Load #TT-2207 · sample</span><b>Toronto → Montréal</b><div class="a-track"><i style="width:62%"></i></div><div class="a-row"><span>Now</span><b>Near Kingston, ON</b></div><div class="a-row"><span>Arrives</span><b>${day(1)}, 2:00 PM</b></div></div><button class="a-btn">Book the next leg</button>`,
         "Tour": () => [["Toronto", "Done"], ["Montréal", "On the way"], ["Québec City", day(4)], ["Ottawa", day(7)]].map(([c, s], i) => `<div class="a-row"><span>${c}</span><b class="${i === 0 ? "ok" : ""}">${s}</b></div>`).join(""),
