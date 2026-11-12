@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Steady Improvements: blade logo and icon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Syne:wght@800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}body{background:#131313;color:#eee;font-family:Oswald,sans-serif;padding:16px}
+h1{font:600 22px Oswald;letter-spacing:.12em;text-transform:uppercase;margin:6px 0 4px}
+h2{font:600 17px Oswald;letter-spacing:.12em;text-transform:uppercase;margin:26px 0 4px}
+p.s{font:500 14px/1.45 Oswald;opacity:.7;margin-bottom:12px;max-width:720px}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.c{position:relative;overflow:hidden}.c svg{display:block;width:100%;height:auto}
+.n{position:absolute;top:12px;left:14px;font:600 13px Oswald;letter-spacing:.12em;opacity:.85}
+.ic{background:#1d1d1d;padding:18px;display:flex;align-items:flex-end;gap:16px}
+.ic .n{position:static;display:block;margin-bottom:10px}.ic>div{flex:1}
+.ic svg.big{width:150px;height:150px}.ic svg.md{width:60px;height:60px}.ic svg.sm{width:30px;height:30px}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:10px 18px;margin-bottom:10px}
+.bar svg{height:54px;width:auto}.bar nav{font:600 12px Oswald;letter-spacing:.16em;text-transform:uppercase;display:flex;gap:18px}
+@media(max-width:560px){.bar nav span:nth-child(-n+2){display:none}}
+</style></head><body>
+<h1>The blade, behind the name</h1>
+<p class="s">The saw blade now rises behind the words instead of sitting on top, drawn as one flat shape so nothing cuts through the name. In B the ruler becomes the table the blade comes up through, which ties together the two you liked.</p>
+<div class="g" id="logos"></div>
+<h2>The icon</h2>
+<p class="s">What sits on a phone home screen, a browser tab, a truck door or a shirt sleeve. Each is shown large, then at phone size and tab size, because an icon has to survive being tiny.</p>
+<div class="g" id="icons"></div>
+<h2>In use</h2>
+<p class="s">How the icon and the name pair up in the website header.</p>
+<div id="use"></div>
+<script>
+const BB='#A9D6F5',Y='#FFD23F',O='#F47B20',N='#16264A',C='#FFF8E7';
+const P=(cx,cy,r,a)=>`${(cx+r*Math.cos(a*Math.PI/180)).toFixed(1)} ${(cy+r*Math.sin(a*Math.PI/180)).toFixed(1)}`;
+function blade(cx,cy,R,n,a0,a1,close=true){const s=(a1-a0)/n,r=R*.86;let d='M'+P(cx,cy,r,a0);for(let i=0;i<n;i++){const a=a0+i*s;d+='L'+P(cx,cy,R,a+s*.16)+'L'+P(cx,cy,r,a+s)}return d+(close?'Z':'')}
+function ruler(x,y,w,h,fill,line){let t='';for(let i=1,xx=x+16;xx<x+w-8;xx+=16,i++)t+=`M${xx} ${y}v${i%5==0?h*.5:h*.28}`;return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="4" fill="${fill}"/><path d="${t}" stroke="${line}" stroke-width="4" stroke-linecap="round"/>`}
+const word=(y,fill,size=120)=>`<text x="400" y="${y}" text-anchor="middle" font-family="Syne" font-weight="800" font-size="${size}" letter-spacing="${-size*.04}" fill="${fill}">steady</text>`;
+const imp=(y,fill,size=41)=>`<text x="${400+size*.06}" y="${y}" text-anchor="middle" font-family="Syne" font-weight="800" font-size="${size}" letter-spacing="${size*.115}" fill="${fill}">improvements</text>`;
+const tag=(y,fill)=>`<text x="403" y="${y}" text-anchor="middle" font-family="Oswald" font-weight="500" font-size="16" letter-spacing="5.4" fill="${fill}" opacity=".85">CARPENTRY YOU CAN COUNT ON</text>`;
+const st=l=>`stroke="${l}" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"`;
+/* flat shapes: the blade sits behind the words with no outline, so nothing cuts through the letters */
+const behind=(d,fill,line,words)=>`<path d="${d}Z" fill="${fill}"/>${words}`;
+const half=(cy,R,n)=>blade(400,cy,R,n,180,360,false);
+const base=(y,line)=>`<path d="M80 ${y}H720" ${st(line)}/>`;
+const W=(fg)=>word(318,fg)+imp(368,fg);
+const L=[
+ ['A  BLADE RISING',BB,N,behind(half(396,262,19),Y,N,W(N))+base(396,N)+tag(446,N)],
+ ['B  BLADE THROUGH THE RULER',BB,N,behind(half(396,262,19),Y,N,W(N))+ruler(80,396,640,42,O,N)+tag(480,N)],
+ ['C  FULL BLADE BADGE',BB,N,`<path d="${blade(400,318,238,30,0,360)}" fill="${Y}"/><circle cx="400" cy="318" r="186" fill="none" stroke="${N}" stroke-width="3"/><text x="400" y="330" text-anchor="middle" font-family="Syne" font-weight="800" font-size="66" letter-spacing="-2.6" fill="${N}">steady</text><text x="402" y="362" text-anchor="middle" font-family="Syne" font-weight="800" font-size="22.5" letter-spacing="2.6" fill="${N}">improvements</text>`],
+ ['D  CREAM GROUND',C,N,behind(half(396,262,19),BB,N,W(N))+ruler(80,396,640,42,Y,N)+tag(480,N)],
+ ['E  YELLOW GROUND',Y,N,behind(half(396,262,19),BB,N,W(N))+ruler(80,396,640,42,O,N)+tag(480,N)],
+ ['F  NIGHT VERSION',N,C,behind(half(396,262,19),O,C,W(C))+ruler(80,396,640,42,Y,N)+tag(480,C)]
+];
+document.getElementById('logos').innerHTML=L.map(([n,bg,fg,s])=>`<div class="c" style="background:${bg};color:${fg}"><span class="n">${n}</span><svg viewBox="0 0 800 580">${s}</svg></div>`).join('');
+const S=(x,y,size,fill)=>`<text x="${x}" y="${y}" text-anchor="middle" font-family="Syne" font-weight="800" font-size="${size}" fill="${fill}">s</text>`;
+const sq=(bg,inner)=>`<defs><clipPath id="CLIP"><rect width="200" height="200" rx="44"/></clipPath></defs><g clip-path="url(#CLIP)"><rect width="200" height="200" fill="${bg}"/>${inner}</g>`;
+const tk=(c)=>`<path d="M30 150v16M65 150v10M100 150v22M135 150v10M170 150v16" stroke="${c}" stroke-width="5"/>`;
+const I=[
+ ['1  BLADE + RULER',sq(BB,`<path d="${blade(100,150,92,9,180,360)}" fill="${Y}"/>${S(100,150,112,N)}<rect x="-10" y="150" width="220" height="60" fill="${O}"/>${tk(N)}`)],
+ ['2  FULL BLADE',sq(N,`<path d="${blade(100,100,90,16,0,360)}" fill="${Y}"/>${S(100,134,112,N)}`)],
+ ['3  BLADE OFF THE EDGE',sq(BB,`<path d="${blade(148,158,130,22,0,360)}" fill="${Y}"/>${S(96,140,150,N)}`)],
+ ['4  S ON THE RULER',sq(Y,`${S(100,138,160,N)}<rect x="-10" y="150" width="220" height="60" fill="${N}"/>${tk(Y)}`)]
+];
+document.getElementById('icons').innerHTML=I.map(([n,s],k)=>{const v=s.replaceAll('CLIP','k'+k);return `<div class="c ic"><div><span class="n">${n}</span><svg class="big" viewBox="0 0 200 200">${v}</svg></div><svg class="md" viewBox="0 0 200 200">${v.replaceAll('k'+k,'m'+k)}</svg><svg class="sm" viewBox="0 0 200 200">${v.replaceAll('k'+k,'s'+k)}</svg></div>`}).join('');
+const hl=(k,fg)=>`<svg viewBox="0 0 770 200"><g transform="translate(0,0)">${I[0][1].replaceAll('CLIP','h'+k)}</g><text x="236" y="112" font-family="Syne" font-weight="800" font-size="92" letter-spacing="-3.6" fill="${fg}">steady</text><text x="240" y="158" font-family="Syne" font-weight="800" font-size="31" letter-spacing="3.6" fill="${fg}">improvements</text></svg>`;
+document.getElementById('use').innerHTML=[[C,N,1],[N,C,2]].map(([bg,fg,k])=>`<div class="bar" style="background:${bg};color:${fg}">${hl(k,fg)}<nav><span>Services</span><span>Our work</span><span>Reviews</span><span>Get a quote</span></nav></div>`).join('');
+</script></body></html>
