@@ -1,4 +1,5 @@
 {
+  "id": "mac-hub",
   "name": "MAC Hub",
   "short_name": "MAC Hub",
   "start_url": "./index.html",
