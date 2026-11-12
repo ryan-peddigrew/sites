@@ -581,6 +581,47 @@ body.hx-clean .zb,body.hx-clean .tourbtn{opacity:0;transform:translateY(16px);po
 #ld .ldm{position:relative;z-index:1}.logo.ldl{width:min(390px,60vw)}
 #ld .ldm .brand{animation-delay:.8s}#ld .ldr{display:none}
 @media(prefers-reduced-motion:reduce){.ldf,.ldf *{animation:none!important;transform:none;opacity:1}.ldf{transform:translate(-50%,-50%)}}
+
+/* ===== pass 8: loading screen, the saw cuts the page open ===== */
+#ld .door{left:0;right:0;width:auto;height:50%;background:var(--ink);overflow:hidden;transition:transform .8s cubic-bezier(.7,0,.2,1)}
+#ld .door.l{top:0;bottom:auto}#ld .door.r{top:auto;bottom:0}
+#ld.out .door.l{transform:translateY(-101%)}#ld.out .door.r{transform:translateY(101%)}
+#ld .door b{position:absolute;left:0;right:0;text-align:center;font:700 min(31vw,62vh)/1 var(--lab);text-transform:uppercase;color:var(--bb);white-space:nowrap;letter-spacing:-.01em;animation:ld8w .7s cubic-bezier(.2,.8,.2,1) both}
+#ld .door.l b{top:100%;margin-top:-.52em}#ld .door.r b{top:0;margin-top:-.52em;animation-name:ld8w2}
+@keyframes ld8w{from{transform:translateX(-110%)}}@keyframes ld8w2{from{transform:translateX(110%)}}
+#ld .door b::before,#ld .door b::after{content:"Steady";position:absolute;left:0;right:0;color:#0000;-webkit-text-stroke:2px #B6DFED59}
+#ld .door.l b::before{top:-.92em}#ld .door.l b::after{top:-1.84em}#ld .door.r b::before{top:.92em}#ld .door.r b::after{top:1.84em}
+#ld.cut .door.l b{translate:-.05em 0;transition:translate .25s}#ld.cut .door.r b{translate:.05em 0;transition:translate .25s}
+.ldf,#ld .ldm{display:none}
+.ld8{position:absolute;inset:0}
+.ld8 .kerf{position:absolute;left:0;right:0;top:50%;height:6px;margin-top:-3px;background:var(--org,#F47B20);transform:scaleX(0);transform-origin:0 50%;animation:ld8k 1s cubic-bezier(.5,0,.5,1) .8s forwards}
+.ld8 .saw{position:absolute;top:50%;left:0;width:min(46vw,300px);aspect-ratio:1;margin:calc(min(46vw,300px)/-2) 0 0 calc(min(46vw,300px)/-2);transform:translateX(-60vw);animation:ld8s 1s cubic-bezier(.5,0,.5,1) .8s forwards;filter:drop-shadow(0 6px 0 #0006)}
+.ld8 .sawr{transform-box:fill-box;transform-origin:50% 50%;animation:ld8r .5s linear infinite}
+@keyframes ld8k{to{transform:none}}@keyframes ld8s{from{transform:translateX(-30vw)}to{transform:translateX(130vw)}}@keyframes ld8r{to{transform:rotate(360deg)}}
+.ld8 .ldk{position:absolute;margin:0;font:600 12px/1 var(--lab);letter-spacing:.22em;text-transform:uppercase;color:var(--paper)}
+.ld8 .ldk.a{left:18px;top:18px}.ld8 .ldk.b{right:18px;bottom:18px;color:var(--yel)}
+@media(prefers-reduced-motion:reduce){#ld .door b,.ld8 .kerf,.ld8 .saw,.ld8 .sawr{animation:none}.ld8 .saw{display:none}.ld8 .kerf{transform:none}}
+
+/* ===== pass 8: lookbook hero, baby blue page with a framed print ===== */
+.hx-st{background:var(--bb)}
+.hx-fr{inset:calc(var(--hh) + 26px) max(20px,calc((100vw - 1240px)/2)) 9vh 44%;background:var(--paper);border:12px solid var(--paper);box-shadow:-18px 18px 0 var(--ink)}
+.hx-fr .seq-l{inset:0}
+.hx-shade{display:none}
+.hx-fr figcaption{position:absolute;right:0;top:0;background:var(--paper);color:var(--ink);font:600 12px/1 var(--lab);letter-spacing:.2em;text-transform:uppercase;padding:10px 12px 12px 14px}
+.hx-c{font-size:clamp(58px,min(11.6vw,19vh),190px)}
+.hx-c.s{font-size:clamp(50px,min(9.4vw,16vh),150px)}
+.hx-c span{background:var(--bb);color:var(--ink)}
+.hx-c span.a{background:var(--ink);color:var(--paper)}
+.hx-cs{z-index:2}
+.hx-side{position:absolute;left:max(20px,calc((100vw - 1240px)/2));top:calc(var(--hh) + 30px);margin:0;font:600 12px/1.5 var(--lab);letter-spacing:.22em;text-transform:uppercase;color:var(--ink)}
+.hx-side b{display:block;font-weight:700;border-top:3px solid var(--ink);padding-top:8px;width:max-content}
+.hx .seq-hint{color:var(--ink)}
+@media(max-width:820px){
+ .hx-fr{inset:calc(var(--hh) + 44px) 16px 31svh 34px;border-width:8px;box-shadow:-12px 12px 0 var(--ink)}
+ .hx-c{font-size:clamp(52px,min(16.5vw,13.5vh),130px)}.hx-c.s{font-size:clamp(44px,min(13.6vw,12vh),110px)}
+ .hx-side{top:calc(var(--hh) + 10px);left:20px}.hx-side b{display:inline;border:0;padding:0}.hx-side span{display:none}
+ .hx-fr figcaption{font-size:10.5px;padding:8px 10px 10px 12px}
+}
 </style>
 </head>
 <body class="hx-clean">
@@ -588,8 +629,8 @@ body.hx-clean .zb,body.hx-clean .tourbtn{opacity:0;transform:translateY(16px);po
 
 <!-- loading screen: the name is set letter by letter, a line is ruled under it, then two doors slide open -->
 <div id="ld" aria-hidden="true">
-  <div class="door l"></div><div class="door r"></div>
-  <div class="ldc"><div class="ldf"><i class="pan"></i><i class="b t"></i><i class="b bt"></i><i class="b l"></i><i class="b r"></i><i class="n n1"></i><i class="n n2"></i><i class="n n3"></i><i class="n n4"></i><svg class="hm" viewBox="0 0 120 200" aria-hidden="true"><rect x="52" y="40" width="16" height="156" rx="7" fill="#C9A06B" stroke="#7a552a" stroke-width="3"/><path d="M14 14h74c14 0 22 8 22 18v10H88v8H40v-8H14z" fill="#FFF8E7" stroke="#002941" stroke-width="4" stroke-linejoin="round"/></svg></div><div class="ldm"><div class="brand"><svg class="logo ldl" viewBox="-4 -184 646 242" role="img" aria-label="Steady Improvements"><path d="M211.3 -68A112 112 0 0 1 435.3 -68Z" fill="#002941"/><clipPath id="ldclip"><rect x="211.3" y="-180" width="224" height="104.2"/></clipPath><g clip-path="url(#ldclip)"><path class="spin" d="M244.3 -75.8L227.2 -81.9L249.1 -102.9L235 -114.4L262.8 -126.6L253.5 -142.3L283.8 -144.2L280.5 -162.1L309.6 -153.6L312.6 -171.6L337 -153.6L345.9 -169.5L362.8 -144.2L376.6 -156.1L383.8 -126.6L400.8 -133L397.5 -102.9L415.7 -103L402.3 -75.8L419.4 -69.8L397.5 -48.8L411.6 -37.3L383.8 -25.1L393.1 -9.4L362.8 -7.4L366.1 10.4L337 1.9L334 19.9L309.6 1.9L300.7 17.8L283.8 -7.4L270 4.4L262.8 -25.1L245.8 -18.7L249.1 -48.8L230.9 -48.6L244.3 -75.8Z" fill="#FFD23F"/></g><path d="M227 -75.8L227.2 -81.9L244.3 -75.8Z" fill="#FFD23F"/><path d="M282.8 -75.8A40.5 40.5 0 0 1 363.8 -75.8Z" fill="#F47B20"/><use href="#ws" fill="#002941"/><use href="#wi" y="44" fill="#002941"/></svg></div></div><div class="ldr"></div></div>
+  <div class="door l"><b>Steady</b></div><div class="door r"><b>Steady</b></div>
+  <div class="ldc"><div class="ldf"><i class="pan"></i><i class="b t"></i><i class="b bt"></i><i class="b l"></i><i class="b r"></i><i class="n n1"></i><i class="n n2"></i><i class="n n3"></i><i class="n n4"></i><svg class="hm" viewBox="0 0 120 200" aria-hidden="true"><rect x="52" y="40" width="16" height="156" rx="7" fill="#C9A06B" stroke="#7a552a" stroke-width="3"/><path d="M14 14h74c14 0 22 8 22 18v10H88v8H40v-8H14z" fill="#FFF8E7" stroke="#002941" stroke-width="4" stroke-linejoin="round"/></svg></div><div class="ldm"><div class="brand"><svg class="logo ldl" viewBox="-4 -184 646 242" role="img" aria-label="Steady Improvements"><path d="M211.3 -68A112 112 0 0 1 435.3 -68Z" fill="#002941"/><clipPath id="ldclip"><rect x="211.3" y="-180" width="224" height="104.2"/></clipPath><g clip-path="url(#ldclip)"><path class="spin" d="M244.3 -75.8L227.2 -81.9L249.1 -102.9L235 -114.4L262.8 -126.6L253.5 -142.3L283.8 -144.2L280.5 -162.1L309.6 -153.6L312.6 -171.6L337 -153.6L345.9 -169.5L362.8 -144.2L376.6 -156.1L383.8 -126.6L400.8 -133L397.5 -102.9L415.7 -103L402.3 -75.8L419.4 -69.8L397.5 -48.8L411.6 -37.3L383.8 -25.1L393.1 -9.4L362.8 -7.4L366.1 10.4L337 1.9L334 19.9L309.6 1.9L300.7 17.8L283.8 -7.4L270 4.4L262.8 -25.1L245.8 -18.7L249.1 -48.8L230.9 -48.6L244.3 -75.8Z" fill="#FFD23F"/></g><path d="M227 -75.8L227.2 -81.9L244.3 -75.8Z" fill="#FFD23F"/><path d="M282.8 -75.8A40.5 40.5 0 0 1 363.8 -75.8Z" fill="#F47B20"/><use href="#ws" fill="#002941"/><use href="#wi" y="44" fill="#002941"/></svg></div></div><div class="ld8"><i class="kerf"></i><svg class="saw" viewBox="208.3 -190.84 230 230" aria-hidden="true"><g class="sawr"><path d="M244.3 -75.8L227.2 -81.9L249.1 -102.9L235 -114.4L262.8 -126.6L253.5 -142.3L283.8 -144.2L280.5 -162.1L309.6 -153.6L312.6 -171.6L337 -153.6L345.9 -169.5L362.8 -144.2L376.6 -156.1L383.8 -126.6L400.8 -133L397.5 -102.9L415.7 -103L402.3 -75.8L419.4 -69.8L397.5 -48.8L411.6 -37.3L383.8 -25.1L393.1 -9.4L362.8 -7.4L366.1 10.4L337 1.9L334 19.9L309.6 1.9L300.7 17.8L283.8 -7.4L270 4.4L262.8 -25.1L245.8 -18.7L249.1 -48.8L230.9 -48.6L244.3 -75.8Z" fill="#FFD23F"/><circle cx="323.3" cy="-75.84" r="40" fill="#F47B20"/><circle cx="323.3" cy="-75.84" r="11" fill="#002941"/></g></svg><p class="ldk a">Steady Improvements</p><p class="ldk b">Carpentry you can count on</p></div></div>
 </div>
 
 <header class="top" id="hd">
@@ -609,7 +650,7 @@ body.hx-clean .zb,body.hx-clean .tourbtn{opacity:0;transform:translateY(16px);po
 
 <main id="top">
 <section class="hx" id="hero" aria-label="Carpentry you can count on">
-<div class="hx-track" id="hxt" data-seq><div class="hx-st"><div class="hx-fr"><figure class="seq-l"><img src="img/ig/c-aera.jpg" alt="Arched millwork along a window wall at Aera restaurant" style="object-position:50% 50%"></figure><figure class="seq-l"><img src="img/ig/fifa-2.jpg" alt="Red FIFA fabric wrapped around the field at BMO Field" style="object-position:50% 62%" loading=lazy></figure><figure class="seq-l"><img src="img/ig/c-td.jpg" alt="Geometric acoustic wall tile at TD Tower" style="object-position:50% 50%" loading=lazy></figure><figure class="seq-l"><img src="img/ig/c-armani.jpg" alt="Wall panelling and display at Emporio Armani" style="object-position:50% 50%" loading=lazy></figure><div class="hx-shade"></div></div><div class="hx-cs"><h1 class="seq-c hx-c on"><span>Carpentry</span><span>you can</span><span class=a>count on.</span></h1><p class="seq-c hx-c"><span>No short</span><span class=a>cuts.</span></p><p class="seq-c hx-c"><span>Start to</span><span class=a>finish.</span></p><p class="seq-c hx-c s"><span>Residential</span><span>and</span><span class=a>commercial.</span></p></div><div class="seq-bar" aria-hidden="true"><i></i></div><p class="seq-hint" aria-hidden="true">Scroll</p></div></div>
+<div class="hx-track" id="hxt" data-seq><div class="hx-st"><div class="hx-fr"><figure class="seq-l"><img src="img/ig/c-aera.jpg" alt="Arched millwork along a window wall at Aera restaurant" style="object-position:50% 50%"><figcaption>Aera restaurant</figcaption></figure><figure class="seq-l"><img src="img/ig/fifa-2.jpg" alt="Red FIFA fabric wrapped around the field at BMO Field" style="object-position:50% 62%" loading=lazy><figcaption>BMO Field</figcaption></figure><figure class="seq-l"><img src="img/ig/c-td.jpg" alt="Geometric acoustic wall tile at TD Tower" style="object-position:50% 50%" loading=lazy><figcaption>TD Tower</figcaption></figure><figure class="seq-l"><img src="img/ig/c-armani.jpg" alt="Wall panelling and display at Emporio Armani" style="object-position:50% 50%" loading=lazy><figcaption>Emporio Armani</figcaption></figure><div class="hx-shade"></div></div><p class="hx-side" aria-hidden="true"><b>The lookbook</b><span>Carpentry<br>Millwork<br>Builds</span></p><div class="hx-cs"><h1 class="seq-c hx-c on"><span>Carpentry</span><span>you can</span><span class=a>count on.</span></h1><p class="seq-c hx-c"><span>No short</span><span class=a>cuts.</span></p><p class="seq-c hx-c"><span>Start to</span><span class=a>finish.</span></p><p class="seq-c hx-c s"><span>Residential</span><span>and</span><span class=a>commercial.</span></p></div><div class="seq-bar" aria-hidden="true"><i></i></div><p class="seq-hint" aria-hidden="true">Scroll</p></div></div>
 <div id="slides" hidden><figure class="on"></figure></div><span id="bar" hidden><i class="on"></i></span><span id="cap" hidden></span><span id="rw" hidden></span>
 </section>
 
@@ -840,7 +881,7 @@ $('#yr').textContent=new Date().getFullYear();
 /* loader -> hero -> tour */
 const ld=$('#ld');
 function ready(){ld.classList.add('out');$('#hero').classList.add('go');setTimeout(()=>{ld.remove();dispatchEvent(new Event('siready'))},900)}
-setTimeout(ready,RM?300:2300);
+setTimeout(()=>ld.classList.add('cut'),1750);setTimeout(ready,RM?300:2150);
 
 /* header */
 const hd=$('#hd');const onS=()=>hd.classList.toggle('solid',scrollY>innerHeight*.75);addEventListener('scroll',onS,{passive:true});onS();
