@@ -98,6 +98,10 @@ button{background:none;border:0;cursor:pointer}
 .vdv{display:inline-block;background:var(--gold);color:var(--ink);font:800 10px/1 var(--f);letter-spacing:.12em;text-transform:uppercase;padding:4px 7px;border-radius:2px;margin-bottom:6px}
 .vgrp{flex:none;position:sticky;top:0;z-index:1;background:var(--ink);color:#fff;font:800 12px var(--f);letter-spacing:.1em;text-transform:uppercase;padding:8px 10px;border-left:4px solid var(--gold)}
 .vnote{font-size:13px!important;margin:10px 0 0!important}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.pg button{display:grid;gap:6px;text-align:left;padding:0 0 8px;border:1.5px solid rgba(22,27,32,.18);background:#fff;color:var(--ink);font:700 12px/1.25 var(--f);cursor:pointer;min-height:44px}
+.pg button img{width:100%;height:96px;object-fit:cover;display:block}
+.pg button span{padding:0 8px}
 .vbx .row .tb{flex:1 1 auto;justify-content:center}
 @media (max-width:640px){.vfil{grid-template-columns:1fr 1fr}.vfil #venE,.vfil #venS{grid-column:1/-1}.dlg#ven{padding:0;place-items:stretch}.vbx{display:block!important;max-width:none!important;max-height:none;height:100%;overflow:auto;-webkit-overflow-scrolling:touch;padding:calc(16px + env(safe-area-inset-top)) 16px 0!important}.vbx h4{font-size:20px}#venL{overflow:visible;flex:none}.vnote{display:none}.vgrp{top:-1px}.vbx .row{position:sticky;bottom:0;background:#fff;margin:12px -16px 0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--ivory2);flex-wrap:nowrap;gap:8px}.vbx .row .tb{padding:0 8px;font-size:11px;letter-spacing:.04em;white-space:normal;text-align:center;line-height:1.15;min-height:48px}}
 .vrow{flex:none;width:100%;display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center;text-align:left;background:var(--ivory);padding:8px;border-radius:3px;min-height:76px;color:var(--ink);border:1.5px solid transparent}
@@ -203,7 +207,7 @@ button{background:none;border:0;cursor:pointer}
     <button class="tb gold" id="toQuote">Add Divine pieces to my quote</button>
     <h3>Everything on the plan</h3>
     <ul class="lst" id="allList"></ul>
-    <div class="acts"><button class="tb gold" id="v3B">View in 3D</button><button class="tb" id="shareB">Share this layout</button>
+    <div class="acts"><button class="tb gold" id="v3B">View in 3D</button><button class="tb" id="pastB">View past layouts</button><button class="tb" id="shareB">Share this layout</button>
     <button class="tb" id="pngB">Save as image</button>
     <button class="tb" id="clrB">Clear the plan</button></div>
     <p class="fine"><span class="pv">Preview</span>Piece sizes are approximate until Divine confirms each footprint. Seating, catering and AV blocks are standard sizes for planning.</p>
@@ -232,7 +236,17 @@ button{background:none;border:0;cursor:pointer}
   <div class="vcount" id="venN"></div>
   <div id="venL"></div>
   <p class="vnote">Plans are the ones each venue publishes for planners. Confirm the current layout with the venue before you finalize.</p>
+  <div class="row"><button class="tb" id="pastB2" style="flex:1 1 100%;justify-content:center">View past layouts</button></div>
   <div class="row"><button class="tb gold" id="venUp">Upload my own plan</button><button class="tb" id="venSample">Try the sample hall</button><button class="tb" id="venX">Close</button></div>
+</div></div>
+<div class="dlg" id="past"><div class="bx" style="max-width:640px;max-height:90vh;overflow:auto">
+  <h4>Past layouts and inspiration</h4>
+  <p class="vnote" style="margin:0 0 10px!important">Starting points from the kinds of events Divine sets up. Pick one to place it in your room, then move pieces into position.</p>
+  <div class="evs" id="pastEv" style="grid-template-columns:1fr 1fr"></div>
+  <h4 style="margin-top:14px">Divine setups</h4>
+  <div class="pg" id="pastG"></div>
+  <p class="vnote">Layouts from Divine's own past events will be added here.</p>
+  <div class="row"><button class="tb" id="pastX">Close</button></div>
 </div></div>
 <div class="dlg" id="inst"><div class="bx">
   <h4>Get Divine Design on your phone</h4>
@@ -561,10 +575,6 @@ var shared=location.hash.match(/layout=([^&]+)/),had=false;
 if(shared){try{var d=JSON.parse(atob(shared[1]));S.pw=d.w;S.ph=d.h;S.objs=d.o.map(function(a,i){return {id:i+1,t:a[0],x:a[1],y:a[2],r:a[3]}}).filter(function(o){return BY[o.t]});nid=S.objs.length+1;had=true;if(!d.s)toast('Layout loaded. Upload the same floor plan to see it underneath.')}catch(e){}}
 if(!had)had=restore();
 if(!had&&!/[?&]install=1/.test(location.search))openVen(true);
-if(!had){ // starter layout on the sample hall
-  [['STG',50,6],['SCR',50,1.2],['DF',50,20],['R60',20,22],['R60',20,38],['R60',80,22],['R60',80,38],['R60',38,46],['R60',62,46],['SS-450-SETUP-001',10,50],['SS-650-SETUP-010',24,52],['CAT-BARS',92,30],['BUF16',74,52],['FOH',50,40],['CRU-SETUP-001',8,8],['CRU-SETUP-001',92,8]].forEach(function(a){S.objs.push({id:nid++,t:a[0],x:a[1],y:a[2],r:0})});
-  S.objs.forEach(function(o){if(o.t==='CAT-BARS')o.r=90});
-}
 function setAH(){var d=document.documentElement;if(navigator.standalone){var land=matchMedia('(orientation:landscape)').matches;d.style.setProperty('--ah',Math.max(innerHeight,land?Math.min(screen.width,screen.height):Math.max(screen.width,screen.height))+'px')}else{d.style.removeProperty('--ah')}}
 var fitW=0,fitH=0;function refit(){setAH();var r=cv.getBoundingClientRect();if(Math.abs(r.width-fitW)>1||Math.abs(r.height-fitH)>1){fitW=r.width;fitH=r.height;fit()}}
 ['gesturestart','gesturechange'].forEach(function(n){document.addEventListener(n,function(e){e.preventDefault()},{passive:false})});
@@ -589,6 +599,12 @@ function evApply(k){var E=EVT[k];if(!E)return;
   toast('Starting layout placed. Drag pieces into place.')}
 $('#evs').innerHTML=Object.keys(EVT).map(function(k){return '<button type="button" data-e="'+k+'">'+EVT[k].n+'</button>'}).join('');
 $$('#evs button').forEach(function(b){b.onclick=function(){evApply(b.dataset.e)}});
+$('#pastEv').innerHTML=Object.keys(EVT).map(function(k){return '<button type="button" data-e="'+k+'">'+EVT[k].n+'</button>'}).join('');
+$$('#pastEv button').forEach(function(b){b.onclick=function(){$('#past').classList.remove('on');$('#ven').classList.remove('on');evApply(b.dataset.e)}});
+$('#pastG').innerHTML=CAT.div.items.filter(function(it){return it.img}).map(function(it){return '<button type="button" data-i="'+it.id+'"><img src="'+it.img+'" alt="" loading="lazy"><span>'+esc(it.n)+'</span></button>'}).join('');
+$$('#pastG button').forEach(function(b){b.onclick=function(){$('#past').classList.remove('on');$('#ven').classList.remove('on');add(b.dataset.i,S.pw/2,S.ph/2);try{persist()}catch(e){}toast('Added to your layout. Drag it into place.')}});
+function openPast(){$('#past').classList.add('on')}
+$('#pastB').onclick=$('#pastB2').onclick=openPast;$('#pastX').onclick=function(){$('#past').classList.remove('on')};
 /* ---------- 3D view (three.js loaded on first use) ---------- */
 var v3={walk:false,walkT:0,built:null};
 function v3Load(cb){if(window.THREE)return cb();var sc=document.createElement('script');sc.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';sc.onload=cb;sc.onerror=function(){toast('Could not load the 3D view. Check your connection and try again.')};document.head.appendChild(sc)}
