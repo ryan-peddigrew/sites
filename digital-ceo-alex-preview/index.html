@@ -604,7 +604,7 @@ function goTo(t){var e=$(t[0]);if(!e)return;var top=e.getBoundingClientRect().to
 function tgo(i){ti=i;if(ti>=T.length){tstop();return}var t=T[ti];
  for(var k=0;k<bars.length;k++)bars[k].style.width=k<ti?'100%':'0';
  $('#tr-n').textContent='Your tour  '+(ti<9?'0':'')+(ti+1)+' / '+T.length;$('#tr-h').innerHTML='<span>'+t[2]+'</span>';$('#tr-p').textContent=t[3];
- tr.classList.remove('go');void tr.offsetWidth;tr.classList.add('go');tr.classList.toggle('top',!(t[0]=='#fly'||t[0]=='#gal'));goTo(t);tel=0;tt0=performance.now();if(typeof whoosh=='function')whoosh()}
+ tr.classList.remove('go');void tr.offsetWidth;tr.classList.add('go');tr.classList.toggle('top',!(t[0]=='#fly'||t[0]=='#gal'));if(t[0]=='#fly'&&ti==1&&typeof startHero=='function')startHero();goTo(t);tel=0;tt0=performance.now();if(typeof whoosh=='function')whoosh()}
 function tframe(now){if(!trun)return;if(!tp){tel+=now-tt0;if(bars[ti])bars[ti].style.width=Math.min(100,tel/TD*100)+'%';if(tel>=TD)tgo(ti+1)}tt0=now;requestAnimationFrame(tframe)}
 function setP(v){tp=v;$('#tr-pause').innerHTML=tp?'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg><span>Play</span>':'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>Pause</span>'}
 function tstart(){trun=true;setP(false);tr.classList.add('on');tb.classList.add('on');document.body.classList.add('touring');tgo(0);tt0=performance.now();requestAnimationFrame(tframe)}

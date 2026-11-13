@@ -1,0 +1,1057 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Divine Design</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png?v=2">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Divine Design">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#161B20">
+<link rel="icon" href="icon-192.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#161B20;--ink2:#1E252C;--ink3:#2A333B;--gold:#D8BE6E;--gold2:#A8873A;--ivory:#F3EEE4;--ivory2:#E7DFCF;--paper:#FBF9F4;--mute:#5B6168;--mute2:#AEB3B8;--f:'Inter Tight',system-ui,sans-serif;
+  --c-div:#D8BE6E;--c-seat:#8FB4D9;--c-cat:#E39A6F;--c-av:#B49BE0}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;touch-action:manipulation}
+html,body{height:100%}
+body{height:100vh;height:100dvh}
+body{background:var(--ink);color:#fff;font:400 15px/1.45 var(--f);display:grid;grid-template-rows:auto 1fr;overflow:hidden}
+button,input,select{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+.top{display:flex;align-items:center;gap:16px;padding:10px 16px;background:var(--ink);border-bottom:1px solid rgba(255,255,255,.1);min-height:64px}
+.top img{height:46px;width:auto}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.top h1 small{margin-top:0}
+.top h1{font:900 18px/1 var(--f);text-transform:uppercase;letter-spacing:-.01em}
+.top h1 small{display:block;font:600 11px var(--f);letter-spacing:.18em;color:var(--gold);margin-top:4px}
+.top .sp{flex:1}
+.tb{min-height:44px;padding:0 14px;border:1.5px solid rgba(255,255,255,.2);border-radius:3px;font:700 12px var(--f);letter-spacing:.1em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;text-decoration:none;color:#fff}
+.tb.gold{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.tb svg{width:18px;height:18px}
+.app{display:grid;grid-template-columns:300px 1fr 280px;min-height:0}
+.pal,.side{background:var(--ink2);overflow:auto;min-height:0}
+.pal{border-right:1px solid rgba(255,255,255,.08)}
+.side{border-left:1px solid rgba(255,255,255,.08);padding:16px}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);position:sticky;top:0;background:var(--ink2);z-index:2;border-bottom:1px solid rgba(255,255,255,.08)}
+.tabs button{min-height:48px;font:800 12px var(--f);letter-spacing:.08em;text-transform:uppercase;color:var(--mute2);border-bottom:3px solid transparent}
+.tabs button.on{color:#fff;border-color:var(--gold)}
+.items{padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.it{background:var(--ink3);border-radius:3px;padding:8px;text-align:left;display:flex;flex-direction:column;gap:6px;min-height:118px;border:1.5px solid transparent;touch-action:none}
+.it:hover{border-color:var(--gold)}
+.it .th{height:56px;display:grid;place-items:center;background:#fff;border-radius:2px;overflow:hidden}
+.it .th img{max-height:56px;max-width:100%;object-fit:contain}
+.it .th svg{width:48px;height:48px}
+.it b{font:700 14px/1.15 var(--f)}
+.it small{font-size:12px;color:var(--mute2)}
+.hint{padding:4px 14px 16px;font-size:14px;color:var(--mute2)}
+.stage{position:relative;min-width:0;min-height:0;background:#E9E5DC;overflow:hidden;touch-action:none}
+.stage svg#cv{position:absolute;left:0;top:0;width:100%;height:100%;display:block;cursor:grab}
+.stage svg#cv.panning{cursor:grabbing}
+.stage svg#cv.scaling{cursor:crosshair}
+.zoom{position:absolute;right:12px;bottom:12px;display:flex;flex-direction:column;gap:6px}
+.zoom button{width:44px;height:44px;background:var(--ink);color:#fff;border-radius:3px;font:700 20px var(--f)}
+.sel{position:absolute;left:12px;bottom:12px;display:none;gap:6px;background:var(--ink);padding:6px;border-radius:3px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.sel.on{display:flex}
+.sel button{min-height:44px;padding:0 12px;font:700 12px var(--f);letter-spacing:.08em;text-transform:uppercase;color:#fff;display:flex;align-items:center;gap:6px}
+.sel button svg{width:18px;height:18px}
+.msg{position:absolute;left:50%;top:12px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;font-size:14px;border-left:4px solid var(--gold);display:none;max-width:calc(100% - 24px);z-index:5}
+.msg.on{display:block}
+.evs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 8px}
+.evs button{min-height:44px;padding:0 8px;border:1.5px solid rgba(216,190,110,.5);background:var(--ink3);color:#fff;font:800 11px/1.15 var(--f);letter-spacing:.06em;text-transform:uppercase;border-radius:3px}
+.evs button:hover{border-color:var(--gold)}
+.side h3{font:900 14px var(--f);text-transform:uppercase;letter-spacing:.06em;color:var(--gold);margin:4px 0 10px}
+.side h3:not(:first-child){margin-top:22px}
+.kv{display:grid;grid-template-columns:1fr auto;gap:6px 10px;font-size:14px}
+.kv b{font-weight:800}
+.big{font:900 40px/1 var(--f)}
+.lst{list-style:none;display:grid;gap:6px;font-size:14px}
+.lst li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid rgba(255,255,255,.08);padding:6px 0}
+.lst .dot{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:8px;vertical-align:middle}
+.side .tb{width:100%;justify-content:center;margin-top:10px}
+.fine{font-size:14px;color:var(--mute2);margin-top:12px}
+.pv{display:inline-block;background:var(--gold);color:var(--ink);font:800 10px var(--f);letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;margin-right:6px}
+.toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));max-width:calc(100% - 32px);transform:translateX(-50%) translateY(20px);background:#fff;color:var(--ink);padding:12px 18px;font-weight:700;font-size:14px;border-left:4px solid var(--gold);opacity:0;transition:.3s;pointer-events:none;z-index:50}
+.toast.on{opacity:1;transform:translateX(-50%)}
+.dlg{position:fixed;inset:0;background:rgba(10,12,15,.7);display:none;place-items:center;z-index:40;padding:16px}
+.dlg.on{display:grid}
+.dlg .bx{background:#fff;color:var(--ink);padding:24px;max-width:460px;width:100%;border-top:4px solid var(--gold)}
+.dlg h4{font:900 22px/1.05 var(--f);text-transform:uppercase;margin-bottom:10px}
+.dlg p{color:var(--mute);font-size:14.5px;margin-bottom:14px}
+.dlg input{width:100%;min-height:48px;border:1.5px solid var(--ivory2);padding:10px 12px;font-size:16px;border-radius:3px}
+.dlg .row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.dlg .tb{color:var(--ink);border-color:var(--ivory2)}
+.dlg .tb.gold{color:var(--ink)}
+.vbx{max-width:680px!important;max-height:90vh;max-height:90dvh;display:flex;flex-direction:column;padding:20px!important}
+.vfil{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:10px 0 8px}
+.vfil select{min-height:44px;width:100%;border:1.5px solid var(--ivory2);background:#fff;color:var(--ink);padding:0 8px;font-size:16px;border-radius:3px}
+.vcount{font:800 12px var(--f);letter-spacing:.1em;text-transform:uppercase;color:var(--gold2);margin-bottom:8px;min-height:16px}
+#venL{overflow:auto;display:flex;flex-direction:column;gap:8px;flex:1;min-height:120px;-webkit-overflow-scrolling:touch}
+.vdv{display:inline-block;background:var(--gold);color:var(--ink);font:800 10px/1 var(--f);letter-spacing:.12em;text-transform:uppercase;padding:4px 7px;border-radius:2px;margin-bottom:6px}
+.vgrp{flex:none;position:sticky;top:0;z-index:1;background:var(--ink);color:#fff;font:800 12px var(--f);letter-spacing:.1em;text-transform:uppercase;padding:8px 10px;border-left:4px solid var(--gold)}
+.vnote{font-size:13px!important;margin:10px 0 0!important}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.pg button{display:grid;gap:6px;text-align:left;padding:0 0 8px;border:1.5px solid rgba(22,27,32,.18);background:#fff;color:var(--ink);font:700 12px/1.25 var(--f);cursor:pointer;min-height:44px}
+.pg button img{width:100%;height:96px;object-fit:cover;display:block}
+.pg button span{padding:0 8px}
+.vbx .row .tb{flex:1 1 auto;justify-content:center}
+@media (max-width:640px){.vfil{grid-template-columns:1fr 1fr}.vfil #venE,.vfil #venS{grid-column:1/-1}.dlg#ven{padding:0;place-items:stretch}.vbx{display:block!important;max-width:none!important;max-height:none;height:100%;overflow:auto;-webkit-overflow-scrolling:touch;padding:calc(16px + env(safe-area-inset-top)) 16px 0!important}.vbx h4{font-size:20px}#venL{overflow:visible;flex:none}.vnote{display:none}.vgrp{top:-1px}.vbx .row{position:sticky;bottom:0;background:#fff;margin:12px -16px 0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--ivory2);flex-wrap:nowrap;gap:8px}.vbx .row .tb{padding:0 8px;font-size:11px;letter-spacing:.04em;white-space:normal;text-align:center;line-height:1.15;min-height:48px}}
+.vrow{flex:none;width:100%;display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center;text-align:left;background:var(--ivory);padding:8px;border-radius:3px;min-height:76px;color:var(--ink);border:1.5px solid transparent}
+.v3{position:fixed;inset:0;z-index:60;display:none;grid-template-rows:1fr auto;background:#E9E5DC}
+.v3.on{display:grid}
+#v3c{width:100%;height:100%;display:block;touch-action:none;min-height:0}
+.v3bar{background:var(--ink);padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:grid;gap:8px;border-top:2px solid var(--gold)}
+.v3n{font-size:13px;color:var(--mute2);margin:0;text-align:center}
+.v3row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.v3row .tb{min-height:48px;justify-content:center}
+.vrow.vd{grid-template-columns:96px 1fr 92px}
+.vpast{display:flex;align-items:center;justify-content:center;text-align:center;min-height:44px;padding:6px;border:1.5px solid var(--gold2);color:var(--ink);font:800 11px/1.2 var(--f);letter-spacing:.06em;text-transform:uppercase;border-radius:2px;text-decoration:none;background:#fff}
+.vpast:hover{background:var(--gold)}
+.vest{display:block;font:700 11px/1.3 var(--f);font-style:normal;color:#8a5a00;margin-top:2px}
+.vrow.ve img{opacity:.8}
+.gl{display:block;font:800 11px/1 var(--f);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.gl input{display:block;margin-top:6px;font-weight:400;letter-spacing:0;text-transform:none}
+.gerr{color:#b3261e;font-weight:700;min-height:18px;margin:0 0 8px!important}
+.conn{margin-top:10px;padding-top:12px;border-top:1.5px solid var(--ivory2);text-align:center}.fbrand{margin-top:12px;padding:14px 12px;background:#141414;border-radius:10px;text-align:center}.fbrand a{display:inline-flex;min-height:53px;padding:0}.fbrand img{width:150px;height:auto;display:block}.fbrand span{display:block;margin-top:6px;font:600 11px/1.3 var(--f);letter-spacing:.06em;color:#cfc7b4}.conn small{display:block;font:800 11px/1 var(--f);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.sol{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;color:var(--ink);font:800 13px var(--f);text-decoration:underline}
+.sbx{max-width:480px;max-height:92vh;overflow:auto}
+.sst{margin:0 0 14px 18px;font-size:14px;color:var(--mute);line-height:1.4}.sst li{margin-bottom:6px}.sst b{color:var(--ink)}
+.sbtn{width:100%;justify-content:center;margin-bottom:8px;min-height:48px}
+.sev small{display:block;font:800 11px/1 var(--f);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:12px 0 8px}
+#stEv{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}#stEv button{flex:1 1 45%;min-height:44px;border:1.5px solid var(--gold2);background:#fff;font:800 12px/1.2 var(--f);color:var(--ink);padding:8px;border-radius:2px;cursor:pointer}
+#stEv button:hover{background:var(--gold)}
+.sskip{display:block;width:100%;min-height:44px;background:none;border:0;color:var(--mute);font:700 13px var(--f);text-decoration:underline;cursor:pointer}
+.vtour{display:inline-flex;align-items:center;min-height:44px;margin-top:6px;padding:0 12px;background:var(--gold);color:var(--ink);font:800 11px var(--f);letter-spacing:.08em;text-transform:uppercase;border-radius:2px;text-decoration:none}
+.vrow{cursor:pointer}
+.vrow:hover{border-color:var(--gold2)}
+.vrow img{width:96px;height:64px;object-fit:contain;background:#fff}
+.vrow b{display:block;font:800 15px/1.15 var(--f)}
+.vrow span{display:block;font-size:13px;color:var(--mute);line-height:1.3}
+.vrow small{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold2)}
+.steps{margin:0 0 12px 20px;color:var(--ink);font-size:14.5px;display:grid;gap:6px}
+.mtabs{display:none}
+.short{display:none}
+@media (display-mode:standalone){#instB{display:none}}
+.top{padding-top:calc(10px + env(safe-area-inset-top));padding-left:calc(16px + env(safe-area-inset-left));padding-right:calc(16px + env(safe-area-inset-right))}
+@media (max-width:980px){
+  body{display:flex;flex-direction:column;position:fixed;top:0;left:0;width:100%;height:var(--ah,100dvh)}
+  .top{flex:none;gap:8px;padding:calc(8px + env(safe-area-inset-top)) calc(10px + env(safe-area-inset-right)) 8px calc(10px + env(safe-area-inset-left));min-height:60px}.top img{height:40px}.top h1{font-size:14px}.top h1 small,.top .lbl,.top .sp{display:none}.top h1{flex:1}
+  .top .tb{padding:0 10px;font-size:11px;letter-spacing:.06em}.top .tb .short,.top .tb .long{display:none}.top .tb{min-width:44px;justify-content:center}.top{flex-wrap:nowrap}.top h1{display:none}.top>a:first-child{margin-right:auto}
+  .app{display:block;position:relative;flex:1 1 0;min-height:0}
+  .it{touch-action:auto}
+  .pal,.side{display:none;position:fixed;left:0;right:0;bottom:calc(74px + env(safe-area-inset-bottom));max-height:55vh;z-index:20;border:0;border-top:3px solid var(--gold);box-shadow:0 -20px 40px rgba(0,0,0,.4)}
+  .pal.on,.side.on{display:block}
+  .items{grid-template-columns:repeat(2,1fr)}
+  .tabs button{font-size:11px;letter-spacing:.03em}
+  .sa .top{padding-top:max(calc(8px + env(safe-area-inset-top)),56px)}
+  .sa .mtabs{padding-bottom:max(calc(10px + env(safe-area-inset-bottom)),30px)}
+  .mtabs{display:grid;grid-template-columns:1fr 1.2fr;gap:12px;flex:none;position:relative;z-index:21;background:var(--ink);border-top:2px solid var(--gold);padding:10px calc(12px + env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) calc(12px + env(safe-area-inset-left))}
+  .mtabs button{position:relative;min-width:0;min-height:52px;padding:0 10px;display:flex;align-items:center;justify-content:center;gap:8px;font:800 12px var(--f);letter-spacing:.06em;text-transform:uppercase;border-radius:3px;white-space:nowrap}
+  .mtabs svg{width:22px;height:22px;flex:none}
+  #mPal{background:var(--gold);color:var(--ink)}
+  #mPal.on{background:#fff}
+  #mSide{color:#fff;border:1.5px solid rgba(216,190,110,.6);background:var(--ink2)}
+  #mSide.on{border-color:var(--gold);background:var(--ink3);color:var(--gold)}
+  #mCount{position:absolute;top:-9px;right:-5px;font-style:normal;min-width:24px;height:24px;padding:0 6px;display:grid;place-items:center;box-shadow:0 0 0 2px var(--ink);background:var(--gold);color:var(--ink);border-radius:2px;font:800 13px var(--f);letter-spacing:0}
+  .stage{position:absolute;left:0;top:0;right:0;bottom:0}
+  .zoom{bottom:10px;right:10px;flex-direction:row}.sel{bottom:64px;left:10px}
+  .side{padding:18px 16px 20px}
+  .side .acts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+  .side .acts .tb{margin-top:0;padding:0 8px;white-space:normal;text-align:center;line-height:1.15;min-height:48px}
+  .side .acts .tb:last-child{grid-column:1/-1;border-color:rgba(255,255,255,.12);color:var(--mute2)}
+  .side #toQuote{min-height:52px;margin-top:14px;font-size:12px}
+  .kv{background:var(--ink3);padding:12px 14px;border-radius:3px;gap:8px 10px}
+}
+.tr{text-transform:uppercase;font-weight:900}
+/* ===== simple three-step flow ===== */
+.top>label.tb,.top>#venB,.top>#scaleBtn,.top>#instB,.top>a.tb.lbl{display:none!important}
+body{grid-template-rows:auto auto 1fr}
+.stp{display:grid;grid-template-columns:repeat(3,1fr);background:var(--ink2);border-bottom:1px solid rgba(255,255,255,.1);flex:none}
+.stp button{min-height:48px;font:800 13px var(--f);letter-spacing:.08em;text-transform:uppercase;color:var(--mute2);border-bottom:3px solid transparent;display:flex;align-items:center;justify-content:center;gap:8px}
+.stp button b{font:900 16px var(--f);color:var(--gold)}
+.stp button.on{color:#fff;border-color:var(--gold);background:var(--ink3)}
+.side #toQuote,.side #saveB,.side #dashB,.side .acts,#pastB2,#mSide{display:none!important}
+#ven .row:has(#pastB2){display:none}
+#sNext{width:100%;justify-content:center;min-height:52px;margin:0 0 16px}
+#sideX{display:none}
+.tabs{grid-template-columns:repeat(5,1fr)}
+.tabs button{line-height:1.1;padding:0 3px;font-size:11px;letter-spacing:.03em}
+#vfT{display:none}
+.vtk{overflow:hidden;white-space:nowrap;margin:10px 0 8px;border-top:1.5px solid var(--ivory2);border-bottom:1.5px solid var(--ivory2);flex:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.vtk div{display:inline-flex;animation:vtk 36s linear infinite}
+.vtk:hover div{animation-play-state:paused}
+.vtk button{min-height:44px;padding:0 16px;font:800 13px var(--f);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.vtk button b{font:900 15px var(--f);padding:2px 5px;border-radius:2px;margin-right:4px;color:var(--gold2);animation:vfl 8.4s linear infinite}
+@keyframes vtk{to{transform:translateX(-50%)}}
+@keyframes vfl{0%,10%{background:var(--gold);color:var(--ink)}14%,100%{background:transparent;color:var(--gold2)}}
+@media (prefers-reduced-motion:reduce){.vtk{overflow-x:auto}.vtk div,.vtk button b{animation:none}}
+.sel{flex-wrap:wrap;max-width:calc(100% - 24px)}
+.home{position:fixed;inset:0;z-index:50;background:var(--ink);display:none;overflow:auto;-webkit-overflow-scrolling:touch}
+.home.on{display:block}
+.hin{max-width:560px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;gap:18px;padding:calc(26px + env(safe-area-inset-top)) max(22px,env(safe-area-inset-right)) calc(22px + env(safe-area-inset-bottom)) max(22px,env(safe-area-inset-left))}
+.hin>img{height:60px;width:auto;align-self:flex-start;order:0}
+.hl{display:contents}
+.hin h2{font:900 clamp(34px,9.4vw,54px)/.98 var(--f);text-transform:uppercase;letter-spacing:-.02em;text-wrap:balance;order:1}
+.hin h2 em{font-style:normal;color:var(--gold)}
+.hsub{font-size:17px;color:#D5D8DB;line-height:1.4;order:2}
+.hst{list-style:none;display:grid;border-top:1px solid rgba(255,255,255,.14);order:5;margin-top:6px}
+.hst li{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.hst i{font:900 40px/.9 var(--f);font-style:normal;color:var(--gold)}
+.hst b{display:block;font:800 17px/1.2 var(--f);text-transform:uppercase;letter-spacing:.02em}
+.hst span{display:block;font-size:15px;color:var(--mute2);line-height:1.4;margin-top:4px}
+.hgo{min-height:58px;justify-content:center;font-size:14px;width:100%;order:3}
+.hcont{min-height:48px;justify-content:center;width:100%;order:4}
+.hfoot{margin-top:auto;font-size:13px;color:var(--mute2);text-align:center;order:6}
+.hfoot a{color:inherit}
+@media (min-width:900px){
+  .hin{max-width:1080px;display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:auto 1fr auto;column-gap:72px;row-gap:28px;padding-top:40px}
+  .hin>img{grid-column:1/-1;height:72px}
+  .hl{display:flex;flex-direction:column;gap:20px;align-self:center}
+  .hst{align-self:center}
+  .hgo,.hcont{max-width:380px}
+  .hfoot{grid-column:1/-1}
+}
+.shl{display:grid;gap:8px;margin:12px 0 4px}
+.shl button{display:grid;grid-template-columns:34px 1fr;column-gap:12px;align-items:center;text-align:left;min-height:62px;padding:10px 14px;border:1.5px solid var(--ivory2);border-radius:3px;background:#fff;color:var(--ink)}
+.shl button svg{width:32px;height:32px;grid-row:1/3}
+.shl button b{font:800 15px/1.2 var(--f);text-transform:uppercase;letter-spacing:.03em;align-self:end}
+.shl button span{font-size:13.5px;color:var(--mute);align-self:start}
+.shl button.g{background:var(--gold);border-color:var(--gold)}
+.shl button.g span{color:var(--ink)}
+.shl button:hover{border-color:var(--gold2)}
+#shrU{margin-top:8px;font-size:14px}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+.mgrid .tb{justify-content:center;white-space:normal;text-align:center;line-height:1.2;padding:8px 10px;min-height:52px;text-decoration:none}
+.mo{display:none!important}
+.vbar{display:none}
+body.view{grid-template-rows:auto 1fr auto}
+body.view .stp,body.view .pal,body.view .side,body.view .mtabs,body.view #moreB,body.view .sel{display:none!important}
+body.view .app{grid-template-columns:1fr}
+body.view .vbar{display:flex;flex:none;align-items:center;gap:14px;flex-wrap:wrap;background:var(--ink);border-top:2px solid var(--gold);padding:12px max(16px,env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+.vbar p{flex:1 1 240px;font-size:14.5px;color:#D5D8DB;line-height:1.35}
+.vbar p b{display:block;font:900 14px var(--f);text-transform:uppercase;letter-spacing:.06em;color:var(--gold);margin-bottom:2px}
+.vbar .tb{text-decoration:none;justify-content:center;min-height:48px}
+@media (max-width:980px){
+  .mo{display:inline-flex!important}
+  #vfT{display:flex;width:100%;justify-content:center;margin:10px 0 2px}
+  #ven .vfil{display:none}#ven .vfil.on{display:grid}
+  #sNext{display:none}
+  #sideX{display:flex;width:100%;justify-content:center;margin:0 0 14px}
+  #mPal{background:var(--ink2);color:#fff;border:1.5px solid rgba(216,190,110,.6)}
+  #mPal.on{background:var(--ink3);color:var(--gold)}
+  #mNext{background:var(--gold);color:var(--ink)}
+  .stp button{font-size:12px;letter-spacing:.06em;min-height:46px}
+  body.view .vbar .tb{flex:1 1 100%}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <a href="../" aria-label="Back to Divine Furniture Rental"><img src="divine-design-logo.png?v=1" alt="Divine Design" width="656" height="257"></a>
+  <h1><span class="vh">Divine Design</span><small>Plan your event on the <b class="tr">real</b> floor plan</small></h1>
+  <span class="sp"></span>
+  <label class="tb" for="upl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"/></svg><span class="long">Upload a floor plan</span><span class="short">Plan</span></label>
+  <input type="file" id="upl" accept="image/*,application/pdf" hidden>
+  <button class="tb" id="venB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg><span>Venues</span></button>
+  <button class="tb" id="scaleBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 17l14-14 4 4L7 21z"/><path d="M8 8l2 2M11 5l2 2M5 11l2 2"/></svg><span class="lbl">Set scale</span></button>
+  <button class="tb gold" id="instB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 10l6 6 6-6M4 20h16"/></svg><span class="long">Get the app</span><span class="short">App</span></button>
+  <a class="tb lbl" href="../">Divine site</a>
+  <button class="tb" id="moreB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>More</span></button>
+</header>
+<nav class="stp" id="stp" aria-label="Steps"><button data-s="1"><b>1</b>Room</button><button data-s="2" class="on"><b>2</b>Layout</button><button data-s="3"><b>3</b>Share</button></nav>
+
+<div class="app">
+  <aside class="pal" id="pal">
+    <div class="tabs" id="tabs"></div>
+    <div class="items" id="items"></div>
+    <p class="hint">Tap a piece to drop it in the middle of the plan, then drag it into place. On a computer you can drag it straight on. Tap a piece on the plan to rotate, copy or remove it.</p>
+  </aside>
+
+  <div class="stage" id="stage">
+    <svg id="cv" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M5 0H0V5" fill="none" stroke="rgba(22,27,32,.08)" stroke-width=".08"/></pattern>
+      </defs>
+      <g id="world">
+        <g id="plan"></g>
+        <rect id="gridR" fill="url(#grid)" pointer-events="none"/>
+        <g id="objs"></g>
+        <g id="scaleG"></g>
+      </g>
+    </svg>
+    <div class="msg" id="msg"></div>
+    <div class="sel" id="sel">
+      <button id="rotB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-3-6.2"/><path d="M20 4v5h-5"/></svg>Rotate</button>
+      <button id="dupB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg>Copy</button>
+      <button id="delB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7h14M10 7V4h4v3M7 7l1 13h8l1-13"/></svg>Remove</button>
+      <button id="bthB" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M8 12l3 3 5-6"/></svg><span>Mark taken</span></button>
+    </div>
+    <div class="zoom"><button id="zin" aria-label="Zoom in">+</button><button id="zout" aria-label="Zoom out">−</button><button id="zfit" aria-label="Fit plan" style="font-size:12px">FIT</button></div>
+  </div>
+
+  <aside class="side" id="side">
+    <button class="tb" id="sideX">Close my list</button>
+    <button class="tb gold" id="sNext">Next: share it</button>
+    <h3>Your layout</h3>
+    <div class="kv"><span>Seats placed</span><b id="seats">0</b><span>Plan size</span><b id="psize">-</b><span>Scale</span><b id="pscale">-</b></div>
+    <h3>Start from a ready layout</h3>
+    <div class="evs" id="evs"></div>
+    <p class="fine" id="evNote">Pick one to place a ready layout, then move anything into place.</p>
+    <h3>Divine pieces</h3>
+    <ul class="lst" id="divList"><li style="color:var(--mute2)">None yet</li></ul>
+    <button class="tb gold" id="toQuote">Add Divine pieces to my quote</button>
+    <button class="tb" id="saveB" style="margin-top:8px;width:100%;justify-content:center">Save to my dashboard</button>
+    <a class="tb" id="dashB" href="portal/" style="margin-top:8px;width:100%;justify-content:center;text-decoration:none">Open my dashboard</a>
+    <h3>Everything on the plan</h3>
+    <ul class="lst" id="allList"></ul>
+    <div class="acts"><button class="tb gold" id="v3B">View in 3D</button><button class="tb" id="pastB">View past layouts</button><button class="tb" id="shareB">Share this layout</button>
+    <button class="tb" id="pngB">Save as image</button>
+    <button class="tb" id="clrB">Clear the plan</button></div>
+    <p class="fine"><span class="pv">Preview</span>Piece sizes are approximate until Divine confirms each footprint. Seating, catering and AV blocks are standard sizes for planning.</p>
+  </aside>
+</div>
+<nav class="mtabs"><button id="mPal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg><span>Add pieces</span></button><button id="mSide"><span>My list</span><i id="mCount">0</i></button><button id="mNext"><span>Next: Share</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></nav>
+<div class="vbar" id="vbar"><p id="vbT"></p><a class="tb" id="vbE" href="#">Edit a copy</a><a class="tb gold" id="vbN" href="./next.html">Plan my own event</a></div>
+
+<div class="dlg" id="dlg"><div class="bx">
+  <h4 id="dlgH">Set the scale</h4>
+  <p id="dlgP">How long is the line you just drew, in feet?</p>
+  <input id="dlgI" type="number" min="1" step="0.5" inputmode="decimal" placeholder="For example, 40">
+  <div class="row"><button class="tb gold" id="dlgOk">Set scale</button><button class="tb" id="dlgX">Cancel</button></div>
+</div></div>
+<div class="v3" id="v3"><canvas id="v3c"></canvas><div class="v3bar"><p class="v3n">Drag to turn. Scroll or pinch to zoom. Heights are estimates until Divine confirms them.</p><div class="v3row"><button class="tb gold" id="v3w">Walk the room</button><button class="tb" id="v3x">Back to plan</button></div></div></div>
+<div class="dlg" id="ven"><div class="bx vbx">
+  <h4 id="venH">Choose a venue</h4>
+  <input id="venQ" type="search" placeholder="Search venue, room, city or type" autocomplete="off">
+  <button class="tb" id="vfT" type="button">Filter by place or type</button>
+  <div class="vfil">
+    <select id="venK" aria-label="Country"></select>
+    <select id="venP" aria-label="Province or state"></select>
+    <select id="venC" aria-label="City"></select>
+    <select id="venT" aria-label="Venue type"></select>
+    <select id="venE" aria-label="Event type"></select>
+    <select id="venF" aria-label="Plan type" hidden style="display:none"><option value="">All plans</option></select>
+    <select id="venS" aria-label="Sort"><option value="type">Sort by venue type</option><option value="city">Sort by city</option><option value="event">Sort by event type</option><option value="name">Sort A to Z</option></select>
+  </div>
+  <div class="vtk" id="vtk" hidden><div id="vtkI"></div></div>
+  <div class="vcount" id="venN"></div>
+  <div id="venL"></div>
+  <p class="vnote">Plans are the ones each venue publishes for planners. Confirm the current layout with the venue before you finalize.</p>
+  <div class="row"><button class="tb" id="pastB2" style="flex:1 1 100%;justify-content:center">View past layouts</button></div>
+  <div class="row"><button class="tb gold" id="venUp">Upload my own plan</button><button class="tb" id="venSample">Try the sample hall</button><button class="tb" id="venX">Close</button></div>
+</div></div>
+<div class="dlg" id="past"><div class="bx" style="max-width:640px;max-height:90vh;overflow:auto">
+  <h4>Past layouts and inspiration</h4>
+  <p class="vnote" style="margin:0 0 10px!important">Starting points from the kinds of events Divine sets up. Pick one to place it in your room, then move pieces into position.</p>
+  <div class="evs" id="pastEv" style="grid-template-columns:1fr 1fr"></div>
+  <h4 style="margin-top:14px">Divine setups</h4>
+  <div class="pg" id="pastG"></div>
+  <p class="vnote">Layouts from Divine's own past events will be added here.</p>
+  <div class="row"><button class="tb" id="pastX">Close</button></div>
+</div></div>
+<div class="dlg" id="gnote"><div class="bx" style="text-align:center">
+  <h4>Welcome to Divine Design</h4>
+  <p style="margin-bottom:6px">Client sign-in will be prompted here.</p>
+  <p class="fine" style="margin:0 0 14px">It is switched off for this preview, so you can go straight in.</p>
+  <button class="tb gold" id="gnoteGo" style="width:100%;justify-content:center;min-height:48px">Continue</button>
+</div></div>
+<div class="dlg" id="gate"><div class="bx sbx">
+  <h4>Sign in to Divine Design</h4>
+  <p>Enter your details to use the planner. We use them to follow up about your event.</p>
+  <form id="gateF" novalidate>
+    <label class="gl">Your name<input id="gName" autocomplete="name" required></label>
+    <label class="gl">Email<input id="gEmail" type="email" autocomplete="email" inputmode="email" required></label>
+    <label class="gl">Company or event<input id="gCo" autocomplete="organization" required></label>
+    <label class="gl">Phone (optional)<input id="gPh" type="tel" autocomplete="tel" inputmode="tel"></label>
+    <p class="gerr" id="gErr" role="alert"></p>
+    <button class="tb gold sbtn" id="gGo" type="submit">Continue</button>
+  </form>
+  <p class="fine" style="margin:6px 0 0">Your details are only used to set up your Divine Furniture Rental plan and are never sold or shared with third parties. You stay signed in on this device.</p>
+</div></div>
+<div class="dlg" id="start"><div class="bx sbx">
+  <h4>Plan your event</h4>
+  <p>Set up your room in three steps, then get a quote for the Divine pieces you use.</p>
+  <ol class="sst"><li><b>Pick your room.</b> Choose a venue, or upload your own floor plan.</li><li><b>Place your layout.</b> Start from an event type, or drag pieces in from Add pieces.</li><li><b>Get your quote.</b> Open Layout and quote to see totals and send it.</li></ol>
+  <button class="tb gold sbtn" id="stVen">Choose a venue</button>
+  <button class="tb sbtn" id="stUp">Upload my own floor plan</button>
+  <div class="sev"><small>Or start with an event type</small><div id="stEv"></div></div>
+  <button class="tb sbtn" id="stCont" style="display:none">Continue my last layout</button>
+  <a class="tb sbtn" href="portal/" style="text-decoration:none;white-space:normal;text-align:center;line-height:1.25;height:auto;padding-top:10px;padding-bottom:10px">My dashboard: layouts, quotes and invoices</a>
+  <button class="sskip" id="stSkip">Skip, start with an empty room</button>
+  <div class="conn"><small>Connect with us</small><a class="sol" href="https://www.linkedin.com/company/divine-furniture-rental/" target="_blank" rel="noopener">LinkedIn</a><a class="sol" href="https://www.instagram.com/divinefurniturerental/" target="_blank" rel="noopener">Instagram</a><a class="sol" href="https://www.facebook.com/Divine-Furniture-Rental-190292080982745/" target="_blank" rel="noopener">Facebook</a><a class="sol" href="https://divinefr.com" target="_blank" rel="noopener">divinefr.com</a></div>
+  <div class="fbrand"><a href="https://divinefr.com" target="_blank" rel="noopener"><img src="../img/logo-gold.png" alt="Divine Furniture Rental" width="150" height="53"></a><span>&copy; 2026 Divine Furniture Rental</span></div>
+</div></div>
+<div class="dlg" id="pastv"><div class="bx">
+  <h4 id="pastvH">Past layouts at this venue</h4>
+  <p id="pastvP"></p>
+  <div class="row"><button class="tb gold" id="pastvPlan">Open this venue's plan</button><button class="tb" id="pastvX">Close</button></div>
+</div></div>
+<div class="dlg" id="inst"><div class="bx">
+  <h4>Get Divine Design on your phone</h4>
+  <p>It adds to your home screen like any app. No app store needed.</p>
+  <div id="instAuto" hidden><button class="tb gold" id="instGo" style="width:100%;justify-content:center;margin-bottom:14px">Install Divine Design</button></div>
+  <ol class="steps">
+    <li><b>iPhone or iPad:</b> open this page in Safari.</li>
+    <li>Tap the Share button (the square with the arrow).</li>
+    <li>Scroll down and tap <b>Add to Home Screen</b>, then <b>Add</b>.</li>
+  </ol>
+  <ol class="steps">
+    <li><b>Android:</b> open this page in Chrome.</li>
+    <li>Tap the three dots at the top right.</li>
+    <li>Tap <b>Install app</b> or <b>Add to Home screen</b>.</li>
+  </ol>
+  <div class="row"><button class="tb" id="instX">Close</button></div>
+</div></div>
+<div class="home" id="home"><div class="hin">
+  <img src="divine-design-logo.png?v=1" alt="Divine Design" width="656" height="257">
+  <div class="hl">
+    <h2>Plan your event on the <em>real</em> floor plan.</h2>
+    <p class="hsub">Pick the room, set the furniture, share the plan. No design skills needed.</p>
+    <button class="tb gold hgo" id="hGo">Start your floor plan</button>
+    <button class="tb hcont" id="hCont" style="display:none">Continue my last layout</button>
+  </div>
+  <ol class="hst">
+    <li><i>1</i><div><b>Choose your room</b><span>Search thousands of venues or upload your own plan.</span></div></li>
+    <li><i>2</i><div><b>Set the room</b><span>Start from a ready layout for a gala, wedding, conference or trade show, then drag Divine pieces into place.</span></div></li>
+    <li><i>3</i><div><b>Share it</b><span>Send one link to your client, guests or exhibitors, and send the list to Divine for a quote.</span></div></li>
+  </ol>
+  <p class="hfoot">&copy; 2026 <a href="https://divinefr.com" target="_blank" rel="noopener">Divine Furniture Rental</a></p>
+</div></div>
+<div class="dlg" id="kick"><div class="bx sbx">
+  <h4>What are you planning?</h4>
+  <p>We place a ready layout in your room. You can move or remove anything after.</p>
+  <div class="evs" id="kickEv" style="grid-template-columns:1fr 1fr"></div>
+  <button class="sskip" id="kickX">Start with an empty room</button>
+</div></div>
+<div class="dlg" id="sask"><div class="bx">
+  <h4>Set the size of this room</h4>
+  <p>Tap the two ends of a wall or scale bar you know the length of, then type its length. Every piece then shows at true size.</p>
+  <div class="row"><button class="tb gold" id="saskGo">Set the size now</button><button class="tb" id="saskX">Skip for now</button></div>
+</div></div>
+<div class="dlg" id="shr"><div class="bx sbx">
+  <h4>Share your plan</h4>
+  <p id="shrSum" style="margin-bottom:0"></p>
+  <div class="shl">
+    <button class="g" id="shCopy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg><b>Copy the link</b><span>Anyone with it can view the plan</span></button>
+    <button id="shSend"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L10 14"/><path d="M21 3l-7 18-4-7-7-4z"/></svg><b>Send to my client or guests</b><span>They see the plan. They cannot change yours.</span></button>
+    <button id="shEx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="7" height="7"/><rect x="14" y="4" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><b>Share with exhibitors</b><span id="shExS">Shows which booths and sponsor spots are open</span></button>
+    <button id="shQ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg><b>Send my list to Divine</b><span>For a quote on the Divine pieces</span></button>
+    <button id="shPng"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 16l5-5 4 4 3-3 6 6"/><path d="M15.5 8.5h.01"/></svg><b>Save as image</b><span>For a deck or an email</span></button>
+  </div>
+  <input id="shrU" readonly hidden aria-label="Link to this plan">
+  <p class="fine" id="shrNote" style="color:var(--mute)" hidden>Your uploaded floor plan stays on this device. The link shows your layout on a blank room, so send the plan image along too.</p>
+  <div class="row"><button class="tb" id="shrX">Back to my layout</button></div>
+</div></div>
+<div class="dlg" id="more"><div class="bx sbx">
+  <h4>More</h4>
+  <div class="mgrid">
+    <button class="tb mo" data-go="#mSide">My list</button>
+    <button class="tb" data-go="#upl">Upload a floor plan</button>
+    <button class="tb" data-go="#scaleBtn">Set the scale</button>
+    <button class="tb" data-go="#v3B">View in 3D</button>
+    <button class="tb" data-go="#pastB">Divine setups</button>
+    <button class="tb" data-go="#saveB">Save to my dashboard</button>
+    <a class="tb" href="portal/">Open my dashboard</a>
+    <button class="tb" data-go="#instB">Get the app</button>
+    <a class="tb" href="../">Divine site</a>
+    <button class="tb" data-go="#clrB">Clear the plan</button>
+  </div>
+  <div class="row"><button class="tb gold" id="moreX" style="flex:1;justify-content:center">Close</button></div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var NS='http://www.w3.org/2000/svg';
+function el(t,a,p){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('on')},2400)}
+function msg(m){var x=$('#msg');if(!m){x.classList.remove('on');return}x.textContent=m;x.classList.add('on')}
+
+/* ---------- catalogue (sizes in feet; Divine sizes approximate, to confirm) ---------- */
+var CAT={
+ div:{n:'Divine',c:'#D8BE6E',items:[
+  {id:'SS-450-SETUP-001',n:'Eloise Vignette, Black Velvet',w:10,h:8,k:'vig',img:'../img/p/ss-450-setup-001.jpg',seats:5},
+  {id:'SS-650-SETUP-010',n:'Napa Cane Sofa Vignette',w:10,h:8,k:'vig',img:'../img/p/ss-650-setup-010.jpg',seats:5},
+  {id:'SS-600-SETUP-001',n:'Mia Corduroy Vignette, Yellow',w:10,h:8,k:'vig',img:'../img/p/ss-600-setup-001.jpg',seats:5},
+  {id:'SS-110-SETUP-001',n:'Open Back Vignette, Cognac',w:10,h:8,k:'vig',img:'../img/p/ss-110-setup-001.jpg',seats:5},
+  {id:'SS-810-SETUP-388',n:'Bellagio Sofa 90',w:7.5,h:3,k:'sofa',img:'../img/p/ss-810-setup-388.jpg',seats:3},
+  {id:'SS-810-SETUP-120',n:'Bellagio Compass Curved Sofa',w:12,h:5,k:'curve',img:'../img/p/ss-810-setup-120.jpg',seats:6},
+  {id:'CRU-SETUP-001',n:'Gatsby and Levi Cruiser Set',w:5,h:5,k:'cruiser4',img:'../img/p/cru-setup-001.jpg',seats:4},
+  {id:'CAT-CRUISER',n:'Cruiser table',w:2.5,h:2.5,k:'round',img:'../img/p/cruiser.jpg',seats:0},
+  {id:'BS-SET-252',n:'Levi Barstool, White',w:1.6,h:1.6,k:'stool',img:'../img/n/levi-white.jpg',seats:1},
+  {id:'BAR-SETUP-106',n:'Wine Barrel Bar',w:6,h:2.5,k:'bar',img:'../img/n/barrel-bar.jpg',seats:0},
+  {id:'CAT-BARS',n:'Bar',w:8,h:2.5,k:'bar',img:'../img/p/bars.jpg',seats:0},
+  {id:'COMM-SETUP-001',n:'Sydney Fluted Communal Table',w:10,h:3.5,k:'communal',img:'../img/p/comm-setup-001.jpg',seats:10},
+  {id:'DT-SETUP-001',n:'Sydney Fluted Oval Dining Table',w:8,h:4,k:'oval',img:'../img/p/dt-setup-001.jpg',seats:8},
+  {id:'CAT-COFFEE',n:'Coffee table',w:4,h:2,k:'rect',img:'../img/p/coffee.jpg',seats:0},
+  {id:'MISC-UMB-005',n:'Boho Fringe Umbrella',w:7,h:7,k:'umb',img:'../img/n/umbrella.jpg',seats:0}
+ ]},
+ seat:{n:'Seating',c:'#8FB4D9',items:[
+  {id:'R60',n:'60" round, 8 chairs',w:8.5,h:8.5,k:'roundT',d:5,ch:8,seats:8},
+  {id:'R72',n:'72" round, 10 chairs',w:9.5,h:9.5,k:'roundT',d:6,ch:10,seats:10},
+  {id:'B8',n:'8 ft banquet, 8 chairs',w:8,h:5,k:'banq',seats:8},
+  {id:'ROW10',n:'Theatre row, 10 chairs',w:15,h:2,k:'row',ch:10,seats:10},
+  {id:'CH',n:'Single chair',w:1.6,h:1.6,k:'chair',seats:1}
+ ]},
+ cat:{n:'Catering',c:'#E39A6F',items:[
+  {id:'BUF8',n:'Buffet line, 8 ft',w:8,h:2.5,k:'rect',seats:0},
+  {id:'BUF16',n:'Buffet line, 16 ft',w:16,h:2.5,k:'rect',seats:0},
+  {id:'STN',n:'Food station',w:6,h:6,k:'round',seats:0},
+  {id:'CAKE',n:'Cake or dessert table',w:3,h:3,k:'round',seats:0},
+  {id:'SRV',n:'Service area',w:10,h:8,k:'zone',seats:0}
+ ]},
+ av:{n:'AV and stage',c:'#B49BE0',items:[
+  {id:'STG',n:'Stage, 16 × 8 ft',w:16,h:8,k:'rect',seats:0},
+  {id:'SCR',n:'Screen, 12 ft',w:12,h:1,k:'rect',seats:0},
+  {id:'DF',n:'Dance floor, 20 × 20 ft',w:20,h:20,k:'dance',seats:0},
+  {id:'FOH',n:'Sound desk',w:8,h:4,k:'rect',seats:0},
+  {id:'SPK',n:'Speaker',w:2,h:2,k:'rect',seats:0},
+  {id:'DJ',n:'DJ booth',w:6,h:3,k:'rect',seats:0},
+  {id:'POD',n:'Podium',w:2,h:2,k:'rect',seats:0}
+ ]},
+ exh:{n:'Trade show',c:'#9CCFA4',items:[
+  {id:'BTH',n:'Booth, 10 × 10 ft',w:10,h:10,k:'booth',seats:0},
+  {id:'BTH20',n:'Booth, 20 × 10 ft',w:20,h:10,k:'booth',seats:0},
+  {id:'SPN',n:'Sponsor spot',w:10,h:10,k:'spon',seats:0},
+  {id:'REG',n:'Registration desk',w:12,h:3,k:'rect',seats:0}
+ ]}
+};
+var BY={};Object.keys(CAT).forEach(function(g){CAT[g].items.forEach(function(it){it.g=g;BY[it.id]=it})});
+
+/* ---------- state ---------- */
+var S={plan:null,ftPerPx:null,pw:100,ph:60,objs:[]},nid=1,selId=null;
+var VB={x:-5,y:-5,w:110,h:70};
+var cv=$('#cv'),world=$('#world'),planG=$('#plan'),objG=$('#objs'),scaleG=$('#scaleG');
+
+var hold=false;
+function persist(){if(hold)return;try{var o={ftPerPx:S.ftPerPx,pw:S.pw,ph:S.ph,objs:S.objs,hasPlan:!!S.plan};localStorage.setItem('dfr-plan',JSON.stringify(o));if(S.plan&&S.plan.length<4500000)localStorage.setItem('dfr-plan-img',S.plan)}catch(e){}}
+function restore(){try{var o=JSON.parse(localStorage.getItem('dfr-plan')||'null');if(!o)return false;S.objs=o.objs||[];S.ftPerPx=o.ftPerPx;S.pw=o.pw;S.ph=o.ph;if(o.hasPlan)S.plan=localStorage.getItem('dfr-plan-img');nid=S.objs.reduce(function(a,b){return Math.max(a,b.id+1)},1);return true}catch(e){return false}}
+
+/* ---------- plan drawing ---------- */
+function drawSample(){
+  planG.innerHTML='';
+  el('rect',{x:0,y:0,width:100,height:60,fill:'#FBF9F4',stroke:'#161B20','stroke-width':.6},planG);
+  // windows on north wall
+  for(var i=8;i<92;i+=12)el('line',{x1:i,y1:0,x2:i+7,y2:0,stroke:'#8FB4D9','stroke-width':.9},planG);
+  // doors
+  el('rect',{x:44,y:59.4,width:12,height:1.2,fill:'#E9E5DC'},planG);
+  el('path',{d:'M44 60 A6 6 0 0 1 50 54 M56 60 A6 6 0 0 0 50 54',fill:'none',stroke:'#161B20','stroke-width':.15},planG);
+  el('rect',{x:-0.6,y:20,width:1.2,height:8,fill:'#E9E5DC'},planG);
+  // columns
+  [[33,20],[67,20],[33,40],[67,40]].forEach(function(c){el('rect',{x:c[0]-.75,y:c[1]-.75,width:1.5,height:1.5,fill:'#161B20'},planG)});
+  // kitchen
+  el('rect',{x:84,y:40,width:16,height:20,fill:'#EFEAE0',stroke:'#161B20','stroke-width':.3},planG);
+  var t=el('text',{x:92,y:51,'text-anchor':'middle','font-size':1.6,'font-family':'Inter Tight','font-weight':700,fill:'#5B6168'},planG);t.textContent='KITCHEN';
+  var t2=el('text',{x:50,y:57,'text-anchor':'middle','font-size':1.4,'font-family':'Inter Tight','font-weight':700,fill:'#5B6168'},planG);t2.textContent='MAIN ENTRANCE';
+  var t3=el('text',{x:2,y:3,'font-size':1.6,'font-family':'Inter Tight','font-weight':800,fill:'#A8873A'},planG);t3.textContent='SAMPLE HALL · 100 × 60 FT';
+}
+function drawPlan(){
+  if(!S.plan){S.pw=100;S.ph=60;drawSample()}
+  else{planG.innerHTML='';el('image',{href:S.plan,x:0,y:0,width:S.pw,height:S.ph,preserveAspectRatio:'none'},planG)}
+  var g=$('#gridR');g.setAttribute('x',0);g.setAttribute('y',0);g.setAttribute('width',S.pw);g.setAttribute('height',S.ph);
+  $('#psize').textContent=Math.round(S.pw)+' × '+Math.round(S.ph)+' ft';
+  $('#pscale').textContent=S.plan?(S.ftPerPx?'Set':'Not set yet'):'Sample hall';
+}
+
+/* ---------- view ---------- */
+function applyVB(){cv.setAttribute('viewBox',VB.x+' '+VB.y+' '+VB.w+' '+VB.h)}
+function fit(){var r=cv.getBoundingClientRect(),ar=r.width/Math.max(1,r.height),m=4,w=S.pw+m*2,h=S.ph+m*2;if(w/h>ar){h=w/ar}else{w=h*ar}VB={x:S.pw/2-w/2,y:S.ph/2-h/2,w:w,h:h};applyVB()}
+function zoom(f,cx,cy){if(cx==null){cx=VB.x+VB.w/2;cy=VB.y+VB.h/2}var nw=Math.min(800,Math.max(8,VB.w*f)),k=nw/VB.w;VB.x=cx-(cx-VB.x)*k;VB.y=cy-(cy-VB.y)*k;VB.w=nw;VB.h*=k;applyVB()}
+function pt(e){var p=cv.createSVGPoint();p.x=e.clientX;p.y=e.clientY;return p.matrixTransform(cv.getScreenCTM().inverse())}
+$('#zin').onclick=function(){zoom(.8)};$('#zout').onclick=function(){zoom(1.25)};$('#zfit').onclick=fit;
+cv.addEventListener('wheel',function(e){e.preventDefault();var p=pt(e);zoom(e.deltaY>0?1.12:.89,p.x,p.y)},{passive:false});
+
+/* ---------- object rendering ---------- */
+function shape(o,g){
+  var it=BY[o.t],c=CAT[it.g].c,w=it.w,h=it.h,st={fill:c,'fill-opacity':.55,stroke:'#161B20','stroke-width':.12};
+  function R(x,y,ww,hh,extra){var a=Object.assign({x:x,y:y,width:ww,height:hh,rx:.25},st,extra||{});return el('rect',a,g)}
+  function C(x,y,r,extra){return el('circle',Object.assign({cx:x,cy:y,r:r},st,extra||{}),g)}
+  var lite={'fill-opacity':.9,fill:'#fff'};
+  function BL(a,b2,c2){var G=el('g',{transform:'rotate('+(-(o.r||0))+')','pointer-events':'none','font-family':'Inter Tight','text-anchor':'middle',fill:'#161B20'},g),t;if(c2){t=el('text',{x:0,y:-.5,'font-size':1.55,'font-weight':900},G);t.textContent=c2}else{t=el('text',{x:0,y:.6,'font-size':3.2,'font-weight':900},G);t.textContent=a}t=el('text',{x:0,y:2.9,'font-size':1.2,'font-weight':700},G);t.textContent=b2.length>14?b2.slice(0,13)+'.':b2}
+  switch(it.k){
+   case 'roundT':var d=it.d/2;C(0,0,d);for(var i=0;i<it.ch;i++){var a=i/it.ch*Math.PI*2;R(Math.cos(a)*(d+.9)-.7,Math.sin(a)*(d+.9)-.7,1.4,1.4,lite)}break;
+   case 'banq':R(-4,-1.25,8,2.5);for(var j=0;j<4;j++){R(-3.6+j*2-.0,-2.6,1.4,1.2,lite);R(-3.6+j*2,1.4,1.4,1.2,lite)}break;
+   case 'row':for(var k=0;k<it.ch;k++)R(-7.5+k*1.5+.05,-.75,1.4,1.5,lite);break;
+   case 'chair':case 'stool':R(-w/2,-h/2,w,h,{rx:it.k==='stool'?w/2:.2});break;
+   case 'round':case 'umb':C(0,0,w/2,it.k==='umb'?{'fill-opacity':.25,'stroke-dasharray':'.4 .3'}:null);break;
+   case 'oval':el('ellipse',Object.assign({cx:0,cy:0,rx:w/2,ry:h/2},st),g);break;
+   case 'vig':R(-4,-4,8,2.6);R(-4.6,-.4,2.4,2.4,{rx:.5});R(2.2,-.4,2.4,2.4,{rx:.5});R(-1.6,.4,3.2,1.8,lite);break;
+   case 'curve':el('path',Object.assign({d:'M-6 2 Q0 -6 6 2 L4.4 2.5 Q0 -3.4 -4.4 2.5Z'},st),g);break;
+   case 'cruiser4':C(0,0,1.25);[[0,-2],[2,0],[0,2],[-2,0]].forEach(function(q){C(q[0],q[1],.75,lite)});break;
+   case 'dance':R(-w/2,-h/2,w,h,{'fill-opacity':.25});for(var m=-w/2+2.5;m<w/2;m+=2.5){el('line',{x1:m,y1:-h/2,x2:m,y2:h/2,stroke:'#161B20','stroke-width':.05},g);el('line',{x1:-w/2,y1:m,x2:w/2,y2:m,stroke:'#161B20','stroke-width':.05},g)}break;
+   case 'booth':R(-w/2,-h/2,w,h,{fill:o.s?'#C4C8CC':'#fff','fill-opacity':.97,'stroke-width':.22,rx:.1});BL(o.b!=null?String(o.b):'',o.s?(o.nm||'Taken'):'Open');break;
+   case 'spon':R(-w/2,-h/2,w,h,{fill:o.s?'#C4C8CC':'#D8BE6E','fill-opacity':.97,'stroke-width':.22,rx:.1});BL('',o.s?(o.nm||'Taken'):'Open','SPONSOR');break;
+   case 'zone':R(-w/2,-h/2,w,h,{'fill-opacity':.18,'stroke-dasharray':'.5 .35'});break;
+   default:R(-w/2,-h/2,w,h);
+  }
+  var fs=Math.max(.55,Math.min(1.1,Math.min(w,h)/3.2));
+  if(it.k!=='booth'&&it.k!=='spon'&&Math.min(w,h)>=2.4&&Math.max(w,h)>=6){var t=el('text',{x:0,y:it.k==='vig'?-2.4:fs*.35,'text-anchor':'middle','font-size':fs,'font-family':'Inter Tight','font-weight':800,fill:'#161B20','pointer-events':'none',transform:'rotate('+(-o.r)+')'},g);t.textContent=it.n.split(',')[0].replace(/ \(.*\)/,'')}
+}
+function render(){
+  objG.innerHTML='';
+  S.objs.forEach(function(o){
+    var g=el('g',{transform:'translate('+o.x+' '+o.y+') rotate('+o.r+')','data-id':o.id,style:'cursor:move'},objG);
+    shape(o,g);
+    if(o.id===selId){var it=BY[o.t];el('rect',{x:-it.w/2-.5,y:-it.h/2-.5,width:it.w+1,height:it.h+1,fill:'none',stroke:'#A8873A','stroke-width':.25,'stroke-dasharray':'.6 .4','pointer-events':'none'},g)}
+  });
+  $('#sel').classList.toggle('on',selId!=null);
+  summary();persist();
+}
+function summary(){
+  var seats=0,cnt={},div={};
+  S.objs.forEach(function(o){var it=BY[o.t];seats+=it.seats||0;cnt[o.t]=(cnt[o.t]||0)+1;if(it.g==='div')div[o.t]=(div[o.t]||0)+1});
+  $('#seats').textContent=seats;$('#mCount').textContent=S.objs.length;
+  var dk=Object.keys(div);
+  $('#divList').innerHTML=dk.length?dk.map(function(k){return '<li><span><i class="dot" style="background:var(--c-div)"></i>'+BY[k].n+'</span><b>× '+div[k]+'</b></li>'}).join(''):'<li style="color:var(--mute2)">None yet</li>';
+  var ak=Object.keys(cnt);
+  $('#allList').innerHTML=ak.length?ak.map(function(k){return '<li><span><i class="dot" style="background:'+CAT[BY[k].g].c+'"></i>'+BY[k].n+'</span><b>× '+cnt[k]+'</b></li>'}).join(''):'<li style="color:var(--mute2)">Nothing placed yet</li>';
+}
+function add(t,x,y){var o={id:nid++,t:t,x:+x.toFixed(2),y:+y.toFixed(2),r:0};if(BY[t].k==='booth')o.b=S.objs.reduce(function(a,q){return Math.max(a,q.b||0)},0)+1;S.objs.push(o);selId=o.id;render();return o}
+
+/* ---------- palette ---------- */
+var curTab='div';
+function icon(it){
+  if(it.img)return '<img src="'+it.img+'" alt="" loading="lazy">';
+  var w=it.w,h=it.h,s=Math.max(w,h)*1.15;var g=document.createElementNS(NS,'g');shape({t:it.id,r:0},g);
+  return '<svg viewBox="'+(-s/2)+' '+(-s/2)+' '+s+' '+s+'">'+g.innerHTML+'</svg>';
+}
+function tabs(){
+  $('#tabs').innerHTML=Object.keys(CAT).map(function(k){return '<button data-k="'+k+'" class="'+(k===curTab?'on':'')+'">'+CAT[k].n+'</button>'}).join('');
+  $$('#tabs button').forEach(function(b){b.onclick=function(){curTab=b.dataset.k;tabs()}});
+  $('#items').innerHTML=CAT[curTab].items.map(function(it){return '<button class="it" data-t="'+it.id+'"><span class="th">'+icon(it)+'</span><b>'+it.n+'</b><small>'+it.w+' × '+it.h+' ft'+(it.g==='div'?' · approx.':'')+'</small></button>'}).join('');
+  $$('#items .it').forEach(function(b){
+    b.addEventListener('pointerdown',function(e){if(e.pointerType==='touch'){b._touch=true;return}b._touch=false;startPaletteDrag(e,b.dataset.t)});
+    b.addEventListener('click',function(){if(!b._touch)return;add(b.dataset.t,VB.x+VB.w/2,VB.y+VB.h/2);closeSheets();toast('Added. Drag it into place.')});
+  });
+}
+
+/* ---------- interaction ---------- */
+var drag=null;
+function startPaletteDrag(e,t){
+  e.preventDefault();
+  var ghost=document.createElement('div');ghost.style.cssText='position:fixed;z-index:60;pointer-events:none;width:64px;height:64px;background:#fff;border:2px solid #D8BE6E;border-radius:3px;display:grid;place-items:center;opacity:.9;transform:translate(-50%,-50%)';
+  ghost.innerHTML=icon(BY[t]).replace('<svg','<svg style="width:52px;height:52px"').replace('<img','<img style="max-width:56px;max-height:56px"');
+  var sx=e.clientX,sy=e.clientY,moved=false;
+  function mv(ev){if(Math.abs(ev.clientX-sx)+Math.abs(ev.clientY-sy)>6&&!moved){moved=true;document.body.appendChild(ghost);if(innerWidth<=980)closeSheets()}if(moved){ghost.style.left=ev.clientX+'px';ghost.style.top=ev.clientY+'px'}}
+  function up(ev){removeEventListener('pointermove',mv);removeEventListener('pointerup',up);if(ghost.parentNode)ghost.remove();
+    var r=cv.getBoundingClientRect();
+    if(moved&&ev.clientX>r.left&&ev.clientX<r.right&&ev.clientY>r.top&&ev.clientY<r.bottom){var p=pt(ev);add(t,p.x,p.y)}
+    else if(!moved){add(t,VB.x+VB.w/2,VB.y+VB.h/2);if(innerWidth<=980)closeSheets();toast('Added. Drag it into place.')}
+  }
+  addEventListener('pointermove',mv);addEventListener('pointerup',up);
+}
+var pointers={},pinch=null;
+cv.addEventListener('pointerdown',function(e){
+  pointers[e.pointerId]={x:e.clientX,y:e.clientY};
+  if(Object.keys(pointers).length===2){var ps=Object.values(pointers);pinch={d:Math.hypot(ps[0].x-ps[1].x,ps[0].y-ps[1].y)};drag=null;return}
+  if(scaling){scaleClick(e);return}
+  var g=e.target.closest('g[data-id]');var p=pt(e);
+  if(g&&VIEW){viewTap(+g.dataset.id);drag={pan:true,sx:e.clientX,sy:e.clientY,vx:VB.x,vy:VB.y}}
+  else if(g){var id=+g.dataset.id,o=S.objs.find(function(x){return x.id===id});selId=id;render();drag={o:o,dx:p.x-o.x,dy:p.y-o.y}}
+  else{selId=null;render();drag={pan:true,sx:e.clientX,sy:e.clientY,vx:VB.x,vy:VB.y};cv.classList.add('panning')}
+  cv.setPointerCapture(e.pointerId);
+});
+cv.addEventListener('pointermove',function(e){
+  if(pointers[e.pointerId])pointers[e.pointerId]={x:e.clientX,y:e.clientY};
+  if(pinch&&Object.keys(pointers).length===2){var ps=Object.values(pointers),d=Math.hypot(ps[0].x-ps[1].x,ps[0].y-ps[1].y);var mid=pt({clientX:(ps[0].x+ps[1].x)/2,clientY:(ps[0].y+ps[1].y)/2});zoom(pinch.d/d,mid.x,mid.y);pinch.d=d;return}
+  if(scaling&&scaleA){var p0=pt(e);drawScaleLine(scaleA,p0);return}
+  if(!drag)return;
+  if(drag.pan){var r=cv.getBoundingClientRect(),k=VB.w/r.width;VB.x=drag.vx-(e.clientX-drag.sx)*k;VB.y=drag.vy-(e.clientY-drag.sy)*k;applyVB();return}
+  var p=pt(e);drag.o.x=+(Math.round((p.x-drag.dx)*4)/4).toFixed(2);drag.o.y=+(Math.round((p.y-drag.dy)*4)/4).toFixed(2);
+  var g=objG.querySelector('g[data-id="'+drag.o.id+'"]');if(g)g.setAttribute('transform','translate('+drag.o.x+' '+drag.o.y+') rotate('+drag.o.r+')');
+});
+function endPtr(e){delete pointers[e.pointerId];if(Object.keys(pointers).length<2)pinch=null;if(drag&&!drag.pan)render();drag=null;cv.classList.remove('panning')}
+cv.addEventListener('pointerup',endPtr);cv.addEventListener('pointercancel',endPtr);
+function selObj(){return S.objs.find(function(x){return x.id===selId})}
+$('#rotB').onclick=function(){var o=selObj();if(o){o.r=(o.r+45)%360;render()}};
+$('#dupB').onclick=function(){var o=selObj();if(o){add(o.t,o.x+2,o.y+2).r=o.r;render()}};
+$('#delB').onclick=function(){S.objs=S.objs.filter(function(x){return x.id!==selId});selId=null;render()};
+addEventListener('keydown',function(e){if(e.target.tagName==='INPUT')return;if(e.key==='r'||e.key==='R')$('#rotB').click();if((e.key==='Delete'||e.key==='Backspace')&&selId!=null){e.preventDefault();$('#delB').click()}});
+
+/* ---------- upload + scale ---------- */
+function pdfLib(cb){if(window.pdfjsLib){cb();return}toast('Reading your PDF');var sc=document.createElement('script');sc.src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';sc.onload=cb;sc.onerror=function(){toast('PDF reader did not load. Try an image.')};document.head.appendChild(sc)}
+$('#upl').onchange=function(){var f=this.files[0];if(!f)return;
+  if(f.type==='application/pdf'){if(!window.pdfjsLib){var me=this;pdfLib(function(){me.onchange()});return}
+    pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    f.arrayBuffer().then(function(buf){return pdfjsLib.getDocument({data:buf}).promise}).then(function(pdf){return pdf.getPage(1)}).then(function(pg){
+      var vp=pg.getViewport({scale:2.5}),c=document.createElement('canvas');var mx=3200,s=Math.min(1,mx/Math.max(vp.width,vp.height));vp=pg.getViewport({scale:2.5*s});c.width=vp.width;c.height=vp.height;
+      return pg.render({canvasContext:c.getContext('2d'),viewport:vp}).promise.then(function(){loadPlan(c.toDataURL('image/jpeg',.85),c.width,c.height)})
+    }).catch(function(){toast('Could not read that PDF')})}
+  else{var rd=new FileReader();rd.onload=function(){var im=new Image();im.onload=function(){var mx=3200,s=Math.min(1,mx/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);loadPlan(c.toDataURL('image/jpeg',.85),c.width,c.height)};im.src=rd.result};rd.readAsDataURL(f)}
+  this.value='';
+};
+var imgPx={w:0,h:0};
+function loadPlan(url,w,h){S.plan=url;imgPx={w:w,h:h};S.ftPerPx=100/w;S.pw=100;S.ph=h*S.ftPerPx;S.ftPerPx=null;drawPlan();fit();render();startScale();}
+var scaling=false,scaleA=null;
+function startScale(){scaling=true;scaleA=null;cv.classList.add('scaling');msg('Set the scale: tap the two ends of the scale bar, or of a wall you know the length of.')}
+$('#scaleBtn').onclick=startScale;
+function drawScaleLine(a,b){scaleG.innerHTML='';var sw=VB.w/300;el('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,stroke:'#A8873A','stroke-width':sw*2},scaleG);[a,b].forEach(function(q){el('circle',{cx:q.x,cy:q.y,r:sw*4,fill:'#A8873A'},scaleG)})}
+var scaleB=null;
+function scaleClick(e){var p=pt(e);if(!scaleA){scaleA=p;drawScaleLine(p,p);return}scaleB=p;drawScaleLine(scaleA,scaleB);$('#dlg').classList.add('on');$('#dlgI').value='';setTimeout(function(){$('#dlgI').focus()},50)}
+$('#dlgOk').onclick=function(){var v=parseFloat($('#dlgI').value);if(!(v>0)){toast('Enter the length in feet');return}
+  var cur=Math.hypot(scaleB.x-scaleA.x,scaleB.y-scaleA.y);if(cur<=0)return;var k=v/cur;
+  S.pw*=k;S.ph*=k;S.objs.forEach(function(o){o.x*=k;o.y*=k});S.ftPerPx=S.pw/(imgPx.w||1);
+  endScale();drawPlan();fit();render();toast('Scale set. Pieces now show at true size.')};
+$('#dlgX').onclick=endScale;
+function endScale(){scaling=false;scaleA=scaleB=null;scaleG.innerHTML='';cv.classList.remove('scaling');msg();$('#dlg').classList.remove('on')}
+
+/* ---------- side actions ---------- */
+$('#saveB').onclick=function(){
+  if(!S.objs.length){toast('Place some pieces first');return}
+  var L=[];try{L=JSON.parse(localStorage.getItem('dfr-saved')||'[]')}catch(e){}
+  var nm=prompt('Name this layout','Layout '+(L.length+1));if(nm===null)return;nm=nm.trim()||('Layout '+(L.length+1));
+  var m={},seats=0;S.objs.forEach(function(o){var it=BY[o.t];if(!it)return;seats+=it.seats||0;if(!m[o.t])m[o.t]={t:o.t,n:it.n,g:it.g,q:0};m[o.t].q++});
+  L.push({id:'L'+Date.now(),name:nm.slice(0,60),at:new Date().toISOString(),pw:S.pw,ph:S.ph,seats:seats,status:'Draft',items:Object.keys(m).map(function(k){return m[k]}),objs:S.objs.map(function(o){return {id:o.id,t:o.t,x:o.x,y:o.y,r:o.r||0}})});
+  try{localStorage.setItem('dfr-saved',JSON.stringify(L));toast('Saved. Open my dashboard to see it.')}catch(e){toast('Could not save on this device')}
+};
+$('#toQuote').onclick=function(){
+  var div={};S.objs.forEach(function(o){var it=BY[o.t];if(it.g==='div')div[o.t]=(div[o.t]||0)+1});
+  var ks=Object.keys(div);if(!ks.length){toast('Place some Divine pieces first');return}
+  var Q=[];try{Q=JSON.parse(localStorage.getItem('dfr-q2')||'[]')}catch(e){}
+  ks.forEach(function(k){var it=BY[k],f=Q.find(function(x){return x.s===k});if(f)f.q=div[k];else Q.push({s:k,n:it.n,i:it.img,q:div[k]})});
+  try{localStorage.setItem('dfr-q2',JSON.stringify(Q))}catch(e){}
+  toast('Added to your quote');setTimeout(function(){location.href='../#quote'},900);
+};
+$('#shareB').onclick=function(){
+  var data=btoa(JSON.stringify({w:S.pw,h:S.ph,s:!S.plan,o:S.objs.map(function(o){return [o.t,o.x,o.y,o.r]})}));
+  var url=location.origin+location.pathname+'#layout='+data;
+  var note=S.plan?' The floor plan image stays on this device, so send it along too.':'';
+  if(navigator.share)navigator.share({title:'Our Divine Design layout',url:url}).catch(function(){});
+  else if(navigator.clipboard)navigator.clipboard.writeText(url).then(function(){toast('Link copied.'+note)});
+};
+$('#pngB').onclick=function(){
+  var clone=cv.cloneNode(true);clone.setAttribute('viewBox',(-3)+' '+(-3)+' '+(S.pw+6)+' '+(S.ph+6));var W=2000,H=Math.round(W*(S.ph+6)/(S.pw+6));clone.setAttribute('width',W);clone.setAttribute('height',H);
+  var bg=document.createElementNS(NS,'rect');bg.setAttribute('x',-3);bg.setAttribute('y',-3);bg.setAttribute('width',S.pw+6);bg.setAttribute('height',S.ph+6);bg.setAttribute('fill','#fff');clone.insertBefore(bg,clone.firstChild);
+  var s=new XMLSerializer().serializeToString(clone),img=new Image();
+  img.onload=function(){var c=document.createElement('canvas');c.width=W;c.height=H;c.getContext('2d').drawImage(img,0,0);var a=document.createElement('a');a.download='divine-design-layout.png';a.href=c.toDataURL('image/png');a.click()};
+  img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(s);
+};
+$('#clrB').onclick=function(){if(!confirm('Clear every piece and the floor plan?'))return;S={plan:null,ftPerPx:null,pw:100,ph:60,objs:[]};selId=null;try{localStorage.removeItem('dfr-plan-img')}catch(e){}drawPlan();fit();render()};
+
+/* phone sheets */
+function closeSheets(){$('#pal').classList.remove('on');$('#side').classList.remove('on');$('#mPal').classList.remove('on');$('#mSide').classList.remove('on')}
+$('#mPal').onclick=function(){var on=!$('#pal').classList.contains('on');closeSheets();if(on){$('#pal').classList.add('on');this.classList.add('on')}};
+$('#mSide').onclick=function(){var on=!$('#side').classList.contains('on');closeSheets();if(on){$('#side').classList.add('on');this.classList.add('on')}};
+
+/* ---------- venues ---------- */
+var VEN=window.VEN||[],venOK=!!window.VEN,venCb=[];
+function venLoad(cb){if(venOK){cb&&cb();return}if(cb)venCb.push(cb);if(venLoad.go)return;venLoad.go=1;
+  var sc=document.createElement('script');sc.src='ven.js';sc.onload=function(){VEN=window.VEN||[];var s2=document.createElement('script');s2.src='est/index.js';s2.onload=s2.onerror=function(){venOK=true;venCb.splice(0).forEach(function(f){f()})};document.head.appendChild(s2)};
+  sc.onerror=function(){venLoad.go=0;venCb.length=0;toast('Could not load the venue list. Check your connection.')};document.head.appendChild(sc)}
+(window.requestIdleCallback||function(f){setTimeout(f,600)})(function(){venLoad()});
+/* room-size outlines live in est/<state>.js and load in the background; ESTS: 1 loading, 2 loaded, 3 failed */
+var ESTS={},estT=0;
+function estIx(){return window.ESTIX||{}}
+function estPend(){var ix=estIx();return Object.keys(ix).filter(function(p){return ESTS[p]!==2})}
+window.estAdd=function(p,k,G){G.forEach(function(g){g[3].forEach(function(r){VEN.push({id:r[0],n:g[0],c:g[1],t:g[2],p:p,k:k,r:r[1],est:1,d:[r[2],r[3]]})})});ESTS[p]=2;
+  if(!estT)estT=setTimeout(function(){estT=0;if($('#ven').classList.contains('on')){var a=$('#venL'),b=a.parentNode,sa=a.scrollTop,sb=b.scrollTop;venFill();venList();a.scrollTop=sa;b.scrollTop=sb}},500)};
+function estGo(){if(estGo.run)return;estGo.run=1;(function nx(){var ix=estIx(),ks=Object.keys(ix).filter(function(p){return !ESTS[p]});if(!ks.length){estGo.run=0;return}
+  var fp=$('#venP').value,fk=$('#venK').value,w=function(p){return p===fp?0:fk&&ix[p][2]===fk?1:p==='ON'?2:ix[p][2]==='Canada'?3:4};
+  ks.sort(function(a,b){return w(a)-w(b)||a.localeCompare(b)});var p=ks[0];ESTS[p]=1;
+  var s=document.createElement('script');s.src='est/'+p+'.js';s.onload=function(){if(ESTS[p]!==2)ESTS[p]=3;nx()};s.onerror=function(){ESTS[p]=3;nx()};document.head.appendChild(s)})()}
+var PRV={ON:'Ontario',QC:'Québec',BC:'British Columbia',AB:'Alberta',MB:'Manitoba',SK:'Saskatchewan',NS:'Nova Scotia',NB:'New Brunswick',NL:'Newfoundland and Labrador',PE:'Prince Edward Island',YT:'Yukon',NT:'Northwest Territories',NU:'Nunavut'};
+function vP(v){return v.p||((v.c||'').split(', ')[1]||'')}
+function vK(v){return v.k||(PRV[vP(v)]?'Canada':'USA')}
+function vT(v){return v.t||(/convention|congr|trade centre|trade center/i.test(v.n)?'Convention centre':/hotel|fairmont|marriott|hilton|sheraton|westin|hyatt/i.test(v.n)?'Hotel':'Event venue')}
+function vCity(v){return (v.c||'').split(', ')[0]}
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function cnt(L,f){var m={};L.forEach(function(v){var k=f(v);m[k]=(m[k]||0)+1});return m}
+function opts(sel,all,m,lab,keep){var ks=Object.keys(m).sort(function(a,b){return a.localeCompare(b)});sel.innerHTML='<option value="">'+all+'</option>'+ks.map(function(k){return '<option value="'+esc(k)+'">'+esc(lab?lab(k):k)+' ('+m[k]+')</option>'}).join('');sel.value=ks.indexOf(keep)>-1?keep:''}
+var EVN=['Gala dinner','Wedding reception','Conference or theatre','Boardroom meeting','Cocktail reception','Trade show'];
+var EVD={'Convention centre':['Conference or theatre','Trade show','Gala dinner'],'Hotel':['Gala dinner','Wedding reception','Boardroom meeting','Conference or theatre'],'Conference centre':['Conference or theatre','Boardroom meeting','Trade show'],'Banquet hall':['Wedding reception','Gala dinner','Cocktail reception'],'Event venue':['Wedding reception','Gala dinner','Cocktail reception'],'Exhibition grounds':['Trade show','Conference or theatre']};
+function vE(v){if(v.e&&v.e.length)return v.e;return EVD[vT(v)]||['Gala dinner']}
+function ecnt(){var m={};VEN.forEach(function(v){vE(v).forEach(function(e){m[e]=(m[e]||0)+1})});return m}
+var venMax=40;
+function venFill(){var fk=$('#venK').value,fp=$('#venP').value;
+  var ix=estIx(),pend=estPend(),mk=cnt(VEN,vK);pend.forEach(function(p){mk[ix[p][2]]=(mk[ix[p][2]]||0)+ix[p][0]});
+  opts($('#venK'),'All countries',mk,null,fk);fk=$('#venK').value;
+  var A=VEN.filter(function(v){return !fk||vK(v)===fk});
+  var mp=cnt(A,vP);pend.forEach(function(p){if(!fk||ix[p][2]===fk)mp[p]=(mp[p]||0)+ix[p][0]});
+  opts($('#venP'),fk==='USA'?'All states':fk==='Canada'?'All provinces':'Province or state',mp,function(k){return PRV[k]||k},fp);fp=$('#venP').value;
+  var B=A.filter(function(v){return !fp||vP(v)===fp});
+  opts($('#venC'),'All cities',cnt(B,function(v){return v.c}),null,$('#venC').value);
+  opts($('#venT'),'All venue types',cnt(VEN,vT),null,$('#venT').value);var em=ecnt();opts($('#venE'),'All event types',em,null,$('#venE').value)}
+function venList(){var q=$('#venQ').value.trim().toLowerCase().split(/\s+/).filter(Boolean),fk=$('#venK').value,fp=$('#venP').value,fc=$('#venC').value,ft=$('#venT').value,fe=$('#venE').value,so=$('#venS').value,ff=$('#venF').value;
+  var L=VEN.filter(function(v){if(ff&&v.est)return false;if(fk&&vK(v)!==fk)return false;if(fp&&vP(v)!==fp)return false;if(fc&&v.c!==fc)return false;if(ft&&vT(v)!==ft)return false;if(fe&&vE(v).indexOf(fe)<0)return false;
+    if(q.length){var h=(v.n+' '+v.r+' '+v.c+' '+(PRV[vP(v)]||'')+' '+vK(v)+' '+vT(v)).toLowerCase();for(var i=0;i<q.length;i++)if(h.indexOf(q[i])<0)return false}return true});
+  var key=so==='type'?vT:so==='event'?function(v){return vE(v)[0]}:so==='name'?function(v){return v.n.charAt(0).toUpperCase()}:function(v){return v.c};
+  var pin=function(v){return 1};
+  if(so)L=L.slice().sort(function(a,b){return pin(a)-pin(b)||key(a).localeCompare(key(b))||a.n.localeCompare(b.n)});
+  var nv={};L.forEach(function(v){nv[v.n+'|'+v.c]=1});
+  var ne=L.filter(function(v){return v.est}).length;
+  var ix=estIx(),pend=estPend(),pn=0,pv=0,nar=q.length||fc||ft||fe;if(!ff&&!nar)pend.forEach(function(p){if(fk&&ix[p][2]!==fk)return;if(fp&&p!==fp)return;pn+=ix[p][0];pv+=ix[p][1]});
+  var busy=!ff&&pend.some(function(p){return ESTS[p]!==3}),tn=L.length+pn,tv=Object.keys(nv).length+pv;
+  $('#venN').textContent=tn?tn.toLocaleString('en-CA')+' floor plan'+(tn===1?'':'s')+' at '+tv.toLocaleString('en-CA')+' venue'+(tv===1?'':'s')+(busy&&nar?' so far':''):'';
+  var h='',last=null;L.slice(0,venMax).forEach(function(v){var g=so?key(v):null;if(g!==null&&g!==last){h+='<div class="vgrp">'+esc(g)+'</div>';last=g}
+    h+='<div class="vrow'+(v.dv?' vd':'')+(v.est?' ve':'')+'" role="button" tabindex="0" data-v="'+v.id+'"><img src="'+(v.d?estImg(v,1).u:'venues/'+v.id+'-t.jpg')+'" alt="" loading="lazy" width="96" height="64"><span>'+'<small>'+esc(so==='city'?vT(v):so==='type'?v.c:v.c+' · '+vT(v))+'</small><b>'+esc(v.n)+'</b><span>'+esc(String(v.r).replace(/ \*$/,''))+(v.est?'<i title="Drawn to the room\'s published dimensions" style="font-style:normal">*</i>':'')+'</span>'+(v.vt?'<a class="vtour" href="'+esc(v.vt)+'" target="_blank" rel="noopener">View 3D tour</a>':'')+'</span>'+(v.dv?'<a class="vpast" href="#" data-vp="'+v.id+'">Click to view past layouts here</a>':'')+'</div>'});
+  if(L.length>venMax)h+='<button class="tb" id="venMore" style="flex:none;justify-content:center">Show more venues</button>';
+  $('#venL').innerHTML=L.length?h:busy?'<p style="margin:0">Loading more venues.</p>':'<p style="margin:0">No venue matches yet. Clear a filter, or upload your own floor plan.</p>';
+  $$('#venL .vrow').forEach(function(b){b.onclick=function(e){if(e.target.closest&&e.target.closest('.vtour'))return;if(e.target.closest&&e.target.closest('.vpast')){e.preventDefault();openPastV(b.dataset.v);return}pickVenue(b.dataset.v)};b.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pickVenue(b.dataset.v)}}});
+  if($('#venMore'))$('#venMore').onclick=function(){venMax+=60;venList()}}
+var pastVid=null;
+function openPastV(id){var v=VEN.find(function(x){return x.id===id});if(!v)return;pastVid=id;
+  $('#pastvH').textContent='Past layouts at '+v.n;
+  $('#pastvP').textContent="We don't have Divine's past layouts for this venue yet. Once Divine shares a file, such as a spreadsheet of jobs, photos or past plans, they will show here for inspiration.";
+  $('#pastv').classList.add('on')}
+$('#pastvX').onclick=function(){$('#pastv').classList.remove('on')};
+$('#pastvPlan').onclick=function(){$('#pastv').classList.remove('on');if(pastVid)pickVenue(pastVid)};
+function estImg(v,t){var a=v.d[0],b=v.d[1],w=900,h=Math.max(Math.round(b*900/a),60),W=w+200,H=h+260,k=t?240/W:1,c=document.createElement('canvas');c.width=Math.round(W*k);c.height=Math.round(H*k);var x=c.getContext('2d');x.scale(k,k);x.fillStyle='#fff';x.fillRect(0,0,W,H);x.strokeStyle='#000';x.lineWidth=6;x.strokeRect(100,130,w,h);if(!t){x.fillStyle='#000';x.textBaseline='top';x.font='34px sans-serif';x.fillText(String(v.r).replace(/ \*$/,''),100,30,W-120);x.font='28px sans-serif';x.fillText(a+' ft',100+w/2-60,130+h+20);x.fillText(b+' ft',100+w+12,130+h/2-14);x.fillStyle='#5a5a5a';x.font='24px sans-serif';x.fillText('* Drawn from published room size.',100,130+h+80)}return{u:c.toDataURL(t?'image/png':'image/jpeg',.8),w:W,h:H}}
+function pickVenue(id){if(!venOK){venLoad(function(){pickVenue(id)});return}var v=VEN.find(function(x){return x.id===id});if(!v)return;$('#ven').classList.remove('on');toast('Loading '+v.n);
+  if(v.d){var ei=estImg(v);S.objs=[];selId=null;loadPlan(ei.u,ei.w,ei.h);setTimeout(function(){toast('* Drawn to the room\'s published dimensions')},900);return}
+  fetch('venues/'+v.id+'.jpg').then(function(r){return r.blob()}).then(function(b){var rd=new FileReader();rd.onload=function(){S.objs=[];selId=null;loadPlan(rd.result,v.w,v.h);if(v.est)setTimeout(function(){toast('* Drawn to the room\'s published dimensions')},900)};rd.readAsDataURL(b)}).catch(function(){toast('Could not load that plan')})}
+function openVen(first){if(!venOK){toast('Loading venues');venLoad(function(){openVen(first)});return}venMax=40;$('#venQ').value='';['#venK','#venP','#venC','#venT','#venE','#venF'].forEach(function(x){$(x).value=''});venFill();venList();estGo();
+  $('#venH').textContent=first?'Choose your venue':'Choose a venue';$('#venSample').style.display=first?'':'none';$('#ven').classList.add('on');$('#venL').scrollTop=0}
+$('#venB').onclick=function(){openVen(false)};$('#venX').onclick=$('#venSample').onclick=function(){$('#ven').classList.remove('on')};
+$('#venUp').onclick=function(){$('#ven').classList.remove('on');$('#upl').click()};
+$('#venQ').oninput=function(){venMax=40;venList()};
+['#venK','#venP','#venC','#venT','#venE','#venS','#venF'].forEach(function(x){$(x).onchange=function(){venMax=40;venFill();venList();$('#venL').scrollTop=0}});
+/* ---------- install ---------- */
+var dp=null;addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;$('#instAuto').hidden=false});
+$('#instB').onclick=function(){$('#inst').classList.add('on')};$('#instX').onclick=function(){$('#inst').classList.remove('on')};
+$('#instGo').onclick=function(){if(dp){dp.prompt();dp=null;$('#inst').classList.remove('on')}};
+if(/[?&]install=1/.test(location.search))$('#inst').classList.add('on');
+if('serviceWorker' in navigator){var hadSW=!!navigator.serviceWorker.controller,rl=false;navigator.serviceWorker.addEventListener('controllerchange',function(){if(hadSW&&!rl){rl=true;location.reload()}});navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(function(r){r.update()}).catch(function(){})}
+/* ---------- start ---------- */
+var shared=location.hash.match(/layout=([^&]+)/),had=false,shP=null;
+if(shared){try{var d=JSON.parse(decodeURIComponent(escape(atob(shared[1]))));shP=d.p||null;S.pw=d.w;S.ph=d.h;S.objs=d.o.map(function(a,i){var o={id:i+1,t:a[0],x:a[1],y:a[2],r:a[3]};if(a.length>4){if(a[4])o.b=a[4];if(a[5])o.s=1;if(a[6])o.nm=String(a[6]).slice(0,30)}return o}).filter(function(o){return BY[o.t]});nid=S.objs.length+1;had=true;if(!d.s&&!d.p&&!/[#&]v=1/.test(location.hash))toast('Layout loaded. Upload the same floor plan to see it underneath.')}catch(e){}}
+var hasSaved=false;try{var _o=JSON.parse(localStorage.getItem('dfr-plan')||'null');hasSaved=!!(_o&&((_o.objs&&_o.objs.length)||_o.hasPlan))}catch(e){}
+function openStart(){hold=true;$('#hCont').style.display=hasSaved?'':'none';$('#home').classList.add('on')}
+$('#stVen').onclick=function(){hold=false;$('#start').classList.remove('on');openVen(false)};
+$('#stUp').onclick=function(){hold=false;$('#start').classList.remove('on');$('#upl').click()};
+$('#stCont').onclick=function(){hold=false;restore();$('#start').classList.remove('on');drawPlan();fit();render()};
+$('#stSkip').onclick=function(){hold=false;$('#start').classList.remove('on')};
+function setAH(){var d=document.documentElement;if(navigator.standalone){var land=matchMedia('(orientation:landscape)').matches;d.style.setProperty('--ah',Math.max(innerHeight,land?Math.min(screen.width,screen.height):Math.max(screen.width,screen.height))+'px')}else{d.style.removeProperty('--ah')}}
+var fitW=0,fitH=0;function refit(){setAH();var r=cv.getBoundingClientRect();if(Math.abs(r.width-fitW)>1||Math.abs(r.height-fitH)>1){fitW=r.width;fitH=r.height;fit()}}
+['gesturestart','gesturechange'].forEach(function(n){document.addEventListener(n,function(e){e.preventDefault()},{passive:false})});
+if(navigator.standalone)document.documentElement.classList.add('sa');
+/* ---------- event starting layouts (positions are fractions of the plan) ---------- */
+function EG(id,xs,ys){var o=[];ys.forEach(function(y){xs.forEach(function(x){o.push([id,x,y])})});return o}
+var EVT={
+ gala:{n:'Gala dinner',p:EG('R60',[.2,.5,.8],[.55,.7,.85]).concat([['STG',.5,.1],['SCR',.5,.035],['DF',.5,.3],['FOH',.08,.1],['CAT-BARS',.92,.1],['SRV',.9,.9],['BUF16',.5,.95]])},
+ wedding:{n:'Wedding reception',p:[['STG',.5,.07],['B8',.5,.24]].concat(EG('R72',[.2,.5,.8],[.48,.64,.8]),[['DJ',.08,.1],['CAKE',.9,.3],['CAT-BARS',.92,.08],['SRV',.9,.9]])},
+ conference:{n:'Conference or theatre',p:[['SCR',.5,.03],['POD',.5,.1],['SPK',.1,.1],['SPK',.9,.1],['FOH',.5,.92]].concat(['.25','.33','.41','.49','.57','.65'].map(function(y){return ['ROW10',.5,+y]}))},
+ boardroom:{n:'Boardroom meeting',p:[['SCR',.5,.1]].concat(EG('B8',[.3,.5,.7],[.4,.6]),[['FOH',.85,.85]])},
+ tradeshow:{n:'Trade show',f:tsLay},
+ cocktail:{n:'Cocktail reception',p:[['CAT-BARS',.5,.1],['STN',.2,.35],['STN',.8,.35],['STN',.2,.7],['STN',.8,.7],['SS-450-SETUP-001',.5,.5],['SS-810-SETUP-388',.5,.85],['SPK',.08,.1],['SPK',.92,.1],['DJ',.85,.9]]}
+};
+function tsLay(W,H){var xs=[],ys=[],x=13,n=0,y=22,m=0,o=[];
+  while(x+5<=W-8){xs.push(x);n++;x+=(n%4===0)?20:10}
+  while(y+5<=H-9&&ys.length<8){ys.push(y);m++;y+=(m%2===0)?20:10}
+  if(xs.length){var sh=(W-(xs[xs.length-1]+5)-(xs[0]-5))/2;xs=xs.map(function(v){return v+sh})}
+  ys.forEach(function(yy){xs.forEach(function(xx){if(o.length<96)o.push(['BTH',xx/W,yy/H])})});
+  o.push(['SPN',(W/2-7)/W,7/H],['SPN',(W/2+7)/W,7/H],['REG',.5,(H-3.5)/H]);return o}
+function evApply(k){var E=EVT[k];if(!E)return;
+  if(S.objs.length&&!confirm('Replace your current layout with a '+E.n.toLowerCase()+' starting layout?'))return;
+  S.objs=[];selId=null;var W=S.pw,H=S.ph;
+  var P=E.f?E.f(W,H):E.p;P.forEach(function(q){add(q[0],q[1]*W,q[2]*H)});
+  selId=null;render();try{persist()}catch(e){}
+  var av=P.filter(function(q){return BY[q[0]].g==='av'}).map(function(q){return BY[q[0]].n.split(',')[0]});
+  var uniq=av.filter(function(x,i){return av.indexOf(x)===i});
+  $('#evNote').innerHTML='<b>'+E.n+':</b> '+P.length+' pieces placed. AV in this set: '+(uniq.length?uniq.join(', '):'none')+'. Move anything into place, and confirm AV with the venue.';
+  toast('Starting layout placed. Drag pieces into place.')}
+$('#evs').innerHTML=Object.keys(EVT).map(function(k){return '<button type="button" data-e="'+k+'">'+EVT[k].n+'</button>'}).join('');
+$$('#evs button').forEach(function(b){b.onclick=function(){evApply(b.dataset.e)}});
+$('#pastEv').innerHTML=Object.keys(EVT).map(function(k){return '<button type="button" data-e="'+k+'">'+EVT[k].n+'</button>'}).join('');
+$$('#pastEv button').forEach(function(b){b.onclick=function(){$('#past').classList.remove('on');$('#ven').classList.remove('on');evApply(b.dataset.e)}});
+$('#stEv').innerHTML=Object.keys(EVT).map(function(k){return '<button type="button" data-e="'+k+'">'+EVT[k].n+'</button>'}).join('');
+$$('#stEv button').forEach(function(b){b.onclick=function(){hold=false;$('#start').classList.remove('on');S={plan:null,ftPerPx:null,pw:100,ph:60,objs:[]};selId=null;drawPlan();fit();evApply(b.dataset.e)}});
+var GATE_TO='https://formsubmit.co/ajax/ryan@usechairlift.com';
+function gUser(){try{return JSON.parse(localStorage.getItem('dfr-user')||'null')}catch(e){return null}}
+function gSend(u){return fetch(GATE_TO,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'Divine Design sign-in: '+u.name,_template:'table',_captcha:'false',name:u.name,email:u.email,company:u.co||'',phone:u.ph||'',signed_in:u.at,page:location.origin+location.pathname})}).then(function(r){return r.ok})}
+function gRetry(){var u=gUser();if(u&&!u.sent){gSend(u).then(function(ok){if(ok){u.sent=1;try{localStorage.setItem('dfr-user',JSON.stringify(u))}catch(e){}}}).catch(function(){})}}
+$('#gateF').onsubmit=function(e){e.preventDefault();var n=$('#gName').value.trim(),m=$('#gEmail').value.trim(),err=$('#gErr');
+  if(!n){err.textContent='Please enter your name.';$('#gName').focus();return}
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m)){err.textContent='Please enter a valid email.';$('#gEmail').focus();return}
+  if(!$('#gCo').value.trim()){err.textContent='Please enter your company or event.';$('#gCo').focus();return}
+  err.textContent='';var u={name:n,email:m,co:$('#gCo').value.trim(),ph:$('#gPh').value.trim(),at:new Date().toISOString()};
+  $('#gGo').disabled=true;$('#gGo').textContent='One moment';
+  var fin=function(ok){u.sent=ok?1:0;try{localStorage.setItem('dfr-user',JSON.stringify(u))}catch(x){}$('#gate').classList.remove('on');$('#gGo').disabled=false;$('#gGo').textContent='Continue';if(!had)openStart()};
+  var done=false,t=setTimeout(function(){if(!done){done=true;fin(false)}},6000);
+  gSend(u).then(function(ok){if(!done){done=true;clearTimeout(t);fin(ok)}}).catch(function(){if(!done){done=true;clearTimeout(t);fin(false)}})};
+if(!/[?&]install=1/.test(location.search)){gRetry();if(!had)openStart()}
+$('#pastG').innerHTML=CAT.div.items.filter(function(it){return it.img}).map(function(it){return '<button type="button" data-i="'+it.id+'"><img src="'+it.img+'" alt="" loading="lazy"><span>'+esc(it.n)+'</span></button>'}).join('');
+$$('#pastG button').forEach(function(b){b.onclick=function(){$('#past').classList.remove('on');$('#ven').classList.remove('on');add(b.dataset.i,S.pw/2,S.ph/2);try{persist()}catch(e){}toast('Added to your layout. Drag it into place.')}});
+function openPast(){$('#past').classList.add('on')}
+$('#pastB').onclick=$('#pastB2').onclick=openPast;$('#pastX').onclick=function(){$('#past').classList.remove('on')};
+/* ---------- 3D view (three.js loaded on first use) ---------- */
+var v3={walk:false,walkT:0,built:null};
+function v3Load(cb){if(window.THREE)return cb();var sc=document.createElement('script');sc.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';sc.onload=cb;sc.onerror=function(){toast('Could not load the 3D view. Check your connection and try again.')};document.head.appendChild(sc)}
+function v3Init(){var c=$('#v3c');var r=new THREE.WebGLRenderer({canvas:c,antialias:true});r.setPixelRatio(Math.min(2,window.devicePixelRatio||1));
+  var sc=new THREE.Scene();sc.background=new THREE.Color(0xE9E5DC);var cam=new THREE.PerspectiveCamera(50,1,.5,3000);
+  sc.add(new THREE.HemisphereLight(0xffffff,0x8a8a8a,.95));var dl=new THREE.DirectionalLight(0xffffff,.55);dl.position.set(60,160,90);sc.add(dl);
+  Object.assign(v3,{r:r,sc:sc,cam:cam,theta:.5,phi:.85,dist:130,tg:new THREE.Vector3(0,0,0)});
+  var drag=null;
+  c.addEventListener('pointerdown',function(e){drag={x:e.clientX,y:e.clientY};try{c.setPointerCapture(e.pointerId)}catch(_){}});
+  c.addEventListener('pointermove',function(e){if(!drag)return;v3.theta-=(e.clientX-drag.x)*.008;v3.phi=Math.max(.12,Math.min(1.5,v3.phi+(e.clientY-drag.y)*.008));drag={x:e.clientX,y:e.clientY}});
+  c.addEventListener('pointerup',function(){drag=null});c.addEventListener('pointercancel',function(){drag=null});
+  c.addEventListener('wheel',function(e){e.preventDefault();v3.dist=Math.max(15,Math.min(500,v3.dist*(e.deltaY>0?1.08:.92)))},{passive:false});
+  function sz(){var w=c.clientWidth,h=c.clientHeight;if(!w||!h)return;r.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}
+  v3.sz=sz;window.addEventListener('resize',function(){if($('#v3').classList.contains('on'))sz()});
+  v3.loopF=function loop(){if(!$('#v3').classList.contains('on')){v3.raf=null;return}v3.raf=requestAnimationFrame(loop);
+    if(v3.walk){v3.walkT=Math.min(1,v3.walkT+.0022);if(v3.walkT>=1)v3.walk=false;v3.tg.set(-S.pw/2+S.pw*v3.walkT,1.5,0);v3.phi=1.2;v3.dist=34}
+    var t=v3.tg,d=v3.dist,p=v3.phi,th=v3.theta;
+    cam.position.set(t.x+d*Math.sin(p)*Math.sin(th),t.y+d*Math.cos(p),t.z+d*Math.sin(p)*Math.cos(th));cam.lookAt(t);r.render(sc,cam)};
+  sz()}
+var V3M=null;
+function v3Mats(){if(V3M)return V3M;var m=function(c,o){return new THREE.MeshStandardMaterial(Object.assign({color:c},o||{}))};
+  V3M={wood:m(0x8B6F47,{roughness:.7}),linen:m(0xF6F1E7,{roughness:.9}),chair:m(0x3A3F47,{roughness:.6}),black:m(0x161B20,{roughness:.5}),metal:m(0xB9BEC6,{roughness:.3,metalness:.6}),glass:m(0xDDE6EA,{roughness:.2,transparent:true,opacity:.6})};return V3M}
+function v3Box(p,sx,sy,sz,mat,x,y,z,ry){var b=new THREE.Mesh(new THREE.BoxGeometry(sx,sy,sz),mat);b.position.set(x,y,z);if(ry)b.rotation.y=ry;p.add(b);return b}
+function v3Cyl(p,r,hh,mat,x,y,z,seg){var c=new THREE.Mesh(new THREE.CylinderGeometry(r,r,hh,seg||20),mat);c.position.set(x,y,z);p.add(c);return c}
+function v3Chair(p,x,z,th,mat){var g=new THREE.Group();g.position.set(x,0,z);g.rotation.y=th;p.add(g);
+  v3Box(g,1.4,.25,1.4,mat,0,1.5,0);v3Box(g,1.4,1.5,.2,mat,0,2.4,-.6);
+  var lg=v3Mats().metal;[[-.55,-.55],[.55,-.55],[-.55,.55],[.55,.55]].forEach(function(q){v3Box(g,.12,1.5,.12,lg,q[0],.75,q[1])});return g}
+function v3Ring(p,n,R,th0,mat,cx,cz){for(var i=0;i<n;i++){var a=i/n*Math.PI*2;var px=cx+R*Math.cos(a),pz=cz+R*Math.sin(a);v3Chair(p,px,pz,Math.atan2(cx-px,cz-pz),mat)}}
+function v3Row(p,len,depth,seats,mat,tmat,table){var ns=Math.ceil(seats/2),off=depth/2+.9;
+  if(table)v3Box(p,len,.15,depth,tmat,0,2.5,0);
+  for(var s=0;s<2;s++){var zz=s?-off:off,th=s?0:Math.PI;for(var i=0;i<ns;i++){var xx=-len/2+(i+.5)*len/ns;v3Chair(p,xx,zz,th,mat)}}}
+function v3Model(g,it,o,x,z,col){
+  var k=it.k,id=it.id,w=it.w,h=it.h,M=v3Mats();
+  var G=new THREE.Group();G.position.set(x,0,z);G.rotation.y=-o.r*Math.PI/180;g.add(G);
+  var upH=new THREE.MeshStandardMaterial({color:col,roughness:.8});
+  var wood=M.wood,lin=M.linen,ch=M.chair;
+  if(k==='roundT'){var R=w/2-.9,d=it.d||5;v3Cyl(G,d/2,.15,lin,0,2.5,0,32);v3Cyl(G,.35,2.4,M.metal,0,1.2,0,12);v3Cyl(G,d*.5,.1,M.metal,0,.05,0,24);v3Ring(G,it.ch||8,R,0,ch,0,0);return true}
+  if(k==='round'){v3Cyl(G,w/2,.15,lin,0,2.5,0,32);v3Cyl(G,.35,2.4,M.metal,0,1.2,0,12);return true}
+  if(k==='umb'){v3Cyl(G,.12,8,M.metal,0,4,0,8);var c=new THREE.Mesh(new THREE.ConeGeometry(w/2,1.6,24),upH);c.position.set(0,8.6,0);G.add(c);return true}
+  if(k==='banq'||k==='communal'||k==='oval'){var seats=it.seats||8,depth=Math.max(1.5,h-2.6);
+    var tw=k==='banq'?w-1.6:w-1.6;v3Box(G,tw,.15,depth,wood,0,2.5,0);
+    var ns=Math.ceil(seats/2),off=depth/2+.9;
+    for(var s=0;s<2;s++){var zz=s?-off:off,th=s?0:Math.PI;for(var i=0;i<ns;i++){var xx=-tw/2+(i+.5)*tw/ns;v3Chair(G,xx,zz,th,ch)}}
+    v3Box(G,.3,2.5,depth*.8,M.metal,-tw/2+.4,1.25,0);v3Box(G,.3,2.5,depth*.8,M.metal,tw/2-.4,1.25,0);return true}
+  if(k==='row'){var n=it.ch||10;for(var i=0;i<n;i++){v3Chair(G,-w/2+(i+.5)*w/n,0,0,ch)}v3Box(G,w,.2,.6,M.black,0,3.4,-1.1);return true}
+  if(k==='chair'){v3Chair(G,0,0,0,ch);return true}
+  if(k==='stool'){v3Cyl(G,.7,.2,ch,0,2.6,0,20);v3Cyl(G,.1,2.4,M.metal,0,1.3,0,8);v3Cyl(G,.6,.12,M.metal,0,.08,0,20);return true}
+  if(k==='sofa'){var D=h;v3Box(G,w,1.2,D,upH,0,.6,0);v3Box(G,w-1,.5,D-.9,upH,0,1.45,.25);v3Box(G,w,2.4,.8,upH,0,1.9,-D/2+.4);v3Box(G,.7,1.4,D,upH,-w/2+.35,1.1,0);v3Box(G,.7,1.4,D,upH,w/2-.35,1.1,0);return true}
+  if(k==='curve'){var a=.9,Rc=(w/2)/Math.sin(a),N=6;for(var i=0;i<N;i++){var th=-a+i*(2*a/(N-1));var px=Rc*Math.sin(th),pz=Rc*(1-Math.cos(th));var seg=Rc*(2*a/(N-1))*1.05;v3Box(G,seg,1.2,2.6,upH,px,.6,pz,-th);v3Box(G,seg,2.2,.7,upH,px-Math.sin(th)*0,1.9,pz-.9*Math.cos(th),-th)}return true}
+  if(k==='vig'){v3Box(G,7,1.2,2.6,upH,0,.6,-2.8);v3Box(G,6,.5,1.8,upH,0,1.45,-2.6);v3Box(G,7,2.4,.8,upH,0,1.9,-4.1);
+    [[-3.6,1.6,Math.PI/2],[3.6,1.6,-Math.PI/2]].forEach(function(q){v3Box(G,2.4,1.4,2.4,upH,q[0],.7,q[1]);v3Box(G,2.4,2.2,.6,upH,q[0]+(q[2]>0?-.9:.9),1.6,q[1]+0,q[2])});
+    v3Box(G,3,1.1,1.6,wood,0,1.2,1.2);return true}
+  if(k==='cruiser4'){v3Cyl(G,1.8,.15,lin,0,2.5,0,24);v3Cyl(G,.3,2.4,M.metal,0,1.2,0,10);v3Ring(G,4,2.7,0,ch,0,0);return true}
+  if(k==='bar'){var D=h*.6;v3Box(G,w,3.5,D,wood,0,1.75,0);v3Box(G,w+.4,.2,D+.6,lin,0,3.6,0);return true}
+  if(k==='dance'){v3Box(G,w,.3,h,new THREE.MeshStandardMaterial({color:col,roughness:.9}),0,.15,0);return true}
+  if(k==='zone'){var pl=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:.18}));pl.rotation.x=-Math.PI/2;pl.position.y=.05;G.add(pl);return true}
+  if(id==='STG'){v3Box(G,w,2.5,h,wood,0,1.25,0);v3Box(G,6,1.25,1.5,wood,0,.62,h/2+.75);return true}
+  if(id==='SCR'){v3Box(G,w,5,.3,M.black,0,6,0);v3Box(G,.3,6,.3,M.metal,-w/3,3,0);v3Box(G,.3,6,.3,M.metal,w/3,3,0);return true}
+  if(id==='SPK'){v3Box(G,1.6,3.2,1.6,M.black,0,1.6,0);v3Cyl(G,.1,2.4,M.metal,0,4.6,0,8);return true}
+  if(id==='POD'){v3Box(G,2,3.5,2,wood,0,1.75,0);v3Box(G,2.2,.15,2.2,lin,0,3.6,0);return true}
+  if(id==='DJ'||id==='FOH'){v3Box(G,w,2.8,h,wood,0,1.4,0);v3Box(G,w+.2,.15,h+.2,M.black,0,2.9,0);return true}
+  if(id==='BUF8'||id==='BUF16'){v3Box(G,w,3,h,wood,0,1.5,0);v3Box(G,w+.2,.15,h+.2,lin,0,3.1,0);return true}
+  if(id==='CAT-COFFEE'){v3Box(G,w,.25,h,lin,0,1.5,0);v3Box(G,w-.4,1.2,h-.4,wood,0,.75,0);return true}
+  if(id==='CAT-BARS'||id==='CAT-CRUISER'){return false}
+  return false}
+function v3Build(){var sc=v3.sc,W=S.pw,H=S.ph;
+  if(v3.group){sc.remove(v3.group);v3.group.traverse(function(o){if(o.geometry)o.geometry.dispose();if(o.material){if(o.material.map)o.material.map.dispose();o.material.dispose()}})}
+  var g=new THREE.Group();v3.group=g;sc.add(g);
+  var floorMat;
+  if(S.plan){var tex=new THREE.TextureLoader().load(S.plan);tex.anisotropy=4;floorMat=new THREE.MeshBasicMaterial({map:tex})}else{floorMat=new THREE.MeshStandardMaterial({color:0xD8C4A4,roughness:.85})}
+  var fl=new THREE.Mesh(new THREE.PlaneGeometry(W,H),floorMat);fl.rotation.x=-Math.PI/2;g.add(fl);
+  var wm=new THREE.MeshStandardMaterial({color:0xF3EEE4,roughness:.9,side:THREE.BackSide});var WH=12,T=.6;
+  [[0,-H/2,W,T],[0,H/2,W,T],[-W/2,0,T,H],[W/2,0,T,H]].forEach(function(q){var m=new THREE.Mesh(new THREE.BoxGeometry(q[2]+T,WH,q[3]+T),wm);m.position.set(q[0],WH/2,q[1]);g.add(m)});
+  var ov=new THREE.Mesh(new THREE.PlaneGeometry(W,H),new THREE.MeshBasicMaterial({color:0x000000,transparent:true,opacity:0}));
+  S.objs.forEach(function(o){var it=BY[o.t];if(!it)return;var w=it.w,h=it.h,hgt=3,col=(CAT[it.g]||{c:'#999'}).c,x=o.x-W/2,z=o.y-H/2;
+    if(v3Model(g,it,o,x,z,col))return;
+    if(it.id==='SCR'){var sm=new THREE.Mesh(new THREE.BoxGeometry(w,5,.4),new THREE.MeshStandardMaterial({color:0x161B20}));sm.position.set(x,8,z);sm.rotation.y=-o.r*Math.PI/180;g.add(sm);return}
+    if(it.k==='roundT'||it.k==='round'||it.k==='umb'||it.id==='STN'||it.id==='CAKE'){
+      var rad=w/2;var top=it.k==='umb'?8:(it.k==='roundT'?2.5:3);var cy=new THREE.Mesh(new THREE.CylinderGeometry(rad,rad,top,24),new THREE.MeshStandardMaterial({color:it.k==='roundT'?0xF3EEE4:col}));cy.position.set(x,top/2,z);g.add(cy);
+      var nch=it.ch||0;for(var ci=0;ci<nch;ci++){var ang=ci/nch*Math.PI*2;var chm=new THREE.Mesh(new THREE.BoxGeometry(1.4,2.2,1.4),new THREE.MeshStandardMaterial({color:0x8FB4D9}));chm.position.set(x+Math.cos(ang)*(rad+1.6),1.1,z+Math.sin(ang)*(rad+1.6));chm.rotation.y=-ang;g.add(chm)}
+      if(it.k==='roundT'){var cl=new THREE.Mesh(new THREE.CylinderGeometry(rad-.5,rad-.5,.4,24),new THREE.MeshStandardMaterial({color:0xffffff}));cl.position.set(x,top+.2,z);g.add(cl)}
+      return}
+    if(it.k==='vig'||it.k==='sofa'||it.k==='curve'||it.k==='cruiser4'||it.k==='chair'||it.k==='stool'||it.k==='banq'||it.k==='row'){hgt=it.k==='stool'?2.5:(it.k==='chair'?3:2.6)}
+    else if(it.id==='STG')hgt=3.5;else if(it.id==='DF')hgt=.5;else if(it.id==='SPK')hgt=6;else if(it.id==='POD')hgt=4;else if(it.g==='av')hgt=3;else if(it.g==='cat')hgt=3.2;
+    if(it.k==='zone'||it.k==='dance')hgt=.3;
+    var m=new THREE.Mesh(new THREE.BoxGeometry(w,hgt,h),new THREE.MeshStandardMaterial({color:col}));m.position.set(x,hgt/2,z);m.rotation.y=-o.r*Math.PI/180;g.add(m)});
+  v3.tg.set(0,0,0);v3.dist=Math.max(W,H)*1.15;v3.phi=.85;v3.theta=.5;v3.built=S.objs.length+'|'+W+'|'+H+'|'+(S.plan?S.plan.length:0)}
+function open3D(){v3Load(function(){$('#v3').classList.add('on');if(!v3.r)v3Init();v3.walk=false;v3.walkT=0;v3.sz();
+  var key=S.objs.length+'|'+S.pw+'|'+S.ph+'|'+(S.plan?S.plan.length:0);if(v3.built!==key||!v3.group){v3Build()}
+  v3.sz();if(!v3.raf)v3.loopF()})}
+$('#v3B').onclick=open3D;
+$('#v3x').onclick=function(){$('#v3').classList.remove('on');v3.walk=false};
+$('#v3w').onclick=function(){v3.walk=!v3.walk;v3.walkT=0;this.textContent=v3.walk?'Stop walk':'Walk the room'};
+/* ===== simple three-step flow ===== */
+var VIEW=had&&/[#&]v=1/.test(location.hash),EXH=/[#&]x=1/.test(location.hash),PL=null,plPend=null;
+try{PL=JSON.parse(localStorage.getItem('dfr-pl')||'null')}catch(e){}
+function savePL(){try{if(PL)localStorage.setItem('dfr-pl',JSON.stringify(PL));else localStorage.removeItem('dfr-pl')}catch(e){}}
+function setStep(n){$$('#stp button').forEach(function(b){b.classList.toggle('on',+b.dataset.s===n)})}
+function dlgOff(){$$('.dlg').forEach(function(x){x.classList.remove('on')});closeSheets()}
+function goRoom(){dlgOff();setStep(1);openVen(true)}
+function goLayout(ask){dlgOff();setStep(2);if(ask&&!S.objs.length&&!VIEW)$('#kick').classList.add('on')}
+function bStat(){var r={b:0,bo:0,s:0,so:0};S.objs.forEach(function(o){var k=BY[o.t].k;if(k==='booth'){r.b++;if(!o.s)r.bo++}if(k==='spon'){r.s++;if(!o.s)r.so++}});return r}
+function pl(n,w){return n+' '+w+(n===1?'':'s')}
+function bText(){var r=bStat(),a=[];if(r.b)a.push(pl(r.b,'booth')+', '+r.bo+' open');if(r.s)a.push(pl(r.s,'sponsor spot')+', '+r.so+' open');return a.join('. ')}
+function goShare(){dlgOff();setStep(3);var seats=0,dv=0;S.objs.forEach(function(o){var it=BY[o.t];seats+=it.seats||0;if(it.g==='div')dv++});
+  var a=[];if(seats)a.push(pl(seats,'seat'));if(dv)a.push(pl(dv,'Divine piece'));var bt=bText();if(bt)a.push(bt);
+  $('#shrSum').textContent=S.objs.length?a.join('. ')+'.':'Your room is empty so far. You can still share it.';
+    $('#shrNote').hidden=!(S.plan&&!PL);$('#shrU').hidden=true;$('#shr').classList.add('on')}
+function shareUrl(x){var o={w:+(+S.pw).toFixed(2),h:+(+S.ph).toFixed(2),s:!S.plan,o:S.objs.map(function(q){var a=[q.t,q.x,q.y,q.r];if(q.b!=null||q.s||q.nm){a.push(q.b||0,q.s?1:0);if(q.nm)a.push(q.nm)}return a})};
+  if(S.plan&&PL)o.p=PL;
+  return location.origin+location.pathname+'#layout='+btoa(unescape(encodeURIComponent(JSON.stringify(o))))+'&v=1'+(x?'&x=1':'')}
+function copyUrl(u,m){var fb=function(){var i=$('#shrU');i.hidden=false;i.value=u;i.focus();i.select();toast('Press and hold the link to copy it')};
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(u).then(function(){toast(m||'Link copied')}).catch(fb);else fb()}
+function sendUrl(u,t){if(navigator.share)navigator.share({title:t,url:u}).catch(function(){});else copyUrl(u,'Link copied. Paste it into an email or text.')}
+$('#shCopy').onclick=function(){copyUrl(shareUrl(0))};
+$('#shSend').onclick=function(){sendUrl(shareUrl(0),'Our event floor plan')};
+$('#shEx').onclick=function(){var r=bStat();if(!r.b&&!r.s){toast('Add booths first. Open Add pieces, then Trade show.');return}sendUrl(shareUrl(1),'Exhibitor floor plan')};
+$('#shQ').onclick=function(){$('#toQuote').click()};
+$('#shPng').onclick=function(){$('#pngB').click()};
+$('#shrX').onclick=function(){goLayout(false)};
+$$('#stp button').forEach(function(b){b.onclick=function(){var n=+b.dataset.s;if(n===1)goRoom();else if(n===2)goLayout(true);else goShare()}});
+$('#mNext').onclick=$('#sNext').onclick=goShare;
+$('#sideX').onclick=closeSheets;
+$('#vfT').onclick=function(){var on=$('#ven .vfil').classList.toggle('on');this.textContent=on?'Hide filters':'Filter by place or type'};
+$('#moreB').onclick=function(){closeSheets();$('#more').classList.add('on')};
+$('#moreX').onclick=function(){$('#more').classList.remove('on')};
+$$('#more [data-go]').forEach(function(b){b.onclick=function(){$('#more').classList.remove('on');$(b.dataset.go).click()}});
+$('#hGo').onclick=function(){hold=false;$('#home').classList.remove('on');goRoom()};
+$('#hCont').onclick=function(){hold=false;restore();$('#home').classList.remove('on');drawPlan();fit();render();setStep(2)};
+$('#venX').addEventListener('click',function(){goLayout(true)});
+$('#venSample').addEventListener('click',function(){PL=null;savePL();goLayout(true)});
+$('#clrB').addEventListener('click',function(){if(!S.plan){PL=null;savePL()}});
+$('#kickEv').innerHTML=Object.keys(EVT).map(function(k){return '<button type="button" data-e="'+k+'" style="background:#fff;color:var(--ink);border-color:var(--gold2)">'+EVT[k].n+'</button>'}).join('');
+$$('#kickEv button').forEach(function(b){b.onclick=function(){$('#kick').classList.remove('on');evApply(b.dataset.e)}});
+$('#kickX').onclick=function(){$('#kick').classList.remove('on');toast('Tap Add pieces to place your first piece.')};
+$('#saskGo').onclick=function(){$('#sask').classList.remove('on');startScale()};
+$('#saskX').onclick=function(){$('#sask').classList.remove('on');goLayout(true)};
+function kickMaybe(){if(!scaling&&!S.objs.length&&!VIEW&&!$('#home').classList.contains('on'))$('#kick').classList.add('on')}
+$('#dlgOk').addEventListener('click',kickMaybe);$('#dlgX').addEventListener('click',kickMaybe);
+var TKO=['Hotel','Convention centre','Conference centre','Event venue','Restaurant','Banquet hall'],TKN={'Event venue':'unique event spaces','Exhibition grounds':'exhibition grounds'},tkSig='';
+function tkName(t){if(TKN[t])return TKN[t];var s=t.toLowerCase();return /[^aeiou]y$/.test(s)?s.slice(0,-1)+'ies':/(s|x|ch)$/.test(s)?s+'es':s+'s'}
+function tick(){var nar=$('#venQ').value.trim()||['#venK','#venP','#venC','#venT','#venE'].some(function(x){return $(x).value});
+  $('#vtk').hidden=!!nar;$('#venN').style.display=nar?'':'none';if(nar)return;
+  var m={},seen={};VEN.forEach(function(v){var k=v.n+'|'+v.c;if(seen[k])return;seen[k]=1;var t=vT(v);m[t]=(m[t]||0)+1});
+  var ks=Object.keys(m).sort(function(a,b){var i=TKO.indexOf(a),j=TKO.indexOf(b);return (i<0?99:i)-(j<0?99:j)||a.localeCompare(b)}),sig=ks.join('|');
+  if(sig!==tkSig){tkSig=sig;var one=ks.map(function(k,i){return '<button type="button" data-t="'+esc(k)+'"><b style="animation-duration:'+(ks.length*1.2)+'s;animation-delay:'+(i*1.2)+'s"></b>'+esc(tkName(k))+'</button>'}).join('');
+    $('#vtkI').innerHTML=one+one;$$('#vtkI button').forEach(function(b){b.onclick=function(){$('#venT').value=b.dataset.t;$('#venT').onchange()}})}
+  $$('#vtkI button').forEach(function(b){b.firstChild.textContent=m[b.dataset.t].toLocaleString('en-CA')})}
+var _vl=venList;venList=function(){_vl();tick()};
+var _pv=pickVenue;pickVenue=function(id){var v=VEN.find(function(x){return x.id===id});plPend=v?(v.d?{d:v.d,r:String(v.r).replace(/ \*$/,'')}:{i:v.id}):null;_pv(id)};
+var _lp=loadPlan;loadPlan=function(u,w,h){var p=plPend;plPend=null;_lp(u,w,h);endScale();PL=p;savePL();
+  if(p&&p.d){var k=(p.d[0]*w/900)/S.pw;S.pw*=k;S.ph*=k;S.ftPerPx=S.pw/w;drawPlan();fit();render();goLayout(true)}
+  else{dlgOff();setStep(2);$('#sask').classList.add('on')}};
+var _rn=render;render=function(){_rn();var o=selObj(),k=o&&BY[o.t]&&BY[o.t].k,b=$('#bthB');b.style.display=(k==='booth'||k==='spon')?'':'none';if(o)b.lastChild.textContent=o.s?'Mark open':'Mark taken'};
+$('#bthB').onclick=function(){var o=selObj();if(!o)return;if(o.s){o.s=0;delete o.nm}else{var nm=prompt('Exhibitor or sponsor name (optional)','');if(nm===null)return;o.s=1;nm=nm.trim().slice(0,30);if(nm)o.nm=nm}render()};
+function viewTap(id){var o=S.objs.find(function(x){return x.id===id});if(!o)return;var it=BY[o.t];
+  if(it.k==='booth')msg('Booth '+o.b+(o.s?' is taken'+(o.nm?' by '+o.nm:'')+'.':' is open. To hold it, contact the event organiser.'));
+  else if(it.k==='spon')msg('Sponsor spot'+(o.s?' is taken'+(o.nm?' by '+o.nm:'')+'.':' is open. To hold it, contact the event organiser.'));
+  else msg(it.n.split(',')[0]);clearTimeout(viewTap.t);viewTap.t=setTimeout(function(){msg()},4000)}
+if(VIEW){hold=true;document.body.classList.add('view');
+  var bt=bText();$('#vbT').innerHTML='<b>'+(EXH?'Exhibitor floor plan':'Shared floor plan')+'</b>'+(bt?esc(bt)+'. Tap a booth to see it.':'Drag to move around. Pinch or scroll to zoom.');
+  if(EXH)$('#vbE').style.display='none';
+  $('#vbE').onclick=function(e){e.preventDefault();location.hash=location.hash.replace(/&v=1/,'').replace(/&x=1/,'');location.reload()};}
+if(had&&shP){var shW=S.pw,shH=S.ph,shSet=function(u){S.plan=u;S.pw=shW;S.ph=shH;if(!VIEW){PL=shP;savePL()}drawPlan();fit();render()};
+  if(shP.d&&shP.d.length===2&&+shP.d[0]>0&&+shP.d[1]>0)shSet(estImg({d:[+shP.d[0],+shP.d[1]],r:String(shP.r||'')}).u);
+  else if(/^[\w-]+$/.test(shP.i||''))fetch('venues/'+shP.i+'.jpg').then(function(r){if(!r.ok)throw 0;return r.blob()}).then(function(b){var rd=new FileReader();rd.onload=function(){shSet(rd.result)};rd.readAsDataURL(b)}).catch(function(){});}
+setAH();tabs();drawPlan();fit();render();
+addEventListener('resize',refit);addEventListener('orientationchange',function(){setTimeout(refit,300)});addEventListener('pageshow',refit);
+requestAnimationFrame(refit);setTimeout(refit,300);setTimeout(refit,1200);
+if(window.ResizeObserver){new ResizeObserver(refit).observe($('#stage'))}
+})();
+</script>
+</body>
+</html>
