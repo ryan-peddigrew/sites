@@ -7,7 +7,7 @@ Brand guide: https://ryan-peddigrew.github.io/sites/digital-ceo-alex/brand/
 Private draft for Ryan. Started 12 Nov 2026 from beacons.ai/digitalceoalex.
 Every product, free resource and social link from the Beacons page is on the site; buy buttons go to her existing Beacons checkout links.
 Product names kept as she wrote them (some include "AI"); the word is avoided elsewhere.
-Paintings are public domain (Michelangelo, Botticelli). Her photos are crops of two of her Instagram posts Ryan sent.
+Paintings: Ryan confirmed permission to use them; do not credit or mention them on the site (Ryan, 12 Nov 2026). Her photos are crops of two of her Instagram posts Ryan sent.
 
 ## Open items
 1. Email address for the email button (marked "needed").
