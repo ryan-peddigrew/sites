@@ -354,7 +354,7 @@ body.look-c #v-leads .sample{margin-top:18px}
 <script>
 (()=>{
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const LOOK=(new URLSearchParams(location.search).get('look')||'').toLowerCase();if(/^[abc]$/.test(LOOK))document.body.classList.add('look-'+LOOK);
+const LOOK=(new URLSearchParams(location.search).get('look')||'a').toLowerCase();if(/^[abc]$/.test(LOOK))document.body.classList.add('look-'+LOOK);
 const fmt=n=>'$'+n.toLocaleString('en-CA');
 const store={get(k,d){try{const v=localStorage.getItem('hsmai-sp-'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('hsmai-sp-'+k,JSON.stringify(v))}catch(e){}}};
 const toast=t=>{const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),2600)};
