@@ -63,7 +63,7 @@ a{color:inherit}
 .snd svg{width:18px;height:18px}
 .snd[aria-pressed=true],.hd.lite .snd[aria-pressed=true]{background:var(--butter);color:var(--ink);border-color:var(--butter)}
 @media(min-width:900px){.hd nav{display:flex}.hd{padding:14px 32px}}
-#fly{height:400vh;position:relative}
+#fly{height:100vh;height:100svh;position:relative;overflow:hidden}
 #fly .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
 .lay{position:absolute;inset:0;will-change:transform}
 .lay img{width:100%;height:100%;object-fit:cover}
@@ -76,8 +76,20 @@ body.loading #adam img,body.loading #motes{animation-play-state:paused}
 #venus{clip-path:inset(50%);-webkit-clip-path:inset(50%)}
 #venus img{object-position:50% 30%}
 .shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.45) 0,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 34%,rgba(14,10,8,.55) 52%,rgba(14,10,8,.92) 100%)}
-#hc{position:absolute;left:38%;top:44%;transform:translate(-50%,-50%) scale(0);will-change:transform,width,height}
-#hc .fr{position:absolute;inset:0;border:2px solid var(--paper);box-shadow:0 40px 80px -24px rgba(0,0,0,.6)}
+#hc{position:absolute;left:50%;top:60%;width:clamp(220px,58vw,300px);height:clamp(280px,70vw,380px);transform:translate(-50%,-50%);overflow:hidden;transition:left 1.2s cubic-bezier(.7,0,.2,1),top 1.2s cubic-bezier(.7,0,.2,1),width 1.2s cubic-bezier(.7,0,.2,1),height 1.2s cubic-bezier(.7,0,.2,1),transform 1.2s cubic-bezier(.7,0,.2,1)}
+#hc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+#hc:after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(14,10,8,.45),rgba(14,10,8,.88));opacity:0;transition:opacity 1.2s ease}
+#hc.open{left:0;top:0;width:100vw;height:100vh;height:100svh;transform:none}
+#hc.open:after{opacity:1}
+#hc.open .fr{border-width:0;box-shadow:none}
+#go{position:absolute;left:50%;top:50%;z-index:3;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 26px;background:var(--butter);color:var(--esp);border:0;font:800 15px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:opacity .5s ease}
+#go svg{width:16px;height:16px}
+#go:focus-visible{outline:3px solid var(--paper);outline-offset:4px}
+#hc.open #go{opacity:0;pointer-events:none}
+.pg{opacity:0;transform:translateY(70px) scale(.94);pointer-events:none;transition:opacity .8s ease,transform 1s cubic-bezier(.2,.8,.2,1)}
+.pg.on{opacity:1;transform:none;pointer-events:auto}
+.pg.out{opacity:0;transform:translateY(-90px) scale(1.08);transition:opacity .7s ease,transform .9s ease-in}
+#hc .fr{position:absolute;inset:0;border:2px solid var(--paper);box-shadow:0 40px 80px -24px rgba(0,0,0,.6);z-index:2;pointer-events:none;transition:border-width .8s,box-shadow .8s}
 #hc .tg{position:absolute;left:0;right:0;top:calc(100% + 10px);text-align:center;font:800 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--paper)}
 #spark{position:absolute;left:38%;top:44%;width:16vmin;height:16vmin;transform:translate(-50%,-50%) scale(0);border-radius:50%;background:radial-gradient(circle,#fff 0,#FFF6D2 14%,rgba(247,220,130,.85) 30%,rgba(230,190,90,.35) 50%,rgba(230,190,90,0) 70%);box-shadow:0 0 40px 10px rgba(255,236,170,.55);pointer-events:none}
 :root{--htop:calc(74px + env(safe-area-inset-top))}
@@ -99,8 +111,7 @@ body.loading #adam img,body.loading #motes{animation-play-state:paused}
 body.loading #t1 h1 i,body.loading #t1 h1 .y,body.loading #t1 p,body.loading #t1 .btn{animation-play-state:paused}
 
 @keyframes rise{to{transform:none}}
-#t3{opacity:0}
-#t2{opacity:0;bottom:auto;top:calc(78px + env(safe-area-inset-top));pointer-events:none}
+#t2{bottom:auto;top:calc(78px + env(safe-area-inset-top))}
 #t2 h2{font-size:clamp(46px,12.5vw,110px)}
 #t2 .btn{margin-top:16px}
 
@@ -319,17 +330,14 @@ body.touring .tour-btn{display:none}
 <section id="fly" aria-label="Opening">
   <div class="stage">
     <div class="lay" id="adam"><img src="img/adam.webp" alt="" fetchpriority="high"></div>
-    <div class="lay" id="venus"><img src="img/p/mentorship.webp" alt=""></div>
-    <div class="shade"></div>
-    <canvas id="motes" aria-hidden="true"></canvas><div id="spark"></div><div id="hc"><div class="fr"></div></div>
-    <div class="htxt" id="t1">
+        <div class="shade"></div>
+    <canvas id="motes" aria-hidden="true"></canvas><div id="spark"></div><div id="hc"><img src="img/flora.webp" alt=""><div class="fr"></div><button class="go" id="go" type="button"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>Start</button></div>
+    <div class="htxt pg on" id="t1">
       <h1 class="bk hw" id="hw"><span class="hl">Faceless.</span><span class="hl"><i>not</i></span><span class="hl"><span class="y">boring.</span></span></h1>
       <p>Helping you build faceless income online.</p>
-      <a class="btn" href="#free">Start free <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
-    <div class="htxt" id="t2"><p class="eyebrow" style="color:var(--butter);margin:0 0 10px;font-size:12px">Digital CEO Alex</p><h2 class="bk">Build the <i>brand.</i><br><span class="y">skip</span> the face.</h2><a class="btn" href="#free">Start free <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    <div class="htxt" id="t3"><h2 class="bk"><i>old</i> taste.<br><span class="y">new</span> money.</h2><p>Guides, prompt banks, courses and mentorship to build a brand without ever showing your face.</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="#free">Start free</a><a class="btn gh" href="#gal">See the collection</a></div></div>
-    <div class="cue" id="cue"><span>Scroll</span><i></i></div>
+    <div class="htxt pg" id="t2"><p class="eyebrow" style="color:var(--butter);margin:0 0 10px;font-size:12px">Digital CEO Alex</p><h2 class="bk">Build the <i>brand.</i><br><span class="y">skip</span> the face.</h2><a class="btn" href="#free">Start <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div class="htxt pg" id="t3"><h2 class="bk"><i>old</i> taste.<br><span class="y">new</span> money.</h2><p>Guides, prompt banks, courses and mentorship to build a brand without ever showing your face.</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="#free">Start</a><a class="btn gh" href="#gal">See the collection</a></div></div>
   </div>
 </section>
 
@@ -509,7 +517,18 @@ $('#feat .bd').insertAdjacentHTML('beforeend',addBtn(ACAD[0][5]));
 renderCart();
 
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-var fly=$('#fly'),adam=$('#adam'),ven=$('#venus'),hc=$('#hc'),spk=$('#spark'),fr=hc.querySelector('.fr'),venImg=$('#venus img'),t1=$('#t1'),t2=$('#t2'),t3=$('#t3'),cue=$('#cue'),gal=$('#gal'),hd=$('#hd');
+var fly=$('#fly'),hc=$('#hc'),goB=$('#go'),pgs=[$('#t1'),$('#t2'),$('#t3')],gal=$('#gal'),hd=$('#hd');
+var started=0;
+function startHero(){
+ if(started)return;started=1;
+ if(typeof whoosh=='function')whoosh();
+ hc.classList.add('open');
+ if(reduce){pgs[0].classList.remove('on');pgs[2].classList.add('on');return}
+ pgs[0].classList.remove('on');pgs[0].classList.add('out');
+ setTimeout(function(){pgs[1].classList.add('on')},1100);
+ setTimeout(function(){pgs[1].classList.remove('on');pgs[1].classList.add('out');pgs[2].classList.add('on')},4700);
+}
+goB.onclick=startHero;
 function cl(v,a,b){return Math.min(b,Math.max(a,v))}
 function seg(p,a,b){return cl((p-a)/(b-a),0,1)}
 function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
@@ -526,24 +545,6 @@ function drawMotes(P,t){var f=(1-seg(P,.08,.3))*Math.min(1,Math.max(0,(t-3.8)/1.
 sizeDrum();addEventListener('resize',sizeDrum);
 function frame(){
  var vh=innerHeight,vw=innerWidth,vmin=Math.min(vw,vh);
- var r=fly.getBoundingClientRect(),p=cl(-r.top/(r.height-vh),0,1);
- if(p!==lastP){lastP=p;
-  adam.style.transform='scale('+(1+ease(seg(p,0,.42))*.85)+')';
-  t1.style.opacity=1-seg(p,.12,.22);t1.style.transform='translateY('+(-seg(p,.1,.22)*50)+'px)';t1.style.pointerEvents=p<.15?'auto':'none';
-  cue.style.opacity=1-seg(p,0,.06);
-  var cs=eo(seg(p,.12,.22)),grow=Math.pow(seg(p,.24,.62),2.2);
-  var fh=vmin*.34*(1+grow*9),fw=fh*.78,bw=2;
-  var cx=(38+(50-38)*seg(p,.2,.5)),cy=(44+(48-44)*seg(p,.2,.5));
-  hc.style.width=fw+'px';hc.style.height=fh+'px';hc.style.left=cx+'%';hc.style.top=cy+'%';fr.style.setProperty('--b',bw+'px');
-  hc.style.transform='translate(-50%,-50%) scale('+cs+')';
-  var X=vw*cx/100,Y=vh*cy/100,iw=(fw/2-bw)*cs,ih=(fh/2-bw)*cs;
-  var cp=p>.62?'none':(cs<=0?'inset(50%)':'inset('+Math.max(0,Y-ih)+'px '+Math.max(0,vw-X-iw)+'px '+Math.max(0,vh-Y-ih)+'px '+Math.max(0,X-iw)+'px)');ven.style.clipPath=cp;ven.style.webkitClipPath=cp;
-  hc.style.opacity=1-seg(p,.56,.64);
-  venImg.style.transform='scale('+(1.35-.35*eo(seg(p,.3,.8)))+')';
-  var a2=seg(p,.2,.27)*(1-seg(p,.4,.47));t2.style.opacity=a2;t2.style.transform='translateY('+((1-seg(p,.2,.27))*30-seg(p,.4,.47)*30)+'px)';t2.style.pointerEvents=a2>.5?'auto':'none';
-  var a3=seg(p,.66,.78);t3.style.opacity=a3;t3.style.transform='translateY('+((1-a3)*40)+'px)';t3.style.pointerEvents=a3>.5?'auto':'none';
-  if(p>.2&&!whooshed){whooshed=1;whoosh()}if(p<.1)whooshed=0;
- }
  var g=gal.getBoundingClientRect(),gp=cl(-g.top/(g.height-vh),0,1);
  if(g.top<vh&&g.bottom>0&&gp!==lastG){lastG=gp;var rot=gp*(N-1)*step;
   gfs.forEach(function(a){var n=(((a._a-rot)%360)+540)%360-180,ab=Math.abs(n);
@@ -551,12 +552,7 @@ function frame(){
    a.style.opacity=ab>100?0:1;a.style.filter=ab<step*.5?'none':'brightness('+(1-cl(ab/90,0,.6))+')';a.style.zIndex=200-Math.round(ab)});
   setCap(Math.round(gp*(N-1)))}
  var o=cl(g.top/vh,0,1),rv=o>0&&o<1?'inset(0 '+(o*7)+'% 0 '+(o*7)+'% round '+(o*36)+'px '+(o*36)+'px 0 0)':'none';if(gal._rv!==rv){gal._rv=rv;gal.style.clipPath=rv;gal.style.webkitClipPath=rv}
- var fs=$('#fly .stage');fs.style.filter=o<1&&o>0?'brightness('+(.45+.55*o)+')':'';
- var so=scrollY>fly.offsetHeight-80;hd.classList.toggle('solid',so);
-  var P=lastP,sf=seg(P,.13,.2),tt=performance.now()/1000;
-  if(P<.25){var idle=.55+.12*Math.sin(tt*2.6)+.05*Math.sin(tt*7.3);spk.style.opacity=(1-sf)*Math.min(1,Math.max(0,(tt-3.6)/.8));spk.style.transform='translate(-50%,-50%) scale('+Math.max(idle,eo(seg(P,.02,.1)))*(1-sf*.3)+')'}
-  else spk.style.opacity=0;
-  drawMotes(P,tt);
+  var so=scrollY>fly.offsetHeight-80;hd.classList.toggle('solid',so);
  requestAnimationFrame(frame)}
 setCap(0);requestAnimationFrame(frame);
 
@@ -597,10 +593,8 @@ if(reduce)showHero();else{setTimeout(showHero,2350);setTimeout(showHero,6000)}
 setTimeout(function(){ld.classList.add('out');document.body.classList.remove('loading')},reduce?300:2300);
 
 var T=[
- ['#fly',0,'Your <i>opening</i>','Your line, front and centre in big block type. Scroll and the camera pushes in toward the touch.'],
- ['#fly',.12,'The <i>spark</i>','A spark lights up between the fingertips and becomes a gilded picture frame.'],
- ['#fly',.42,'Through the <i>frame</i>','The frame opens onto a new world, and we fly straight through it.'],
- ['#fly',.86,'Old taste, <i>new</i> money','The landing: one clear promise and one button into your collection.'],
+ ['#fly',0,'Your <i>opening</i>','Your line, front and centre. Tap Start and one window opens across the whole screen.'],
+ ['#fly',0,'Pages <i>fly</i> through','Your promise, the skip-the-face idea and the landing all fly through that one window. Nothing scrolls.'],
  ['#gal',.1,'Your <i>collection</i>','A curved gallery of gilt frames. Each scroll turns one piece, with the name, price and Buy button underneath.'],
  ['#gal',.55,'Every <i>product</i>','Everything from your Beacons page lives here, each one linked to your real checkout.'],
  ['#free','#freeRail','Start <i>free</i>','All your free resources in one swipeable row, each with its own Get it free button.'],
@@ -618,7 +612,7 @@ function goTo(t){var e=$(t[0]);if(!e)return;var top=e.getBoundingClientRect().to
 function tgo(i){ti=i;if(ti>=T.length){tstop();return}var t=T[ti];
  for(var k=0;k<bars.length;k++)bars[k].style.width=k<ti?'100%':'0';
  $('#tr-n').textContent='Your tour  '+(ti<9?'0':'')+(ti+1)+' / '+T.length;$('#tr-h').innerHTML='<span>'+t[2]+'</span>';$('#tr-p').textContent=t[3];
- tr.classList.remove('go');void tr.offsetWidth;tr.classList.add('go');tr.classList.toggle('top',!(t[0]=='#fly'||t[0]=='#gal'));goTo(t);tel=0;tt0=performance.now();if(typeof whoosh=='function')whoosh()}
+ tr.classList.remove('go');void tr.offsetWidth;tr.classList.add('go');tr.classList.toggle('top',!(t[0]=='#fly'||t[0]=='#gal'));if(t[0]=='#fly'&&ti==1&&typeof startHero=='function')startHero();goTo(t);tel=0;tt0=performance.now();if(typeof whoosh=='function')whoosh()}
 function tframe(now){if(!trun)return;if(!tp){tel+=now-tt0;if(bars[ti])bars[ti].style.width=Math.min(100,tel/TD*100)+'%';if(tel>=TD)tgo(ti+1)}tt0=now;requestAnimationFrame(tframe)}
 function setP(v){tp=v;$('#tr-pause').innerHTML=tp?'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg><span>Play</span>':'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>Pause</span>'}
 function tstart(){trun=true;setP(false);tr.classList.add('on');tb.classList.add('on');document.body.classList.add('touring');tgo(0);tt0=performance.now();requestAnimationFrame(tframe)}
