@@ -11,10 +11,10 @@
 <meta property="og:title" content="Faceless. Not boring. | Digital CEO Alex">
 <meta property="og:description" content="Helping you build faceless income online. Guides, prompt banks, courses and mentorship.">
 <meta property="og:url" content="https://ryan-peddigrew.github.io/sites/digital-ceo-alex/">
-<meta property="og:image" content="https://ryan-peddigrew.github.io/sites/digital-ceo-alex/img/share.jpg">
+<meta property="og:image" content="https://ryan-peddigrew.github.io/sites/digital-ceo-alex/img/share-2026-11-13.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://ryan-peddigrew.github.io/sites/digital-ceo-alex/img/share.jpg">
+<meta name="twitter:image" content="https://ryan-peddigrew.github.io/sites/digital-ceo-alex/img/share-2026-11-13.jpg">
 <meta name="theme-color" content="#14100E">
 <link rel="icon" href="img/logo-stack-square.png"><link rel="apple-touch-icon" href="img/logo-stack-square.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,9 +40,12 @@ a{color:inherit}
 .btn.gh{background:rgba(20,16,14,.35);color:var(--paper);border:1.5px solid rgba(243,234,223,.5);box-shadow:none;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .btn.dk{background:var(--ink);color:var(--paper);box-shadow:none}
 .btn svg{width:16px;height:16px}
-#ld{position:fixed;inset:0;z-index:200;background:var(--night);display:grid;place-items:center;transition:opacity .7s,visibility .7s}
+#ld{position:fixed;inset:0;z-index:200;background:var(--night);display:grid;place-items:center;transition:opacity .9s .15s,visibility .9s .15s}
 #ld.out{opacity:0;visibility:hidden}
-#ld .frm{position:relative;width:min(56vw,250px);aspect-ratio:1}
+#ld .lg{width:min(56vw,250px);aspect-ratio:1;border-radius:50%;box-shadow:0 0 0 2px #C9B391,0 30px 60px -20px #000,0 0 90px rgba(242,227,160,.22);animation:lgIn 1.1s cubic-bezier(.2,.8,.2,1) both;transition:transform .95s cubic-bezier(.55,0,.75,.3),opacity .8s .1s}
+@keyframes lgIn{from{transform:scale(.7);opacity:0;filter:blur(10px)}to{transform:none;opacity:1;filter:none}}
+#ld.out .lg{transform:scale(3.2);opacity:0}
+#ld.out p{opacity:0;transition:opacity .3s}
 #ld p{position:absolute;bottom:calc(30px + env(safe-area-inset-bottom));left:0;right:0;text-align:center}
 .hd{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;transition:background .3s}
 .hd.solid{background:rgba(20,16,14,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
@@ -62,7 +65,11 @@ a{color:inherit}
 .lay{position:absolute;inset:0;will-change:transform}
 .lay img{width:100%;height:100%;object-fit:cover}
 #adam{transform-origin:38% 44%}
-#adam img{object-position:38% 44%}
+#adam img{object-position:38% 44%;transform-origin:38% 44%;animation:adIn 2.8s cubic-bezier(.3,.05,.15,1) both,adDrift 16s ease-in-out 2.8s infinite alternate}
+body.loading #adam img,body.loading #motes{animation-play-state:paused}
+@keyframes adIn{from{transform:scale(2.6) translate(2%,1%);filter:brightness(.35) saturate(.6)}60%{filter:brightness(1) saturate(1)}to{transform:none;filter:none}}
+@keyframes adDrift{from{transform:none}to{transform:scale(1.07) translate(-1.2%,.6%)}}
+#motes{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 #venus{clip-path:inset(50%);-webkit-clip-path:inset(50%)}
 #venus img{object-position:42% 18%}
 .shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.4) 0,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 40%,rgba(10,8,7,.86) 100%)}
@@ -75,7 +82,15 @@ a{color:inherit}
 .htxt h1,.htxt h2{font-size:clamp(78px,24vw,210px);color:var(--paper);text-shadow:0 3px 0 rgba(0,0,0,.18),0 14px 60px rgba(0,0,0,.6)}
 .htxt p{max-width:32ch;margin:20px 0 22px;font-size:17px;font-weight:600;color:var(--paper);text-shadow:0 2px 16px rgba(0,0,0,.6)}
 .htxt .ln{display:block;overflow:hidden;padding:.06em 0 .02em}
-.htxt .ln>span{display:inline-block;transform:translateY(110%);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
+.htxt .ln>span{display:inline-block;transform:translateY(115%) rotate(7deg) skewX(-10deg);transform-origin:0 100%;animation:rise 1.1s cubic-bezier(.2,.9,.25,1.12) 1.1s forwards}
+.htxt .ln:nth-child(2)>span{animation-delay:1.35s!important}
+#t1 h1 i{display:inline-block;animation:popI 1s cubic-bezier(.3,1.6,.4,1) 1.75s both}
+@keyframes popI{from{transform:scale(.2) rotate(-14deg);opacity:0}to{transform:none;opacity:1}}
+#t1 h1 .y{background:linear-gradient(100deg,var(--butter) 0 42%,#FFFBEA 50%,var(--butter) 58% 100%) 120% 0/260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 10px 30px rgba(0,0,0,.55));animation:shine 4.5s ease-in-out 2.6s infinite}
+@keyframes shine{0%{background-position:120% 0}45%,100%{background-position:-20% 0}}
+#t1 p,#t1 .btn{animation:fadeUp .9s ease 2s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+body.loading #t1 h1 i,body.loading #t1 h1 .y,body.loading #t1 p,body.loading #t1 .btn{animation-play-state:paused}
 .htxt .ln:nth-child(2)>span{animation-delay:.14s}
 body.loading .htxt .ln>span{animation-play-state:paused}
 @keyframes rise{to{transform:none}}
@@ -259,7 +274,7 @@ body.touring .tour-btn{display:none}
 </head>
 <body class="loading">
 
-<div id="ld" aria-hidden="true"><div class="frm"><span class="coin big" style="--s:min(56vw,250px)"></span></div><p class="eyebrow">Digital CEO Alex</p></div>
+<div id="ld" aria-hidden="true"><img class="lg" src="img/logo-stack-coin.png" alt=""><p class="eyebrow">Digital CEO Alex</p></div>
 
 <header class="hd" id="hd">
   <a class="brand" href="#top" aria-label="Digital CEO Alex home"><span class="coin" role="img" aria-label="Faceless Not Boring logo"></span><b class="wm">Digital<br>CEO <i>Alex</i></b></a>
@@ -273,7 +288,7 @@ body.touring .tour-btn{display:none}
     <div class="lay" id="adam"><img src="img/adam.webp" alt="" fetchpriority="high"></div>
     <div class="lay" id="venus"><img src="img/flora.webp" alt=""></div>
     <div class="shade"></div>
-    <div id="spark"></div><div id="hc"><div class="fr"></div></div>
+    <canvas id="motes" aria-hidden="true"></canvas><div id="spark"></div><div id="hc"><div class="fr"></div></div>
     <div class="htxt" id="t1">
       <h1 class="bk"><span class="ln"><span>Faceless.</span></span><span class="ln"><span><i>not</i> <span class="y">boring.</span></span></span></h1>
       <p>Helping you build faceless income online.</p>
@@ -466,6 +481,14 @@ function seg(p,a,b){return cl((p-a)/(b-a),0,1)}
 function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
 function eo(t){return 1-Math.pow(1-t,3)}
 var lastP=-1,lastG=-1,whooshed=0;
+var mc=$('#motes'),mx=mc.getContext('2d'),MS=[],mW=0,mH=0,dpr=Math.min(2,devicePixelRatio||1);
+function sizeMotes(){mW=mc.clientWidth;mH=mc.clientHeight;mc.width=mW*dpr;mc.height=mH*dpr;mx.setTransform(dpr,0,0,dpr,0,0)}
+for(var mi=0;mi<46;mi++)MS.push({a:Math.random()*6.28,r:20+Math.random()*Math.random()*220,s:.15+Math.random()*.5,z:.6+Math.random()*2.2,o:Math.random()*6.28});
+sizeMotes();addEventListener('resize',sizeMotes);
+function drawMotes(P,t){var f=(1-seg(P,.08,.3))*Math.min(1,Math.max(0,(t-3.8)/1.5));mx.clearRect(0,0,mW,mH);if(f<=0||reduce)return;
+ var cx=mW*.38,cy=mH*.44,k=Math.min(mW,mH)/400;
+ MS.forEach(function(m){var a=m.a+t*m.s*.35,r=m.r*k*(1+.08*Math.sin(t*.7+m.o)),x=cx+Math.cos(a)*r*1.5,y=cy+Math.sin(a)*r*.55-Math.sin(t*.5+m.o)*10,al=f*(.35+.45*Math.sin(t*1.7+m.o*2));
+  if(al<=0)return;var g=mx.createRadialGradient(x,y,0,x,y,m.z*4);g.addColorStop(0,'rgba(255,246,210,'+al+')');g.addColorStop(.35,'rgba(232,192,92,'+al*.8+')');g.addColorStop(1,'rgba(232,192,92,0)');mx.fillStyle=g;mx.beginPath();mx.arc(x,y,m.z*4,0,6.29);mx.fill()})}
 sizeDrum();addEventListener('resize',sizeDrum);
 function frame(){
  var vh=innerHeight,vw=innerWidth,vmin=Math.min(vw,vh);
@@ -474,7 +497,6 @@ function frame(){
   adam.style.transform='scale('+(1+ease(seg(p,0,.42))*.85)+')';
   t1.style.opacity=1-seg(p,.12,.22);t1.style.transform='translateY('+(-seg(p,.1,.22)*50)+'px)';t1.style.pointerEvents=p<.15?'auto':'none';
   cue.style.opacity=1-seg(p,0,.06);
-  var sp=seg(p,.02,.1),sf=seg(p,.13,.2);spk.style.opacity=(1-sf);spk.style.transform='translate(-50%,-50%) scale('+eo(sp)+')';
   var cs=eo(seg(p,.12,.22)),grow=Math.pow(seg(p,.24,.62),2.2);
   var fh=vmin*.3*(1+grow*9),fw=fh*.78,bw=Math.max(6,fh*.075);
   var cx=(38+(50-38)*seg(p,.2,.5)),cy=(44+(48-44)*seg(p,.2,.5));
@@ -494,6 +516,10 @@ function frame(){
    a.style.opacity=ab>100?0:1;a.style.filter=ab<step*.5?'none':'brightness('+(1-cl(ab/90,0,.6))+')';a.style.zIndex=200-Math.round(ab)});
   setCap(Math.round(gp*(N-1)))}
  var so=scrollY>fly.offsetHeight-80;hd.classList.toggle('solid',so);
+  var P=lastP,sf=seg(P,.13,.2),tt=performance.now()/1000;
+  if(P<.25){var idle=.55+.12*Math.sin(tt*2.6)+.05*Math.sin(tt*7.3);spk.style.opacity=(1-sf)*Math.min(1,Math.max(0,(tt-3.6)/.8));spk.style.transform='translate(-50%,-50%) scale('+Math.max(idle,eo(seg(P,.02,.1)))*(1-sf*.3)+')'}
+  else spk.style.opacity=0;
+  drawMotes(P,tt);
  requestAnimationFrame(frame)}
 setCap(0);requestAnimationFrame(frame);
 
@@ -514,7 +540,7 @@ function unlock(){try{if(navigator.audioSession)navigator.audioSession.type='pla
  if(!unl){unl=new Audio(silentWav());unl.loop=true;unl.setAttribute('playsinline','');unl.preload='auto'}var pr=unl.play();if(pr&&pr.catch)pr.catch(function(){})}
 $('#snd').onclick=function(){initAudio();on=!on;if(on)unlock();else if(unl)unl.pause();ac.resume();master.gain.cancelScheduledValues(ac.currentTime);master.gain.linearRampToValueAtTime(on?1:0,ac.currentTime+1.2);this.setAttribute('aria-pressed',on);$('#sw').setAttribute('opacity',on?1:.35);$('#sndt').textContent=on?'Sound on':'Sound'};
 
-var ld=$('#ld');setTimeout(function(){ld.classList.add('out');document.body.classList.remove('loading')},reduce?300:2400);
+var ld=$('#ld');setTimeout(function(){ld.classList.add('out');document.body.classList.remove('loading')},reduce?300:1700);
 
 var T=[
  ['#fly',0,'Your <i>opening</i>','Your line, front and centre in big block type. Scroll and the camera pushes in toward the touch.'],
