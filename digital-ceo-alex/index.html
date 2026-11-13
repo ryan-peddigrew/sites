@@ -55,6 +55,7 @@ a{color:inherit}
 .hd nav a{font:700 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;color:var(--paper)}
 .snd{min-height:44px;min-width:44px;padding:0 12px;border-radius:8px;border:1.5px solid rgba(243,234,223,.45);background:rgba(20,16,14,.4);color:var(--paper);font:700 12px var(--sans);letter-spacing:.08em;display:inline-flex;align-items:center;gap:8px;cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .snd svg{width:18px;height:18px}
+.snd[aria-pressed=true],.hd.lite .snd[aria-pressed=true]{background:var(--butter);color:var(--ink);border-color:var(--butter)}
 @media(min-width:900px){.hd nav{display:flex}.hd{padding:14px 32px}}
 #fly{height:300vh;position:relative}
 #fly .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--paper);color:var(--ink)}
@@ -221,6 +222,36 @@ section.blk{padding:100px 0;position:relative}
 .tbars b{flex:1;height:2px;background:rgba(243,234,223,.25);overflow:hidden}
 .tbars b i{display:block;height:100%;width:0;background:var(--butter)}
 body.touring .tour-btn{display:none}
+.hdr{display:flex;align-items:center;gap:8px}
+.cartb{min-height:44px;min-width:44px;padding:0 12px;border-radius:8px;border:1.5px solid rgba(243,234,223,.45);background:rgba(20,16,14,.4);color:var(--paper);font:800 12px var(--sans);display:inline-flex;align-items:center;gap:8px;cursor:pointer}
+.cartb svg{width:18px;height:18px}.cartb b{min-width:20px;height:20px;padding:0 5px;border-radius:4px;background:var(--butter);color:var(--ink);font:800 11px/20px var(--sans);text-align:center}
+.hd.lite .cartb{color:var(--ink);border-color:rgba(34,26,22,.45);background:rgba(243,234,223,.6)}
+.add{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 12px;border-radius:6px;border:1.5px solid currentColor;font:800 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;background:transparent;color:inherit}
+.add svg{width:14px;height:14px}.add.ok{background:var(--butter);color:var(--ink);border-color:var(--butter)}
+.galcap .acts{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.galcap .add{color:var(--paper);min-height:50px}
+.cdim{position:fixed;inset:0;z-index:110;background:rgba(10,8,7,.55);opacity:0;visibility:hidden;transition:.35s}
+.cdim.on{opacity:1;visibility:visible}
+.cart{position:fixed;top:0;right:0;bottom:0;z-index:111;width:min(420px,100%);background:var(--esp);color:var(--paper);transform:translateX(102%);transition:transform .45s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;box-shadow:-30px 0 60px -20px rgba(0,0,0,.6)}
+.cart.on{transform:none}
+.cart .ch{display:flex;justify-content:space-between;align-items:center;padding:calc(14px + env(safe-area-inset-top)) 16px 12px;border-bottom:1px solid var(--line)}
+.cart .ch h3{font:800 34px/.9 var(--block);font-stretch:75%;font-variation-settings:"wdth" 75;text-transform:uppercase}.cart .ch h3 i{font:italic 400 1.1em/.7 var(--serif);text-transform:none;color:var(--butter)}
+.cart .x{min-height:44px;min-width:44px;background:none;border:0;color:var(--paper);cursor:pointer;font:800 12px var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.cart .cl{flex:1;overflow:auto;padding:8px 16px}
+.cart .ci{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.cart .ci img{width:64px;height:64px;object-fit:cover;border-radius:6px}
+.cart .ci h4{font:700 14px/1.25 var(--sans)}.cart .ci .q{display:flex;align-items:center;gap:2px;margin-top:4px}
+.cart .ci .q button{min-width:36px;min-height:44px;background:none;border:0;color:var(--paper);font:800 18px var(--sans);cursor:pointer}
+.cart .ci .q span{min-width:20px;text-align:center;font-weight:800}
+.cart .ci .pp{font:800 15px var(--sans);color:var(--butter);text-align:right}
+.cart .ci .rm{display:block;margin-top:4px;background:none;border:0;color:var(--mute);font:700 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;min-height:32px}
+.cart .empty{color:var(--mute);padding:30px 0}
+.cart .cf{padding:14px 16px calc(16px + env(safe-area-inset-bottom));border-top:1px solid var(--line)}
+.cart .tot{display:flex;justify-content:space-between;font:800 18px var(--sans);margin-bottom:12px}.cart .tot small{color:var(--mute);font-weight:600;font-size:12px}
+.cart .pay{width:100%;min-height:52px;border:0;border-radius:8px;background:var(--butter);color:var(--ink);font:800 14px var(--sans);letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer}
+.cart .pay svg{width:16px;height:16px}
+.cart .sec{margin-top:10px;font-size:12px;color:var(--mute);text-align:center}
+.cart .note{display:none;margin-top:12px;padding:12px;border:1px dashed rgba(242,227,160,.5);border-radius:8px;font-size:13.5px;line-height:1.45}
+.cart .note.on{display:block}.cart .note a{display:flex;justify-content:space-between;gap:10px;min-height:44px;align-items:center;color:var(--butter);font-weight:700;text-decoration:none;border-top:1px solid var(--line)}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.htxt .ln>span{transform:none;animation:none}}
 </style>
 </head>
@@ -231,7 +262,7 @@ body.touring .tour-btn{display:none}
 <header class="hd" id="hd">
   <a class="brand" href="#top" aria-label="Digital CEO Alex home"><span class="coin" role="img" aria-label="Faceless Not Boring logo"></span><b class="wm">Digital<br>CEO <i>Alex</i></b></a>
   <nav aria-label="Main"><a href="#free">Free</a><a href="#studio">Avatar studio</a><a href="#shop">Shop</a><a href="#academy">Academy</a><a href="#feed">Feed</a><a href="brand/">Brand guide</a></nav>
-  <button class="snd" id="snd" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9h4l5-4v14l-5-4H4z"/><path id="sw" d="M17 9c1.5 1.5 1.5 4.5 0 6M19.5 6.5c3 3 3 8 0 11" opacity=".35"/></svg><span id="sndt">Sound</span></button>
+  <div class="hdr"><button class="cartb" id="cartb" type="button" aria-label="Open cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span>Cart</span><b id="ccount">0</b></button><button class="snd" id="snd" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9h4l5-4v14l-5-4H4z"/><path id="sw" d="M17 9c1.5 1.5 1.5 4.5 0 6M19.5 6.5c3 3 3 8 0 11" opacity=".35"/></svg><span id="sndt">Sound</span></button></div>
 </header>
 
 <main id="top">
@@ -251,7 +282,7 @@ body.touring .tour-btn{display:none}
   <div class="stage">
     <div class="galhd"><h2 class="bk"><i>the</i> collection.</h2><p>Every course, kit and prompt bank, framed like the classics. Keep scrolling to turn the gallery.</p></div>
     <div class="cyl"><div class="drum" id="drum"></div></div>
-    <div class="galcap"><div><div class="cnt" id="gcnt"></div><h3 id="gname"></h3><div class="pr" id="gprice"></div></div><a class="btn" id="gbuy" href="#" target="_blank" rel="noopener">Buy now</a></div>
+    <div class="galcap"><div><div class="cnt" id="gcnt"></div><h3 id="gname"></h3><div class="pr" id="gprice"></div></div><div class="acts"><button class="add" id="gadd" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>Add to cart</button><a class="btn" id="gbuy" href="#" target="_blank" rel="noopener">Buy now</a></div></div>
   </div>
 </section>
 
@@ -316,6 +347,13 @@ body.touring .tour-btn{display:none}
   <a href="brand/">Brand guide</a>
 </div></footer>
 
+<div class="cdim" id="cdim"></div>
+<aside class="cart" id="cart" aria-label="Your cart" aria-hidden="true"><div class="ch"><h3>Your <i>cart</i></h3><button class="x" type="button" id="cx">Close</button></div>
+<div class="cl" id="clist"></div>
+<div class="cf"><div class="tot"><span>Subtotal <small>CAD</small></span><span id="ctot">$0</span></div>
+<button class="pay" type="button" id="cpay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Check out with Stripe</button>
+<p class="sec">Secure card, Apple Pay and Google Pay checkout by Stripe.</p>
+<div class="note" id="cnote"><b>Stripe checkout is being switched on.</b> Nothing has been charged. Until it's live, each item checks out securely on its own page:<div id="clinks"></div></div></div></aside>
 <button class="tour-btn" type="button" id="tour-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>Take the tour</button>
 <div class="tbars" id="tbars" aria-hidden="true"></div>
 <div class="tour" id="tour" role="dialog" aria-label="Tour of your new site"><div class="in"><span class="n" id="tr-n"></span><h4 id="tr-h"></h4><p id="tr-p"></p>
@@ -385,7 +423,35 @@ var R=0;
 function sizeDrum(){var hh=$('.cyl').clientHeight;var fw=Math.max(150,Math.min(innerWidth*.56,(hh-40)*.68,330));R=fw/2/Math.tan(Math.PI/N)*1.02;
  gfs.forEach(function(a){a.style.setProperty('--fw',fw+'px')});lastG=-1}
 var cur=-1;
-function setCap(i){if(i===cur)return;cur=i;var g=G[i];$('#gname').textContent=g[0];$('#gprice').innerHTML=g[3]||'&nbsp;';$('#gbuy').href=A(g[2]);$('#gbuy').textContent=g[3]=='Free'?'Get it free':'Buy now';$('#gcnt').textContent=(i+1<10?'0':'')+(i+1)+' / '+N}
+function setCap(i){if(i===cur)return;cur=i;var g=G[i];$('#gname').textContent=g[0];$('#gprice').innerHTML=g[3]||'&nbsp;';$('#gbuy').href=A(g[2]);$('#gbuy').textContent=g[3]=='Free'?'Get it free':'Buy now';$('#gadd').style.display=CAT[g[2]]&&CAT[g[2]].p!=null?'':'none';$('#gcnt').textContent=(i+1<10?'0':'')+(i+1)+' / '+N}
+
+var PL='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>';
+function num(t){var m=/\$(\d+(?:\.\d+)?)/.exec(t||'');return m?+m[1]:null}
+var CAT={};
+SHOP.forEach(function(f){CAT[f[4]]={n:f[0],p:num(f[1]),i:f[3]}});STUDIO.forEach(function(f){CAT[f[5]]={n:f[0],p:num(f[2]),i:f[4]}});ACAD.forEach(function(f){CAT[f[5]]={n:f[0],p:num(f[2]),i:f[4]}});RECS.forEach(function(f){CAT[f[4]]={n:f[0],p:num(f[2]),i:f[3]}});
+var cart={};try{cart=JSON.parse(localStorage.getItem('fnb-cart')||'{}')||{}}catch(e){cart={}}
+function save(){try{localStorage.setItem('fnb-cart',JSON.stringify(cart))}catch(e){}}
+function money(v){return '$'+(Math.round(v*100)/100).toLocaleString('en-CA')}
+function renderCart(){var ids=Object.keys(cart).filter(function(k){return CAT[k]&&cart[k]>0}),n=0,t=0,h='',l='';
+ ids.forEach(function(k){var c=CAT[k],q=cart[k];n+=q;t+=(c.p||0)*q;
+  h+='<div class="ci"><img src="'+im(c.i)+'" alt=""><div><h4>'+c.n+'</h4><div class="q"><button type="button" data-q="'+k+'" data-d="-1" aria-label="One less">&minus;</button><span>'+q+'</span><button type="button" data-q="'+k+'" data-d="1" aria-label="One more">+</button></div></div><div><div class="pp">'+money((c.p||0)*q)+'</div><button class="rm" type="button" data-rm="'+k+'">Remove</button></div></div>';
+  l+='<a href="'+A(k)+'" target="_blank" rel="noopener"><span>'+c.n+'</span><span>Check out</span></a>'});
+ $('#clist').innerHTML=h||'<p class="empty">Your cart is empty. Tap Add to cart on anything in the shop, the collection or the academy.</p>';
+ $('#clinks').innerHTML=l;$('#ctot').textContent=money(t);$('#ccount').textContent=n;$('#cpay').disabled=!n;$('#cpay').style.opacity=n?1:.5;if(!n)$('#cnote').classList.remove('on')}
+function openCart(o){$('#cart').classList.toggle('on',o);$('#cdim').classList.toggle('on',o);$('#cart').setAttribute('aria-hidden',!o)}
+function addItem(k,el){if(!CAT[k]||CAT[k].p==null)return;cart[k]=(cart[k]||0)+1;save();renderCart();if(el){el.classList.add('ok');var o=el.innerHTML;el.innerHTML='Added';setTimeout(function(){el.classList.remove('ok');el.innerHTML=o},1300)}}
+function addBtn(k,cls){return CAT[k]&&CAT[k].p!=null?'<span class="add'+(cls?' '+cls:'')+'" role="button" tabindex="0" data-add="'+k+'">'+PL+'Add to cart</span>':''}
+document.addEventListener('click',function(e){var a=e.target.closest('[data-add]');if(a){e.preventDefault();e.stopPropagation();addItem(a.dataset.add,a);return}
+ var q=e.target.closest('[data-q]');if(q){var k=q.dataset.q;cart[k]=Math.max(0,(cart[k]||0)+(+q.dataset.d));if(!cart[k])delete cart[k];save();renderCart();return}
+ var r=e.target.closest('[data-rm]');if(r){delete cart[r.dataset.rm];save();renderCart()}},true);
+document.addEventListener('keydown',function(e){var a=e.target.closest&&e.target.closest('[data-add]');if(a&&(e.key=='Enter'||e.key==' ')){e.preventDefault();addItem(a.dataset.add,a)}});
+$('#cartb').onclick=function(){renderCart();openCart(true)};$('#cx').onclick=$('#cdim').onclick=function(){openCart(false)};
+$('#cpay').onclick=function(){$('#cnote').classList.add('on')};
+$('#gadd').onclick=function(){addItem(G[cur][2],this)};
+document.querySelectorAll('#wall .post').forEach(function(a,i){var k=SHOP[i][4];a.querySelector('.meta').insertAdjacentHTML('beforeend',addBtn(k))});
+document.querySelectorAll('#acards .ac').forEach(function(a,i){var k=ACAD[i+1][5];a.querySelector('.foot').insertAdjacentHTML('afterbegin',addBtn(k))});
+$('#feat .bd').insertAdjacentHTML('beforeend',addBtn(ACAD[0][5]));
+renderCart();
 
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 var fly=$('#fly'),nm=$('#nm'),ht=$('.ht'),pix=$('#pix'),pctx=pix.getContext('2d'),fbox=$('#fbox'),t1=$('#t1'),t3=$('#t3'),cue=$('#cue'),gal=$('#gal'),hd=$('#hd');
@@ -432,11 +498,16 @@ document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
 var ac=null,master=null,on=false;
 function initAudio(){if(ac)return;ac=new (window.AudioContext||window.webkitAudioContext)();master=ac.createGain();master.gain.value=0;master.connect(ac.destination);
  var f=ac.createBiquadFilter();f.type='lowpass';f.frequency.value=900;f.connect(master);
- [130.81,196,261.63,329.63,392].forEach(function(fr,i){[-4,4].forEach(function(dt){var o=ac.createOscillator();o.type=i%2?'triangle':'sine';o.frequency.value=fr;o.detune.value=dt;var g=ac.createGain();g.gain.value=.045/(i+1);
+ [130.81,196,261.63,329.63,392].forEach(function(fr,i){[-4,4].forEach(function(dt){var o=ac.createOscillator();o.type=i%2?'triangle':'sine';o.frequency.value=fr;o.detune.value=dt;var g=ac.createGain();g.gain.value=.09/(i+1);
   var l=ac.createOscillator();l.frequency.value=.07+i*.03;var lg=ac.createGain();lg.gain.value=.02/(i+1);l.connect(lg);lg.connect(g.gain);l.start();o.connect(g);g.connect(f);o.start()})})}
 function whoosh(){if(!on||!ac)return;var n=ac.sampleRate*1.6,b=ac.createBuffer(1,n,ac.sampleRate),d=b.getChannelData(0);for(var i=0;i<n;i++)d[i]=(Math.random()*2-1)*Math.sin(Math.PI*i/n);
  var s=ac.createBufferSource();s.buffer=b;var bp=ac.createBiquadFilter();bp.type='bandpass';bp.Q.value=1.2;bp.frequency.setValueAtTime(300,ac.currentTime);bp.frequency.exponentialRampToValueAtTime(2400,ac.currentTime+1.4);var g=ac.createGain();g.gain.value=.5;s.connect(bp);bp.connect(g);g.connect(ac.destination);s.start()}
-$('#snd').onclick=function(){initAudio();on=!on;ac.resume();master.gain.cancelScheduledValues(ac.currentTime);master.gain.linearRampToValueAtTime(on?1:0,ac.currentTime+1.2);this.setAttribute('aria-pressed',on);$('#sw').setAttribute('opacity',on?1:.35);$('#sndt').textContent=on?'Sound on':'Sound'};
+var unl=null;function silentWav(){var n=8000,b=new ArrayBuffer(44+n*2),v=new DataView(b),w=function(o,t){for(var i=0;i<t.length;i++)v.setUint8(o+i,t.charCodeAt(i))};
+ w(0,'RIFF');v.setUint32(4,36+n*2,true);w(8,'WAVE');w(12,'fmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,8000,true);v.setUint32(28,16000,true);v.setUint16(32,2,true);v.setUint16(34,16,true);w(36,'data');v.setUint32(40,n*2,true);
+ return URL.createObjectURL(new Blob([b],{type:'audio/wav'}))}
+function unlock(){try{if(navigator.audioSession)navigator.audioSession.type='playback'}catch(e){}
+ if(!unl){unl=new Audio(silentWav());unl.loop=true;unl.setAttribute('playsinline','');unl.preload='auto'}var pr=unl.play();if(pr&&pr.catch)pr.catch(function(){})}
+$('#snd').onclick=function(){initAudio();on=!on;if(on)unlock();else if(unl)unl.pause();ac.resume();master.gain.cancelScheduledValues(ac.currentTime);master.gain.linearRampToValueAtTime(on?1:0,ac.currentTime+1.2);this.setAttribute('aria-pressed',on);$('#sw').setAttribute('opacity',on?1:.35);$('#sndt').textContent=on?'Sound on':'Sound'};
 
 var ld=$('#ld');setTimeout(function(){ld.classList.add('out');document.body.classList.remove('loading')},reduce?300:2400);
 
@@ -449,6 +520,7 @@ var T=[
  ['#free',0,'Start <i>free</i>','All your free resources in one swipeable row, each with its own Get it free button.'],
  ['#studio',0,'Your avatar <i>studio</i>','All your avatar products together, with your free beginner pack first.'],
  ['#shop',0,'Your <i>shop</i>','Your threads, sales and systems products, priced in CAD with Buy now buttons.'],
+ ['#shop',.5,'Your <i>cart</i>','Add anything to the cart from the shop, collection or academy, then pay for it all at once with Stripe once your account is connected.'],
  ['#academy',0,'Go all <i>in</i>','Your mentorship leads as the feature, then every academy and USC program.'],
  ['#feed',0,'From your <i>feed</i>','Your real posts and your voice, with Instagram and TikTok one tap away.'],
  ['#join',0,'Your <i>list</i>','Sign-up and socials to close. Tap Sound at the top for the full experience.']];
