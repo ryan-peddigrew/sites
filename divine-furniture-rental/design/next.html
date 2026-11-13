@@ -184,6 +184,14 @@ body{grid-template-rows:auto auto 1fr}
 .tabs{grid-template-columns:repeat(5,1fr)}
 .tabs button{line-height:1.1;padding:0 3px;font-size:11px;letter-spacing:.03em}
 #vfT{display:none}
+.vtk{overflow:hidden;white-space:nowrap;margin:10px 0 8px;border-top:1.5px solid var(--ivory2);border-bottom:1.5px solid var(--ivory2);flex:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.vtk div{display:inline-flex;animation:vtk 36s linear infinite}
+.vtk:hover div{animation-play-state:paused}
+.vtk button{min-height:44px;padding:0 16px;font:800 13px var(--f);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.vtk button b{font:900 15px var(--f);padding:2px 5px;border-radius:2px;margin-right:4px;color:var(--gold2);animation:vfl 8.4s linear infinite}
+@keyframes vtk{to{transform:translateX(-50%)}}
+@keyframes vfl{0%,10%{background:var(--gold);color:var(--ink)}14%,100%{background:transparent;color:var(--gold2)}}
+@media (prefers-reduced-motion:reduce){.vtk{overflow-x:auto}.vtk div,.vtk button b{animation:none}}
 .sel{flex-wrap:wrap;max-width:calc(100% - 24px)}
 .home{position:fixed;inset:0;z-index:50;background:var(--ink);display:none;overflow:auto;-webkit-overflow-scrolling:touch}
 .home.on{display:block}
@@ -330,8 +338,9 @@ body.view .vbar{display:flex;flex:none;align-items:center;gap:14px;flex-wrap:wra
     <select id="venT" aria-label="Venue type"></select>
     <select id="venE" aria-label="Event type"></select>
     <select id="venF" aria-label="Plan type" hidden style="display:none"><option value="">All plans</option></select>
-    <select id="venS" aria-label="Sort"><option value="city">Sort by city</option><option value="type">Sort by venue type</option><option value="event">Sort by event type</option><option value="name">Sort A to Z</option></select>
+    <select id="venS" aria-label="Sort"><option value="type">Sort by venue type</option><option value="city">Sort by city</option><option value="event">Sort by event type</option><option value="name">Sort A to Z</option></select>
   </div>
+  <div class="vtk" id="vtk" hidden><div id="vtkI"></div></div>
   <div class="vcount" id="venN"></div>
   <div id="venL"></div>
   <p class="vnote">Plans are the ones each venue publishes for planners. Confirm the current layout with the venue before you finalize.</p>
@@ -774,7 +783,7 @@ function venList(){var q=$('#venQ').value.trim().toLowerCase().split(/\s+/).filt
   var L=VEN.filter(function(v){if(ff&&v.est)return false;if(fk&&vK(v)!==fk)return false;if(fp&&vP(v)!==fp)return false;if(fc&&v.c!==fc)return false;if(ft&&vT(v)!==ft)return false;if(fe&&vE(v).indexOf(fe)<0)return false;
     if(q.length){var h=(v.n+' '+v.r+' '+v.c+' '+(PRV[vP(v)]||'')+' '+vK(v)+' '+vT(v)).toLowerCase();for(var i=0;i<q.length;i++)if(h.indexOf(q[i])<0)return false}return true});
   var key=so==='type'?vT:so==='event'?function(v){return vE(v)[0]}:so==='name'?function(v){return v.n.charAt(0).toUpperCase()}:function(v){return v.c};
-  var pin=function(v){return so==='city'&&v.c==='Toronto, ON'?0:1};
+  var pin=function(v){return 1};
   if(so)L=L.slice().sort(function(a,b){return pin(a)-pin(b)||key(a).localeCompare(key(b))||a.n.localeCompare(b.n)});
   var nv={};L.forEach(function(v){nv[v.n+'|'+v.c]=1});
   var ne=L.filter(function(v){return v.est}).length;
@@ -1011,6 +1020,16 @@ $('#saskGo').onclick=function(){$('#sask').classList.remove('on');startScale()};
 $('#saskX').onclick=function(){$('#sask').classList.remove('on');goLayout(true)};
 function kickMaybe(){if(!scaling&&!S.objs.length&&!VIEW&&!$('#home').classList.contains('on'))$('#kick').classList.add('on')}
 $('#dlgOk').addEventListener('click',kickMaybe);$('#dlgX').addEventListener('click',kickMaybe);
+var TKO=['Hotel','Convention centre','Conference centre','Event venue','Restaurant','Banquet hall'],TKN={'Event venue':'unique event spaces','Exhibition grounds':'exhibition grounds'},tkSig='';
+function tkName(t){if(TKN[t])return TKN[t];var s=t.toLowerCase();return /[^aeiou]y$/.test(s)?s.slice(0,-1)+'ies':/(s|x|ch)$/.test(s)?s+'es':s+'s'}
+function tick(){var nar=$('#venQ').value.trim()||['#venK','#venP','#venC','#venT','#venE'].some(function(x){return $(x).value});
+  $('#vtk').hidden=!!nar;$('#venN').style.display=nar?'':'none';if(nar)return;
+  var m={},seen={};VEN.forEach(function(v){var k=v.n+'|'+v.c;if(seen[k])return;seen[k]=1;var t=vT(v);m[t]=(m[t]||0)+1});
+  var ks=Object.keys(m).sort(function(a,b){var i=TKO.indexOf(a),j=TKO.indexOf(b);return (i<0?99:i)-(j<0?99:j)||a.localeCompare(b)}),sig=ks.join('|');
+  if(sig!==tkSig){tkSig=sig;var one=ks.map(function(k,i){return '<button type="button" data-t="'+esc(k)+'"><b style="animation-duration:'+(ks.length*1.2)+'s;animation-delay:'+(i*1.2)+'s"></b>'+esc(tkName(k))+'</button>'}).join('');
+    $('#vtkI').innerHTML=one+one;$$('#vtkI button').forEach(function(b){b.onclick=function(){$('#venT').value=b.dataset.t;$('#venT').onchange()}})}
+  $$('#vtkI button').forEach(function(b){b.firstChild.textContent=m[b.dataset.t].toLocaleString('en-CA')})}
+var _vl=venList;venList=function(){_vl();tick()};
 var _pv=pickVenue;pickVenue=function(id){var v=VEN.find(function(x){return x.id===id});plPend=v?(v.d?{d:v.d,r:String(v.r).replace(/ \*$/,'')}:{i:v.id}):null;_pv(id)};
 var _lp=loadPlan;loadPlan=function(u,w,h){var p=plPend;plPend=null;_lp(u,w,h);endScale();PL=p;savePL();
   if(p&&p.d){var k=(p.d[0]*w/900)/S.pw;S.pw*=k;S.ph*=k;S.ftPerPx=S.pw/w;drawPlan();fit();render();goLayout(true)}
