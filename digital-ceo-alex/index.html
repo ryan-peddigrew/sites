@@ -76,7 +76,7 @@ a{color:inherit}
 .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,10,9,.35) 0,rgba(13,10,9,0) 30%,rgba(13,10,9,0) 50%,rgba(13,10,9,.72) 100%);pointer-events:none}
 .flash{position:absolute;inset:0;background:radial-gradient(circle at 38% 44%,rgba(255,246,214,.95),rgba(255,246,214,0) 60%);opacity:0;pointer-events:none;mix-blend-mode:screen}
 .htxt{position:absolute;left:16px;right:16px;bottom:calc(9vh + env(safe-area-inset-bottom));will-change:opacity,transform}
-.htxt h1,.htxt h2{font-size:clamp(58px,15vw,168px);color:var(--paper);text-shadow:0 4px 40px rgba(0,0,0,.35)}
+.htxt h1{margin-top:.55em}.htxt .eyebrow{line-height:1.6}.htxt h1,.htxt h2{font-size:clamp(58px,15vw,168px);color:var(--paper);text-shadow:0 4px 40px rgba(0,0,0,.35)}
 .htxt p{max-width:30ch;margin-top:26px;font-size:17px;font-weight:500;color:var(--paper)}
 .htxt .line{display:block;overflow:hidden;padding-bottom:.04em}
 .htxt .line>span{display:inline-block;transform:translateY(105%);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
@@ -94,14 +94,14 @@ body.loading .htxt .line>span{animation-play-state:paused}
 
 /* GALLERY fly past */
 #gal{height:360vh;position:relative;background:var(--esp)}
-#gal .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;perspective:900px;perspective-origin:50% 45%}
-.room{position:absolute;inset:0;transform-style:preserve-3d}
+#gal .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}.persp{position:absolute;inset:0;perspective:900px;perspective-origin:50% 45%;z-index:1}
+.room{position:absolute;inset:0;transform-style:preserve-3d;z-index:1}
 .fr{position:absolute;left:50%;top:50%;width:min(42vw,300px);transform-style:preserve-3d;text-decoration:none;opacity:0}
 .fr .pic{background:var(--esp2);padding:10px;border:1px solid rgba(242,227,160,.6);box-shadow:0 30px 60px -20px rgba(0,0,0,.8),inset 0 0 0 6px var(--esp)}
 .fr .pic img{width:100%;aspect-ratio:4/5;object-fit:cover}
 .fr .cap{margin-top:10px;font:400 18px/1.1 var(--serif);color:var(--cream)}
 .fr .cap b{display:block;font:600 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--butter);margin-top:4px}
-.galt{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;pointer-events:none;z-index:2}
+.galt{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%) translateZ(0);text-align:center;pointer-events:none;z-index:5;padding:60px 0;background:linear-gradient(180deg,rgba(34,26,22,0),rgba(34,26,22,.82) 28%,rgba(34,26,22,.82) 72%,rgba(34,26,22,0))}
 .galt h2{font-size:clamp(54px,13vw,150px);color:var(--paper)}
 .galt p{margin-top:28px;color:var(--mute);font-weight:500}
 
@@ -212,7 +212,7 @@ section.blk{padding:110px 0}
 
 <header class="hd" id="hd">
   <a class="brand" href="#top" aria-label="Digital CEO Alex home"><img src="img/logo.png" alt="Faceless Not Boring logo"><span>Digital CEO Alex</span></a>
-  <nav aria-label="Main"><a href="#free">Free</a><a href="#studio">Avatar studio</a><a href="#shop">Shop</a><a href="#academy">Academy</a><a href="#join">Join the list</a></nav>
+  <nav aria-label="Main"><a href="#free">Free</a><a href="#studio">Avatar studio</a><a href="#shop">Shop</a><a href="#academy">Academy</a><a href="#join">Join the list</a><a href="brand/">Brand guide</a></nav>
   <div class="acts"><button class="snd" id="snd" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9h4l5-4v14l-5-4H4z"/><path id="sw" d="M17 9c1.5 1.5 1.5 4.5 0 6M19.5 6.5c3 3 3 8 0 11" opacity=".35"/></svg><span id="sndt">Sound</span></button></div>
 </header>
 
@@ -225,7 +225,7 @@ section.blk{padding:110px 0}
     <div class="flash" id="flash"></div>
     <div class="shade"></div>
     <div class="htxt" id="t1">
-      <p class="eyebrow" style="margin-bottom:22px;color:var(--paper)">Faceless Not Boring &middot; Est. 2025</p>
+      <p class="eyebrow" style="margin-bottom:0;color:var(--paper)">Toronto &middot; Est. 2025</p>
       <h1 class="warp"><span class="line"><span>Faceless.</span></span><span class="line"><span><i>Not</i> <span class="b">boring.</span></span></span></h1>
       <p>Helping you build faceless income online.</p>
     </div>
@@ -238,8 +238,8 @@ section.blk{padding:110px 0}
 
 <!-- 2. Gallery fly past -->
 <section id="gal" aria-label="The collection">
-  <div class="stage"><div class="room" id="room"></div>
-    <div class="galt"><p class="eyebrow">The collection</p><h2 class="warp" style="margin-top:18px">Every <i>link,</i><br><span class="b">one</span> address.</h2></div>
+  <div class="stage"><div class="persp"><div class="room" id="room"></div></div>
+    <div class="galt"><p class="eyebrow">The collection</p><h2 class="warp" style="margin-top:30px">Every <i>link,</i><br><span class="b">one</span> address.</h2></div>
   </div>
 </section>
 
@@ -308,6 +308,7 @@ section.blk{padding:110px 0}
 <footer class="ft"><div class="wrap">
   <a class="brand" href="#top"><img src="img/logo.png" alt=""><span>Faceless Not Boring</span></a>
   <p>By Digital CEO Alex. Toronto, est. 2025.</p>
+  <a href="brand/">Brand guide</a>
   <p>Paintings: Michelangelo, The Creation of Adam; Botticelli, The Birth of Venus (public domain).</p>
 </div></footer>
 
@@ -372,7 +373,7 @@ var G=[].concat(SHOP.map(function(f){return [f[0],f[3],f[4],f[1]]}),STUDIO.map(f
 var room=document.getElementById('room'),frs=[];
 G.forEach(function(g,i){var a=document.createElement('a');a.className='fr';a.href=A(g[2]);a.target='_blank';a.rel='noopener';
  a.innerHTML='<div class="pic"><img loading="lazy" src="'+im(g[1])+'" alt=""></div><div class="cap">'+g[0]+'<b>'+g[3]+'</b></div>';
- var side=i%2?1:-1,x=side*(18+((i*37)%22)),y=((i*53)%40)-26,z=-i*520-300,r=-side*(10+(i%3)*6);
+ var side=i%2?1:-1,x=side*(24+((i*37)%18)),y=((i*53)%40)-26,z=-i*520-300,r=-side*(10+(i%3)*6);
  a._p={x:x,y:y,z:z,r:r};room.appendChild(a);frs.push(a)});
 
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -386,22 +387,22 @@ function frame(){
  var vh=innerHeight,vw=innerWidth;
  var r=fly.getBoundingClientRect(),p=cl(-r.top/(r.height-vh),0,1);
  if(p!==lastP){lastP=p;
-  var z=1+ease(seg(p,0,.55))*11;adam.style.transform='scale('+z+')';
+  var z=1+ease(seg(p,0,.45))*4.2;adam.style.transform='scale('+z+')';
   t1.style.opacity=1-seg(p,.04,.16);t1.style.transform='translateY('+(-seg(p,0,.2)*60)+'px)';
-  var a2=seg(p,.18,.26)*(1-seg(p,.4,.48));t2.style.opacity=a2;t2.style.transform='translateY('+((1-seg(p,.18,.3))*40)+'px)';
+  var a2=seg(p,.12,.2)*(1-seg(p,.32,.4));t2.style.opacity=a2;t2.style.transform='translateY('+((1-seg(p,.12,.24))*40)+'px)';
   cue.style.opacity=.85*(1-seg(p,0,.05));
-  fl.style.opacity=seg(p,.42,.52)*(1-seg(p,.56,.64));
-  var w=seg(p,.46,.82),we=ease(w);
+  fl.style.opacity=seg(p,.26,.34)*(1-seg(p,.4,.48));
+  var w=seg(p,.3,.78),we=ease(w);
   var ph=Math.min(vh*.62,vw*1.1),pw=ph*.48;
   var W=we<.5?pw*(we/.5):pw+(vw+4-pw)*((we-.5)/.5),H=we<.5?ph*(we/.5):ph+(vh+4-ph)*((we-.5)/.5);
   win.style.width=W+'px';win.style.height=H+'px';
-  var cx=38+(50-38)*seg(p,.62,.82),cy=44+(50-44)*seg(p,.62,.82);win.style.left=cx+'%';win.style.top=cy+'%';
-  win.style.borderRadius=(26*(1-seg(p,.7,.82)))+'px';
+  var cx=38+(50-38)*seg(p,.55,.78),cy=44+(50-44)*seg(p,.55,.78);win.style.left=cx+'%';win.style.top=cy+'%';
+  win.style.borderRadius=(26*(1-seg(p,.66,.78)))+'px';
   win.style.boxShadow=w>0&&w<.95?'':'none';
   win.querySelector('img').style.transform='translate(-50%,-50%) scale('+(1.25-.25*seg(p,.5,1))+')';
-  var a3=seg(p,.84,.92);t3.style.opacity=a3;t3.style.transform='translateY('+((1-a3)*40)+'px)';
+  var a3=seg(p,.8,.9);t3.style.opacity=a3;t3.style.transform='translateY('+((1-a3)*40)+'px)';
   cred.textContent=p<.6?'Michelangelo, c. 1512':'Botticelli, c. 1485';
-  if(p>.47&&!whooshed){whooshed=1;whoosh()}if(p<.4)whooshed=0;
+  if(p>.3&&!whooshed){whooshed=1;whoosh()}if(p<.25)whooshed=0;
  }
  var g=gal.getBoundingClientRect(),gp=cl(-g.top/(g.height-vh),0,1);
  if(g.top<vh&&g.bottom>0){var travel=gp*(G.length*520+400);
@@ -431,7 +432,7 @@ var ld=$('#ld');setTimeout(function(){ld.classList.add('out');document.body.clas
 // tour
 var T=[
  ['#fly',0,'The opening','A brand-new fly-through. It opens on Michelangelo with your line, "Faceless. Not boring." Scroll, and the camera dives between the fingertips.'],
- ['#fly',.5,'One touch','Right at the spark, a phone-shaped window opens: the old master becomes a screen. That’s the whole brand in one move, classic taste meets digital income.'],
+ ['#fly',.42,'One touch','Right at the spark, a phone-shaped window opens: the old master becomes a screen. That’s the whole brand in one move, classic taste meets digital income.'],
  ['#fly',1,'Old masters, new media','Botticelli fills the screen and your promise lands. Big warped serif type, like the overlays on your posts.'],
  ['#gal',.55,'The collection','Your products fly past in gallery frames as you scroll. Tap any frame and it opens the real checkout you already use.'],
  ['#free',0,'Start here, free','Every free resource from your page in one swipeable row, so new visitors get a quick yes before they buy.'],
@@ -439,7 +440,8 @@ var T=[
  ['#shop',0,'The shop','Threads, sales and systems products on a poster wall, prices and discounts exactly as on your page.'],
  ['#academy',0,'Go all in','Mentorship, Digital Wealth Academy and the USC programs as a bold index. Bigger offers get bigger type.'],
  ['#feed',0,'From the feed','Your own posts and voice, with Instagram and TikTok one tap away.'],
- ['#join',0,'Get on the list','Your email sign-up and socials. Tip: tap Sound at the top for the full experience.']];
+ ['#join',0,'Get on the list','Your email sign-up and socials. Tip: tap Sound at the top for the full experience.'],
+ ['.ft',0,'Your brand guide','Logo rules, colours, type, voice and post styles are on one page. Tap "Brand guide" here in the footer to see it.']];
 var tr=$('#tour'),ti=-1,tp=false,tt0=0,TD=7000,trun=false,tel=0;
 function goTo(t){var e=$(t[0]);if(!e)return;var top=e.getBoundingClientRect().top+scrollY,y=top;
  if(t[0]=='#fly'||t[0]=='#gal')y=top+t[1]*(e.offsetHeight-innerHeight);else y=top-70;
