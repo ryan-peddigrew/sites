@@ -162,6 +162,98 @@ textarea{min-height:90px}
 .toast{position:absolute;left:16px;right:16px;bottom:calc(76px + var(--sb));z-index:25;background:var(--ink);color:#fff;padding:14px 16px;font-size:14px;transform:translateY(20px);opacity:0;transition:.3s;pointer-events:none;border-left:5px solid var(--green)}
 .toast.on{transform:none;opacity:1}
 .inst{display:none}
+
+/* ===== LOOKS (?look=a|b|c) ===== */
+.hero-ph{display:none}
+/* A: Midnight. Dark app, logo on a white nameplate */
+body.look-a .dev,body.look-a .app{background:#120A1C}
+body.look-a .top{background:#120A1C;border-bottom:1px solid #ffffff14;padding-top:0;align-items:flex-start}
+body.look-a .top img{background:#fff;padding:14px 14px 10px;width:124px;box-sizing:content-box;box-shadow:0 14px 30px #0006}
+body.look-a .top .chap{background:var(--green);align-self:center;margin:0}
+body.look-a .ib{color:#fff;align-self:center}
+body.look-a .ib .dot{border-color:#120A1C}
+body.look-a .scr{color:#fff}
+body.look-a .card,body.look-a .kp div,body.look-a .ev,body.look-a .tile{background:#1F1430;color:#fff}
+body.look-a .kp div{border-top-width:2px}
+body.look-a .hi,body.look-a .kp span,body.look-a .li .tx small{color:#ffffffa0}
+body.look-a .lvl{background:transparent;padding:0;margin-top:14px;min-height:190px;display:flex;flex-direction:column;justify-content:flex-end;padding:18px}
+body.look-a .lvl::after{display:none}
+body.look-a .hero-ph{display:block;position:absolute;inset:0;z-index:-1}
+body.look-a .hero-ph img{width:100%;height:100%;object-fit:cover}
+body.look-a .hero-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#120A1C33,#120A1Cee)}
+body.look-a .lvl{position:relative;z-index:0;isolation:isolate}
+body.look-a .lvl b{font-size:36px}
+body.look-a .lvl .gold,body.look-b .lvl .gold{align-self:flex-start}
+body.look-a .li{border-color:#ffffff14}
+body.look-a .btn.o{color:#fff;border-color:#fff}
+body.look-a .tabs{background:#0B0612;border-top:1px solid #ffffff14}
+body.look-a .tabs button{color:#ffffff80}
+body.look-a .tabs button.on{color:#fff}
+body.look-a .tabs .scan span.sq{border-color:#0B0612;background:var(--green)}
+body.look-a .renew{background:linear-gradient(90deg,var(--purple),#3A1860)}
+body.look-a .renew .go{background:var(--green);color:#fff}
+body.look-a h2{color:#fff}
+body.look-a .chips button,body.look-a .seg button{background:#1F1430;color:#fff;border-color:#ffffff40}
+body.look-a .chips button.on{background:#fff;color:#120A1C}
+body.look-a .sample{background:#3B2F12;color:#F5D97A;border-color:#8A7020}
+
+/* B: Gallery. Warm ivory, full-bleed photo, editorial type, hairlines */
+body.look-b .dev,body.look-b .app{background:#F6F2EA}
+body.look-b .top{background:#F6F2EA;border-bottom:0;padding-top:calc(16px + var(--st))}
+body.look-b .top img{width:118px}
+body.look-b .top .chap{background:transparent;color:var(--purple);border:1.5px solid var(--purple)}
+body.look-b .scr{padding-top:0}
+body.look-b #v-home>.sample{position:relative;z-index:2;margin-top:14px}
+body.look-b .lvl{margin:14px -16px 0;min-height:300px;background:transparent;display:flex;flex-direction:column;justify-content:flex-end;padding:22px 18px;position:relative;isolation:isolate}
+body.look-b .lvl::after{display:none}
+body.look-b .hero-ph{display:block;position:absolute;inset:0;z-index:-1}
+body.look-b .hero-ph img{width:100%;height:100%;object-fit:cover;animation:kb2 14s ease-in-out infinite alternate}
+@keyframes kb2{to{transform:scale(1.08)}}
+body.look-b .hero-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0000 35%,#1B0F29d9)}
+body.look-b .lvl b{font-size:44px;line-height:.92;letter-spacing:-.01em}
+body.look-b .lvl .gold{background:transparent;border:1.5px solid #E2C677;color:#E2C677}
+body.look-b .kp{gap:0;margin-top:0;background:#fff;border-bottom:1px solid #E7E0D2}
+body.look-b .kp div{background:#fff;border:0;border-right:1px solid #EDE7DB;border-bottom:1px solid #EDE7DB;padding:20px 16px}
+body.look-b .kp div:nth-child(2n){border-right:0}
+body.look-b .kp b{font-size:34px;color:var(--purple)}
+body.look-b .kp div:nth-child(2) b{color:#5E8424}
+body.look-b .card{background:transparent;padding:18px 0;border-top:1px solid #E2DACB;margin-top:8px}
+body.look-b .renew{background:#fff;color:var(--ink);border-left:4px solid var(--green)}
+body.look-b .renew p{color:var(--mute)}
+body.look-b .renew .go{background:var(--ink);color:#fff}
+body.look-b h3{font-weight:900;letter-spacing:.06em;font-size:13px;color:var(--purple)}
+body.look-b .tabs{background:#fff;border-top:1px solid #E7E0D2}
+body.look-b .tabs .scan span.sq{background:var(--ink);border-color:#fff}
+body.look-b .tabs button.on::before{background:var(--purple)}
+body.look-b .btn.g{background:var(--ink)}
+
+/* C: Signature purple. Purple chrome, brand bars, cards lift over the band */
+body.look-c .dev,body.look-c .app{background:#F3F1F6}
+body.look-c .top{border-bottom:0;position:relative}
+body.look-c .top::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:6px;background:linear-gradient(90deg,var(--green) 0 33.3%,var(--purple) 33.3% 66.6%,var(--sage) 66.6%)}
+body.look-c .top img{width:112px}
+body.look-c .scr{padding-top:0;background:linear-gradient(180deg,var(--purple) 0,var(--purple) 250px,#F3F1F6 250px)}
+body.look-c #v-home>.sample{margin-top:20px}
+body.look-c .lvl{background:transparent;padding:16px 2px 4px;margin-top:4px;color:#fff}
+body.look-c .lvl::after{display:none}
+body.look-c .lvl b{font-size:40px}
+body.look-c .lvl .gold{background:#fff;color:var(--purple)}
+body.look-c .kp div{box-shadow:0 14px 30px #2a124430;border-top:0;border-left:4px solid var(--purple)}
+body.look-c .kp div:nth-child(2){border-color:var(--green)}.look-c .kp div:nth-child(3){border-color:var(--sage)}.look-c .kp div:nth-child(4){border-color:var(--ink)}
+body.look-c .card{box-shadow:0 10px 26px #2a124418}
+body.look-c .renew{background:var(--ink)}
+body.look-c .renew .go{background:var(--green);color:#fff}
+body.look-c .tabs{background:var(--purple);border-top:0}
+body.look-c .tabs button{color:#ffffffa8}
+body.look-c .tabs button.on{color:#fff}
+body.look-c .tabs button.on::before{background:var(--green)}
+body.look-c .tabs .scan span.sq{background:var(--green);border-color:var(--purple)}
+body.look-c .tabs .scan small{color:#ffffffa8}
+body.look-c h2{color:var(--ink)}
+body.look-c #v-scan h2,body.look-c #v-leads h2,body.look-c #v-events h2,body.look-c #v-more h2{color:#fff;margin-top:18px}
+body.look-c #v-scan>.hi,body.look-c #v-events>.hi{color:#ffffffc4}
+body.look-c #v-leads .sample{margin-top:18px}
+
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 </head>
@@ -199,7 +291,7 @@ textarea{min-height:90px}
 
         <section class="view on" id="v-home">
           <span class="sample">Sample account and numbers</span>
-          <div class="lvl"><small>Your Company Inc.</small><b>Gold sponsor</b><span class="gold">2026 season</span></div>
+          <div class="lvl"><div class="hero-ph"><img src="../img/gala-royalyork.jpg" alt=""></div><small>Your Company Inc.</small><b>Gold sponsor</b><span class="gold">2026 season</span></div>
           <div class="kp"><div><b data-n="12480">0</b><span>Logo views</span></div><div><b data-n="384">0</b><span>Clicks to your site</span></div><div><b id="kLeads">0</b><span>Leads scanned</span></div><div><b>7/9</b><span>Benefits delivered</span></div></div>
           <div class="renew"><div><b>Renew for 2027</b><p>1 of 3 Gold spots left. Early rate until <span style="background:#fff3;padding:0 4px">date to confirm</span>.</p></div><button class="go" data-goto="more" data-sub="shop">Renew</button></div>
           <div class="card"><h3>Your next moment</h3><div class="nxt" style="margin-top:10px"><img src="../img/fall-event.jpg" alt=""><div><b style="font-family:var(--disp)">Sales Reset with Tammy Gillis</b><p class="hi">Thu, Nov 26, 3:30 pm</p><p style="font-size:13.5px">Your logo on the welcome screen. Badge scanning on.</p></div></div><button class="btn g" data-goto="scan">Scan badges at the event</button></div>
@@ -262,6 +354,7 @@ textarea{min-height:90px}
 <script>
 (()=>{
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const LOOK=(new URLSearchParams(location.search).get('look')||'').toLowerCase();if(/^[abc]$/.test(LOOK))document.body.classList.add('look-'+LOOK);
 const fmt=n=>'$'+n.toLocaleString('en-CA');
 const store={get(k,d){try{const v=localStorage.getItem('hsmai-sp-'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('hsmai-sp-'+k,JSON.stringify(v))}catch(e){}}};
 const toast=t=>{const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),2600)};
