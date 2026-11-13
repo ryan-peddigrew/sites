@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Events | HSMAI Ontario</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+.ph-hero{position:relative;min-height:62vh;display:flex;align-items:flex-end;color:#fff;padding:130px 0 60px;background:var(--plum);overflow:hidden}
+.ph-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;animation:kb 18s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.08) translateX(-2%)}}
+.ph-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#1B0F2900 20%,#1B0F29ee)}
+.ph-hero .wrap{position:relative;z-index:2;width:100%}
+.ph-hero h1{font-size:clamp(46px,8vw,120px);text-transform:uppercase;line-height:.92}
+.tk{padding:100px 0;background:var(--paper)}
+.tk .g{display:grid;grid-template-columns:1.2fr .9fr;gap:40px;align-items:start}
+.ev{background:#fff;display:grid;grid-template-columns:1fr;border-top:5px solid var(--purple)}
+.ev img{width:100%}
+.ev .b{padding:28px}
+.ev h2{font-size:clamp(30px,3.6vw,46px)}
+.ev .meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin:14px 0;font-weight:600;color:var(--purple)}
+.opt{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.opt b{font-family:var(--disp);font-size:18px;display:block}
+.opt small{color:var(--mute);font-size:13.5px}
+.opt .pr{font:900 22px var(--disp);min-width:70px;text-align:right}
+.qty{display:flex;align-items:center;border:2px solid var(--ink)}
+.qty button{width:44px;height:44px;background:#fff;border:0;font:800 20px var(--disp)}
+.qty span{min-width:30px;text-align:center;font-weight:700}
+.sw{display:flex;gap:14px;align-items:flex-start;padding:16px;background:#fff;border:2px solid var(--line);margin-top:12px;cursor:pointer;transition:border-color .2s}
+.sw.on{border-color:var(--green)}
+.sw input{width:22px;height:22px;accent-color:var(--green);margin-top:2px;flex:none}
+.sw b{font-family:var(--disp)}
+.sum{position:sticky;top:96px;background:var(--plum);color:#fff;padding:28px}
+.sum h3{text-transform:uppercase;font-size:20px;margin-bottom:12px}
+.sum .ln{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #ffffff1a;font-size:15px}
+.sum .tot{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;font:900 34px var(--disp)}
+.sum .tot small{font:600 13px var(--sans);color:#ffffffaa}
+.sum .save{background:var(--green);padding:10px 12px;margin-top:12px;font-weight:700;font-size:14px}
+.sum .btn{width:100%;margin-top:16px}
+.sum .fine{font-size:12.5px;color:#ffffff99;margin-top:12px;line-height:1.5}
+.how{padding:100px 0;background:#fff}
+.how .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);margin-top:40px}
+.how .cols div{background:#fff;padding:26px}
+.how .cols b{display:block;font:900 44px var(--disp);color:var(--green)}
+.how .cols h3{font-size:20px;margin:6px 0 8px}
+.how .cols p{color:var(--mute);font-size:15px}
+.gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:16vw;gap:6px;padding:6px;background:var(--ink)}
+.gal img{width:100%;height:100%;object-fit:cover;filter:saturate(.9);transition:filter .4s,transform .4s}
+.gal img:hover{filter:saturate(1.2);transform:scale(1.02)}
+.gal .a{grid-column:span 3;grid-row:span 2}.gal .b{grid-column:span 2}.gal .c{grid-column:span 1}
+@media (max-width:900px){.tk .g{grid-template-columns:1fr}.sum{position:relative;top:0}.how .cols{grid-template-columns:1fr 1fr}.gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:40vw}.gal .a{grid-column:span 2}.gal .b,.gal .c{grid-column:span 1;grid-row:span 1}}
+@media (max-width:480px){.opt{grid-template-columns:1fr auto}.opt .pr{grid-column:2;grid-row:1}.opt .qty{grid-column:1/-1;justify-self:start}}
+</style>
+</head>
+<body data-page="events" data-root="">
+<main>
+<section class="ph-hero" id="ehero"><img src="img/audience.jpg" alt="Audience at an HSMAI Ontario education event">
+  <div class="wrap"><p class="kick" style="color:#ffffffcc">Events</p><h1>Listen and learn</h1><p class="lead" style="margin-top:16px">Digital marketing courses, hotel revenue sessions and networking that moves careers forward.</p></div>
+</section>
+
+<section class="tk" id="tickets">
+  <div class="wrap g">
+    <div>
+      <article class="ev">
+        <img src="img/fall-event.jpg" alt="Sales Reset with Tammy Gillis poster">
+        <div class="b">
+          <span class="tag">Fall education event</span>
+          <h2 style="margin-top:12px">Sales Reset: mastering the fundamentals to protect, defend and grow</h2>
+          <div class="meta"><span>Thursday, November 26, 2026</span><span>3:30 to 6:00 pm</span><span><span class="ph">Venue to confirm</span></span></div>
+          <p style="color:var(--mute)">Tammy Gillis, founder of Gillis Sales Training, leads an interactive workshop on the sales fundamentals that matter most in today's hospitality market. Leave with strategies you can use the next morning.</p>
+          <p class="sample" style="margin-top:20px">Sample prices: the chapter sets real ones</p>
+          <div id="opts" style="margin-top:6px"></div>
+          <label class="sw" id="sw1"><input type="checkbox" id="join"><span><b>Not a member yet? Join with your ticket.</b><br><small style="color:var(--mute)">Add HSMAI membership ($315) and your ticket drops to the member price today.</small></span></label>
+          <label class="sw" id="sw2"><input type="checkbox" id="seat"><span><b>Sponsor a student seat (+$45)</b><br><small style="color:var(--mute)">Send a hospitality student from TMU or George Brown. Your name goes on the thank-you slide.</small></span></label>
+          <label class="sw" id="sw3"><input type="checkbox" id="replay"><span><b>Add the replay (+$25)</b><br><small style="color:var(--mute)">Watch the session again, or send it to a colleague who couldn't come.</small></span></label>
+        </div>
+      </article>
+    </div>
+    <aside class="sum" aria-live="polite">
+      <h3>Your order</h3>
+      <div id="lines"><div class="ln"><span>Nothing yet</span><span></span></div></div>
+      <div class="tot"><small>Total, plus HST</small><span id="tot">$0</span></div>
+      <div class="save" id="save" hidden></div>
+      <button class="btn g" id="pay">Check out</button>
+      <a class="btn o" style="color:#fff" href="https://www.eventbrite.ca/e/hsmai-ontario-sales-reset-2026-tickets-1993329334699" rel="noopener">Buy on Eventbrite today</a>
+      <p class="fine">Preview only. In the live version tickets are paid by card or invoice on the chapter's own page, your QR ticket arrives by email, and reminders go out by themselves.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <p class="kick">What happens after you buy</p>
+    <h2>No spreadsheets</h2>
+    <div class="cols">
+      <div><b>01</b><h3>QR ticket</h3><p>Sent by email the moment you pay, with a calendar invite.</p></div>
+      <div><b>02</b><h3>Reminders</h3><p>A reminder a week out and the morning of. No one on the board has to send them.</p></div>
+      <div><b>03</b><h3>Fast check-in</h3><p>Volunteers scan tickets on a phone. Name badges print from the same list.</p></div>
+      <div><b>04</b><h3>Photos and replay</h3><p>The gallery and replay go to every attendee, with a nudge to join if they're not a member.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="gal" aria-label="Chapter event photos">
+  <img class="a" src="img/gala-ballroom.jpg" alt="Gala ballroom at the Fairmont Royal York" loading="lazy">
+  <img class="b" src="img/panel.jpg" alt="Panel at an education event" loading="lazy">
+  <img class="c" src="img/toast.jpg" alt="Guests raising a glass" loading="lazy">
+  <img class="c" src="img/speaker-window.jpg" alt="Speaker at a window-lit venue" loading="lazy">
+  <img class="b" src="img/networking.jpg" alt="Networking" loading="lazy">
+  <img class="b" src="img/speaker-bars.jpg" alt="Speaker presenting data" loading="lazy">
+  <img class="b" src="img/gala-stage.jpg" alt="Award presentation at the gala" loading="lazy">
+  <img class="b" src="img/board-group.jpg" alt="Members at a chapter event" loading="lazy">
+</section>
+</main>
+<script>
+window.TOUR=[
+ ['#tickets','Tickets on the chapter site',"Tickets were sold on Eventbrite, off the chapter's site.","Members, non-members, students and group packs buy right here, with a live total.","The chapter keeps the buyer list and can offer membership at the moment of purchase."],
+ ['#sw1','Join and save, at checkout',"Membership and tickets were separate trips.","Tick one box to join HSMAI with your ticket and pay the member price.","Turns event guests into members."],
+ ['#sw2','Sponsor a student seat',"","Any buyer can pay for a student's seat.","Small add-on revenue and a bigger student pipeline."],
+ ['#how','Admin that runs itself',"Every event needs reminders, badges and check-in.","QR tickets, reminders, check-in and the photo follow-up all go out automatically.","Hours back for the board every event."],
+];
+</script>
+<script src="site.js"></script>
+<script>
+(()=>{
+const $=s=>document.querySelector(s);
+const O=[['mem','Member ticket','HSMAI members',75],['non','Non-member ticket','Anyone in hospitality',110],['stu','Student ticket','With a valid student ID',30],['grp','Team pack of 5','One invoice, five named seats',325]];
+const q={mem:0,non:1,stu:0,grp:0};
+$('#opts').innerHTML=O.map(o=>`<div class="opt"><div><b>${o[1]}</b><small>${o[2]}</small></div><div class="pr">$${o[3]}</div><div class="qty"><button data-k="${o[0]}" data-d="-1" aria-label="Fewer">&minus;</button><span id="q-${o[0]}">${q[o[0]]}</span><button data-k="${o[0]}" data-d="1" aria-label="More">+</button></div></div>`).join('');
+document.querySelectorAll('.qty button').forEach(b=>b.onclick=()=>{const k=b.dataset.k;q[k]=Math.max(0,Math.min(20,q[k]+ +b.dataset.d));$('#q-'+k).textContent=q[k];calc()});
+['join','seat','replay'].forEach((id,i)=>{$('#'+id).onchange=e=>{$('#sw'+(i+1)).classList.toggle('on',e.target.checked);calc()}});
+const fmt=n=>'$'+n.toLocaleString('en-CA');
+function calc(){
+  const L=[];let t=0,save=0;const join=$('#join').checked;
+  let non=q.non,mem=q.mem;
+  if(join&&non>0){non--;mem++;save=110-75;L.push(['HSMAI membership (1 year)',315]);t+=315}
+  O.forEach(o=>{const n=o[0]==='non'?non:o[0]==='mem'?mem:q[o[0]];if(n){L.push([`${o[1]} x ${n}`,o[3]*n]);t+=o[3]*n}});
+  if($('#seat').checked){L.push(['Student seat',45]);t+=45}
+  if($('#replay').checked){L.push(['Replay',25]);t+=25}
+  $('#lines').innerHTML=L.length?L.map(l=>`<div class="ln"><span>${l[0]}</span><span>${fmt(l[1])}</span></div>`).join(''):'<div class="ln"><span>Nothing yet</span><span></span></div>';
+  $('#tot').textContent=fmt(t);
+  const s=$('#save');if(save){s.hidden=false;s.textContent=`Member price applied: you save ${fmt(save)} on this ticket.`}else s.hidden=true;
+}
+calc();
+$('#pay').onclick=()=>{$('#pay').textContent='Preview only: no payment taken';setTimeout(()=>$('#pay').textContent='Check out',2600)};
+})();
+</script>
+</body>
+</html>

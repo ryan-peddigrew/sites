@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sponsor dashboard | HSMAI Ontario</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css">
+<style>
+body{background:var(--paper)}
+.app{display:grid;grid-template-columns:250px 1fr;min-height:100svh;padding-top:72px}
+.side{background:var(--plum);color:#fff;padding:26px 0;position:sticky;top:72px;height:calc(100svh - 72px);overflow:auto}
+.side .who{padding:0 22px 22px;border-bottom:1px solid #ffffff1a}
+.side .who b{display:block;font:800 18px var(--disp)}
+.side .who small{color:#ffffffaa}
+.side .lvl{display:inline-block;margin-top:10px;background:#B8962E;color:#fff;font:800 11px var(--sans);letter-spacing:.16em;text-transform:uppercase;padding:6px 10px}
+.side nav{display:flex;flex-direction:column;padding:12px 0}
+.side nav button{background:none;border:0;color:#ffffffcc;text-align:left;padding:13px 22px;min-height:46px;font:600 15px var(--sans);display:flex;gap:12px;align-items:center;border-left:4px solid transparent}
+.side nav button svg{width:22px;height:22px;flex:none}
+.side nav button.on,.side nav button:hover{color:#fff;background:#ffffff0d;border-left-color:var(--green)}
+.side nav .sep{margin:14px 22px 6px;font:700 11px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#ffffff66}
+.main{padding:30px clamp(16px,3vw,40px) 120px;min-width:0}
+.topline{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.topline h1{font-size:clamp(28px,3.4vw,44px);text-transform:uppercase}
+.pane{display:none}.pane.on{display:block;animation:fade .45s}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kpi{background:#fff;padding:20px;border-top:4px solid var(--purple)}
+.kpi:nth-child(2){border-color:var(--green)}.kpi:nth-child(3){border-color:var(--sage)}.kpi:nth-child(4){border-color:var(--ink)}
+.kpi b{display:block;font:900 clamp(30px,3vw,42px)/1 var(--disp)}
+.kpi span{font-size:13.5px;color:var(--mute)}
+.kpi em{display:block;font-style:normal;font:700 12px var(--sans);color:var(--green);margin-top:6px}
+.row2{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-top:12px}
+.card{background:#fff;padding:22px}
+.card h3{font-size:18px;text-transform:uppercase;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.chart{display:flex;align-items:flex-end;gap:10px;height:200px;border-bottom:2px solid var(--ink);padding-top:10px}
+.chart div{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
+.chart i{width:100%;background:var(--purple);height:0;transition:height 1.1s cubic-bezier(.2,.8,.2,1)}
+.chart div:nth-child(even) i{background:var(--green)}
+.chart small{font:700 11px var(--sans);color:var(--mute);letter-spacing:.06em}
+.chart .v{font:800 12px var(--disp)}
+.prog{height:12px;background:var(--line);margin:8px 0 6px}.prog i{display:block;height:12px;background:var(--green);width:0;transition:width 1.2s}
+.next{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center}
+.next img{width:100%;aspect-ratio:1;object-fit:cover}
+.renew{background:var(--ink);color:#fff}
+.renew h3{color:#fff}
+.renew p{color:#ffffffcc;font-size:15px}
+.renew .btn{margin-top:14px;width:100%}
+.list{border-top:2px solid var(--ink)}
+.li{display:grid;grid-template-columns:1fr auto;gap:6px 14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center}
+.li small{display:block;color:var(--mute);font-size:13px}
+.st{font:700 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:6px 9px;white-space:nowrap}
+.st.d{background:#E6F1D3;color:#3E5A12}.st.s{background:#EDE4F7;color:var(--purple)}.st.n{background:#FFF3C4;color:#5A4500}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font:700 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);padding:10px 8px;border-bottom:2px solid var(--ink)}
+td{padding:12px 8px;border-bottom:1px solid var(--line)}
+.tw{overflow-x:auto}
+.drop{border:3px dashed var(--sage);padding:36px 20px;text-align:center;cursor:pointer;transition:background .2s,border-color .2s}
+.drop.hov{background:#F3F8EA;border-color:var(--green)}
+.drop img{max-height:120px;margin:12px auto 0}
+textarea{width:100%;min-height:140px;border:2px solid var(--ink);padding:12px;font:15px/1.5 var(--sans)}
+.hqk{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.auto{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.auto i{width:10px;height:10px;background:var(--green);flex:none}
+.tabs-m{display:none}
+@media (max-width:980px){
+  .app{grid-template-columns:1fr}
+  .side{position:relative;top:0;height:auto;padding:16px 0 0}
+  .side .who{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:0 16px 14px}
+  .side nav{flex-direction:row;overflow-x:auto;padding:0;scrollbar-width:none}
+  .side nav .sep{display:none}
+  .side nav button{white-space:nowrap;border-left:0;border-bottom:4px solid transparent;padding:12px 16px}
+  .side nav button.on{border-bottom-color:var(--green)}
+  .side nav button svg{display:none}
+  .kpis,.hqk{grid-template-columns:1fr 1fr}.row2{grid-template-columns:1fr}
+}
+@media print{.hd,.side,.dock,.tourbtn,.tourbar,.ft,.noprint{display:none!important}.app{display:block;padding:0}.pane{display:block!important}}
+</style>
+</head>
+<body data-page="sponsors" data-root="../">
+<div class="app">
+  <aside class="side">
+    <div class="who"><div><b>Your Company Inc.</b><small>Sample sponsor account</small><br><span class="lvl">Gold 2026</span></div></div>
+    <nav id="tabs" aria-label="Dashboard sections">
+      <button data-p="ov" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V10M10 21V4M17 21v-8M3 21h18"/></svg>Overview</button>
+      <button data-p="be"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg>Benefits</button>
+      <button data-p="le"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>Leads</button>
+      <button data-p="as"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"/></svg>Logo and assets</button>
+      <button data-p="in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6"/></svg>Invoices</button>
+      <button data-p="ad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Add-ons</button>
+      <span class="sep">For the board</span>
+      <button data-p="hq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V9l7-5 7 5v12M10 21v-6h4v6"/></svg>Chapter HQ</button>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="topline"><div><span class="sample">Sample data. Every number here is made up for the demo.</span><h1 id="ttl" style="margin-top:12px">Welcome back</h1></div><button class="btn o noprint" onclick="print()">Download year-end report</button></div>
+
+    <section class="pane on" id="ov">
+      <div class="kpis">
+        <div class="kpi"><b data-n="12480">0</b><span>Logo views on site and screens</span><em>Up from last quarter</em></div>
+        <div class="kpi"><b data-n="384">0</b><span>Clicks to your website</span><em>Gala week was your best</em></div>
+        <div class="kpi"><b data-n="46">0</b><span>Leads from opt-in scans</span><em>Across 3 events</em></div>
+        <div class="kpi"><b data-n="7">0</b><span>of 9 benefits delivered</span><em>2 still scheduled</em></div>
+      </div>
+      <div class="row2">
+        <div class="card"><h3>Logo views by month <span class="sample">Sample</span></h3><div class="chart" id="chart"></div></div>
+        <div class="card renew"><h3>Renew for 2027</h3><p>Keep your Gold spot before it opens to the waitlist. Renew by <span class="ph">date to confirm</span> for the early rate.</p><div class="prog"><i id="rp"></i></div><p style="font-size:13px">1 of 3 Gold spots still open for 2027</p><a class="btn g" href="index.html#packages">Renew now</a></div>
+      </div>
+      <div class="row2">
+        <div class="card"><h3>Your next moment</h3><div class="next"><img src="../img/fall-event.jpg" alt=""><div><b style="font-family:var(--disp);font-size:18px">Sales Reset with Tammy Gillis</b><p style="color:var(--mute);font-size:14.5px">Thursday, Nov 26, 3:30 pm. Your logo on the welcome screen and in the follow-up email.</p><span class="st s" style="display:inline-block;margin-top:8px">Scheduled</span></div></div></div>
+        <div class="card"><h3>Benefits delivered</h3><div style="font:900 44px var(--disp)">78%</div><div class="prog"><i id="bp"></i></div><p style="font-size:14px;color:var(--mute)">7 of 9 done. One needs your new logo.</p></div>
+      </div>
+    </section>
+
+    <section class="pane" id="be"><div class="card"><h3>Your Gold benefits</h3><div class="list" id="bl"></div></div></section>
+
+    <section class="pane" id="le"><div class="card"><h3>Opt-in leads <button class="btn o" id="csv" style="min-height:42px;font-size:11px">Export CSV</button></h3><p style="color:var(--mute);font-size:14px;margin-bottom:14px">Only attendees who tick "share my details with sponsors" at check-in appear here.</p><div class="tw"><table><thead><tr><th>Contact</th><th>Role</th><th>Property type</th><th>Event</th></tr></thead><tbody id="lt"></tbody></table></div></div></section>
+
+    <section class="pane" id="as">
+      <div class="row2" style="margin-top:0">
+        <div class="card"><h3>Your logo</h3><label class="drop" id="drop"><input type="file" accept="image/*" id="file" hidden><b>Drop your logo here</b><br><span style="color:var(--mute);font-size:14px">or tap to choose. SVG or large PNG.</span><img id="prev" alt="" hidden></label><p style="font-size:14px;color:var(--mute);margin-top:10px">Your logo updates on the site, event screens and emails at once. No emailing files back and forth.</p></div>
+        <div class="card"><h3>Newsletter feature</h3><textarea id="copy" placeholder="Tell members what's new at your company (150 words)."></textarea><button class="btn p" id="send" style="margin-top:10px">Send for approval</button></div>
+      </div>
+    </section>
+
+    <section class="pane" id="in"><div class="card"><h3>Invoices</h3><div class="tw"><table><thead><tr><th>Invoice</th><th>For</th><th>Amount</th><th>Status</th><th></th></tr></thead><tbody>
+      <tr><td>Sample 0001</td><td>Gold package 2026</td><td>$6,000</td><td><span class="st d">Paid</span></td><td><button class="btn o" style="min-height:40px;font-size:11px" onclick="print()">PDF</button></td></tr>
+      <tr><td>Sample 0002</td><td>Gala table for 10</td><td>$3,500</td><td><span class="st d">Paid</span></td><td><button class="btn o" style="min-height:40px;font-size:11px" onclick="print()">PDF</button></td></tr>
+      <tr><td>Sample 0003</td><td>Lead scanning, fall event</td><td>$800</td><td><span class="st n">Due</span></td><td><button class="btn g" style="min-height:40px;font-size:11px" id="pay">Pay now</button></td></tr>
+    </tbody></table></div><p style="font-size:13px;color:var(--mute);margin-top:12px">Amounts before HST. Card payments: the chapter's current 2% card fee would show here.</p></div></section>
+
+    <section class="pane" id="ad"><div class="card"><h3>Add to your sponsorship</h3><div class="list">
+      <div class="li"><div><b>Networking break, Nov 26</b><small>Your brand on the break at the Sales Reset</small></div><a class="btn g" style="min-height:42px;font-size:11px" href="index.html#addons">Add $750</a></div>
+      <div class="li"><div><b>Replay sponsor</b><small>"Presented by" on the session replay</small></div><a class="btn g" style="min-height:42px;font-size:11px" href="index.html#addons">Add $600</a></div>
+      <div class="li"><div><b>Student seats (5)</b><small>Thanked on stage</small></div><a class="btn g" style="min-height:42px;font-size:11px" href="index.html#addons">Add $225</a></div>
+    </div><p class="sample" style="margin-top:14px">Sample prices</p></div></section>
+
+    <section class="pane" id="hq">
+      <p style="color:var(--mute);margin-bottom:14px;max-width:70ch">What Sandra and the board would see: every sponsor, every dollar and every follow-up in one view. The reminders on the right go out by themselves.</p>
+      <div class="hqk">
+        <div class="kpi"><b data-n="84500" data-cur="1">0</b><span>Sponsorship booked for 2027</span></div>
+        <div class="kpi"><b data-n="17">0</b><span>Sponsors this year</span></div>
+        <div class="kpi"><b data-n="5">0</b><span>Renewals due in 60 days</span></div>
+        <div class="kpi"><b data-n="3">0</b><span>Logos still missing</span></div>
+      </div>
+      <div class="row2">
+        <div class="card"><h3>Sponsor pipeline</h3><div class="tw"><table><thead><tr><th>Sponsor</th><th>Level</th><th>Status</th><th>Value</th></tr></thead><tbody id="pt"></tbody></table></div></div>
+        <div class="card"><h3>Sent automatically this week</h3>
+          <div class="auto"><i></i>Renewal reminder to 5 sponsors</div>
+          <div class="auto"><i></i>Logo request to 3 sponsors (2nd nudge)</div>
+          <div class="auto"><i></i>Invoice reminder: 1 overdue</div>
+          <div class="auto"><i></i>Thank-you and photo album to Gala sponsors</div>
+          <div class="auto"><i></i>Event reminder to 112 ticket holders</div>
+          <div class="auto"><i></i>Membership renewal nudge to 9 lapsed members</div>
+          <p style="font-size:13px;color:var(--mute);margin-top:12px">Each one used to be an email someone on the board wrote by hand.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<script>
+window.TOUR=[
+ ['.side','A login for every sponsor',"Sponsors emailed the VP Sponsorships for anything they needed.","Each sponsor has a private dashboard: benefits, leads, logo, invoices and add-ons.","Sponsors who can see their value renew more often."],
+ ['.kpis','Proof of value, live',"","Logo views, website clicks, opt-in leads and benefits delivered, counted for them.","This is the renewal pitch, written by the system."],
+ ['.renew','One-tap renewal',"","Early renewal with a visible countdown of spots left.","Locks next year's revenue in before the season starts."],
+ ['#tabs [data-p=hq]','Chapter HQ for the board',"","The board sees the pipeline, renewals due, missing logos and what was sent automatically.","Hours of follow-up email, gone."],
+];
+</script>
+<script src="../site.js"></script>
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const T={ov:'Welcome back',be:'Benefits',le:'Leads',as:'Logo and assets',in:'Invoices',ad:'Add-ons',hq:'Chapter HQ'};
+const count=root=>root.querySelectorAll('[data-n]').forEach(b=>{if(b.dataset.done)return;b.dataset.done=1;const n=+b.dataset.n,t0=performance.now();const f=t=>{const p=Math.min(1,(t-t0)/1200),v=Math.round(n*(1-Math.pow(1-p,3)));b.textContent=(b.dataset.cur?'$':'')+v.toLocaleString('en-CA');if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)});
+const show=p=>{$$('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.p===p));$$('.pane').forEach(x=>x.classList.toggle('on',x.id===p));$('#ttl').textContent=T[p];count($('#'+p));if(p==='hq'&&!$('#pt').children.length)pipe()};
+$$('#tabs button').forEach(b=>b.onclick=()=>{show(b.dataset.p);if(innerWidth<980)scrollTo({top:0,behavior:'smooth'})});
+/* chart */
+const M=[['May',620],['Jun',880],['Jul',940],['Aug',760],['Sep',1310],['Oct',1580],['Nov',2120]];const mx=2400;
+$('#chart').innerHTML=M.map(m=>`<div><span class="v">${m[1].toLocaleString('en-CA')}</span><i data-h="${m[1]/mx*100}"></i><small>${m[0]}</small></div>`).join('');
+setTimeout(()=>{$$('#chart i').forEach(i=>i.style.height=i.dataset.h+'%');$('#rp').style.width='66%';$('#bp').style.width='78%'},350);
+count($('#ov'));
+/* benefits */
+const B=[['Logo on chapter website, all year','d'],['Logo on event screens: Curling Social','d'],['Logo on event screens: Risk, Resilience and Results','d'],['4 seats at the Hospitality Tribute Gala','d'],['Newsletter feature','d'],['Lead scanning: From Data to Decisions','d'],['Social media thank-you','d'],['Logo on screens: Sales Reset, Nov 26','s'],['New logo for 2027 materials','n']];
+const L={d:'Delivered',s:'Scheduled',n:'Needs your logo'};
+$('#bl').innerHTML=B.map(b=>`<div class="li"><div>${b[0]}</div><span class="st ${b[1]}">${L[b[1]]}</span></div>`).join('');
+/* leads (anonymous sample rows) */
+const R=['Revenue manager','Director of sales','Marketing manager','Sales coordinator','General manager','Director of revenue','E-commerce manager','Group sales manager'],P=['Downtown full-service hotel','Airport hotel','Boutique hotel','Resort','Select-service hotel','Hotel management company'],E=['Curling Social','Risk, Resilience and Results','From Data to Decisions'];
+const rows=Array.from({length:12},(_,i)=>[`Sample contact ${String(i+1).padStart(2,'0')}`,R[i%R.length],P[(i*5)%P.length],E[i%3]]);
+$('#lt').innerHTML=rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('');
+$('#csv').onclick=()=>{const c='Contact,Role,Property type,Event\n'+rows.map(r=>r.join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([c],{type:'text/csv'}));a.download='sample-leads.csv';a.click()};
+/* logo drop */
+const d=$('#drop'),fi=$('#file');
+['dragenter','dragover'].forEach(e=>d.addEventListener(e,x=>{x.preventDefault();d.classList.add('hov')}));['dragleave','drop'].forEach(e=>d.addEventListener(e,x=>{x.preventDefault();d.classList.remove('hov')}));
+const prev=f=>{if(!f||!f.type.startsWith('image/'))return;const r=new FileReader();r.onload=()=>{const p=$('#prev');p.src=r.result;p.hidden=false};r.readAsDataURL(f)};
+d.addEventListener('drop',e=>prev(e.dataTransfer.files[0]));fi.onchange=()=>prev(fi.files[0]);
+$('#send').onclick=e=>{e.target.textContent='Preview only: nothing sent';setTimeout(()=>e.target.textContent='Send for approval',2500)};
+$('#pay').onclick=e=>{e.target.textContent='Preview only'};
+/* HQ pipeline (anonymous sample) */
+function pipe(){const S=[['Sponsor A','Platinum','Renewed',10000],['Sponsor B','Gold','Renewal due',6000],['Sponsor C','Gold','Renewed',6000],['Sponsor D','Silver','Invoice sent',3500],['Sponsor E','Silver','Logo missing',3500],['Sponsor F','Friend','Renewed',1500],['Sponsor G','Event','New lead',1000]];
+const c={Renewed:'d','Renewal due':'n','Invoice sent':'s','Logo missing':'n','New lead':'s'};
+$('#pt').innerHTML=S.map(s=>`<tr><td>${s[0]}</td><td>${s[1]}</td><td><span class="st ${c[s[2]]}">${s[2]}</span></td><td>$${s[3].toLocaleString('en-CA')}</td></tr>`).join('')}
+if(location.hash==='#hq')show('hq');
+})();
+</script>
+</body>
+</html>

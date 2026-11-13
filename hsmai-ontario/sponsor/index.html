@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sponsor HSMAI Ontario</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css">
+<style>
+.sh{position:relative;min-height:88vh;display:grid;grid-template-columns:1fr 1fr;background:var(--ink);color:#fff;padding-top:72px}
+.sh .t{padding:70px var(--gut);display:flex;flex-direction:column;justify-content:center}
+.sh h1{font-size:clamp(46px,6.6vw,104px);text-transform:uppercase;line-height:.92}
+.sh h1 em{font-style:normal;color:var(--green2)}
+.sh .ph3{position:relative;overflow:hidden}
+.sh .ph3 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kb 16s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.1)}}
+.sh .ph3 .live{position:absolute;left:24px;bottom:24px;right:24px;background:#fff;color:var(--ink);padding:16px 18px;border-left:6px solid var(--green);box-shadow:0 20px 50px #0007}
+.sh .ph3 .live b{font-family:var(--disp)}
+.sh .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+@media (max-width:900px){.sh{grid-template-columns:1fr}.sh .ph3{min-height:52vh}}
+.why{padding:100px 0;background:#fff}
+.why .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:40px}
+.why .cols div{border-top:3px solid var(--ink);padding-top:18px}
+.why .cols svg{width:40px;height:40px;stroke:var(--purple);margin-bottom:12px}
+.why .cols h3{font-size:22px;margin-bottom:8px}
+.why .cols p{color:var(--mute)}
+@media (max-width:860px){.why .cols{grid-template-columns:1fr;gap:26px}}
+.pk{padding:100px 0;background:var(--paper)}
+.pks{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:40px}
+.pkc{background:#fff;padding:24px 20px;display:flex;flex-direction:column;gap:10px;border-top:6px solid var(--sage);position:relative;transition:transform .3s,box-shadow .3s}
+.pkc:hover{transform:translateY(-6px);box-shadow:0 24px 50px #0002}
+.pkc.pl{border-color:var(--ink)}.pkc.go{border-color:#B8962E}.pkc.si{border-color:#9AA3A8}.pkc.fr{border-color:var(--green)}.pkc.ev{border-color:var(--purple)}
+.pkc h3{font-size:22px;text-transform:uppercase}
+.pkc .pr{font:900 26px var(--disp)}
+.pkc ul{list-style:none;font-size:14px;color:#333;flex:1}
+.pkc li{padding:7px 0;border-top:1px solid var(--line)}
+.pkc .left{font:700 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--purple)}
+.pkc .meter{height:6px;background:var(--line)}.pkc .meter i{display:block;height:6px;background:var(--green)}
+.pkc .btn{min-height:46px;font-size:12px}
+.pkc.sel{outline:3px solid var(--green)}
+@media (max-width:1100px){.pks{grid-template-columns:repeat(5,82%);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}.pkc{scroll-snap-align:start}}
+@media (min-width:600px) and (max-width:1100px){.pks{grid-template-columns:repeat(5,44%)}}
+.ad{padding:100px 0;background:#fff}
+.ad .g{display:grid;grid-template-columns:1.3fr .8fr;gap:40px;align-items:start}
+.al{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
+.ai{display:flex;gap:14px;padding:18px;border:2px solid var(--line);cursor:pointer;transition:border-color .2s,background .2s;align-items:flex-start}
+.ai.on{border-color:var(--green);background:#F3F8EA}
+.ai input{width:22px;height:22px;accent-color:var(--green);flex:none;margin-top:2px}
+.ai b{font-family:var(--disp);font-size:17px;display:block}
+.ai small{color:var(--mute);font-size:13.5px;display:block;margin-top:2px}
+.ai .p{font:800 15px var(--disp);color:var(--purple);margin-top:6px;display:block}
+.ai.out{opacity:.5;cursor:not-allowed}
+.cart{position:sticky;top:96px;background:var(--plum);color:#fff;padding:26px}
+.cart h3{text-transform:uppercase;font-size:20px}
+.cart .ln{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #ffffff1a;font-size:14.5px}
+.cart .tot{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;font:900 32px var(--disp)}
+.cart .tot small{font:600 13px var(--sans);color:#ffffffaa}
+.cart .btn{width:100%;margin-top:12px}
+.cart .fine{font-size:12.5px;color:#ffffff99;margin-top:12px}
+@media (max-width:900px){.ad .g{grid-template-columns:1fr}.al{grid-template-columns:1fr}.cart{position:relative;top:0}}
+.thank{padding:90px 0;background:var(--ink);color:#fff}
+.thank .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:30px}
+.thank h4{font:700 12px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--green2);margin-bottom:10px}
+.thank p{color:#ffffffcc;line-height:1.9}
+@media (max-width:760px){.thank .cols{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="sponsors" data-root="../">
+<main>
+<section class="sh" id="shero">
+  <div class="t">
+    <p class="kick" style="color:#ffffffaa">Sponsor portal</p>
+    <h1>Be seen by the people who <em>book</em> Ontario</h1>
+    <p class="lead" style="margin-top:20px">Showcase your brand to Ontario's hotel sales, marketing and revenue leaders. Choose a package, add extras and pay online, then track every benefit in your own dashboard.</p>
+    <div class="acts"><a class="btn g" href="#packages">See packages</a><a class="btn o" href="login.html">Sponsor login</a></div>
+  </div>
+  <div class="ph3"><img src="../img/gala-royalyork.jpg" alt="Hospitality Tribute Gala at the Fairmont Royal York">
+    <div class="live"><span class="sample" style="margin-bottom:8px">Sample</span><br><b id="tick">Gold: 1 of 3 spots left for 2027</b></div></div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <p class="kick">Why sponsor</p>
+    <h2>Your market, in one room</h2>
+    <div class="cols">
+      <div><svg viewBox="0 0 40 40" fill="none" stroke-width="2"><path d="M6 34V20M16 34V12M26 34V16M36 34V6"/></svg><h3>Reach decision makers</h3><p>Hotel sales, marketing and revenue leaders from across Ontario, at education events, socials and the gala.</p></div>
+      <div><svg viewBox="0 0 40 40" fill="none" stroke-width="2"><path d="M8 20h24M20 8v24"/><rect x="4" y="4" width="32" height="32"/></svg><h3>Build in your own ideas</h3><p>The chapter is open to all sponsorship ideas. If it isn't on the list, tell us what you have in mind.</p></div>
+      <div><svg viewBox="0 0 40 40" fill="none" stroke-width="2"><path d="M4 30l10-10 8 8 14-16"/><path d="M28 12h8v8"/></svg><h3>See what you got</h3><p>Your dashboard shows every benefit delivered, the leads you've met and an end-of-year report for your boss.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pk" id="packages">
+  <div class="wrap">
+    <p class="kick">2027 packages</p>
+    <h2>Pick your level</h2>
+    <p class="lead" style="margin-top:14px">Level names are HSMAI Ontario's own. Prices, benefits and spot counts below are <span class="ph">suggestions to confirm with the board</span>.</p>
+    <div class="pks" id="pks"></div>
+  </div>
+</section>
+
+<section class="ad" id="addons">
+  <div class="wrap g">
+    <div>
+      <p class="kick">Add-ons</p>
+      <h2>Build your own</h2>
+      <p class="lead" style="margin-top:14px">Stack extras on any package, or buy them on their own. Sold-out items close by themselves. <span class="sample">Sample prices</span></p>
+      <div class="al" id="al"></div>
+    </div>
+    <aside class="cart" aria-live="polite">
+      <h3>Your sponsorship</h3>
+      <div id="cl" style="margin-top:10px"><div class="ln"><span>Pick a package or add-on</span></div></div>
+      <div class="tot"><small>Total, plus HST</small><span id="ct">$0</span></div>
+      <button class="btn g" id="res">Reserve and pay</button>
+      <button class="btn o" style="color:#fff" id="inv">Send me an invoice</button>
+      <p class="fine">Preview only. Live version: pay by card, or get a PDF invoice by email. Your dashboard login is created the moment you reserve. Questions: Omkar Sawant, VP Sponsorships, sponsorship@hsmaiontario.ca.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="thank" id="thank">
+  <div class="wrap">
+    <p class="kick" style="color:#ffffffaa">Thank you</p>
+    <h2>2026 sponsors</h2>
+    <div class="cols">
+      <div><h4>Annual sponsors</h4><p>Nuitee<br>Ignite<br>Fairmont Royal York<br>Tambourine<br>Palm Holdings<br>FoxFold</p></div>
+      <div><h4>Gala sponsors</h4><p>FoxFold Revenue Generation, Travelodge, Airbnb, Comeback Snacks, Rocky, Air Canada, Shutterb, Encore, National Payments</p></div>
+      <div><h4>Event sponsors and friends</h4><p>Mews, PRL (Purves Redmond Ltd) Insurance. Friends of HSMAI: Best Western Hotels, Palm Holdings, Dhalla Group, Mews</p></div>
+    </div>
+  </div>
+</section>
+</main>
+<script>
+window.TOUR=[
+ ['#shero','A real sponsor portal',"A page of logos and a sign-up form.","A sponsor home with live spot counts and a login for current sponsors.","Scarcity sells: when buyers see spots running out, they commit sooner."],
+ ['#packages','Packages you can buy online',"Pick a level on a form, then wait for an email.","All five of Ontario's levels side by side, with what's included and what's left.","Sponsors can say yes at 10 pm without waiting on a volunteer."],
+ ['#addons','Add-ons with a live total',"Extras were worked out over email.","Gala tables, coffee breaks, replays, lead scanning and more, added with one tap.","Every add-on is extra revenue on top of the package."],
+ ['#thank','Credit where it is due',"","Every 2026 sponsor named, by level.","Public thanks is the first step in the renewal conversation."],
+];
+</script>
+<script src="../site.js"></script>
+<script>
+(()=>{
+const $=s=>document.querySelector(s),fmt=n=>'$'+n.toLocaleString('en-CA');
+const P=[
+ ['pl','Platinum',10000,1,1,['Top logo on site, screens and signage','Gala table for 10','Speak at one education event','Lead scanning at every event','Year-end results report']],
+ ['go','Gold',6000,3,1,['Logo on site, screens and signage','4 gala seats','Newsletter feature','Lead scanning at 3 events']],
+ ['si','Silver',3500,5,2,['Logo on site and screens','2 gala seats','Social media thank-you']],
+ ['fr','Friend of HSMAI Ontario',1500,10,6,['Name on site and screens','1 event ticket']],
+ ['ev','Event sponsor',1000,8,3,['Logo at one event','Welcome remarks moment','Attendee list (opt-in only)']]];
+let sel=null;const add=new Set();
+$('#pks').innerHTML=P.map(p=>`<div class="pkc ${p[0]}" data-k="${p[0]}"><h3>${p[1]}</h3><div class="pr">${fmt(p[2])}<span class="ph" style="font-size:11px;margin-left:6px">to confirm</span></div><div class="left">${p[4]} of ${p[3]} left</div><div class="meter"><i style="width:${(p[3]-p[4])/p[3]*100}%"></i></div><ul>${p[5].map(b=>`<li>${b}</li>`).join('')}</ul><button class="btn p">Choose ${p[1].split(' ')[0]}</button></div>`).join('');
+document.querySelectorAll('.pkc').forEach(c=>c.querySelector('button').onclick=()=>{sel=sel===c.dataset.k?null:c.dataset.k;document.querySelectorAll('.pkc').forEach(x=>x.classList.toggle('sel',x.dataset.k===sel));calc();$('#addons').scrollIntoView({behavior:'smooth'})});
+const A=[
+ ['tab','Gala table for 10','Hospitality Tribute Gala, Fairmont Royal York',3500,1],
+ ['cat','Name a gala award','Your name on one award category',2500,1],
+ ['cof','Networking break','Your brand on the coffee or cocktail break',750,1],
+ ['lan','Lanyards and badges','Your logo around every attendee\'s neck',1200,0],
+ ['rep','Replay sponsor','"Presented by" on session replays',600,1],
+ ['ph','Photo gallery sponsor','Your logo on every event photo album',500,1],
+ ['nl','Newsletter feature','A story about your company to every member',400,1],
+ ['lead','Lead scanning','Scan badges of attendees who opt in',800,1],
+ ['stu','Student seats (5)','Send five students; thanked on stage',225,1],
+ ['job','Featured job posts (3)','Top of the chapter job board for 30 days',300,1]];
+$('#al').innerHTML=A.map(a=>`<label class="ai${a[4]?'':' out'}"><input type="checkbox" value="${a[0]}"${a[4]?'':' disabled'}><span><b>${a[1]}</b><small>${a[2]}</small><span class="p">${a[4]?fmt(a[3]):'Sold out for 2027'}</span></span></label>`).join('');
+document.querySelectorAll('.ai input').forEach(i=>i.onchange=()=>{i.checked?add.add(i.value):add.delete(i.value);i.closest('.ai').classList.toggle('on',i.checked);calc()});
+function calc(){const L=[];let t=0;if(sel){const p=P.find(x=>x[0]===sel);L.push([p[1]+' package',p[2]]);t+=p[2]}
+ A.forEach(a=>{if(add.has(a[0])){L.push([a[1],a[3]]);t+=a[3]}});
+ $('#cl').innerHTML=L.length?L.map(l=>`<div class="ln"><span>${l[0]}</span><span>${fmt(l[1])}</span></div>`).join(''):'<div class="ln"><span>Pick a package or add-on</span></div>';$('#ct').textContent=fmt(t)}
+$('#res').onclick=()=>{location.href='login.html?new=1'};
+$('#inv').onclick=e=>{e.target.textContent='Preview only: nothing sent';setTimeout(()=>e.target.textContent='Send me an invoice',2500)};
+const msgs=['Gold: 1 of 3 spots left for 2027','Gala tables: 4 of 12 left','Lanyards: sold out for 2027','Platinum: 1 spot, renewal window open'];let m=0;
+setInterval(()=>{m=(m+1)%msgs.length;$('#tick').textContent=msgs[m]},3200);
+})();
+</script>
+</body>
+</html>
