@@ -92,7 +92,7 @@ button{background:none;border:0;cursor:pointer}
 .vbx{max-width:680px!important;max-height:90vh;max-height:90dvh;display:flex;flex-direction:column;padding:20px!important}
 .vfil{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:10px 0 8px}
 .vfil select{min-height:44px;width:100%;border:1.5px solid var(--ivory2);background:#fff;color:var(--ink);padding:0 8px;font-size:16px;border-radius:3px}
-.vcount{font:800 12px var(--f);letter-spacing:.1em;text-transform:uppercase;color:var(--gold2);margin-bottom:8px;min-height:16px}
+.vcount{font:800 12px/1.4 var(--f);letter-spacing:.08em;text-transform:uppercase;color:var(--gold2);margin-bottom:8px;min-height:16px}
 #venL{overflow:auto;display:flex;flex-direction:column;gap:8px;flex:1;min-height:120px;-webkit-overflow-scrolling:touch}
 .vdv{display:inline-block;background:var(--gold);color:var(--ink);font:800 10px/1 var(--f);letter-spacing:.12em;text-transform:uppercase;padding:4px 7px;border-radius:2px;margin-bottom:6px}
 .vgrp{flex:none;position:sticky;top:0;z-index:1;background:var(--ink);color:#fff;font:800 12px var(--f);letter-spacing:.1em;text-transform:uppercase;padding:8px 10px;border-left:4px solid var(--gold)}
@@ -188,14 +188,6 @@ body{grid-template-rows:auto auto 1fr}
 .vrg::-webkit-scrollbar{display:none}
 .vrg button{flex:none;min-height:44px;padding:0 15px;border:1.5px solid var(--ivory2);border-radius:3px;background:#fff;color:var(--ink);font:800 12px var(--f);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
 .vrg button.on{background:var(--gold);border-color:var(--gold)}
-.vtk{overflow:hidden;white-space:nowrap;margin:10px 0 8px;border-top:1.5px solid var(--ivory2);border-bottom:1.5px solid var(--ivory2);flex:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.vtk div{display:inline-flex;animation:vtk 36s linear infinite}
-.vtk:hover div{animation-play-state:paused}
-.vtk button{min-height:44px;padding:0 16px;font:800 13px var(--f);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
-.vtk button b{font:900 15px var(--f);padding:2px 5px;border-radius:2px;margin-right:4px;color:var(--gold2);animation:vfl 8.4s linear infinite}
-@keyframes vtk{to{transform:translateX(-50%)}}
-@keyframes vfl{0%,10%{background:var(--gold);color:var(--ink)}14%,100%{background:transparent;color:var(--gold2)}}
-@media (prefers-reduced-motion:reduce){.vtk{overflow-x:auto}.vtk div,.vtk button b{animation:none}}
 .sel{flex-wrap:wrap;max-width:calc(100% - 24px)}
 .home{position:fixed;inset:0;z-index:50;background:var(--ink);display:none;overflow:auto;-webkit-overflow-scrolling:touch}
 .home.on{display:block}
@@ -345,7 +337,6 @@ body.view .vbar{display:flex;flex:none;align-items:center;gap:14px;flex-wrap:wra
     <select id="venF" aria-label="Plan type" hidden style="display:none"><option value="">All plans</option></select>
     <select id="venS" aria-label="Sort"><option value="type">Sort by venue type</option><option value="city">Sort by city</option><option value="event">Sort by event type</option><option value="name">Sort A to Z</option></select>
   </div>
-  <div class="vtk" id="vtk" hidden><div id="vtkI"></div></div>
   <div class="vcount" id="venN"></div>
   <div id="venL"></div>
   <p class="vnote">Plans are the ones each venue publishes for planners. Confirm the current layout with the venue before you finalize.</p>
@@ -792,9 +783,9 @@ function venList(){var q=$('#venQ').value.trim().toLowerCase().split(/\s+/).filt
   if(so)L=L.slice().sort(function(a,b){return pin(a)-pin(b)||key(a).localeCompare(key(b))||a.n.localeCompare(b.n)});
   var nv={};L.forEach(function(v){nv[v.n+'|'+v.c]=1});
   var ne=L.filter(function(v){return v.est}).length;
-  var ix=estIx(),pend=estPend(),pn=0,pv=0,nar=q.length||fc||ft||fe||RG==='gta';if(!ff&&!nar)pend.forEach(function(p){if(fk&&ix[p][2]!==fk)return;if(fp&&p!==fp)return;pn+=ix[p][0];pv+=ix[p][1]});
+  var ix=estIx(),pend=estPend(),pn=0,pv=0,nar=q.length||fc||ft||fe||RG==='gta';var kc={},cc={};L.forEach(function(v){var k=vK(v);kc[k==='Europe'?'E'+vP(v):k]=1;cc[v.c]=1});if(!ff&&!nar)pend.forEach(function(p){if(fk&&ix[p][2]!==fk)return;if(fp&&p!==fp)return;pn+=ix[p][0];pv+=ix[p][1];kc[ix[p][2]==='Europe'?'E'+p:ix[p][2]]=1});
   var busy=!ff&&pend.some(function(p){return ESTS[p]!==3}),tn=L.length+pn,tv=Object.keys(nv).length+pv;
-  $('#venN').textContent=tn?tn.toLocaleString('en-CA')+' floor plan'+(tn===1?'':'s')+' at '+tv.toLocaleString('en-CA')+' venue'+(tv===1?'':'s')+(busy&&nar?' so far':''):'';
+  $('#venN').textContent=tn?tn.toLocaleString('en-CA')+' floor plan'+(tn===1?'':'s')+' across '+tv.toLocaleString('en-CA')+' venue'+(tv===1?'':'s')+(function(){var nk=Object.keys(kc).length,nc=Object.keys(cc).length;return (nk>1?', '+nk.toLocaleString('en-CA')+' countries':'')+(nc>1?', '+nc.toLocaleString('en-CA')+' cities':'')})()+(busy&&nar?' so far':''):'';
   var h='',last=null;L.slice(0,venMax).forEach(function(v){var g=so?key(v):null;if(g!==null&&g!==last){h+='<div class="vgrp">'+esc(g)+'</div>';last=g}
     h+='<div class="vrow'+(v.dv?' vd':'')+(v.est?' ve':'')+'" role="button" tabindex="0" data-v="'+v.id+'"><img src="'+(v.d?estImg(v,1).u:'venues/'+v.id+'-t.jpg')+'" alt="" loading="lazy" width="96" height="64"><span>'+'<small>'+esc(so==='city'?vT(v):so==='type'?v.c:v.c+' · '+vT(v))+'</small><b>'+esc(v.n)+'</b><span>'+esc(String(v.r).replace(/ \*$/,''))+(v.est?'<i title="Drawn to the room\'s published dimensions" style="font-style:normal">*</i>':'')+'</span>'+(v.vt?'<a class="vtour" href="'+esc(v.vt)+'" target="_blank" rel="noopener">View 3D tour</a>':'')+'</span>'+(v.dv?'<a class="vpast" href="#" data-vp="'+v.id+'">Click to view past layouts here</a>':'')+'</div>'});
   if(L.length>venMax)h+='<button class="tb" id="venMore" style="flex:none;justify-content:center">Show more venues</button>';
@@ -1025,15 +1016,6 @@ $('#saskGo').onclick=function(){$('#sask').classList.remove('on');startScale()};
 $('#saskX').onclick=function(){$('#sask').classList.remove('on');goLayout(true)};
 function kickMaybe(){if(!scaling&&!S.objs.length&&!VIEW&&!$('#home').classList.contains('on'))$('#kick').classList.add('on')}
 $('#dlgOk').addEventListener('click',kickMaybe);$('#dlgX').addEventListener('click',kickMaybe);
-var TKO=['Hotel','Convention centre','Conference centre','Event venue','Restaurant','Banquet hall'],TKN={'Event venue':'unique event spaces','Exhibition grounds':'exhibition grounds'},tkSig='';
-function tkName(t){if(TKN[t])return TKN[t];var s=t.toLowerCase();return /[^aeiou]y$/.test(s)?s.slice(0,-1)+'ies':/(s|x|ch)$/.test(s)?s+'es':s+'s'}
-function tick(){var nar=$('#venQ').value.trim()||['#venC','#venT','#venE'].some(function(x){return $(x).value}),fk=$('#venK').value,fp=$('#venP').value;
-  $('#vtk').hidden=!!nar;$('#venN').style.display=nar?'':'none';if(nar)return;
-  var m={},seen={};VEN.forEach(function(v){if(fk&&vK(v)!==fk)return;if(fp&&vP(v)!==fp)return;if(RG==='gta'&&!GTA[vCity(v)])return;var k=v.n+'|'+v.c;if(seen[k])return;seen[k]=1;var t=vT(v);m[t]=(m[t]||0)+1});
-  var ks=Object.keys(m).sort(function(a,b){var i=TKO.indexOf(a),j=TKO.indexOf(b);return (i<0?99:i)-(j<0?99:j)||a.localeCompare(b)}),sig=ks.join('|');
-  if(sig!==tkSig){tkSig=sig;var one=ks.map(function(k,i){return '<button type="button" data-t="'+esc(k)+'"><b style="animation-duration:'+(ks.length*1.2)+'s;animation-delay:'+(i*1.2)+'s"></b>'+esc(tkName(k))+'</button>'}).join('');
-    $('#vtkI').innerHTML=one+one;$$('#vtkI button').forEach(function(b){b.onclick=function(){$('#venT').value=b.dataset.t;$('#venT').onchange()}})}
-  $$('#vtkI button').forEach(function(b){b.firstChild.textContent=m[b.dataset.t].toLocaleString('en-CA')})}
 var RG='gta',GTA={},RGS={gta:['Canada','ON'],on:['Canada','ON'],canada:['Canada',''],usa:['USA',''],mexico:['Mexico',''],europe:['Europe',''],all:['','']};
 'Toronto|North York|Scarborough|Etobicoke|Mississauga|Brampton|Markham|Unionville|Vaughan|Concord|Woodbridge|Maple|Kleinburg|Thornhill|Richmond Hill|Oakville|Burlington|Milton|Halton Hills|Georgetown|Pickering|Ajax|Whitby|Oshawa|Clarington|Newcastle|Bowmanville|Uxbridge|Newmarket|Aurora|King City|Caledon|Stouffville|Whitchurch-Stouffville|East Gwillimbury|Georgina'.split('|').forEach(function(c){GTA[c]=1});
 function rgMark(){$$('#vrg button').forEach(function(b){b.classList.toggle('on',b.dataset.r===RG)})}
@@ -1041,7 +1023,7 @@ function setRG(x){var g=RGS[x]||RGS.all;RG=x;$('#venC').value='';$('#venK').valu
 $$('#vrg button').forEach(function(b){b.onclick=function(){setRG(b.dataset.r)}});
 ['#venK','#venP'].forEach(function(x){$(x).addEventListener('change',function(){var k=$('#venK').value,p=$('#venP').value;RG='';Object.keys(RGS).forEach(function(n){if(n!=='gta'&&RGS[n][0]===k&&RGS[n][1]===p)RG=n});rgMark();venList()})});
 var _ov=openVen;openVen=function(f){_ov(f);if(venOK)setRG(RG||'gta')};
-var _vl=venList;venList=function(){_vl();tick()};
+
 var _pv=pickVenue;pickVenue=function(id){var v=VEN.find(function(x){return x.id===id});plPend=v?(v.d?{d:v.d,r:String(v.r).replace(/ \*$/,'')}:{i:v.id}):null;_pv(id)};
 var _lp=loadPlan;loadPlan=function(u,w,h){var p=plPend;plPend=null;_lp(u,w,h);endScale();PL=p;savePL();
   if(p&&p.d){var k=(p.d[0]*w/900)/S.pw;S.pw*=k;S.ph*=k;S.ftPerPx=S.pw/w;drawPlan();fit();render();goLayout(true)}
