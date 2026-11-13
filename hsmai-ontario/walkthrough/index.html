@@ -70,9 +70,12 @@ a{color:inherit}
 .frame.phone .chrome{height:0;opacity:0;padding:0}
 .frame.phone .scrn{border-radius:28px}
 .frame.prelaunch{transform:translate(-50%,-50%) scale(2.6) rotateX(18deg);opacity:0}
+.frame.gone{opacity:0;visibility:hidden;transition:opacity .5s,visibility 0s .5s;transform:translate(-50%,-50%) scale(.92);pointer-events:none}
 .frame.dip{transform:translate(-50%,-50%) scale(.9) rotateY(-6deg)}
 .tag{position:absolute;right:22px;top:20px;z-index:2;font:700 11px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#ffffff99}
-.end{position:absolute;inset:0;z-index:4;display:none;align-items:center;justify-content:center;padding:30px;background:linear-gradient(180deg,#0E0816cc,#0E0816f5),url(../img/gala-ballroom.jpg) center/cover}
+.end{position:absolute;inset:0;z-index:4;display:none;align-items:center;justify-content:center;padding:30px;overflow-y:auto;background:#0E0816 linear-gradient(180deg,#0E0816e6,#0E0816fa)}
+[hidden]{display:none!important}
+@media(max-width:760px){.end{align-items:flex-start;padding:24px 20px}.end h2{font-size:32px}.end p{font-size:15px}.end .acts a{width:100%;justify-content:center}.end .sig{margin-top:20px}}
 .end.on{display:flex;animation:tin .8s both}
 .end .in{max-width:680px}
 .end h2{font:900 clamp(34px,5vw,68px)/.95 var(--disp);text-transform:uppercase}
@@ -181,13 +184,13 @@ function caption(i){const s=S[i];const box=$('#cbox');box.classList.remove('t-in
  $('#sec').textContent=s[0];$('#num').textContent=`${i+1} / ${S.length}`;$('#ttl').textContent=s[1];$('#txt').innerHTML=s[2];const w=$('#why');w.hidden=!s[3];w.innerHTML='<b>Why it matters</b>'+s[3];
  $('#url').textContent='hsmaiontario.ca/'+(s[4]==='index.html'?'':s[4].replace('index.html','').replace('.html',''));$('#open').href=url(s[4],s[5]).replace('?embed','').replace('?demo','?demo');
  [...$('#prog').children].forEach((b,j)=>{b.classList.toggle('done',j<i);b.querySelector('i').style.transition='none';b.querySelector('i').style.width=j<i?'100%':'0'})}
-function go(i){if(i<0)i=0;if(i>=S.length)return finish();clearTimeout(timer);tok++;$('#end').classList.remove('on');const prev=cur;cur=i;caption(i);
+function go(i){if(i<0)i=0;if(i>=S.length)return finish();clearTimeout(timer);tok++;$('#end').classList.remove('on');$('#frame').classList.remove('gone');const prev=cur;cur=i;caption(i);
  const sameDev=S[prev][6]===S[i][6];fr.classList.add('dip');
  load(i,nf=>{geo();const of=F[front];nf.classList.remove('off');of.classList.add('off');front=F.indexOf(nf);setTimeout(()=>fr.classList.remove('dip'),sameDev?80:300);left=DUR;if(!paused)run()})}
 function run(){t0=Date.now();const b=$('#prog').children[cur].querySelector('i');b.style.transition='none';b.style.width=((DUR-left)/DUR*100)+'%';requestAnimationFrame(()=>requestAnimationFrame(()=>{b.style.transition=`width ${left}ms linear`;b.style.width='100%'}));timer=setTimeout(()=>go(cur+1),left)}
 function pause(p){paused=p;$('#ppl').textContent=p?'Play':'Pause';$('#ppi').innerHTML=p?'<path d="M7 4l13 8-13 8z"/>':'<path d="M6 4h4v16H6zM14 4h4v16h-4z"/>';
  if(p){clearTimeout(timer);left-=Date.now()-t0;const b=$('#prog').children[cur].querySelector('i');b.style.width=getComputedStyle(b).width;b.style.transition='none'}else run()}
-function finish(){clearTimeout(timer);tok++;[...$('#prog').children].forEach(b=>{b.classList.add('done');b.querySelector('i').style.width='100%'});$('#end').classList.add('on');$('#sec').textContent='Thank you';$('#num').textContent='';$('#ttl').textContent='Over to you';$('#txt').innerHTML='<p>Pick the pieces you want first. We will build them with you and your board for the 2027 season.</p>';$('#why').hidden=true;cur=S.length-1}
+function finish(){clearTimeout(timer);tok++;[...$('#prog').children].forEach(b=>{b.classList.add('done');b.querySelector('i').style.width='100%'});$('#end').classList.add('on');$('#frame').classList.add('gone');$('#sec').textContent='Thank you';$('#num').textContent='';$('#ttl').textContent='Over to you';$('#txt').innerHTML='<p>Pick the pieces you want first. We will build them with you and your board for the 2027 season.</p>';$('#why').hidden=true;cur=S.length-1}
 $('#prog').innerHTML=S.map((s,i)=>`<button aria-label="Go to ${s[1].replace(/"/g,'')}"><i></i></button>`).join('');
 [...$('#prog').children].forEach((b,i)=>b.onclick=()=>{paused=false;pause(false);clearTimeout(timer);go(i)});
 $('#nx').onclick=()=>{clearTimeout(timer);go(cur+1)};$('#bk').onclick=()=>{clearTimeout(timer);go(cur-1)};
