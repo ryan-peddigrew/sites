@@ -12,6 +12,6 @@ Paintings: Ryan confirmed permission to use them; do not credit or mention them 
 ## Open items
 1. Email address for the email button (marked "needed").
 2. Email sign-up goes to her Beacons page for now; not connected to her list.
-3. Prices shown as on Beacons ("$", currency not stated there).
+3. Prices are CAD (Ryan, 12 Nov 2026).
 4. Product descriptions are only what the Beacons page shows.
 5. Decided 12 Nov 2026: wordmark A (stacked); new logo = The Stack (primary) + The Signature "f." (secondary), see brand/logo.html. Old round logo kept as img/logo.png and img/logo-face.png (archive).
