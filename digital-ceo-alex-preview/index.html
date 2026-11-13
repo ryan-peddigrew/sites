@@ -63,7 +63,7 @@ a{color:inherit}
 .snd svg{width:18px;height:18px}
 .snd[aria-pressed=true],.hd.lite .snd[aria-pressed=true]{background:var(--butter);color:var(--ink);border-color:var(--butter)}
 @media(min-width:900px){.hd nav{display:flex}.hd{padding:14px 32px}}
-#fly{height:100vh;height:100svh;position:relative;overflow:hidden}
+#fly{height:300vh;position:relative}
 #fly .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
 .lay{position:absolute;inset:0;will-change:transform}
 .lay img{width:100%;height:100%;object-fit:cover}
@@ -76,20 +76,13 @@ body.loading #adam img,body.loading #motes{animation-play-state:paused}
 #venus{clip-path:inset(50%);-webkit-clip-path:inset(50%)}
 #venus img{object-position:50% 30%}
 .shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.45) 0,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 34%,rgba(14,10,8,.55) 52%,rgba(14,10,8,.92) 100%)}
-#hc{position:absolute;left:50%;top:60%;width:clamp(220px,58vw,300px);height:clamp(280px,70vw,380px);transform:translate(-50%,-50%);overflow:hidden;transition:left 1.2s cubic-bezier(.7,0,.2,1),top 1.2s cubic-bezier(.7,0,.2,1),width 1.2s cubic-bezier(.7,0,.2,1),height 1.2s cubic-bezier(.7,0,.2,1),transform 1.2s cubic-bezier(.7,0,.2,1)}
+#hc{position:absolute;left:calc(50% * (1 - var(--k,0)));top:calc(60% * (1 - var(--k,0)));width:calc(clamp(220px,58vw,300px) + (100vw - clamp(220px,58vw,300px)) * var(--k,0));height:calc(clamp(280px,70vw,380px) + (100vh - clamp(280px,70vw,380px)) * var(--k,0));transform:translate(calc(-50% * (1 - var(--k,0))),calc(-50% * (1 - var(--k,0))));overflow:hidden}
 #hc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-#hc:after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(14,10,8,.45),rgba(14,10,8,.88));opacity:0;transition:opacity 1.2s ease}
-#hc.open{left:0;top:0;width:100vw;height:100vh;height:100svh;transform:none}
-#hc.open:after{opacity:1}
-#hc.open .fr{border-width:0;box-shadow:none}
-#go{position:absolute;left:50%;top:50%;z-index:3;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 26px;background:var(--butter);color:var(--esp);border:0;font:800 15px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:opacity .5s ease}
-#go svg{width:16px;height:16px}
-#go:focus-visible{outline:3px solid var(--paper);outline-offset:4px}
-#hc.open #go{opacity:0;pointer-events:none}
-.pg{opacity:0;transform:translateY(70px) scale(.94);pointer-events:none;transition:opacity .8s ease,transform 1s cubic-bezier(.2,.8,.2,1)}
-.pg.on{opacity:1;transform:none;pointer-events:auto}
-.pg.out{opacity:0;transform:translateY(-90px) scale(1.08);transition:opacity .7s ease,transform .9s ease-in}
-#hc .fr{position:absolute;inset:0;border:2px solid var(--paper);box-shadow:0 40px 80px -24px rgba(0,0,0,.6);z-index:2;pointer-events:none;transition:border-width .8s,box-shadow .8s}
+#hc:after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(14,10,8,.45),rgba(14,10,8,.88));opacity:var(--k,0)}
+.pg{opacity:0;transform:translateY(70px) scale(.94);pointer-events:none}
+#t3{bottom:calc(112px + env(safe-area-inset-bottom))}
+@media(min-width:900px){#t3{bottom:56px}}
+#hc .fr{position:absolute;inset:0;border:2px solid var(--paper);border-width:calc(2px * (1 - var(--k,0)));box-shadow:0 40px 80px -24px rgba(0,0,0,.6);z-index:2;pointer-events:none}
 #hc .tg{position:absolute;left:0;right:0;top:calc(100% + 10px);text-align:center;font:800 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--paper)}
 #spark{position:absolute;left:38%;top:44%;width:16vmin;height:16vmin;transform:translate(-50%,-50%) scale(0);border-radius:50%;background:radial-gradient(circle,#fff 0,#FFF6D2 14%,rgba(247,220,130,.85) 30%,rgba(230,190,90,.35) 50%,rgba(230,190,90,0) 70%);box-shadow:0 0 40px 10px rgba(255,236,170,.55);pointer-events:none}
 :root{--htop:calc(74px + env(safe-area-inset-top))}
@@ -331,7 +324,7 @@ body.touring .tour-btn{display:none}
   <div class="stage">
     <div class="lay" id="adam"><img src="img/adam.webp" alt="" fetchpriority="high"></div>
         <div class="shade"></div>
-    <canvas id="motes" aria-hidden="true"></canvas><div id="spark"></div><div id="hc"><img src="img/flora.webp" alt=""><div class="fr"></div><button class="go" id="go" type="button"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>Start</button></div>
+    <canvas id="motes" aria-hidden="true"></canvas><div id="spark"></div><div id="hc"><img src="img/flora.webp" alt=""><div class="fr"></div></div>
     <div class="htxt pg on" id="t1">
       <h1 class="bk hw" id="hw"><span class="hl">Faceless.</span><span class="hl"><i>not</i></span><span class="hl"><span class="y">boring.</span></span></h1>
       <p>Helping you build faceless income online.</p>
@@ -517,18 +510,7 @@ $('#feat .bd').insertAdjacentHTML('beforeend',addBtn(ACAD[0][5]));
 renderCart();
 
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-var fly=$('#fly'),hc=$('#hc'),goB=$('#go'),pgs=[$('#t1'),$('#t2'),$('#t3')],gal=$('#gal'),hd=$('#hd');
-var started=0;
-function startHero(){
- if(started)return;started=1;
- if(typeof whoosh=='function')whoosh();
- hc.classList.add('open');
- if(reduce){pgs[0].classList.remove('on');pgs[2].classList.add('on');return}
- pgs[0].classList.remove('on');pgs[0].classList.add('out');
- setTimeout(function(){pgs[1].classList.add('on')},1100);
- setTimeout(function(){pgs[1].classList.remove('on');pgs[1].classList.add('out');pgs[2].classList.add('on')},4700);
-}
-goB.onclick=startHero;
+var fly=$('#fly'),hc=$('#hc'),pgs=[$('#t1'),$('#t2'),$('#t3')],gal=$('#gal'),hd=$('#hd');
 function cl(v,a,b){return Math.min(b,Math.max(a,v))}
 function seg(p,a,b){return cl((p-a)/(b-a),0,1)}
 function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
@@ -543,8 +525,17 @@ function drawMotes(P,t){var f=(1-seg(P,.08,.3))*Math.min(1,Math.max(0,(t-3.8)/1.
  MS.forEach(function(m){var a=m.a+t*m.s*.35,r=m.r*k*(1+.08*Math.sin(t*.7+m.o)),x=cx+Math.cos(a)*r*1.5,y=cy+Math.sin(a)*r*.55-Math.sin(t*.5+m.o)*10,al=f*(.35+.45*Math.sin(t*1.7+m.o*2));
   if(al<=0)return;var g=mx.createRadialGradient(x,y,0,x,y,m.z*4);g.addColorStop(0,'rgba(255,246,210,'+al+')');g.addColorStop(.35,'rgba(232,192,92,'+al*.8+')');g.addColorStop(1,'rgba(232,192,92,0)');mx.fillStyle=g;mx.beginPath();mx.arc(x,y,m.z*4,0,6.29);mx.fill()})}
 sizeDrum();addEventListener('resize',sizeDrum);
+function pg(el,p,i0,i1,o0,o1){var a=seg(p,i0,i1),b=seg(p,o0,o1),op=a*(1-b);el.style.opacity=op;el.style.transform='translateY('+((1-a)*70-b*90)+'px) scale('+(1-b*.06)+')';el.style.pointerEvents=op>.5?'auto':'none'}
 function frame(){
  var vh=innerHeight,vw=innerWidth,vmin=Math.min(vw,vh);
+ var r=fly.getBoundingClientRect(),p=cl(-r.top/(r.height-vh),0,1);
+ if(p!==lastP){lastP=p;
+  hc.style.setProperty('--k',ease(seg(p,0,.4)).toFixed(4));
+  pg(pgs[0],p,-1,0,.12,.24);
+  pg(pgs[1],p,.22,.34,.46,.58);
+  pg(pgs[2],p,.58,.7,2,3);
+  if(p>.05&&!whooshed){whooshed=1;if(typeof whoosh=='function')whoosh()}if(p<.02)whooshed=0;
+ }
  var g=gal.getBoundingClientRect(),gp=cl(-g.top/(g.height-vh),0,1);
  if(g.top<vh&&g.bottom>0&&gp!==lastG){lastG=gp;var rot=gp*(N-1)*step;
   gfs.forEach(function(a){var n=(((a._a-rot)%360)+540)%360-180,ab=Math.abs(n);
@@ -593,8 +584,9 @@ if(reduce)showHero();else{setTimeout(showHero,2350);setTimeout(showHero,6000)}
 setTimeout(function(){ld.classList.add('out');document.body.classList.remove('loading')},reduce?300:2300);
 
 var T=[
- ['#fly',0,'Your <i>opening</i>','Your line, front and centre. Tap Start and one window opens across the whole screen.'],
- ['#fly',0,'Pages <i>fly</i> through','Your promise, the skip-the-face idea and the landing all fly through that one window. Nothing scrolls.'],
+ ['#fly',0,'Your <i>opening</i>','Your line, front and centre. Scroll and one window opens across the whole screen.'],
+ ['#fly',.36,'Pages <i>fly</i> through','Your promise and the skip-the-face idea fly in and out of that one window.'],
+ ['#fly',.72,'Old taste, <i>new</i> money','The landing: one clear promise and one button into your collection.'],
  ['#gal',.1,'Your <i>collection</i>','A curved gallery of gilt frames. Each scroll turns one piece, with the name, price and Buy button underneath.'],
  ['#gal',.55,'Every <i>product</i>','Everything from your Beacons page lives here, each one linked to your real checkout.'],
  ['#free','#freeRail','Start <i>free</i>','All your free resources in one swipeable row, each with its own Get it free button.'],
@@ -612,7 +604,7 @@ function goTo(t){var e=$(t[0]);if(!e)return;var top=e.getBoundingClientRect().to
 function tgo(i){ti=i;if(ti>=T.length){tstop();return}var t=T[ti];
  for(var k=0;k<bars.length;k++)bars[k].style.width=k<ti?'100%':'0';
  $('#tr-n').textContent='Your tour  '+(ti<9?'0':'')+(ti+1)+' / '+T.length;$('#tr-h').innerHTML='<span>'+t[2]+'</span>';$('#tr-p').textContent=t[3];
- tr.classList.remove('go');void tr.offsetWidth;tr.classList.add('go');tr.classList.toggle('top',!(t[0]=='#fly'||t[0]=='#gal'));if(t[0]=='#fly'&&ti==1&&typeof startHero=='function')startHero();goTo(t);tel=0;tt0=performance.now();if(typeof whoosh=='function')whoosh()}
+ tr.classList.remove('go');void tr.offsetWidth;tr.classList.add('go');tr.classList.toggle('top',!(t[0]=='#fly'||t[0]=='#gal'));goTo(t);tel=0;tt0=performance.now();if(typeof whoosh=='function')whoosh()}
 function tframe(now){if(!trun)return;if(!tp){tel+=now-tt0;if(bars[ti])bars[ti].style.width=Math.min(100,tel/TD*100)+'%';if(tel>=TD)tgo(ti+1)}tt0=now;requestAnimationFrame(tframe)}
 function setP(v){tp=v;$('#tr-pause').innerHTML=tp?'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg><span>Play</span>':'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>Pause</span>'}
 function tstart(){trun=true;setP(false);tr.classList.add('on');tb.classList.add('on');document.body.classList.add('touring');tgo(0);tt0=performance.now();requestAnimationFrame(tframe)}
