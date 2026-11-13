@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Riot Productions | Sandra Herriot</title>
+<meta name="description" content="Sandra Herriot, Riot Productions. Leadership development, culture change and sales strategy for business leaders, built on three decades of experiential learning.">
+<meta name="theme-color" content="#16121A">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/forest-m.webp" media="(max-width:760px)">
+<link rel="preload" as="image" href="img/forest.webp" media="(min-width:761px)">
+<style>
+:root{--ink:#16121A;--ink2:#221C27;--paper:#F2EDE4;--sand:#E6D6BF;--riot:#FF4A1C;--riot2:#FF7A52;--mute:#6E6570;--line:#16121a1f;
+--disp:"Bricolage Grotesque",system-ui,sans-serif;--sans:"Instrument Sans",system-ui,sans-serif;--gl:max(20px,4vw)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--sans);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.wrap{padding:0 var(--gl);max-width:1380px;margin:0 auto}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:800;letter-spacing:-.02em;line-height:.95;text-transform:uppercase}
+.kick{font:600 12.5px/1.2 var(--sans);letter-spacing:.2em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border:0;border-radius:6px;background:var(--riot);color:#fff;font:600 15px var(--sans);text-decoration:none;cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:#ff5e33}
+.btn.ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}
+.btn svg{flex:none}
+.ph{background:#FFE7DE;color:#9a2a0c;border:1.5px dashed #ff4a1c;padding:1px 8px;border-radius:4px;font:600 .82em var(--sans);white-space:nowrap}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ===== loader ===== */
+#ld{position:fixed;inset:0;z-index:100;background:var(--ink);display:grid;place-items:center;transition:clip-path .7s cubic-bezier(.7,0,.2,1)}
+#ld.out{clip-path:inset(0 0 100% 0)}
+#ld .lw{display:flex;align-items:flex-end;gap:2px;font:800 clamp(64px,16vw,170px)/.8 var(--disp);color:var(--paper);letter-spacing:-.04em}
+#ld .lw span{display:inline-block;transform:translateY(110%) rotate(8deg);opacity:0;animation:stamp .5s cubic-bezier(.2,1.4,.3,1) forwards}
+#ld .lw span:nth-child(2){animation-delay:.12s}#ld .lw span:nth-child(3){animation-delay:.24s}#ld .lw span:nth-child(4){animation-delay:.36s;color:var(--riot)}
+#ld .lb{position:absolute;bottom:22%;left:50%;width:min(260px,60vw);height:3px;background:#ffffff1c;transform:translateX(-50%);overflow:hidden}
+#ld .lb i{display:block;height:100%;width:0;background:var(--riot);animation:fill 1.1s .2s ease forwards}
+#ld .lt{position:absolute;bottom:calc(22% - 34px);left:0;right:0;text-align:center;color:#ffffff9c}
+@keyframes stamp{to{transform:none;opacity:1}}
+@keyframes fill{to{width:100%}}
+
+/* ===== header ===== */
+header.top{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px var(--gl);color:#fff;transition:background .3s,color .3s,padding .3s}
+header.top.solid{background:#16121Aee;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding-top:10px;padding-bottom:10px}
+.wm{display:flex;align-items:baseline;gap:8px;text-decoration:none}
+.wm b{font:800 28px/1 var(--disp);letter-spacing:-.04em}
+.wm b i{font-style:normal;color:var(--riot)}
+.wm small{font:600 11px var(--sans);letter-spacing:.24em;text-transform:uppercase;opacity:.8}
+nav.mn{display:flex;gap:26px;align-items:center}
+nav.mn a{font:500 14.5px var(--sans);text-decoration:none;opacity:.85;min-height:44px;display:inline-flex;align-items:center}
+nav.mn a:hover{opacity:1}
+nav.mn .btn{min-height:44px;padding:0 18px;opacity:1}
+
+/* ===== hero ===== */
+.hero{position:relative;min-height:100svh;color:#fff;overflow:hidden;background:var(--ink);display:flex;align-items:flex-end}
+.hero .bg{position:absolute;inset:0}
+.hero .bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.12);transition:opacity 1.6s ease,transform 9s linear;filter:saturate(.75) contrast(1.05)}
+.hero .bg img.on{opacity:1;transform:scale(1)}
+.hero .bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#16121Af2 0%,#16121Acc 38%,#16121A40 70%,#16121A1a 100%),linear-gradient(0deg,#16121Aee 0%,transparent 45%)}
+.hero .in{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:end;padding-top:120px;padding-bottom:56px}
+.hero h1{font-size:clamp(46px,7.6vw,118px);margin:18px 0 22px}
+.hero h1 .rot{display:block;color:var(--riot);position:relative;height:1.06em;margin-bottom:-.06em;overflow:hidden}
+.hero h1 .rot span{position:absolute;left:0;top:0;white-space:nowrap;transform:translateY(120%);transition:transform .7s cubic-bezier(.7,0,.2,1)}
+.hero h1 .rot span.on{transform:none}
+.hero h1 .rot span.off{transform:translateY(-120%)}
+.hero .sub{font-size:clamp(17px,1.5vw,20px);max-width:36ch;color:#ffffffd9}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero .cta .ghost{color:#fff}
+.who{justify-self:end;width:min(320px,100%);background:var(--paper);color:var(--ink);border-radius:10px;padding:12px 12px 16px;transform:rotate(2.2deg);box-shadow:0 30px 80px #0008;transition:transform .5s}
+.who:hover{transform:rotate(0)}
+.who .pic{position:relative;aspect-ratio:1;border-radius:6px;overflow:hidden;background:var(--riot)}
+.who .pic img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.08);mix-blend-mode:multiply}
+.who .pic:after{content:"";position:absolute;inset:0;background:radial-gradient(#0000 55%,#16121a33);pointer-events:none}
+.who b{display:block;font:800 26px/1 var(--disp);text-transform:uppercase;margin:14px 4px 4px;letter-spacing:-.02em}
+.who span{display:block;font-size:14px;color:var(--mute);margin:0 4px}
+.where{position:absolute;z-index:3;right:var(--gl);top:96px;display:flex;align-items:center;gap:10px;color:#ffffffc9}
+.where i{width:8px;height:8px;border-radius:2px;background:var(--riot);animation:blink 1.4s infinite}
+.where em{font-style:normal;color:#fff}
+@keyframes blink{50%{opacity:.25}}
+
+/* ===== statement ===== */
+.state{padding-top:clamp(90px,14vw,180px);padding-bottom:clamp(70px,10vw,130px)}
+.state p.big{font:700 clamp(32px,4.8vw,72px)/1.04 var(--disp);letter-spacing:-.025em;max-width:20ch}
+.state p.big span{color:#16121a26;transition:color .35s}
+.state p.big span.lit{color:var(--ink)}
+.state p.big span.hl.lit{color:var(--riot)}
+.state .q{display:grid;grid-template-columns:auto 1fr;gap:22px;margin-top:56px;max-width:760px;align-items:start}
+.state .q:before{content:"";width:4px;height:100%;background:var(--riot);border-radius:2px}
+.state .q p{font-size:clamp(18px,1.6vw,21px);line-height:1.5}
+.state .q small{display:block;margin-top:10px;color:var(--mute);font-size:14px}
+
+/* ===== numbers ===== */
+.nums{background:var(--riot);color:#fff;overflow:hidden;padding:26px 0}
+.nums .track{display:flex;gap:64px;width:max-content;animation:marq 38s linear infinite}
+.nums .n{display:flex;align-items:baseline;gap:14px;white-space:nowrap}
+.nums .n b{font:800 clamp(44px,5vw,72px)/1 var(--disp);letter-spacing:-.03em}
+.nums .n span{font:600 14px var(--sans);letter-spacing:.14em;text-transform:uppercase;max-width:18ch;white-space:normal;line-height:1.3}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ===== services (stacking) ===== */
+.svc{padding-top:clamp(80px,10vw,140px);padding-bottom:40px}
+.svc header{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:50px;flex-wrap:wrap}
+.svc header h2{font-size:clamp(44px,6.4vw,96px);max-width:12ch}
+.svc header p{max-width:38ch;color:var(--mute)}
+.stack{display:grid;gap:0}
+.card{position:sticky;top:90px;min-height:min(78vh,640px);border-radius:14px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;margin-bottom:28px;box-shadow:0 -20px 50px #16121a22}
+.card:nth-child(1){background:var(--ink);color:#fff}
+.card:nth-child(2){background:var(--sand)}
+.card:nth-child(3){background:var(--ink2);color:#fff}
+.card:nth-child(4){background:#fff}
+.card .tx{padding:clamp(28px,4vw,56px);display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.card .no{font:800 15px var(--disp);color:var(--riot);letter-spacing:.1em}
+.card h3{font-size:clamp(34px,4vw,60px);margin:14px 0 18px}
+.card p{max-width:40ch;opacity:.86}
+.card ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.card li{font:500 14px var(--sans);padding:8px 13px;border-radius:5px;box-shadow:inset 0 0 0 1.5px currentColor;opacity:.85}
+.card .im{position:relative;overflow:hidden}
+.card .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.8)}
+.card .im.type{display:grid;place-items:center;background:var(--riot);color:#fff;padding:30px}
+.card .im.type b{font:800 clamp(80px,12vw,190px)/.82 var(--disp);letter-spacing:-.05em;text-transform:uppercase}
+
+/* ===== places rail ===== */
+.places{background:var(--ink);color:#fff;padding:clamp(80px,10vw,130px) 0;overflow:hidden}
+.places h2{font-size:clamp(42px,6vw,92px);max-width:14ch}
+.places .lead{max-width:44ch;color:#ffffffbf;margin-top:20px}
+.rail{display:flex;gap:18px;margin-top:50px;padding:0 var(--gl);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab}
+.rail::-webkit-scrollbar{display:none}
+.tile{flex:0 0 min(420px,78vw);scroll-snap-align:start;position:relative;aspect-ratio:3/4;border-radius:12px;overflow:hidden}
+.tile:nth-child(even){margin-top:60px}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+.tile:hover img{transform:scale(1.06)}
+.tile:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#16121Ae6,transparent 55%)}
+.tile figcaption{position:absolute;z-index:2;left:22px;right:22px;bottom:20px}
+.tile figcaption b{display:block;font:800 clamp(30px,3vw,42px)/1 var(--disp);text-transform:uppercase}
+.tile figcaption span{font-size:15px;color:#ffffffc4}
+.tile.txt{background:var(--riot);display:flex;align-items:flex-end;padding:26px}
+.tile.txt:after{display:none}
+.tile.txt b{font:800 clamp(34px,3.4vw,48px)/1 var(--disp);text-transform:uppercase}
+.railhint{display:flex;gap:10px;align-items:center;margin-top:24px;color:#ffffff80;font-size:14px}
+
+/* ===== roots ===== */
+.roots{padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(80px,10vw,140px)}
+.roots .g{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,90px);align-items:start}
+.roots .eleven{font:800 clamp(160px,24vw,360px)/.78 var(--disp);letter-spacing:-.06em;color:var(--riot)}
+.roots .eleven small{display:block;font:700 clamp(18px,1.6vw,22px)/1.2 var(--disp);letter-spacing:0;color:var(--ink);text-transform:uppercase;margin-top:18px;max-width:18ch}
+.roots h2{font-size:clamp(36px,4.4vw,64px);margin-bottom:22px}
+.roots p{max-width:52ch}
+.roles{margin-top:34px;border-top:2px solid var(--ink)}
+.roles div{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);font:700 clamp(18px,1.7vw,23px)/1.2 var(--disp);text-transform:uppercase}
+.roles div span{font:500 14px var(--sans);color:var(--mute);text-transform:none;align-self:center;text-align:right}
+
+/* ===== session builder ===== */
+.build{background:var(--sand);padding:clamp(80px,10vw,140px) 0}
+.build h2{font-size:clamp(42px,6vw,92px);max-width:13ch}
+.build .lead{max-width:46ch;margin-top:18px}
+.bx{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;margin-top:46px;align-items:start}
+.steps{background:#fff;border-radius:14px;padding:clamp(22px,3vw,40px)}
+.step+.step{margin-top:30px}
+.step h4{font-size:20px;letter-spacing:0;margin-bottom:14px;display:flex;gap:12px;align-items:center}
+.step h4 i{font:800 13px var(--disp);font-style:normal;background:var(--ink);color:#fff;border-radius:4px;padding:5px 8px}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opts button{min-height:48px;padding:0 18px;border-radius:6px;border:0;background:var(--paper);box-shadow:inset 0 0 0 1.5px #16121a33;cursor:pointer;font:500 15px var(--sans);transition:.2s}
+.opts button:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.opts button[aria-pressed=true]{background:var(--ink);color:#fff;box-shadow:none}
+.out{position:sticky;top:100px;background:var(--ink);color:#fff;border-radius:14px;padding:clamp(22px,3vw,36px);min-height:380px}
+.out .kick{color:var(--riot2)}
+.out h3{font-size:clamp(28px,2.6vw,38px);margin:12px 0 16px;text-transform:none;letter-spacing:-.02em;line-height:1.05}
+.out ol{list-style:none;counter-reset:a;display:grid;gap:12px;margin:18px 0 24px}
+.out li{counter-increment:a;display:grid;grid-template-columns:34px 1fr;gap:10px;font-size:15.5px;color:#ffffffd9;line-height:1.4}
+.out li:before{content:counter(a,decimal-leading-zero);font:800 14px var(--disp);color:var(--riot)}
+.out .meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.out .meta span{font-size:13px;padding:5px 10px;border-radius:4px;background:#ffffff14}
+.out .empty{color:#ffffff99}
+.out form{display:grid;gap:10px;margin-top:8px}
+.out input{min-height:50px;border-radius:6px;border:0;padding:0 14px;font:400 16px var(--sans);background:#ffffff12;color:#fff;box-shadow:inset 0 0 0 1.5px #ffffff2a}
+.out input::placeholder{color:#ffffff80}
+.out .note{font-size:13px;color:#ffffff8c;margin-top:4px}
+
+/* ===== pulse ===== */
+.pulse{padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(80px,10vw,140px)}
+.pulse .g{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:start}
+.pulse h2{font-size:clamp(40px,5vw,78px)}
+.pulse .lead{margin-top:18px;max-width:40ch;color:var(--mute)}
+.qz{background:#fff;border-radius:14px;padding:clamp(22px,3vw,40px);box-shadow:0 20px 60px #16121a14}
+.qz .bar{height:4px;background:var(--paper);border-radius:2px;overflow:hidden;margin-bottom:26px}
+.qz .bar i{display:block;height:100%;width:0;background:var(--riot);transition:width .4s}
+.qz .qq{font:700 clamp(22px,2.2vw,30px)/1.15 var(--disp);min-height:3.6em}
+.qz .sc{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:22px}
+.qz .sc button{min-height:56px;border-radius:6px;border:0;background:var(--paper);font:800 20px var(--disp);cursor:pointer;transition:.2s}
+.qz .sc button:hover{background:var(--ink);color:#fff}
+.qz .lab{display:flex;justify-content:space-between;font-size:13px;color:var(--mute);margin-top:8px}
+.qz .res h3{font-size:clamp(30px,3vw,44px);margin:10px 0 14px;text-transform:none}
+.qz .res p{color:var(--mute)}
+.qz .res .btn{margin-top:20px}
+
+/* ===== voices ===== */
+.voices{background:var(--ink);color:#fff;padding:clamp(70px,9vw,120px) 0}
+.voices h2{font-size:clamp(38px,5vw,76px)}
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.vq{border-radius:12px;padding:28px;background:#ffffff0d;box-shadow:inset 0 0 0 1.5px #ffffff22;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.vq p{font:700 22px/1.25 var(--disp)}
+.vq .ph{align-self:flex-start}
+.vq span{font-size:14px;color:#ffffff99}
+
+/* ===== contact ===== */
+.contact{padding-top:clamp(80px,10vw,140px);padding-bottom:60px}
+.contact .g{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,5vw,80px)}
+.contact h2{font-size:clamp(54px,9vw,150px);line-height:.86}
+.contact h2 em{font-style:normal;color:var(--riot)}
+.contact .lines{margin-top:34px;display:grid;gap:14px;font-size:18px}
+.contact .lines div{display:flex;gap:14px;align-items:center}
+.contact .lines svg{flex:none}
+.cf{display:grid;gap:12px;background:#fff;border-radius:14px;padding:clamp(22px,3vw,36px)}
+.cf label{font:600 13px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.cf input,.cf textarea,.cf select{width:100%;min-height:50px;border-radius:6px;border:0;padding:12px 14px;font:400 16px var(--sans);background:var(--paper);color:var(--ink)}
+.cf textarea{min-height:120px;resize:vertical}
+footer{border-top:1px solid var(--line);padding:30px 0 120px;font-size:14px;color:var(--mute)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+
+/* ===== how ===== */
+.how{background:var(--ink);color:#fff;padding:clamp(80px,10vw,130px) 0}
+.how h2{font-size:clamp(40px,5.6vw,86px);max-width:14ch}
+.hs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:50px;border-top:1px solid #ffffff2a}
+.hs div{padding:28px 26px 10px 0;position:relative}
+.hs div+div{padding-left:26px;border-left:1px solid #ffffff2a}
+.hs b{display:block;font:800 clamp(56px,6vw,92px)/.9 var(--disp);color:transparent;-webkit-text-stroke:1.5px var(--riot);letter-spacing:-.04em;transition:color .6s}
+.hs div.in b{color:var(--riot)}
+.hs h3{font-size:24px;margin:18px 0 10px;letter-spacing:0}
+.hs p{color:#ffffffb3;font-size:15.5px}
+/* ===== ways ===== */
+.ways{padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(60px,8vw,100px)}
+.ways h2{font-size:clamp(42px,6vw,92px);max-width:13ch}
+.wg{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:46px}
+.wy{border-radius:14px;padding:clamp(24px,3vw,38px);display:flex;flex-direction:column;gap:16px;min-height:340px;position:relative;overflow:hidden}
+.wy:nth-child(1){background:var(--riot);color:#fff}
+.wy:nth-child(2){background:#fff}
+.wy:nth-child(3){background:var(--ink);color:#fff}
+.wy:nth-child(3) .bgi{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.38}
+.wy:nth-child(3)>*:not(.bgi){position:relative}
+.wy:nth-child(4){background:var(--sand)}
+.wy .kick{opacity:.8}
+.wy h3{font-size:clamp(30px,3vw,46px)}
+.wy p{max-width:44ch;opacity:.9}
+.wy form{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.wy input{flex:1 1 180px;min-height:50px;border-radius:6px;border:0;padding:0 14px;font:400 16px var(--sans);background:#ffffff;color:var(--ink);box-shadow:inset 0 0 0 1.5px #16121a26}
+.wy:nth-child(1) .btn{background:var(--ink)}
+.wy .btn{margin-top:auto;align-self:flex-start}
+.wy form .btn{margin-top:0}
+.wy .note{font-size:13.5px;width:100%;opacity:.85}
+.dates{display:grid;gap:8px}
+.dates div{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-weight:600}
+.dates span{font-weight:400;color:var(--mute);text-align:right}
+/* ===== call ===== */
+.call{background:var(--sand);padding:clamp(80px,10vw,130px) 0}
+.call .g{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:start}
+.call h2{font-size:clamp(40px,5vw,78px)}
+.call .lead{margin-top:16px;max-width:38ch}
+.call .g>*,.bx>*,.faq .g>*,.wg>*{min-width:0}
+.cal{background:#fff;border-radius:14px;padding:clamp(20px,3vw,34px)}
+.days{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+.days::-webkit-scrollbar{display:none}
+.days button,.times button{border:0;border-radius:6px;background:var(--paper);cursor:pointer;font:500 15px var(--sans);transition:.2s}
+.days button{flex:0 0 76px;min-height:76px;display:grid;place-items:center;line-height:1.1}
+.days button b{display:block;font:800 26px var(--disp)}
+.days button small{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase}
+.times{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px}
+.times button{min-height:50px}
+.days button[aria-pressed=true],.times button[aria-pressed=true]{background:var(--ink);color:#fff}
+.cal form{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}
+.cal input{min-height:50px;border-radius:6px;border:0;padding:0 14px;font:400 16px var(--sans);background:var(--paper)}
+.cal form .btn{grid-column:1/-1;justify-content:center}
+.cal .note{grid-column:1/-1;font-size:13.5px;color:var(--mute)}
+/* ===== faq ===== */
+.faq{padding-top:clamp(80px,10vw,130px);padding-bottom:clamp(60px,8vw,100px)}
+.faq .g{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(30px,5vw,80px)}
+.faq h2{font-size:clamp(40px,5vw,78px)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;min-height:68px;font:700 clamp(19px,1.8vw,24px)/1.2 var(--disp)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;width:22px;height:22px;position:relative}
+.faq summary i:before,.faq summary i:after{content:"";position:absolute;left:0;right:0;top:10px;height:2px;background:var(--riot);transition:transform .3s}
+.faq summary i:after{transform:rotate(90deg)}
+.faq details[open] summary i:after{transform:none}
+.faq details p{padding:0 0 22px;max-width:60ch;color:#3d3540}
+/* ===== notes ===== */
+.notes{background:var(--riot);color:#fff;padding:clamp(56px,7vw,90px) 0}
+.notes .wrap{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:end}
+.notes h2{font-size:clamp(36px,4.6vw,68px)}
+.notes p{margin-top:12px;max-width:40ch}
+.notes form{display:flex;gap:8px;flex-wrap:wrap}
+.notes input{flex:1 1 220px;min-height:54px;border-radius:6px;border:0;padding:0 16px;font:400 16px var(--sans)}
+.notes .btn{background:var(--ink)}
+.notes .note{width:100%;font-size:13.5px}
+@media (max-width:900px){
+ .hs{grid-template-columns:1fr 1fr}.hs div:nth-child(3){padding-left:0;border-left:0}
+ .wg,.call .g,.faq .g,.notes .wrap{grid-template-columns:1fr}
+ .wy{min-height:0}
+ .times{grid-template-columns:repeat(2,1fr)}
+ .cal form{grid-template-columns:1fr}
+}
+@media (max-width:520px){.hs{grid-template-columns:1fr}.hs div+div{padding-left:0;border-left:0;border-top:1px solid #ffffff2a}}
+
+/* ===== tour ===== */
+.tourbtn{position:fixed;left:16px;bottom:18px;z-index:65;min-height:50px;font-size:13px;background:var(--ink);box-shadow:0 10px 30px #0005}
+.tourbtn[hidden]{display:none}
+.tourbar{position:fixed;z-index:70;left:50%;transform:translateX(-50%);bottom:20px;width:min(640px,calc(100% - 24px));background:#0E0B10;color:#fff;box-shadow:0 24px 70px #000a;border-top:3px solid var(--riot);border-radius:10px;padding:16px 20px 0;overflow:hidden}
+.tourbar[hidden]{display:none}
+.tourbar .k{display:flex;justify-content:space-between;color:var(--riot2)}
+.tourbar h5{font:800 24px/1.05 var(--disp);text-transform:uppercase;margin:6px 0 6px}
+.tourbar p{font-size:14.5px;line-height:1.45;color:#ffffffd6}
+.tourbar p+p{margin-top:5px}
+.tourbar .rev{color:#FFB59C}
+.tourbar .ctl{display:flex;gap:22px;align-items:center;margin-top:10px;border-top:1px solid #ffffff1f}
+.tourbar .ctl button{background:none;border:0;font:600 12.5px var(--sans);letter-spacing:.16em;text-transform:uppercase;min-height:46px;cursor:pointer;padding:0}
+.tourbar .ctl .go{background:var(--riot);padding:0 18px;min-height:40px;border-radius:5px}
+.tourbar .sp{flex:1}
+.tourbar .pg{height:3px;background:#ffffff1f;margin:0 -20px}.tourbar .pg i{display:block;height:3px;background:var(--riot);width:0}
+.spot{outline:3px solid var(--riot);outline-offset:-3px;position:relative;z-index:1}
+
+/* ===== phone dock ===== */
+.dock{display:none}
+@media (max-width:900px){
+ nav.mn a:not(.btn){display:none}
+ .hero .in{grid-template-columns:1fr;gap:26px;padding-bottom:34px}
+ .hero{align-items:flex-start}.hk{display:none}.hero .in{padding-top:92px}.who{order:-1;justify-self:start;display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;width:100%;max-width:400px;padding:10px;transform:rotate(-1deg)}
+ .who b{margin:0 0 4px;font-size:21px}.who span{margin:0;font-size:13.5px}
+ .where{top:auto;bottom:auto;display:none}
+ .card{grid-template-columns:1fr;top:76px;min-height:auto}
+ .card .im{aspect-ratio:16/10}.card .im.type{aspect-ratio:auto;padding:24px}
+ .card .im.type b{font-size:72px}
+ .roots .g,.bx,.pulse .g,.contact .g{grid-template-columns:1fr}
+ .out{position:relative;top:0}
+ .vg{grid-template-columns:1fr}
+ .tile:nth-child(even){margin-top:0}
+ .tourbtn{display:none}
+ .tourbar{bottom:78px;padding:12px 14px 0}.tourbar h5{font-size:20px}.tourbar p{font-size:13.5px;line-height:1.4}.tourbar .pg{margin:0 -14px}
+ .dock{display:grid;grid-template-columns:1.2fr 1.2fr .7fr;position:fixed;left:10px;right:10px;bottom:max(10px,env(safe-area-inset-bottom));z-index:60;background:#16121Af2;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:10px;padding:6px;gap:6px;box-shadow:0 14px 40px #0006}
+ .dock a{min-height:50px;display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;text-decoration:none;font:600 14px var(--sans);border-radius:7px}
+ .dock a:first-child{background:var(--riot)}
+}
+@media (max-width:520px){
+ body{font-size:16.5px}
+ .wm small{display:none}
+ nav.mn .btn{padding:0 14px;font-size:14px}
+ .hero h1{font-size:clamp(40px,12.4vw,60px)}
+ .hero .cta .btn{flex:1 1 100%;justify-content:center}
+ .roles div{flex-direction:column;gap:4px}.roles div span{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation:none!important;transition:none!important}
+ .rv{opacity:1;transform:none}
+ #ld{display:none}
+}
+</style>
+</head>
+<body>
+
+<div id="ld" aria-hidden="true">
+  <div class="lw"><span>R</span><span>I</span><span>O</span><span>T</span></div>
+  <div class="lb"><i></i></div>
+  <div class="lt kick">Productions</div>
+</div>
+
+<header class="top" id="hd">
+  <a class="wm" href="#top" aria-label="Riot Productions home"><b>RIO<i>T</i></b><small>Productions</small></a>
+  <nav class="mn">
+    <a href="#work">What we do</a><a href="#places">Where</a><a href="#ways">Work with Sandra</a><a href="#build">Build your session</a><a href="#faq">FAQ</a>
+    <a class="btn" href="#contact">Get in touch</a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="bg" id="bg">
+    <img class="on" src="img/forest.webp" srcset="img/forest-m.webp 900w, img/forest.webp 1800w" sizes="100vw" alt="">
+    <img src="img/desert.webp" srcset="img/desert-m.webp 900w, img/desert.webp 1800w" sizes="100vw" alt="" loading="lazy">
+    <img src="img/wall.webp" srcset="img/wall-m.webp 900w, img/wall.webp 1800w" sizes="100vw" alt="" loading="lazy">
+    <img src="img/toronto.webp" srcset="img/toronto-m.webp 900w, img/toronto.webp 1800w" sizes="100vw" alt="" loading="lazy">
+  </div>
+  <div class="where kick"><i></i>Programs delivered in&nbsp;<em id="wh">rain forests</em></div>
+  <div class="wrap in">
+    <div>
+      <div class="kick hk" style="color:#ffffffb3">Sandra Herriot &middot; Riot Productions</div>
+      <h1>Change how your team <span class="rot" id="rot"><span class="on">leads.</span><span>sells.</span><span>shows up.</span><span>works together.</span></span></h1>
+      <p class="sub">Leadership development, culture change and sales strategy for business leaders. Built on three decades of hands-on, experiential learning.</p>
+      <div class="cta">
+        <a class="btn" href="#build">Build your session</a>
+        <a class="btn ghost" href="#contact"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg>Get in touch</a>
+      </div>
+    </div>
+    <figure class="who" id="who">
+      <div class="pic"><img src="img/sandra-headshot.jpg" alt="Sandra Herriot" width="300" height="300"></div>
+      <figcaption><b>Sandra Herriot</b><span>Managing Director, Riot Productions. Facilitator, coach and strategist.</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="state wrap" id="state">
+  <div class="kick" style="color:var(--riot);margin-bottom:24px">The work</div>
+  <p class="big" id="big">Your outcomes come from behaviours. The things your team <span class="hl">does</span>, and the things it <span class="hl">doesn't.</span></p>
+  <div class="q rv">
+    <div>
+      <p>&ldquo;I am passionate for creating positive change in the world&hellip; and do so by building trust and relationships through genuine communication.&rdquo;</p>
+      <small>Sandra Herriot</small>
+    </div>
+  </div>
+</section>
+
+<div class="nums" id="nums" aria-label="Sandra at a glance">
+  <div class="track">
+    <div class="n"><b>3</b><span>decades in learning and development</span></div>
+    <div class="n"><b>70+</b><span>countries worked in</span></div>
+    <div class="n"><b>20+</b><span>years facilitating worldwide</span></div>
+    <div class="n"><b>70+</b><span>companies helped since starting Riot</span></div>
+    <div class="n"><b>11</b><span>years on the CHMSE board</span></div>
+    <div class="n" aria-hidden="true"><b>3</b><span>decades in learning and development</span></div>
+    <div class="n" aria-hidden="true"><b>70+</b><span>countries worked in</span></div>
+    <div class="n" aria-hidden="true"><b>20+</b><span>years facilitating worldwide</span></div>
+    <div class="n" aria-hidden="true"><b>70+</b><span>companies helped since starting Riot</span></div>
+    <div class="n" aria-hidden="true"><b>11</b><span>years on the CHMSE board</span></div>
+  </div>
+</div>
+
+<section class="svc wrap" id="work">
+  <header>
+    <h2 class="rv">Four ways to start a riot</h2>
+    <p class="rv">Every engagement is built around your people and your goals. Most start with one of these, and many grow into all four.</p>
+  </header>
+  <div class="stack">
+    <article class="card">
+      <div class="tx">
+        <div><div class="no">01</div><h3>Leadership programs you live through</h3>
+        <p>Hands-on experiential programs where teams learn by doing, then take it back to work on Monday. Built on evidence-based training, not slide decks.</p></div>
+        <ul><li>Teamwork</li><li>Communication</li><li>Time management</li><li>Customer service</li><li>Listening</li><li>Empowerment</li></ul>
+      </div>
+      <div class="im"><img src="img/workshop.webp" srcset="img/workshop-m.webp 900w, img/workshop.webp 1800w" sizes="(max-width:900px) 100vw, 50vw" alt="A team working through a facilitated session" loading="lazy"></div>
+    </article>
+    <article class="card">
+      <div class="tx">
+        <div><div class="no">02</div><h3>Culture change that sticks</h3>
+        <p>Sandra has taken part in culture change from both sides: winning the work and delivering it in the room. She helps leaders define the culture they want, then build the habits that hold it in place.</p></div>
+        <ul><li>Culture assessment</li><li>Values into behaviours</li><li>Leadership alignment</li><li>Roll-out and follow-through</li></ul>
+      </div>
+      <div class="im"><img src="img/team.webp" srcset="img/team-m.webp 900w, img/team.webp 1800w" sizes="(max-width:900px) 100vw, 50vw" alt="A team together outdoors at sunset" loading="lazy"></div>
+    </article>
+    <article class="card">
+      <div class="tx">
+        <div><div class="no">03</div><h3>Sales and marketing strategy</h3>
+        <p>A background in global sales and marketing, with a minor in operations. Sandra calls it being a &ldquo;smarketer&rdquo;. She builds strategy across the whole company: operations, sales and marketing pulling the same way.</p></div>
+        <ul><li>Sales development</li><li>Licensing and distribution</li><li>Communications</li><li>Operations</li></ul>
+      </div>
+      <div class="im type"><b>Smar&shy;keter</b></div>
+    </article>
+    <article class="card">
+      <div class="tx">
+        <div><div class="no">04</div><h3>Coaching for owners and leaders</h3>
+        <p>One-on-one coaching and mentoring to find the right path for you and your business. That could mean scaling up, scaling down, or uncovering the meaning behind the work and aligning your why.</p></div>
+        <ul><li>Executive coaching</li><li>Mentoring</li><li>Scale up or down</li><li>Find your why</li></ul>
+      </div>
+      <div class="im"><img src="img/toronto.webp" srcset="img/toronto-m.webp 900w, img/toronto.webp 1800w" sizes="(max-width:900px) 100vw, 50vw" alt="Toronto skyline at sunset" loading="lazy"></div>
+    </article>
+  </div>
+</section>
+
+<section class="places" id="places">
+  <div class="wrap">
+    <div class="kick" style="color:var(--riot2)">Where the work happens</div>
+    <h2 class="rv" style="margin-top:16px">From boardrooms to the Great Wall</h2>
+    <p class="lead rv">Sandra has facilitated for more than 20 years worldwide, for Fortune 500 companies and small and mid-sized businesses alike. Some sessions run in a meeting room. Some don't.</p>
+  </div>
+  <div class="rail" id="rail">
+    <figure class="tile"><img src="img/forest-m.webp" alt="Mist in a dense forest" loading="lazy"><figcaption><b>Rain forests</b><span>Programs that take people well outside the office.</span></figcaption></figure>
+    <figure class="tile"><img style="object-position:50% 85%" src="img/desert-m.webp" alt="Sand dunes under a low sun" loading="lazy"><figcaption><b>Deserts</b><span>Where teams find out how they really work together.</span></figcaption></figure>
+    <figure class="tile"><img src="img/wall-m.webp" alt="The Great Wall of China in autumn" loading="lazy"><figcaption><b>The Great Wall</b><span>China, and more than 70 countries in all.</span></figcaption></figure>
+    <figure class="tile"><img src="img/toronto-m.webp" alt="Toronto at sunset" loading="lazy"><figcaption><b>Home base</b><span>Toronto, Ontario. Available in person or online.</span></figcaption></figure>
+    <figure class="tile txt"><b>Your boardroom is next.</b></figure>
+  </div>
+  <div class="wrap railhint"><svg width="40" height="14" viewBox="0 0 40 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M0 7h38M32 1l6 6-6 6"/></svg>Swipe or drag</div>
+</section>
+
+<section class="roots wrap" id="roots">
+  <div class="g">
+    <div class="eleven rv">11<small>years volunteering on the CHMSE board</small></div>
+    <div>
+      <div class="kick" style="color:var(--riot);margin-bottom:16px">Hospitality roots</div>
+      <h2 class="rv">She knows hotels, events and the people who sell them</h2>
+      <p class="rv">For eleven years Sandra served on the board of the Canadian Hotel Marketing and Sales Executives, bringing sales and marketing education to members and event planners across Ontario. In that time the board brought a flagging membership and event attendance back to life through new ways of engaging people.</p>
+      <div class="roles rv">
+        <div>Director of Education and Meeting Planner Events<span>CHMSE</span></div>
+        <div>Director of Training Programs<span>CHMSE</span></div>
+        <div>Director of Affiliates<span>CHMSE</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="kick" style="color:var(--riot2)">How it works</div>
+    <h2 class="rv" style="margin-top:14px">Learn it by living it</h2>
+    <div class="hs" id="hs">
+      <div><b>01</b><h3>Listen</h3><p>A first conversation about your people, your goals and what has been getting in the way.</p></div>
+      <div><b>02</b><h3>Design</h3><p>A session or program built for your team, not pulled off a shelf.</p></div>
+      <div><b>03</b><h3>Live it</h3><p>Hands-on, experiential learning. People see how their actions, and inactions, shape results.</p></div>
+      <div><b>04</b><h3>Make it stick</h3><p>Follow-up, coaching and clear commitments so the change shows up back at work.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="ways wrap" id="ways">
+  <div class="kick" style="color:var(--riot)">Work with Sandra</div>
+  <h2 class="rv" style="margin-top:14px">Pick your way in</h2>
+  <div class="wg">
+    <article class="wy" id="speak">
+      <div class="kick">Speaking</div>
+      <h3>Book Sandra for your event</h3>
+      <p>Conference sessions, association meetings and leadership offsites. Interactive, not a lecture: the room does the work.</p>
+      <form onsubmit="return sendSpeak(event)">
+        <input required name="ev" placeholder="Event name">
+        <input name="dt" placeholder="Date (approximate is fine)">
+        <input required type="email" name="email" placeholder="Your email">
+        <button class="btn" type="submit">Request Sandra</button>
+        <p class="note"></p>
+      </form>
+    </article>
+    <article class="wy" id="open">
+      <div class="kick" style="color:var(--riot)">Open workshops</div>
+      <h3>Join a public session</h3>
+      <p>Small-group workshops for leaders who want the experience without booking a whole program.</p>
+      <div class="dates">
+        <div><span class="ph">Dates to come</span><span>Leadership in practice</span></div>
+        <div><span class="ph">Dates to come</span><span>Sales and marketing, together</span></div>
+      </div>
+      <form onsubmit="return sendWait(event)">
+        <input required type="email" name="email" placeholder="Email for first dates">
+        <button class="btn" type="submit">Join the waitlist</button>
+        <p class="note"></p>
+      </form>
+    </article>
+    <article class="wy" id="retreat">
+      <img class="bgi" src="img/desert-m.webp" alt="" loading="lazy">
+      <div class="kick" style="color:var(--riot2)">Offsite experiences</div>
+      <h3>Take your team somewhere new</h3>
+      <p>Sandra has run programs in rain forests, deserts and on the Great Wall. Your next offsite can be more than a hotel ballroom.</p>
+      <a class="btn" href="#build" data-goal="team">Plan an offsite</a>
+    </article>
+    <article class="wy" id="coach">
+      <div class="kick" style="color:var(--riot)">Coaching</div>
+      <h3>One-on-one, for owners and leaders</h3>
+      <p>Mentoring and coaching to find the right path for you and your business, whether that means scaling up, scaling down or finding your why.</p>
+      <a class="btn" href="#call">Book a first conversation</a>
+    </article>
+  </div>
+</section>
+
+<section class="build" id="build">
+  <div class="wrap">
+    <div class="kick" style="color:var(--riot)">Build your session</div>
+    <h2 class="rv" style="margin-top:14px">Sketch it in a minute</h2>
+    <p class="lead rv">Pick what you need and Sandra gets a clear brief before the first call. No prices, no commitment.</p>
+    <div class="bx">
+      <div class="steps" id="steps">
+        <div class="step" data-k="goal"><h4><i>1</i>What do you want to change?</h4><div class="opts">
+          <button data-v="lead">Stronger leaders</button><button data-v="sell">More sales</button><button data-v="culture">A healthier culture</button><button data-v="team">A team that clicks</button><button data-v="me">Clarity for me as owner</button></div></div>
+        <div class="step" data-k="size"><h4><i>2</i>Who is in the room?</h4><div class="opts">
+          <button data-v="1">Just me</button><button data-v="12">Up to 12</button><button data-v="40">13 to 40</button><button data-v="41">More than 40</button></div></div>
+        <div class="step" data-k="fmt"><h4><i>3</i>What shape?</h4><div class="opts">
+          <button data-v="half">Half day</button><button data-v="full">Full day</button><button data-v="prog">A program over weeks</button><button data-v="talk">Conference session</button></div></div>
+        <div class="step" data-k="where"><h4><i>4</i>Where?</h4><div class="opts">
+          <button data-v="site">At our place</button><button data-v="off">Somewhere new</button><button data-v="web">Online</button></div></div>
+      </div>
+      <aside class="out" id="out" aria-live="polite">
+        <div class="kick">Your session</div>
+        <h3 id="oh">Make a few picks and your outline appears here.</h3>
+        <div class="meta" id="om"></div>
+        <ol id="ol"></ol>
+        <form id="of" hidden onsubmit="return sendBrief(event)">
+          <input required name="name" placeholder="Your name" autocomplete="name">
+          <input required name="co" placeholder="Company" autocomplete="organization">
+          <input required type="email" name="email" placeholder="Work email" autocomplete="email">
+          <button class="btn" type="submit" style="justify-content:center">Send this to Sandra</button>
+          <p class="note" id="on">Opens your email with the brief filled in.</p>
+        </form>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="pulse wrap" id="pulse">
+  <div class="g">
+    <div>
+      <div class="kick" style="color:var(--riot);margin-bottom:14px">Team pulse check</div>
+      <h2 class="rv">How is your team really doing?</h2>
+      <p class="lead rv">Six quick statements. Be honest. You get a read on where to start, and you can send it to Sandra if you want her take.</p>
+    </div>
+    <div class="qz" id="qz">
+      <div class="bar"><i id="qb"></i></div>
+      <div id="qbody"></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="call" id="call">
+  <div class="wrap g">
+    <div>
+      <div class="kick" style="color:var(--riot);margin-bottom:14px">First conversation</div>
+      <h2 class="rv">Book 30 minutes with Sandra</h2>
+      <p class="lead rv">Pick a day and time that suits you. Sandra confirms by email.</p>
+    </div>
+    <div class="cal">
+      <div class="kick" style="color:var(--mute);margin-bottom:12px">Choose a day</div>
+      <div class="days" id="days"></div>
+      <div class="times" id="times"><button>9:30 AM</button><button>11:00 AM</button><button>1:30 PM</button><button>3:30 PM</button></div>
+      <form onsubmit="return sendCall(event)">
+        <input required name="name" placeholder="Your name" autocomplete="name">
+        <input required type="email" name="email" placeholder="Email" autocomplete="email">
+        <button class="btn" type="submit">Request this time</button>
+        <p class="note" id="cnote">Times in Eastern time. <span class="ph">Example times until Sandra's calendar is connected</span></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="voices" id="voices">
+  <div class="wrap">
+    <div class="kick" style="color:var(--riot2);margin-bottom:14px">In their words</div>
+    <h2>What leaders say</h2>
+    <div class="vg">
+      <div class="vq"><span class="ph">Client quote to come</span><p>Words from a leader Sandra has worked with go here, with their permission.</p><span>Name, title, company</span></div>
+      <div class="vq"><span class="ph">Client quote to come</span><p>A second voice, ideally from a hotel or hospitality team.</p><span>Name, title, company</span></div>
+      <div class="vq"><span class="ph">Client quote to come</span><p>A third voice, from a coaching client or an owner.</p><span>Name, title, company</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact wrap" id="contact">
+  <div class="g">
+    <div>
+      <div class="kick" style="color:var(--riot);margin-bottom:18px">Get in touch</div>
+      <h2 class="rv">Let&rsquo;s start a <em>riot.</em></h2>
+      <div class="lines">
+        <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span class="ph">Email address to confirm with Sandra</span></div>
+        <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0112 2.5a7 7 0 017 7C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Toronto, Ontario. Working worldwide.</span></div>
+        <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 014 0v4M12 10v7"/></svg><span class="ph">LinkedIn link to confirm</span></div>
+      </div>
+    </div>
+    <form class="cf" onsubmit="return sendContact(event)">
+      <label for="cn">Name</label><input id="cn" name="name" required autocomplete="name">
+      <label for="ce">Email</label><input id="ce" name="email" type="email" required autocomplete="email">
+      <label for="ct">What can Sandra help with?</label>
+      <select id="ct" name="topic"><option>Leadership program</option><option>Culture change</option><option>Sales and marketing strategy</option><option>Coaching</option><option>Speaking at an event</option><option>Something else</option></select>
+      <label for="cm">A little more</label><textarea id="cm" name="msg"></textarea>
+      <button class="btn" type="submit" style="justify-content:center">Send</button>
+    </form>
+  </div>
+</section>
+
+
+<section class="faq wrap" id="faq">
+  <div class="g">
+    <div><div class="kick" style="color:var(--riot);margin-bottom:14px">Questions</div><h2 class="rv">Good to know</h2></div>
+    <div>
+      <details open><summary>Who does Sandra work with?<i></i></summary><p>Business owners and leadership teams, from small and mid-sized businesses to large organizations. Hotels, events and hospitality are a long-time home.</p></details>
+      <details><summary>What is experiential learning?<i></i></summary><p>Learning by doing. Teams take on a real challenge together, then talk through what happened and why. People remember what they lived through far longer than what they read on a slide.</p></details>
+      <details><summary>Where do sessions happen?<i></i></summary><p>At your place, somewhere new, or online. Sandra is based in Toronto and has worked in more than 70 countries.</p></details>
+      <details><summary>How long is a program?<i></i></summary><p>Anything from a single conference session or half day to a program that runs over several weeks with coaching in between.</p></details>
+      <details><summary>How is the work priced?<i></i></summary><p>Every engagement is built around your goals and your group. After a first conversation, Sandra sends a clear proposal.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="notes" id="notes">
+  <div class="wrap">
+    <div><div class="kick">Riot Notes <span style="opacity:.7">(working name)</span></div><h2 style="margin-top:12px">Ideas you can use on Monday</h2><p>An occasional email from Sandra with one practical idea on leadership, culture or sales. No spam.</p></div>
+    <form onsubmit="return sendNotes(event)">
+      <input required type="email" name="email" placeholder="Your email" autocomplete="email">
+      <button class="btn" type="submit">Sign me up</button>
+      <p class="note"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Riot Productions Inc. &middot; <span id="dom" class="ph">Domain to come</span></span>
+    <span>Place photos: Unsplash. Portrait: Sandra Herriot.</span>
+  </div>
+</footer>
+
+<button class="btn tourbtn" id="tb">Take the tour</button>
+<div class="tourbar" id="tour" hidden>
+  <div class="k kick"><span id="tk">Concept preview</span><span id="tn"></span></div>
+  <h5 id="th">Riot Productions, redesigned</h5>
+  <p id="tp">A short guided tour of what we built for Sandra. It plays by itself.</p>
+  <p class="rev" id="tr" hidden></p>
+  <div class="ctl"><button class="go" id="tgo">Start the tour</button><button id="tpause" hidden>Pause</button><button id="tnext" hidden>Next</button><span class="sp"></span><button id="tx">Close</button></div>
+  <div class="pg"><i id="tpg"></i></div>
+</div>
+
+<nav class="dock" aria-label="Quick actions">
+  <a href="#build">Build your session</a>
+  <a href="#contact"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg>Get in touch</a>
+  <a href="#" id="dtour">Tour</a>
+</nav>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+/* ONE PLACE for Sandra's details. Fill these in when Ryan sends the domain and email. */
+const DOMAIN=''; /* e.g. riotproductions.ca */
+const EMAIL='';  /* e.g. sandra@riotproductions.ca. Until set, forms show a preview notice. */
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* loader: once per visit */
+(()=>{const ld=$('#ld');let seen=false;try{seen=sessionStorage.getItem('riot-ld')}catch(e){}
+ const done=()=>{ld.classList.add('out');setTimeout(()=>{ld.remove();dispatchEvent(new Event('riotready'))},750)};
+ if(seen||RM){ld.remove();setTimeout(()=>dispatchEvent(new Event('riotready')),50);return}
+ try{sessionStorage.setItem('riot-ld','1')}catch(e){}
+ setTimeout(done,1500)})();
+
+/* header */
+const hd=$('#hd');addEventListener('scroll',()=>hd.classList.toggle('solid',scrollY>40),{passive:true});
+
+/* hero: rotating word + place backdrop */
+(()=>{const w=$$('#rot span');let i=0;
+ const fit=()=>{const r=$('#rot');r.style.width='';};fit();
+ setInterval(()=>{if(RM)return;const a=w[i];i=(i+1)%w.length;const b=w[i];a.classList.remove('on');a.classList.add('off');b.classList.remove('off');b.classList.add('on');setTimeout(()=>a.classList.remove('off'),750)},2600);
+ const imgs=$$('#bg img'),names=['rain forests','deserts','the Great Wall of China','Toronto, and 70+ countries'];let j=0;
+ setInterval(()=>{if(RM)return;imgs[j].classList.remove('on');j=(j+1)%imgs.length;imgs[j].classList.add('on');const el=$('#wh');el.textContent=names[j]},5200)})();
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+$$('.rv').forEach(el=>io.observe(el));
+
+/* statement: words light up as you scroll */
+(()=>{const p=$('#big');const nodes=[...p.childNodes];p.innerHTML='';
+ nodes.forEach(n=>{if(n.nodeType===3){n.textContent.split(/(\s+)/).forEach(t=>{if(!t.trim()){p.append(t);return}const s=document.createElement('span');s.textContent=t;p.append(s)})}else{n.classList.add('hl');p.append(n)}});
+ const ws=[...p.querySelectorAll('span')];
+ const upd=()=>{const r=p.getBoundingClientRect();const v=innerHeight;const k=Math.min(1,Math.max(0,(v*.85-r.top)/(r.height+v*.35)));const n=Math.round(k*ws.length);ws.forEach((s,i)=>s.classList.toggle('lit',i<n||RM))};
+ addEventListener('scroll',upd,{passive:true});upd()})();
+
+/* rail: drag to scroll on desktop */
+(()=>{const r=$('#rail');let d=false,x=0,s=0;r.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;d=true;x=e.clientX;s=r.scrollLeft;r.style.scrollSnapType='none'});
+ addEventListener('pointerup',()=>{d=false;r.style.scrollSnapType=''});r.addEventListener('pointermove',e=>{if(d)r.scrollLeft=s-(e.clientX-x)})})();
+
+/* session builder */
+const pick={};
+const GOAL={lead:['Stronger leaders',['Where leadership shows up today: a live, hands-on challenge','The behaviours behind the results, made visible','Practice: communication, listening and empowerment','Commitments each leader takes back to work']],
+ sell:['More sales',['Map how sales, marketing and operations hand off today','Find the leaks: where deals stall and why','Sales development practice on real accounts','A plan the whole team owns']],
+ culture:['A healthier culture',['Name the culture you have and the one you want','Turn values into everyday behaviours','Leadership alignment on what changes first','Roll-out and follow-through plan']],
+ team:['A team that clicks',['An experiential challenge that shows how the team really works','Debrief: trust, roles and communication','Practice new habits under pressure','Team agreements that stick']],
+ me:['Clarity for me as owner',['Where the business is, and where you want it','Scale up, scale down, or reshape','Uncover the meaning and align your why','A 90-day path with check-ins']]};
+const LAB={size:{1:'One-on-one',12:'Up to 12 people',40:'13 to 40 people',41:'More than 40 people'},fmt:{half:'Half day',full:'Full day',prog:'Program over several weeks',talk:'Conference session'},where:{site:'At your place',off:'Offsite',web:'Online'}};
+$$('#steps .step').forEach(st=>st.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{st.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');pick[st.dataset.k]=b.dataset.v;draw()})));
+function draw(){if(!pick.goal)return;const g=GOAL[pick.goal];let items=g[1].slice();
+ if(pick.fmt==='talk')items=['A keynote-style session built around your event theme','Live audience moments, not just slides','One takeaway every person can use the next day'];
+ if(pick.fmt==='prog')items.push('Follow-up sessions and coaching between modules');
+ if(pick.size==='1')items=items.map(t=>t.replace('each leader','you').replace('the whole team','you'));
+ $('#oh').textContent=g[0]+(pick.fmt==='talk'?': conference session':'');
+ $('#om').innerHTML=['size','fmt','where'].filter(k=>pick[k]).map(k=>`<span>${LAB[k][pick[k]]}</span>`).join('');
+ $('#ol').innerHTML=items.map(t=>`<li>${t}</li>`).join('');$('#of').hidden=false}
+function brief(){return `Session brief from the Riot Productions site\n\nGoal: ${pick.goal?GOAL[pick.goal][0]:'-'}\nGroup: ${LAB.size[pick.size]||'-'}\nFormat: ${LAB.fmt[pick.fmt]||'-'}\nWhere: ${LAB.where[pick.where]||'-'}\n\nOutline:\n- `+$$('#ol li').map(l=>l.textContent).join('\n- ')}
+function mail(subj,body,noteEl){if(!EMAIL){noteEl.textContent='Preview: this will send to Sandra once her email is confirmed.';noteEl.style.color='#FFB59C';return false}location.href=`mailto:${EMAIL}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;return false}
+function sendBrief(e){e.preventDefault();const f=e.target;return mail('Session brief: '+f.co.value,brief()+`\n\nFrom: ${f.name.value}, ${f.co.value}, ${f.email.value}`,$('#on'))}
+function sendContact(e){e.preventDefault();const f=e.target;let n=f.querySelector('.note');if(!n){n=document.createElement('p');n.className='note';n.style.fontSize='14px';f.append(n)}
+ if(!EMAIL){n.textContent='Preview: this form will send to Sandra once her email is confirmed.';n.style.color='#9a2a0c';return false}
+ return mail(f.topic.value+' enquiry',`${f.msg.value}\n\nFrom: ${f.name.value}, ${f.email.value}`,n)}
+
+
+/* domain + email fill-in */
+if(DOMAIN){const d=$('#dom');d.textContent=DOMAIN;d.className=''}
+if(EMAIL){$$('.ph').forEach(p=>{if(/Email address/.test(p.textContent)){const a=document.createElement('a');a.href='mailto:'+EMAIL;a.textContent=EMAIL;p.replaceWith(a)}})}
+function noteOn(f,msg){const n=f.querySelector('.note');if(n){n.textContent=msg}}
+function quick(e,subj,body){e.preventDefault();const f=e.target;if(!EMAIL){noteOn(f,'Preview: this will reach Sandra once her email is set up.');return false}location.href=`mailto:${EMAIL}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;return false}
+function sendSpeak(e){const f=e.target;return quick(e,'Speaking request: '+f.ev.value,`Event: ${f.ev.value}\nDate: ${f.dt.value}\nFrom: ${f.email.value}`)}
+function sendWait(e){const f=e.target;return quick(e,'Open workshop waitlist',`Please add me to the waitlist: ${f.email.value}`)}
+function sendNotes(e){const f=e.target;return quick(e,'Riot Notes sign-up',`Please sign me up: ${f.email.value}`)}
+/* call picker: next 10 weekdays */
+(()=>{const box=$('#days');const D=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];let d=new Date();let n=0;
+ while(n<10){d.setDate(d.getDate()+1);if(d.getDay()%6===0)continue;const b=document.createElement('button');b.type='button';b.dataset.v=`${D[d.getDay()]} ${M[d.getMonth()]} ${d.getDate()}`;b.innerHTML=`<small>${D[d.getDay()]}</small><b>${d.getDate()}</b><small>${M[d.getMonth()]}</small>`;box.append(b);n++}
+ const sel=(wrap)=>wrap.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;wrap.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true')});
+ sel(box);sel($('#times'));box.querySelector('button').setAttribute('aria-pressed','true')})();
+function sendCall(e){const f=e.target;const day=$('#days [aria-pressed=true]'),t=$('#times [aria-pressed=true]');
+ if(!t){e.preventDefault();$('#cnote').textContent='Pick a time first.';return false}
+ return quick(e,'First conversation request',`Requested: ${day.dataset.v} at ${t.textContent} ET\nFrom: ${f.name.value}, ${f.email.value}`)}
+/* offsite button presets the builder */
+$$('[data-goal]').forEach(a=>a.addEventListener('click',()=>{const b=$(`[data-k=goal] button[data-v=${a.dataset.goal}]`);b&&b.click();const w=$('[data-k=where] button[data-v=off]');w&&w.click()}));
+/* how-it-works numbers fill in */
+$$('#hs > div').forEach((el,i)=>{el.style.transitionDelay=(i*.15)+'s';io.observe(el)});
+
+/* pulse check */
+(()=>{const Q=['People here say what they really think in meetings.','Everyone knows what good looks like in their role.','Our leaders do what they ask the team to do.','Sales, marketing and operations pull the same way.','When something goes wrong, we fix it, not blame it.','People would describe our culture the same way I would.'];
+ const A=[];const body=$('#qbody'),bar=$('#qb');
+ function ask(i){bar.style.width=(i/Q.length*100)+'%';body.innerHTML=`<div class="kick" style="color:var(--mute)">${i+1} of ${Q.length}</div><p class="qq">${Q[i]}</p><div class="sc">${[1,2,3,4,5].map(n=>`<button aria-label="${n} of 5">${n}</button>`).join('')}</div><div class="lab"><span>Not at all</span><span>Absolutely</span></div>`;
+  body.querySelectorAll('.sc button').forEach((b,n)=>b.onclick=()=>{A[i]=n+1;i+1<Q.length?ask(i+1):res()})}
+ function res(){bar.style.width='100%';const s=A.reduce((a,b)=>a+b,0);const low=A.indexOf(Math.min(...A));
+  const area=['Communication and trust','Clear roles and expectations','Leadership by example','Sales and marketing alignment','Accountability without blame','A shared culture'][low];
+  const [t,d]=s>=25?['Strong foundations','Your team is in good shape. A focused session can turn good into great, starting with '+area.toLowerCase()+'.']:s>=17?['Room to grow','There is real energy to build on. The biggest lift is likely in '+area.toLowerCase()+'.']:['Time for a reset','The signs point to a reset. Start with '+area.toLowerCase()+', and the rest gets easier.'];
+  body.innerHTML=`<div class="res"><div class="kick" style="color:var(--riot)">Your read: ${s} of 30</div><h3>${t}</h3><p>${d}</p><a class="btn" href="#build">Build a session around it</a> <button class="btn ghost" style="margin-top:20px" id="qr">Start again</button></div>`;
+  $('#qr').onclick=()=>{A.length=0;ask(0)}}
+ ask(0)})();
+
+/* ===== TOUR ===== */
+const TOUR=[
+ ['#top','Sandra is the hero','Before: no website, no email address, nothing to send a prospect.','Now: Sandra front and centre, with a headline that changes as you watch and places she has worked fading behind her.','Every visit lands on two clear next steps: build a session or get in touch.'],
+ ['#state','Her words, her way','Her own line about actions and inactions, lit up word by word as you scroll.','It sets the tone: behaviour change, not slide decks.',''],
+ ['#nums','The proof, at a glance','Three decades, 70+ countries, 20+ years facilitating, 70+ companies, 11 years on the CHMSE board. All from her own published bio.','',''],
+ ['#work','Four clear offers','Leadership programs, culture change, sales and marketing strategy, and coaching. The cards stack as you scroll.','','Each offer is a door: prospects pick the one that fits and start a conversation about it.'],
+ ['#places','Where the work happens','Rain forests, deserts, the Great Wall and Toronto. A swipeable rail that shows this is not a typical consultant.','The place photos are stand-ins until Sandra shares her own.',''],
+ ['#roots','Hospitality roots','Eleven years on the CHMSE board, three director roles, and a membership and attendance turnaround.','Hotel and event leaders see right away that she knows their world.',''],
+ ['#how','How it works','Four plain steps: listen, design, live it, make it stick. The numbers fill in as you scroll.','Buyers know what happens after they reach out.',''],
+ ['#ways','Four ways in','Speaking requests, an open-workshop waitlist, offsite experiences and one-on-one coaching, each with its own button.','','Four new sources of work: event fees, workshop seats, offsites and coaching. The waitlist builds demand before dates are even set.'],
+ ['#build','Build your session','Prospects pick a goal, group size, format and place, and get an outline on the spot.','','Sandra gets a qualified brief before the first call: who they are, what they need and how big it is. Less back-and-forth, faster yeses.'],
+ ['#pulse','Team pulse check','Six quick questions, an instant read, and a nudge to build a session around the weakest spot.','','A reason to visit, a reason to share it, and a warm lead every time someone sends their result.'],
+ ['#call','Book a first conversation','Pick a day and time, send the request. Times are examples until her calendar is connected.','','Prospects book while they are interested, not three emails later.'],
+ ['#voices','Room for real voices','Clearly marked spots for client quotes. Nothing invented.','Waiting on Sandra for two or three quotes she is happy to share.',''],
+ ['#contact','One way in','A short form and a Get in touch button on every screen. Her email and domain are marked to come.','',''],
+ ['#faq','Answers before they ask','Five short answers, including how pricing works, without showing prices.','Fewer back-and-forth emails for Sandra.',''],
+ ['#notes','Riot Notes','A newsletter sign-up so people who are not ready yet stay close.','','Keeps Sandra top of mind until the next budget opens up.']
+];
+const tour=$('#tour');let ti=-1,tt=null,paused=false;const DUR=9000;
+const clr=()=>$$('.spot').forEach(e=>e.classList.remove('spot'));
+function prog(){const i=$('#tpg');i.style.transition='none';i.style.width='0';i.offsetWidth;i.style.transition=`width ${DUR}ms linear`;i.style.width='100%'}
+function show(i){if(i>=TOUR.length)return end();ti=i;clr();const [sel,h,was,now,rev]=TOUR[i];const el=$(sel);
+ el.classList.add('spot');$('#tk').textContent='What we built';$('#tn').textContent=`${i+1} / ${TOUR.length}`;$('#th').textContent=h;$('#tp').textContent=was+(now?' '+now:'');
+ $('#tr').hidden=!rev;$('#tr').textContent=rev?'Revenue: '+rev:'';
+ const y=el.getBoundingClientRect().top+scrollY-(sel==='#top'?0:70);scrollTo({top:y,behavior:RM?'auto':'smooth'});
+ clearTimeout(tt);if(!paused){prog();tt=setTimeout(()=>show(ti+1),DUR)}}
+function end(){clearTimeout(tt);clr();$('#tk').textContent="That's the tour";$('#tn').textContent='';$('#th').textContent='Have a look around.';$('#tp').textContent='Everything here comes from Sandra\'s own published words. Items marked "to confirm" are waiting on her details.';$('#tr').hidden=true;$('#tpause').hidden=$('#tnext').hidden=true;$('#tgo').hidden=false;$('#tgo').textContent='Replay';ti=-1;scrollTo({top:0,behavior:'smooth'})}
+$('#tgo').onclick=()=>{paused=false;$('#tgo').hidden=true;$('#tpause').hidden=$('#tnext').hidden=false;$('#tpause').textContent='Pause';show(0)};
+$('#tnext').onclick=()=>show(ti+1);
+$('#tpause').onclick=()=>{paused=!paused;$('#tpause').textContent=paused?'Play':'Pause';if(paused){clearTimeout(tt);const i=$('#tpg');i.style.transition='none'}else show(ti)};
+const openTour=()=>{$('#tb').hidden=true;tour.hidden=false;$('#tgo').click()};
+$('#tb').onclick=openTour;$('#dtour').onclick=e=>{e.preventDefault();openTour()};
+$('#tx').onclick=()=>{clearTimeout(tt);clr();tour.hidden=true;$('#tb').hidden=false};
+if(new URLSearchParams(location.search).get('tour')==='1'){let st=false;const go=()=>{if(st)return;st=true;setTimeout(openTour,400)};addEventListener('riotready',go);setTimeout(go,2600)}
+</script>
+</body>
+</html>
