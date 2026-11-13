@@ -2,7 +2,7 @@
 
 Preview: https://ryan-peddigrew.github.io/sites/hsmai-ontario/  ·  Tour: add `?tour=1`
 
-Pages: home, events.html (ticket builder), sponsor/ (packages + add-ons), sponsor/login.html, sponsor/dashboard.html (sample sponsor + Chapter HQ board view), ideas.html (growth plan, 20 ideas).
+Pages: home, events.html (ticket builder), sponsor/ (packages + add-ons), sponsor/login.html, sponsor/dashboard.html (sample sponsor + Chapter HQ board view), ideas.html (growth plan, 21 ideas), app/ (installable HSMAI Sponsor Portal app, global HSMAI branding, Ontario chapter; badge scan uses camera + BarcodeDetector where supported, sample scan otherwise; leads saved in the browser only).
 
 Source material: hsmaiontario.ca (copy, events, board, sponsors, 2025 Berkman award badges, photos) and hsmai.org (logo, colours: purple #532380, green #78A22F, grey #8C9B93; fonts Raleway + Open Sans). Logo used untouched (428px source, shown at 128px).
 
