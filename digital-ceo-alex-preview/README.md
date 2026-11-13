@@ -1,0 +1,17 @@
+# Digital CEO Alex (Faceless Not Boring) preview
+
+Preview: https://ryan-peddigrew.github.io/sites/digital-ceo-alex/
+Tour: https://ryan-peddigrew.github.io/sites/digital-ceo-alex/?tour=1
+Brand guide: https://ryan-peddigrew.github.io/sites/digital-ceo-alex/brand/
+
+Private draft for Ryan. Started 12 Nov 2026 from beacons.ai/digitalceoalex.
+Every product, free resource and social link from the Beacons page is on the site; buy buttons go to her existing Beacons checkout links.
+Product names kept as she wrote them (some include "AI"); the word is avoided elsewhere.
+Paintings: Ryan confirmed permission to use them; do not credit or mention them on the site (Ryan, 12 Nov 2026). Her photos are crops of two of her Instagram posts Ryan sent.
+
+## Open items
+1. Email address for the email button (marked "needed").
+2. Email sign-up goes to her Beacons page for now; not connected to her list.
+3. Prices are CAD (Ryan, 12 Nov 2026).
+4. Product descriptions are only what the Beacons page shows.
+5. Decided 12 Nov 2026: wordmark A (stacked); new logo = The Stack (primary) + The Signature "f." (secondary), see brand/logo.html. Old round logo kept as img/logo.png and img/logo-face.png (archive).
