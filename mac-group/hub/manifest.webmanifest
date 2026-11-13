@@ -1,12 +1,12 @@
 {
   "id": "mac-hub",
-  "name": "MAC Hub",
-  "short_name": "MAC Hub",
+  "name": "MGC Hub",
+  "short_name": "MGC Hub",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0F1115",
-  "theme_color": "#0F1115",
+  "background_color": "#0A0A0A",
+  "theme_color": "#0A0A0A",
   "icons": [
     {
       "src": "../icons/hub-192.png",

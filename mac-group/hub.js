@@ -1,4 +1,4 @@
-/* MAC Hub demo. Sample data only: clients are labelled "Sample client" on purpose. */
+/* MGC Hub demo. Sample data only: clients are labelled "Sample client" on purpose. */
 (function () {
   const { $, $$ } = window.MAC; const T = window.MACTOOLS;
   const BR = { mac: "MAC Show Systems", psi: "PSI", tt: "Tour Trucking" };

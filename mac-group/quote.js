@@ -1,4 +1,4 @@
-/* MAC Hub Quote Builder (staff only). SAMPLE inventory. No prices are stored or invented:
+/* MGC Hub Quote Builder (staff only). SAMPLE inventory. No prices are stored or invented:
    the rep types every rate. The finished quote only ever shows the selling company. */
 (function () {
   const T = window.MACTOOLS, $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -6,9 +6,9 @@
   const fmt = d => new Date(d + "T12:00").toLocaleDateString("en-CA", { weekday: "short", month: "short", day: "numeric", year: "numeric" });
   const cad = n => n.toLocaleString("en-CA", { style: "currency", currency: "CAD" });
   const BR = {
-    mss: { n: "MAC Show Systems Inc.", a: "125 Bermondsey Rd, North York, ON", e: "info@macshowsystems.com", logo: "../img/logos/mss-logo.png", r: 1472 / 306, site: "mac" },
+    mss: { n: "MAC Show Systems Inc.", a: "125 Bermondsey Rd, North York, ON", e: "info@macshowsystems.com", logo: "../img/logos/mss-logo-even.png", r: 1472 / 306, site: "mac" },
     psi: { n: "PSI · Production Service Industries", a: "255 Bunting Rd, St. Catharines, ON", e: "info@psi.show", logo: "../img/logos/psi-logo-bw.png", r: 1, site: "psi", img: true },
-    ttl: { n: "Tour Trucking Logistics Inc.", a: "Address to confirm", e: "Email to confirm", logo: "../img/logos/ttl-logo.png", r: 2849 / 975, site: "tt" }
+    ttl: { n: "Tour Trucking Logistics Inc.", a: "Address to confirm", e: "Email to confirm", logo: "../img/logos/ttl-logo-even.png", r: 2849 / 975, site: "tt" }
   };
   // Services each brand sells as its own line (sister-company work shows under the selling brand)
   const SVC = {
@@ -63,7 +63,7 @@
     const rows = S.lines.map(l => { const r = parseFloat(String(l.r).replace(/[^0-9.]/g, "")); const t = isNaN(r) ? null : r * l.q; if (t) sub += t;
       return `<tr><td>${l.id ? inv(l.id).n : l.s}</td><td>${l.q}</td><td>${isNaN(r) ? '<span class="todo">rate</span>' : cad(r)}</td><td>${t === null ? "" : cad(t)}</td></tr>`; }).join("");
     const tax = sub * S.tax / 100;
-    const logo = b.img ? `<img src="${b.logo}" alt="" width="64" height="64">` : `<span class="mlogo" style="width:${S.b === "mss" ? 230 : 150}px;aspect-ratio:${b.r};-webkit-mask-image:url(${b.logo});mask-image:url(${b.logo})"></span>`;
+    const logo = b.img ? `<img src="${b.logo}" alt="" width="64" height="64">` : `<span class="mlogo" style="width:${S.b === "mss" ? 230 : 164}px;aspect-ratio:${b.r};-webkit-mask-image:url(${b.logo});mask-image:url(${b.logo})"></span>`;
     $("[data-doc]").innerHTML = `<div class="qd" data-site="${b.site}">
       <div class="qd-top">${logo}<div class="qd-co"><b>${b.n}</b><br>${b.a}<br>${b.e}</div></div>
       <div class="qd-h"><div><span class="qd-k">Quote</span><h3>#${S.no}</h3></div><div><span class="qd-k">Prepared for</span><b>${S.client}</b><br>${S.contact}</div><div><span class="qd-k">Event</span><b>${S.ev}</b><br>${S.venue}<br>${fmt(S.a)}${S.a !== S.z ? " to " + fmt(S.z) : ""}</div></div>
@@ -87,7 +87,7 @@
   document.addEventListener("click", e => {
     const t = e.target.closest("button"); if (!t) return;
     if (t.dataset.b) { S.b = t.dataset.b; S.lines = S.lines.filter(l => l.id || SVC[S.b].includes(l.s)); fields(); return all(); }
-    if (t.dataset.add) { if (t.hasAttribute("data-wait")) { toast("Client added to the waitlist. MAC Hub will flag it if stock frees up."); return; } const ex = S.lines.find(l => l.id === t.dataset.add); ex ? ex.q++ : S.lines.push({ id: t.dataset.add, q: 1, r: "" }); return all(); }
+    if (t.dataset.add) { if (t.hasAttribute("data-wait")) { toast("Client added to the waitlist. MGC Hub will flag it if stock frees up."); return; } const ex = S.lines.find(l => l.id === t.dataset.add); ex ? ex.q++ : S.lines.push({ id: t.dataset.add, q: 1, r: "" }); return all(); }
     if (t.dataset.svcadd) { S.lines.push({ s: t.dataset.svcadd, q: 1, r: "" }); return all(); }
     if (t.dataset.p) { S.lines[+t.dataset.p].q++; return all(); }
     if (t.dataset.m) { const l = S.lines[+t.dataset.m]; l.q = Math.max(1, l.q - 1); return all(); }
@@ -100,7 +100,7 @@
       $("[data-mail]").innerHTML = `<div class="qb-mail"><div class="qd-k">Email preview · sent from ${b.e}</div><p><b>Subject:</b> Your quote #${S.no} from ${b.n.split(" ·")[0].replace(" Inc.", "")}</p><p>Hi ${S.contact.split(" ")[0]},</p><p>Here's your quote for ${S.ev} on ${fmt(S.a)}. Your dates are held for 48 hours. You can approve it in one tap from the link below.</p><p class="qd-k">Signed: your name, ${b.n}</p><p class="mute">Only ${b.n.split(" ·")[0]} appears on this email. Preview only, nothing is sent.</p></div>`;
       return toast("Email preview ready below. Nothing was sent.");
     }
-    if (t.hasAttribute("data-approve")) return toast("In the real app, approval lands in MAC Hub and books the stock.");
+    if (t.hasAttribute("data-approve")) return toast("In the real app, approval lands in MGC Hub and books the stock.");
   });
   let tt; function toast(m) { const el = $("#toast"); el.textContent = m; el.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => el.classList.remove("on"), 2600); }
 

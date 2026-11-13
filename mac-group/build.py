@@ -84,8 +84,8 @@ def contact(title, line, addr, email, opts):
 </div></section>'''
 
 
-LOGOS = {"mgc": ("logos/mgc-logo.png", 1277, 721, "MAC Group of Companies"), "mgcm": ("logos/mgc-monogram.png", 1189, 721, "MAC Group of Companies"),
-         "mss": ("logos/mss-logo.png", 1472, 306, "MAC Show Systems"), "ttl": ("logos/ttl-logo.png", 2849, 975, "Tour Trucking Logistics")}
+LOGOS = {"mgc": ("logos/mgc-logo-even.png", 1277, 721, "MAC Group of Companies"), "mgcm": ("logos/mgc-monogram-even.png", 1189, 721, "MAC Group of Companies"),
+         "mss": ("logos/mss-logo-even.png", 1472, 306, "MAC Show Systems"), "ttl": ("logos/ttl-logo-even.png", 2849, 975, "Tour Trucking Logistics")}
 def mlogo(key, w, root, cls=""):
     """Client's own white logo shown in the text colour (CSS mask), never redrawn."""
     src, W, H, alt = LOGOS[key]
@@ -124,13 +124,13 @@ group = head("group", "index.html", "", "MAC Group of Companies", "MAC Group of 
 
 <section id="companies" class="cos cos3">
   <a class="co" href="show-systems/index.html"><img src="img/mac-venue-1.webp" alt="">
-    <div class="in">{mlogo("mss", 260, "", "co-logo")}
+    <div class="in">{mlogo("mss", 210, "", "co-logo")}
     <p>Sound, lighting, video, LED and staging. Rentals, sales, setup and national tours.</p><span class="go">Visit MAC Show Systems {icon("arrow","sm")}</span></div></a>
   <a class="co" href="psi/index.html"><img src="img/psi-concert.jpg" alt="">
     <div class="in"><span class="co-logo">{psilogo(84, "")}</span>
     <p>Production Service Industries. Concerts, festivals, galas, technical staffing and training.</p><span class="go">Visit PSI {icon("arrow","sm")}</span></div></a>
   <a class="co" href="tour-trucking/index.html"><img src="img/truck-mountain.jpg" alt="">{STANDIN}
-    <div class="in">{mlogo("ttl", 210, "", "co-logo")}
+    <div class="in">{mlogo("ttl", 150, "", "co-logo")}
     <p>Specialized transport for the entertainment industry. Full loads, partial loads and warehousing.</p><span class="go">Visit Tour Trucking {icon("arrow","sm")}</span></div></a>
 </section>
 
@@ -139,7 +139,7 @@ group = head("group", "index.html", "", "MAC Group of Companies", "MAC Group of 
   <span class="eyebrow">Behind the scenes</span>
   <h2>Three front doors.<br>One system behind them.</h2>
   <div class="split" style="margin-top:40px;align-items:start">
-    <p class="lead">Clients only ever see the company they deal with. A MAC Show Systems quote that needs a truck or extra crew still goes out as one MAC Show Systems quote. The connection lives in MAC Hub, which only your team sees.</p>
+    <p class="lead">Clients only ever see the company they deal with. A MAC Show Systems quote that needs a truck or extra crew still goes out as one MAC Show Systems quote. The connection lives in MGC Hub, which only your team sees.</p>
     <div class="extras" style="margin-top:0">
       <div>{icon("box")}<div><h3>One inventory</h3><p>Every item, every warehouse, one live count.</p></div></div>
       <div>{icon("calendar")}<div><h3>One calendar</h3><p>Every booking from every company, so availability is always true.</p></div></div>
@@ -147,7 +147,7 @@ group = head("group", "index.html", "", "MAC Group of Companies", "MAC Group of 
       <div>{icon("truck")}<div><h3>One truck schedule</h3><p>Trucks and crew become add-ons inside any quote.</p></div></div>
     </div>
   </div>
-  <div class="btns" style="margin-top:36px"><a class="btn" href="hub/index.html">{icon("hub","sm")}Open MAC Hub (staff app)</a><a class="btn ghost" href="apps/index.html">{icon("app","sm")}See the client apps</a></div>
+  <div class="btns" style="margin-top:36px"><a class="btn" href="hub/index.html">{icon("hub","sm")}Open MGC Hub (staff app)</a><a class="btn ghost" href="apps/index.html">{icon("app","sm")}See the client apps</a></div>
 </div></section>
 
 <section class="plan-band"><img src="img/psi-olg-wall.jpg" alt="OLG Stage video wall, Fallsview Casino">
@@ -183,7 +183,7 @@ group = head("group", "index.html", "", "MAC Group of Companies", "MAC Group of 
   <ol><li>Your real inventory list, in any format (spreadsheet or rental software export).</li><li>Photos of your own gear, crews, trucks and warehouse.</li><li>Logos as vector files (MAC Show Systems, PSI). Tour Trucking: a larger logo file.</li><li>A yes on the brand direction for MAC Group.</li><li>Where quote requests should go for each company.</li></ol></div>
 </div></section>
 </main>
-''' + contact("Talk to MAC Group.", "For partnerships, large accounts and anything that spans more than one company.", "125 Bermondsey Rd, North York, ON", "info@macshowsystems.com <span class=\"todo\">confirm group email</span>", ["Gear for an event", "Crew", "Trucking", "Partnership", "Careers"]) + foot("", '<div>' + mlogo("mgc", 110, "") + '<br><span class="mute">© 2026 MAC Group of Companies</span></div><div><a href="show-systems/index.html">MAC Show Systems</a><br><a href="psi/index.html">PSI</a><br><a href="tour-trucking/index.html">Tour Trucking</a></div>') + '''<script>document.querySelectorAll("[data-form]").forEach(f=>f.addEventListener("submit",e=>{e.preventDefault();f.innerHTML='<h3>Got it.</h3><p>The right team will get back to you.</p><p class="mute">Preview only: nothing is sent yet.</p>'}));</script>
+''' + contact("Talk to MAC Group.", "For partnerships, large accounts and anything that spans more than one company.", "125 Bermondsey Rd, North York, ON", "info@macshowsystems.com <span class=\"todo\">confirm group email</span>", ["Gear for an event", "Crew", "Trucking", "Partnership", "Careers"]) + foot("", '<div>' + mlogo("mgc", 84, "") + '<br><span class="mute">© 2026 MAC Group of Companies</span></div><div><a href="show-systems/index.html">MAC Show Systems</a><br><a href="psi/index.html">PSI</a><br><a href="tour-trucking/index.html">Tour Trucking</a></div>') + '''<script>document.querySelectorAll("[data-form]").forEach(f=>f.addEventListener("submit",e=>{e.preventDefault();f.innerHTML='<h3>Got it.</h3><p>The right team will get back to you.</p><p class="mute">Preview only: nothing is sent yet.</p>'}));</script>
 </body></html>'''
 write("index.html", group)
 
@@ -255,7 +255,7 @@ mac = head("mac", "show-systems/index.html", R, "MAC Show Systems", "Sound, ligh
 
 <section class="plan-band"><img src="{R}img/mac-work-1.webp" alt="Outdoor stage build in a park">
   <div class="wrap"><span class="eyebrow">National rentals and tours</span><h2 style="max-width:15ch">Any city. Same show.</h2>
-  <p class="lead" style="margin-top:20px;color:#E6E2D8">Touring takes serious logistics. We plan it so the show runs the same way in every city.</p>{two_buttons("#quote")}</div>
+  <p class="lead" style="margin-top:20px;color:#E6E6E6">Touring takes serious logistics. We plan it so the show runs the same way in every city.</p>{two_buttons("#quote")}</div>
 </section>
 
 <section id="sales" class="pad"><div class="wrap split" style="align-items:start">
@@ -269,7 +269,7 @@ mac = head("mac", "show-systems/index.html", R, "MAC Show Systems", "Sound, ligh
     <button class="btn">Request purchase options</button></form>
 </div></section>
 </main>
-''' + contact("Let's make your event.", "Questions about gear, a venue install or a tour? Send us a note.", "125 Bermondsey Rd, North York, ON M4A 1X3", "info@macshowsystems.com", ["Rental", "Equipment purchase", "Venue installation", "National tour", "Show management"]) + foot(R, '<div>' + mlogo("mss", 200, R) + '<br><span class="mute">© 2026 MAC Show Systems Inc.</span></div>') + f'''<script src="{R}tools.js"></script>
+''' + contact("Let's make your event.", "Questions about gear, a venue install or a tour? Send us a note.", "125 Bermondsey Rd, North York, ON M4A 1X3", "info@macshowsystems.com", ["Rental", "Equipment purchase", "Venue installation", "National tour", "Show management"]) + foot(R, '<div>' + mlogo("mss", 210, R) + '<br><span class="mute">© 2026 MAC Show Systems Inc.</span></div>') + f'''<script src="{R}tools.js"></script>
 <script>
 const T = window.MACTOOLS;
 T.quote(document.getElementById("quote-tool"), {{ prefix: "mac" }});
@@ -401,7 +401,7 @@ tt = head("tt", "tour-trucking/index.html", R, "Tour Trucking Logistics", "Speci
   <button class="btn">Apply to drive</button></form></div>
 </section>
 </main>
-''' + contact("Talk to dispatch.", "Questions about a load, a tour or storage? Send us a note.", "125 Bermondsey Rd, North York, ON <span class=\"todo\">confirm address</span>", "<span class=\"todo\">Tour Trucking email needed</span>", ["One load", "A tour", "Storage", "Driving with us"]) + foot(R, '<div>' + mlogo("ttl", 160, R) + '<br><span class="mute">© 2026 Tour Trucking Logistics Inc.</span></div>') + f'''<script src="{R}tools.js"></script>
+''' + contact("Talk to dispatch.", "Questions about a load, a tour or storage? Send us a note.", "125 Bermondsey Rd, North York, ON <span class=\"todo\">confirm address</span>", "<span class=\"todo\">Tour Trucking email needed</span>", ["One load", "A tour", "Storage", "Driving with us"]) + foot(R, '<div>' + mlogo("ttl", 150, R) + '<br><span class="mute">© 2026 Tour Trucking Logistics Inc.</span></div>') + f'''<script src="{R}tools.js"></script>
 <script>
 const T = window.MACTOOLS;
 T.route(document.getElementById("route-tool")); T.space(document.getElementById("space-tool"));
@@ -414,7 +414,7 @@ print("built")
 # =====================================================================================
 # MAC HUB (staff app demo)
 # =====================================================================================
-hub = head("hub", "hub/index.html", R, "MAC Hub", "Staff app for MAC Group of Companies.").replace('<link rel="stylesheet"', '<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="../icons/hub-180.png"><meta name="theme-color" content="#0F1115"><link rel="stylesheet"', 1).replace('<div class="sample">', '<div class="sample" style="background:#FFFFFF;color:#0F1115">') + f'''
+hub = head("hub", "hub/index.html", R, "MGC Hub", "Staff app for MAC Group of Companies.").replace('<link rel="stylesheet"', '<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="../icons/hub-180.png"><meta name="theme-color" content="#0A0A0A"><link rel="stylesheet"', 1).replace('<div class="sample">', '<div class="sample" style="background:#FFFFFF;color:#0A0A0A">') + f'''
 <div class="hub" id="hub">
   <aside class="hub-rail">
     <div class="hub-brand">{mlogo("mgcm", 110, R)}<b>Hub</b><span>Staff only</span></div>
@@ -455,17 +455,17 @@ write("hub/index.html", hub)
 # =====================================================================================
 # CLIENT APPS
 # =====================================================================================
-apps = head("group", "apps/index.html", R, "Client apps", "One client app per brand, all running on MAC Hub.") + header(
-    '<a class="mark" href="../index.html">' + mlogo("mgc", 84, R) + '</a>', [("MAC Hub", "../hub/index.html")], "../index.html#whole-event", R).replace('href="#contact"', 'href="../index.html#contact"') + f'''
+apps = head("group", "apps/index.html", R, "Client apps", "One client app per brand, all running on MGC Hub.") + header(
+    '<a class="mark" href="../index.html">' + mlogo("mgc", 84, R) + '</a>', [("MGC Hub", "../hub/index.html")], "../index.html#whole-event", R).replace('href="#contact"', 'href="../index.html#contact"') + f'''
 <main id="apps" class="pad" style="padding-top:150px"><div class="wrap">
   <span class="owner-note">Owners only. Clickable demos on sample data.</span>
   <span class="eyebrow">Client apps</span><h2 style="max-width:16ch">One app per brand. One system behind them.</h2>
-  <p class="lead" style="margin-top:18px">Each app installs to a phone's home screen from the brand's own site. Clients only ever see that one brand. Everything they do lands in MAC Hub.</p>
+  <p class="lead" style="margin-top:18px">Each app installs to a phone's home screen from the brand's own site. Clients only ever see that one brand. Everything they do lands in MGC Hub.</p>
   <div class="app-links">
+    <a class="app-link" data-site="hub" href="../hub/quote.html"><img src="../icons/hub-192.png" alt="" width="72" height="72"><b>MGC Hub</b><span>For staff at all three companies. Requests, quoting, shared inventory and calendar, cross-company flags, and links to HR and rental software.</span><em>Open the app</em></a>
     <a class="app-link" data-site="mac" href="mss/index.html"><img src="../icons/mss-192.png" alt="" width="72" height="72"><b>MAC Show Systems</b><span>For clients. Their events, quotes to approve, new requests, messages and documents. Only MAC Show Systems appears.</span><em>Open the app</em></a>
     <a class="app-link" data-site="psi" href="psi/index.html"><img src="../icons/psi-192.png" alt="" width="72" height="72"><b>PSI</b><span>For clients. Their shows, crew confirmed by role, quotes, training seats and messages. Only PSI appears.</span><em>Open the app</em></a>
     <a class="app-link" data-site="tt" href="ttl/index.html"><img src="../icons/ttl-192.png" alt="" width="72" height="72"><b>Tour Trucking</b><span>For shippers. Where the truck is, every leg of the tour, quotes, paperwork and dispatch. Only Tour Trucking appears.</span><em>Open the app</em></a>
-    <a class="app-link" data-site="hub" href="../hub/quote.html"><img src="../icons/hub-192.png" alt="" width="72" height="72"><b>MAC Hub</b><span>For staff at all three companies. Requests, quoting, shared inventory and calendar, cross-company flags, and links to HR and rental software.</span><em>Open the app</em></a>
   </div>
   <p class="mute" style="margin-top:14px">Each one installs to a phone: open it, then Share and Add to Home Screen.</p>
   <h3 style="margin:56px 0 18px;font-size:28px">Phone previews</h3>
@@ -519,12 +519,12 @@ for key, site, name, short, bg, theme, logo, sitedir, desc in CAPPS:
     write(f"apps/{key}/index.html", page)
 
 # Hub manifest + Quote Builder
-write("hub/manifest.webmanifest", json.dumps({"id": "mac-hub", "name": "MAC Hub", "short_name": "MAC Hub", "start_url": "./index.html", "scope": "./", "display": "standalone",
-      "background_color": "#0F1115", "theme_color": "#0F1115", "icons": [{"src": "../icons/hub-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "../icons/hub-512.png", "sizes": "512x512", "type": "image/png"}]}, indent=2))
-HUBHEAD = '<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="../icons/hub-180.png"><meta name="theme-color" content="#0F1115"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="stylesheet"'
-write("hub/quote.webmanifest", json.dumps({"id": "mac-hub-quotes", "name": "MAC Hub Quotes", "short_name": "Quotes", "start_url": "./quote.html", "scope": "./", "display": "standalone",
-      "background_color": "#0F1115", "theme_color": "#0F1115", "icons": [{"src": "../icons/options/quote-C-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "../icons/options/quote-C.png", "sizes": "512x512", "type": "image/png"}]}, indent=2))
-qhtml = head("hub", "hub/quote.html", R, "MAC Hub Quotes", "Staff quoting app.").replace('<link rel="stylesheet"', HUBHEAD, 1).replace("</head>", f'<link rel="stylesheet" href="{R}app.css"></head>').replace('<div class="sample">', '<div class="sample" style="background:#FFFFFF;color:#0F1115">') + f'''
+write("hub/manifest.webmanifest", json.dumps({"id": "mac-hub", "name": "MGC Hub", "short_name": "MGC Hub", "start_url": "./index.html", "scope": "./", "display": "standalone",
+      "background_color": "#0A0A0A", "theme_color": "#0A0A0A", "icons": [{"src": "../icons/hub-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "../icons/hub-512.png", "sizes": "512x512", "type": "image/png"}]}, indent=2))
+HUBHEAD = '<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="../icons/hub-180.png"><meta name="theme-color" content="#0A0A0A"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="stylesheet"'
+write("hub/quote.webmanifest", json.dumps({"id": "mac-hub-quotes", "name": "MGC Hub Quotes", "short_name": "Quotes", "start_url": "./quote.html", "scope": "./", "display": "standalone",
+      "background_color": "#0A0A0A", "theme_color": "#0A0A0A", "icons": [{"src": "../icons/options/quote-C-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "../icons/options/quote-C.png", "sizes": "512x512", "type": "image/png"}]}, indent=2))
+qhtml = head("hub", "hub/quote.html", R, "MGC Hub Quotes", "Staff quoting app.").replace('<link rel="stylesheet"', HUBHEAD, 1).replace("</head>", f'<link rel="stylesheet" href="{R}app.css"></head>').replace('<div class="sample">', '<div class="sample" style="background:#FFFFFF;color:#0A0A0A">') + f'''
 <div class="hub" id="quote">
   <aside class="hub-rail">
     <div class="hub-brand">{mlogo("mgcm", 110, R)}<b>Hub</b><span>Staff only</span></div>
@@ -638,8 +638,8 @@ for b in BG:
     write("brand/" + b["file"], page)
 
 # App icon options side by side + index
-APPS_OPT = [("MAC Show Systems", "mss", "Clients of MAC Show Systems", "../apps/mss/index.html"), ("PSI", "psi", "Clients of PSI", "../apps/psi/index.html"),
-            ("Tour Trucking", "ttl", "Shippers and tour managers", "../apps/ttl/index.html"), ("MAC Hub", "hub", "Staff: employee dashboard, with Quotes inside", "../hub/index.html")]
+APPS_OPT = [("MGC Hub", "hub", "Staff: employee dashboard, with Quotes inside", "../hub/index.html"), ("MAC Show Systems", "mss", "Clients of MAC Show Systems", "../apps/mss/index.html"), ("PSI", "psi", "Clients of PSI", "../apps/psi/index.html"),
+            ("Tour Trucking", "ttl", "Shippers and tour managers", "../apps/ttl/index.html")]
 rows = "".join(f'<div class="bg-arow"><div><h3>{n}</h3><p class="mute">{w}</p><a href="{h}">Open the app</a></div>{figs(k, n, 150)}</div>' for n, k, w, h in APPS_OPT)
 appsg = head("group", "brand/apps.html", R, "App names and icons", "App icon options.").replace("</head>", f'<link rel="stylesheet" href="{R}brand.css"></head>') + f'''
 <main class="bg" id="guide">
@@ -665,7 +665,7 @@ def mpage(fname, title, desc, img, alt, eyebrow, h1, lede, body, scripts=""):
   <div class="wrap"><span class="eyebrow">{eyebrow}</span><h1>{h1}</h1><p class="lede">{lede}</p></div></section>
 {body}
 </main>
-''' + contact("Let's make your event.", "Questions about gear, a venue or a tour? Send us a note.", "125 Bermondsey Rd, North York, ON M4A 1X3", "info@macshowsystems.com", ["Rental", "Equipment purchase", "Venue installation", "National tour", "Show management"]) + foot(R, '<div>' + mlogo("mss", 200, R) + '<br><span class="mute">© 2026 MAC Show Systems Inc.</span></div>') + f'''<script src="{R}tools.js"></script>
+''' + contact("Let's make your event.", "Questions about gear, a venue or a tour? Send us a note.", "125 Bermondsey Rd, North York, ON M4A 1X3", "info@macshowsystems.com", ["Rental", "Equipment purchase", "Venue installation", "National tour", "Show management"]) + foot(R, '<div>' + mlogo("mss", 210, R) + '<br><span class="mute">© 2026 MAC Show Systems Inc.</span></div>') + f'''<script src="{R}tools.js"></script>
 <script>const T = window.MACTOOLS; document.querySelectorAll("[data-form]").forEach(f => T.sendForm(f, "Our team will get back to you shortly."));{scripts}</script>
 </body></html>'''
     write(f"show-systems/{fname}", h.replace('href="index.html"', 'href="index.html"'))
@@ -705,7 +705,7 @@ mpage("venues.html", "Venues", "Venue partners and in-house AV.", "mac-venue-4.w
   <div class="venues">{"".join(f'<a class="venue" href="quote.html#quote"><img src="{R}img/{im}" alt=""><b><span class="todo">Venue name from MAC</span></b><span>Room layouts and load-in notes on file</span></a>' for im in ["mac-venue-1.webp", "mac-venue-2.webp", "mac-venue-3.webp", "mac-venue-4.webp"])}</div></div></section>
 <section class="plan-band"><img src="{R}img/mac-venue-3.webp" alt="Gala in a heritage building">
   <div class="wrap"><span class="eyebrow">For venues</span><h2 style="max-width:15ch">Become a venue partner.</h2>
-  <p class="lead" style="margin-top:20px;color:#E6E2D8">Preferred-supplier status, your rooms pre-loaded in our floor planner, and a team that knows your building. Your clients get a faster, smoother event.</p>
+  <p class="lead" style="margin-top:20px;color:#E6E6E6">Preferred-supplier status, your rooms pre-loaded in our floor planner, and a team that knows your building. Your clients get a faster, smoother event.</p>
   <div class="btns"><a class="btn" href="#partner">Apply to partner</a></div></div></section>
 <section id="partner" class="pad"><div class="wrap split" style="align-items:start"><div><span class="eyebrow">Venue partner program</span><h2>Tell us about your venue.</h2><p class="lead" style="margin-top:18px">We'll visit, map your rooms and add them to the planner.</p></div>
   <form class="tool" data-form><div class="form-grid"><label class="field"><span>Venue</span><input required></label><label class="field"><span>City</span><input></label><label class="field"><span>Your name</span><input required></label><label class="field"><span>Email</span><input type="email" required></label></div>
@@ -728,16 +728,16 @@ mpage("planning.html", "Plan your event", "Planning help, FAQ and documents.", "
 <section class="pad" style="padding-top:0"><div class="wrap"><span class="eyebrow">Next step</span><h2>Ready when you are.</h2>{two_buttons("quote.html")}</div></section>''')
 print("built MSS pages")
 
-# MAC Hub: Connections (pitch mock-up; nothing is connected)
+# MGC Hub: Connections (pitch mock-up; nothing is connected)
 CONN = [("BrightHR or ADP", "HR and payroll", "Not connected · needs sign-off",
-         ["Staff list, roles and who works for which company", "Time off and sick days block crew from being booked", "Hours from Crew Call go to payroll", "New hires get MAC Hub access automatically, and leavers lose it"]),
+         ["Staff list, roles and who works for which company", "Time off and sick days block crew from being booked", "Hours from Crew Call go to payroll", "New hires get MGC Hub access automatically, and leavers lose it"]),
         ("Current RMS", "Rental software in use today", "Not connected · needs sign-off",
-         ["Inventory and bookings stay in Current RMS: no double entry", "MAC Hub reads live stock for staff quotes", "Approved quotes become Current RMS orders", "Client apps show event status, never gear lists"]),
+         ["Inventory and bookings stay in Current RMS: no double entry", "MGC Hub reads live stock for staff quotes", "Approved quotes become Current RMS orders", "Client apps show event status, never gear lists"]),
         ("Email and calendar", "Each company's own email", "Not connected · needs sign-off",
          ["Quotes go out from the selling company's own address", "Load-ins and shows land on the right calendars"]),
         ("Accounting", "Invoices and payments", "To confirm which system", ["Approved quotes become invoices under the right company"])]
 cards = "".join(f'''<div class="cx"><div class="cx-h"><div><h3>{n}</h3><p class="mute">{w}</p></div><span class="pill wait">{st}</span></div><ul>{"".join(f"<li>{x}</li>" for x in l)}</ul><button class="btn ghost sm" data-req>Request access</button></div>''' for n, w, st, l in CONN)
-chtml = head("hub", "hub/connections.html", R, "MAC Hub Connections", "Systems MAC Hub connects to.").replace('<link rel="stylesheet"', HUBHEAD, 1).replace("</head>", f'<link rel="stylesheet" href="{R}app.css"></head>').replace('<div class="sample">', '<div class="sample" style="background:#FFFFFF;color:#0F1115">') + f'''
+chtml = head("hub", "hub/connections.html", R, "MGC Hub Connections", "Systems MGC Hub connects to.").replace('<link rel="stylesheet"', HUBHEAD, 1).replace("</head>", f'<link rel="stylesheet" href="{R}app.css"></head>').replace('<div class="sample">', '<div class="sample" style="background:#FFFFFF;color:#0A0A0A">') + f'''
 <div class="hub" id="conn">
   <aside class="hub-rail">
     <div class="hub-brand">{mlogo("mgcm", 110, R)}<b>Hub</b><span>Staff only</span></div>
@@ -751,7 +751,7 @@ chtml = head("hub", "hub/connections.html", R, "MAC Hub Connections", "Systems M
   </aside>
   <main class="hub-main">
     <div class="hub-top"><div><span class="eyebrow">Connections · ready to set up once approved</span><h1 class="hub-h">One hub. The systems you already use.</h1></div></div>
-    <p class="mute" style="max-width:62ch">MAC Hub sits on top of what MAC already runs, so nobody changes how they work. Nothing is connected yet: each connection needs sign-off on permissions first, and only reads what it needs.</p>
+    <p class="mute" style="max-width:62ch">MGC Hub sits on top of what MAC already runs, so nobody changes how they work. Nothing is connected yet: each connection needs sign-off on permissions first, and only reads what it needs.</p>
     <div class="cxs">{cards}</div>
   </main>
 </div>

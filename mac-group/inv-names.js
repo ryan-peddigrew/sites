@@ -1,4 +1,4 @@
-/* STAFF ONLY: real item names. Loaded by MAC Hub pages, never by public sites or client apps. Sample data. */
+/* STAFF ONLY: real item names. Loaded by MGC Hub pages, never by public sites or client apps. Sample data. */
 window.MACNAMES = {
  "stg": "Stage deck, 2.4 × 1.2 m",
  "stgo": "Outdoor stage with roof, 12 × 9 m",
