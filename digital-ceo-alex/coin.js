@@ -1,0 +1,3 @@
+(function(){var base=(document.currentScript&&document.currentScript.src||'').replace(/coin\.js.*$/,'');document.querySelectorAll('.coin').forEach(function(c){if(c.dataset.ok)return;c.dataset.ok=1;
+ var h='<span class="c3">';for(var i=-7;i<=7;i++)h+='<span class="rim" style="transform:translateZ(calc(var(--s)*'+(i*.0045).toFixed(4)+'))"></span>';
+ h+='<span class="face"></span><span class="back"><span>Digital<br>CEO <i>Alex</i></span></span></span><span class="sh"></span>';c.innerHTML=h;if(base)c.querySelector('.face').style.backgroundImage='url('+base+'img/logo-face.png)';});})();
