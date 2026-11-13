@@ -1,0 +1,14 @@
+{
+  "name": "HSMAI Sponsor Portal",
+  "short_name": "HSMAI Sponsors",
+  "description": "Your HSMAI chapter sponsorship: benefits, badge scanning, leads, events and invoices.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#532380",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"}
+  ]
+}

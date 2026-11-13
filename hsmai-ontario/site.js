@@ -29,7 +29,7 @@ ft.innerHTML=`<div class="wrap"><div class="grid">
 <p style="margin-top:18px;color:#ffffffb3;max-width:40ch">Ontario's resource for hospitality sales, marketing and revenue professionals. Part of HSMAI Americas.</p>
 <div class="part"><img src="${R}img/partner-orhma.jpg" alt="ORHMA"><img src="${R}img/partner-tiao.png" alt="TIAO"></div></div>
 <div><h4>Chapter</h4><a href="${R}events.html">Events</a><a href="${R}index.html#membership">Membership</a><a href="${R}index.html#board">Board</a><a href="${R}index.html#reads">Recommended reads</a></div>
-<div><h4>Partners</h4><a href="${R}sponsor/">Sponsor the chapter</a><a href="${R}sponsor/login.html">Sponsor login</a><a href="${R}sponsor/dashboard.html">Sample dashboard</a><a href="${R}ideas.html">Growth plan</a></div>
+<div><h4>Partners</h4><a href="${R}sponsor/">Sponsor the chapter</a><a href="${R}sponsor/login.html">Sponsor login</a><a href="${R}app/">Sponsor app</a><a href="${R}sponsor/dashboard.html">Sample dashboard</a><a href="${R}ideas.html">Growth plan</a></div>
 <div><h4>Contact</h4><a href="mailto:communications@hsmaiontario.ca">communications@<wbr>hsmaiontario.ca</a><a href="mailto:sponsorship@hsmaiontario.ca">sponsorship@<wbr>hsmaiontario.ca</a><a href="https://www.linkedin.com/company/hsmai-ontario/" rel="noopener">LinkedIn</a><a href="https://www.facebook.com/hsmaiontario/" rel="noopener">Facebook</a></div>
 </div><div class="fine"><span>&copy; HSMAI Ontario 2026. HSMAI name and logo used as supplied by HSMAI.</span><span>Concept preview by Chairlift. Not the live site.</span></div></div>`;
 document.body.append(ft);

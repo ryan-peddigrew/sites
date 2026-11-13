@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>HSMAI Sponsor Portal</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#532380">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="HSMAI Sponsors">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--purple:#532380;--purple2:#6E3BA6;--plum:#1B0F29;--green:#78A22F;--green2:#9BC54E;--sage:#8C9B93;--ink:#121212;--paper:#F4F3EF;--line:#E4E2DC;--mute:#5E5A55;--disp:'Raleway',system-ui,sans-serif;--sans:'Open Sans',system-ui,sans-serif;--sb:env(safe-area-inset-bottom,0px);--st:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow-x:clip}
+body{font:400 15.5px/1.5 var(--sans);color:var(--ink);background:#2a1b3d}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+img{display:block;max-width:100%}
+.ph{background:#FFF3C4;color:#5A4500;border:1px dashed #C9A100;padding:1px 6px;font-size:.88em;font-weight:600}
+.sample{display:inline-block;background:#FFF3C4;color:#5A4500;border:1px dashed #C9A100;padding:4px 8px;font:700 10.5px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+/* desktop stage */
+.stage{min-height:100%;display:flex;align-items:center;justify-content:center;gap:56px;padding:30px}
+.aside{color:#fff;max-width:340px}
+.aside h1{font:900 44px/1 var(--disp);text-transform:uppercase}
+.aside p{color:#ffffffc4;margin-top:14px}
+.aside a{display:inline-flex;align-items:center;min-height:48px;margin-top:18px;padding:0 18px;background:var(--green);color:#fff;font:700 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;text-decoration:none}
+.aside .qr{margin-top:20px;background:#fff;padding:10px;display:inline-block}
+.dev{width:400px;height:min(860px,calc(100vh - 60px));background:var(--paper);position:relative;overflow:hidden;box-shadow:0 40px 100px #0009;border:10px solid #0b0710;border-radius:34px}
+@media (max-width:760px){body{background:var(--paper)}.stage{padding:0;display:block}.aside{display:none}.dev{width:100%;height:100%;height:100dvh;border:0;border-radius:0;box-shadow:none}}
+/* app */
+.app{position:absolute;inset:0;display:flex;flex-direction:column}
+.top{background:#fff;padding:calc(10px + var(--st)) 16px 10px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);flex:none}
+.top img{width:96px;height:auto}
+.top .chap{background:var(--ink);color:#fff;font:800 9px/1 var(--disp);letter-spacing:.14em;text-transform:uppercase;padding:5px 7px;align-self:flex-end;margin-bottom:3px}
+.top .sp{flex:1}
+.ib{width:44px;height:44px;display:grid;place-items:center;position:relative}
+.ib svg{width:24px;height:24px}
+.ib .dot{position:absolute;top:9px;right:9px;width:9px;height:9px;background:var(--green);border:2px solid #fff}
+.scr{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding:18px 16px 24px}
+.view{display:none}.view.on{display:block;animation:in .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes in{from{opacity:0;transform:translateY(12px)}}
+.tabs{flex:none;display:grid;grid-template-columns:repeat(5,1fr);background:#fff;border-top:1px solid var(--line);padding-bottom:var(--sb)}
+.tabs button{min-height:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font:700 10.5px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:#7a756f;position:relative}
+.tabs button svg{width:26px;height:26px}
+.tabs button.on{color:var(--purple)}
+.tabs button.on::before{content:"";position:absolute;top:0;left:22%;right:22%;height:3px;background:var(--green)}
+.tabs .scan{color:#fff}
+.tabs .scan span.sq{width:52px;height:52px;background:var(--purple);display:grid;place-items:center;margin-top:-22px;box-shadow:0 10px 20px #53238055;border:3px solid #fff}
+.tabs .scan.on span.sq{background:var(--green)}
+.tabs .scan small{color:#7a756f}
+h2{font:900 26px/1.05 var(--disp);text-transform:uppercase}
+h3{font:800 16px/1.2 var(--disp);text-transform:uppercase;letter-spacing:.02em}
+.hi{font:600 13px var(--sans);color:var(--mute)}
+.card{background:#fff;padding:16px;margin-top:12px}
+.lvl{background:var(--plum);color:#fff;padding:18px;position:relative;overflow:hidden;margin-top:14px}
+.lvl::after{content:"";position:absolute;right:-10px;bottom:-10px;width:120px;height:70px;background:linear-gradient(90deg,var(--green) 0 33%,var(--purple2) 33% 66%,var(--sage) 66%);clip-path:polygon(0 70%,33% 70%,33% 40%,66% 40%,66% 0,100% 0,100% 100%,0 100%);opacity:.9}
+.lvl small{font:700 10.5px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#ffffffaa}
+.lvl b{display:block;font:900 30px/1 var(--disp);text-transform:uppercase;margin:6px 0 4px}
+.lvl .gold{display:inline-block;background:#B8962E;padding:4px 8px;font:800 10.5px var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.kp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.kp div{background:#fff;padding:14px;border-top:3px solid var(--purple)}
+.kp div:nth-child(2){border-color:var(--green)}.kp div:nth-child(3){border-color:var(--sage)}.kp div:nth-child(4){border-color:var(--ink)}
+.kp b{display:block;font:900 28px/1 var(--disp)}
+.kp span{font-size:12.5px;color:var(--mute)}
+.bar{height:10px;background:var(--line);margin:10px 0 6px}.bar i{display:block;height:10px;background:var(--green);width:0;transition:width 1s}
+.nxt{display:grid;grid-template-columns:84px 1fr;gap:12px;align-items:center}
+.nxt img{width:84px;height:84px;object-fit:cover}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:50px;padding:0 16px;background:var(--ink);color:#fff;font:700 12.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;margin-top:12px}
+.btn.g{background:var(--green)}.btn.p{background:var(--purple)}.btn.o{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn svg{width:18px;height:18px}
+.renew{background:var(--green);color:#fff;padding:16px;margin-top:12px;display:flex;gap:12px;align-items:center}
+.renew b{font:900 18px var(--disp);text-transform:uppercase;display:block}
+.renew p{font-size:13.5px;color:#ffffffe0}
+.renew .go{flex:none;background:#fff;color:var(--ink);min-height:44px;padding:0 14px;font:700 11.5px var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.li{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+.li:last-child{border:0}
+.li .tx{flex:1;min-width:0}
+.li .tx b{display:block;font-weight:700;font-size:15px}
+.li .tx small{display:block;color:var(--mute);font-size:13px}
+.st{font:700 10px var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:5px 7px;white-space:nowrap}
+.st.d{background:#E6F1D3;color:#3E5A12}.st.s{background:#EDE4F7;color:var(--purple)}.st.n{background:#FFF3C4;color:#5A4500}.st.hot{background:#FBE3D6;color:#8A2D00}.st.warm{background:#FFF3C4;color:#5A4500}.st.cold{background:#E5ECF2;color:#2B4A63}
+.chev{width:20px;height:20px;color:#aaa;flex:none}
+/* scan */
+.cam{position:relative;background:#000;aspect-ratio:3/4;overflow:hidden;margin-top:14px}
+.cam video{width:100%;height:100%;object-fit:cover}
+.cam .fr{position:absolute;inset:18% 14%;border:3px solid #ffffffcc}
+.cam .fr::after{content:"";position:absolute;left:0;right:0;height:3px;background:var(--green);top:0;animation:sweep 2s ease-in-out infinite alternate;box-shadow:0 0 12px var(--green)}
+@keyframes sweep{to{top:calc(100% - 3px)}}
+.cam .msg{position:absolute;left:0;right:0;bottom:0;padding:14px;background:linear-gradient(0deg,#000c,#0000);color:#fff;font-size:13.5px;text-align:center}
+.cam .idle{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#fff;text-align:center;padding:20px;background:var(--plum)}
+.cam .idle svg{width:54px;height:54px;color:var(--green2)}
+.flash{position:absolute;inset:0;background:var(--green);opacity:0;pointer-events:none}
+.flash.go{animation:fl .6s}
+@keyframes fl{20%{opacity:.7}}
+/* sheet */
+.sheet{position:absolute;left:0;right:0;bottom:0;z-index:20;background:#fff;padding:18px 16px calc(18px + var(--sb));transform:translateY(105%);transition:transform .35s cubic-bezier(.2,.8,.2,1);box-shadow:0 -20px 50px #0004;max-height:86%;overflow:auto}
+.sheet.on{transform:none}
+.shade{position:absolute;inset:0;z-index:19;background:#0006;opacity:0;pointer-events:none;transition:opacity .3s}
+.shade.on{opacity:1;pointer-events:auto}
+.grab{width:44px;height:4px;background:var(--line);margin:0 auto 14px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);border:2px solid var(--ink);margin-top:10px}
+.seg button{min-height:46px;font:700 12px var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.seg button.on{background:var(--ink);color:#fff}
+textarea,input[type=email],input[type=text]{width:100%;border:2px solid var(--ink);padding:12px;font-size:16px;margin-top:10px;background:#fff}
+textarea{min-height:90px}
+.chips{display:flex;gap:6px;overflow-x:auto;margin-top:12px;padding-bottom:4px;scrollbar-width:none}
+.chips button{flex:none;min-height:40px;padding:0 14px;border:2px solid var(--ink);font:700 11.5px var(--sans);letter-spacing:.08em;text-transform:uppercase;background:#fff}
+.chips button.on{background:var(--ink);color:#fff}
+/* events */
+.ev{background:#fff;margin-top:12px;display:grid;grid-template-columns:70px 1fr}
+.ev .d{background:var(--ink);color:#fff;text-align:center;padding:12px 0;font-family:var(--disp)}
+.ev .d b{display:block;font-size:28px;font-weight:900;line-height:1}
+.ev .d span{font:700 10px var(--sans);letter-spacing:.16em}
+.ev .d.tbc{background:var(--sage)}
+.ev .b{padding:12px 14px}
+.ev ul{list-style:none;margin-top:6px;font-size:13.5px;color:#333}
+.ev li{padding:3px 0 3px 16px;position:relative}
+.ev li::before{content:"";position:absolute;left:0;top:10px;width:8px;height:3px;background:var(--green)}
+.ev .lk{font:700 11.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid var(--green);display:inline-block;padding:8px 0 2px;margin-top:4px}
+/* more */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.tile{background:#fff;padding:16px 14px;text-align:left;min-height:104px;display:flex;flex-direction:column;justify-content:space-between;gap:10px}
+.tile svg{width:30px;height:30px;color:var(--purple)}
+.tile b{font:800 14.5px/1.2 var(--disp)}
+.drop{border:3px dashed var(--sage);padding:26px 14px;text-align:center;margin-top:10px;display:block;cursor:pointer}
+.drop img{max-height:90px;margin:10px auto 0}
+.add{display:flex;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.add .tx{flex:1}
+.add .tg{min-height:40px;padding:0 12px;border:2px solid var(--green);color:var(--green);font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.add .tg.on{background:var(--green);color:#fff}
+.cart{position:sticky;bottom:-24px;background:var(--plum);color:#fff;padding:14px 16px;margin:12px -16px -24px;display:flex;align-items:center;gap:12px}
+.cart b{font:900 22px var(--disp)}
+.cart .sp{flex:1}
+.cart button{background:var(--green);min-height:44px;padding:0 14px;font:700 11.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#fff}
+/* sign in */
+.signin{position:absolute;inset:0;z-index:30;background:#fff;display:flex;flex-direction:column;overflow:auto}
+.signin .ph1{position:relative;height:40%;min-height:220px;flex:none;overflow:hidden;background:var(--plum)}
+.signin .ph1 img{width:100%;height:100%;object-fit:cover;opacity:.8;animation:kb 14s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.12)}}
+.signin .ph1::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0000 40%,#1B0F29dd)}
+.signin .ph1 .t{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;color:#fff;font:900 28px/1.02 var(--disp);text-transform:uppercase}
+.signin .f{padding:20px 18px calc(20px + var(--sb))}
+.signin .lg{display:flex;align-items:flex-end;gap:8px}
+.signin .lg img{width:120px;height:auto}
+.signin label{display:block;font:700 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;margin-top:16px}
+.signin select{width:100%;min-height:52px;border:2px solid var(--ink);padding:0 12px;margin-top:8px;background:#fff;font-size:16px}
+.signin.out{transform:translateY(-100%);transition:transform .5s cubic-bezier(.7,0,.2,1)}
+.splash{position:absolute;inset:0;z-index:40;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:opacity .4s}
+.splash img{width:132px;clip-path:inset(0 100% 0 0);animation:wipe .9s .1s cubic-bezier(.6,0,.2,1) forwards}
+.splash .b{display:flex;gap:4px;align-items:flex-end;height:20px}
+.splash .b i{width:7px;height:0;background:var(--green);animation:gr .45s forwards}
+.splash .b i:nth-child(2){background:var(--purple);animation-delay:.1s;--h:14px}.splash .b i:nth-child(3){background:var(--sage);animation-delay:.2s;--h:20px}.splash .b i:nth-child(1){--h:9px}
+.splash small{font:800 11px var(--disp);letter-spacing:.24em;text-transform:uppercase;opacity:0;animation:fi .4s .8s forwards}
+@keyframes wipe{to{clip-path:inset(0 0 0 0)}}@keyframes gr{to{height:var(--h)}}@keyframes fi{to{opacity:1}}
+.splash.done{opacity:0;pointer-events:none}
+.toast{position:absolute;left:16px;right:16px;bottom:calc(76px + var(--sb));z-index:25;background:var(--ink);color:#fff;padding:14px 16px;font-size:14px;transform:translateY(20px);opacity:0;transition:.3s;pointer-events:none;border-left:5px solid var(--green)}
+.toast.on{transform:none;opacity:1}
+.inst{display:none}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="aside">
+    <p style="font:700 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--green2)">Concept preview</p>
+    <h1>HSMAI Sponsor Portal</h1>
+    <p>An app every sponsor installs on their phone: benefits, badge scanning, leads, events and invoices. Branded HSMAI, set up for the Ontario chapter, and ready for any chapter to switch on.</p>
+    <p style="font-size:13.5px">Open this page on a phone and choose "Add to Home Screen" to install it. All numbers are sample data.</p>
+    <a href="../">Back to the chapter site</a>
+  </div>
+  <div class="dev" id="dev">
+    <div class="splash" id="splash"><img src="../img/hsmai-logo.png" alt="HSMAI" width="428" height="125"><div class="b"><i></i><i></i><i></i></div><small>Sponsor portal</small></div>
+
+    <div class="signin" id="signin">
+      <div class="ph1"><img src="../img/gala-royalyork.jpg" alt=""><div class="t">Everything you sponsor, in your pocket</div></div>
+      <div class="f">
+        <div class="lg"><img src="../img/hsmai-logo.png" alt="HSMAI" width="428" height="125"></div>
+        <label for="ch">Your chapter</label>
+        <select id="ch"><option>Ontario, Canada</option><option disabled>Other HSMAI chapters: ready to switch on</option></select>
+        <label for="em">Work email</label>
+        <input type="email" id="em" placeholder="you@company.com" autocomplete="email">
+        <button class="btn p" id="go">Email me a sign-in link</button>
+        <button class="btn o" id="demo">Open the sample account</button>
+        <p class="hi" style="margin-top:12px">No password. In the live app a one-tap link arrives by email.</p>
+      </div>
+    </div>
+
+    <div class="app">
+      <header class="top"><img src="../img/hsmai-logo.png" alt="HSMAI" width="428" height="125"><span class="chap">Ontario</span><span class="sp"></span>
+        <button class="ib" id="bell" aria-label="Updates"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 16V11a6 6 0 0112 0v5l2 2H4z"/><path d="M10 20a2 2 0 004 0"/></svg><span class="dot"></span></button>
+      </header>
+      <div class="scr" id="scr">
+
+        <section class="view on" id="v-home">
+          <span class="sample">Sample account and numbers</span>
+          <div class="lvl"><small>Your Company Inc.</small><b>Gold sponsor</b><span class="gold">2026 season</span></div>
+          <div class="kp"><div><b data-n="12480">0</b><span>Logo views</span></div><div><b data-n="384">0</b><span>Clicks to your site</span></div><div><b id="kLeads">0</b><span>Leads scanned</span></div><div><b>7/9</b><span>Benefits delivered</span></div></div>
+          <div class="renew"><div><b>Renew for 2027</b><p>1 of 3 Gold spots left. Early rate until <span style="background:#fff3;padding:0 4px">date to confirm</span>.</p></div><button class="go" data-goto="more" data-sub="shop">Renew</button></div>
+          <div class="card"><h3>Your next moment</h3><div class="nxt" style="margin-top:10px"><img src="../img/fall-event.jpg" alt=""><div><b style="font-family:var(--disp)">Sales Reset with Tammy Gillis</b><p class="hi">Thu, Nov 26, 3:30 pm</p><p style="font-size:13.5px">Your logo on the welcome screen. Badge scanning on.</p></div></div><button class="btn g" data-goto="scan">Scan badges at the event</button></div>
+          <div class="card"><h3>Benefits this season</h3><div class="bar"><i id="bb"></i></div><p class="hi">7 of 9 delivered. One needs your new logo.</p><button class="btn o" data-goto="more" data-sub="benefits">See all benefits</button></div>
+        </section>
+
+        <section class="view" id="v-scan">
+          <h2>Scan a badge</h2>
+          <p class="hi" style="margin-top:6px">Point at the QR code on an attendee's badge. Only attendees who opted in to share their details can be scanned.</p>
+          <div class="cam" id="cam"><video id="vid" playsinline muted></video><div class="fr" hidden id="fr"></div><div class="msg" id="cmsg" hidden>Looking for a badge</div><div class="flash" id="flash"></div>
+            <div class="idle" id="idle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8V3h5M16 3h5v5M21 16v5h-5M8 21H3v-5"/><path d="M7 12h10"/></svg><b style="font-family:var(--disp);font-size:18px">Ready to scan</b><span style="font-size:13.5px;color:#ffffffbb">Uses your phone's camera</span></div></div>
+          <button class="btn p" id="camBtn">Start camera</button>
+          <button class="btn o" id="simBtn">Try a sample scan</button>
+        </section>
+
+        <section class="view" id="v-leads">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><h2>Your leads</h2><span class="sample">Sample</span></div>
+          <div class="chips" id="lf"><button class="on" data-f="all">All</button><button data-f="hot">Hot</button><button data-f="warm">Warm</button><button data-f="cold">Cold</button></div>
+          <div class="card" id="ll" style="padding-top:4px;padding-bottom:4px"></div>
+          <button class="btn o" id="csv">Export to CSV</button>
+          <p class="hi" style="margin-top:10px">Leads also land in your dashboard on the web, and can be sent to your CRM.</p>
+        </section>
+
+        <section class="view" id="v-events">
+          <h2>Your events</h2>
+          <p class="hi" style="margin-top:6px">Where your brand shows up this season.</p>
+          <div id="evl"></div>
+        </section>
+
+        <section class="view" id="v-more">
+          <div id="m-root">
+            <h2>Account</h2>
+            <div class="grid2">
+              <button class="tile" data-sub="benefits"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg><b>Benefits</b></button>
+              <button class="tile" data-sub="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"/></svg><b>Logo and assets</b></button>
+              <button class="tile" data-sub="invoices"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6"/></svg><b>Invoices</b></button>
+              <button class="tile" data-sub="shop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg><b>Add-ons and renewal</b></button>
+              <button class="tile" data-sub="contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v12H8l-4 4z"/></svg><b>Message the chapter</b></button>
+              <a class="tile" href="../sponsor/dashboard.html#hq" style="text-decoration:none;color:inherit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V9l7-5 7 5v12M10 21v-6h4v6"/></svg><b>Chapter HQ (board)</b></a>
+            </div>
+            <div class="card"><h3>Get the app</h3><p class="hi" style="margin-top:6px" id="instTxt">On iPhone: tap Share, then "Add to Home Screen". On Android: tap Install below or use the browser menu.</p><button class="btn g inst" id="inst">Install the app</button></div>
+            <button class="btn o" id="out">Sign out</button>
+          </div>
+          <div id="m-sub" hidden><button class="hi" id="back" style="min-height:44px;display:flex;align-items:center;gap:6px;font-weight:700"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 5l-7 7 7 7"/></svg>Account</button><div id="m-body"></div></div>
+        </section>
+      </div>
+      <nav class="tabs" id="tabs">
+        <button class="on" data-v="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V10M10 21V4M17 21v-8M3 21h18"/></svg>Home</button>
+        <button data-v="leads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>Leads</button>
+        <button data-v="scan" class="scan"><span class="sq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 8V3h5M16 3h5v5M21 16v5h-5M8 21H3v-5"/><path d="M7 12h10"/></svg></span><small>Scan</small></button>
+        <button data-v="events"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Events</button>
+        <button data-v="more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Account</button>
+      </nav>
+    </div>
+    <div class="shade" id="shade"></div>
+    <div class="sheet" id="sheet"></div>
+    <div class="toast" id="toast"></div>
+  </div>
+</div>
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const fmt=n=>'$'+n.toLocaleString('en-CA');
+const store={get(k,d){try{const v=localStorage.getItem('hsmai-sp-'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('hsmai-sp-'+k,JSON.stringify(v))}catch(e){}}};
+const toast=t=>{const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),2600)};
+/* splash + sign in */
+setTimeout(()=>$('#splash').classList.add('done'),1500);setTimeout(()=>$('#splash').remove(),2000);
+const enter=()=>{$('#signin').classList.add('out');store.set('in',1);setTimeout(counts,400)};
+if(store.get('in',0)||new URLSearchParams(location.search).has('demo')){$('#signin').remove();setTimeout(counts,1600)}
+else{$('#demo').onclick=enter;$('#go').onclick=()=>{toast('Preview: no email sent. Opening the sample account.');setTimeout(enter,900)}}
+/* tabs */
+let cur='home';
+const go=(v,sub)=>{cur=v;$$('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));$$('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+v));$('#scr').scrollTop=0;if(v!=='scan')stopCam();if(v==='more')sub?openSub(sub):closeSub();if(v==='leads')renderLeads()};
+$$('.tabs button').forEach(b=>b.onclick=()=>go(b.dataset.v));
+document.addEventListener('click',e=>{const t=e.target.closest('[data-goto]');if(t)go(t.dataset.goto,t.dataset.sub)});
+/* counters */
+function counts(){$$('#v-home [data-n]').forEach(b=>{const n=+b.dataset.n,t0=performance.now();const f=t=>{const p=Math.min(1,(t-t0)/1100);b.textContent=Math.round(n*(1-Math.pow(1-p,3))).toLocaleString('en-CA');if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)});$('#bb').style.width='78%';$('#kLeads').textContent=leads.length}
+/* leads */
+const R=['Revenue manager','Director of sales','Marketing manager','Group sales manager','General manager','E-commerce manager','Director of revenue'],P=['Downtown full-service hotel','Airport hotel','Boutique hotel','Resort','Select-service hotel','Management company'];
+let leads=store.get('leads',null);
+if(!leads){leads=Array.from({length:8},(_,i)=>({n:`Sample contact ${String(i+1).padStart(2,'0')}`,r:R[i%R.length],p:P[(i*5)%P.length],e:['Curling Social','Risk, Resilience and Results','From Data to Decisions'][i%3],h:['hot','warm','cold','warm'][i%4],note:''}));store.set('leads',leads)}
+let lf='all';
+$$('#lf button').forEach(b=>b.onclick=()=>{lf=b.dataset.f;$$('#lf button').forEach(x=>x.classList.toggle('on',x===b));renderLeads()});
+function renderLeads(){const L=leads.map((l,i)=>[l,i]).filter(([l])=>lf==='all'||l.h===lf);
+ $('#ll').innerHTML=L.length?L.map(([l,i])=>`<button class="li" data-i="${i}" style="width:100%;text-align:left"><span class="tx"><b>${l.n}</b><small>${l.r} &middot; ${l.p}</small><small>${l.e}${l.note?' &middot; '+l.note.replace(/</g,'&lt;').slice(0,40):''}</small></span><span class="st ${l.h}">${l.h}</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></button>`).join(''):'<p class="hi" style="padding:14px 0">No leads here yet.</p>';
+ $$('#ll .li').forEach(b=>b.onclick=()=>editLead(+b.dataset.i));$('#kLeads').textContent=leads.length}
+function editLead(i,isNew){const l=leads[i];sheet(`<div class="grab"></div>${isNew?'<span class="st d">Badge scanned</span>':''}<h2 style="margin-top:8px">${l.n}</h2><p class="hi">${l.r} &middot; ${l.p}</p><p class="hi">${l.e}</p><div class="seg" id="heat">${['hot','warm','cold'].map(h=>`<button data-h="${h}" class="${l.h===h?'on':''}">${h}</button>`).join('')}</div><textarea id="note" placeholder="Notes: what did you talk about?">${l.note||''}</textarea><button class="btn g" id="sv">Save lead</button>`);
+ $$('#heat button').forEach(b=>b.onclick=()=>{$$('#heat button').forEach(x=>x.classList.toggle('on',x===b))});
+ $('#sv').onclick=()=>{l.h=$('#heat .on').dataset.h;l.note=$('#note').value;store.set('leads',leads);closeSheet();renderLeads();toast('Lead saved')}}
+$('#csv').onclick=()=>{const c='Contact,Role,Property,Event,Heat,Notes\n'+leads.map(l=>[l.n,l.r,l.p,l.e,l.h,'"'+(l.note||'').replace(/"/g,'""')+'"'].join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([c],{type:'text/csv'}));a.download='hsmai-leads-sample.csv';a.click()};
+/* scanning */
+let stream=null,det=null,raf=null;
+function stopCam(){if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}cancelAnimationFrame(raf);$('#idle').hidden=false;$('#fr').hidden=true;$('#cmsg').hidden=true;$('#camBtn').textContent='Start camera'}
+function addScan(raw){const i=leads.length;leads.unshift({n:raw?`Badge ${String(raw).slice(0,18)}`:`Sample contact ${String(i+1).padStart(2,'0')}`,r:R[i%R.length],p:P[i%P.length],e:'Sales Reset, Nov 26',h:'warm',note:''});store.set('leads',leads);
+ const f=$('#flash');f.classList.remove('go');void f.offsetWidth;f.classList.add('go');if(navigator.vibrate)navigator.vibrate(60);setTimeout(()=>editLead(0,true),350)}
+$('#simBtn').onclick=()=>addScan('');
+$('#camBtn').onclick=async()=>{if(stream){stopCam();return}
+ try{stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});const v=$('#vid');v.srcObject=stream;await v.play();$('#idle').hidden=true;$('#fr').hidden=false;$('#cmsg').hidden=false;$('#camBtn').textContent='Stop camera';
+  if('BarcodeDetector' in window){det=new BarcodeDetector({formats:['qr_code']});const loop=async()=>{if(!stream)return;try{const c=await det.detect(v);if(c.length){addScan(c[0].rawValue);stopCam();return}}catch(e){}raf=requestAnimationFrame(loop)};loop()}
+  else $('#cmsg').textContent='This browser cannot read badges yet. Use "Try a sample scan".'}
+ catch(e){toast('Camera not available here. Try a sample scan.');stopCam()}};
+/* events */
+const EV=[['26','NOV','Sales Reset with Tammy Gillis','Thu 3:30 to 6:00 pm',['Logo on the welcome screen','Badge scanning on','Thanked in the follow-up email'],1],
+['--','JAN','Winter social','Date to confirm',['Logo on screens','Two tickets'],0],
+['--','APR','Hospitality Tribute Gala','Date to confirm',['4 gala seats','Logo on gala screens','Badge scanning on'],0],
+['--','JUN','Summer education event','Date to confirm',['Logo on screens'],0]];
+$('#evl').innerHTML=EV.map((e,i)=>`<div class="ev"><div class="d${e[5]?'':' tbc'}"><b>${e[0]}</b><span>${e[1]}</span></div><div class="b"><h3>${e[2]}</h3><p class="hi">${e[3]}</p><ul>${e[4].map(x=>`<li>${x}</li>`).join('')}</ul>${e[5]?`<button class="lk" data-ics="${i}">Add to calendar</button>`:'<span class="sample" style="margin-top:8px">Season plan to confirm</span>'}</div></div>`).join('');
+$$('[data-ics]').forEach(b=>b.onclick=()=>{const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//HSMAI//EN','BEGIN:VEVENT','UID:hsmai-on-2026-11-26-sp','DTSTAMP:20261113T000000Z','DTSTART:20261126T203000Z','DTEND:20261126T230000Z','SUMMARY:HSMAI Ontario: Sales Reset (sponsor)','END:VEVENT','END:VCALENDAR'].join('\r\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));a.download='hsmai-sales-reset.ics';a.click()});
+/* account subs */
+const SUB={
+ benefits:()=>`<h2>Benefits</h2><p class="hi" style="margin-top:4px">Gold 2026 <span class="sample">Sample</span></p><div class="card">${[['Logo on chapter website, all year','d'],['Logo on screens: Curling Social','d'],['Logo on screens: Risk, Resilience and Results','d'],['4 seats at the Tribute Gala','d'],['Newsletter feature','d'],['Badge scanning: From Data to Decisions','d'],['Social media thank-you','d'],['Logo on screens: Sales Reset, Nov 26','s'],['New logo for 2027 materials','n']].map(b=>`<div class="li"><span class="tx">${b[0]}</span><span class="st ${b[1]}">${{d:'Done',s:'Scheduled',n:'Needs logo'}[b[1]]}</span></div>`).join('')}</div>`,
+ logo:()=>`<h2>Logo and assets</h2><label class="drop" id="drop"><input type="file" accept="image/*" id="file" hidden><b>Upload your logo</b><br><span class="hi">SVG or large PNG. It updates on the site, screens and emails at once.</span><img id="prev" alt="" hidden></label><div class="card"><h3>Newsletter feature</h3><textarea placeholder="Tell members what's new (150 words)"></textarea><button class="btn p" id="sendc">Send for approval</button></div>`,
+ invoices:()=>`<h2>Invoices</h2><span class="sample">Sample</span><div class="card">${[['Gold package 2026',6000,'d'],['Gala table for 10',3500,'d'],['Badge scanning, Nov 26',800,'n']].map((x,i)=>`<div class="li"><span class="tx"><b>${x[0]}</b><small>Sample invoice ${String(i+1).padStart(4,'0')}</small></span><span style="font-weight:700">${fmt(x[1])}</span><span class="st ${x[2]}">${x[2]==='d'?'Paid':'Due'}</span></div>`).join('')}</div><button class="btn g" id="paynow">Pay $800 now</button><p class="hi" style="margin-top:8px">Amounts before HST.</p>`,
+ shop:()=>`<h2>Add-ons and renewal</h2><span class="sample">Sample prices</span><div class="card" style="padding-top:4px">${ADD.map((a,i)=>`<div class="add"><span class="tx"><b style="display:block">${a[0]}</b><small class="hi">${a[1]}</small></span><button class="tg" data-a="${i}">${fmt(a[2])}</button></div>`).join('')}</div><div class="cart"><span>Total<br><b id="ct">$0</b></span><span class="sp"></span><button id="buy">Check out</button></div>`,
+ contact:()=>`<h2>Message the chapter</h2><p class="hi" style="margin-top:6px">Goes to Omkar Sawant, VP Sponsorships, HSMAI Ontario.</p><textarea placeholder="Your message"></textarea><button class="btn p" id="msgsend">Send</button>`
+};
+const ADD=[['Renew Gold for 2027','Early rate, keeps your spot',6000],['Networking break, Nov 26','Your brand on the break',750],['Replay sponsor','"Presented by" on session replays',600],['Student seats (5)','Thanked on stage',225],['Featured job posts (3)','Top of the job board for 30 days',300]];
+function openSub(k){$('#m-root').hidden=true;$('#m-sub').hidden=false;$('#m-body').innerHTML=SUB[k]();$('#scr').scrollTop=0;wire(k)}
+function closeSub(){$('#m-root').hidden=false;$('#m-sub').hidden=true}
+$('#back').onclick=closeSub;$$('#m-root [data-sub]').forEach(b=>b.onclick=()=>openSub(b.dataset.sub));
+function wire(k){
+ if(k==='logo'){const fi=$('#file');fi.onchange=()=>{const f=fi.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{$('#prev').src=r.result;$('#prev').hidden=false;toast('Logo ready. Preview only, nothing uploaded.')};r.readAsDataURL(f)};$('#sendc').onclick=()=>toast('Preview: nothing sent')}
+ if(k==='invoices')$('#paynow').onclick=()=>toast('Preview: no payment taken');
+ if(k==='contact')$('#msgsend').onclick=()=>toast('Preview: nothing sent');
+ if(k==='shop'){const s=new Set();$$('.tg').forEach(b=>b.onclick=()=>{const i=+b.dataset.a;s.has(i)?s.delete(i):s.add(i);b.classList.toggle('on');b.textContent=s.has(i)?'Added':fmt(ADD[i][2]);let t=0;s.forEach(j=>t+=ADD[j][2]);$('#ct').textContent=fmt(t)});$('#buy').onclick=()=>toast('Preview: no payment taken')}
+}
+$('#out').onclick=()=>{store.set('in',0);location.reload()};
+/* updates */
+$('#bell').onclick=()=>{$('#bell .dot')?.remove();sheet(`<div class="grab"></div><h2>Updates</h2><span class="sample">Sample</span><div class="card" style="padding:4px 0 0">${[['Your logo is set for the Nov 26 welcome screen','Today'],['3 new leads from From Data to Decisions','This week'],['Invoice for badge scanning is ready','This week'],['2027 renewal window is open','This month']].map(n=>`<div class="li" style="padding-left:0"><span class="tx"><b>${n[0]}</b><small>${n[1]}</small></span></div>`).join('')}</div><button class="btn o" id="cl">Close</button>`);$('#cl').onclick=closeSheet};
+/* sheet */
+function sheet(h){$('#sheet').innerHTML=h;$('#sheet').classList.add('on');$('#shade').classList.add('on')}
+function closeSheet(){$('#sheet').classList.remove('on');$('#shade').classList.remove('on')}
+$('#shade').onclick=closeSheet;
+/* install */
+let dp=null;addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;$('#inst').style.display='flex'});
+$('#inst').onclick=async()=>{if(dp){dp.prompt();dp=null}};
+if(matchMedia('(display-mode: standalone)').matches)$('#instTxt').textContent='Installed. You are using the app.';
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+renderLeads();
+})();
+</script>
+</body>
+</html>
