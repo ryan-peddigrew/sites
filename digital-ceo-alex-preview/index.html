@@ -528,7 +528,7 @@ sizeDrum();addEventListener('resize',sizeDrum);
 function pg(el,p,i0,i1,o0,o1){var a=seg(p,i0,i1),b=seg(p,o0,o1),op=a*(1-b);el.style.opacity=op;el.style.transform='translateY('+((1-a)*70-b*90)+'px) scale('+(1-b*.06)+')';el.style.pointerEvents=op>.5?'auto':'none'}
 function frame(){
  var vh=innerHeight,vw=innerWidth,vmin=Math.min(vw,vh);
- var r=fly.getBoundingClientRect(),p=cl(-r.top/(r.height-vh),0,1);
+ var p=reduce?1:cl((performance.now()/1000-3.2)/8,0,1);
  if(p!==lastP){lastP=p;
   hc.style.setProperty('--k',ease(seg(p,0,.4)).toFixed(4));
   pg(pgs[0],p,-1,0,.12,.24);
@@ -584,7 +584,7 @@ if(reduce)showHero();else{setTimeout(showHero,2350);setTimeout(showHero,6000)}
 setTimeout(function(){ld.classList.add('out');document.body.classList.remove('loading')},reduce?300:2300);
 
 var T=[
- ['#fly',0,'Your <i>opening</i>','Your line, front and centre. Scroll and one window opens across the whole screen.'],
+ ['#fly',0,'Your <i>opening</i>','Your line, front and centre. Then one window opens across the whole screen.'],
  ['#fly',.36,'Pages <i>fly</i> through','Your promise and the skip-the-face idea fly in and out of that one window.'],
  ['#fly',.72,'Old taste, <i>new</i> money','The landing: one clear promise and one button into your collection.'],
  ['#gal',.1,'Your <i>collection</i>','A curved gallery of gilt frames. Each scroll turns one piece, with the name, price and Buy button underneath.'],
