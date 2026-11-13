@@ -780,7 +780,7 @@ function venList(){var q=$('#venQ').value.trim().toLowerCase().split(/\s+/).filt
   var ne=L.filter(function(v){return v.est}).length;
   var ix=estIx(),pend=estPend(),pn=0,pv=0,nar=q.length||fc||ft||fe;if(!ff&&!nar)pend.forEach(function(p){if(fk&&ix[p][2]!==fk)return;if(fp&&p!==fp)return;pn+=ix[p][0];pv+=ix[p][1]});
   var busy=!ff&&pend.some(function(p){return ESTS[p]!==3}),tn=L.length+pn,tv=Object.keys(nv).length+pv;
-  $('#venN').textContent=tn?tn+' floor plan'+(tn===1?'':'s')+' at '+tv+' venue'+(tv===1?'':'s')+(busy&&nar?' so far':''):'';
+  $('#venN').textContent=tn?tn.toLocaleString('en-CA')+' floor plan'+(tn===1?'':'s')+' at '+tv.toLocaleString('en-CA')+' venue'+(tv===1?'':'s')+(busy&&nar?' so far':''):'';
   var h='',last=null;L.slice(0,venMax).forEach(function(v){var g=so?key(v):null;if(g!==null&&g!==last){h+='<div class="vgrp">'+esc(g)+'</div>';last=g}
     h+='<div class="vrow'+(v.dv?' vd':'')+(v.est?' ve':'')+'" role="button" tabindex="0" data-v="'+v.id+'"><img src="'+(v.d?estImg(v,1).u:'venues/'+v.id+'-t.jpg')+'" alt="" loading="lazy" width="96" height="64"><span>'+'<small>'+esc(so==='city'?vT(v):so==='type'?v.c:v.c+' · '+vT(v))+'</small><b>'+esc(v.n)+'</b><span>'+esc(String(v.r).replace(/ \*$/,''))+(v.est?'<i title="Drawn to the room\'s published dimensions" style="font-style:normal">*</i>':'')+'</span>'+(v.vt?'<a class="vtour" href="'+esc(v.vt)+'" target="_blank" rel="noopener">View 3D tour</a>':'')+'</span>'+(v.dv?'<a class="vpast" href="#" data-vp="'+v.id+'">Click to view past layouts here</a>':'')+'</div>'});
   if(L.length>venMax)h+='<button class="tb" id="venMore" style="flex:none;justify-content:center">Show more venues</button>';
