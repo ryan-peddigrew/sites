@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>HSMAI Ontario: a walkthrough for Sandra</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="A guided walkthrough of the new HSMAI Ontario chapter website, sponsor portal and HSMAI sponsor app.">
+<meta property="og:title" content="HSMAI Ontario: your walkthrough">
+<meta property="og:image" content="../img/gala-royalyork.jpg">
+<meta name="theme-color" content="#0E0816">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--purple:#532380;--purple2:#6E3BA6;--plum:#1B0F29;--night:#0E0816;--green:#78A22F;--green2:#9BC54E;--sage:#8C9B93;--ink:#121212;--disp:'Raleway',system-ui,sans-serif;--sans:'Open Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:var(--night);color:#fff;font:400 16px/1.55 var(--sans)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+/* load-in */
+.load{position:fixed;inset:0;z-index:50;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:transform 1.4s cubic-bezier(.7,0,.15,1),opacity 1s .4s,border-radius 1.4s}
+.load img{width:170px;height:auto;clip-path:inset(0 100% 0 0);animation:wipe 1.1s .2s cubic-bezier(.6,0,.2,1) forwards}
+.load .ch{background:var(--ink);color:#fff;font:800 12px/1 var(--disp);letter-spacing:.26em;text-transform:uppercase;padding:9px 13px;opacity:0;transform:translateY(8px);animation:up .5s 1.05s forwards}
+.load .bars{display:flex;gap:5px;align-items:flex-end;height:26px}
+.load .bars i{width:9px;height:0;background:var(--green);animation:grow .5s forwards}
+.load .bars i:nth-child(1){--h:11px;animation-delay:.3s}.load .bars i:nth-child(2){background:var(--purple);--h:18px;animation-delay:.45s}.load .bars i:nth-child(3){background:var(--sage);--h:26px;animation-delay:.6s}
+.load .for{position:absolute;bottom:12vh;left:0;right:0;text-align:center;color:var(--ink);opacity:0;animation:up .8s 1.5s forwards}
+.load .for small{display:block;font:700 11px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:#7a756f}
+.load .for b{display:block;font:900 clamp(26px,4vw,44px)/1.05 var(--disp);text-transform:uppercase;margin-top:8px}
+.load .start{margin-top:22px;display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 26px;background:var(--purple);color:#fff;font:700 13px var(--sans);letter-spacing:.16em;text-transform:uppercase;opacity:0;animation:up .6s 2.1s forwards}
+.load .start svg{width:16px;height:16px}
+.load.fly{transform:scale(.08) translateY(-40vh);opacity:0;border-radius:40px;pointer-events:none}
+@keyframes wipe{to{clip-path:inset(0 0 0 0)}}@keyframes up{to{opacity:1;transform:none}}@keyframes grow{to{height:var(--h)}}
+/* stage */
+.wt{position:fixed;inset:0;display:grid;grid-template-columns:minmax(300px,400px) 1fr;gap:0}
+.cap{position:relative;z-index:3;padding:34px 30px 30px;display:flex;flex-direction:column;background:linear-gradient(180deg,#160C22,#0E0816);border-right:1px solid #ffffff12}
+.cap .brand{display:flex;align-items:center;gap:10px;background:#fff;margin:-34px -30px 0;padding:16px 30px}
+.cap .brand .plate{display:block}
+.cap .brand img{width:96px;height:auto;display:block}
+.cap .brand .ch{background:var(--ink);color:#fff;font:800 9.5px/1 var(--disp);letter-spacing:.16em;text-transform:uppercase;padding:6px 8px}
+.cap .meta{margin-top:auto;font:700 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--green2);display:flex;justify-content:space-between}
+.cap h1{font:900 clamp(30px,3.1vw,46px)/1 var(--disp);text-transform:uppercase;margin-top:12px}
+.cap .txt{margin-top:16px;color:#ffffffd6;font-size:16.5px;min-height:7.5em}
+.cap .txt p+p{margin-top:10px}
+.cap .why{display:block;margin-top:14px;padding:12px 14px;background:#ffffff0d;border-left:4px solid var(--green);font-size:14.5px;color:#fff}
+.cap .why b{color:var(--green2);font:800 11px var(--sans);letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:2px}
+.cap .t-in>*{animation:tin .7s cubic-bezier(.2,.8,.2,1) both}
+.cap .t-in .txt{animation-delay:.08s}.cap .t-in .why{animation-delay:.16s}
+@keyframes tin{from{opacity:0;transform:translateY(14px)}}
+.prog{display:flex;gap:4px;margin-top:22px}
+.prog button{flex:1;height:18px;position:relative}
+.prog button::before{content:"";position:absolute;left:0;right:0;top:7px;height:4px;background:#ffffff26}
+.prog button i{position:absolute;left:0;top:7px;height:4px;width:0;background:var(--green)}
+.prog button.done i{width:100%}
+.ctl{display:flex;align-items:center;gap:8px;margin-top:14px}
+.ctl button,.ctl a{min-height:48px;min-width:48px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border:2px solid #ffffff33;font:700 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:0 14px;text-decoration:none}
+.ctl button:hover,.ctl a:hover{border-color:#fff}
+.ctl .pp{background:var(--green);border-color:var(--green)}
+.ctl svg{width:18px;height:18px}
+.ctl .sp{flex:1}
+.view{position:relative;overflow:hidden;background:radial-gradient(ellipse at 60% 40%,#2a1640 0,#0E0816 70%);perspective:1600px}
+.frame{position:absolute;left:50%;top:50%;transform-origin:50% 50%;background:#fff;box-shadow:0 50px 120px #000c,0 0 0 1px #ffffff14;transition:transform 1.1s cubic-bezier(.7,0,.2,1),width .9s cubic-bezier(.7,0,.2,1),height .9s cubic-bezier(.7,0,.2,1),border-radius .9s,opacity .6s;will-change:transform}
+.frame .chrome{height:34px;background:#ECEAE6;display:flex;align-items:center;gap:7px;padding:0 12px;transition:height .6s,opacity .4s}
+.frame .chrome i{width:11px;height:11px;background:#cfcac3}
+.frame .chrome .url{flex:1;height:20px;background:#fff;margin-left:10px;font:600 11px/20px var(--sans);color:#8a857e;padding:0 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.frame .scrn{position:relative;overflow:hidden;background:#fff}
+.frame iframe{position:absolute;left:0;top:0;border:0;transform-origin:0 0;transition:opacity .7s;background:#fff}
+.frame iframe.off{opacity:0}
+.frame.phone{border-radius:38px;border:11px solid #0b0710;background:#0b0710}
+.frame.phone .chrome{height:0;opacity:0;padding:0}
+.frame.phone .scrn{border-radius:28px}
+.frame.prelaunch{transform:translate(-50%,-50%) scale(2.6) rotateX(18deg);opacity:0}
+.frame.dip{transform:translate(-50%,-50%) scale(.9) rotateY(-6deg)}
+.tag{position:absolute;right:22px;top:20px;z-index:2;font:700 11px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#ffffff99}
+.end{position:absolute;inset:0;z-index:4;display:none;align-items:center;justify-content:center;padding:30px;background:linear-gradient(180deg,#0E0816cc,#0E0816f5),url(../img/gala-ballroom.jpg) center/cover}
+.end.on{display:flex;animation:tin .8s both}
+.end .in{max-width:680px}
+.end h2{font:900 clamp(34px,5vw,68px)/.95 var(--disp);text-transform:uppercase}
+.end p{color:#ffffffd0;margin-top:16px;font-size:17px}
+.end .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.end .acts a{min-height:52px;display:inline-flex;align-items:center;padding:0 22px;font:700 12.5px var(--sans);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:2px solid #fff}
+.end .acts a.g{background:var(--green);border-color:var(--green)}
+.end .sig{margin-top:30px;padding-top:18px;border-top:1px solid #ffffff22;font-size:15px;color:#ffffffb8}
+.end .sig b{color:#fff}
+@media (max-width:860px){
+  .wt{grid-template-columns:1fr;grid-template-rows:56% 44%}
+  .view{grid-row:1}
+  .cap{grid-row:2;padding:16px 16px calc(12px + env(safe-area-inset-bottom));border-right:0;border-top:1px solid #ffffff14;overflow:auto}
+  .cap .brand{display:none}
+  .cap .meta{margin-top:0}
+  .cap h1{font-size:25px;margin-top:6px}
+  .cap .txt{font-size:15px;margin-top:8px;min-height:0}
+  .cap .why{font-size:13.5px;margin-top:10px;padding:9px 12px}
+  .prog{margin-top:12px}
+  .ctl{margin-top:8px}
+  .ctl .lbl{display:none}
+  .tag{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="load" id="load">
+  <img src="../img/hsmai-logo.png" alt="HSMAI" width="428" height="125">
+  <span class="ch">Ontario Chapter</span>
+  <div class="bars"><i></i><i></i><i></i></div>
+  <div class="for"><small>A walkthrough prepared for</small><b>Sandra Herriot</b><button class="start" id="start"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg>Begin</button></div>
+</div>
+
+<div class="wt">
+  <aside class="cap">
+    <div class="brand"><span class="plate"><img src="../img/hsmai-logo.png" alt="HSMAI" width="428" height="125"></span><span class="ch">Ontario Chapter</span></div>
+    <div id="cbox" style="margin-top:auto">
+      <div class="meta"><span id="sec">Welcome</span><span id="num"></span></div>
+      <h1 id="ttl">Your chapter, elevated</h1>
+      <div class="txt" id="txt"></div>
+      <div class="why" id="why" hidden></div>
+    </div>
+    <div class="prog" id="prog"></div>
+    <div class="ctl">
+      <button id="bk" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="pp" id="pp" aria-label="Pause"><svg id="ppi" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span class="lbl" id="ppl">Pause</span></button>
+      <button id="nx" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 5l7 7-7 7"/></svg></button>
+      <span class="sp"></span>
+      <a id="open" href="../" target="_blank" rel="noopener"><span class="lbl">Open this page</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg></a>
+    </div>
+  </aside>
+  <section class="view" id="view">
+    <span class="tag" id="tag">Live preview</span>
+    <div class="frame prelaunch" id="frame"><div class="chrome"><i></i><i></i><i></i><span class="url" id="url">hsmaiontario.ca</span></div><div class="scrn" id="scrn"><iframe id="f0" title="Preview"></iframe><iframe id="f1" class="off" title="Preview"></iframe></div></div>
+    <div class="end" id="end"><div class="in">
+      <p style="font:700 11px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--green2)">Your next step</p>
+      <h2>Built in Ontario. Ready for every chapter.</h2>
+      <p>Sandra, everything you just saw is a working preview using your chapter's own events, board, sponsors and awards. Sample numbers are labelled as samples. Pick the pieces you want for the 2027 season, and we'll build them with you and your board.</p>
+      <div class="acts"><a class="g" href="../" target="_blank" rel="noopener">Explore the site yourself</a><a href="../ideas.html" target="_blank" rel="noopener">See every idea</a><a href="../app/" target="_blank" rel="noopener">Open the sponsor app</a></div>
+      <div class="sig"><b>Ryan Peddigrew</b>, Chairlift &middot; <a href="mailto:ryan@usechairlift.com" style="border-bottom:1px solid">ryan@usechairlift.com</a></div>
+      <button id="replay" style="margin-top:22px;min-height:48px;padding:0 18px;border:2px solid #ffffff44;font:700 12px var(--sans);letter-spacing:.14em;text-transform:uppercase">Replay the walkthrough</button>
+    </div></div>
+  </section>
+</div>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s);
+const LOOK=''; /* set to 'a', 'b' or 'c' once the app look is chosen */
+/* [section, title, text, why, page, anchor, device, pan px] */
+const S=[
+ ['Welcome','Your chapter, elevated','<p>Sandra, this is HSMAI Ontario as your members, sponsors and students could see it. It uses only the global HSMAI logo, colours and fonts, so it is unmistakably HSMAI, and unmistakably Ontario.</p>','Your own photos move behind the HSMAI promise, and your next event is on the first screen.','index.html','#hero','d',0],
+ ['Proof first','Lead with what Ontario has won','<p>Your four 2025 Frank W. Berkman Chapter Awards open the site: Education, Membership, Membership Growth and Partnership.</p>','Every sponsor and member asks "why this chapter?" This answers it in one glance.','index.html','#awards','d',160],
+ ['Events','Tickets on your own site','<p>Members, non-members, students and team packs buy right on the chapter site. Non-members can join HSMAI at checkout and pay the member price that day.</p>','You keep the buyer list, turn guests into members and add a replay or a student seat to every order.','events.html','#tickets','d',260],
+ ['Events','Every event earns more','<p>Vendors add a tabletop, a networking break, badge scanning or a speaker spotlight when they register. Each is a line item on one invoice.</p>','More revenue from every room, with no back-and-forth emails.','events.html','#vendors','d',80],
+ ['Awards','The gala gets its own home','<p>The Hospitality Tribute Gala, with your five awards, the 2027 timeline and tables, all in one place.</p>','More nominations means more people in the room, and more tables sold.','awards.html','#ahero','d',0],
+ ['Awards','Nominate in four steps','<p>Category, nominee, story, submit. It saves as people go, can take an entry fee and lands straight in the judges\' queue.</p>','No PDFs or forms to chase.','awards.html','#nominate','d',60],
+ ['Awards','Judges score online','<p>Each judge gets a private link and scores against the same criteria. Totals add up by themselves.</p>','Hours back for your awards committee in the busiest weeks of the year.','awards.html','#judging','d',0],
+ ['Directory','A directory you host','<p>A searchable guide to Ontario hotels, venues and the partners who serve them. Your sponsors are already listed. Members find each other behind a login.</p>','Partners pay to be featured or to own a category: new yearly revenue.','directory.html','#dhero','d',0],
+ ['Directory','One rate card','<p>Every way a vendor can be seen, from a listing to naming an award, in one list they can buy from online.</p>','When vendors see everything they can buy, they buy more.','directory.html','#rate','d',120],
+ ['Sponsors','Sponsors say yes at 10 pm','<p>Your five sponsor levels side by side, with live spot counts, add-ons and online payment or invoice.</p>','No one waits on a volunteer to reply, and scarcity helps sponsors decide sooner.','sponsor/index.html','#packages','d',100],
+ ['Sponsors','Every sponsor sees their value','<p>Each sponsor gets a private dashboard: benefits delivered, logo views, leads, invoices and a one-tap 2027 renewal.</p>','Sponsors who can see their value renew. The dashboard makes your renewal case for you.','sponsor/dashboard.html','','d',0],
+ ['Your board','Chapter HQ: hours back','<p>Your board sees every sponsor, renewal and missing logo in one view, plus the reminders that went out by themselves.</p>','Renewal nudges, logo requests and invoice reminders stop landing on volunteers.','sponsor/dashboard.html','#hq','d',0],
+ ['Sponsor app','HSMAI in every sponsor\'s pocket','<p>An HSMAI sponsor app they install on their phone: scan attendee badges, tag leads, see their events and renew.</p>','Built for Ontario first, and ready for any HSMAI chapter to switch on.','app/','','p',0],
+ ['Brand','No toes stepped on','<p>The global logo is untouched, with global colours and fonts only. Every Join button goes to the official HSMAI application.</p>','Ontario stands out for what it does, not by changing the brand.','ideas.html','#toes','d',0],
+ ['The model','The chapter others copy','<p>Prove it in Ontario, share the results with HSMAI Americas, then offer the playbook to other chapters, with Ontario and you leading it.</p>','Every idea on the growth plan is tagged by what it does: revenue, attendees, members or hours back.','ideas.html','#list','d',220],
+];
+const DUR=11000;
+const fr=$('#frame'),scrn=$('#scrn'),F=[$('#f0'),$('#f1')];let cur=0,front=0,timer=null,paused=false,t0=0,left=DUR,started=false;
+const url=(p,a)=>{let q=p.startsWith('app/')?'?demo'+(LOOK?'&look='+LOOK:''):'?embed';return '../'+p+q+(a==='#hq'?'#hq':'')};
+function geo(){const v=$('#view').getBoundingClientRect();const s=S[cur];const phone=s[6]==='p';const narrow=innerWidth<860;
+ let LW=phone?390:(narrow?390:1280),LH=phone?844:(narrow?780:800);
+ const pad=narrow?18:56,availW=v.width-pad*2,availH=v.height-pad*2-(phone?0:34);
+ let sc=Math.min(availW/LW,availH/LH,phone?1:1);if(narrow&&!phone)sc=Math.min(availW/LW,availH/LH);
+ const w=Math.round(LW*sc),h=Math.round(LH*sc);
+ fr.classList.toggle('phone',phone||narrow);fr.style.width=(w+((phone||narrow)?22:0))+'px';fr.style.height=(h+((phone||narrow)?22:34))+'px';
+ scrn.style.width=w+'px';scrn.style.height=h+'px';
+ F.forEach(f=>{f.style.width=LW+'px';f.style.height=LH+'px';f.style.transform=`scale(${sc})`})}
+function scrollTo(f,a,pan){try{const w=f.contentWindow,d=w.document;d.documentElement.style.scrollBehavior='auto';let y=0;if(a&&a!=='#hq'){const el=d.querySelector(a);if(el)y=el.getBoundingClientRect().top+w.scrollY-(a==='#hero'||a==='#ahero'||a==='#dhero'?0:72)}w.scrollTo(0,Math.max(0,y));
+  if(pan&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const y0=w.scrollY,t1=performance.now(),D=DUR-1600;const step=t=>{if(f!==F[front])return;const p=Math.min(1,(t-t1)/D);w.scrollTo(0,y0+pan*(p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2));if(p<1&&!paused)requestAnimationFrame(step)};setTimeout(()=>requestAnimationFrame(step),900)}}catch(e){}}
+function load(i,cb){const s=S[i],back=F[1-front],u=url(s[4],s[5]);
+ const done=()=>{back.onload=null;setTimeout(()=>{scrollTo(back,s[5],s[7]);cb(back)},s[4].startsWith('app/')?1900:450)};
+ if(back.dataset.u===u){done();return}back.dataset.u=u;back.onload=done;back.src=u}
+function caption(i){const s=S[i];const box=$('#cbox');box.classList.remove('t-in');void box.offsetWidth;box.classList.add('t-in');
+ $('#sec').textContent=s[0];$('#num').textContent=`${i+1} / ${S.length}`;$('#ttl').textContent=s[1];$('#txt').innerHTML=s[2];const w=$('#why');w.hidden=!s[3];w.innerHTML='<b>Why it matters</b>'+s[3];
+ $('#url').textContent='hsmaiontario.ca/'+(s[4]==='index.html'?'':s[4].replace('index.html','').replace('.html',''));$('#open').href=url(s[4],s[5]).replace('?embed','').replace('?demo','?demo');
+ [...$('#prog').children].forEach((b,j)=>{b.classList.toggle('done',j<i);b.querySelector('i').style.transition='none';b.querySelector('i').style.width=j<i?'100%':'0'})}
+function go(i){if(i<0)i=0;if(i>=S.length)return finish();clearTimeout(timer);$('#end').classList.remove('on');const prev=cur;cur=i;caption(i);
+ const sameDev=S[prev][6]===S[i][6];fr.classList.add('dip');
+ load(i,nf=>{geo();const of=F[front];nf.classList.remove('off');of.classList.add('off');front=F.indexOf(nf);setTimeout(()=>fr.classList.remove('dip'),sameDev?80:300);left=DUR;if(!paused)run()})}
+function run(){t0=Date.now();const b=$('#prog').children[cur].querySelector('i');b.style.transition='none';b.style.width=((DUR-left)/DUR*100)+'%';requestAnimationFrame(()=>requestAnimationFrame(()=>{b.style.transition=`width ${left}ms linear`;b.style.width='100%'}));timer=setTimeout(()=>go(cur+1),left)}
+function pause(p){paused=p;$('#ppl').textContent=p?'Play':'Pause';$('#ppi').innerHTML=p?'<path d="M7 4l13 8-13 8z"/>':'<path d="M6 4h4v16H6zM14 4h4v16h-4z"/>';
+ if(p){clearTimeout(timer);left-=Date.now()-t0;const b=$('#prog').children[cur].querySelector('i');b.style.width=getComputedStyle(b).width;b.style.transition='none'}else run()}
+function finish(){clearTimeout(timer);[...$('#prog').children].forEach(b=>{b.classList.add('done');b.querySelector('i').style.width='100%'});$('#end').classList.add('on');$('#sec').textContent='Thank you';$('#num').textContent='';$('#ttl').textContent='Over to you';$('#txt').innerHTML='<p>Pick the pieces you want first. We will build them with you and your board for the 2027 season.</p>';$('#why').hidden=true;cur=S.length-1}
+$('#prog').innerHTML=S.map((s,i)=>`<button aria-label="Go to ${s[1].replace(/"/g,'')}"><i></i></button>`).join('');
+[...$('#prog').children].forEach((b,i)=>b.onclick=()=>{paused=false;pause(false);clearTimeout(timer);go(i)});
+$('#nx').onclick=()=>{clearTimeout(timer);go(cur+1)};$('#bk').onclick=()=>{clearTimeout(timer);go(cur-1)};
+$('#pp').onclick=()=>pause(!paused);$('#replay').onclick=()=>{paused=false;go(0)};
+addEventListener('keydown',e=>{if(e.key==='ArrowRight')$('#nx').click();if(e.key==='ArrowLeft')$('#bk').click();if(e.key===' '){e.preventDefault();$('#pp').click()}});
+addEventListener('resize',geo);
+/* first frame preloads behind the load-in */
+F[0].dataset.u=url(S[0][4],S[0][5]);F[0].src=F[0].dataset.u;geo();caption(0);
+const begin=()=>{if(started)return;started=true;$('#load').classList.add('fly');setTimeout(()=>{fr.classList.remove('prelaunch');scrollTo(F[0],S[0][5],0);left=DUR;run()},500);setTimeout(()=>$('#load').remove(),1900)};
+$('#start').onclick=begin;setTimeout(begin,4200);
+})();
+</script>
+</body>
+</html>

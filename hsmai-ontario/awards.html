@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Awards | HSMAI Ontario</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+.ah{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:140px 0 60px;color:#fff;background:#0E0816;overflow:hidden}
+.ah img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.6;transform:scale(1.1);animation:dolly 20s ease-out forwards}
+@keyframes dolly{to{transform:scale(1)}}
+.ah::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0E081600 30%,#0E0816 96%),radial-gradient(ellipse at 50% 120%,#53238099,#0000 60%)}
+.ah .wrap{position:relative;z-index:2;width:100%}
+.ah h1{font-size:clamp(46px,8.4vw,128px);text-transform:uppercase;line-height:.9;max-width:12ch}
+.ah h1 span{display:block;color:#E2C677}
+.ah .facts{display:flex;flex-wrap:wrap;gap:10px 30px;margin-top:26px;font:700 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#ffffffcc}
+.ah .facts b{color:#fff}
+.tl{padding:80px 0;background:var(--paper)}
+.tline{display:grid;grid-template-columns:repeat(5,1fr);margin-top:30px;position:relative}
+.tline::before{content:"";position:absolute;left:0;right:0;top:9px;height:3px;background:var(--line)}
+.tline div{position:relative;padding-top:30px;padding-right:12px}
+.tline div::before{content:"";position:absolute;left:0;top:0;width:20px;height:20px;background:var(--purple)}
+.tline div.on::before{background:var(--green)}
+.tline b{font:800 17px var(--disp);display:block}
+.tline span{font-size:14px;color:var(--mute)}
+@media (max-width:760px){.tline{grid-template-columns:1fr;gap:18px}.tline::before{left:9px;right:auto;top:0;bottom:0;width:3px;height:auto}.tline div{padding:0 0 0 36px}}
+.cats{padding:100px 0;background:#fff}
+.cg{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:36px}
+.ca{background:var(--plum);color:#fff;padding:22px 18px;min-height:250px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;cursor:pointer;transition:transform .3s}
+.ca:hover{transform:translateY(-6px)}
+.ca::before{content:"";position:absolute;right:-1px;top:-1px;width:56px;height:34px;background:linear-gradient(90deg,var(--green) 0 33%,var(--purple2) 33% 66%,var(--sage) 66%);clip-path:polygon(0 70%,33% 70%,33% 35%,66% 35%,66% 0,100% 0,100% 100%,0 100%)}
+.ca.icon{background:linear-gradient(160deg,#3a2a10,#0E0816);border:1px solid #E2C67766}
+.ca .n{font:900 40px var(--disp);color:#ffffff33}
+.ca h3{font-size:21px;line-height:1.1;text-transform:uppercase}
+.ca p{font-size:13.5px;color:#ffffffb8;margin-top:8px}
+.ca .go{font:700 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--green2);margin-top:12px}
+.ca.sel{outline:4px solid var(--green);outline-offset:-4px}
+@media (max-width:1000px){.cg{grid-template-columns:repeat(5,72%);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.ca{scroll-snap-align:start}}
+@media (min-width:600px) and (max-width:1000px){.cg{grid-template-columns:repeat(5,40%)}}
+.nom{padding:100px 0;background:var(--paper)}
+.nom .g{display:grid;grid-template-columns:1fr 1.2fr;gap:50px;align-items:start}
+.wz{background:#fff;border-top:5px solid var(--purple)}
+.wz .stp{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.wz .stp span{padding:14px 10px;font:700 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#aaa;text-align:center;border-bottom:3px solid transparent}
+.wz .stp span.on{color:var(--purple);border-color:var(--purple)}
+.wz .stp span.dn{color:var(--green);border-color:var(--green)}
+.wz .bd{padding:24px}
+.wz label{display:block;font:700 11.5px var(--sans);letter-spacing:.14em;text-transform:uppercase;margin:16px 0 6px}
+.wz input,.wz select,.wz textarea{width:100%;border:2px solid var(--ink);padding:12px;font:16px var(--sans);background:#fff}
+.wz textarea{min-height:150px}
+.wz .wc{font-size:12.5px;color:var(--mute);text-align:right;margin-top:4px}
+.wz .nav2{display:flex;gap:10px;margin-top:20px}
+.wz .nav2 .btn{flex:1}
+.wz .pane{display:none}.wz .pane.on{display:block;animation:fd .4s}
+@keyframes fd{from{opacity:0;transform:translateX(16px)}}
+.sumr{background:var(--paper);padding:14px;margin-top:10px;font-size:14.5px}
+.sumr div{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
+@media (max-width:900px){.nom .g{grid-template-columns:1fr}}
+.judge{padding:100px 0;background:var(--ink);color:#fff}
+.judge .g{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.sheet2{background:#fff;color:var(--ink);padding:22px;border-top:5px solid var(--green);box-shadow:0 30px 60px #0008}
+.crit{padding:12px 0;border-bottom:1px solid var(--line)}
+.crit div{display:flex;justify-content:space-between;font-weight:700;font-size:14.5px}
+.crit input{width:100%;accent-color:var(--purple);height:30px}
+.tot2{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;font:900 30px var(--disp)}
+@media (max-width:900px){.judge .g{grid-template-columns:1fr}}
+.gala{position:relative;padding:130px 0;color:#fff;background:#0E0816;overflow:hidden}
+.gala img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4}
+.gala .wrap{position:relative}
+.gala .opts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}
+.gala .opts a{background:#ffffff12;backdrop-filter:blur(6px);border:1px solid #ffffff2a;padding:22px;display:block;transition:background .3s}
+.gala .opts a:hover{background:#ffffff22}
+.gala .opts b{font:900 22px var(--disp);text-transform:uppercase;display:block}
+.gala .opts span{color:#ffffffc4;font-size:14.5px}
+.gala .opts em{display:block;font-style:normal;font:700 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#E2C677;margin-top:12px}
+@media (max-width:760px){.gala .opts{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="awards" data-root="">
+<main>
+<section class="ah" id="ahero">
+  <img src="img/gala-stage.jpg" alt="Award presented at the Hospitality Tribute Gala, Fairmont Royal York">
+  <div class="wrap">
+    <p class="kick" style="color:#ffffffcc">Hospitality Tribute Gala</p>
+    <h1>Celebrating excellence <span>in Ontario</span></h1>
+    <p class="lead" style="margin-top:18px;color:#ffffffd0">Honouring the General Managers, teams and industry partners who drive Ontario hospitality. Nominations, judging and tables, all online.</p>
+    <div class="facts"><span><b>2025</b> inaugural gala</span><span><b>2026</b> Fairmont Royal York</span><span><b>Five</b> awards each year</span></div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:28px"><a class="btn g" href="#nominate">Nominate someone</a><a class="btn o" href="#gala" style="color:#fff">Book a table</a></div>
+  </div>
+</section>
+
+<section class="tl" id="timeline">
+  <div class="wrap">
+    <p class="kick">2027 awards season</p>
+    <h2 style="font-size:clamp(30px,4vw,52px)">How it runs</h2>
+    <div class="tline">
+      <div class="on"><b>Nominations open</b><span><span class="ph">Date to confirm</span></span></div>
+      <div><b>Nominations close</b><span><span class="ph">Date to confirm</span></span></div>
+      <div><b>Judges score online</b><span>Each judge scores from a phone or laptop</span></div>
+      <div><b>Finalists announced</b><span>Sent to nominees by email, posted here</span></div>
+      <div><b>Gala night</b><span>Recipients revealed on the evening</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cats" id="categories">
+  <div class="wrap">
+    <p class="kick">The awards</p>
+    <h2>Five awards</h2>
+    <p class="lead" style="margin-top:14px">The 2026 gala honoured excellence in general management, industry partnership, commercial impact and emerging leadership, plus the Industry Icon Award. <span class="ph">Final 2027 category names to confirm</span></p>
+    <div class="cg" id="cg">
+      <div class="ca" data-c="General management"><span class="n">01</span><div><h3>General management</h3><p>A General Manager who leads their hotel and team to excellence.</p><span class="go">Nominate</span></div></div>
+      <div class="ca" data-c="Industry partnership"><span class="n">02</span><div><h3>Industry partnership</h3><p>A partner whose support lifts Ontario hospitality.</p><span class="go">Nominate</span></div></div>
+      <div class="ca" data-c="Commercial impact"><span class="n">03</span><div><h3>Commercial impact</h3><p>Sales, marketing or revenue work that moved the numbers.</p><span class="go">Nominate</span></div></div>
+      <div class="ca" data-c="Emerging leadership"><span class="n">04</span><div><h3>Emerging leadership</h3><p>A rising professional already making a mark.</p><span class="go">Nominate</span></div></div>
+      <div class="ca icon"><span class="n" style="color:#E2C67755">05</span><div><h3 style="color:#E2C677">Industry Icon</h3><p>Chosen by the board. 2026 recipient: Rosanna Caira, for her extraordinary and enduring contribution to Canadian hospitality.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="nom" id="nominate">
+  <div class="wrap g">
+    <div>
+      <p class="kick">Nominate</p>
+      <h2>Four steps, about five minutes</h2>
+      <p class="lead" style="margin-top:16px">No PDFs and no emailing forms. Nominations save as you go, land straight in the judges' queue and confirm by email.</p>
+      <p style="margin-top:18px"><span class="sample">Preview: nothing is submitted</span></p>
+    </div>
+    <div class="wz" id="wz">
+      <div class="stp"><span class="on">Category</span><span>Nominee</span><span>Story</span><span>Submit</span></div>
+      <div class="bd">
+        <div class="pane on" data-p="0"><label for="wc">Award</label><select id="wc"><option>General management</option><option>Industry partnership</option><option>Commercial impact</option><option>Emerging leadership</option></select><label for="ws">Are you nominating yourself?</label><select id="ws"><option>No, someone else</option><option>Yes, myself</option></select></div>
+        <div class="pane" data-p="1"><label for="wn">Nominee name</label><input id="wn" placeholder="Full name"><label for="wt">Title and property</label><input id="wt" placeholder="e.g. General Manager, hotel name"><label for="we">Nominee email</label><input id="we" type="email" placeholder="name@property.com"></div>
+        <div class="pane" data-p="2"><label for="wst">Why they deserve it</label><textarea id="wst" placeholder="Tell the judges what they did this year and the difference it made."></textarea><div class="wc"><span id="wcn">0</span> / 400 words</div><label for="wf">Supporting file (optional)</label><input id="wf" type="file"></div>
+        <div class="pane" data-p="3"><div class="sumr" id="sumr"></div><p style="font-size:14px;color:var(--mute);margin-top:12px">Nomination fee, if the board sets one: <span class="ph">to confirm</span>. Paid by card at submission.</p></div>
+        <div class="nav2"><button class="btn o" id="wb" hidden>Back</button><button class="btn p" id="wnx">Next</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="judge" id="judging">
+  <div class="wrap g">
+    <div>
+      <p class="kick" style="color:#ffffffaa">Judging</p>
+      <h2>Judges score online</h2>
+      <p class="lead" style="margin-top:16px;color:#ffffffc4">Each judge gets a private link, scores against the same criteria and sees only their own sheets. Totals add up by themselves, so no one has to build a spreadsheet the week of the gala.</p>
+    </div>
+    <div class="sheet2">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><b style="font-family:var(--disp);font-size:18px">Nomination 014</b><span class="sample">Sample</span></div>
+      <p style="font-size:13.5px;color:var(--mute)">General management &middot; Judge 2 of 5</p>
+      <div id="crit"></div>
+      <div class="tot2"><span style="font:700 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)">Score</span><span id="tot">0 / 40</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="gala" id="gala">
+  <img src="img/gala-ballroom.jpg" alt="">
+  <div class="wrap">
+    <p class="kick" style="color:#ffffffaa">Be in the room</p>
+    <h2>The gala, booked online</h2>
+    <div class="opts">
+      <a href="events.html#tickets"><b>Seats</b><span>Single tickets for members, non-members and students.</span><em>Ticket prices to confirm</em></a>
+      <a href="sponsor/#addons"><b>Tables of 10</b><span>Bring your team or host your best clients.</span><em>Add a table</em></a>
+      <a href="sponsor/#addons"><b>Name an award</b><span>Your company's name on one award category.</span><em>Sponsor a category</em></a>
+    </div>
+  </div>
+</section>
+</main>
+<script>
+window.TOUR=[
+ ['#ahero','The gala gets its own home',"The gala lived in news posts.","A dedicated awards page with nominations, judging and tables.","More nominations means more tables sold."],
+ ['#categories','Five awards, clearly shown',"","Each award has a card. Tap one to start a nomination.",""],
+ ['#nominate','Nominate in four steps',"","Category, nominee, story, submit. Saved as you go, with an optional fee.","Nomination fees and fewer forms to chase."],
+ ['#judging','Judging without spreadsheets',"","Judges score online and totals add up automatically.","Hours back for the awards committee."],
+];
+</script>
+<script src="site.js"></script>
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+let st=0;const P=$$('.wz .pane'),S=$$('.wz .stp span');
+const show=i=>{st=i;P.forEach((p,j)=>p.classList.toggle('on',j===i));S.forEach((s,j)=>{s.classList.toggle('on',j===i);s.classList.toggle('dn',j<i)});$('#wb').hidden=i===0;$('#wnx').textContent=i===3?'Submit nomination':'Next';
+ if(i===3)$('#sumr').innerHTML=[['Award',$('#wc').value],['Nominee',$('#wn').value||'Not entered'],['Title',$('#wt').value||'Not entered'],['Story',$('#wcn').textContent+' words']].map(r=>`<div><span>${r[0]}</span><b>${r[1].replace(/</g,'&lt;')}</b></div>`).join('')};
+$('#wnx').onclick=()=>{if(st<3)show(st+1);else{$('#wz .bd').innerHTML='<h3 style="font-size:26px;text-transform:uppercase">Thank you</h3><p style="margin-top:8px;color:var(--mute)">In the live version, you and the nominee get a confirmation email and the nomination goes straight to the judges. This preview did not send anything.</p>'}};
+$('#wb').onclick=()=>show(st-1);
+$('#wst').oninput=e=>{$('#wcn').textContent=(e.target.value.trim().match(/\S+/g)||[]).length};
+$$('.ca[data-c]').forEach(c=>c.onclick=()=>{$$('.ca').forEach(x=>x.classList.toggle('sel',x===c));$('#wc').value=c.dataset.c;show(0);$('#nominate').scrollIntoView({behavior:'smooth'})});
+const C=[['Leadership and team',7],['Guest and owner results',8],['Community and industry',6],['Innovation',7]];
+$('#crit').innerHTML=C.map((c,i)=>`<div class="crit"><div><span>${c[0]}</span><span id="cv${i}">${c[1]} / 10</span></div><input type="range" min="0" max="10" value="${c[1]}" data-i="${i}" aria-label="${c[0]}"></div>`).join('');
+const tot=()=>{let t=0;$$('#crit input').forEach(r=>{t+=+r.value;$('#cv'+r.dataset.i).textContent=r.value+' / 10'});$('#tot').textContent=t+' / 40'};
+$$('#crit input').forEach(r=>r.oninput=tot);tot();
+})();
+</script>
+</body>
+</html>

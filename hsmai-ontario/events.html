@@ -51,6 +51,17 @@
 .gal img{width:100%;height:100%;object-fit:cover;filter:saturate(.9);transition:filter .4s,transform .4s}
 .gal img:hover{filter:saturate(1.2);transform:scale(1.02)}
 .gal .a{grid-column:span 3;grid-row:span 2}.gal .b{grid-column:span 2}.gal .c{grid-column:span 1}
+.vend{padding:100px 0;background:var(--plum);color:#fff}
+.vg{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:start}
+.vl{background:#fff;color:var(--ink);padding:10px 22px 22px;border-top:5px solid var(--green)}
+.vi{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.vi input{width:22px;height:22px;accent-color:var(--green)}
+.vi b{font-family:var(--disp);font-size:17px;display:block}
+.vi small{color:var(--mute);font-size:13.5px}
+.vi em{font:900 20px var(--disp);font-style:normal}
+.vt{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0 4px;font:700 12px var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.vt b{font:900 30px var(--disp);letter-spacing:0}
+@media (max-width:900px){.vg{grid-template-columns:1fr;gap:24px}}
 @media (max-width:900px){.tk .g{grid-template-columns:1fr}.sum{position:relative;top:0}.how .cols{grid-template-columns:1fr 1fr}.gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:40vw}.gal .a{grid-column:span 2}.gal .b,.gal .c{grid-column:span 1;grid-row:span 1}}
 @media (max-width:480px){.opt{grid-template-columns:1fr auto}.opt .pr{grid-column:2;grid-row:1}.opt .qty{grid-column:1/-1;justify-self:start}}
 </style>
@@ -104,6 +115,20 @@
   </div>
 </section>
 
+<section class="vend" id="vendors">
+  <div class="wrap vg">
+    <div><p class="kick" style="color:#ffffffaa">For vendors and partners</p><h2>Be in the room</h2><p class="lead" style="margin-top:14px">Book a tabletop, a break or badge scanning when you register. Each one is a line item on one invoice, and it shows up in your sponsor app.</p><p style="margin-top:16px"><span class="sample">Sample prices</span></p></div>
+    <div class="vl">
+      <label class="vi"><input type="checkbox" data-p="600"><span><b>Tabletop</b><small>A table in the room and two passes</small></span><em>$600</em></label>
+      <label class="vi"><input type="checkbox" data-p="750"><span><b>Networking break</b><small>Your brand on the coffee or cocktail break</small></span><em>$750</em></label>
+      <label class="vi"><input type="checkbox" data-p="800"><span><b>Badge scanning</b><small>Scan attendees who opt in, in the app</small></span><em>$800</em></label>
+      <label class="vi"><input type="checkbox" data-p="400"><span><b>Speaker spotlight</b><small>Five minutes on stage before the session</small></span><em>$400</em></label>
+      <div class="vt"><span>Vendor total</span><b id="vt">$0</b></div>
+      <a class="btn g" href="sponsor/login.html?new=1">Register as a vendor</a>
+    </div>
+  </div>
+</section>
+
 <section class="gal" aria-label="Chapter event photos">
   <img class="a" src="img/gala-ballroom.jpg" alt="Gala ballroom at the Fairmont Royal York" loading="lazy">
   <img class="b" src="img/panel.jpg" alt="Panel at an education event" loading="lazy">
@@ -120,6 +145,7 @@ window.TOUR=[
  ['#tickets','Tickets on the chapter site',"Tickets were sold on Eventbrite, off the chapter's site.","Members, non-members, students and group packs buy right here, with a live total.","The chapter keeps the buyer list and can offer membership at the moment of purchase."],
  ['#sw1','Join and save, at checkout',"Membership and tickets were separate trips.","Tick one box to join HSMAI with your ticket and pay the member price.","Turns event guests into members."],
  ['#sw2','Sponsor a student seat',"","Any buyer can pay for a student's seat.","Small add-on revenue and a bigger student pipeline."],
+ ['#vendors','Vendor line items at registration',"Vendor extras were arranged by email.","Tabletops, breaks, badge scanning and speaker spots added in one tap, on one invoice.","Every event earns more than ticket sales."],
  ['#how','Admin that runs itself',"Every event needs reminders, badges and check-in.","QR tickets, reminders, check-in and the photo follow-up all go out automatically.","Hours back for the board every event."],
 ];
 </script>
@@ -145,6 +171,7 @@ function calc(){
   const s=$('#save');if(save){s.hidden=false;s.textContent=`Member price applied: you save ${fmt(save)} on this ticket.`}else s.hidden=true;
 }
 calc();
+document.querySelectorAll('.vi input').forEach(i=>i.onchange=()=>{let t=0;document.querySelectorAll('.vi input:checked').forEach(c=>t+=+c.dataset.p);$('#vt').textContent=fmt(t)});
 $('#pay').onclick=()=>{$('#pay').textContent='Preview only: no payment taken';setTimeout(()=>$('#pay').textContent='Check out',2600)};
 })();
 </script>
