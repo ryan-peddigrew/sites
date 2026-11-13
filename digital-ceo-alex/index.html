@@ -215,13 +215,15 @@ section.blk{padding:100px 0;position:relative}
 .rv.in{opacity:1;transform:none}
 .tour-btn{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:70;display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 18px;border-radius:8px;background:var(--butter);color:var(--ink);border:0;font:800 13px var(--sans);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;box-shadow:0 14px 34px -10px rgba(0,0,0,.6)}
 .tour-btn svg{width:14px;height:14px}
-.tour{position:fixed;left:0;right:0;bottom:0;z-index:95;padding:120px 20px calc(16px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(20,16,14,0) 0%,rgba(20,16,14,.72) 42%,rgba(20,16,14,.94) 100%);color:var(--paper);pointer-events:none;opacity:0;transition:opacity .6s}
+.tour{position:fixed;left:0;right:0;bottom:0;z-index:95;padding:64px 20px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(20,16,14,0) 0%,rgba(20,16,14,.9) 34%,rgba(20,16,14,.98) 60%,#14100E 100%);color:var(--paper);pointer-events:none;opacity:0;transition:opacity .6s}
 .tour.on{opacity:1}
+.tour:not(.on){visibility:hidden;transition:opacity .6s,visibility 0s .6s}
+.tour:not(.on)>*{pointer-events:none}
 .tour>*{pointer-events:auto}
 .tour .in{max-width:760px;margin:0 auto}
 .tour .n{display:flex;align-items:center;gap:10px;font:800 11px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--butter)}
 .tour .n:after{content:"";flex:0 0 38px;height:1px;background:var(--butter);opacity:.6}
-.tour h4{font:800 clamp(40px,11vw,76px)/.84 var(--block);font-stretch:75%;font-variation-settings:"wdth" 75,"opsz" 96;text-transform:uppercase;letter-spacing:-.005em;margin-top:10px;overflow:hidden;padding-bottom:.06em}
+.tour h4{font:800 clamp(34px,9vw,64px)/.84 var(--block);font-stretch:75%;font-variation-settings:"wdth" 75,"opsz" 96;text-transform:uppercase;letter-spacing:-.005em;margin-top:10px;overflow:hidden;padding-bottom:.06em}
 .tour h4 span{display:block}
 .tour h4 i{font:italic 400 1.12em/.7 var(--serif);text-transform:none;color:var(--butter);letter-spacing:-.02em}
 .tour p{font-size:15px;line-height:1.45;color:var(--cream);max-width:40ch;margin-top:10px}
@@ -240,6 +242,21 @@ section.blk{padding:100px 0;position:relative}
 .tbars b i{display:block;height:100%;width:0;background:var(--butter)}
 body.touring .tour-btn{display:none}
 .hdr{display:flex;align-items:center;gap:8px}
+.stk{position:relative;display:inline-flex;flex-direction:column;align-items:center;font:800 19px/.8 var(--block);font-stretch:75%;font-variation-settings:"wdth" 75,"opsz" 96;text-transform:uppercase;color:var(--paper);letter-spacing:-.005em;filter:drop-shadow(0 2px 10px rgba(0,0,0,.45))}
+.stk b{display:block;font:inherit}.stk b+b{margin-top:.5em}
+.stk i{position:absolute;left:50%;top:50%;transform:translate(-50%,-51%) rotate(-6deg);font:italic 400 .9em/.6 var(--serif);text-transform:none;color:var(--butter);-webkit-text-stroke:.07em rgba(20,16,14,.9);paint-order:stroke fill}
+@media(min-width:900px){.stk{font-size:22px}}
+.hd .ib{position:relative;width:44px;height:44px;min-width:44px;padding:0;border-radius:10px;border:1px solid rgba(243,234,223,.28);background:rgba(20,16,14,.35);color:var(--paper);display:inline-grid;place-items:center;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background .2s,border-color .2s}
+.hd .ib svg{width:20px;height:20px}
+.hd .ib:hover{border-color:var(--butter)}
+.hd .ib .ct{position:absolute;top:-5px;right:-5px;min-width:18px;height:18px;padding:0 4px;border-radius:5px;background:var(--butter);color:var(--ink);font:800 10.5px/18px var(--sans);text-align:center}
+.hd .ib .ct.z{display:none}
+.hd .ib[aria-pressed=true]{background:var(--butter);color:var(--ink);border-color:var(--butter)}
+.si{width:22px;height:22px;flex:0 0 auto;color:var(--butter)}
+.handle .hl{display:flex;align-items:center;gap:12px;min-width:0}
+@media(max-width:480px){.handle>span:last-child{display:none}}
+.soc .btn{gap:10px}.soc .btn .si{width:18px;height:18px;color:currentColor}
+
 .cartb{min-height:44px;min-width:44px;padding:0 12px;border-radius:8px;border:1.5px solid rgba(243,234,223,.45);background:rgba(20,16,14,.4);color:var(--paper);font:800 12px var(--sans);display:inline-flex;align-items:center;gap:8px;cursor:pointer}
 .cartb svg{width:18px;height:18px}.cartb b{min-width:20px;height:20px;padding:0 5px;border-radius:4px;background:var(--butter);color:var(--ink);font:800 11px/20px var(--sans);text-align:center}
 .hd.lite .cartb{color:var(--ink);border-color:rgba(34,26,22,.45);background:rgba(243,234,223,.6)}
@@ -277,9 +294,9 @@ body.touring .tour-btn{display:none}
 <div id="ld" aria-hidden="true"><img class="lg" src="img/logo-stack-coin.png" alt=""><p class="eyebrow">Digital CEO Alex</p></div>
 
 <header class="hd" id="hd">
-  <a class="brand" href="#top" aria-label="Digital CEO Alex home"><span class="coin" role="img" aria-label="Faceless Not Boring logo"></span><b class="wm">Digital<br>CEO <i>Alex</i></b></a>
+  <a class="brand" href="#top" aria-label="Faceless Not Boring home"><span class="stk" aria-hidden="true"><b>Faceless</b><b>Boring</b><i>not</i></span></a>
   <nav aria-label="Main"><a href="#free">Free</a><a href="#studio">Avatar studio</a><a href="#shop">Shop</a><a href="#academy">Academy</a><a href="#feed">Feed</a><a href="brand/">Brand guide</a></nav>
-  <div class="hdr"><button class="cartb" id="cartb" type="button" aria-label="Open cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span>Cart</span><b id="ccount">0</b></button><button class="snd" id="snd" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9h4l5-4v14l-5-4H4z"/><path id="sw" d="M17 9c1.5 1.5 1.5 4.5 0 6M19.5 6.5c3 3 3 8 0 11" opacity=".35"/></svg><span id="sndt">Sound</span></button></div>
+  <div class="hdr"><button class="ib" id="cartb" type="button" aria-label="Open cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><b class="ct z" id="ccount">0</b></button><button class="ib" aria-label="Sound" id="snd" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9h4l5-4v14l-5-4H4z"/><path id="sw" d="M17 9c1.5 1.5 1.5 4.5 0 6M19.5 6.5c3 3 3 8 0 11" opacity=".35"/></svg><span id="sndt" hidden>Sound</span></button></div>
 </header>
 
 <main id="top">
@@ -341,7 +358,7 @@ body.touring .tour-btn{display:none}
   <div class="bgf"></div>
   <div class="wrap feedgrid">
     <div class="rv"><p class="eyebrow">From the feed</p><h2 class="bk" style="font-size:clamp(58px,15vw,130px);color:var(--paper);margin:16px 0 18px">Real <i>voice.</i><br><span class="y">zero</span> beige.</h2><p style="color:var(--paper);max-width:38ch;margin-bottom:26px;font-weight:500">Faceless doesn't mean forgettable. Daily posts, honest takes and the behind the scenes.</p>
-      <div class="handles"><a class="handle" href="https://instagram.com/facelessnotboring" target="_blank" rel="noopener"><b>@facelessnotboring</b><span>Instagram</span></a><a class="handle" href="https://tiktok.com/@facelessbyalex" target="_blank" rel="noopener"><b>@facelessbyalex</b><span>TikTok</span></a></div></div>
+      <div class="handles"><a class="handle" href="https://instagram.com/facelessnotboring" target="_blank" rel="noopener"><span class="hl"><svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r=".9" fill="currentColor" stroke="none"/></svg><b>@facelessnotboring</b></span><span>Instagram</span></a><a class="handle" href="https://tiktok.com/@facelessbyalex" target="_blank" rel="noopener"><span class="hl"><svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.6 2.2 4.4 5 4.6"/></svg><b>@facelessbyalex</b></span><span>TikTok</span></a></div></div>
     <div class="phones rv" style="margin-top:40px"><a class="ph" href="https://instagram.com/facelessnotboring" target="_blank" rel="noopener"><img src="img/feed-1.webp" alt="Post from Alex's feed"></a><a class="ph" href="https://instagram.com/facelessnotboring" target="_blank" rel="noopener"><img src="img/feed-2.webp" alt="Post from Alex's feed"></a></div>
   </div>
 </section>
@@ -357,13 +374,13 @@ body.touring .tour-btn{display:none}
   <div class="bg"><img src="img/adam.webp" alt="" style="object-position:38% 44%"></div>
   <div class="wrap rv"><p class="eyebrow" style="color:var(--paper)">Want the latest?</p><h2 class="bk" style="margin-top:16px">Get on <i>the</i><br><span class="y">list.</span></h2><p>Be the first to know about new content, drops and free resources.</p>
     <a class="btn" href="https://beacons.ai/digitalceoalex" target="_blank" rel="noopener">Subscribe</a>
-    <div class="soc"><a class="btn gh" href="https://instagram.com/facelessnotboring" target="_blank" rel="noopener">Instagram</a><a class="btn gh" href="https://tiktok.com/@facelessbyalex" target="_blank" rel="noopener">TikTok</a><a class="btn gh" href="#join" title="Email address needed">Email <span class="need">needed</span></a></div>
+    <div class="soc"><a class="btn gh" href="https://instagram.com/facelessnotboring" target="_blank" rel="noopener"><svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r=".9" fill="currentColor" stroke="none"/></svg>Instagram</a><a class="btn gh" href="https://tiktok.com/@facelessbyalex" target="_blank" rel="noopener"><svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.6 2.2 4.4 5 4.6"/></svg>TikTok</a><a class="btn gh" href="#join" title="Email address needed">Email <span class="need">needed</span></a></div>
   </div>
 </section>
 </main>
 
 <footer class="ft"><div class="wrap">
-  <a class="brand" href="#top"><span class="coin"></span><b>Faceless <i>not</i> boring</b></a>
+  <a class="brand" href="#top" aria-label="Faceless Not Boring home"><span class="stk" style="font-size:30px" aria-hidden="true"><b>Faceless</b><b>Boring</b><i>not</i></span></a>
   <p>By Digital CEO Alex.</p>
   <a href="brand/">Brand guide</a>
 </div></footer>
@@ -458,7 +475,7 @@ function renderCart(){var ids=Object.keys(cart).filter(function(k){return CAT[k]
   h+='<div class="ci"><img src="'+im(c.i)+'" alt=""><div><h4>'+c.n+'</h4><div class="q"><button type="button" data-q="'+k+'" data-d="-1" aria-label="One less">&minus;</button><span>'+q+'</span><button type="button" data-q="'+k+'" data-d="1" aria-label="One more">+</button></div></div><div><div class="pp">'+money((c.p||0)*q)+'</div><button class="rm" type="button" data-rm="'+k+'">Remove</button></div></div>';
   l+='<a href="'+A(k)+'" target="_blank" rel="noopener"><span>'+c.n+'</span><span>Check out</span></a>'});
  $('#clist').innerHTML=h||'<p class="empty">Your cart is empty. Tap Add to cart on anything in the shop, the collection or the academy.</p>';
- $('#clinks').innerHTML=l;$('#ctot').textContent=money(t);$('#ccount').textContent=n;$('#cpay').disabled=!n;$('#cpay').style.opacity=n?1:.5;if(!n)$('#cnote').classList.remove('on')}
+ $('#clinks').innerHTML=l;$('#ctot').textContent=money(t);$('#ccount').textContent=n;$('#ccount').classList.toggle('z',!n);$('#cpay').disabled=!n;$('#cpay').style.opacity=n?1:.5;if(!n)$('#cnote').classList.remove('on')}
 function openCart(o){$('#cart').classList.toggle('on',o);$('#cdim').classList.toggle('on',o);$('#cart').setAttribute('aria-hidden',!o)}
 function addItem(k,el){if(!CAT[k]||CAT[k].p==null)return;cart[k]=(cart[k]||0)+1;save();renderCart();if(el){el.classList.add('ok');var o=el.innerHTML;el.innerHTML='Added';setTimeout(function(){el.classList.remove('ok');el.innerHTML=o},1300)}}
 function addBtn(k,cls){return CAT[k]&&CAT[k].p!=null?'<span class="add'+(cls?' '+cls:'')+'" role="button" tabindex="0" data-add="'+k+'">'+PL+'Add to cart</span>':''}
