@@ -1,4 +1,4 @@
-/* Client dashboard apps + MAC Hub Quote Builder. Uses the brand variables from mac.css. */
+/* Client dashboard apps + MGC Hub Quote Builder. Uses the brand variables from mac.css. */
 .ci { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 body.capp-body { padding-top: 30px; }
 .capp { display: grid; grid-template-columns: 260px 1fr; min-height: calc(100vh - 30px); }
@@ -18,7 +18,7 @@ body.capp-body { padding-top: 30px; }
 .c-acct { font: 600 12px/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--mute); text-align: right; }
 .hello { color: var(--mute); margin: 0 0 14px; }
 .c-hero { background: var(--bg2); border-radius: var(--radius); padding: 22px; margin-bottom: 14px; border: 1px solid var(--line); }
-.c-hero.img { background-size: cover; background-position: center; color: #F6F3EC; min-height: 300px; display: flex; flex-direction: column; justify-content: flex-end; border: 0; }
+.c-hero.img { background-size: cover; background-position: center; color: #FFFFFF; min-height: 300px; display: flex; flex-direction: column; justify-content: flex-end; border: 0; }
 .c-hero .k, .ev .k { font: 600 12px/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
 .c-hero h2 { font-size: clamp(30px, 5vw, 46px); margin: 10px 0 8px; }
 .c-hero p { margin: 0 0 12px; opacity: .85; }
@@ -40,7 +40,7 @@ body.capp-body { padding-top: 30px; }
 .li.static { cursor: default; } .li em { font-style: normal; color: var(--mute); margin-left: auto; }
 .li .dot { width: 10px; height: 10px; background: var(--accent); flex: none; }
 .li .st { margin-top: 6px; }
-.ev { display: grid; gap: 4px; min-height: 140px; align-content: end; padding: 18px; border: 0; border-radius: var(--radius); background-size: cover; background-position: center; color: #F6F3EC; text-align: left; font: inherit; cursor: pointer; }
+.ev { display: grid; gap: 4px; min-height: 140px; align-content: end; padding: 18px; border: 0; border-radius: var(--radius); background-size: cover; background-position: center; color: #FFFFFF; text-align: left; font: inherit; cursor: pointer; }
 .ev b { font: var(--head-weight) 26px/1 var(--head); text-transform: var(--head-case); }
 .back { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; border: 0; background: none; color: var(--mute); font: 600 15px var(--body); cursor: pointer; padding: 0; margin-bottom: 8px; }
 .timeline { border-left: 2px solid var(--accent); margin-left: 6px; }
@@ -82,7 +82,7 @@ body.capp-body { padding-top: 30px; }
   .tl { grid-template-columns: 96px 1fr; }
 }
 
-/* ---------------- Quote Builder (MAC Hub, staff only) ---------------- */
+/* ---------------- Quote Builder (MGC Hub, staff only) ---------------- */
 .qb { display: grid; grid-template-columns: 330px 1fr; gap: 18px; align-items: start; }
 .qb-brands { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
 .qb-brands button { min-height: 44px; padding: 0 14px; border: 1px solid var(--line); background: var(--bg2); color: var(--mute); border-radius: var(--radius); font: 700 14px var(--body); cursor: pointer; }

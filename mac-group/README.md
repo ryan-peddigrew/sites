@@ -6,7 +6,7 @@ Private preview for Ryan. Nothing here is on the companies' real domains.
 - MAC Show Systems: .../mac-group/show-systems/ (live availability, floor planner, quote builder, equipment sales)
 - PSI: .../mac-group/psi/ (book a crew, package builder, training sign-ups)
 - Tour Trucking: .../mac-group/tour-trucking/ (multi-stop route request, truck space calculator, drive with us)
-- MAC Hub staff app: .../mac-group/hub/
+- MGC Hub staff app: .../mac-group/hub/
 - Client apps (Planner, Crew Call, Track My Load): .../mac-group/apps/
 - Tour of what changed: .../mac-group/?tour=1
 
@@ -23,5 +23,5 @@ Rules (Ryan): brands separate in public; clients only ever see the company they 
 - Client dashboard apps (installable): apps/mss/, apps/psi/, apps/ttl/ (client-app.js, app.css). Sample data only.
 - Staff Quote Builder: hub/quote.html (quote.js). Rep types every rate; no prices stored or invented. Branded PDF via Save as PDF.
 - Chairlift watermark on every page (mac.js + mac.css `.wm`, `.wm-badge`). Remove before any hand-over.
-- Tour order: MAC Group, MAC Show Systems (+ app), PSI (+ app), Tour Trucking (+ app), MAC Hub, Quote Builder, apps, next steps.
+- Tour order: MAC Group, MAC Show Systems (+ app), PSI (+ app), Tour Trucking (+ app), MGC Hub, Quote Builder, apps, next steps.
 - Open: Ryan's logos carry "A Division of MAC Group of Companies", which conflicts with separate-in-public. Confirm which to use.

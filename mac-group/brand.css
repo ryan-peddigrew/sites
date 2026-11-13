@@ -9,7 +9,7 @@
 .bg-logos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .bg-on { min-height: 220px; display: grid; place-items: center; border-radius: var(--radius); padding: 24px; overflow: hidden; }
 .bg-on .mlogo { max-width: 100%; } .bg-on img { max-width: 100%; height: auto; }
-.bg-on.dark { background: #0B0B0C; color: #fff; } .bg-on.light { background: #fff; color: #111; border: 1px solid var(--line); } .bg-on.accent { background: var(--accent); color: var(--on-accent); }
+.bg-on.dark { background: #0A0A0A; color: #fff; } .bg-on.light { background: #fff; color: #111; border: 1px solid var(--line); } .bg-on.accent { background: var(--accent); color: var(--on-accent); }
 .bg-rules { padding-left: 20px; margin: 18px 0 0; } .bg-rules li { margin: 8px 0; }
 .bg-sws { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 .bg-sw { display: grid; gap: 4px; } .bg-sw i { display: block; height: 130px; border-radius: var(--radius); border: 1px solid var(--line); }
