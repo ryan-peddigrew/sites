@@ -63,7 +63,7 @@ a{color:inherit}
 #adam{transform-origin:38% 44%}
 #adam img{object-position:38% 44%}
 #venus{clip-path:circle(0px at 38% 44%);-webkit-clip-path:circle(0px at 38% 44%)}
-#venus img{object-position:50% 38%}
+#venus img{object-position:42% 18%}
 .shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.4) 0,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 40%,rgba(10,8,7,.86) 100%)}
 #hc{position:absolute;left:38%;top:44%;width:24vmin;height:24vmin;transform:translate(-50%,-50%) scale(0);will-change:transform}
 #hc .ring{position:absolute;inset:-4%;border-radius:50%;background:var(--gold);-webkit-mask:radial-gradient(circle,transparent 63%,#000 64%,#000 70.5%,transparent 71.5%);mask:radial-gradient(circle,transparent 63%,#000 64%,#000 70.5%,transparent 71.5%);filter:drop-shadow(0 0 18px rgba(242,227,160,.55))}
@@ -198,17 +198,30 @@ section.blk{padding:100px 0;position:relative}
 .rv.in{opacity:1;transform:none}
 .tour-btn{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:70;display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 18px;border-radius:8px;background:var(--butter);color:var(--ink);border:0;font:800 13px var(--sans);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;box-shadow:0 14px 34px -10px rgba(0,0,0,.6)}
 .tour-btn svg{width:14px;height:14px}
-.tour{position:fixed;left:50%;bottom:calc(10px + env(safe-area-inset-bottom));transform:translate(-50%,170%);z-index:95;width:min(calc(100% - 20px),520px);background:rgba(243,234,223,.96);color:var(--ink);border-radius:12px;padding:12px 14px 10px;box-shadow:0 24px 60px -10px rgba(0,0,0,.6);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
-.tour.on{transform:translate(-50%,0)}
-.tour .top{display:flex;align-items:baseline;gap:10px}
-.tour .n{font:800 10.5px var(--sans);letter-spacing:.16em;color:#7A6656;white-space:nowrap}
-.tour h4{font:800 20px/1 var(--block);font-stretch:75%;font-variation-settings:"wdth" 75;text-transform:uppercase}
-.tour p{font-size:13.5px;line-height:1.4;color:#4A3C33;margin-top:6px}
-.tour .bar{height:3px;background:#E2D6C8;margin:10px 0 8px;overflow:hidden}
-.tour .bar i{display:block;height:100%;width:0;background:var(--ink)}
-.tour .ctl{display:flex;gap:8px}
-.tour .ctl button{flex:1;min-height:44px;border-radius:8px;border:1.5px solid #CDBEAE;background:transparent;color:var(--ink);font:800 13px var(--sans);cursor:pointer}
-.tour .ctl button.go{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.tour{position:fixed;left:0;right:0;bottom:0;z-index:95;padding:120px 20px calc(16px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(20,16,14,0) 0%,rgba(20,16,14,.72) 42%,rgba(20,16,14,.94) 100%);color:var(--paper);pointer-events:none;opacity:0;transition:opacity .6s}
+.tour.on{opacity:1}
+.tour>*{pointer-events:auto}
+.tour .in{max-width:760px;margin:0 auto}
+.tour .n{display:flex;align-items:center;gap:10px;font:800 11px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--butter)}
+.tour .n:after{content:"";flex:0 0 38px;height:1px;background:var(--butter);opacity:.6}
+.tour h4{font:800 clamp(40px,11vw,76px)/.84 var(--block);font-stretch:75%;font-variation-settings:"wdth" 75,"opsz" 96;text-transform:uppercase;letter-spacing:-.005em;margin-top:10px;overflow:hidden;padding-bottom:.06em}
+.tour h4 span{display:block}
+.tour h4 i{font:italic 400 1.12em/.7 var(--serif);text-transform:none;color:var(--butter);letter-spacing:-.02em}
+.tour p{font-size:15px;line-height:1.45;color:var(--cream);max-width:40ch;margin-top:10px}
+.tour.go h4 span{animation:tUp .7s cubic-bezier(.2,.8,.2,1) both}
+.tour.go p{animation:tFade .8s .15s both}
+@keyframes tUp{from{transform:translateY(105%)}to{transform:none}}
+@keyframes tFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.tour .ctl{display:flex;gap:4px;margin:12px 0 0 -12px}
+.tour .ctl button{min-height:44px;display:inline-flex;align-items:center;gap:8px;padding:0 12px;background:none;border:0;color:var(--paper);font:800 12px var(--sans);letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
+.tour .ctl button svg{width:13px;height:13px}
+.tour .ctl button.go{color:var(--butter)}
+.tour .ctl button:hover{color:var(--butter)}
+.tbars{position:fixed;left:0;right:0;top:0;z-index:96;display:flex;gap:4px;padding:calc(6px + env(safe-area-inset-top)) 10px 0;opacity:0;transition:opacity .6s;pointer-events:none}
+.tbars.on{opacity:1}
+.tbars b{flex:1;height:2px;background:rgba(243,234,223,.25);overflow:hidden}
+.tbars b i{display:block;height:100%;width:0;background:var(--butter)}
+body.touring .tour-btn{display:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.htxt .ln>span{transform:none;animation:none}}
 </style>
 </head>
@@ -226,7 +239,7 @@ section.blk{padding:100px 0;position:relative}
 <section id="fly" aria-label="Opening">
   <div class="stage">
     <div class="lay" id="adam"><img src="img/adam.webp" alt="" fetchpriority="high"></div>
-    <div class="lay" id="venus"><img src="img/venus.webp" alt=""></div>
+    <div class="lay" id="venus"><img src="img/flora.webp" alt=""></div>
     <div class="shade"></div>
     <div id="hc"><div class="ring"></div><div class="disc"><img src="img/logo-stack-coin.png" alt=""></div></div>
     <div class="htxt" id="t1">
@@ -269,7 +282,7 @@ section.blk{padding:100px 0;position:relative}
 </section>
 
 <section class="blk" id="academy">
-  <div class="bgv"><img src="img/venus.webp" alt=""></div>
+  <div class="bgv"><img src="img/flora.webp" alt=""></div>
   <div class="wrap">
     <div class="sh rv"><p class="eyebrow">Academy and mentorship</p><h2 class="bk">Go <i>all</i><br><span class="y">in.</span></h2><p>Courses, full academies and one-on-one mentorship with direct support. All prices in CAD.</p></div>
     <a class="feat rv" id="feat" target="_blank" rel="noopener"></a>
@@ -309,7 +322,9 @@ section.blk{padding:100px 0;position:relative}
 </div></footer>
 
 <button class="tour-btn" type="button" id="tour-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>Take the tour</button>
-<div class="tour" id="tour" role="dialog" aria-label="Tour"><div class="top"><span class="n" id="tr-n"></span><h4 id="tr-h"></h4></div><p id="tr-p"></p><div class="bar"><i id="tr-bar"></i></div><div class="ctl"><button type="button" id="tr-pause">Pause</button><button type="button" class="go" id="tr-next">Next</button><button type="button" id="tr-x">Close</button></div></div>
+<div class="tbars" id="tbars" aria-hidden="true"></div>
+<div class="tour" id="tour" role="dialog" aria-label="Tour of your new site"><div class="in"><span class="n" id="tr-n"></span><h4 id="tr-h"></h4><p id="tr-p"></p>
+<div class="ctl"><button type="button" id="tr-pause"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>Pause</span></button><button type="button" class="go" id="tr-next"><span>Next</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button><button type="button" id="tr-x"><span>Close</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div></div></div>
 
 <script src="coin.js"></script>
 <script>
@@ -431,28 +446,33 @@ $('#snd').onclick=function(){initAudio();on=!on;ac.resume();master.gain.cancelSc
 var ld=$('#ld');setTimeout(function(){ld.classList.add('out');document.body.classList.remove('loading')},reduce?300:2400);
 
 var T=[
- ['#fly',0,'The opening','Bold block headline with her line, front and centre. Scroll and the camera pushes in toward the touch.'],
- ['#fly',.2,'The spark','Her logo appears between the fingertips as a spinning gold coin.'],
- ['#fly',.42,'Through the ring','The coin opens into a window and the camera flies through it into a new world.'],
- ['#fly',.86,'Old taste, new money','The landing: one clear promise and one button.'],
- ['#gal',.1,'The collection','A curved gallery of gilt frames. Scrolling turns it one piece at a time, with name, price and Buy button below.'],
- ['#gal',.55,'Every product','Every shop and avatar product is in here, each linked to her real checkout.'],
- ['#free',0,'Start free','Every free resource in one swipeable row with a clear Get it free button.'],
- ['#studio',0,'Avatar studio','All the avatar products together, free beginner pack first.'],
- ['#shop',0,'The shop','Threads, sales and systems products with prices and Buy now buttons.'],
- ['#academy',0,'Go all in','Mentorship as the feature, then every academy and USC program with Buy buttons.'],
- ['#feed',0,'From the feed','Her real posts and voice, with Instagram and TikTok one tap away.'],
- ['#join',0,'Get on the list','Sign-up and socials. Tap Sound at the top for the full experience.']];
-var tr=$('#tour'),ti=-1,tp=false,tt0=0,TD=6500,trun=false,tel=0;
+ ['#fly',0,'Your <i>opening</i>','Your line, front and centre in big block type. Scroll and the camera pushes in toward the touch.'],
+ ['#fly',.2,'The <i>spark</i>','Your new logo appears between the fingertips as a spinning gold coin.'],
+ ['#fly',.42,'Through the <i>ring</i>','The coin opens like a window and we fly straight through it into your world.'],
+ ['#fly',.86,'Old taste, <i>new</i> money','The landing: one clear promise and one button into your collection.'],
+ ['#gal',.1,'Your <i>collection</i>','A curved gallery of gilt frames. Each scroll turns one piece, with the name, price and Buy button underneath.'],
+ ['#gal',.55,'Every <i>product</i>','Everything from your Beacons page lives here, each one linked to your real checkout.'],
+ ['#free',0,'Start <i>free</i>','All your free resources in one swipeable row, each with its own Get it free button.'],
+ ['#studio',0,'Your avatar <i>studio</i>','All your avatar products together, with your free beginner pack first.'],
+ ['#shop',0,'Your <i>shop</i>','Your threads, sales and systems products, priced in CAD with Buy now buttons.'],
+ ['#academy',0,'Go all <i>in</i>','Your mentorship leads as the feature, then every academy and USC program.'],
+ ['#feed',0,'From your <i>feed</i>','Your real posts and your voice, with Instagram and TikTok one tap away.'],
+ ['#join',0,'Your <i>list</i>','Sign-up and socials to close. Tap Sound at the top for the full experience.']];
+var tr=$('#tour'),tb=$('#tbars'),ti=-1,tp=false,tt0=0,TD=7000,trun=false,tel=0;
+tb.innerHTML=T.map(function(){return '<b><i></i></b>'}).join('');var bars=tb.querySelectorAll('i');
 function goTo(t){var e=$(t[0]);if(!e)return;var top=e.getBoundingClientRect().top+scrollY,y;
  if(t[0]=='#fly'||t[0]=='#gal')y=top+t[1]*(e.offsetHeight-innerHeight);else y=top-64;
  window.scrollTo({top:Math.max(0,y),behavior:reduce?'auto':'smooth'})}
-function tgo(i){ti=i;if(ti>=T.length){tstop();return}var t=T[ti];$('#tr-n').textContent=(ti+1)+' / '+T.length;$('#tr-h').textContent=t[2];$('#tr-p').textContent=t[3];goTo(t);tel=0;tt0=performance.now()}
-function tframe(now){if(!trun)return;if(!tp){tel+=now-tt0;$('#tr-bar').style.width=Math.min(100,tel/TD*100)+'%';if(tel>=TD)tgo(ti+1)}tt0=now;requestAnimationFrame(tframe)}
-function tstart(){trun=true;tp=false;$('#tr-pause').textContent='Pause';tr.classList.add('on');$('#tour-btn').style.display='none';tgo(0);tt0=performance.now();requestAnimationFrame(tframe)}
-function tstop(){trun=false;tr.classList.remove('on');$('#tour-btn').style.display=''}
+function tgo(i){ti=i;if(ti>=T.length){tstop();return}var t=T[ti];
+ for(var k=0;k<bars.length;k++)bars[k].style.width=k<ti?'100%':'0';
+ $('#tr-n').textContent='Your tour  '+(ti<9?'0':'')+(ti+1)+' / '+T.length;$('#tr-h').innerHTML='<span>'+t[2]+'</span>';$('#tr-p').textContent=t[3];
+ tr.classList.remove('go');void tr.offsetWidth;tr.classList.add('go');goTo(t);tel=0;tt0=performance.now();if(typeof whoosh=='function')whoosh()}
+function tframe(now){if(!trun)return;if(!tp){tel+=now-tt0;if(bars[ti])bars[ti].style.width=Math.min(100,tel/TD*100)+'%';if(tel>=TD)tgo(ti+1)}tt0=now;requestAnimationFrame(tframe)}
+function setP(v){tp=v;$('#tr-pause').innerHTML=tp?'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg><span>Play</span>':'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>Pause</span>'}
+function tstart(){trun=true;setP(false);tr.classList.add('on');tb.classList.add('on');document.body.classList.add('touring');tgo(0);tt0=performance.now();requestAnimationFrame(tframe)}
+function tstop(){trun=false;tr.classList.remove('on');tb.classList.remove('on');document.body.classList.remove('touring')}
 $('#tour-btn').onclick=tstart;$('#tr-next').onclick=function(){tgo(ti+1)};$('#tr-x').onclick=tstop;
-$('#tr-pause').onclick=function(){tp=!tp;this.textContent=tp?'Play':'Pause'};
+$('#tr-pause').onclick=function(){setP(!tp)};
 if(/[?&]tour=1/.test(location.search))setTimeout(tstart,reduce?400:2700);
 })();
 </script>
