@@ -1,5 +1,5 @@
 /* MAC Group preview tools. SAMPLE DATA ONLY.
-   Public pages never show inventory, availability, counts, gear names or prices: clients send needs, staff match gear in MAC Hub. Requests are saved in this browser for the preview; nothing is sent. */
+   Public pages never show inventory, availability, counts, gear names or prices: clients send needs, staff match gear in MGC Hub. Requests are saved in this browser for the preview; nothing is sent. */
 (function () {
   const { $, $$ } = window.MAC;
   const store = {

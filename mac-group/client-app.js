@@ -107,7 +107,7 @@
     const msgs = store.get("chat", [["them", "Hi! I'm here for anything you need on your events. (Sample conversation)"], ["me", "Can we move load-in to 8 AM?"], ["them", "Yes, 8 AM works. I've updated your event-day sheet."]]);
     return `<div class="chat">${msgs.map(([w, t]) => `<div class="msg ${w}">${t}</div>`).join("")}</div><form class="send" data-send><input placeholder="Message ${DATA.rep.toLowerCase().replace("your ", "your ")}" aria-label="Message"><button class="cbtn">Send</button></form>`;
   }
-  function docs() { return `<div class="list">${DATA.docs.map(d => `<div class="li static">${ic("doc")}<span>${d}</span><em>Open</em></div>`).join("")}</div><p class="mute">Sample documents. Real files come from MAC Hub.</p>`; }
+  function docs() { return `<div class="list">${DATA.docs.map(d => `<div class="li static">${ic("doc")}<span>${d}</span><em>Open</em></div>`).join("")}</div><p class="mute">Sample documents. Real files come from MGC Hub.</p>`; }
   function crew() {
     const e = DATA.events[0];
     return `<div class="c-hero"><span class="k">Call sheet · ${day(e.d)}</span><h2>${e.name}</h2><p>Crew call ${e.run[0][0]}</p></div>
@@ -147,7 +147,7 @@
     if (!e.target.matches("[data-send]")) return; e.preventDefault();
     const v = e.target.querySelector("input").value.trim(); if (!v) return;
     const m = store.get("chat", null) || [["them", "Hi! I'm here for anything you need on your events. (Sample conversation)"], ["me", "Can we move load-in to 8 AM?"], ["them", "Yes, 8 AM works. I've updated your event-day sheet."]];
-    m.push(["me", v]); m.push(["them", "Thanks, got it. (Demo reply: in the real app your rep answers from MAC Hub.)"]); store.set("chat", m); render("chat");
+    m.push(["me", v]); m.push(["them", "Thanks, got it. (Demo reply: in the real app your rep answers from MGC Hub.)"]); store.set("chat", m); render("chat");
   });
 
   // Shell
