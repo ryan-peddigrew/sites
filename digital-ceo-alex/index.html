@@ -1,11 +1,12 @@
 <!doctype html>
 <html lang="en-CA">
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Faceless. Not boring. | Digital CEO Alex</title>
 <meta name="description" content="Faceless Not Boring by Digital CEO Alex. Helping you build faceless income online. Guides, prompt banks, courses and mentorship.">
-<meta name="robots" content="noindex">
+
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Digital CEO Alex">
 <meta property="og:title" content="Faceless. Not boring. | Digital CEO Alex">
@@ -19,7 +20,7 @@
 <link rel="icon" href="img/logo-stack-square.png"><link rel="apple-touch-icon" href="img/logo-stack-square.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/adam.webp">
+<link rel="preload" as="image" href="img/adam.webp"><link rel="preload" as="image" href="img/frame.webp">
 <link rel="stylesheet" href="coin.css">
 <style>
 :root{--esp:#221A16;--esp2:#2E2420;--night:#14100E;--cream:#E4D5C5;--paper:#F3EADF;--butter:#F2E3A0;--ink:#1A1412;--mute:#B9A897;--line:rgba(228,213,197,.2);
@@ -44,7 +45,9 @@ a{color:inherit}
 #ld.out{opacity:0;visibility:hidden}
 #ld .lg{width:min(56vw,250px);aspect-ratio:1;border-radius:50%;box-shadow:0 0 0 2px #C9B391,0 30px 60px -20px #000,0 0 90px rgba(242,227,160,.22);animation:lgIn 1.1s cubic-bezier(.2,.8,.2,1) both;transition:transform .95s cubic-bezier(.55,0,.75,.3),opacity .8s .1s}
 @keyframes lgIn{from{transform:scale(.7);opacity:0;filter:blur(10px)}to{transform:none;opacity:1;filter:none}}
-#ld.out .lg{transform:scale(3.2);opacity:0}
+#ld .lgf{padding:28px;border-style:solid;border-width:30px;border-image:url(img/frame.webp) 180 round;background:#1A1412;box-shadow:0 40px 80px -20px #000;transition:transform .95s cubic-bezier(.55,0,.75,.3),opacity .8s .1s;animation:lgIn 1.1s cubic-bezier(.2,.8,.2,1) both}
+#ld .lgf .lg{animation:none;box-shadow:0 0 0 2px #C9B391}
+#ld.out .lgf{transform:scale(3.2);opacity:0}
 #ld.out p{opacity:0;transition:opacity .3s}
 #ld p{position:absolute;bottom:calc(30px + env(safe-area-inset-bottom));left:0;right:0;text-align:center}
 .hd{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;transition:background .3s}
@@ -60,7 +63,7 @@ a{color:inherit}
 .snd svg{width:18px;height:18px}
 .snd[aria-pressed=true],.hd.lite .snd[aria-pressed=true]{background:var(--butter);color:var(--ink);border-color:var(--butter)}
 @media(min-width:900px){.hd nav{display:flex}.hd{padding:14px 32px}}
-#fly{height:520vh;position:relative}
+#fly{height:400vh;position:relative}
 #fly .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
 .lay{position:absolute;inset:0;will-change:transform}
 .lay img{width:100%;height:100%;object-fit:cover}
@@ -71,31 +74,35 @@ body.loading #adam img,body.loading #motes{animation-play-state:paused}
 @keyframes adDrift{from{transform:none}to{transform:scale(1.07) translate(-1.2%,.6%)}}
 #motes{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 #venus{clip-path:inset(50%);-webkit-clip-path:inset(50%)}
-#venus img{object-position:42% 18%}
-.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.4) 0,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 40%,rgba(10,8,7,.86) 100%)}
+#venus img{object-position:50% 30%}
+.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.45) 0,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 34%,rgba(14,10,8,.55) 52%,rgba(14,10,8,.92) 100%)}
 #hc{position:absolute;left:38%;top:44%;transform:translate(-50%,-50%) scale(0);will-change:transform,width,height}
-#hc .fr{position:absolute;inset:0;border-style:solid;border-width:var(--b,12px);border-image:linear-gradient(135deg,#6B4C17 0%,#F7E8AE 18%,#B8892F 36%,#FFF1BE 52%,#9C7228 70%,#F1D98A 86%,#5E4313 100%) 1;box-shadow:inset 0 0 0 1px #2E2008,inset 0 0 0 calc(var(--b,12px)*.22) #C9A246,inset 0 0 0 calc(var(--b,12px)*.3) #3A2A0C,inset 0 0 calc(var(--b,12px)*2) rgba(0,0,0,.55),0 0 0 1px #2E2008,0 0 0 calc(var(--b,12px)*.18) #E2C56E,0 0 0 calc(var(--b,12px)*.26) #3A2A0C,0 40px 80px -24px rgba(0,0,0,.75),0 0 90px rgba(242,227,160,.25)}
-#hc .fr:before{content:"";position:absolute;inset:calc(var(--b,12px)*-.62);border:calc(var(--b,12px)*.16) dotted rgba(255,241,190,.85);pointer-events:none}
-#hc .fr:after{content:"";position:absolute;inset:calc(var(--b,12px)*-1);background:linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,0) 30%,rgba(0,0,0,0) 70%,rgba(0,0,0,.3));mix-blend-mode:overlay;pointer-events:none}
+#hc .fr{position:absolute;inset:0;border-style:solid;border-width:var(--b,12px);border-image:url(img/frame.webp) 180 round;box-shadow:0 40px 80px -24px rgba(0,0,0,.75),0 0 0 1px rgba(20,16,14,.6)}
+#hc .tg{position:absolute;left:0;right:0;top:calc(100% + 10px);text-align:center;font:800 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--paper)}
+.vf{border-style:solid;border-image:url(img/frame.webp) 180 round}
 #spark{position:absolute;left:38%;top:44%;width:16vmin;height:16vmin;transform:translate(-50%,-50%) scale(0);border-radius:50%;background:radial-gradient(circle,#fff 0,#FFF6D2 14%,rgba(247,220,130,.85) 30%,rgba(230,190,90,.35) 50%,rgba(230,190,90,0) 70%);box-shadow:0 0 40px 10px rgba(255,236,170,.55);pointer-events:none}
 .htxt{position:absolute;left:16px;right:16px;bottom:calc(36px + env(safe-area-inset-bottom));will-change:opacity,transform}
-.htxt h1,.htxt h2{font-size:clamp(78px,24vw,210px);color:var(--paper);text-shadow:0 3px 0 rgba(0,0,0,.18),0 14px 60px rgba(0,0,0,.6)}
-.htxt p{max-width:32ch;margin:20px 0 22px;font-size:17px;font-weight:600;color:var(--paper);text-shadow:0 2px 16px rgba(0,0,0,.6)}
+.htxt h1,.htxt h2{font-size:clamp(78px,24vw,210px);color:var(--paper);text-shadow:0 2px 0 rgba(20,16,14,.45)}
+.htxt p{max-width:32ch;margin:20px 0 22px;font-size:17px;font-weight:600;color:var(--paper);text-shadow:0 1px 2px rgba(20,16,14,.7)}
 .htxt .ln{display:block;overflow:hidden;padding:.06em 0 .02em}
-.htxt .ln>span{display:inline-block;transform:translateY(115%) rotate(7deg) skewX(-10deg);transform-origin:0 100%;animation:rise 1.1s cubic-bezier(.2,.9,.25,1.12) 1.1s forwards}
-.htxt .ln:nth-child(2)>span{animation-delay:1.35s!important}
-#t1 h1 i{display:inline-block;animation:popI 1s cubic-bezier(.3,1.6,.4,1) 1.75s both}
+.htxt .ln>span{display:inline-block;transform:translateY(115%) rotate(7deg) skewX(-10deg);transform-origin:0 100%;animation:rise 1.4s cubic-bezier(.2,.9,.25,1.08) .9s forwards}
+#w1{animation-delay:.9s!important}#w2{animation-delay:1.7s!important}#w3{animation-delay:2.3s!important}
+
+
 @keyframes popI{from{transform:scale(.2) rotate(-14deg);opacity:0}to{transform:none;opacity:1}}
-#t1 h1 .y{background:linear-gradient(100deg,var(--butter) 0 42%,#FFFBEA 50%,var(--butter) 58% 100%) 120% 0/260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 10px 30px rgba(0,0,0,.55));animation:shine 4.5s ease-in-out 2.6s infinite}
+#t1 h1 .y{background:linear-gradient(100deg,var(--butter) 0 42%,#FFFBEA 50%,var(--butter) 58% 100%) 120% 0/260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 2px 0 rgba(20,16,14,.45));animation:shine 4.5s ease-in-out 2.6s infinite}
 @keyframes shine{0%{background-position:120% 0}45%,100%{background-position:-20% 0}}
-#t1 p,#t1 .btn{animation:fadeUp .9s ease 2s both}
+#t1 p,#t1 .btn{animation:fadeUp 1s ease 3.1s both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 body.loading #t1 h1 i,body.loading #t1 h1 .y,body.loading #t1 p,body.loading #t1 .btn{animation-play-state:paused}
-.htxt .ln:nth-child(2)>span{animation-delay:.14s}
+
 body.loading .htxt .ln>span{animation-play-state:paused}
 @keyframes rise{to{transform:none}}
-#t3{opacity:0;text-align:center;bottom:auto;top:50%;transform:translateY(-50%)}
-#t3 p{margin-inline:auto}
+#t3{opacity:0}
+#t2{opacity:0;bottom:auto;top:calc(78px + env(safe-area-inset-top));pointer-events:none}
+#t2 h2{font-size:clamp(46px,12.5vw,110px)}
+#t2 .btn{margin-top:16px}
+
 #t3 h2{font-size:clamp(66px,19vw,180px)}
 .cue{position:absolute;right:18px;bottom:calc(40px + env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center;gap:8px;font:700 10px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--paper);writing-mode:vertical-rl}
 .cue i{width:1px;height:40px;background:linear-gradient(var(--paper),transparent);animation:cue 1.8s infinite}
@@ -109,8 +116,8 @@ body.loading .htxt .ln>span{animation-play-state:paused}
 .cyl{position:relative;flex:1;perspective:620px;perspective-origin:50% 50%}
 .drum{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
 .gf{position:absolute;left:0;top:0;width:var(--fw);backface-visibility:hidden;-webkit-backface-visibility:hidden;text-decoration:none}
-.gf .fr{padding:12px;background:var(--gold);box-shadow:0 40px 70px -25px rgba(0,0,0,.9),inset 0 0 0 2px rgba(255,240,200,.5)}
-.gf .fr div{padding:5px;background:linear-gradient(135deg,#3b2b12,#7a5a24);box-shadow:inset 0 0 8px rgba(0,0,0,.8)}
+.gf .fr{border-style:solid;border-width:calc(var(--fw)*.09);border-image:url(img/frame.webp) 180 round;box-shadow:0 40px 70px -25px rgba(0,0,0,.9)}
+.gf .fr div{box-shadow:inset 0 0 14px rgba(0,0,0,.7)}
 .gf img{width:100%;aspect-ratio:4/5;object-fit:cover;background:#111}
 .galcap{padding:0 16px calc(78px + env(safe-area-inset-bottom));display:flex;align-items:flex-end;justify-content:space-between;gap:14px;min-height:120px}
 .galcap h3{font:800 clamp(24px,6vw,40px)/.92 var(--block);font-stretch:75%;font-variation-settings:"wdth" 75;text-transform:uppercase;color:var(--paper)}
@@ -183,7 +190,8 @@ section.blk{padding:100px 0;position:relative}
 #feed .bgf{position:absolute;inset:-40px;background:url(img/feed-2.webp) center/cover;filter:blur(40px) brightness(.35) saturate(1.2)}
 #feed .wrap{position:relative}
 .phones{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 40px}
-.ph{position:relative;display:block;border-radius:18px;overflow:hidden;height:0;padding-bottom:144%;background:#000;box-shadow:0 30px 60px -20px rgba(0,0,0,.8),0 0 0 1px rgba(243,234,223,.18)}
+.ph{position:relative;display:block;overflow:hidden;height:0;padding-bottom:144%;background:#000;box-shadow:0 30px 60px -20px rgba(0,0,0,.8)}
+.ph:after{content:"";position:absolute;inset:0;border-style:solid;border-width:22px;border-image:url(img/frame.webp) 180 round;pointer-events:none}
 .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
 .ph:nth-child(1){transform:rotate(-2deg)}
 .ph:nth-child(2){transform:translateY(34px) rotate(2deg)}
@@ -286,12 +294,20 @@ body.touring .tour-btn{display:none}
 .cart .sec{margin-top:10px;font-size:12px;color:var(--mute);text-align:center}
 .cart .note{display:none;margin-top:12px;padding:12px;border:1px dashed rgba(242,227,160,.5);border-radius:8px;font-size:13.5px;line-height:1.45}
 .cart .note.on{display:block}.cart .note a{display:flex;justify-content:space-between;gap:10px;min-height:44px;align-items:center;color:var(--butter);font-weight:700;text-decoration:none;border-top:1px solid var(--line)}
+
+.post .im:after,.fcard .im:after,.feat .im:after{content:"";position:absolute;inset:0;border-style:solid;border-image:url(img/frame.webp) 180 round;pointer-events:none;z-index:2;border-width:20px}
+.post.lead .im:after{border-width:26px}
+.post,.fcard{border-radius:2px}
+.ac .fi{position:relative;width:110px;height:110px}.ac .fi:after{content:"";position:absolute;inset:0;border-style:solid;border-image:url(img/frame.webp) 180 round;pointer-events:none;z-index:2;border-width:13px}.ac img{border-radius:0}
+.row .fi{position:relative;width:72px;height:72px;flex:0 0 auto}.row .fi:after{content:"";position:absolute;inset:0;border-style:solid;border-image:url(img/frame.webp) 180 round;pointer-events:none;z-index:2;border-width:10px}.row img{border-radius:0}
+.tour.top{top:0;bottom:auto;padding:calc(72px + env(safe-area-inset-top)) 20px 18px;background:linear-gradient(180deg,#14100E 0%,#14100E 93%,rgba(20,16,14,0) 100%)}
+.tour.top .in{border-bottom:1px solid rgba(242,227,160,.35);padding-bottom:6px}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.htxt .ln>span{transform:none;animation:none}}
 </style>
 </head>
 <body class="loading">
 
-<div id="ld" aria-hidden="true"><img class="lg" src="img/logo-stack-coin.png" alt=""><p class="eyebrow">Digital CEO Alex</p></div>
+<div id="ld" aria-hidden="true"><div class="lgf"><img class="lg" src="img/logo-stack-coin.png" alt=""></div><p class="eyebrow">Digital CEO Alex</p></div>
 
 <header class="hd" id="hd">
   <a class="brand" href="#top" aria-label="Faceless Not Boring home"><span class="stk" aria-hidden="true"><b>Faceless</b><b>Boring</b><i>not</i></span></a>
@@ -303,15 +319,16 @@ body.touring .tour-btn{display:none}
 <section id="fly" aria-label="Opening">
   <div class="stage">
     <div class="lay" id="adam"><img src="img/adam.webp" alt="" fetchpriority="high"></div>
-    <div class="lay" id="venus"><img src="img/flora.webp" alt=""></div>
+    <div class="lay" id="venus"><img src="img/p/mentorship.webp" alt=""></div>
     <div class="shade"></div>
     <canvas id="motes" aria-hidden="true"></canvas><div id="spark"></div><div id="hc"><div class="fr"></div></div>
     <div class="htxt" id="t1">
-      <h1 class="bk"><span class="ln"><span>Faceless.</span></span><span class="ln"><span><i>not</i> <span class="y">boring.</span></span></span></h1>
+      <h1 class="bk"><span class="ln"><span id="w1">Faceless.</span></span><span class="ln"><span id="w2"><i>not</i></span> <span id="w3"><span class="y">boring.</span></span></span></h1>
       <p>Helping you build faceless income online.</p>
       <a class="btn" href="#free">Start free <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
-    <div class="htxt" id="t3"><h2 class="bk"><i>old</i> taste.<br><span class="y">new</span> money.</h2><p>Guides, prompt banks, courses and mentorship to build a brand without ever showing your face.</p><a class="btn gh" href="#gal">Discover the collection</a></div>
+    <div class="htxt" id="t2"><p class="eyebrow" style="color:var(--butter);margin:0 0 10px;font-size:12px">Digital CEO Alex</p><h2 class="bk">Build the <i>brand.</i><br><span class="y">skip</span> the face.</h2><a class="btn" href="#free">Start free <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div class="htxt" id="t3"><h2 class="bk"><i>old</i> taste.<br><span class="y">new</span> money.</h2><p>Guides, prompt banks, courses and mentorship to build a brand without ever showing your face.</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="#free">Start free</a><a class="btn gh" href="#gal">See the collection</a></div></div>
     <div class="cue" id="cue"><span>Scroll</span><i></i></div>
   </div>
 </section>
@@ -442,14 +459,14 @@ function P(a,b){return a+(b?'<s>'+b+'</s>':'')}
 var $=function(s){return document.querySelector(s)};
 var h='';FREE.forEach(function(f){h+='<a class="fcard" href="'+A(f[2])+'" target="_blank" rel="noopener"><div class="im"><img loading="lazy" src="'+im(f[1])+'" alt=""><span class="tag">FREE</span></div><div class="bd"><h3>'+f[0]+'</h3><span class="btn dk">Get it free</span></div></a>'});
 $('#freeRail').innerHTML=h;
-h='';STUDIO.forEach(function(f){h+='<a class="row" href="'+A(f[5])+'" target="_blank" rel="noopener" data-img="'+im(f[4])+'"><img loading="lazy" src="'+im(f[4])+'" alt=""><div><h3>'+f[0]+'</h3>'+(f[1]?'<small>'+f[1]+'</small>':'')+(f[2]!='Buy now'?'<div class="pr" style="margin-top:6px">'+P(f[2],f[3])+'</div>':'')+'</div><span class="go">'+(f[2]=='Free'?'Get it':'Buy')+'</span></a>'});
+h='';STUDIO.forEach(function(f){h+='<a class="row" href="'+A(f[5])+'" target="_blank" rel="noopener" data-img="'+im(f[4])+'"><span class="fi"><img loading="lazy" src="'+im(f[4])+'" alt=""></span><div><h3>'+f[0]+'</h3>'+(f[1]?'<small>'+f[1]+'</small>':'')+(f[2]!='Buy now'?'<div class="pr" style="margin-top:6px">'+P(f[2],f[3])+'</div>':'')+'</div><span class="go">'+(f[2]=='Free'?'Get it':'Buy')+'</span></a>'});
 $('#studioList').innerHTML=h;
 var big=$('#studioBig');big.href=A(STUDIO[1][5]);big.querySelector('img').src=im(STUDIO[1][4]);
 document.querySelectorAll('#studioList .row').forEach(function(r){r.addEventListener('mouseenter',function(){big.querySelector('img').src=r.dataset.img;big.href=r.href})});
 h='';SHOP.forEach(function(f,i){h+='<a class="post'+(i==0?' lead':'')+' rv" href="'+A(f[4])+'" target="_blank" rel="noopener"><div class="im"><img loading="lazy" src="'+im(f[3])+'" alt=""></div><div class="meta"><h3>'+f[0]+'</h3>'+(f[1]!='Buy now'?'<div class="pr">'+P(f[1],f[2])+'</div>':'')+'<span class="buy">Buy now</span></div></a>'});
 $('#wall').innerHTML=h;
 var F=ACAD[0],feat=$('#feat');feat.href=A(F[5]);feat.innerHTML='<div class="im"><img loading="lazy" src="'+im(F[4])+'" alt=""></div><div class="bd"><span class="eyebrow" style="color:#7A6656">Work with Alex</span><h3>'+F[0]+'</h3><p>'+F[1]+'</p><div class="pr">'+P(F[2],F[3])+'</div><span class="btn dk" style="align-self:flex-start">Buy now</span></div>';
-h='';ACAD.slice(1).forEach(function(f){h+='<a class="ac rv" href="'+A(f[5])+'" target="_blank" rel="noopener"><img loading="lazy" src="'+im(f[4])+'" alt=""><div><h3>'+f[0]+'</h3><p>'+f[1]+'</p><div class="foot"><span class="pr">'+(f[2]=='Buy now'?'':P(f[2],f[3]))+'</span><span class="buy">Buy now</span></div></div></a>'});
+h='';ACAD.slice(1).forEach(function(f){h+='<a class="ac rv" href="'+A(f[5])+'" target="_blank" rel="noopener"><span class="fi"><img loading="lazy" src="'+im(f[4])+'" alt=""></span><div><h3>'+f[0]+'</h3><p>'+f[1]+'</p><div class="foot"><span class="pr">'+(f[2]=='Buy now'?'':P(f[2],f[3]))+'</span><span class="buy">Buy now</span></div></div></a>'});
 $('#acards').innerHTML=h;
 h='';RECS.forEach(function(f){h+='<a class="rec" href="'+A(f[4])+'" target="_blank" rel="noopener"><img loading="lazy" src="'+im(f[3])+'" alt=""><div><h3>'+f[0]+'</h3><small>'+f[1]+' &middot; '+f[2]+'</small></div></a>'});
 $('#recList').innerHTML=h;
@@ -492,7 +509,7 @@ $('#feat .bd').insertAdjacentHTML('beforeend',addBtn(ACAD[0][5]));
 renderCart();
 
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-var fly=$('#fly'),adam=$('#adam'),ven=$('#venus'),hc=$('#hc'),spk=$('#spark'),fr=hc.querySelector('.fr'),venImg=$('#venus img'),t1=$('#t1'),t3=$('#t3'),cue=$('#cue'),gal=$('#gal'),hd=$('#hd');
+var fly=$('#fly'),adam=$('#adam'),ven=$('#venus'),hc=$('#hc'),spk=$('#spark'),fr=hc.querySelector('.fr'),venImg=$('#venus img'),t1=$('#t1'),t2=$('#t2'),t3=$('#t3'),cue=$('#cue'),gal=$('#gal'),hd=$('#hd');
 function cl(v,a,b){return Math.min(b,Math.max(a,v))}
 function seg(p,a,b){return cl((p-a)/(b-a),0,1)}
 function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
@@ -515,7 +532,7 @@ function frame(){
   t1.style.opacity=1-seg(p,.12,.22);t1.style.transform='translateY('+(-seg(p,.1,.22)*50)+'px)';t1.style.pointerEvents=p<.15?'auto':'none';
   cue.style.opacity=1-seg(p,0,.06);
   var cs=eo(seg(p,.12,.22)),grow=Math.pow(seg(p,.24,.62),2.2);
-  var fh=vmin*.3*(1+grow*9),fw=fh*.78,bw=Math.max(6,fh*.075);
+  var fh=vmin*.34*(1+grow*9),fw=fh*.78,bw=Math.max(10,fh*.11);
   var cx=(38+(50-38)*seg(p,.2,.5)),cy=(44+(48-44)*seg(p,.2,.5));
   hc.style.width=fw+'px';hc.style.height=fh+'px';hc.style.left=cx+'%';hc.style.top=cy+'%';fr.style.setProperty('--b',bw+'px');
   hc.style.transform='translate(-50%,-50%) scale('+cs+')';
@@ -523,7 +540,8 @@ function frame(){
   var cp=p>.62?'none':(cs<=0?'inset(50%)':'inset('+Math.max(0,Y-ih)+'px '+Math.max(0,vw-X-iw)+'px '+Math.max(0,vh-Y-ih)+'px '+Math.max(0,X-iw)+'px)');ven.style.clipPath=cp;ven.style.webkitClipPath=cp;
   hc.style.opacity=1-seg(p,.56,.64);
   venImg.style.transform='scale('+(1.35-.35*eo(seg(p,.3,.8)))+')';
-  var a3=seg(p,.66,.78);t3.style.opacity=a3;t3.style.transform='translateY(calc(-50% + '+((1-a3)*40)+'px))';t3.style.pointerEvents=a3>.5?'auto':'none';
+  var a2=seg(p,.2,.27)*(1-seg(p,.4,.47));t2.style.opacity=a2;t2.style.transform='translateY('+((1-seg(p,.2,.27))*30-seg(p,.4,.47)*30)+'px)';t2.style.pointerEvents=a2>.5?'auto':'none';
+  var a3=seg(p,.66,.78);t3.style.opacity=a3;t3.style.transform='translateY('+((1-a3)*40)+'px)';t3.style.pointerEvents=a3>.5?'auto':'none';
   if(p>.2&&!whooshed){whooshed=1;whoosh()}if(p<.1)whooshed=0;
  }
  var g=gal.getBoundingClientRect(),gp=cl(-g.top/(g.height-vh),0,1);
@@ -532,6 +550,8 @@ function frame(){
    a.style.transform='translate(-50%,-50%) translateZ(-'+R+'px) rotateY('+n+'deg) translateZ('+R+'px)';
    a.style.opacity=ab>100?0:1;a.style.filter=ab<step*.5?'none':'brightness('+(1-cl(ab/90,0,.6))+')';a.style.zIndex=200-Math.round(ab)});
   setCap(Math.round(gp*(N-1)))}
+ var o=cl(g.top/vh,0,1),rv=o>0&&o<1?'inset(0 '+(o*7)+'% 0 '+(o*7)+'% round '+(o*36)+'px '+(o*36)+'px 0 0)':'none';if(gal._rv!==rv){gal._rv=rv;gal.style.clipPath=rv;gal.style.webkitClipPath=rv}
+ var fs=$('#fly .stage');fs.style.filter=o<1&&o>0?'brightness('+(.45+.55*o)+')':'';
  var so=scrollY>fly.offsetHeight-80;hd.classList.toggle('solid',so);
   var P=lastP,sf=seg(P,.13,.2),tt=performance.now()/1000;
   if(P<.25){var idle=.55+.12*Math.sin(tt*2.6)+.05*Math.sin(tt*7.3);spk.style.opacity=(1-sf)*Math.min(1,Math.max(0,(tt-3.6)/.8));spk.style.transform='translate(-50%,-50%) scale('+Math.max(idle,eo(seg(P,.02,.1)))*(1-sf*.3)+')'}
@@ -545,9 +565,22 @@ document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
 
 var ac=null,master=null,on=false;
 function initAudio(){if(ac)return;ac=new (window.AudioContext||window.webkitAudioContext)();master=ac.createGain();master.gain.value=0;master.connect(ac.destination);
- var f=ac.createBiquadFilter();f.type='lowpass';f.frequency.value=900;f.connect(master);
- [130.81,196,261.63,329.63,392].forEach(function(fr,i){[-4,4].forEach(function(dt){var o=ac.createOscillator();o.type=i%2?'triangle':'sine';o.frequency.value=fr;o.detune.value=dt;var g=ac.createGain();g.gain.value=.09/(i+1);
-  var l=ac.createOscillator();l.frequency.value=.07+i*.03;var lg=ac.createGain();lg.gain.value=.02/(i+1);l.connect(lg);lg.connect(g.gain);l.start();o.connect(g);g.connect(f);o.start()})})}
+ var bus=ac.createGain();bus.gain.value=.55;var lp=ac.createBiquadFilter();lp.type='lowpass';lp.frequency.value=3200;bus.connect(lp);lp.connect(master);
+ var BT=.42,M=[[62,.75],[64,.25],[65,1],[62,1],[69,.75],[67,.25],[65,1],[64,1],[62,.75],[64,.25],[65,1],[69,1],[67,1.5],[65,.5],[64,1],[65,.75],[67,.25],[69,1],[70,1],[69,.75],[67,.25],[65,1],[64,1],[62,.75],[65,.25],[64,1],[61,1],[62,2],[0,1]];
+ var BARS=8,LOOP=BARS*3*BT,mel=[],t0=0;M.forEach(function(n){mel.push([t0,n[0],n[1]]);t0+=n[1]});
+ function hz(m){return 440*Math.pow(2,(m-69)/12)}
+ function fiddle(t,m,d){var o=ac.createOscillator(),o2=ac.createOscillator(),g=ac.createGain(),v=ac.createOscillator(),vg=ac.createGain();o.type='sawtooth';o2.type='sawtooth';o.frequency.value=hz(m);o2.frequency.value=hz(m);o2.detune.value=7;
+  v.frequency.value=5.6;vg.gain.value=hz(m)*.006;v.connect(vg);vg.connect(o.frequency);vg.connect(o2.frequency);
+  var f=ac.createBiquadFilter();f.type='bandpass';f.frequency.value=hz(m)*2.2;f.Q.value=.7;
+  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.16,t+.05);g.gain.setValueAtTime(.13,t+d*.7);g.gain.linearRampToValueAtTime(0,t+d*.98);
+  o.connect(f);o2.connect(f);f.connect(g);g.connect(bus);[o,o2,v].forEach(function(x){x.start(t);x.stop(t+d+.05)})}
+ function pluck(t,m,v){var o=ac.createOscillator(),g=ac.createGain();o.type='triangle';o.frequency.value=hz(m);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.001,t+.35);o.connect(g);g.connect(bus);o.start(t);o.stop(t+.4)}
+ function tick(t,v){var n=ac.sampleRate*.06,b=ac.createBuffer(1,n,ac.sampleRate),d=b.getChannelData(0);for(var k=0;k<n;k++)d[k]=(Math.random()*2-1)*(1-k/n);var sr=ac.createBufferSource(),f=ac.createBiquadFilter(),g=ac.createGain();sr.buffer=b;f.type='bandpass';f.frequency.value=2800;g.gain.value=v;sr.connect(f);f.connect(g);g.connect(bus);sr.start(t)}
+ var next=ac.currentTime+.1;
+ setInterval(function(){if(!on)return;var now=ac.currentTime;if(next<now)next=now+.05;while(next<now+1){var L=next;
+  mel.forEach(function(n){if(n[1])fiddle(L+n[0]*BT,n[1],n[2]*BT)});
+  for(var b=0;b<BARS;b++){var bt=L+b*3*BT,root=[50,57,50,55,53,57,50,50][b];pluck(bt,root-12,.3);pluck(bt+BT,root,.14);pluck(bt+BT,root+7,.1);pluck(bt+2*BT,root,.14);pluck(bt+2*BT,root+7,.1);tick(bt+BT,.25);tick(bt+2*BT,.12)}
+  next+=LOOP}},200)}
 function whoosh(){if(!on||!ac)return;var n=ac.sampleRate*1.6,b=ac.createBuffer(1,n,ac.sampleRate),d=b.getChannelData(0);for(var i=0;i<n;i++)d[i]=(Math.random()*2-1)*Math.sin(Math.PI*i/n);
  var s=ac.createBufferSource();s.buffer=b;var bp=ac.createBiquadFilter();bp.type='bandpass';bp.Q.value=1.2;bp.frequency.setValueAtTime(300,ac.currentTime);bp.frequency.exponentialRampToValueAtTime(2400,ac.currentTime+1.4);var g=ac.createGain();g.gain.value=.5;s.connect(bp);bp.connect(g);g.connect(ac.destination);s.start()}
 var unl=null;function silentWav(){var n=8000,b=new ArrayBuffer(44+n*2),v=new DataView(b),w=function(o,t){for(var i=0;i<t.length;i++)v.setUint8(o+i,t.charCodeAt(i))};
@@ -566,22 +599,22 @@ var T=[
  ['#fly',.86,'Old taste, <i>new</i> money','The landing: one clear promise and one button into your collection.'],
  ['#gal',.1,'Your <i>collection</i>','A curved gallery of gilt frames. Each scroll turns one piece, with the name, price and Buy button underneath.'],
  ['#gal',.55,'Every <i>product</i>','Everything from your Beacons page lives here, each one linked to your real checkout.'],
- ['#free',0,'Start <i>free</i>','All your free resources in one swipeable row, each with its own Get it free button.'],
- ['#studio',0,'Your avatar <i>studio</i>','All your avatar products together, with your free beginner pack first.'],
- ['#shop',0,'Your <i>shop</i>','Your threads, sales and systems products, priced in CAD with Buy now buttons.'],
- ['#shop',.5,'Your <i>cart</i>','Add anything to the cart from the shop, collection or academy, then pay for it all at once with Stripe once your account is connected.'],
- ['#academy',0,'Go all <i>in</i>','Your mentorship leads as the feature, then every academy and USC program.'],
- ['#feed',0,'From your <i>feed</i>','Your real posts and your voice, with Instagram and TikTok one tap away.'],
+ ['#free','#freeRail','Start <i>free</i>','All your free resources in one swipeable row, each with its own Get it free button.'],
+ ['#studio','#studioBig','Your avatar <i>studio</i>','All your avatar products together, with your free beginner pack first.'],
+ ['#shop','#wall','Your <i>shop</i>','Your threads, sales and systems products, priced in CAD with Buy now buttons.'],
+ ['#shop','#wall .post:nth-child(2)','Your <i>cart</i>','Add anything to the cart from the shop, collection or academy, then pay for it all at once with Stripe once your account is connected.'],
+ ['#academy','#feat','Go all <i>in</i>','Your mentorship leads as the feature, then every academy and USC program.'],
+ ['#feed','.handles','From your <i>feed</i>','Your real posts and your voice, with Instagram and TikTok one tap away.'],
  ['#join',0,'Your <i>list</i>','Sign-up and socials to close. Tap Sound at the top for the full experience.']];
 var tr=$('#tour'),tb=$('#tbars'),ti=-1,tp=false,tt0=0,TD=7000,trun=false,tel=0;
 tb.innerHTML=T.map(function(){return '<b><i></i></b>'}).join('');var bars=tb.querySelectorAll('i');
-function goTo(t){var e=$(t[0]);if(!e)return;var top=e.getBoundingClientRect().top+scrollY,y;
- if(t[0]=='#fly'||t[0]=='#gal')y=top+t[1]*(e.offsetHeight-innerHeight);else y=top-64;
+function goTo(t){var e=$(t[0]);if(!e)return;var top=e.getBoundingClientRect().top+scrollY,y,hero=t[0]=='#fly'||t[0]=='#gal';tr.classList.toggle('top',!hero);
+ if(hero)y=top+t[1]*(e.offsetHeight-innerHeight);else{var tgt=t[1]?(e.querySelector(t[1])||e):e;y=tgt.getBoundingClientRect().top+scrollY-tr.offsetHeight-8}
  window.scrollTo({top:Math.max(0,y),behavior:reduce?'auto':'smooth'})}
 function tgo(i){ti=i;if(ti>=T.length){tstop();return}var t=T[ti];
  for(var k=0;k<bars.length;k++)bars[k].style.width=k<ti?'100%':'0';
  $('#tr-n').textContent='Your tour  '+(ti<9?'0':'')+(ti+1)+' / '+T.length;$('#tr-h').innerHTML='<span>'+t[2]+'</span>';$('#tr-p').textContent=t[3];
- tr.classList.remove('go');void tr.offsetWidth;tr.classList.add('go');goTo(t);tel=0;tt0=performance.now();if(typeof whoosh=='function')whoosh()}
+ tr.classList.remove('go');void tr.offsetWidth;tr.classList.add('go');tr.classList.toggle('top',!(t[0]=='#fly'||t[0]=='#gal'));goTo(t);tel=0;tt0=performance.now();if(typeof whoosh=='function')whoosh()}
 function tframe(now){if(!trun)return;if(!tp){tel+=now-tt0;if(bars[ti])bars[ti].style.width=Math.min(100,tel/TD*100)+'%';if(tel>=TD)tgo(ti+1)}tt0=now;requestAnimationFrame(tframe)}
 function setP(v){tp=v;$('#tr-pause').innerHTML=tp?'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg><span>Play</span>':'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>Pause</span>'}
 function tstart(){trun=true;setP(false);tr.classList.add('on');tb.classList.add('on');document.body.classList.add('touring');tgo(0);tt0=performance.now();requestAnimationFrame(tframe)}
