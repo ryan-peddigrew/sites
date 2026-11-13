@@ -9,8 +9,9 @@ const I={
   key:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3"/></svg>',
   play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg>'
 };
-const navs=[['events','Events'],['membership','Membership'],['sponsors','Sponsors'],['board','Board'],['ideas','Growth plan']];
-const href=k=>({events:R+'events.html',membership:R+'index.html#membership',sponsors:R+'sponsor/',board:R+'index.html#board',ideas:R+'ideas.html'})[k];
+const EMBED=new URLSearchParams(location.search).has('embed');if(EMBED)document.documentElement.classList.add('embed');
+const navs=[['events','Events'],['awards','Awards'],['directory','Directory'],['membership','Membership'],['sponsors','Sponsors'],['ideas','Growth plan']];
+const href=k=>({awards:R+'awards.html',directory:R+'directory.html',events:R+'events.html',membership:R+'index.html#membership',sponsors:R+'sponsor/',board:R+'index.html#board',ideas:R+'ideas.html'})[k];
 const brand=`<a class="brand" href="${R}index.html" aria-label="HSMAI Ontario home"><img src="${R}img/hsmai-logo.png" alt="HSMAI" width="428" height="125"><span class="ch">Ontario Chapter</span></a>`;
 const hd=document.createElement('header');hd.className='hd';
 hd.innerHTML=`<div class="wrap">${brand}<nav class="nav" aria-label="Main">${navs.map(([k,t])=>`<a href="${href(k)}"${k===here?' aria-current="page"':''}>${t}</a>`).join('')}</nav><div class="acts"><a class="btn o hide-m" href="${R}sponsor/login.html">${I.key}Sponsor login</a><a class="btn g" href="${R}events.html#tickets">Get tickets</a><button class="mb" aria-label="Menu" aria-expanded="false">${I.menu}</button></div></div>`;
@@ -28,7 +29,7 @@ ft.innerHTML=`<div class="wrap"><div class="grid">
 <div><div class="lgw"><img src="${R}img/hsmai-logo.png" alt="HSMAI" width="428" height="125"><span class="ch">Ontario Chapter</span></div>
 <p style="margin-top:18px;color:#ffffffb3;max-width:40ch">Ontario's resource for hospitality sales, marketing and revenue professionals. Part of HSMAI Americas.</p>
 <div class="part"><img src="${R}img/partner-orhma.jpg" alt="ORHMA"><img src="${R}img/partner-tiao.png" alt="TIAO"></div></div>
-<div><h4>Chapter</h4><a href="${R}events.html">Events</a><a href="${R}index.html#membership">Membership</a><a href="${R}index.html#board">Board</a><a href="${R}index.html#reads">Recommended reads</a></div>
+<div><h4>Chapter</h4><a href="${R}events.html">Events</a><a href="${R}awards.html">Awards</a><a href="${R}directory.html">Directory</a><a href="${R}index.html#membership">Membership</a><a href="${R}index.html#board">Board</a><a href="${R}index.html#reads">Recommended reads</a></div>
 <div><h4>Partners</h4><a href="${R}sponsor/">Sponsor the chapter</a><a href="${R}sponsor/login.html">Sponsor login</a><a href="${R}app/">Sponsor app</a><a href="${R}sponsor/dashboard.html">Sample dashboard</a><a href="${R}ideas.html">Growth plan</a></div>
 <div><h4>Contact</h4><a href="mailto:communications@hsmaiontario.ca">communications@<wbr>hsmaiontario.ca</a><a href="mailto:sponsorship@hsmaiontario.ca">sponsorship@<wbr>hsmaiontario.ca</a><a href="https://www.linkedin.com/company/hsmai-ontario/" rel="noopener">LinkedIn</a><a href="https://www.facebook.com/hsmaiontario/" rel="noopener">Facebook</a></div>
 </div><div class="fine"><span>&copy; HSMAI Ontario 2026. HSMAI name and logo used as supplied by HSMAI.</span><span>Concept preview by Chairlift. Not the live site.</span></div></div>`;
@@ -44,9 +45,10 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 $$('.rv').forEach(el=>io.observe(el));
 
 /* loader: first visit only per session */
-const ld=$('#ld');
+const ld=$('#ld');if(EMBED&&ld){ld.style.display='none'}
+if(EMBED){const st=document.createElement('style');st.textContent='.tourbtn,.tourbar,.dock{display:none!important}.rv{opacity:1!important;transform:none!important}';document.head.append(st)}
 const ready=()=>{document.dispatchEvent(new Event('hsready'))};
-if(ld){let seen=false;try{seen=sessionStorage.getItem('hsld')}catch(e){}
+if(EMBED)setTimeout(ready,50);else if(ld){let seen=false;try{seen=sessionStorage.getItem('hsld')}catch(e){}
   if(seen){ld.remove();setTimeout(ready,50)}
   else{try{sessionStorage.setItem('hsld',1)}catch(e){}setTimeout(()=>{ld.classList.add('done');ready();setTimeout(()=>ld.remove(),600)},1700)}}
 else setTimeout(ready,50);
