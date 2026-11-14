@@ -51,4 +51,5 @@ document.getElementById('logos').innerHTML=L.map(([n,bg,fg,s])=>`<div class="c" 
 const sq=(bg,inner,id)=>`<defs><clipPath id="${id}"><rect width="200" height="200" rx="44"/></clipPath></defs><g clip-path="url(#${id})"><rect width="200" height="200" fill="${bg}"/>${inner}</g>`;
 const I=[['1  BLUE',BB,mark(100,138,78,'core',cB)],['2  NAVY',N,mark(100,138,78,'core',cN)],['3  CREAM',C,mark(100,138,78,'core',cC)],['4  YELLOW',Y,mark(100,138,78,'core',cY)]];
 document.getElementById('icons').innerHTML=I.map(([n,bg,s],k)=>`<div class="c ic"><div><span class="n">${n}</span><svg class="big" viewBox="0 0 200 200">${sq(bg,s,'a'+k)}</svg></div><svg class="md" viewBox="0 0 200 200">${sq(bg,s,'b'+k)}</svg><svg class="sm" viewBox="0 0 200 200">${sq(bg,s,'c'+k)}</svg></div>`).join('');
-</script></body></html>
+</script><script src="../../_chairlift/wm.js" data-for="Steady Improvements"></script>
+</body></html>

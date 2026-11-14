@@ -119,4 +119,5 @@ function pb(){var rows=[['Shop rate ($/h)','shop'],['Install rate ($/h)','inst']
  $('#pb').innerHTML=rows.map(function(r){var v=r[1].indexOf('mat:')===0?PB.mat[r[1].slice(4)]:PB[r[1]];return '<label>'+r[0]+'</label><input type="number" data-r="'+r[1]+'" value="'+v+'">'}).join('');
  $$('#pb input').forEach(function(i){i.oninput=function(){var k=i.dataset.r,v=+i.value||0;if(k.indexOf('mat:')===0)PB.mat[k.slice(4)]=v;else PB[k]=v;draw()}})}
 pb();setWho('c');draw()})();
-</script></body></html>
+</script><script src="../../_chairlift/wm.js" data-for="Steady Improvements"></script>
+</body></html>

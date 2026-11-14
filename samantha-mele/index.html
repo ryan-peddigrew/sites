@@ -97,4 +97,5 @@ addEventListener('pointermove',function(e){g.style.setProperty('--gx',e.clientX+
 if(matchMedia('(hover:none)').matches){var t=0;setInterval(function(){t+=.02;g.style.setProperty('--gx',(50+30*Math.sin(t))+'vw');g.style.setProperty('--gy',(35+25*Math.cos(t*.7))+'vh')},60)}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 d.querySelectorAll('.rv').forEach(function(n){io.observe(n)});setTimeout(function(){d.querySelectorAll('.rv').forEach(function(n){n.classList.add('in')})},5000);})();
-</script></body></html>
+</script><script src="../_chairlift/wm.js" data-for="Samantha Mele"></script>
+</body></html>

@@ -844,5 +844,6 @@ $('#tb').onclick=openTour;$('#dtour').onclick=e=>{e.preventDefault();openTour()}
 $('#tx').onclick=()=>{clearTimeout(tt);clr();tour.hidden=true;$('#tb').hidden=false};
 if(new URLSearchParams(location.search).get('tour')==='1'){let st=false;const go=()=>{if(st)return;st=true;setTimeout(openTour,400)};addEventListener('riotready',go);setTimeout(go,2600)}
 </script>
+<script src="../_chairlift/wm.js" data-for="Riot Productions"></script>
 </body>
 </html>

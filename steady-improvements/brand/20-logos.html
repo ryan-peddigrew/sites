@@ -107,4 +107,5 @@ let d='M0 0H400V96';[360,280,200,120,40].forEach(c=>{d+=`L${c+17} 96L${c+27} 136
 let s='M0 70L70 70';for(let t=0;t<=Math.PI*5.2;t+=.12){const r=30-t*1.55;s+=`L${(100+r*Math.sin(t)).toFixed(1)} ${(40+r*Math.cos(t)).toFixed(1)}`}$('#sp').setAttribute('d',s);
 const hb=$('#hb'),cols=['#C89A62','#A9743F','#8A5A30','#D9B27C'];let k=0;for(let y=-40;y<170;y+=17)for(let x=-40;x<170;x+=48){[[x,y,45],[x+24,y,-45]].forEach(([a,b,r])=>{const e=document.createElementNS(NS,'rect');e.setAttribute('x',a);e.setAttribute('y',b);e.setAttribute('width',32);e.setAttribute('height',10);e.setAttribute('fill',cols[k++%4]);e.setAttribute('transform',`rotate(${r} ${a+16} ${b+5})`);e.setAttribute('stroke','#2B1D14');e.setAttribute('stroke-width',1);hb.appendChild(e)})}
 let w='M0 0H360V148';for(let x=360;x>0;x-=20)w+=`L${x-6} 148L${x-20} 170`;$('#sw').setAttribute('d',w+'L0 148Z');
-</script></body></html>
+</script><script src="../../_chairlift/wm.js" data-for="Steady Improvements"></script>
+</body></html>

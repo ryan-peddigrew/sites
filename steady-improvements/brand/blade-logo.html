@@ -61,4 +61,5 @@ const I=[
 document.getElementById('icons').innerHTML=I.map(([n,s],k)=>{const v=s.replaceAll('CLIP','k'+k);return `<div class="c ic"><div><span class="n">${n}</span><svg class="big" viewBox="0 0 200 200">${v}</svg></div><svg class="md" viewBox="0 0 200 200">${v.replaceAll('k'+k,'m'+k)}</svg><svg class="sm" viewBox="0 0 200 200">${v.replaceAll('k'+k,'s'+k)}</svg></div>`}).join('');
 const hl=(k,fg)=>`<svg viewBox="0 0 770 200"><g transform="translate(0,0)">${I[0][1].replaceAll('CLIP','h'+k)}</g><text x="236" y="112" font-family="Syne" font-weight="800" font-size="92" letter-spacing="-3.6" fill="${fg}">steady</text><text x="240" y="158" font-family="Syne" font-weight="800" font-size="31" letter-spacing="3.6" fill="${fg}">improvements</text></svg>`;
 document.getElementById('use').innerHTML=[[C,N,1],[N,C,2]].map(([bg,fg,k])=>`<div class="bar" style="background:${bg};color:${fg}">${hl(k,fg)}<nav><span>Services</span><span>Our work</span><span>Reviews</span><span>Get a quote</span></nav></div>`).join('');
-</script></body></html>
+</script><script src="../../_chairlift/wm.js" data-for="Steady Improvements"></script>
+</body></html>
