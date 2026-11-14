@@ -1,7 +1,7 @@
 /* Chairlift private previews: passcode gate. Each prospect folder has its own code, set from SECRET.
    Open a link with ?k=CODE once and the browser remembers it. (c) 2026 Chairlift. */
 const enc = new TextEncoder();
-const OPEN = ['/divine-furniture-rental/design/', '/divine-furniture-rental/img/']; // installable app whose contact already has the link
+const OPEN = ['/_chairlift/', '/divine-furniture-rental/design/', '/divine-furniture-rental/img/']; // installable app whose contact already has the link
 
 async function mk(secret, key) {
   const k = await crypto.subtle.importKey('raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
