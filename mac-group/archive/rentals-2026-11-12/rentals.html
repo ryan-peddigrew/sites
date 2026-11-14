@@ -41,4 +41,5 @@ function draw() { const d = T.dates("mac");
   document.querySelectorAll("[data-cat]").forEach(r => r.innerHTML = T.INV.filter(i => i.cat === r.dataset.cat).map(i => { const f = T.free(i.id, d.a, d.b); return `<div class="row"><div><div class="nm">${i.n}</div>${T.status(f, i.q)}</div><a class="btn sm ${f ? "" : "ghost"}" href="quote.html?q=${i.id}:1#quote">${f ? "Add to quote" : "Join waitlist"}</a></div>`; }).join("")); }
 draw();
 document.addEventListener("change", e => { if (e.target.id === "ra" || e.target.id === "rb") { const a = document.getElementById("ra").value, b = document.getElementById("rb").value || a; try { localStorage.setItem("mac_dates", JSON.stringify({ a, b: b < a ? a : b })); } catch (x) {} draw(); } });</script>
+<script src="../../../_chairlift/wm.js" data-for="MAC Group"></script>
 </body></html>

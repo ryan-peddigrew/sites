@@ -620,5 +620,6 @@ $('#tx').onclick=()=>{clearTimeout(tt);clr();tour.hidden=true;$('#tb').hidden=fa
 let tourStarted=false;const autoTour=()=>{if(tourStarted||new URLSearchParams(location.search).get('tour')==='0')return;tourStarted=true;setTimeout(openTour,500)};
 addEventListener('tfready',autoTour);if(!document.getElementById('ld'))autoTour();setTimeout(autoTour,6000);
 </script>
+<script src="../_chairlift/wm.js" data-for="Twisted Frame"></script>
 </body>
 </html>
