@@ -99,6 +99,7 @@ def btns(cls=''):
     return (f'<a class="btn btn-cr {cls}" href="#quote" data-quote>{I["quote"]}Build your quote</a>'
             f'<a class="btn btn-ln {cls}" href="#contact">{I["phone"]}Get in touch</a>')
 
+from story import story as STORY
 def index():
     svc_items=''.join(f'''<li data-i="{i}"{' class="on"' if i==0 else ''}><button aria-expanded="{'true' if i==0 else 'false'}"><span class="n">0{i+1}</span><span class="t">{E(t)}</span>{I['plus']}</button>
 <div class="bd"><div><img src="/img/svc-{k}.webp" alt="{E(t)} by Center Stage AV" loading="lazy" draggable="false"><p>{E(d)}</p></div></div></li>''' for i,(k,t,d) in enumerate(SERVICES))
@@ -133,12 +134,12 @@ def index():
 
 <div class="tick" aria-hidden="true"><div class="tr">{tick}</div></div>
 
+{STORY()}
+
 <section class="sec b2b" id="plan"><div class="wrap grid">
  <div class="rev-in"><div class="kick mono">How every show starts</div><h2>From the boardroom to the ballroom.</h2>
  <p class="lead" style="margin-top:20px">Our motto has always been that every successful event begins with careful planning in the boardroom before we get on-site to the ballroom.</p>
- <ul><li><span class="mono">Plan</span><span>2D and 3D set renderings, AutoCAD floor plans, show flow and critical path documents.</span></li>
- <li><span class="mono">Build</span><span>Set, screens, lighting and audio installed by our own crew, on budget and on time.</span></li>
- <li><span class="mono">Show</span><span>Technicians and stage management on-site, so you can focus on the big picture.</span></li></ul></div>
+ <p style="margin-top:16px;color:var(--mute)">Drag the handle: the same show, from behind the desk to show night.</p></div>
  <div class="rv rev-in" id="rv" style="--x:50%"><img src="/img/work/w160.webp" alt="Production desk during a Center Stage AV show" draggable="false"><img class="a" src="/img/ev-galas.webp" alt="Gala on show night" draggable="false">
  <span class="lb l mono">Show night</span><span class="lb r mono">Behind the desk</span><div class="h"><i>{I['lr']}</i></div></div>
 </div></section>
