@@ -2,7 +2,7 @@
 :root{
   --ink:#0B0A0D; --ink2:#141218; --ink3:#1D1A22; --line:#2B2730;
   --cr:#D61045; --cr2:#FF2D63; --paper:#F4F1EC; --white:#fff; --mute:#A7A1AC; --mute2:#6E6874;
-  --disp:"Unbounded",system-ui,sans-serif; --body:"Instrument Sans",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+  --disp:"Archivo",system-ui,sans-serif; --body:"Instrument Sans",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
   --pad:clamp(16px,4vw,56px); --max:1320px; --hdr:72px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -16,7 +16,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .mono{font:500 12.5px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase}
 .kick{display:flex;align-items:center;gap:12px;color:var(--mute);margin-bottom:22px}
 .kick:before{content:"";width:28px;height:3px;background:var(--cr)}
-h1,h2,h3{font-family:var(--disp);text-transform:uppercase;letter-spacing:-.01em;line-height:1.02;font-weight:700}
+h1,h2,h3,.tour h4{font-family:var(--disp);font-stretch:118%;text-transform:uppercase;letter-spacing:-.015em;line-height:.98;font-weight:850}
 h2{font-size:clamp(30px,5.2vw,68px)}
 h3{font-size:clamp(18px,1.8vw,22px);line-height:1.2}
 p.lead{font-size:clamp(17px,1.5vw,20px);color:#D9D4DC;max-width:58ch}
@@ -68,7 +68,7 @@ section{position:relative}
 /* Hero: the reel plays on a stage screen; text sits above it, never over faces */
 .hero{padding:calc(var(--hdr) + clamp(28px,5vw,64px)) 0 clamp(40px,6vw,80px);overflow:hidden;background:radial-gradient(70% 55% at 50% 100%,#D610452e,transparent 70%),var(--ink)}
 .hero .top{display:grid;grid-template-columns:1fr;gap:clamp(20px,3vw,36px)}
-.hero h1{font-size:min(7vw,108px);font-weight:800;line-height:.95;white-space:nowrap}
+.hero h1{font-size:min(7.4vw,116px);font-weight:900;line-height:.95;white-space:nowrap}
 .hero h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
 .hero h1 .ln>span{display:inline-block;transform:translateY(105%);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
 .hero.go h1 .ln>span{transform:none}
@@ -293,3 +293,37 @@ footer .bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;m
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rev-in{opacity:1;transform:none}.hero h1 .ln>span{transform:none}#ld{display:none}}
 .ph-note{display:inline-block;border:1.5px dashed var(--cr);color:var(--cr2);padding:6px 10px;font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase}
 body.touring #wmt{display:none}
+
+/* round 2 */
+.menu .mini{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:14px}.menu .mini a{min-height:44px;display:inline-flex;align-items:center;color:var(--mute);text-decoration:none}
+.chk{display:flex!important;align-items:center;gap:12px;color:#fff!important;min-height:48px}.chk input{width:22px!important;height:22px;min-height:0!important;accent-color:var(--cr)}
+.tools{background:var(--ink2)}
+.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.tcard{display:flex;flex-direction:column;gap:12px;padding:26px 22px;border:1px solid var(--line);background:var(--ink);text-decoration:none;min-height:280px;transition:border-color .25s,transform .25s}
+.tcard:hover{border-color:var(--cr);transform:translateY(-4px)}
+.tcard .mono{color:var(--cr2)}.tcard p{color:var(--mute);font-size:15.5px}
+.tcard .go{margin-top:auto;display:flex;align-items:center;gap:8px;font-weight:600}.tcard .go svg{width:20px;height:20px}
+.venues{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,64px);align-items:center;margin-top:clamp(56px,8vw,96px);padding-top:clamp(40px,6vw,64px);border-top:1px solid var(--line)}
+.venues h3{font-size:clamp(22px,2.6vw,32px);margin-bottom:12px}.venues p{color:var(--mute)}
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.vgrid div{height:84px;display:grid;place-items:center;border:1px dashed #ffffff30}
+.ph-line{margin-top:16px;color:var(--mute);font-size:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+@media(max-width:1000px){.tgrid{grid-template-columns:1fr 1fr}.venues{grid-template-columns:1fr}}
+@media(max-width:560px){.tgrid{grid-template-columns:1fr}.tcard{min-height:0}}
+.faq .fgrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,80px)}
+.faq a{color:#fff;text-decoration-color:var(--cr)}
+.fq{border-bottom:1px solid var(--line)}.fq:first-child{border-top:1px solid var(--line)}
+.fq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:64px;padding:16px 0;cursor:pointer;font-weight:600;font-size:clamp(17px,1.6vw,20px)}
+.fq summary::-webkit-details-marker{display:none}.fq summary svg{width:24px;height:24px;flex:none;transition:transform .3s}
+.fq[open] summary svg{transform:rotate(45deg)}.fq p{padding:0 40px 22px 0;color:#CFC9D2}
+@media(max-width:900px){.faq .fgrid{grid-template-columns:1fr}}
+.news{background:var(--paper);color:var(--ink)}.news .kick{color:var(--mute2)}
+.ngrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:40px}
+.art{text-decoration:none;display:flex;flex-direction:column;gap:12px}.art img{aspect-ratio:12/7;object-fit:cover;width:100%}.art .mono{color:var(--cr)}.art h3{font-size:clamp(18px,1.7vw,22px);line-height:1.15}
+.nl{background:var(--ink);color:#fff;padding:26px 22px;display:flex;flex-direction:column;gap:12px}.nl p{color:var(--mute);font-size:15px}
+.nl input{font:inherit;font-size:16px;color:#fff;background:var(--ink2);border:1.5px solid var(--line);border-radius:2px;padding:12px 14px;min-height:50px}
+.nl .tiny{font-size:13px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.nl .ok{color:#fff}
+@media(max-width:900px){.ngrid{grid-template-columns:1fr}}
+/* phones: posters and tour card */
+@media(max-width:760px){.post{flex-basis:80vw}.post h3{font-size:20px}.post p{font-size:14.5px}
+ .tour .bd{padding:12px 14px 12px}.tour h4{font-size:16px;margin:4px 0}.tour p{font-size:14px;line-height:1.45}.tour .rev{font-size:13px;margin-top:8px;padding:8px 10px}.tour .ctl{margin-top:10px}.tour .ctl button{padding:0 12px}
+ .tour{max-height:46vh;overflow:auto}}

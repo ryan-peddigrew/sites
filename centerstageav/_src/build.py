@@ -65,6 +65,15 @@ LOGOS = ['TD-Bank.webp','Scotiabank.webp','Ford.webp','Canadian-Tire.webp','PWC.
 WORK = [137,155,141,146,165,139,150,154,138,163,145,157,147,159,143,166,149,152,161,164,167,160]
 TICK = ['Galas & Awards','Conferences','Product Launches','Trade Shows','Town Halls','Hybrid Broadcasts','Concerts','Projection Mapping','LED Walls','Seminars']
 
+FAQ=[('Where do you work?','Anywhere in North America, from our offices in Mississauga, Fort Lauderdale and San Diego. For events outside North America, we offer technical consultation and production management.'),
+('Can you work within our budget?','Yes. We don\u2019t believe in one size fits all. Every event is tailored to your needs, budget and vision, pairing budget-conscious planning with high-end execution.'),
+('Do you handle hybrid and virtual events?','Yes. We stream in high definition across platforms, add polling and audience tools, and run our own Center Stage Virtual Studio for broadcasts.'),
+('Can you create the content for our show?','Yes. Our in-house animators, graphic designers, videographers, editors and producers create custom content for your event.'),
+('Will we see the room before show day?','Yes. We provide 2D and 3D set renderings, AutoCAD floor plans and show flow documents, so you can see the room before we load in.'),
+('Can we book a site visit?','Yes. Tick \u201cI\u2019d like a site visit\u201d in the quote builder and our team will arrange a time at your venue.'),
+('How far ahead should we book?','[Placeholder: Center Stage AV to confirm typical lead times for meetings, conferences and galas.]'),
+('Are your events eco-friendly?','We use energy-efficient LED lighting and digital signage, which cut power use and printed waste at every event.')]
+
 def loader_svg():
     W,H,cy=760,140,70
     d1,_=L.text('sync700','CENTER',W/2-86,cy+13,34,track=7,anchor='end')
@@ -82,7 +91,7 @@ def head(title, desc, extra=''):
 <meta name="theme-color" content="#0B0A0D"><link rel="icon" href="/img/favicon-32.png"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:image" content="/img/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Unbounded:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Archivo:wdth,wght@100..125,600..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/csav.css">{extra}
 <script src="/wm.js" data-for="Center Stage AV"></script></head>'''
 
@@ -99,6 +108,8 @@ def index():
     logos=''.join(f'<div><img src="/img/logos/{f}" alt="{E(f.rsplit(".",1)[0].replace("-"," "))}" loading="lazy" draggable="false"></div>' for f in LOGOS)
     qs=''.join(f'<figure{" class=on" if i==0 else ""}><blockquote>“{E(q)}”</blockquote><figcaption class="mono">{E(a)}</figcaption></figure>' for i,(q,a) in enumerate(QUOTES))
     qn=''.join(f'<button aria-label="Review {i+1}"{" class=on" if i==0 else ""}><i></i></button>' for i in range(len(QUOTES)))
+    faqh=''.join(f'<details class="fq"><summary><span>{E(q)}</span>{I["plus"]}</summary><p>{E(a)}</p></details>' for q,a in FAQ)
+    vph=''.join('<div><span class="ph-note">Venue logo</span></div>' for _ in range(6))
     tick=''.join(f'<span>{E(t)}</span>' for t in TICK*2)
     evchips=''.join(f'<label class="chip"><input type="radio" name="type" value="{E(t)}"><span>{E(t)}</span></label>' for k,t,d in EVENTS[:6])+'<label class="chip"><input type="radio" name="type" value="Virtual Studio booking"><span>Virtual Studio booking</span></label><label class="chip"><input type="radio" name="type" value="Something else"><span>Something else</span></label>'
     svchips=''.join(f'<label class="chip"><input type="checkbox" name="svc" value="{E(t)}"><span>{E(t)}</span></label>' for k,t,d in SERVICES)
@@ -106,10 +117,10 @@ def index():
     body=f'''<body>
 <div id="ld" aria-hidden="true"><div class="beam"></div><div class="lg">{loader_svg()}</div></div>
 <header class="hdr" id="hdr"><div class="wrap"><a class="brand" href="#top" aria-label="Center Stage AV home"><img src="/img/logo.svg" alt="Center Stage AV" width="760" height="140" draggable="false"></a>
-<nav aria-label="Main"><a href="#services">Services</a><a href="#events">Events</a><a href="#work">Our work</a><a href="#story">Who we are</a><a href="#studio">Virtual Studio</a></nav>
+<nav aria-label="Main"><a href="/#services">Services</a><a href="/#events">Events</a><a href="/#work">Our work</a><a href="/rentals/">Rentals</a><a href="/#story">Who we are</a></nav>
 <div class="acts">{btns()}</div><button class="burger" id="burger" aria-label="Open menu">{I['menu']}</button></div></header>
 <div class="menu" id="menu" aria-hidden="true"><button class="x" id="mclose" aria-label="Close menu">{I['x']}</button>
-<a class="big" href="#services">Services</a><a class="big" href="#events">Events</a><a class="big" href="#work">Our work</a><a class="big" href="#story">Who we are</a><a class="big" href="#studio">Virtual Studio</a>
+<a class="big" href="/#services">Services</a><a class="big" href="/#events">Events</a><a class="big" href="/#work">Our work</a><a class="big" href="/rentals/">Rentals</a><a class="big" href="/#story">Who we are</a><a class="big" href="/#faq">FAQ</a><div class="mini"><a href="/quote/">Quote tool</a><a href="/portal/">Client portal</a><a href="/crew/">Crew portal</a><a href="/careers/">Careers</a></div>
 <div class="acts">{btns()}</div></div>
 
 <main id="top">
@@ -168,6 +179,19 @@ def index():
  <ul><li>Live streaming and recording</li><li>Polling, networking and collaboration tools</li><li>Multimedia sharing with remote presenters</li></ul>
  <a class="btn btn-cr" href="#quote" data-quote="Virtual Studio booking">{I['quote']}Ask about studio time</a></div></div></section>
 
+<section class="sec tools" id="tools"><div class="wrap">
+ <div class="kick mono">Your toolkit</div><h2>Plan it, track it,<br>rebook it.</h2>
+ <p class="lead" style="margin-top:18px">Everything a planner needs from us, in one place, on any phone.</p>
+ <div class="tgrid">
+  <a class="tcard" href="/quote/"><span class="mono">01 &middot; App</span><h3>Quote tool</h3><p>Event, date, size and needs in under two minutes. Our team checks crews and gear for your date and replies with options.</p><span class="go">Open the quote tool {I['r']}</span></a>
+  <a class="tcard" href="/portal/"><span class="mono">02 &middot; Clients</span><h3>Client portal</h3><p>Your proposal, floor plans, renderings, show flow and invoices for every event, plus one-tap rebooking.</p><span class="go">See the client portal {I['r']}</span></a>
+  <a class="tcard" href="/rentals/"><span class="mono">03 &middot; Rentals</span><h3>Rentals</h3><p>Audio, lighting, LED, projection and staging for your own team or venue, with or without our technicians.</p><span class="go">Browse rentals {I['r']}</span></a>
+  <a class="tcard" href="/crew/"><span class="mono">04 &middot; Team</span><h3>Crew portal</h3><p>Call times, show documents, pull sheets and timesheets for our own crew, on their phones.</p><span class="go">See the crew portal {I['r']}</span></a>
+ </div>
+ <div class="venues"><div><div class="kick mono">Venue partners</div><h3>Planning at a venue we know?</h3><p>We work in hotels and venues across the GTA and North America. Partner venues get room specs, power and rigging details on file, so your quote comes back faster.</p></div>
+ <div class="vgrid">{vph}</div></div>
+ <p class="ph-line"><span class="ph-note">Placeholder</span> Venue partner names and logos to come from Center Stage AV.</p>
+</div></section>
 <section class="sec qb" id="quote"><div class="wrap grid">
  <div><div class="kick mono">Build your quote</div><h2>Tell us about your show.</h2><p class="lead" style="margin-top:18px">Four quick steps. Our team comes back with options that fit your budget, usually within one business day.</p>
  <ol class="steps" id="qsteps"><li class="on"><b>01</b>Your event</li><li><b>02</b>What you need</li><li><b>03</b>Date, place and size</li><li><b>04</b>Your details</li></ol></div>
@@ -177,7 +201,7 @@ def index():
   <div class="st" data-s="2"><h3>Date, place and size</h3><p class="hint">Rough is fine.</p><div class="fl">
    <label>Event date<input type="date" name="date"></label><label>Guests<select name="guests"><option value="">Choose</option><option>Under 100</option><option>100 to 300</option><option>300 to 1,000</option><option>1,000+</option></select></label>
    <label class="full">Venue or city<input name="venue" placeholder="e.g. Metro Toronto Convention Centre"></label>
-   <label class="full">In person, hybrid or virtual?<select name="format"><option>In person</option><option>Hybrid</option><option>Virtual</option></select></label></div></div>
+   <label class="full">In person, hybrid or virtual?<select name="format"><option>In person</option><option>Hybrid</option><option>Virtual</option></select></label><label class="full chk"><input type="checkbox" name="visit" value="yes"> I’d like a site visit at the venue</label></div></div>
   <div class="st" data-s="3"><h3>Where should we send options?</h3><p class="hint">We only use this to reply to you.</p><div class="fl">
    <label>Name<input name="name" autocomplete="name" required></label><label>Company<input name="company" autocomplete="organization"></label>
    <label>Email<input type="email" name="email" autocomplete="email" required></label><label>Phone<input type="tel" name="phone" autocomplete="tel"></label>
@@ -187,6 +211,14 @@ def index():
  </form>
 </div></section>
 
+<section class="sec faq" id="faq"><div class="wrap fgrid"><div><div class="kick mono">FAQ</div><h2>Good<br>questions.</h2><p class="lead" style="margin-top:18px">What planners ask us most. Something else? <a href="#contact">Get in touch</a>.</p></div><div>{faqh}</div></div></section>
+<section class="sec news" id="news"><div class="wrap">
+ <div class="kick mono">News &amp; insights</div><h2>From our crew.</h2>
+ <div class="ngrid">
+  <a class="art" href="https://www.centerstageav.com/bringing-purpose-to-production-how-smart-stage-design-and-show-flow-elevate-your-event-with-center-stage-av/" target="_blank" rel="noopener"><img src="/img/art-purpose.webp" alt="" loading="lazy" draggable="false"><span class="mono">Insight</span><h3>Bringing purpose to production: how smart stage design and show flow elevate your event</h3></a>
+  <a class="art" href="https://www.centerstageav.com/why-team-composition-is-everything-in-event-production-the-center-stage-av-advantage/" target="_blank" rel="noopener"><img src="/img/art-team.webp" alt="" loading="lazy" draggable="false"><span class="mono">Insight</span><h3>Why team composition is everything in event production</h3></a>
+  <form class="nl" id="nl"><span class="mono" style="color:var(--cr2)">Newsletter</span><h3>Show notes, once a month</h3><p>Stage ideas, new technology and planning tips for your next event. No spam.</p><input id="nle" type="email" aria-label="Email" placeholder="you@company.com" required autocomplete="email"><button class="btn btn-cr" type="submit">Subscribe</button><p class="ok" hidden>Thanks. You’re on the list.</p><p class="tiny"><span class="ph-note">Placeholder</span> Connects to Center Stage AV’s email tool once chosen.</p></form>
+ </div></div></section>
 <section class="sec ct" id="contact"><div class="wrap">
  <div class="kick mono">Get in touch</div><h2>Three cities.<br>One crew.</h2>
  <div class="grid"><div class="city"><span class="mono" style="color:var(--cr2)">Head office</span><h3>Toronto, ON</h3><p>6180 Kestrel Road<br>Mississauga, Ontario L5T 1Z2</p></div>
@@ -198,8 +230,8 @@ def index():
 </main>
 
 <footer><div class="wrap"><div class="top"><div><img class="f" src="/img/logo.svg" alt="Center Stage AV" draggable="false"><p style="color:var(--mute);margin-top:18px;max-width:36ch">Your brand. Your event. Center stage. Audio visual for live, hybrid and virtual events for over 20 years.</p><div class="soc">{soc}</div></div>
-<div><h4>Explore</h4><ul><li><a href="#services">Services</a></li><li><a href="#events">Events</a></li><li><a href="#work">Our work</a></li><li><a href="#story">Who we are</a></li><li><a href="#studio">Virtual Studio</a></li></ul></div>
-<div><h4>Next steps</h4><ul><li><a href="#quote" data-quote>Build your quote</a></li><li><a href="#contact">Get in touch</a></li><li><a href="/brand/">Logo refresh options</a></li><li><a href="/?tour=1" data-tour>Take a tour of what’s changed</a></li></ul></div></div>
+<div><h4>Explore</h4><ul><li><a href="/#services">Services</a></li><li><a href="/#events">Events</a></li><li><a href="/#work">Our work</a></li><li><a href="/rentals/">Rentals</a></li><li><a href="/#studio">Virtual Studio</a></li><li><a href="/#faq">FAQ</a></li><li><a href="/careers/">Careers</a></li></ul></div>
+<div><h4>Next steps</h4><ul><li><a href="/quote/">Quote tool</a></li><li><a href="/portal/">Client portal</a></li><li><a href="/crew/">Crew portal</a></li><li><a href="/#contact">Get in touch</a></li><li><a href="/brand/">Logo refresh options</a></li><li><a href="/?tour=1" data-tour>Take a tour of what’s changed</a></li></ul></div></div>
 <div class="bot mono"><span>© 2026 Center Stage AV. All rights reserved.</span><span>Concept preview</span></div></div></footer>
 
 <button class="tourbtn" id="tourbtn" data-tour>{I['play']}Tour what’s changed</button>

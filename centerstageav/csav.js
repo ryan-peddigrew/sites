@@ -68,6 +68,8 @@ bk.onclick=function(){show(Math.max(0,si-1))};show(0);
 $$('[name=type]',form).forEach(function(r){r.addEventListener('change',function(){setTimeout(function(){if(si===0)show(1)},250)})});
 $$('[data-quote]').forEach(function(a){a.addEventListener('click',function(){var v=a.getAttribute('data-quote');if(v){var m=$$('[name=type]',form).filter(function(r){return r.value===v||v.indexOf(r.value.split(' ')[0])===0})[0];if(m){m.checked=true;show(1)}}})});
 
+/* newsletter (placeholder) */
+var nl=$('#nl');if(nl)nl.addEventListener('submit',function(e){e.preventDefault();var i=$('#nle');if(!i.checkValidity()){i.reportValidity();return}nl.querySelector('.ok').hidden=false;i.value=''});
 /* video: keep it light */
 var vid=$('#reel');if(vid){if(RM)vid.removeAttribute('autoplay');new IntersectionObserver(function(es){if(es[0].isIntersecting){if(!RM)vid.play().catch(function(){})}else vid.pause()}).observe(vid)}
 
@@ -81,8 +83,10 @@ var S=[
  {s:'#work',k:'Our work',t:'Your work, front and centre',d:'22 of your own show photos in one wall, full screen with a tap and swipeable on phones. Real work, not stock.',r:''},
  {s:'#proof',k:'Proof',t:'Trusted names and real words',d:'The client logos and reviews already on your site, presented so they actually get read. No new claims added.',r:'Proof next to the quote button is what moves a planner from browsing to asking.'},
  {s:'#studio',k:'New revenue',t:'Rent out the Virtual Studio',d:'Your Center Stage Virtual Studio was buried on the hybrid page. It now has its own section and booking request.',r:'Studio time sells between shows: town halls, launches, recorded broadcasts, training. Same space, extra bookings.'},
+ {s:'#tools',k:'New revenue',t:'Tools planners come back for',d:'A quote tool app, a client portal, rentals and a crew portal, each on its own page. Open them from this section after the tour.',r:'Rentals earn between shows, and the client portal makes rebooking one tap. Repeat money without extra sales calls.'},
  {s:'#quote',k:'New revenue',t:'Build your quote',d:'Four quick steps: event, needs, date and size, contact. Your team gets a complete brief instead of “please call me”.',r:'Qualified requests arrive with dates and budgets, so your team quotes faster and wins more of them.'},
- {s:'#contact',k:'What’s next',t:'Three cities, one crew',d:'Toronto, Fort Lauderdale and San Diego, side by side. Pick a logo option, send me any notes, and we take this live on centerstageav.com.',r:''}
+ {s:'#faq',k:'Planners expect it',t:'FAQ, news and a newsletter',d:'Straight answers to what planners ask, your two insight articles, and a monthly newsletter signup.',r:'A newsletter keeps Center Stage in planners\u2019 inboxes between events, which is when next year\u2019s shows get booked.'},
+ {s:'#contact',k:'What’s next',t:'Three cities, one crew',d:'Toronto, Fort Lauderdale and San Diego, side by side. Pick a logo (round 2 has three bold new options), send me any notes, and we take this live on centerstageav.com.',r:''}
 ];
 var box=$('#tour'),ti=0,tm=null,paused=false,D=9000,t0=0,raf;
 function hi(){$$('.tour-hi').forEach(function(x){x.classList.remove('tour-hi')})}
