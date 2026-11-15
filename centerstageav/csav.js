@@ -107,7 +107,7 @@ if(!RM&&window.CSS&&CSS.supports&&(CSS.supports('-webkit-background-clip','text'
 /* ---------- Tour of what's changed (?tour=1): single tap, auto-plays ---------- */
 var S=[
  {s:'#hero',k:'Welcome',t:'Richard, here’s your new site',d:'Your own reel now plays on a stage screen the moment the page opens, and the headline keeps your line: Your brand. Your event. Center stage. The event word changes, so every planner sees their kind of show.',r:'Planners decide in seconds. Leading with real show footage, not a slider, is what earns the first enquiry.'},
- {s:'#hdr',k:'Logo refresh',t:'A sharper version of your logo',d:'Same name, same crimson AV, redrawn crisp so it never looks soft on phones or LED walls. The site uses Option A. Options B and C are on the logo page, linked at the bottom.',r:''},
+ {s:'#hdr',k:'Logo refresh',t:'A sharper version of your logo',d:'Same name, same tilted crimson oval and white AV, redrawn as clean vectors so it never looks soft on phones or LED walls. Three versions are on the logo page, linked at the bottom.',r:''},
  {s:'#show',k:'Your story',t:'Plan, build, show, as you scroll',d:'Scrolling now tells your story: the floor plan draws itself, the rig goes up, the real stage appears, lights sweep, then your three offices and twenty years. Watch it play.',r:'A planner who scrolls through this understands how you work in fifteen seconds, without reading a page of text.'},
  {s:'#plan',k:'Your motto',t:'From the boardroom to the ballroom',d:'Your motto is now something people play with: drag the handle between show night and behind the desk.',r:''},
  {s:'#services',k:'Services',t:'Eight services, one tap each',d:'Instead of eight separate pages, each service opens in place with its photo and the essentials, so nobody gets lost.',r:'Every service ends one tap from Build your quote, so interest turns into a request.'},
@@ -118,7 +118,7 @@ var S=[
  {s:'#tools',k:'New revenue',t:'Tools planners come back for',d:'A quote tool app, a client portal, rentals and a crew portal, each on its own page. Open them from this section after the tour.',r:'Rentals earn between shows, and the client portal makes rebooking one tap. Repeat money without extra sales calls.'},
  {s:'#quote',k:'New revenue',t:'Build your quote',d:'Four quick steps: event, needs, date and size, contact. Your team gets a complete brief instead of “please call me”.',r:'Qualified requests arrive with dates and budgets, so your team quotes faster and wins more of them.'},
  {s:'#faq',k:'Planners expect it',t:'FAQ, news and a newsletter',d:'Straight answers to what planners ask, your two insight articles, and a monthly newsletter signup.',r:'A newsletter keeps Center Stage in planners\u2019 inboxes between events, which is when next year\u2019s shows get booked.'},
- {s:'#contact',k:'What’s next',t:'Three cities, one crew',d:'Toronto, Fort Lauderdale and San Diego, side by side. Pick a logo (round 2 has three bold new options), send me any notes, and we take this live on centerstageav.com.',r:''}
+ {s:'#contact',k:'What’s next',t:'Three cities, one crew',d:'Toronto, Fort Lauderdale and San Diego, side by side. Pick a logo version, send me any notes, and we take this live on centerstageav.com.',r:''}
 ];
 var asr=0,box=$('#tour'),ti=0,tm=null,paused=false,D=9000,t0=0,raf;
 function hi(){$$('.tour-hi').forEach(function(x){x.classList.remove('tour-hi')})}

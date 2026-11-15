@@ -10,8 +10,8 @@ SAMPLE = '<span class="ph-note">Sample data</span>'
 def shell(title, desc, main, app=False, extra=''):
     soc = ''.join(f'<a href="{u}" target="_blank" rel="noopener" aria-label="{n}">{s}</a>' for n, (u, s) in SOC.items())
     nav = '<a href="/#services">Services</a><a href="/#events">Events</a><a href="/#work">Our work</a><a href="/rentals/">Rentals</a><a href="/#faq">FAQ</a>'
-    hdr = f'''<header class="hdr solid" id="hdr"><div class="wrap"><a class="brand" href="/" aria-label="Center Stage AV home"><img src="/img/logo.svg" alt="Center Stage AV" width="760" height="140" draggable="false"></a>
-<nav aria-label="Main">{nav}</nav><div class="acts"><a class="btn btn-cr" href="/quote/">{I["quote"]}Build your quote</a><a class="btn btn-ln" href="/#contact">{I["phone"]}Get in touch</a></div><button class="burger" id="burger" aria-label="Open menu">{I['menu']}</button></div></header>
+    hdr = f'''<header class="hdr solid" id="hdr"><div class="wrap"><a class="brand" href="/" aria-label="Center Stage AV home"><img src="/img/logo.svg" alt="Center Stage AV" width="1050" height="230" draggable="false"></a>
+<nav aria-label="Main">{nav}</nav><div class="acts"><a class="btn btn-cr" href="/quote/">{I["quote"]}Build your quote</a><a class="btn btn-ln" href="/#contact">{I["phone"]}Get in touch</a></div><a class="qmini" href="/quote/">Build your quote</a><button class="burger" id="burger" aria-label="Open menu">{I['menu']}</button></div></header>
 <div class="menu" id="menu" aria-hidden="true"><button class="x" id="mclose" aria-label="Close menu">{I['x']}</button>
 <a class="big" href="/">Home</a><a class="big" href="/#services">Services</a><a class="big" href="/rentals/">Rentals</a><a class="big" href="/quote/">Quote tool</a><a class="big" href="/portal/">Client portal</a><a class="big" href="/#faq">FAQ</a><div class="mini"><a href="/crew/">Crew portal</a><a href="/careers/">Careers</a><a href="/#contact">Get in touch</a></div>
 <div class="acts"><a class="btn btn-cr" href="/quote/">{I["quote"]}Build your quote</a><a class="btn btn-ln" href="/#contact">{I["phone"]}Get in touch</a></div></div>'''

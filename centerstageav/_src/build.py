@@ -81,7 +81,6 @@ def loader_svg():
     s=1.0; cx=W/2; h=112*s; wv=124*s; top=cy-h*0.47
     dav,_=L.text('unb800','AV',cx,cy+18*s,50*s,track=-1*s,anchor='middle')
     return (f'<svg viewBox="0 0 {W} {H}" aria-label="Center Stage AV"><path class="w1" d="{d1}" fill="#fff"/><path class="w2" d="{d2}" fill="#fff"/>'
-            f'<path class="tri" d="M{cx-wv/2:.1f} {top:.1f} L{cx+wv/2:.1f} {top:.1f} L{cx:.1f} {top+h:.1f} Z" fill="#fff"/>'
             f'<ellipse class="ell" cx="{cx}" cy="{cy}" rx="62" ry="40" transform="rotate(-10 {cx} {cy})" fill="{L.CR}"/>'
             f'<path class="av" d="{dav}" fill="#fff"/></svg>')
 
@@ -117,11 +116,11 @@ def index():
     soc=''.join(f'<a href="{u}" target="_blank" rel="noopener" aria-label="{n}">{s}</a>' for n,(u,s) in SOC.items())
     body=f'''<body>
 <div id="ld" aria-hidden="true"><div class="beam"></div><div class="lg">{loader_svg()}</div></div>
-<header class="hdr" id="hdr"><div class="wrap"><a class="brand" href="#top" aria-label="Center Stage AV home"><img src="/img/logo.svg" alt="Center Stage AV" width="760" height="140" draggable="false"></a>
+<header class="hdr" id="hdr"><div class="wrap"><a class="brand" href="#top" aria-label="Center Stage AV home"><img src="/img/logo.svg" alt="Center Stage AV" width="1050" height="230" draggable="false"></a>
 <nav aria-label="Main"><a href="/#services">Services</a><a href="/#events">Events</a><a href="/#work">Our work</a><a href="/rentals/">Rentals</a><a href="/#story">Who we are</a></nav>
-<div class="acts">{btns()}</div><button class="burger" id="burger" aria-label="Open menu">{I['menu']}</button></div></header>
+<div class="acts">{btns()}</div><a class="qmini" href="/quote/">Build your quote</a><button class="burger" id="burger" aria-label="Open menu">{I['menu']}</button></div></header>
 <div class="menu" id="menu" aria-hidden="true"><button class="x" id="mclose" aria-label="Close menu">{I['x']}</button>
-<a class="big" href="/#services">Services</a><a class="big" href="/#events">Events</a><a class="big" href="/#work">Our work</a><a class="big" href="/rentals/">Rentals</a><a class="big" href="/#story">Who we are</a><a class="big" href="/#faq">FAQ</a><div class="mini"><a href="/quote/">Quote tool</a><a href="/portal/">Client portal</a><a href="/crew/">Crew portal</a><a href="/careers/">Careers</a></div>
+<a class="big" href="/#services">Services</a><a class="big" href="/#events">Events</a><a class="big" href="/#work">Our work</a><a class="big" href="/rentals/">Rentals</a><a class="big" href="/#story">Who we are</a><a class="big" href="/#faq">FAQ</a><div class="mini"><a href="/quote/">Quote tool</a><a href="/portal/">Client portal</a><a href="/crew/">Crew portal</a><a href="/careers/">Careers</a><a href="/#news">Newsletter</a></div>
 <div class="acts">{btns()}</div></div>
 
 <main id="top">

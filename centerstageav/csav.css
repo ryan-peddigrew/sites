@@ -411,3 +411,24 @@ body.touring #wmt{display:none}
 .show.plain .scs{flex:none}.show.plain .rl,.show.plain .pb,.show.plain .hintsc{display:none}
 .show.plain .txt .in{padding-bottom:40px}
 #wm{transform:translateZ(0)}
+
+/* phone pass 15 Nov: no rail line, no overlap, tools easy to find */
+.rl{display:none}
+.qmini{display:none}
+@media(max-width:1060px){.qmini{display:inline-flex;align-items:center;min-height:44px;margin-left:auto;margin-right:10px;padding:0 14px;background:var(--cr);color:#fff;font:600 14px var(--body);text-decoration:none;border-radius:2px;white-space:nowrap}.qmini+.burger{margin-left:0}}
+@media(max-width:380px){.qmini{padding:0 10px;font-size:13px}}
+.menu .mini{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;margin-top:18px;border-top:1px solid var(--line)}
+.menu .mini a{min-height:52px;color:#E8E4EA;font-weight:600;border-bottom:1px solid var(--line)}
+@media(max-width:900px){
+ .stk{grid-template-rows:40% 60%}
+ .txt .top{display:none}
+ .txt .in{padding:16px var(--pad) 104px}
+ .sc h3{font-size:clamp(26px,7.4vw,40px);margin:8px 0 10px}
+ .sc p{font-size:15px;line-height:1.5}
+ .pb{position:absolute;left:var(--pad);right:var(--pad);bottom:96px;margin:0}
+}
+@media(max-width:900px) and (max-height:700px){.sc p{font-size:14px}.sc h3{font-size:clamp(24px,6.6vw,34px)}}
+.brand img{display:block;width:100%;height:auto}
+@media(max-width:520px){.hdr .brand{width:min(42vw,190px)}.qmini{padding:0 10px;font-size:13px;margin-right:8px}.burger{width:44px;height:44px}}
+@media(max-width:520px){.hdr .wrap{gap:8px}.burger{flex:none}}
+.menu{overflow-y:auto;overscroll-behavior:contain;visibility:hidden;transition:transform .45s cubic-bezier(.7,0,.2,1),visibility 0s .45s}.menu.on{visibility:visible;transition:transform .45s cubic-bezier(.7,0,.2,1)}.menu .big{min-height:52px}
