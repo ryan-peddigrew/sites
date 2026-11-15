@@ -432,3 +432,33 @@ body.touring #wmt{display:none}
 @media(max-width:520px){.hdr .brand{width:min(42vw,190px)}.qmini{padding:0 10px;font-size:13px;margin-right:8px}.burger{width:44px;height:44px}}
 @media(max-width:520px){.hdr .wrap{gap:8px}.burger{flex:none}}
 .menu{overflow-y:auto;overscroll-behavior:contain;visibility:hidden;transition:transform .45s cubic-bezier(.7,0,.2,1),visibility 0s .45s}.menu.on{visibility:visible;transition:transform .45s cubic-bezier(.7,0,.2,1)}.menu .big{min-height:52px}
+/* ===== immersive hero (15 Nov) ===== */
+.hero{position:relative;min-height:100vh;min-height:100svh;padding:calc(var(--hdr) + 24px) 0 0;display:flex;align-items:flex-end;background:var(--ink);isolation:isolate}
+.hero .hbg{position:absolute;inset:0;z-index:-3;overflow:hidden}
+.hero .hbg video{width:100%;height:100%;object-fit:cover;object-position:60% 30%;transform:scale(1.06);animation:kb 22s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.16) translate(-1.5%,-1%)}}
+.hero .hshade{position:absolute;inset:0;z-index:-2;background:linear-gradient(0deg,#0B0A0D 4%,#0B0A0Dcc 28%,#0B0A0D55 58%,#0B0A0D99 100%),linear-gradient(90deg,#0B0A0Dd9,#0B0A0D00 70%)}
+.hero .hbeam{position:absolute;top:-10%;width:22vw;height:120%;z-index:-1;pointer-events:none;background:linear-gradient(180deg,#FF2D6355,#D6104500 80%);clip-path:polygon(46% 0,54% 0,100% 100%,0 100%);transform-origin:50% 0;opacity:.55}
+.hero .b1{left:8%;animation:sw1 9s ease-in-out infinite alternate}.hero .b2{right:6%;animation:sw2 11s ease-in-out infinite alternate}
+@keyframes sw1{from{transform:rotate(-16deg)}to{transform:rotate(14deg)}}@keyframes sw2{from{transform:rotate(18deg)}to{transform:rotate(-12deg)}}
+.hero .hin{width:100%;padding-bottom:clamp(20px,4vw,48px);position:relative}
+.hero .hlive{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#E8E4EA;margin-bottom:clamp(14px,2vw,24px)}
+.hero .hlive i{width:9px;height:9px;background:var(--cr2);animation:blink 1.4s steps(2) infinite}@keyframes blink{50%{opacity:.2}}
+.hero h1{font-size:min(9vw,150px);line-height:.92;white-space:normal;text-transform:uppercase}
+.hero .hsub{margin-top:clamp(14px,2vw,26px);max-width:52ch;color:#E8E4EA;font:600 clamp(13px,1.15vw,16px)/1.55 var(--body);letter-spacing:.08em;text-transform:uppercase}
+.hero .hcta{display:flex;gap:12px;margin-top:clamp(18px,2.4vw,32px)}
+.hero .hcta .btn{flex:1;max-width:280px;min-height:58px;justify-content:center}
+.hero .hfoot{display:flex;gap:clamp(14px,3vw,40px);align-items:center;margin-top:clamp(22px,3vw,40px);padding-top:16px;border-top:1px solid #ffffff2e;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#C9C4CE}
+.hero .hscroll{margin-left:auto;color:#fff;text-decoration:none;display:inline-flex;gap:8px;align-items:center;min-height:44px}.hero .hscroll svg{width:18px;height:18px;transform:rotate(90deg);animation:bob 1.6s ease-in-out infinite}@keyframes bob{50%{transform:rotate(90deg) translateX(5px)}}
+@media(max-width:760px){.hero h1{font-size:11.2vw}.hero .hcta{gap:8px}.hero .hcta .btn{padding:0 10px;font-size:13px;min-height:56px;gap:8px}.hero .hcta .btn svg{width:18px;height:18px;flex:none}.hero .hfoot span:nth-child(3){display:none}.hero .hbeam{width:40vw}}
+@media(prefers-reduced-motion:reduce){.hero .hbg video{animation:none}.hero .hbeam{animation:none}.hero .hlive i{animation:none}}
+/* all caps: buttons, menus, titles, subtitles */
+.btn,.qmini,.hdr nav a,.menu a,.kick,h1,h2,h3,h4,.tcard .go,.phero p.lead,.ph-note,.tag,.cap,.tour h4,#tour button,.steps li,.chip span,.ngrid h3,.art h3,.fq summary span{text-transform:uppercase}
+.btn,.qmini,.hdr nav a{letter-spacing:.06em}
+.btn,.qmini{font-weight:700}
+.sc h3{text-transform:uppercase}
+.fq summary span{letter-spacing:.02em}
+.hero h1{white-space:nowrap;font-size:min(7.6vw,128px)}
+@media(max-width:760px){.hero h1{font-size:8.6vw}.hero .hlive .o{display:none}.qmini{letter-spacing:0;font-size:12px;padding:0 9px}.hdr .wrap{gap:6px}}
+.hero .hlive{white-space:nowrap}
+@media(max-width:760px){.hero .hin{padding-bottom:132px}}

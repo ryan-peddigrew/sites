@@ -124,12 +124,12 @@ def index():
 <div class="acts">{btns()}</div></div>
 
 <main id="top">
-<section class="hero" id="hero"><div class="wrap">
- <div class="top"><h1><span class="ln"><span>Your brand.</span></span><span class="ln"><span>Your <span class="rot" id="rot"><b class="on">event.</b><b>gala.</b><b>summit.</b><b>launch.</b><b>expo.</b><b>show.</b></span></span></span><span class="ln"><span class="cr">Center stage.</span></span></h1>
- <div class="side"><p>Designing and delivering cutting-edge audiovisual solutions for live, hybrid and virtual events, anywhere in North America.</p><div class="acts">{btns()}</div></div></div>
- <div class="screen"><div class="truss"></div><div class="frame"><video id="reel" muted loop playsinline preload="none" poster="/img/reel-poster.webp" disablepictureinpicture controlslist="nodownload noplaybackrate"><source src="/img/reel-sm.mp4" media="(max-width:760px)" type="video/mp4"><source src="/img/reel.mp4" type="video/mp4"></video></div><div class="pool"></div>
- <div class="bar mono"><span>Now showing: <b>the Center Stage reel</b></span><span><b id="clock">Mississauga</b> &middot; Fort Lauderdale &middot; San Diego</span></div></div>
-</div></section>
+<section class="hero" id="hero"><div class="hbg"><video id="reel" muted loop playsinline preload="none" poster="/img/reel-poster.webp" disablepictureinpicture controlslist="nodownload noplaybackrate"><source src="/img/reel-sm.mp4" media="(max-width:760px)" type="video/mp4"><source src="/img/reel.mp4" type="video/mp4"></video></div><div class="hshade"></div><div class="hbeam b1"></div><div class="hbeam b2"></div>
+<div class="wrap hin"><div class="hlive mono"><i></i>Live &middot; <b id="clock">Mississauga</b><span class="o"> &middot; Fort Lauderdale &middot; San Diego</span></div>
+ <h1><span class="ln"><span>Your brand.</span></span><span class="ln"><span>Your <span class="rot" id="rot"><b class="on">event.</b><b>gala.</b><b>summit.</b><b>launch.</b><b>expo.</b><b>show.</b></span></span></span><span class="ln"><span class="cr">Center stage.</span></span></h1>
+ <p class="hsub">Designing and delivering cutting-edge audiovisual solutions for live, hybrid and virtual events, anywhere in North America.</p>
+ <div class="hcta">{btns('big')}</div>
+ <div class="hfoot mono"><span>20+ years</span><span>3 offices</span><span>North America</span><a href="#plan" class="hscroll">Scroll {I['r']}</a></div></div></section>
 
 <div class="tick" aria-hidden="true"><div class="tr">{tick}</div></div>
 
