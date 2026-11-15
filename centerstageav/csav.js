@@ -12,7 +12,7 @@ var ld=$('#ld'),seen=false;try{seen=sessionStorage.getItem('csav-ld')==='1'}catc
 function heroGo(){$('#hero').classList.add('go')}
 function ready(){heroGo();if(Q.get('tour')==='1')setTimeout(function(){tour.start(+(Q.get('step')||0))},900)}
 if(!ld||seen||RM){if(ld)ld.remove();setTimeout(ready,60)}
-else{setTimeout(function(){ld.classList.add('up');setTimeout(ready,350);setTimeout(function(){ld.remove()},1000)},1750);try{sessionStorage.setItem('csav-ld','1')}catch(e){}}
+else{setTimeout(function(){ld.classList.add('up');setTimeout(ready,350);setTimeout(function(){ld.remove()},1000)},1150);try{sessionStorage.setItem('csav-ld','1')}catch(e){}}
 
 /* header */
 var hdr=$('#hdr');function hs(){hdr.classList.toggle('solid',scrollY>40)}hs();addEventListener('scroll',hs,{passive:true});
@@ -71,15 +71,16 @@ $$('[data-quote]').forEach(function(a){a.addEventListener('click',function(){var
 /* newsletter (placeholder) */
 var nl=$('#nl');if(nl)nl.addEventListener('submit',function(e){e.preventDefault();var i=$('#nle');if(!i.checkValidity()){i.reportValidity();return}nl.querySelector('.ok').hidden=false;i.value=''});
 /* video: keep it light */
-var vid=$('#reel');if(vid){if(RM)vid.removeAttribute('autoplay');new IntersectionObserver(function(es){if(es[0].isIntersecting){if(!RM)vid.play().catch(function(){})}else vid.pause()}).observe(vid)}
+var vid=$('#reel');if(vid){var vOn=false,vIn=true;function vgo(){if(RM)return;vOn=true;vid.preload='auto';if(vIn)vid.play().catch(function(){})}if(document.readyState==='complete')setTimeout(vgo,300);else addEventListener('load',function(){setTimeout(vgo,300)});new IntersectionObserver(function(es){vIn=es[0].isIntersecting;if(vIn){if(vOn)vid.play().catch(function(){})}else vid.pause()}).observe(vid)}
 
 /* ---------- Scroll story: pinned stage, scenes driven by scroll ---------- */
 var shw=$('#show'),stk=$('#stk');
-if(shw&&stk){var scs=$$('.sc',stk),rls=$$('.rl li',stk),nms=$$('.ch .nm',stk),chs=$$('.ch',stk),cur=-1,tick2=false,N=5;
+if(shw&&stk&&RM){shw.classList.add('plain');['--d0','--d1','--ph','--sh','--bm','--lg','--o1'].forEach(function(k){stk.style.setProperty(k,'1')});stk.style.setProperty('--sw','.5');stk.style.setProperty('--o0','0');stk.style.setProperty('--o1','.45')}
+else if(shw&&stk){var lastP=-1,scs=$$('.sc',stk),rls=$$('.rl li',stk),nms=$$('.ch .nm',stk),chs=$$('.ch',stk),cur=-1,tick2=false,N=5;
  function cl(v){return v<0?0:v>1?1:v}
  function sv(k,v){stk.style.setProperty(k,v.toFixed(4))}
  function story(){tick2=false;var r=shw.getBoundingClientRect(),vh=innerHeight;if(r.bottom<-50||r.top>vh+50)return;
-  var hd=$('#hdr')?$('#hdr').offsetHeight:72,tot=shw.offsetHeight-(vh-hd),p=cl((hd-r.top)/tot),t=p*N*1.02;
+  var hd=$('#hdr')?$('#hdr').offsetHeight:72,tot=shw.offsetHeight-(vh-hd),p=cl((hd-r.top)/tot),t=p*N*1.02;if(Math.abs(p-lastP)<.0004)return;lastP=p;
   sv('--t',p);sv('--pr',p);
   sv('--d0',cl(t/.85));sv('--o0',1-cl((t-1)/.35));
   sv('--d1',cl((t-1)/.75));sv('--pl',cl((t-1.3)/.3)*(1-cl((t-1.85)/.2)));

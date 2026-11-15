@@ -128,7 +128,7 @@ def index():
 <section class="hero" id="hero"><div class="wrap">
  <div class="top"><h1><span class="ln"><span>Your brand.</span></span><span class="ln"><span>Your <span class="rot" id="rot"><b class="on">event.</b><b>gala.</b><b>summit.</b><b>launch.</b><b>expo.</b><b>show.</b></span></span></span><span class="ln"><span class="cr">Center stage.</span></span></h1>
  <div class="side"><p>Designing and delivering cutting-edge audiovisual solutions for live, hybrid and virtual events, anywhere in North America.</p><div class="acts">{btns()}</div></div></div>
- <div class="screen"><div class="truss"></div><div class="frame"><video id="reel" autoplay muted loop playsinline preload="metadata" poster="/img/reel-poster.jpg" disablepictureinpicture controlslist="nodownload noplaybackrate"><source src="/img/reel-sm.mp4" media="(max-width:760px)" type="video/mp4"><source src="/img/reel.mp4" type="video/mp4"></video></div><div class="pool"></div>
+ <div class="screen"><div class="truss"></div><div class="frame"><video id="reel" muted loop playsinline preload="none" poster="/img/reel-poster.webp" disablepictureinpicture controlslist="nodownload noplaybackrate"><source src="/img/reel-sm.mp4" media="(max-width:760px)" type="video/mp4"><source src="/img/reel.mp4" type="video/mp4"></video></div><div class="pool"></div>
  <div class="bar mono"><span>Now showing: <b>the Center Stage reel</b></span><span><b id="clock">Mississauga</b> &middot; Fort Lauderdale &middot; San Diego</span></div></div>
 </div></section>
 

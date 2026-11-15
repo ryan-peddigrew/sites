@@ -94,7 +94,7 @@ def story():
     pops = ('<figure class="pop pop-load"><img src="/img/st-load-sm.webp" alt="Truss arriving for load-in" loading="lazy" draggable="false"><figcaption class="mono">Load-in &middot; our own crew</figcaption></figure>'
             '<figure class="pop pop-rig"><img src="/img/st-rig-sm.webp" alt="Moving lights on truss" loading="lazy" draggable="false"><figcaption class="mono">Lighting rig &middot; flown and focused</figcaption></figure>')
     svg = f'<svg class="art" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><defs><linearGradient id="bmg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF2D63" stop-opacity=".75"/><stop offset="1" stop-color="#D61045" stop-opacity="0"/></linearGradient></defs>{plan_art()}{build_art()}{map_art()}</svg>'
-    return f'''<section class="show" id="show" aria-label="How a Center Stage show comes together">
+    return f'''<section class="show" id="show" data-story aria-label="How a Center Stage show comes together">
 <div class="stk" id="stk">
  <div class="vis">{pics}<div class="shade"></div>{svg}{pops}<div class="fad">{fad}</div></div>
  <div class="txt"><div class="wp"></div><div class="in"><div class="top mono">How a show comes together</div><div class="scs">{sc}</div>
