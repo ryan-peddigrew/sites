@@ -207,7 +207,7 @@
       else { o = 1; if (i > 0 && u < .25) o = u / .25; if (i < N - 1 && u > .75) o = (1 - u) / .25; o = Math.max(0, Math.min(1, o)); }
       if (i === 0 && document.body.classList.contains('intro')) o = 0;
       el.style.opacity = o; el.classList.toggle('on', o > .01);
-      if (pics[i]) { pics[i].style.opacity = i === 0 ? Math.max(o, 0) : o; var z = 1.18 - Math.max(0, Math.min(1, u)) * .16; pics[i].querySelector('.vp').style.transform = 'scale(' + z.toFixed(3) + ')'; }
+      if (pics[i]) { pics[i].style.opacity = i === 0 ? Math.max(o, 0) : o; var z = 1.18 - Math.max(0, Math.min(1, u)) * .16; pics[i].querySelector('.vp').style.transform = 'scale(' + z.toFixed(3) + ')'; var vv = pics[i].querySelector('video'); if (vv && i) { if (o > .01 && vv.paused) { vv.play().catch(function () {}); } else if (o <= .01 && !vv.paused) vv.pause(); } }
       var bl = (1 - o) * 10, sc = u < .5 ? .55 + o * .45 : 1 + (1 - o) * 1.6;
       el.style.filter = o > .99 ? 'none' : 'blur(' + bl.toFixed(1) + 'px)';
       el.style.transform = 'scale(' + sc.toFixed(3) + ')';
@@ -294,4 +294,12 @@
   $('#tourStart').addEventListener('click', function (e) { e.preventDefault(); startTour(); });
   function startTour() { tour.hidden = false; document.body.classList.add('touring'); paused = false; $('#tourPause').textContent = 'PAUSE'; tgo(0); }
   if (TOUR) setTimeout(startTour, 2600);
+})();
+
+/* background footage: play when on screen */
+(function () {
+  var vs = [].slice.call(document.querySelectorAll('video.cbg'));
+  if (!vs.length || !('IntersectionObserver' in window)) { vs.forEach(function (v) { v.play && v.play().catch(function () {}); }); return; }
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) e.target.play().catch(function () {}); else e.target.pause(); }); });
+  vs.forEach(function (v) { if (v.closest('.rec-bg')) v.play().catch(function () {}); else io.observe(v); });
 })();
