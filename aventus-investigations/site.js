@@ -275,26 +275,72 @@
     $('#newsOk').hidden = false;
   });
 
+  /* ===== Quentin: scripted answers from the site's own content ===== */
+  var QA = [
+    { k: ['legal', 'law', 'allowed', 'licen'], a: 'Yes. Aventus is a licensed Ontario agency (licence 11457769), and every investigation stays within the law and a code of ethics.' },
+    { k: ['cheat', 'infidel', 'partner', 'spouse', 'husband', 'wife', 'affair'], a: 'Infidelity work is done quietly, with no confrontation: discreet surveillance, photo and video where appropriate, and a clear report. Want to <a href="#build" data-svc="Infidelity">start a quote</a>?' },
+    { k: ['custody', 'child', 'kids', 'parent', 'family'], a: 'Custody and family-law files get objective, lawfully gathered facts your lawyer can use. <a href="#build" data-svc="Child custody or family law">Start a quote</a>.' },
+    { k: ['wsib', 'claim', 'insur', 'employee', 'employer', 'corporate', 'fraud'], a: 'Corporate and WSIB work covers claimant surveillance, employee activity and background research, without disrupting your business. Lawyers and insurers can also ask about a <a href="#pros">retainer</a>.' },
+    { k: ['find', 'locate', 'skip', 'tenant', 'ltb', 'missing', 'address', 'serve'], a: 'Locates and skip traces find people who have moved or are avoiding contact, for LTB, Small Claims, service of documents or family. <a href="#rates">See the rate card</a>.' },
+    { k: ['watch', 'bug', 'track', 'follow', 'sweep', 'tscm', 'spy'], a: 'If you think you are being watched, try the <a href="#counter">six-question self-check</a>, or <a href="#build" data-svc="Countersurveillance (TSCM)">book a sweep</a> of your home, office or vehicle.' },
+    { k: ['phone', 'hack', 'account', 'password', 'text messages'], a: 'No phone tracking or account access. Aventus only uses lawful methods: surveillance, public records, authorized databases and open-source research.' },
+    { k: ['price', 'cost', 'how much', 'rate', 'fee', 'quote', 'charge'], a: 'Most cases are quoted after a free, confidential consultation. Set-scope work can be booked from the <a href="#rates">rate card</a>, or <a href="#build">build your quote</a> in five taps.' },
+    { k: ['find out', 'know', 'discreet', 'secret', 'confiden', 'private'], a: 'Everything stays confidential, and fieldwork is planned to stay unnoticed. You can also tell us how it is safe to contact you: text only, no voicemail, and so on.' },
+    { k: ['date', 'dating', 'online', 'romance', 'scam'], a: 'An online dating check confirms the person you met is who they say they are, before you meet or send money. <a href="#rates">See the rate card</a>.' },
+    { k: ['where', 'area', 'toronto', 'ajax', 'durham', 'oshawa', 'whitby', 'pickering', 'markham', 'vaughan', 'scarborough', 'york', 'richmond'], a: 'Aventus works across the GTA and Southern Ontario, from the office at 40 Hunt Street, Suite 207, Ajax. <a href="#areas">See the map</a>.' },
+    { k: ['hour', 'open', 'urgent', 'now', 'tonight', 'weekend', 'fast'], a: 'Aventus is open 24/7, 365 days a year, and replies to every request within one business day. Urgent? <a href="#contact">Get in touch</a> directly.' },
+    { k: ['anthony', 'tony', 'who', 'owner', 'founder', 'experience'], a: 'Aventus was established by Anthony Fernandes, a licensed private investigator in Ontario for more than 15 years.' },
+    { k: ['report', 'evidence', 'proof', 'court', 'photo', 'video'], a: 'You get a chronological report with dates, times, locations and observations, plus photos or video where appropriate.' },
+    { k: ['newsletter', 'brief', 'email list', 'subscribe'], a: 'The Aventus Brief is a short monthly note. <a href="#brief">Sign up here</a>.' },
+    { k: ['hi', 'hello', 'hey'], a: 'Hi. What can I help you with?' }
+  ];
+  var QUICK = ['Is this legal?', 'I think my partner is cheating', 'I need to find someone', 'Am I being watched?', 'How much does it cost?', 'Talk to a person'];
+  var qb = $('#qbtn'), qc = $('#qchat'), qlog = $('#qlog'), qstarted = false;
+  function qsay(t, who) { var m = document.createElement('div'); m.className = 'qm ' + who; m.innerHTML = t; qlog.appendChild(m); qlog.scrollTop = qlog.scrollHeight; return m; }
+  function qanswer(t) {
+    var low = t.toLowerCase(), hit = null;
+    if (/person|human|talk to|call|speak/.test(low)) hit = 'Of course. <a href="#contact">Get in touch</a> any time, or <a href="#build">build your quote</a> and Anthony replies within one business day.';
+    if (!hit) for (var i = 0; i < QA.length && !hit; i++) if (QA[i].k.some(function (k) { return low.indexOf(k) > -1; })) hit = QA[i].a;
+    if (!hit) hit = 'Good question for Anthony. <a href="#build">Build your quote</a> or <a href="#contact">get in touch</a>, and you will hear back within one business day. Everything stays confidential.';
+    var typing = qsay('. . .', 'b t');
+    setTimeout(function () { typing.remove(); qsay(hit, 'b'); }, RM ? 0 : 650);
+  }
+  function qopen(o) {
+    qc.hidden = !o; qb.setAttribute('aria-expanded', o);
+    if (o && !qstarted) {
+      qstarted = true;
+      qsay('I’m Quentin, the Aventus case desk. Ask me anything about how an investigation works. It stays between us.', 'b');
+      $('#qquick').innerHTML = QUICK.map(function (q) { return '<button type="button">' + q + '</button>'; }).join('');
+      $$('#qquick button').forEach(function (b) { b.addEventListener('click', function () { qsay(b.textContent, 'u'); qanswer(b.textContent); }); });
+    }
+    if (o) setTimeout(function () { if (innerWidth > 999) $('#qin').focus(); }, 50);
+  }
+  qb.addEventListener('click', function () { qopen(qc.hidden); });
+  $('#qx').addEventListener('click', function () { qopen(false); });
+  $('#qform').addEventListener('submit', function (e) { e.preventDefault(); var v = $('#qin').value.trim(); if (!v) return; qsay(esc(v), 'u'); $('#qin').value = ''; qanswer(v); });
+  qlog.addEventListener('click', function (e) { if (e.target.closest('a') && innerWidth < 1000) qopen(false); });
+
   /* ===== tour (?tour=1): single tap, auto-plays ===== */
   var TS = [
-    { el: '#top', k: 'WHAT CHANGED', h: 'His black and gold, sharpened', p: 'Same logo, same black and gold. The AI-style graphics are replaced with real night photography in a warm monochrome, one gold headline and plain words.', o: '<b>Why:</b> it still looks like Aventus, but it reads as serious and premium in two seconds.' },
-    { el: '.hero-btns', k: 'WHAT CHANGED', h: 'Two clear next steps', p: 'Build your quote and Get in touch sit side by side, and follow you on phones in a bottom bar.', o: '<b>Opportunity:</b> more visitors start a case instead of leaving.' },
-    { el: '#qexit', k: 'NEW', h: 'Quick exit', p: 'One tap (or Esc twice) leaves the site for a weather page and drops it from the back button.', o: '<b>Why:</b> someone checking on a partner may be on a shared phone.' },
-    { el: '#services', k: 'WHAT CHANGED', h: 'Five services, one tap each', p: 'Long paragraphs became a short, scannable view for each service, written from his own pages.', o: '<b>Opportunity:</b> each opens straight into a quote request for that service.' },
-    { el: '#rates', k: 'NEW \u00B7 REVENUE', h: 'Rate card with online booking', p: 'Locates, background checks, surveillance sessions and bug sweeps can be booked with a deposit. Prices are his to set.', o: '<b>Opportunity:</b> paid bookings at 2 a.m., not just enquiries.' },
-    { el: '#process', k: 'NEW', h: 'How a case runs', p: 'Four steps, from the first confidential call to the final report.', o: '<b>Why:</b> the unknown is what stops people reaching out.' },
-    { el: '#counter', k: 'NEW \u00B7 REVENUE', h: '\u201CBeing watched?\u201D self-check', p: 'Six yes-or-no questions with an instant answer, leading to a sweep booking.', o: '<b>Opportunity:</b> turns a worried visitor into a booked TSCM sweep.' },
-    { el: '#pros', k: 'NEW \u00B7 REVENUE', h: 'Retainers for lawyers, insurers and employers', p: 'Priority scheduling, reports built for the file and monthly billing. Proposed terms for Anthony to set.', o: '<b>Opportunity:</b> steady monthly work from repeat clients.' },
-    { el: '#anthony', k: 'WHAT CHANGED', h: 'Anthony, up front', p: 'Reviews name Anthony again and again, so he leads the About section. The photo is optional.', o: '' },
-    { el: '#reviews', k: 'WHAT CHANGED', h: 'Real reviews, easy to read', p: 'His own Google reviews, one at a time, large enough to read on a phone.', o: '' },
-    { el: '#areas', k: 'NEW', h: 'Service area map', p: 'All ten communities on one map, with the Ajax office marked.', o: '<b>Opportunity:</b> each area can link to its own page for local search.' },
-    { el: '#build', k: 'NEW \u00B7 REVENUE', h: 'Build your quote', p: 'Five quick taps, safe-contact options, then a likely approach and how the quote works, before anything is sent.', o: '<b>Opportunity:</b> better-prepared requests and faster quotes.' },
-    { el: '#room', k: 'NEW', h: 'Secure client room', p: 'Clients upload documents, follow their case step by step and download the final report, instead of email attachments.', o: '<b>Why:</b> privacy is what clients worry about most. This shows it.' },
-    { el: '#faq', k: 'NEW', h: 'Straight answers', p: 'Is it legal? Will they find out? Can you track a phone? Honest answers to what people are afraid to ask.', o: '<b>Opportunity:</b> answers that also help him show up in Google searches.' },
-    { el: '#brief', k: 'NEW \u00B7 REVENUE', h: 'The Aventus Brief newsletter', p: 'A monthly note for lawyers, employers, landlords and individuals, with discreet sending.', o: '<b>Opportunity:</b> keeps referral sources thinking of Aventus every month.' },
-    { el: '#contact', k: 'THAT\u2019S THE TOUR', h: 'Ready when you are', p: 'Everything uses Aventus\u2019s own words, reviews and logo. Photos are stand-ins and prices are placeholders until Anthony sets them.', o: '' }
+    { el: '#top', k: 'OPENING SCENE', h: 'Tony, roll the credits', p: 'Your black and gold, sharpened. Same logo, real night-time photography instead of the AI graphics, and one gold headline that cycles through what people come to you for.', o: '<b>Why:</b> like any good opening shot, it tells people exactly what kind of film this is in two seconds.' },
+    { el: '.hero-btns', k: 'WHAT CHANGED', h: 'Two moves, side by side', p: 'Build your quote and Get in touch, always in reach. On phones they ride along in a bar at the bottom.', o: '<b>Opportunity:</b> more people start a case instead of leaving.' },
+    { el: '#qexit', k: 'NEW', h: 'The clean getaway', p: 'Quick exit: one tap and the site is gone, swapped for a weather page. Smoother than anything Tony Trans could deliver.', o: '<b>Why:</b> half your clients are reading this on a phone someone else might pick up.' },
+    { el: '#services', k: 'DIRECTOR’S CUT', h: 'Five services, one tap each', p: 'Your own pages, trimmed down to what matters. No wasted scenes.', o: '<b>Opportunity:</b> each one goes straight to a quote for that service.' },
+    { el: '#rates', k: 'NEW · REVENUE', h: 'The menu', p: 'Locates, background checks, surveillance, bug sweeps, online dating checks and tenant screening, bookable with a deposit. You set the prices; we know you take a menu seriously.', o: '<b>Opportunity:</b> paid bookings at 2 a.m., not just enquiries.' },
+    { el: '#process', k: 'IN FOUR CHAPTERS', h: 'How a case runs', p: 'Chapter one, the talk. Chapter two, the plan. Chapter three, the fieldwork. Chapter four, the report. Told in order, unlike some of your favourite films.', o: '<b>Why:</b> the unknown is what stops people from reaching out.' },
+    { el: '#counter', k: 'NEW · REVENUE', h: '“Being watched?” self-check', p: 'Six yes-or-no questions with an instant answer, leading straight to booking a sweep.', o: '<b>Opportunity:</b> turns a worried visitor into a booked TSCM job.' },
+    { el: '#pros', k: 'NEW · REVENUE', h: 'Lawyers and insurers on retainer', p: 'Priority scheduling, reports built for their files, one invoice a month. Steady work every month, like Sunday dinner.', o: '<b>Opportunity:</b> repeat clients you don’t have to win twice.' },
+    { el: '#anthony', k: 'THE LEAD', h: 'You, front and centre', p: 'Every review mentions you by name, so you lead the About section. The photo is optional; a good PI knows when to stay off camera.', o: '' },
+    { el: '#reviews', k: 'THE CRITICS', h: 'Your real reviews, easy to read', p: 'Your own Google reviews, one at a time, big enough to read on a phone. No paid critics required.', o: '' },
+    { el: '#areas', k: 'NEW', h: 'Your turf', p: 'Every eye is a community you cover. Ajax HQ glows and the sweep keeps watch. Add the general areas of past cases and the binoculars show up.', o: '<b>Opportunity:</b> each area can get its own page for local search.' },
+    { el: '#build', k: 'NEW · REVENUE', h: 'Build your quote', p: 'Five taps, including how it’s safe to reach them (text only, no voicemail), then a likely approach and how your quote works.', o: '<b>Opportunity:</b> better-prepared requests and faster quotes.' },
+    { el: '#room', k: 'NEW', h: 'The secure client room', p: 'Clients upload documents, follow the case step by step and download the report. No sensitive photos sitting in anyone’s inbox.', o: '<b>Why:</b> privacy is the thing they worry about most.' },
+    { el: '#faq', k: 'NEW', h: 'Straight answers', p: 'Is it legal? Will they find out? Can you hack a phone? (No, and now it says so.)', o: '<b>Opportunity:</b> answers that also help you show up on Google.' },
+    { el: '#brief', k: 'NEW · REVENUE', h: 'The Aventus Brief', p: 'A short monthly note for lawyers, employers, landlords and everyone else. Keeps referral sources thinking of you every month.', o: '' },
+    { el: '#qbtn', k: 'NEW', h: 'Meet Quentin', p: 'Your 24/7 case desk, named after a certain director you might know. He answers the common questions, and anything else goes straight to you.', o: '<b>Opportunity:</b> nobody leaves at midnight without an answer.' },
+    { el: '#contact', k: 'THAT’S A WRAP', h: 'Roll credits, Tony Highkick', p: 'Everything here uses your own words, reviews and logo. Photos are stand-ins and prices are placeholders until you set them. Grazie, obrigado.', o: '' }
   ];
-  var tour = $('#tour'), ti = 0, paused = false, tt = null, hl = null, DUR = 7000, t0 = 0, left = DUR, raf;
+  var tourQ = false, tour = $('#tour'), ti = 0, paused = false, tt = null, hl = null, DUR = 7000, t0 = 0, left = DUR, raf;
   function tick() { if (paused) return; var f = Math.min(1, (performance.now() - t0) / left); $('#tourBar').style.width = ((1 - left / DUR) + f * left / DUR) * 100 + '%'; if (f < 1) raf = requestAnimationFrame(tick); }
   function tgo(i) {
     clearTimeout(tt); cancelAnimationFrame(raf); if (hl) hl.classList.remove('tour-hl');
@@ -304,8 +350,9 @@
     $('#tourO').innerHTML = s.o; $('#tourO').hidden = !s.o;
     if (el) {
       var r = el.getBoundingClientRect(), top = scrollY + r.top - (s.el === '#qexit' ? 0 : 70);
-      if (s.el !== '#qexit' && s.el !== '.hero-btns' && s.el !== '.facts') scrollTo({ top: top, behavior: RM ? 'auto' : 'smooth' });
-      else scrollTo({ top: 0, behavior: RM ? 'auto' : 'smooth' });
+      if (s.el !== '#qexit' && s.el !== '.hero-btns' && s.el !== '.facts' && s.el !== '#qbtn') scrollTo({ top: top, behavior: RM ? 'auto' : 'smooth' });
+      else if (s.el !== '#qbtn') scrollTo({ top: 0, behavior: RM ? 'auto' : 'smooth' });
+      if (s.el === '#qbtn') { qopen(true); tourQ = true; } else if (tourQ) { qopen(false); tourQ = false; }
       if (s.el !== '#top') { hl = el; el.classList.add('tour-hl'); }
     }
     left = DUR; t0 = performance.now(); $('#tourBar').style.width = '0';
