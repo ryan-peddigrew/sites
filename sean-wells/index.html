@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter+Tight:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/veld4.webp" media="(min-width:701px)"><link rel="preload" as="image" href="img/veld4-m.webp" media="(max-width:700px)">
+<link rel="preload" as="image" href="img/veld-poster.jpg">
 <link rel="stylesheet" href="site.css">
 </head>
 <body class="home">
@@ -21,7 +21,6 @@
 <header class="hdr" id="hdr">
   <a class="hdr-mark" href="./" aria-label="Sean Wells, home"><b>DARK MAGIC</b><span>SEAN WELLS</span></a>
   <nav class="hdr-nav" aria-label="Main">
-    <button class="wand" id="wand" type="button" aria-label="A little magic"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="wb" d="M3.6 20.4 15.2 8.8"/><path class="wt" d="M15.2 8.8 18 6"/><path class="ws" d="M20.5 1.8v3.4M18.8 3.5h3.4M21.6 8.6v1.8M20.7 9.5h1.8"/></svg></button>
     <a class="hdr-link" href="record.html">THE RECORD</a>
     <a class="btn btn-line" href="#contact"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span class="hide-s">GET IN TOUCH</span></a>
   </nav>
@@ -33,11 +32,11 @@
 <section class="story" id="story" aria-label="Sean Wells">
   <div class="stage" id="stage">
     <div class="photo" id="photo" aria-hidden="true">
-      <picture><video class="vp" id="hv" autoplay muted loop playsinline preload="auto" poster="img/veld-poster.jpg"><source src="img/veld-loop-m.mp4" media="(max-width:700px)" type="video/mp4"><source src="img/veld-loop.mp4" type="video/mp4"></video></picture>
+      <picture><video class="vp" id="hv" autoplay muted loop playsinline preload="metadata" poster="img/veld-poster.jpg"><source src="img/veld-loop-m.mp4" media="(max-width:700px)" type="video/mp4"><source src="img/veld-loop.mp4" type="video/mp4"></video></picture>
       <picture><video class="vp" muted loop playsinline preload="none" poster="img/v-drone.jpg"><source src="img/v-drone-m.mp4" media="(max-width:700px)" type="video/mp4"><source src="img/v-drone.mp4" type="video/mp4"></video></picture>
-      <picture><source media="(max-width:700px)" srcset="img/veld3-m.webp"><img class="vp" src="img/veld3.webp" alt=""></picture>
+      <picture><source media="(max-width:700px)" srcset="img/veld3-m.webp"><img class="vp" src="img/veld3.webp" alt="" loading="lazy" decoding="async"></picture>
       <picture><video class="vp" muted loop playsinline preload="none" poster="img/v-seq.jpg"><source src="img/v-seq-m.mp4" media="(max-width:700px)" type="video/mp4"><source src="img/v-seq.mp4" type="video/mp4"></video></picture>
-      <picture><source media="(max-width:700px)" srcset="img/veld1-m.webp"><img class="vp" src="img/veld1.webp" alt=""></picture>
+      <picture><source media="(max-width:700px)" srcset="img/veld1-m.webp"><img class="vp" src="img/veld1.webp" alt="" loading="lazy" decoding="async"></picture>
       <picture><video class="vp" muted loop playsinline preload="none" poster="img/v-vip.jpg"><source src="img/v-vip-m.mp4" media="(max-width:700px)" type="video/mp4"><source src="img/v-vip.mp4" type="video/mp4"></video></picture>
     </div>
     <div class="vig" aria-hidden="true"></div>
@@ -84,14 +83,13 @@
 
 <section class="fly" id="fly" aria-label="Veld">
   <div class="fly-stage">
-    <div class="fly-world" id="flyWorld"><img class="fl" src="img/g01.webp" alt="" loading="lazy"><img class="fl" src="img/g02.webp" alt="" loading="lazy"><img class="fl" src="img/g03.webp" alt="" loading="lazy"><img class="fl" src="img/g04.webp" alt="" loading="lazy"><img class="fl" src="img/g05.webp" alt="" loading="lazy"><img class="fl" src="img/g06.webp" alt="" loading="lazy"><img class="fl" src="img/g07.webp" alt="" loading="lazy"><img class="fl" src="img/g08.webp" alt="" loading="lazy"><img class="fl" src="img/g09.webp" alt="" loading="lazy"><img class="fl" src="img/g10.webp" alt="" loading="lazy"><img class="fl" src="img/g11.webp" alt="" loading="lazy"><img class="fl" src="img/g12.webp" alt="" loading="lazy"><img class="fl" src="img/g13.webp" alt="" loading="lazy"><img class="fl" src="img/g14.webp" alt="" loading="lazy"><img class="fl" src="img/g15.webp" alt="" loading="lazy"><img class="fl" src="img/g16.webp" alt="" loading="lazy"><img class="fl" src="img/g17.webp" alt="" loading="lazy"><img class="fl" src="img/g18.webp" alt="" loading="lazy"><img class="fl" src="img/g19.webp" alt="" loading="lazy"><img class="fl" src="img/g20.webp" alt="" loading="lazy"><img class="fl" src="img/g21.webp" alt="" loading="lazy"><img class="fl" src="img/g22.webp" alt="" loading="lazy"><img class="fl" src="img/g23.webp" alt="" loading="lazy"><img class="fl" src="img/g24.webp" alt="" loading="lazy"><img class="fl" src="img/g25.webp" alt="" loading="lazy"><img class="fl" src="img/g26.webp" alt="" loading="lazy"><img class="fl" src="img/g27.webp" alt="" loading="lazy"><img class="fl" src="img/g28.webp" alt="" loading="lazy"><img class="fl" src="img/g29.webp" alt="" loading="lazy"><img class="fl" src="img/g30.webp" alt="" loading="lazy"><img class="fl" src="img/g31.webp" alt="" loading="lazy"><img class="fl" src="img/g32.webp" alt="" loading="lazy"><img class="fl" src="img/g33.webp" alt="" loading="lazy"><img class="fl" src="img/g34.webp" alt="" loading="lazy"><img class="fl" src="img/g35.webp" alt="" loading="lazy"><img class="fl" src="img/g36.webp" alt="" loading="lazy"></div>
+    <div class="fly-world" id="flyWorld"><img class="fl" src="img/g01.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g02.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g03.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g04.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g05.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g06.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g07.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g08.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g09.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g10.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g11.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g12.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g23.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g24.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g25.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g26.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g27.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g28.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g29.webp" alt="" loading="lazy" decoding="async"><img class="fl" src="img/g30.webp" alt="" loading="lazy" decoding="async"></div>
     <div class="fly-copy"><p class="kick">festivals · tours · live shows</p><h2 class="big">every<br><em>moment,</em><br>by design.</h2></div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-  <video class="cbg" muted loop playsinline preload="none" poster="img/v-campaign.jpg"><source src="img/v-campaign-m.mp4" media="(max-width:700px)" type="video/mp4"><source src="img/v-campaign.mp4" type="video/mp4"></video>
   <div class="wrap">
     <p class="kick">the final act</p>
     <h2 class="big">let’s make<br><em>magic</em><br>together.</h2>

@@ -110,7 +110,7 @@
     cx.globalCompositeOperation = 'source-over';
   }
   // a random poof now and then
-  setInterval(function () { if (!RM && document.visibilityState === 'visible') { var x = W * (.1 + Math.random() * .8), y = H * (.4 + Math.random() * .5); smokeBurst(x, y, PHONE ? 4 : 6, 110); burst(x, y, 26, 3); } }, 4200);
+
 
   var running = !RM;
   function frame() {
@@ -173,16 +173,14 @@
   /* ===== GET IN TOUCH: a pop, a dove, then the email ===== */
   $$('#poof').forEach(function (b) {
     b.addEventListener('click', function (e) {
-      if (RM) return; e.preventDefault(); var r = b.getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2;
-      pop(x, y);
-      if (!document.body.classList.contains('touring')) setTimeout(function () { location.href = b.href; }, 1500);
+      if (document.body.classList.contains('touring')) e.preventDefault();
     });
   });
 
   /* ===== record page: entries materialise ===== */
   if (!HOME) {
     if ('IntersectionObserver' in window && !RM) {
-      var io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); var r = en.target.getBoundingClientRect(); smokeBurst(r.left + 80, r.top + 40, 2, 90); io.unobserve(en.target); } }); }, { threshold: .25 });
+      var io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }); }, { threshold: .25 });
       $$('.tl-i').forEach(function (el) { io.observe(el); });
     } else $$('.tl-i').forEach(function (el) { el.classList.add('in'); });
     return;
@@ -195,7 +193,7 @@
   var KB = [[0, 10], [.2, 0], [.33, 0], [.44, 9], [.8, 9], [.86, 1], [1, 1]];
   var KG = [[0, 0], [.33, 0], [.44, .9], [.8, .9], [.86, 0], [1, 0]];
   var yr = $('#yr'), bands = $$('.band'), bandT = 0;
-  if (!RM) (function bt() { bandT = (bandT + .35) % 1400; render(); requestAnimationFrame(bt); })();
+
   function prog() { var r = story.getBoundingClientRect(); return Math.min(1, Math.max(0, -r.top / Math.max(1, story.offsetHeight - innerHeight))); }
   function render() {
     var p = prog(), seg = 1 / N;
@@ -213,9 +211,8 @@
       el.style.transform = 'scale(' + sc.toFixed(3) + ')';
     });
     acts.forEach(function (a, i) { a.classList.toggle('on', i === cur); });
-    if (cur !== last) { if (last >= 0 && !RM) { smokeBurst(W * (Math.random() < .5 ? .1 : .9), H * .7, PHONE ? 4 : 7, 200); } last = cur; }
+    if (cur !== last) { last = cur; }
     // 1993: time rewinds into place
-    var u4 = (p - 4 * seg) / seg; if (u4 > -.1 && u4 < 1.1) { var k = Math.max(0, Math.min(1, (u4 + .05) / .45)); yr.textContent = Math.round(2026 - (2026 - 1993) * (1 - Math.pow(1 - k, 3))); }
     bands.forEach(function (b, i) { b.style.transform = 'translateX(' + ((i % 2 ? -1 : 1) * (p * 1400 + bandT) - 700) + 'px)'; });
     hdr.classList.toggle('solid', p >= 1);
     mistLevel = .9 + lerpK([[0, .3], [.33, 0], [.44, .8], [1, .3]], p);
@@ -250,7 +247,6 @@
   var seen = false; try { seen = sessionStorage.getItem('sw-in') === '1'; } catch (e) {}
   if (!RM && (!seen || TOUR) && scrollY < 10) {
     document.body.classList.add('intro'); render();
-    setTimeout(function () { pop(W / 2, H * .5); }, 450);
     setTimeout(function () { document.body.classList.remove('intro'); scs[0].style.transition = 'opacity 1.4s, filter 1.4s'; render(); setTimeout(function () { scs[0].style.transition = ''; }, 1500); }, 1500);
     try { sessionStorage.setItem('sw-in', '1'); } catch (e) {}
   }
@@ -265,7 +261,7 @@
     { p: .75, k: 'THE LONG GAME', h: '1993', p2: 'Watch the years rewind. Three decades, told in one number.', o: '<b>Why:</b> experience lands harder as a moment than as a bullet point.' },
     { p: .92, k: 'THE PRESTIGE', h: 'The record, one tap away', p2: 'Your roles, unions and certifications live on their own page, not on the front. Details for anyone who wants them.', o: '' },
     { el: '#fly', k: 'FLY-THROUGH', h: 'Every moment, by design', p2: 'Festival photos rush past the camera as you scroll. No single show named, so it speaks to all of your work.', o: '' },
-    { el: '#contact', k: 'THE FINAL ACT', h: 'Dark Magic, front and centre', p2: 'Your sean@darkmagic.one address, big and bold. Tap Get in touch: a pop of smoke, then a fresh email to you.', o: '<b>Opportunity:</b> a link you can drop into any email, pitch or bio.', poof: true },
+    { el: '#contact', k: 'THE FINAL ACT', h: 'Dark Magic, front and centre', p2: 'Your sean@darkmagic.one address, big and bold. Tap Get in touch and a fresh email to you opens.', o: '<b>Opportunity:</b> a link you can drop into any email, pitch or bio.', poof: true },
     { el: '#contact', k: 'EVERYWHERE', h: 'Now you see it, now you don’t', p2: 'Every Veld photo appears out of the mist and dissolves into the next. Smoke drifts across the whole site.', o: '' },
     { el: '#contact', k: 'THAT’S THE SHOW', h: 'Built to grow with you', p2: 'Send a few more show photos and a line or two in your own words, and it’s ready to share.', o: '' }
   ];

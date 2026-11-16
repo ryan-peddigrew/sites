@@ -2,6 +2,8 @@
    Open a link with ?k=CODE once and the browser remembers it. (c) 2026 Chairlift. */
 const enc = new TextEncoder();
 const OPEN = ['/_chairlift/']; // shared watermark script only; no client content
+// Easy-to-type codes that open ONE folder only (Ryan, 16 Nov 2026).
+const EXTRA = { 'sean-wells': 'darkmagic1993' };
 
 async function mk(secret, key) {
   const k = await crypto.subtle.importKey('raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
@@ -40,7 +42,7 @@ export async function onRequest(ctx) {
   const want = await mk(env.SECRET, folder);
   const master = await mk(env.SECRET, '*master');
   const ck = cookies(request);
-  const ok = c => c && (c === want || c === master);
+  const ok = c => c && (c === want || c === master || (EXTRA[folder] && c === EXTRA[folder]));
 
   let given = (url.searchParams.get('k') || '').trim().toLowerCase();
   if (request.method === 'POST') {
