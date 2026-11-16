@@ -3,6 +3,10 @@
 Private preview (passcode gate): https://sites-mnj.pages.dev/aventus-investigations/ — tour: add `?tour=1`.
 Current site: https://aventusinvestigationsinc.com/ (Anthony Fernandes, Ajax ON). Not sent to the client.
 
+## Version 2 (16 Nov 2026): his black and gold
+Ryan asked to keep Aventus's own black-and-gold look. The navy/off-white version is archived in `archive/navy-2026-11-16/`.
+Added revenue features: rate card with online booking and deposits (prices placeholder), "being watched?" six-question self-check leading to a sweep booking, retainer program for lawyers, insurers and employers (proposed terms), The Aventus Brief newsletter signup, and Build your quote now shows a likely approach and how the quote works.
+
 ## What's in it
 - One page, phone first: hero with rotating line, five services (tap to switch), how a case runs, countersurveillance spotlight, Anthony, Google reviews, full service list, service-area map, Build your quote (5 steps with safe-contact options), contact, footer.
 - Quick exit button (also Esc twice) for visitors on a shared device.
@@ -15,6 +19,7 @@ All copy is rewritten from the client's own pages (home, the five service pages,
 Left out on purpose: "#1 trusted", "top rated", "high success rate", "Canada Best" badge (claims we can't verify).
 
 ## Placeholders / needed before go-live
+0. Rate card prices, deposit amounts and retainer terms: Anthony sets them. Payments need a Stripe or Square account. Newsletter needs a mailing service (e.g. Mailchimp).
 1. Photo of Anthony (optional; many PIs prefer not to show their face).
 2. Photos are Unsplash stand-ins (free licence): street, tail lights, rain, car, camera, talk, towers, crowd, notes, lights. Swap for his own if he has any.
 3. Confirm affiliations (CPIRC, Ajax-Pickering Board of Trade) are current.
