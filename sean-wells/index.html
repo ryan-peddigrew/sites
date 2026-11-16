@@ -4,306 +4,101 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
-<title>Sean Wells | Independent Consultant</title>
-<meta name="description" content="Sean Wells, independent consultant. Strategy sessions, project leadership, on-call advisory and team workshops.">
-<meta name="theme-color" content="#0B0B0E">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230B0B0E'/%3E%3Ctext x='32' y='43' font-family='Arial Black,Arial' font-weight='900' font-size='28' text-anchor='middle' fill='%23EEEAE1'%3ESW%3C/text%3E%3Crect x='14' y='50' width='36' height='4' fill='%233D5AFE'/%3E%3C/svg%3E">
+<title>Sean Wells | Event Producer</title>
+<meta name="description" content="Sean Wells, event producer. Festivals, concert touring and live events since 1993.">
+<meta name="theme-color" content="#050507">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050507'/%3E%3Ctext x='32' y='42' font-family='Arial Black,Arial' font-weight='900' font-size='26' text-anchor='middle' fill='%23EDEAF5'%3ESW%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/stage.webp">
 <link rel="stylesheet" href="site.css">
 </head>
-<body>
+<body class="home">
 
-<!-- LOADER: neutral wordmark (Sean has no logo yet) -->
-<div id="loader" aria-hidden="true">
-  <div class="ld-word"><span class="ld-l"><i>SEAN</i></span><span class="ld-l"><i>WELLS</i></span></div>
-  <div class="ld-bar"><span></span></div>
-  <div class="ld-sub">INDEPENDENT CONSULTANT</div>
-</div>
-
-<a class="skip" href="#main">Skip to content</a>
+<canvas id="fx" aria-hidden="true"></canvas>
 
 <header class="hdr" id="hdr">
-  <a class="hdr-mark" href="#top" aria-label="Sean Wells, home"><b>SEAN WELLS</b><span class="hdr-tag">INDEPENDENT CONSULTANT</span></a>
+  <a class="hdr-mark" href="./" aria-label="Sean Wells, home"><b>SEAN WELLS</b><span>EVENT PRODUCER</span></a>
   <nav class="hdr-nav" aria-label="Main">
-    <a href="#offers">WAYS TO WORK</a>
-    <a href="#how">HOW IT RUNS</a>
-    <a href="#work">WORK</a>
-    <a href="#about">ABOUT</a>
+    <a class="hdr-link" href="record.html">THE RECORD</a>
+    <a class="btn btn-line" href="#contact"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span class="hide-s">GET IN TOUCH</span></a>
   </nav>
-  <div class="hdr-btns">
-    <a class="btn btn-line" href="#contact"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>GET IN TOUCH</a>
-    <a class="btn btn-solid" href="#quote">BUILD YOUR QUOTE</a>
-  </div>
-  <button class="hdr-menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu">MENU</button>
 </header>
-
-<div class="menu" id="menu" hidden>
-  <nav aria-label="Menu">
-    <a href="#offers"><small>01</small>WAYS TO WORK</a>
-    <a href="#how"><small>02</small>HOW IT RUNS</a>
-    <a href="#work"><small>03</small>WORK</a>
-    <a href="#about"><small>04</small>ABOUT</a>
-    <a href="#quote"><small>05</small>BUILD YOUR QUOTE</a>
-    <a href="#contact"><small>06</small>GET IN TOUCH</a>
-  </nav>
-</div>
 
 <main id="main">
 
-<!-- HERO -->
-<section class="hero" id="top" data-tour="hero">
-  <div class="hero-glow" aria-hidden="true"><span></span><span></span><span></span></div>
-  <div class="hero-grid">
-    <div class="hero-copy">
-      <p class="hero-kicker"><span class="dot-live" aria-hidden="true"></span>INDEPENDENT CONSULTANT · STRATEGY · PROJECTS · ADVISORY</p>
-      <h1 class="hero-name" aria-label="Sean Wells">
-        <span class="hn-row"><span class="hn">SEAN</span></span>
-        <span class="hn-row"><span class="hn hn-out">WELLS</span></span>
-      </h1>
-      <p class="hero-line">A senior hand for the work that has to go right.<br>
-        <span class="rot-wrap">Brought in for <b class="rot" id="rot" aria-live="polite">STRATEGY</b></span></p>
-      <div class="hero-btns" data-tour="buttons">
-        <a class="btn btn-solid btn-lg" href="#quote">BUILD YOUR QUOTE</a>
-        <a class="btn btn-line btn-lg" href="#contact"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>GET IN TOUCH</a>
-      </div>
-      <a class="tour-start" id="tourStart" href="?tour=1"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>TAKE A TOUR OF THE NEW SITE</a>
+<!-- THE STORY: one stage, scenes dissolve into each other as you scroll -->
+<section class="story" id="story" aria-label="Sean Wells">
+  <div class="stage" id="stage">
+    <div class="photo" id="photo" aria-hidden="true">
+      <div class="photo-blur"></div>
+      <img class="photo-band" src="img/stage.webp" alt="" width="1206" height="297">
     </div>
-    <figure class="hero-photo ph-photo" data-tour="portrait">
-      <div class="ph-inner">
-        <span class="ph-tag">PHOTO TO COME</span>
-        <b>PORTRAIT OF SEAN</b>
-        <small>Tall, natural light, looking slightly off camera. His face stays clear of all text.</small>
-      </div>
-      <figcaption>SEAN WELLS · <span class="ph">CITY, ONTARIO</span></figcaption>
-    </figure>
-  </div>
-  <div class="hero-scroll" aria-hidden="true"><span>SCROLL</span><i></i></div>
-</section>
+    <div class="vig" aria-hidden="true"></div>
+    <div class="bands" aria-hidden="true"><div class="band">SEAN WELLS · EVENT PRODUCER · DARK MAGIC · ILLUSIONIST · SEAN WELLS · EVENT PRODUCER · DARK MAGIC · ILLUSIONIST · SEAN WELLS · EVENT PRODUCER · DARK MAGIC · ILLUSIONIST · SEAN WELLS · EVENT PRODUCER · DARK MAGIC · ILLUSIONIST · </div><div class="band">SEAN WELLS · EVENT PRODUCER · DARK MAGIC · ILLUSIONIST · SEAN WELLS · EVENT PRODUCER · DARK MAGIC · ILLUSIONIST · SEAN WELLS · EVENT PRODUCER · DARK MAGIC · ILLUSIONIST · SEAN WELLS · EVENT PRODUCER · DARK MAGIC · ILLUSIONIST · </div><div class="band">SEAN WELLS · EVENT PRODUCER · DARK MAGIC · ILLUSIONIST · SEAN WELLS · EVENT PRODUCER · DARK MAGIC · ILLUSIONIST · SEAN WELLS · EVENT PRODUCER · DARK MAGIC · ILLUSIONIST · SEAN WELLS · EVENT PRODUCER · DARK MAGIC · ILLUSIONIST · </div></div>
 
-<!-- TICKER -->
-<div class="ticker" aria-hidden="true">
-  <div class="tk-track">
-    <span>STRATEGY SESSIONS</span><em>/</em><span>PROJECT LEADERSHIP</span><em>/</em><span>ON-CALL ADVISORY</span><em>/</em><span>TEAM WORKSHOPS</span><em>/</em>
-    <span>STRATEGY SESSIONS</span><em>/</em><span>PROJECT LEADERSHIP</span><em>/</em><span>ON-CALL ADVISORY</span><em>/</em><span>TEAM WORKSHOPS</span><em>/</em>
-  </div>
-</div>
-
-<!-- PITCH: words light up on scroll -->
-<section class="pitch" id="pitch" data-tour="pitch">
-  <div class="wrap">
-    <p class="eyebrow">THE SHORT VERSION</p>
-    <h2 class="pitch-text" id="pitchText">Some work has to go right the first time. That is the work Sean takes on. No agency layers, no hand-offs to a junior. You get Sean, start to finish.</h2>
-    <p class="pitch-note"><span class="ph">Sean's own one-line positioning goes here once he confirms his focus.</span></p>
-  </div>
-</section>
-
-<!-- OFFERS: horizontal rail -->
-<section class="offers" id="offers" data-tour="offers">
-  <div class="offers-pin">
-    <div class="offers-head wrap">
-      <p class="eyebrow">WAYS TO WORK WITH SEAN</p>
-      <h2 class="h-big">PICK THE<br>FIT.</h2>
-      <p class="offers-hint">Four ways in, from one sitting to a standing seat at your table. Prices are in Canadian dollars and set by Sean.</p>
+    <div class="sc s0">
+      <p class="kick">EVENT PRODUCER</p>
+      <h1 class="name"><span>SEAN</span><span>WELLS</span></h1>
+      <p class="hint">SCROLL TO REVEAL</p>
     </div>
-    <div class="offers-track" id="offersTrack">
-      <article class="offer of-1">
-        <span class="of-n">01</span>
-        <h3>STRATEGY SESSION</h3>
-        <p>One focused sitting on the thing that's stuck. You leave with a clear plan and the next three moves.</p>
-        <ul><li>Half day, online or in person</li><li>Written plan within two business days</li><li>Book and pay online</li></ul>
-        <div class="of-price"><span class="ph">$— CAD</span><small>FIXED FEE</small></div>
-        <a class="btn btn-solid" href="#quote" data-pick="session">BOOK A SESSION</a>
-      </article>
-      <article class="offer of-2">
-        <span class="of-n">02</span>
-        <h3>PROJECT LEAD</h3>
-        <p>Sean runs it, start to finish. Scope, people, schedule and the details nobody else is watching.</p>
-        <ul><li>Fixed scope, fixed price</li><li>Weekly check-ins, one shared plan</li><li>Clean hand-off at the end</li></ul>
-        <div class="of-price"><span class="ph">FROM $— CAD</span><small>PER PROJECT</small></div>
-        <a class="btn btn-solid" href="#quote" data-pick="project">BUILD YOUR QUOTE</a>
-      </article>
-      <article class="offer of-3">
-        <span class="of-n">03</span>
-        <h3>ON-CALL ADVISORY</h3>
-        <p>A standing seat at your table. Calls, reviews and a second opinion before the big decisions.</p>
-        <ul><li>Monthly retainer, cancel any month</li><li>Set hours each month</li><li>Priority replies</li></ul>
-        <div class="of-price"><span class="ph">$— CAD</span><small>PER MONTH</small></div>
-        <a class="btn btn-solid" href="#quote" data-pick="advisory">BUILD YOUR QUOTE</a>
-      </article>
-      <article class="offer of-4">
-        <span class="of-n">04</span>
-        <h3>TEAM WORKSHOP</h3>
-        <p>A working session for your team, built around your real projects, not slides.</p>
-        <ul><li>Two hours to a full day</li><li>On site or online</li><li>Take-home playbook</li></ul>
-        <div class="of-price"><span class="ph">FROM $— CAD</span><small>PER WORKSHOP</small></div>
-        <a class="btn btn-solid" href="#quote" data-pick="workshop">BUILD YOUR QUOTE</a>
-      </article>
-    </div>
-  </div>
-</section>
 
-<!-- HOW IT RUNS: sticky number -->
-<section class="how" id="how" data-tour="how">
-  <div class="how-grid wrap">
-    <div class="how-left">
-      <p class="eyebrow">HOW IT RUNS</p>
-      <div class="how-num" aria-hidden="true"><span id="howNum">01</span><small>/04</small></div>
-      <div class="how-bar" aria-hidden="true"><span id="howBar"></span></div>
+    <div class="sc s1">
+      <p class="kick">ACT ONE</p>
+      <h2 class="big">NOW YOU<br>SEE IT.</h2>
+      <p class="line">Lights. Screens. Thousands of people, all looking the same way.</p>
     </div>
-    <ol class="how-steps">
-      <li data-n="01"><h3>TALK IT THROUGH</h3><p>A short conversation about what you need and what's at stake. If it isn't a fit, Sean says so and points you somewhere better.</p></li>
-      <li data-n="02"><h3>SCOPE IT</h3><p>A one-page plan: what gets done, by when, by whom and for how much. No surprises later.</p></li>
-      <li data-n="03"><h3>DO THE WORK</h3><p>Sean leads it day to day, with one shared plan you can check any time.</p></li>
-      <li data-n="04"><h3>HAND IT OFF</h3><p>Everything documented, so your team can keep it running without him.</p></li>
-    </ol>
-  </div>
-</section>
 
-<!-- WORK: bento -->
-<section class="work" id="work" data-tour="work">
-  <div class="wrap">
-    <div class="work-head">
-      <p class="eyebrow">SELECTED WORK</p>
-      <h2 class="h-big">THE<br>RECEIPTS.</h2>
-      <p>Real projects only, in Sean's words, with his own photos. Each tile opens to the story: the problem, what he did, how it landed.</p>
+    <div class="sc s2">
+      <p class="kick">ACT TWO</p>
+      <h2 class="big">NOW YOU<br>DON'T.</h2>
+      <p class="line">Nobody sees the plan, the crew, the cues or the hundred calls behind it. That's the point.</p>
     </div>
-    <div class="bento">
-      <a class="tile t-a ph-photo" href="#contact"><span class="ph-tag">PROJECT 01 · TO COME</span><b>PROJECT NAME</b><small>Client or type of client · year · one photo</small></a>
-      <a class="tile t-b ph-photo" href="#contact"><span class="ph-tag">PROJECT 02 · TO COME</span><b>PROJECT NAME</b><small>Client · year</small></a>
-      <a class="tile t-c ph-photo" href="#contact"><span class="ph-tag">PROJECT 03 · TO COME</span><b>PROJECT NAME</b><small>Client · year</small></a>
-      <a class="tile t-d ph-photo" href="#contact"><span class="ph-tag">PROJECT 04 · TO COME</span><b>PROJECT NAME</b><small>Client · year</small></a>
-      <a class="tile t-e ph-photo" href="#contact"><span class="ph-tag">PROJECT 05 · TO COME</span><b>PROJECT NAME</b><small>Client · year</small></a>
-    </div>
-  </div>
-</section>
 
-<!-- ABOUT -->
-<section class="about" id="about" data-tour="about">
-  <div class="about-grid wrap">
-    <figure class="about-photo ph-photo"><div class="ph-inner"><span class="ph-tag">PHOTO TO COME</span><b>SEAN AT WORK</b><small>Candid, on the job.</small></div></figure>
-    <div class="about-copy">
-      <p class="eyebrow">ABOUT SEAN</p>
-      <h2 class="h-mid">THE PERSON<br>YOU ACTUALLY GET.</h2>
-      <p class="about-lede"><span class="ph">Two or three lines from Sean: what he has spent his career doing, what he's known for, and the kind of problem he likes best.</span></p>
-      <dl class="facts">
-        <div><dt>BASED IN</dt><dd><span class="ph">City, Ontario</span></dd></div>
-        <div><dt>FOCUS</dt><dd><span class="ph">His specialty, in his words</span></dd></div>
-        <div><dt>WORKS WITH</dt><dd><span class="ph">Who hires him</span></dd></div>
-        <div><dt>AVAILABLE FOR</dt><dd>Sessions, projects, advisory and workshops</dd></div>
-      </dl>
+    <div class="sc s3">
+      <p class="kick">THE ILLUSIONIST</p>
+      <h2 class="big">HE MAKES<br>THE HARD PART<br>DISAPPEAR.</h2>
+      <p class="line">For <b class="rot" id="rot">FESTIVALS</b></p>
     </div>
-  </div>
-</section>
 
-<!-- WORDS: honest empty state -->
-<section class="words" id="words" data-tour="words">
-  <div class="wrap words-in">
-    <span class="q-mark" aria-hidden="true">&ldquo;</span>
-    <p class="words-quote"><span class="ph">A real quote from someone Sean has worked with goes here, with their name and role, once they say yes.</span></p>
-    <p class="words-who">NAME · ROLE · COMPANY</p>
-  </div>
-</section>
-
-<!-- BUILD YOUR QUOTE -->
-<section class="quote" id="quote" data-tour="quote">
-  <div class="wrap quote-grid">
-    <div class="quote-left">
-      <p class="eyebrow">BUILD YOUR QUOTE</p>
-      <h2 class="h-big">FOUR TAPS.<br>ONE CLEAR<br>NEXT STEP.</h2>
-      <p>Tell Sean what you need and he comes back with a plan and a price within <span class="ph">one business day</span>.</p>
+    <div class="sc s4">
+      <p class="kick">THE LONG GAME</p>
+      <h2 class="big yr" id="yr">1993</h2>
+      <p class="line">The year Sean started working live shows. More than three decades later, he's still running them.</p>
     </div>
-    <form class="qb" id="qb" novalidate>
-      <div class="qb-prog"><span id="qbProg"></span></div>
-      <fieldset class="qb-step is-on" data-step="1">
-        <legend><small>1 / 4</small>WHAT DO YOU NEED?</legend>
-        <div class="chips">
-          <label><input type="radio" name="need" value="session"><span>A STRATEGY SESSION</span></label>
-          <label><input type="radio" name="need" value="project"><span>SOMEONE TO LEAD A PROJECT</span></label>
-          <label><input type="radio" name="need" value="advisory"><span>ONGOING ADVICE</span></label>
-          <label><input type="radio" name="need" value="workshop"><span>A WORKSHOP FOR MY TEAM</span></label>
-          <label><input type="radio" name="need" value="unsure"><span>NOT SURE YET</span></label>
-        </div>
-      </fieldset>
-      <fieldset class="qb-step" data-step="2">
-        <legend><small>2 / 4</small>WHEN DOES IT NEED TO START?</legend>
-        <div class="chips">
-          <label><input type="radio" name="when" value="asap"><span>THIS MONTH</span></label>
-          <label><input type="radio" name="when" value="soon"><span>NEXT 1 TO 3 MONTHS</span></label>
-          <label><input type="radio" name="when" value="later"><span>LATER THIS YEAR</span></label>
-          <label><input type="radio" name="when" value="open"><span>FLEXIBLE</span></label>
-        </div>
-      </fieldset>
-      <fieldset class="qb-step" data-step="3">
-        <legend><small>3 / 4</small>ROUGH BUDGET (CAD)</legend>
-        <div class="chips">
-          <label><input type="radio" name="budget" value="a"><span>UNDER $5,000</span></label>
-          <label><input type="radio" name="budget" value="b"><span>$5,000 TO $15,000</span></label>
-          <label><input type="radio" name="budget" value="c"><span>$15,000 TO $50,000</span></label>
-          <label><input type="radio" name="budget" value="d"><span>OVER $50,000</span></label>
-          <label><input type="radio" name="budget" value="x"><span>HELP ME FIGURE IT OUT</span></label>
-        </div>
-      </fieldset>
-      <fieldset class="qb-step" data-step="4">
-        <legend><small>4 / 4</small>WHERE SHOULD SEAN REPLY?</legend>
-        <div class="fields">
-          <label><span>NAME</span><input name="name" autocomplete="name" required></label>
-          <label><span>EMAIL</span><input name="email" type="email" autocomplete="email" required></label>
-          <label class="full"><span>ANYTHING ELSE? (OPTIONAL)</span><textarea name="note" rows="3"></textarea></label>
-        </div>
-      </fieldset>
-      <div class="qb-done" id="qbDone" hidden>
-        <p class="eyebrow">YOUR STARTING POINT</p>
-        <h3 id="qbFit">STRATEGY SESSION</h3>
-        <p id="qbWhy"></p>
-        <p class="qb-small">Preview only: nothing was sent. On the live site this goes straight to Sean's inbox.</p>
-      </div>
-      <div class="qb-nav">
-        <button type="button" class="btn btn-line-d" id="qbBack" hidden>BACK</button>
-        <button type="button" class="btn btn-solid" id="qbNext">NEXT</button>
-      </div>
-    </form>
-  </div>
-</section>
 
-<!-- FIELD NOTES -->
-<section class="notes" id="notes" data-tour="notes">
-  <div class="wrap notes-in">
-    <div>
-      <p class="eyebrow">FIELD NOTES</p>
-      <h2 class="h-mid">ONE SHORT NOTE<br>A MONTH.</h2>
-      <p>What Sean is seeing out there, one thing worth trying, and when he has room for new work.</p>
+    <div class="sc s5">
+      <p class="kick">THE PRESTIGE</p>
+      <h2 class="big">THE CROWD<br>REMEMBERS<br>THE MOMENT.</h2>
+      <p class="line">Sean remembers how it was built.</p>
+      <a class="btn btn-line" href="record.html">SEE THE RECORD<svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
     </div>
-    <form class="notes-f" id="notesF">
-      <label class="sr" for="nEmail">Email</label>
-      <input id="nEmail" type="email" placeholder="YOUR EMAIL" autocomplete="email">
-      <button class="btn btn-solid" type="submit">SIGN ME UP</button>
-      <p class="notes-ok" id="notesOk" hidden>You're on the list. (Preview only, nothing was sent.)</p>
-    </form>
+
+    <ol class="acts" id="acts" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li></ol>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact" data-tour="contact">
+<section class="contact" id="contact">
   <div class="wrap">
-    <p class="eyebrow">GET IN TOUCH</p>
-    <a class="contact-big" href="#contact"><span class="ph">sean@yourdomain.ca</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></a>
-    <div class="contact-row">
-      <a class="btn btn-line" href="#contact"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>GET IN TOUCH</a>
-      <a class="btn btn-line" href="#contact"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM8 10v6M8 7v.5M12 16v-4a2 2 0 0 1 4 0v4M12 12v4"/></svg>LINKEDIN</a>
-      <a class="btn btn-solid" href="#quote">BUILD YOUR QUOTE</a>
+    <p class="kick">THE FINAL ACT</p>
+    <h2 class="big">LET'S MAKE<br>SOMETHING<br>APPEAR.</h2>
+    <a class="mail" href="mailto:sean@darkmagic.one">sean@darkmagic.one</a>
+    <div class="row">
+      <a class="btn btn-solid" id="poof" href="mailto:sean@darkmagic.one"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>GET IN TOUCH</a>
+      <a class="btn btn-line" href="record.html">THE RECORD</a>
     </div>
-    <p class="contact-note">Email, phone and LinkedIn are placeholders until Sean confirms them.</p>
+    <a class="tour-start" id="tourStart" href="?tour=1"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>TAKE THE TOUR</a>
   </div>
 </section>
 
 </main>
 
 <footer class="ftr">
-  <div class="ftr-name" aria-hidden="true">SEAN WELLS</div>
+  <div class="ftr-name" aria-hidden="true">DARK MAGIC</div>
   <div class="wrap ftr-base">
-    <span>© 2026 Sean Wells. Independent consultant.</span>
+    <span>© 2026 Sean Wells · Toronto</span>
     <a class="pbc" href="https://usechairlift.com" target="_blank" rel="noopener">
       <span class="pbc-mark" aria-hidden="true"><svg viewBox="-1 -1 66 66"><path d="M2 0H62A2 2 0 0 1 64 2V62A2 2 0 0 1 62 64H2A2 2 0 0 1 0 62V2A2 2 0 0 1 2 0Z" fill="#141B2A" stroke="rgba(255,255,255,0.3)" stroke-width="2"/><rect x="10" y="42.5" width="20" height="7" rx="1.2" fill="#FFFFFF"/><rect x="22" y="29" width="20" height="7" rx="1.2" fill="#FFFFFF"/><rect x="34" y="15.5" width="20" height="7" rx="1.2" fill="#3DFFC1"/></svg></span>
       <span>Powered by <b>Chairlift</b></span>
@@ -311,16 +106,10 @@
   </div>
 </footer>
 
-<!-- phone dock -->
-<div class="dock" id="dock">
-  <a class="btn btn-solid" href="#quote">BUILD YOUR QUOTE</a>
-  <a class="btn btn-line" href="#contact"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>GET IN TOUCH</a>
-</div>
-
 <!-- TOUR (?tour=1) -->
 <div class="tour" id="tour" hidden>
   <div class="tour-card">
-    <div class="tour-top"><span class="tour-k" id="tourK">THE IDEA</span><span class="tour-n" id="tourN">1 / 10</span></div>
+    <div class="tour-top"><span id="tourK">THE IDEA</span><span class="tour-n" id="tourN">1 / 9</span></div>
     <h3 id="tourH"></h3>
     <p id="tourP"></p>
     <p class="tour-o" id="tourO"></p>
