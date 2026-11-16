@@ -191,3 +191,8 @@ video.vp{width:100%;height:100%;object-fit:cover}
 .name .sw{font:700 clamp(22px,3.4vw,58px)/1 'Inter Tight',system-ui,sans-serif;letter-spacing:.42em;margin-top:.5em;padding-left:.42em;color:#fff}
 @media (max-width:700px){.name .dm{font-size:19.5vw}.name .sw{font-size:6.4vw;letter-spacing:.32em}}
 .hdr-mark b{font:800 17px/1 'Inter Tight',system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+
+/* header lockup matches the hero; SEAN WELLS thinner (Ryan 8:20) */
+.hdr-mark b{font:800 19px/1 'Inter Tight',system-ui,sans-serif;letter-spacing:-.01em;text-transform:uppercase}
+.hdr-mark span{font:300 10.5px/1 'Inter Tight',system-ui,sans-serif;letter-spacing:.42em;text-transform:uppercase;color:#fff;margin-top:6px;font-style:normal}
+.name .sw{font-weight:300}
