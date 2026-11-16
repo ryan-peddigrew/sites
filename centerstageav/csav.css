@@ -462,3 +462,18 @@ body.touring #wmt{display:none}
 @media(max-width:760px){.hero h1{font-size:8.6vw}.hero .hlive .o{display:none}.qmini{letter-spacing:0;font-size:12px;padding:0 9px}.hdr .wrap{gap:6px}}
 .hero .hlive{white-space:nowrap}
 @media(max-width:760px){.hero .hin{padding-bottom:132px}}
+
+/* 15 Nov: no terminal type. Block letters everywhere, Archivo wide and heavy. */
+:root{--mono:"Archivo",system-ui,sans-serif}
+.mono,footer h4,.hfoot,.dh .mono,.tcard .mono{font:800 13px/1.3 var(--disp);font-stretch:118%;letter-spacing:.05em;text-transform:uppercase}
+.kick.mono,.kick{font:800 13px/1.3 var(--disp);font-stretch:118%;letter-spacing:.06em}
+.hero .hfoot{font-size:13px}
+/* footer credit with rotating Chairlift mark */
+footer .bot .pc{display:inline-flex;align-items:center;gap:10px;font:800 14px/1 var(--disp);font-stretch:118%;color:#fff;letter-spacing:.06em;text-transform:uppercase}
+footer .bot .pc b{font-weight:900}
+footer .bot .pc img{perspective:200px;animation:spin9 9s linear infinite;transform-style:preserve-3d}
+@keyframes spin9{from{transform:rotateY(0)}to{transform:rotateY(360deg)}}
+@media(prefers-reduced-motion:reduce){footer .bot .pc img{animation:none}}
+
+/* all caps on buttons */
+.tourbtn{text-transform:uppercase;letter-spacing:.04em}

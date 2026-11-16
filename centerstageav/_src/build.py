@@ -125,8 +125,7 @@ def index():
 
 <main id="top">
 <section class="hero" id="hero"><div class="hbg"><video id="reel" muted loop playsinline preload="none" poster="/img/reel-poster.webp" disablepictureinpicture controlslist="nodownload noplaybackrate"><source src="/img/reel-sm.mp4" media="(max-width:760px)" type="video/mp4"><source src="/img/reel.mp4" type="video/mp4"></video></div><div class="hshade"></div><div class="hbeam b1"></div><div class="hbeam b2"></div>
-<div class="wrap hin"><div class="hlive mono"><i></i>Live &middot; <b id="clock">Mississauga</b><span class="o"> &middot; Fort Lauderdale &middot; San Diego</span></div>
- <h1><span class="ln"><span>Your brand.</span></span><span class="ln"><span>Your <span class="rot" id="rot"><b class="on">event.</b><b>gala.</b><b>summit.</b><b>launch.</b><b>expo.</b><b>show.</b></span></span></span><span class="ln"><span class="cr">Center stage.</span></span></h1>
+<div class="wrap hin"> <h1><span class="ln"><span>Your brand.</span></span><span class="ln"><span>Your <span class="rot" id="rot"><b class="on">event.</b><b>gala.</b><b>summit.</b><b>launch.</b><b>expo.</b><b>show.</b></span></span></span><span class="ln"><span class="cr">Center stage.</span></span></h1>
  <p class="hsub">Designing and delivering cutting-edge audiovisual solutions for live, hybrid and virtual events, anywhere in North America.</p>
  <div class="hcta">{btns('big')}</div>
  <div class="hfoot mono"><span>20+ years</span><span>3 offices</span><span>North America</span><a href="#plan" class="hscroll">Scroll {I['r']}</a></div></div></section>
@@ -232,7 +231,7 @@ def index():
 <footer><div class="wrap"><div class="top"><div><img class="f" src="/img/logo.svg" alt="Center Stage AV" draggable="false"><p style="color:var(--mute);margin-top:18px;max-width:36ch">Your brand. Your event. Center stage. Audio visual for live, hybrid and virtual events for over 20 years.</p><div class="soc">{soc}</div></div>
 <div><h4>Explore</h4><ul><li><a href="/#services">Services</a></li><li><a href="/#events">Events</a></li><li><a href="/#work">Our work</a></li><li><a href="/rentals/">Rentals</a></li><li><a href="/#studio">Virtual Studio</a></li><li><a href="/#faq">FAQ</a></li><li><a href="/careers/">Careers</a></li></ul></div>
 <div><h4>Next steps</h4><ul><li><a href="/quote/">Quote tool</a></li><li><a href="/portal/">Client portal</a></li><li><a href="/crew/">Crew portal</a></li><li><a href="/#contact">Get in touch</a></li><li><a href="/brand/">Logo refresh options</a></li><li><a href="/?tour=1" data-tour>Take a tour of what’s changed</a></li></ul></div></div>
-<div class="bot mono"><span>© 2026 Center Stage AV. All rights reserved.</span><span>Concept preview</span></div></div></footer>
+<div class="bot mono"><span>© 2026 Center Stage AV. All rights reserved.</span><span class="pc"><span>Powered by</span><img class="spin" src="/img/chairlift-mark.svg" width="34" height="34" alt="Chairlift" draggable="false"><b>Chairlift</b></span></div></div></footer>
 
 <button class="tourbtn" id="tourbtn" data-tour>{I['play']}Tour what’s changed</button>
 <div class="lb" id="lb" role="dialog" aria-label="Photo viewer"><button class="c" id="lbc" aria-label="Close">{I['x']}</button><button class="p" id="lbp" aria-label="Previous">{I['l']}</button><img id="lbi" alt="" draggable="false"><button class="n" id="lbn" aria-label="Next">{I['r']}</button></div>
