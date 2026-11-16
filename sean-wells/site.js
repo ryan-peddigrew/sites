@@ -74,9 +74,9 @@
 
   // cursor spark trail (desktop) and tap sparks (phones)
   var lastM = 0;
-  addEventListener('pointermove', function (e) { if (e.pointerType !== 'mouse' || RM) return; var n = performance.now(); if (n - lastM < 24) return; lastM = n;
+  addEventListener('pointermove', function (e) { if (true) return; var n = performance.now(); if (n - lastM < 24) return; lastM = n;
     sparks.push({ x: e.clientX, y: e.clientY, vx: (Math.random() - .5) * .6, vy: .2 + Math.random() * .5, life: 0, max: 34 + Math.random() * 20, sz: .6 + Math.random() * 1.6, c: Math.random() < .5 ? '230,222,255' : '175,150,255' }); }, { passive: true });
-  addEventListener('pointerdown', function (e) { if (e.pointerType === 'mouse' || RM) return; burst(e.clientX, e.clientY, 18, 2.4); }, { passive: true });
+  addEventListener('pointerdown', function (e) { if (true) return; burst(e.clientX, e.clientY, 18, 2.4); }, { passive: true });
 
 
   var PR = {
@@ -86,7 +86,7 @@
     box: [new Path2D('M22 40 L58 31 L80 40 L44 49 Z M22 40 L22 75 L44 85 L44 49 M44 85 L80 75 L80 40 M33 58 L33 70 M38 60 L38 72 M58 62 L70 58')],
     wand: [new Path2D('M22 82 L74 26'), new Path2D('M70 30 L78 22')]
   };
-  var KINDS = ['hat', 'dove', 'saw', 'box', 'wand'], props = [], nextProp = 0, kindI = Math.floor(Math.random() * 5);
+  var KINDS = ['hat', 'saw', 'box', 'wand'], props = [], nextProp = 0, kindI = Math.floor(Math.random() * 4);
   function spawnProp(now) {
     var k = KINDS[kindI++ % KINDS.length], s = (PHONE ? 80 : 120) + Math.random() * (PHONE ? 40 : 90);
     var x = W * (.12 + Math.random() * .76), y = H * (.3 + Math.random() * .55);
@@ -121,10 +121,9 @@
       var m = mist[i]; m.t++; m.x += m.vx; m.y += m.vy; m.rot += .0008;
       if (m.life) { m.vx *= .985; m.vy *= .985; m.r += .9; var k = m.t / m.life; m.a = k < .15 ? k / .15 : Math.max(0, 1 - (k - .15) / .85); if (m.t > m.life) { mist.splice(i, 1); continue; } }
       else { m.a = Math.min(1, m.a + .01); if (m.y < -m.r) { m.y = H + m.r; m.x = Math.random() * W; } if (m.x < -m.r) m.x = W + m.r; if (m.x > W + m.r) m.x = -m.r; }
-      cx.globalAlpha = m.a * (m.life ? .4 : .11 * mistLevel);
+      cx.globalAlpha = m.a * (m.life ? .16 : .11 * mistLevel);
       cx.save(); cx.translate(m.x, m.y); cx.rotate(m.rot); cx.drawImage(puff, -m.r, -m.r, m.r * 2, m.r * 2); cx.restore();
     }
-    drawProps();
     cx.globalCompositeOperation = 'lighter';
     // flash
     if (flash > 0) { var fg = cx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, Math.max(W, H) * .7); fg.addColorStop(0, 'rgba(235,228,255,' + (flash * .55) + ')'); fg.addColorStop(1, 'rgba(120,90,255,0)'); cx.globalAlpha = 1; cx.fillStyle = fg; cx.fillRect(0, 0, W, H); flash *= .86; if (flash < .02) flash = 0; }
@@ -167,7 +166,7 @@
   $$('#poof').forEach(function (b) {
     b.addEventListener('click', function (e) {
       if (RM) return; e.preventDefault(); var r = b.getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2;
-      pop(x, y); dove(x, y - 20);
+      pop(x, y);
       if (!document.body.classList.contains('touring')) setTimeout(function () { location.href = b.href; }, 1500);
     });
   });
@@ -192,9 +191,7 @@
   function prog() { var r = story.getBoundingClientRect(); return Math.min(1, Math.max(0, -r.top / Math.max(1, story.offsetHeight - innerHeight))); }
   function render() {
     var p = prog(), seg = 1 / N;
-    photo.style.opacity = lerpK(KO, p);
-    photo.style.filter = 'blur(' + lerpK(KB, p).toFixed(1) + 'px) grayscale(' + lerpK(KG, p).toFixed(2) + ')';
-    photo.style.transform = 'scale(' + (1.12 - p * .12).toFixed(3) + ')';
+    var pics = photo.children;
     var cur = Math.min(N - 1, Math.floor(p / seg));
     scs.forEach(function (el, i) {
       var u = (p - i * seg) / seg, o;
@@ -202,12 +199,13 @@
       else { o = 1; if (i > 0 && u < .25) o = u / .25; if (i < N - 1 && u > .75) o = (1 - u) / .25; o = Math.max(0, Math.min(1, o)); }
       if (i === 0 && document.body.classList.contains('intro')) o = 0;
       el.style.opacity = o; el.classList.toggle('on', o > .01);
+      if (pics[i]) { pics[i].style.opacity = i === 0 ? Math.max(o, 0) : o; var z = 1.18 - Math.max(0, Math.min(1, u)) * .16; pics[i].firstElementChild.nextElementSibling.style.transform = 'scale(' + z.toFixed(3) + ')'; }
       var bl = (1 - o) * 10, sc = u < .5 ? .55 + o * .45 : 1 + (1 - o) * 1.6;
       el.style.filter = o > .99 ? 'none' : 'blur(' + bl.toFixed(1) + 'px)';
       el.style.transform = 'scale(' + sc.toFixed(3) + ')';
     });
     acts.forEach(function (a, i) { a.classList.toggle('on', i === cur); });
-    if (cur !== last) { if (last >= 0 && !RM) { smokeBurst(W * (.3 + Math.random() * .4), H * .6, PHONE ? 4 : 7, 160); burst(W / 2, H * .55, 16, 3); } last = cur; }
+    if (cur !== last) { if (last >= 0 && !RM) { smokeBurst(W * (Math.random() < .5 ? .1 : .9), H * .7, PHONE ? 4 : 7, 200); } last = cur; }
     // 1993: time rewinds into place
     var u4 = (p - 4 * seg) / seg; if (u4 > -.1 && u4 < 1.1) { var k = Math.max(0, Math.min(1, (u4 + .05) / .45)); yr.textContent = Math.round(2026 - (2026 - 1993) * (1 - Math.pow(1 - k, 3))); }
     bands.forEach(function (b, i) { b.style.transform = 'translateX(' + ((i % 2 ? -1 : 1) * (p * 1400 + bandT) - 700) + 'px)'; });
@@ -220,11 +218,11 @@
   var words = ['FESTIVALS', 'CONCERT TOURS', 'LIVE EVENTS', 'VIDEO FOR LIVE SHOWS'], wi = 0, rot = $('#rot');
   if (!RM) setInterval(function () { rot.classList.add('swap'); setTimeout(function () { wi = (wi + 1) % words.length; rot.textContent = words[wi]; rot.classList.remove('swap'); }, 350); }, 2200);
 
-  // intro: a pop, a dove of light, the name out of the smoke (once per visit)
+  // intro: a pop, the name out of the smoke (once per visit)
   var seen = false; try { seen = sessionStorage.getItem('sw-in') === '1'; } catch (e) {}
   if (!RM && (!seen || TOUR) && scrollY < 10) {
     document.body.classList.add('intro'); render();
-    setTimeout(function () { pop(W / 2, H * .5); dove(W / 2, H * .52); }, 450);
+    setTimeout(function () { pop(W / 2, H * .5); }, 450);
     setTimeout(function () { document.body.classList.remove('intro'); scs[0].style.transition = 'opacity 1.4s, filter 1.4s'; render(); setTimeout(function () { scs[0].style.transition = ''; }, 1500); }, 1500);
     try { sessionStorage.setItem('sw-in', '1'); } catch (e) {}
   }
@@ -233,13 +231,13 @@
   /* ===== tour (?tour=1): single tap, auto-plays ===== */
   var TS = [
     { p: .02, k: 'THE IDEA', h: 'Sean, this is your stage', p2: 'Not a resume. A showcase of you, told the way you’d run a show: dark, smoky, and full of reveals.', o: '<b>Why:</b> a resume lists jobs. This makes people feel the work.' },
-    { p: .25, k: 'ACT ONE', h: 'Now you see it', p2: 'Your festival stage, straight from your LinkedIn, rising out of the smoke as you scroll.', o: '<b>Next:</b> a few more show photos make every scene hit harder.' },
+    { p: .25, k: 'ACT ONE', h: 'Now you see it', p2: 'Veld, the festival you run, rising out of the smoke as you scroll. Every scene sits on a real Veld photo.', o: '<b>Next:</b> a few more show photos make every scene hit harder.' },
     { p: .41, k: 'ACT TWO', h: 'Now you don’t', p2: 'The illusion is the brand: the crowd never sees the work, and that’s the whole point.', o: '<b>Why:</b> it says what you do without a wall of job titles.' },
     { p: .58, k: 'THE ILLUSIONIST', h: 'The hard part, gone', p2: 'Festivals, concert tours, live events, video for live shows. All pulled from your own profile.', o: '' },
     { p: .75, k: 'THE LONG GAME', h: '1993', p2: 'Watch the years rewind. Three decades, told in one number.', o: '<b>Why:</b> experience lands harder as a moment than as a bullet point.' },
     { p: .92, k: 'THE PRESTIGE', h: 'The record, one tap away', p2: 'Your roles, unions and certifications live on their own page, not on the front. Details for anyone who wants them.', o: '' },
-    { el: '#contact', k: 'THE FINAL ACT', h: 'Dark Magic, front and centre', p2: 'Your sean@darkmagic.one address, big and bold. Tap Get in touch: a pop, a dove of light, then a fresh email to you.', o: '<b>Opportunity:</b> a link you can drop into any email, pitch or bio.', poof: true },
-    { el: '#contact', k: 'EVERYWHERE', h: 'Things appear and vanish', p2: 'A top hat, a dove, a saw, a box and a wand drift through the mist, then disappear in a puff. Sparks follow the cursor, or burst wherever you tap on a phone.', o: '' },
+    { el: '#contact', k: 'THE FINAL ACT', h: 'Dark Magic, front and centre', p2: 'Your sean@darkmagic.one address, big and bold. Tap Get in touch: a pop of smoke, then a fresh email to you.', o: '<b>Opportunity:</b> a link you can drop into any email, pitch or bio.', poof: true },
+    { el: '#contact', k: 'EVERYWHERE', h: 'Now you see it, now you don’t', p2: 'Every Veld photo appears out of the mist and dissolves into the next. Smoke drifts across the whole site.', o: '' },
     { el: '#contact', k: 'THAT’S THE SHOW', h: 'Built to grow with you', p2: 'Send a few more show photos and a line or two in your own words, and it’s ready to share.', o: '' }
   ];
   var tour = $('#tour'), ti = 0, paused = false, tt = null, DUR = 7000, t0 = 0, left = DUR, raf;

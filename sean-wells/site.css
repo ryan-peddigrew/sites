@@ -156,3 +156,14 @@ body.touring .tour-start{display:none}
 .rot{font-family:var(--hd);font-style:italic;font-weight:500}
 .tour h3{font-family:var(--hd);font-weight:500;text-transform:none}
 @media (max-width:700px){.name{font-size:30vw}}
+
+/* v4: Veld photos behind the magic, scene by scene */
+.photo{opacity:1}
+.photo picture{position:absolute;inset:0;opacity:0;transition:opacity .2s linear}
+.vp{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.08);filter:saturate(1.15) contrast(1.05) brightness(.62)}
+.photo picture:nth-child(3) .vp{filter:grayscale(.85) blur(3px) brightness(.45)}
+.vig{background:radial-gradient(120% 90% at 50% 50%,transparent 25%,#050507e6 100%),linear-gradient(#050507b0,transparent 30%,transparent 55%,#050507f0),linear-gradient(90deg,#2a1a6a40,transparent 50%,#2a1a6a40)}
+.contact{background:linear-gradient(#050507,#050507d9 30%,#050507d9 70%,#050507),url(img/veld4-m.webp) center/cover}
+@media (min-width:701px){.contact{background:linear-gradient(#050507,#050507d9 30%,#050507d9 70%,#050507),url(img/veld4.webp) center/cover}}
+.rec-bg{position:fixed;inset:0;z-index:0;background:linear-gradient(#050507cc,#050507f2 60%),url(img/veld3-m.webp) center/cover}
+@media (min-width:701px){.rec-bg{background:linear-gradient(#050507cc,#050507f2 60%),url(img/veld3.webp) center/cover}}
