@@ -54,8 +54,8 @@ def sw(name, hx, role, txt='#fff'):
     return (f'<div class="sw"><div class="c" style="background:{hx};color:{txt}">{name}</div>'
             f'<div class="m">{hx}<br>RGB {r} {g} {b}<br>CMYK approx. {role}</div></div>')
 
-LOGO = '<img src="/img/logo.svg" alt="Center Stage AV logo" width="297" height="67">'
-LIGHT = '<img src="/img/logo-light.svg" alt="Center Stage AV logo" width="297" height="67">'
+LOGO = '<img src="/img/logo.svg" alt="Center Stage AV logo" width="434" height="98">'
+LIGHT = '<img src="/img/logo-light.svg" alt="Center Stage AV logo" width="434" height="98">'
 ICON_PHONE = '<svg class="ic" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>'
 ICON_DOC = '<svg class="ic" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h7M9 8h3"/></svg>'
 ICON_MIC = '<svg class="ic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>'
@@ -137,7 +137,7 @@ def pages():
     P.append(pg(25, 'Stationery', 'Business card', f'''<div class="g2"><div class="card" style="display:flex;flex-direction:column;justify-content:space-between"><div style="transform:scale(.7);transform-origin:left top;filter:brightness(1.1)"><img src="/img/logo.svg" alt="" width="434" height="98"></div><div style="font:500 11px var(--mono);letter-spacing:.08em">FIRST LAST &middot; TITLE<br>+1 000 000 0000 &middot; name@centerstageav.com</div></div>
 <div class="card" style="background:{CR};display:flex;align-items:center;justify-content:center"><img src="/img/logo.svg" alt="" width="434" height="98" style="width:80%"></div></div>
 <p class="note">Front (Ink) and back (Crimson). Name, title, phone and email are placeholders.</p>'''))
-    P.append(pg(26, 'Stationery', 'Letterhead and envelope', f'''<div class="g2"><div class="sheetA"><img src="/img/logo-light.svg" alt="" width="297" height="67" style="width:60%"><div style="margin-top:28px;color:#666">Date<br><br>Recipient name<br>Address line<br><br>Dear Name,</div></div>
+    P.append(pg(26, 'Stationery', 'Letterhead and envelope', f'''<div class="g2"><div class="sheetA"><img src="/img/logo-light.svg" alt="" width="434" height="98" style="width:60%"><div style="margin-top:28px;color:#666">Date<br><br>Recipient name<br>Address line<br><br>Dear Name,</div></div>
 <div><div style="background:#fff;border:1px solid #0002;aspect-ratio:220/110;max-width:360px;padding:8%;position:relative;box-shadow:0 6px 18px #0002"><div style="background:{INK};height:30%;width:60%;margin-bottom:10%"></div><div style="width:40%;height:10%;background:#eee;margin-left:50%"></div></div><p class="note">Envelope (DL). Ink logo block at top left.</p></div></div>'''))
     P.append(pg(27, 'Stationery', 'Letter template', '''<div class="sheetA" style="max-width:520px"><div style="font:800 13px Archivo;font-stretch:125%;text-transform:uppercase;color:#D61045">Center Stage AV</div><div style="margin-top:14px;color:#555">[Date]<br><br>[Recipient name]<br>[Company]<br>[Address]</div><p style="margin-top:14px">Dear [Name],</p><p>[Opening: one line on why you are writing.]</p><p>[Body: the facts, the dates, the next step.]</p><p>Thank you,<br>[Name], [Title]<br>Center Stage AV</p></div>'''))
     P.append(pg(28, 'Email', 'Email signature', f'''<p>One signature for every employee. Name in bold, title and office below, then the phone and email line. The logo sits at the foot, small.</p>
