@@ -352,7 +352,7 @@
       var r = el.getBoundingClientRect(), top = scrollY + r.top - (s.el === '#qexit' ? 0 : 70);
       if (s.el !== '#qexit' && s.el !== '.hero-btns' && s.el !== '.facts' && s.el !== '#qbtn') scrollTo({ top: top, behavior: RM ? 'auto' : 'smooth' });
       else if (s.el !== '#qbtn') scrollTo({ top: 0, behavior: RM ? 'auto' : 'smooth' });
-      if (s.el === '#qbtn') { qopen(true); tourQ = true; } else if (tourQ) { qopen(false); tourQ = false; }
+      if (tourQ) { qopen(false); tourQ = false; }
       if (s.el !== '#top') { hl = el; el.classList.add('tour-hl'); }
     }
     left = DUR; t0 = performance.now(); $('#tourBar').style.width = '0';
