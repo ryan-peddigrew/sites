@@ -162,6 +162,14 @@
   }
   if (running) requestAnimationFrame(frame);
 
+  /* ===== the wand: tap for a poof ===== */
+  var wand = $('#wand');
+  if (wand) wand.addEventListener('click', function () {
+    var r = wand.getBoundingClientRect(), x = r.left + r.width * .8, y = r.top + r.height * .2;
+    wand.classList.remove('tap'); void wand.offsetWidth; wand.classList.add('tap');
+    if (RM) return; flash = .5; burst(x, y, PHONE ? 50 : 90, 4.5); smokeBurst(x, y + 30, PHONE ? 6 : 10, 120);
+  });
+
   /* ===== GET IN TOUCH: a pop, a dove, then the email ===== */
   $$('#poof').forEach(function (b) {
     b.addEventListener('click', function (e) {
