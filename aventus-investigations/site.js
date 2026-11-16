@@ -185,10 +185,25 @@
   }
   function finish() {
     var rows = [['ABOUT', vals('service')], ['WHERE', vals('area')], ['WHEN', vals('timing')], ['YOU HAVE', vals('have')], ['NAME', [bq.name.value]], ['REACH', [bq.reach.value]], ['SAFE', vals('safe')]];
+    var svc = (vals('service')[0] || 'Not sure yet'), when = vals('timing')[0] || '';
+    var PLAN = {
+      'Surveillance': 'Planned surveillance sessions around the subject\u2019s routine, with a written report after each.',
+      'Infidelity': 'A consultation, then targeted surveillance on the days that matter most, with photo and video where appropriate.',
+      'Child custody or family law': 'Documented observation of parenting time or living arrangements, reported in a form your lawyer can use.',
+      'Corporate or WSIB': 'Claimant or employee activity checks, background research and an evidence-ready report.',
+      'Skip trace or locate': 'Database, public-record and open-source research to confirm a current address and contact details.',
+      'Countersurveillance (TSCM)': 'A sweep of the home, office or vehicle, plus physical countersurveillance if needed.',
+      'Background check': 'Identity, history and public-record research, summarised in a short written report.',
+      'Not sure yet': 'A free, confidential consultation to work out the right approach first.'
+    };
+    var fixed = ['Skip trace or locate', 'Background check', 'Countersurveillance (TSCM)', 'Surveillance'].indexOf(svc) > -1;
+    $('#bqEst').innerHTML = '<b>LIKELY APPROACH</b><p>' + PLAN[svc] + '</p>' +
+      '<b style="margin-top:12px">YOUR QUOTE</b><p>' + (fixed ? 'Set-scope service: from $&mdash; with a deposit to hold your dates.' : 'Custom quote from Anthony within one business day' + (when === 'As soon as possible' ? ', sooner for urgent files.' : '.')) + '</p>' +
+      '<p class="ph">Concept: prices and deposits are placeholders for Aventus to set.</p>';
     $('#bqSum').innerHTML = rows.filter(function (r) { return r[1].length && r[1][0]; }).map(function (r) { return '<dt>' + r[0] + '</dt><dd>' + r[1].map(esc).join(', ') + '</dd>'; }).join('');
     $$('.bq-s', bq).forEach(function (f) { f.classList.remove('on'); });
     $('#bqDone').hidden = false; $('#bqN').textContent = 'DONE'; $('#bqBar').style.width = '100%';
-    $('#bqNext').textContent = 'SEND SECURELY'; $('#bqNext').onclick = function () { this.textContent = 'PREVIEW ONLY'; this.disabled = true; };
+    $('#bqNext').textContent = 'SEND & GET MY QUOTE'; $('#bqNext').onclick = function () { this.textContent = 'PREVIEW ONLY'; this.disabled = true; };
   }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   $('#bqNext').addEventListener('click', function () { if ($('#bqDone').hidden) go(step + 1); });
@@ -201,20 +216,49 @@
     $('#bqDone').hidden = true; go(1); step = 1; go(2);
   });
 
+  /* ===== being watched? self-check ===== */
+  var cq = $$('#check li');
+  cq.forEach(function (li) {
+    $$('button', li).forEach(function (b) {
+      b.setAttribute('aria-pressed', 'false');
+      b.addEventListener('click', function () { $$('button', li).forEach(function (o) { o.setAttribute('aria-pressed', 'false'); }); b.setAttribute('aria-pressed', 'true'); scoreCheck(); });
+    });
+  });
+  function scoreCheck() {
+    var ans = cq.map(function (li) { var on = $('button[aria-pressed=true]', li); return on ? on.textContent : null; });
+    var done = ans.filter(Boolean).length, yes = ans.filter(function (a) { return a === 'YES'; }).length, out = $('#checkOut');
+    if (done < cq.length) { out.hidden = true; return; }
+    out.hidden = false;
+    var t = yes >= 3 ? ['WORTH A PROFESSIONAL LOOK.', 'Several signs line up. A sweep and a short countersurveillance check can confirm what\u2019s really going on.']
+      : yes >= 1 ? ['KEEP AN EYE ON IT.', 'One or two signs can be coincidence. If it keeps happening, a confidential conversation costs nothing.']
+      : ['NO STRONG SIGNS.', 'Nothing here points to surveillance. If something changes, we\u2019re open 24/7.'];
+    out.innerHTML = '<b>' + t[0] + '</b><span>' + t[1] + '</span>' + (yes ? '<a class="btn btn-solid" href="#build" data-svc="Countersurveillance (TSCM)">BOOK A SWEEP</a>' : '');
+  }
+
+  /* ===== newsletter ===== */
+  $$('#newsForm .chips button').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); b.addEventListener('click', function () { b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true')); }); });
+  $('#newsForm').addEventListener('submit', function (e) {
+    e.preventDefault(); var em = this.email.value.trim();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)) { this.email.focus(); this.email.style.borderColor = '#E6CB86'; return; }
+    $('#newsOk').hidden = false;
+  });
+
   /* ===== tour (?tour=1): single tap, auto-plays ===== */
   var TS = [
-    { el: '#top', k: 'WHAT CHANGED', h: 'A calm, serious first impression', p: 'The gold-and-black graphics are gone. Real night-time photography, one bold headline and plain words: you get the facts, quietly.', o: '<b>Why:</b> people arrive anxious. This reads as trustworthy in two seconds.' },
+    { el: '#top', k: 'WHAT CHANGED', h: 'His black and gold, sharpened', p: 'Same logo, same black and gold. The AI-style graphics are replaced with real night photography in a warm monochrome, one gold headline and plain words.', o: '<b>Why:</b> it still looks like Aventus, but it reads as serious and premium in two seconds.' },
     { el: '.hero-btns', k: 'WHAT CHANGED', h: 'Two clear next steps', p: 'Build your quote and Get in touch sit side by side, and follow you on phones in a bottom bar.', o: '<b>Opportunity:</b> more visitors start a case instead of leaving.' },
-    { el: '#qexit', k: 'NEW', h: 'Quick exit', p: 'One tap (or Esc twice) leaves the site for a weather page and drops it from the back button.', o: '<b>Why:</b> someone checking on a partner may be on a shared phone. It shows you understand their situation.' },
-    { el: '.facts', k: 'WHAT CHANGED', h: 'Proof up front', p: 'Licence number, 24/7 hours, one-business-day reply and the free consultation, all from the current site, now in the first screen instead of the footer.', o: '' },
-    { el: '#services', k: 'WHAT CHANGED', h: 'Five services, one tap each', p: 'Long paragraphs became a short, scannable view for each service, rewritten in plain language from Anthony’s own pages.', o: '<b>Opportunity:</b> each one opens straight into a case request for that service.' },
-    { el: '#process', k: 'NEW', h: 'How a case runs', p: 'Four steps, from the first confidential call to the final report.', o: '<b>Why:</b> fear of the unknown is what stops people from reaching out.' },
-    { el: '#counter', k: 'NEW', h: 'Countersurveillance gets its own spotlight', p: 'TSCM sweeps were buried mid-page. Now they have a section and a Book a sweep button.', o: '<b>Opportunity:</b> a separate service line for people who think they’re being watched.' },
+    { el: '#qexit', k: 'NEW', h: 'Quick exit', p: 'One tap (or Esc twice) leaves the site for a weather page and drops it from the back button.', o: '<b>Why:</b> someone checking on a partner may be on a shared phone.' },
+    { el: '#services', k: 'WHAT CHANGED', h: 'Five services, one tap each', p: 'Long paragraphs became a short, scannable view for each service, written from his own pages.', o: '<b>Opportunity:</b> each opens straight into a quote request for that service.' },
+    { el: '#rates', k: 'NEW \u00B7 REVENUE', h: 'Rate card with online booking', p: 'Locates, background checks, surveillance sessions and bug sweeps can be booked with a deposit. Prices are his to set.', o: '<b>Opportunity:</b> paid bookings at 2 a.m., not just enquiries.' },
+    { el: '#process', k: 'NEW', h: 'How a case runs', p: 'Four steps, from the first confidential call to the final report.', o: '<b>Why:</b> the unknown is what stops people reaching out.' },
+    { el: '#counter', k: 'NEW \u00B7 REVENUE', h: '\u201CBeing watched?\u201D self-check', p: 'Six yes-or-no questions with an instant answer, leading to a sweep booking.', o: '<b>Opportunity:</b> turns a worried visitor into a booked TSCM sweep.' },
+    { el: '#pros', k: 'NEW \u00B7 REVENUE', h: 'Retainers for lawyers, insurers and employers', p: 'Priority scheduling, reports built for the file and monthly billing. Proposed terms for Anthony to set.', o: '<b>Opportunity:</b> steady monthly work from repeat clients.' },
     { el: '#anthony', k: 'WHAT CHANGED', h: 'Anthony, up front', p: 'Reviews name Anthony again and again, so he leads the About section. The photo is optional.', o: '' },
     { el: '#reviews', k: 'WHAT CHANGED', h: 'Real reviews, easy to read', p: 'His own Google reviews, one at a time, large enough to read on a phone.', o: '' },
     { el: '#areas', k: 'NEW', h: 'Service area map', p: 'All ten communities on one map, with the Ajax office marked.', o: '<b>Opportunity:</b> each area can link to its own page for local search.' },
-    { el: '#build', k: 'NEW', h: 'Build your quote', p: 'Five quick taps, including how it’s safe to reach them: email, calls, text only, no voicemail.', o: '<b>Opportunity:</b> better-prepared requests, including after hours.' },
-    { el: '#contact', k: 'THAT’S THE TOUR', h: 'Ready when you are', p: 'Everything here uses Aventus’s own words, reviews and logo. Photos are stand-ins until we swap in his.', o: '' }
+    { el: '#build', k: 'NEW \u00B7 REVENUE', h: 'Build your quote', p: 'Five quick taps, safe-contact options, then a likely approach and how the quote works, before anything is sent.', o: '<b>Opportunity:</b> better-prepared requests and faster quotes.' },
+    { el: '#brief', k: 'NEW \u00B7 REVENUE', h: 'The Aventus Brief newsletter', p: 'A monthly note for lawyers, employers, landlords and individuals, with discreet sending.', o: '<b>Opportunity:</b> keeps referral sources thinking of Aventus every month.' },
+    { el: '#contact', k: 'THAT\u2019S THE TOUR', h: 'Ready when you are', p: 'Everything uses Aventus\u2019s own words, reviews and logo. Photos are stand-ins and prices are placeholders until Anthony sets them.', o: '' }
   ];
   var tour = $('#tour'), ti = 0, paused = false, tt = null, hl = null, DUR = 7000, t0 = 0, left = DUR, raf;
   function tick() { if (paused) return; var f = Math.min(1, (performance.now() - t0) / left); $('#tourBar').style.width = ((1 - left / DUR) + f * left / DUR) * 100 + '%'; if (f < 1) raf = requestAnimationFrame(tick); }
