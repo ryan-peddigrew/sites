@@ -54,7 +54,8 @@ def sw(name, hx, role, txt='#fff'):
     return (f'<div class="sw"><div class="c" style="background:{hx};color:{txt}">{name}</div>'
             f'<div class="m">{hx}<br>RGB {r} {g} {b}<br>CMYK approx. {role}</div></div>')
 
-LOGO = '<img src="/img/logo.svg" alt="Center Stage AV logo" width="434" height="98">'
+LOGO = '<img src="/img/logo.svg" alt="Center Stage AV logo" width="297" height="67">'
+LIGHT = '<img src="/img/logo-light.svg" alt="Center Stage AV logo" width="297" height="67">'
 ICON_PHONE = '<svg class="ic" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>'
 ICON_DOC = '<svg class="ic" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h7M9 8h3"/></svg>'
 ICON_MIC = '<svg class="ic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>'
@@ -84,21 +85,21 @@ def pages():
 <div><p class="dont">Not correct</p><p>Centre Stage AV, Center Stage A/V, CenterStage AV, Center Stage Audio Visual</p></div></div>
 <p>Spell "Center" the American way, as the logo does, even in Canadian copy.</p>'''))
     P.append(pg(7, 'Logo', 'The logo', f'''<p>The logo has two parts: the wordmark <b>CENTER STAGE</b> and the <b>AV emblem</b>, a crimson oval with a white AV. Use the logo exactly as supplied. Never redraw it.</p>
-<div class="tile" style="background:{INK}">{LOGO}</div><p class="note">Supplied file: /img/logo.svg (their own artwork, placed as an image).</p>'''))
+<div class="tile" style="background:{INK}">{LOGO}</div><div style="height:12px"></div><div class="tile" style="background:#fff;border:1px solid #0001">{LIGHT}</div><p class="note">Their logo as supplied (black type on white) and the white-type version for dark backgrounds.</p>'''))
     P.append(pg(8, 'Construction', 'Clear space and construction', f'''<p>Keep clear space around the logo equal to the height of the letter A in CENTER on every side. Nothing enters this space: no text, no photo edge, no other logo.</p>
-<div class="tile" style="background:var(--paper);padding:60px"><div style="outline:1.5px dashed {CR};outline-offset:0;padding:0">{LOGO}</div></div>'''))
+<div class="tile" style="background:var(--paper);padding:60px"><div style="outline:1.5px dashed {CR};outline-offset:0;padding:0">{LIGHT}</div></div>'''))
     P.append(pg(9, 'Size', 'Minimum size', '''<div class="g2"><div><h3>Print</h3><p>Logo at least 30 mm wide. The wordmark must stay readable at that size.</p></div>
 <div><h3>Screen</h3><p>Logo at least 140 px wide on desktop and 110 px on phones. Use the largest file you have, and never stretch it.</p></div></div>
-<p class="note">The supplied artwork is 434 px wide. Ask for a vector or a larger original before printing banners or signage.</p>'''))
-    P.append(pg(10, 'Versions', 'Logo on light and dark', f'''<div class="g2"><div class="tile" style="background:{INK}">{LOGO}</div><div class="tile" style="background:{CR}">{LOGO}</div></div>
-<p class="note">The approved versions are the full logo on Ink and on Crimson. A black version for white paper is still to be drawn and approved.</p>'''))
+<p class="note">The supplied artwork is 297 px wide. Ask for a vector or a larger original before printing banners or signage.</p>'''))
+    P.append(pg(10, 'Versions', 'Logo on light and dark', f'''<div class="g3"><div class="tile" style="background:{INK}">{LOGO}</div><div class="tile" style="background:{CR}">{LOGO}</div><div class="tile" style="background:#fff;border:1px solid #0001">{LIGHT}</div></div>
+<p class="note">Black type on white and paper. White type on Ink and Crimson. The white-type version is derived from the supplied file; Ryan to approve it.</p>'''))
     P.append(pg(11, 'Misuse', 'Logo misuse', f'''<div class="g3">
-<div><div class="tile" style="background:var(--paper);transform:scaleX(1.35)">{LOGO}</div><p class="dont">Do not stretch</p></div>
-<div><div class="tile" style="background:var(--paper);transform:rotate(-8deg)">{LOGO}</div><p class="dont">Do not rotate</p></div>
-<div><div class="tile" style="background:var(--paper);filter:drop-shadow(6px 8px 6px #0008)">{LOGO}</div><p class="dont">Do not add shadows or glows</p></div>
-<div><div class="tile" style="background:#7BD389">{LOGO}</div><p class="dont">Do not place on other colours</p></div>
-<div><div class="tile" style="background:var(--paper);-webkit-text-stroke:0">{LOGO}</div><p class="dont">Do not outline or recolour</p></div>
-<div><div class="tile" style="background:var(--paper);transform:scaleY(-1)">{LOGO}</div><p class="dont">Do not flip or mirror</p></div></div>'''))
+<div><div class="tile" style="background:var(--paper);transform:scaleX(1.35)">{LIGHT}</div><p class="dont">Do not stretch</p></div>
+<div><div class="tile" style="background:var(--paper);transform:rotate(-8deg)">{LIGHT}</div><p class="dont">Do not rotate</p></div>
+<div><div class="tile" style="background:var(--paper);filter:drop-shadow(6px 8px 6px #0008)">{LIGHT}</div><p class="dont">Do not add shadows or glows</p></div>
+<div><div class="tile" style="background:#7BD389">{LIGHT}</div><p class="dont">Do not place on other colours</p></div>
+<div><div class="tile" style="background:var(--paper);-webkit-text-stroke:0">{LIGHT}</div><p class="dont">Do not outline or recolour</p></div>
+<div><div class="tile" style="background:var(--paper);transform:scaleY(-1)">{LIGHT}</div><p class="dont">Do not flip or mirror</p></div></div>'''))
     P.append(pg(12, 'Emblem', 'The AV emblem alone', '''<p>Where space is tight, such as a favicon, app icon, social avatar or a stage screen corner, use the AV emblem alone. Crop it from the full logo; do not redraw it.</p>
 <p class="note">Current status: the emblem crop for these uses is still to be made from the master artwork.</p>'''))
     P.append(pg(13, 'Colour', 'Primary colours', f'''<div class="g3">{sw("Crimson", CR, "0 92 55 0", "#fff")}{sw("Ink", INK, "70 60 50 90", "#fff")}{sw("White", WH, "0 0 0 0", INK)}</div>
@@ -136,11 +137,11 @@ def pages():
     P.append(pg(25, 'Stationery', 'Business card', f'''<div class="g2"><div class="card" style="display:flex;flex-direction:column;justify-content:space-between"><div style="transform:scale(.7);transform-origin:left top;filter:brightness(1.1)"><img src="/img/logo.svg" alt="" width="434" height="98"></div><div style="font:500 11px var(--mono);letter-spacing:.08em">FIRST LAST &middot; TITLE<br>+1 000 000 0000 &middot; name@centerstageav.com</div></div>
 <div class="card" style="background:{CR};display:flex;align-items:center;justify-content:center"><img src="/img/logo.svg" alt="" width="434" height="98" style="width:80%"></div></div>
 <p class="note">Front (Ink) and back (Crimson). Name, title, phone and email are placeholders.</p>'''))
-    P.append(pg(26, 'Stationery', 'Letterhead and envelope', f'''<div class="g2"><div class="sheetA"><img src="/img/logo.svg" alt="" width="434" height="98" style="width:60%;filter:invert(1) hue-rotate(180deg)"><div style="margin-top:28px;color:#666">Date<br><br>Recipient name<br>Address line<br><br>Dear Name,</div></div>
+    P.append(pg(26, 'Stationery', 'Letterhead and envelope', f'''<div class="g2"><div class="sheetA"><img src="/img/logo-light.svg" alt="" width="297" height="67" style="width:60%"><div style="margin-top:28px;color:#666">Date<br><br>Recipient name<br>Address line<br><br>Dear Name,</div></div>
 <div><div style="background:#fff;border:1px solid #0002;aspect-ratio:220/110;max-width:360px;padding:8%;position:relative;box-shadow:0 6px 18px #0002"><div style="background:{INK};height:30%;width:60%;margin-bottom:10%"></div><div style="width:40%;height:10%;background:#eee;margin-left:50%"></div></div><p class="note">Envelope (DL). Ink logo block at top left.</p></div></div>'''))
     P.append(pg(27, 'Stationery', 'Letter template', '''<div class="sheetA" style="max-width:520px"><div style="font:800 13px Archivo;font-stretch:125%;text-transform:uppercase;color:#D61045">Center Stage AV</div><div style="margin-top:14px;color:#555">[Date]<br><br>[Recipient name]<br>[Company]<br>[Address]</div><p style="margin-top:14px">Dear [Name],</p><p>[Opening: one line on why you are writing.]</p><p>[Body: the facts, the dates, the next step.]</p><p>Thank you,<br>[Name], [Title]<br>Center Stage AV</p></div>'''))
     P.append(pg(28, 'Email', 'Email signature', f'''<p>One signature for every employee. Name in bold, title and office below, then the phone and email line. The logo sits at the foot, small.</p>
-<div class="sig"><b style="font:800 15px Archivo;font-stretch:118%;text-transform:uppercase">First Last</b><br>Title, Center Stage AV<br>Office, City &middot; +1 000 000 0000<br>name@centerstageav.com<br><img src="/img/logo.svg" alt="Center Stage AV" width="170" height="38" style="margin-top:8px"></div>
+<div class="sig"><b style="font:800 15px Archivo;font-stretch:118%;text-transform:uppercase">First Last</b><br>Title, Center Stage AV<br>Office, City &middot; +1 000 000 0000<br>name@centerstageav.com<br><img src="/img/logo-light.svg" alt="Center Stage AV" width="170" height="38" style="margin-top:8px"></div>
 <p class="note">Placeholders only. Do not add quotes, emojis or social icons in signatures.</p>'''))
     P.append(pg(29, 'Email', 'Newsletter and proposal cover', f'''<div class="g2"><div class="tile" style="background:{INK};display:block;min-height:260px;color:#fff"><img src="/img/logo.svg" alt="" width="434" height="98" style="width:70%"><div class="kick" style="color:#FF2D63;margin-top:40px">Newsletter, Issue 01</div><h3 style="font-size:24px">What is coming up</h3></div>
 <div class="tile" style="background:{CR};display:block;min-height:260px;color:#fff"><img src="/img/logo.svg" alt="" width="434" height="98" style="width:70%"><div class="kick" style="color:#fff;margin-top:40px">Proposal for [Client]</div><h3 style="font-size:24px">Event plan</h3></div></div>
