@@ -133,3 +133,26 @@ body.touring .tour-start{display:none}
 #wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;user-select:none;-webkit-user-select:none;background-repeat:repeat}
 @media print{body>*:not(#wm){visibility:hidden}#wm{visibility:visible}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* v3: smooth, elegant type (Ryan 16 Nov: less blocky) */
+:root{--hd:'Fraunces',Georgia,serif}
+.big{font-family:var(--hd);font-weight:500;text-transform:none;letter-spacing:-.025em;line-height:.92;font-variation-settings:"opsz" 144}
+.big em,.name em,.ftr-name em,.band em{font-style:italic;font-weight:400;color:var(--vi2)}
+.name{font-family:var(--hd);font-weight:500;text-transform:none;letter-spacing:-.03em;line-height:.86;font-size:clamp(96px,17vw,280px);font-variation-settings:"opsz" 144}
+.name span:last-child{background:none;color:inherit}
+.name em{background:linear-gradient(180deg,#fff 0,#C9B8FF 70%,#8f74f0 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
+.kick{font:italic 400 clamp(17px,1.6vw,22px)/1 var(--hd);letter-spacing:.02em;text-transform:none}
+.s0 .kick{letter-spacing:.06em}
+.hdr-mark b{font:600 22px/1 var(--hd);letter-spacing:-.01em}
+.hdr-mark span{font:italic 400 13px/1 var(--hd);letter-spacing:.04em;text-transform:none;color:var(--vi2)}
+.band{font:italic 300 clamp(56px,10vw,160px)/1 var(--hd);-webkit-text-stroke:1px #C9B8FF33}
+.band em{color:transparent}
+.yr{font-family:var(--hd);font-weight:400;font-style:italic}
+.tl-y{font-family:var(--hd);font-weight:400;font-style:italic}
+.tl-i h2,.cert h3,.known{font-family:var(--hd);font-weight:500}
+.mail{font-family:var(--hd);font-weight:400;font-style:italic}
+.ftr-name{font-family:var(--hd);font-weight:300;color:#EDEAF512}
+.ftr-name em{color:inherit}
+.rot{font-family:var(--hd);font-style:italic;font-weight:500}
+.tour h3{font-family:var(--hd);font-weight:500;text-transform:none}
+@media (max-width:700px){.name{font-size:30vw}}
