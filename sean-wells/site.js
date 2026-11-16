@@ -199,7 +199,7 @@
       else { o = 1; if (i > 0 && u < .25) o = u / .25; if (i < N - 1 && u > .75) o = (1 - u) / .25; o = Math.max(0, Math.min(1, o)); }
       if (i === 0 && document.body.classList.contains('intro')) o = 0;
       el.style.opacity = o; el.classList.toggle('on', o > .01);
-      if (pics[i]) { pics[i].style.opacity = i === 0 ? Math.max(o, 0) : o; var z = 1.18 - Math.max(0, Math.min(1, u)) * .16; pics[i].firstElementChild.nextElementSibling.style.transform = 'scale(' + z.toFixed(3) + ')'; }
+      if (pics[i]) { pics[i].style.opacity = i === 0 ? Math.max(o, 0) : o; var z = 1.18 - Math.max(0, Math.min(1, u)) * .16; pics[i].querySelector('.vp').style.transform = 'scale(' + z.toFixed(3) + ')'; }
       var bl = (1 - o) * 10, sc = u < .5 ? .55 + o * .45 : 1 + (1 - o) * 1.6;
       el.style.filter = o > .99 ? 'none' : 'blur(' + bl.toFixed(1) + 'px)';
       el.style.transform = 'scale(' + sc.toFixed(3) + ')';
@@ -213,6 +213,26 @@
     mistLevel = .9 + lerpK([[0, .3], [.33, 0], [.44, .8], [1, .3]], p);
   }
   addEventListener('scroll', render, { passive: true }); addEventListener('resize', render);
+
+
+  /* fly-through: Veld photos rush past the camera */
+  var fly = $('#fly'), fls = $$('.fl'), FL = fls.map(function (el, i) {
+    var a = i * 2.39996, r = .22 + (i % 5) * .07;
+    return { el: el, x: Math.cos(a) * r, y: Math.sin(a) * r * .8, z: -i * 420 };
+  });
+  var DEPTH = fls.length * 420 + 900;
+  function flyRender() {
+    if (!fly) return;
+    var r = fly.getBoundingClientRect(), p = Math.min(1, Math.max(0, -r.top / Math.max(1, fly.offsetHeight - innerHeight)));
+    if (r.bottom < 0 || r.top > innerHeight) return;
+    var cam = p * DEPTH;
+    FL.forEach(function (f) {
+      var z = f.z + cam, o = z > 600 ? 0 : z < -6000 ? 0 : Math.min(1, (z + 6000) / 2000) * (z > 200 ? 1 - (z - 200) / 400 : 1);
+      f.el.style.opacity = Math.max(0, o).toFixed(2);
+      f.el.style.transform = 'translate(-50%,-50%) translate3d(' + (f.x * innerWidth).toFixed(0) + 'px,' + (f.y * innerHeight).toFixed(0) + 'px,' + z.toFixed(0) + 'px)';
+    });
+  }
+  addEventListener('scroll', flyRender, { passive: true }); addEventListener('resize', flyRender); flyRender();
 
   // rotating word
   var words = ['FESTIVALS', 'CONCERT TOURS', 'LIVE EVENTS', 'VIDEO FOR LIVE SHOWS'], wi = 0, rot = $('#rot');
@@ -236,6 +256,7 @@
     { p: .58, k: 'THE ILLUSIONIST', h: 'The hard part, gone', p2: 'Festivals, concert tours, live events, video for live shows. All pulled from your own profile.', o: '' },
     { p: .75, k: 'THE LONG GAME', h: '1993', p2: 'Watch the years rewind. Three decades, told in one number.', o: '<b>Why:</b> experience lands harder as a moment than as a bullet point.' },
     { p: .92, k: 'THE PRESTIGE', h: 'The record, one tap away', p2: 'Your roles, unions and certifications live on their own page, not on the front. Details for anyone who wants them.', o: '' },
+    { el: '#fly', k: 'FLY-THROUGH', h: 'Every Veld moment', p2: 'Twenty-two Veld photos rush past the camera as you scroll, straight off Veld’s own site.', o: '' },
     { el: '#contact', k: 'THE FINAL ACT', h: 'Dark Magic, front and centre', p2: 'Your sean@darkmagic.one address, big and bold. Tap Get in touch: a pop of smoke, then a fresh email to you.', o: '<b>Opportunity:</b> a link you can drop into any email, pitch or bio.', poof: true },
     { el: '#contact', k: 'EVERYWHERE', h: 'Now you see it, now you don’t', p2: 'Every Veld photo appears out of the mist and dissolves into the next. Smoke drifts across the whole site.', o: '' },
     { el: '#contact', k: 'THAT’S THE SHOW', h: 'Built to grow with you', p2: 'Send a few more show photos and a line or two in your own words, and it’s ready to share.', o: '' }
