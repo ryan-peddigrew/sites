@@ -162,18 +162,18 @@ if __name__ == '__main__':
 
 # ---- Three new palette and logo options (new marks, new colours), each on its own
 OPTS = [
- dict(key='a', name='Option A: Spotlight', idea='A stage arch lit from above. Warm amber on midnight, calm and premium.',
+ dict(key='a', name='Option A: Spotlight', idea='A goalpost frame over the stage, with CS in the centre. Warm amber on midnight, calm and premium.',
       cols=[('Midnight', '#101828', 'Base'), ('Amber', '#F5A524', 'Accent'), ('Cream', '#F7F1E8', 'Paper')],
       bg='#101828', ink='#F7F1E8', acc='#F5A524',
-      mark='<path d="M18 92 A42 42 0 0 1 102 92" fill="none" stroke="#F5A524" stroke-width="12" stroke-linecap="butt"/><rect x="10" y="98" width="100" height="8" fill="#F7F1E8"/><circle cx="60" cy="76" r="8" fill="#F7F1E8"/>'),
+      mark='<path d="M20 98 V34 H100 V98" fill="none" stroke="#F5A524" stroke-width="10" stroke-linejoin="miter"/><text x="60" y="84" text-anchor="middle" font-family="Archivo,Arial Black,sans-serif" font-weight="800" font-size="30" fill="#F7F1E8">CS</text><rect x="8" y="98" width="104" height="8" fill="#F7F1E8"/>'),
  dict(key='b', name='Option B: Truss', idea='A lighting truss grid with one live cell. Bold, technical, on-trend for tech-led shows.',
       cols=[('Graphite', '#1B1F24', 'Base'), ('Signal Blue', '#2D5BFF', 'Accent'), ('Steel', '#C9D1DB', 'Paper')],
       bg='#1B1F24', ink='#FFFFFF', acc='#2D5BFF',
       mark=''.join(f'<rect x="{18+i*34}" y="{18+j*34}" width="26" height="26" fill="{"#2D5BFF" if (i,j)==(1,1) else "none"}" stroke="#C9D1DB" stroke-width="4"/>' for i in range(3) for j in range(3))),
- dict(key='c', name='Option C: Proscenium', idea='A proscenium arch around a single gold spot. Classic theatre, modern colour.',
+ dict(key='c', name='Option C: Proscenium', idea='A goalpost frame over the stage, with CS in the centre. Classic theatre, modern colour.',
       cols=[('Plum', '#3A0F33', 'Base'), ('Gold', '#D9A441', 'Accent'), ('Ivory', '#FBF6EC', 'Paper')],
       bg='#3A0F33', ink='#FBF6EC', acc='#D9A441',
-      mark='<path d="M16 100 V44 Q16 16 60 16 Q104 16 104 44 V100" fill="none" stroke="#D9A441" stroke-width="10"/><rect x="8" y="98" width="104" height="8" fill="#FBF6EC"/><circle cx="60" cy="58" r="11" fill="#D9A441"/>'),
+      mark='<path d="M20 98 V34 H100 V98" fill="none" stroke="#D9A441" stroke-width="10" stroke-linejoin="miter"/><text x="60" y="84" text-anchor="middle" font-family="Archivo,Arial Black,sans-serif" font-weight="800" font-size="30" fill="#FBF6EC">CS</text><rect x="8" y="98" width="104" height="8" fill="#FBF6EC"/>'),
 ]
 
 def opt_block(o):
