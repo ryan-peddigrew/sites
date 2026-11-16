@@ -19,62 +19,52 @@ def vpts(vx, vy, h, w, f):
 
 def mv(P, dx, dy, s=1): return [(x * s + dx, y * s + dy) for x, y in P]
 
-# ---------- R1 BLACK OVAL ON CRIMSON
+# AV set in the same heavy wide face as the wordmark, so both letters read at a glance.
+# Both the oval and the letters tilt -12 degrees, so they move in the same direction, as in the original.
+TILT = -12
+def glyph_av(cx, cy, size, fill=WH, tilt=TILT):
+    d, _ = T('arch900w', 'AV', cx, cy + .344 * size, size, track=-.03 * size, anchor='middle')
+    return f'<path d="{d}" fill="{fill}" transform="rotate({tilt} {cx} {cy})"/>'
+
+def glyph_pair(cx, cy, size, fa, fv):
+    dA, wA = T('arch900w', 'A', 0, 0, size)
+    dV, wV = T('arch900w', 'V', 0, 0, size)
+    gap = -.03 * size
+    tot = wA + gap + wV
+    x0 = cx - tot / 2
+    dA, _ = T('arch900w', 'A', x0, cy + .344 * size, size)
+    dV, _ = T('arch900w', 'V', x0 + wA + gap, cy + .344 * size, size)
+    return (f'<path d="{dA}" fill="{fa}" transform="rotate({TILT} {cx} {cy})"/>'
+            f'<path d="{dV}" fill="{fv}" transform="rotate({TILT} {cx} {cy})"/>')
+
+# ---------- R1 BLACK OVAL ON CRIMSON, white AV standing in it
 def r1_mark(D, cx, cy, s, ring=WH, let=WH):
-    rx, ry = 190 * s, 118 * s
-    rot = f'rotate(-12 {cx} {cy})'
-    h = 250 * s
-    a, v, _ = av_paths(cx + 2 * s, cy + 2 * s, h, f=h * .2, gap=h * .05)
-    return f'<g transform="{rot}"><path d="{ell_d(cx, cy, rx, ry)}" fill="{INK}"/></g><path d="{a}" fill="{let}"/><path d="{v}" fill="{let}"/>'
+    rx, ry = 186 * s, 112 * s
+    oval = f'<path d="{ell_d(cx, cy, rx, ry)}" fill="{INK}" transform="rotate({TILT} {cx} {cy})"/>'
+    return oval + glyph_av(cx, cy, 240 * s, fill=let)
 
-# ---------- R2 SPOT
+# ---------- R2 SPOTLIGHT: white AV over a crimson oval
 def r2_mark(D, cx, cy, s, let=WH, dot=CR):
-    h, w, f = 200 * s, 100 * s, 36 * s
-    A = legs(h, w, f)
-    vy = .28 * h; vx = w + vy * w / h + 10 * s
-    V = vpts(vx, vy, h, w, f)
-    tw = vx + w + w; th = vy + h
-    dx, dy = cx - tw / 2 + w, cy - th / 2
-    yb = .66 * h
-    ox = dx; oy = dy + yb
-    oval = f'<ellipse cx="{ox:.1f}" cy="{oy:.1f}" rx="{w * .56:.1f}" ry="{w * .3:.1f}" transform="rotate(-12 {ox:.1f} {oy:.1f})" fill="{dot}"/>'
-    return f'<path d="{poly(mv(A, dx, dy))}" fill="{let}"/>' + oval + f'<path d="{poly(mv(V, dx, dy))}" fill="{let}"/>'
+    oval = f'<path d="{ell_d(cx, cy + 6 * s, 200 * s, 120 * s)}" fill="{dot}" transform="rotate({TILT} {cx} {cy})"/>'
+    return oval + glyph_av(cx, cy, 236 * s, fill=let)
 
-# ---------- R3 SPLIT
+# ---------- R3 SPLIT: oval cut on the slant of the A; white A, crimson V
 def r3_mark(D, cx, cy, s, dark_half=INK, a_col=WH, v_col=CR, edge=None):
-    rx, ry = 160 * s, 104 * s
-    rot = f'rotate(-12 {cx} {cy})'
+    rx, ry = 186 * s, 112 * s
+    rot = f'rotate({TILT} {cx} {cy})'
     disc = ell_d(cx, cy, rx, ry)
-    h, w, f = 150 * s, 74 * s, 27 * s
-    A = legs(h, w, f)
-    # crossbar for the A
-    yb1, yb2 = .62 * h, .62 * h + f * .6
-    def ir(y): return w - f - (h - y) * w / h
-    A = [(0, 0), (w, h), (w - f, h), (ir(yb2), yb2), (-ir(yb2), yb2), (-(w - f), h), (-w, h)]
-    hole = [(0, f * h / w + 2 * s), (-ir(yb1), yb1), (ir(yb1), yb1)]
-    gap = 22 * s
-    vy = .22 * h; vx = w + vy * w / h + gap + 14 * s
-    V = vpts(vx, vy, h, w, f)
-    tw = vx + w + w; th = vy + h
-    dx, dy = cx - tw / 2 + w, cy - th / 2
-    # split line runs parallel to the A's right leg, centred in the gap between A and V
-    k = w / h
-    mid = lambda y: dx + w + gap / 2 + 7 * s + (y - dy - h) * k   # x on the split at y
-    yT, yB = cy - 200 * s, cy + 200 * s
-    left = [(cx - 400 * s, yT), (mid(yT), yT), (mid(yB), yB), (cx - 400 * s, yB)]
-    right = [(mid(yT), yT), (cx + 400 * s, yT), (cx + 400 * s, yB), (mid(yB), yB)]
     cid = D.clip(disc, tr=rot)
+    split = cx + 4 * s
+    left = [(cx - 400 * s, cy - 300 * s), (split - 40 * s, cy - 300 * s), (split + 40 * s, cy + 300 * s), (cx - 400 * s, cy + 300 * s)]
+    right = [(split - 40 * s, cy - 300 * s), (cx + 400 * s, cy - 300 * s), (cx + 400 * s, cy + 300 * s), (split + 40 * s, cy + 300 * s)]
     o = (f'<g clip-path="url(#{cid})"><path d="{poly(left)}" fill="{CR}"/><path d="{poly(right)}" fill="{dark_half}"/></g>')
-    if edge:
-        o += f'<g transform="{rot}"><path d="{disc}" fill="none" stroke="{edge}" stroke-width="{3 * s}"/></g>'
-    o += f'<path d="{poly(mv(A, dx, dy))} {poly(mv(hole, dx, dy)[::-1])}" fill="{a_col}"/><path d="{poly(mv(V, dx, dy))}" fill="{v_col}"/>'
-    return o
+    return o + glyph_pair(cx, cy, 236 * s, a_col, v_col)
 
 def tile(D, n, bg, s=1.0):
     c = 256
     if n == 1: m = r1_mark(D, c, c + 4, 1.0)
-    elif n == 2: m = r2_mark(D, c, c, 1.12)
-    else: m = r3_mark(D, c, c, 1.18, dark_half='#2E2B34')
+    elif n == 2: m = r2_mark(D, c, c, 1.0)
+    else: m = r3_mark(D, c, c, 1.0, dark_half='#2E2B34')
     return f'<rect width="512" height="512" rx="112" fill="{bg}"/>' + m
 
 def icon(n):
