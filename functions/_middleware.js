@@ -44,9 +44,10 @@ export async function onRequest(ctx) {
   const ck = cookies(request);
   const ok = c => c && (c === want || c === master || (EXTRA[folder] && c === EXTRA[folder]));
 
-  let given = (url.searchParams.get('k') || '').trim().toLowerCase();
+  const norm = v => (v || '').toString().replace(/[^a-z0-9]/gi, '').toLowerCase();
+  let given = norm(url.searchParams.get('k'));
   if (request.method === 'POST') {
-    try { given = ((await request.formData()).get('code') || '').toString().trim().toLowerCase(); } catch (e) {}
+    try { given = norm((await request.formData()).get('code')); } catch (e) {}
     if (!ok(given)) return gate('That code does not match. Check it and try again.');
   }
   if (ok(given)) {
