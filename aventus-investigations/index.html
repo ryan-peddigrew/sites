@@ -10,7 +10,7 @@
 <link rel="icon" href="img/mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Public+Sans:wght@400;500;600;700&family=Cinzel:wght@600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="img/street-m.webp" media="(max-width:760px)">
 <link rel="preload" as="image" href="img/street.webp" media="(min-width:761px)">
 <link rel="stylesheet" href="site.css">
@@ -454,6 +454,15 @@
       <button type="button" id="tourEnd" aria-label="End tour">END</button>
     </div>
   </div>
+</div>
+
+<!-- QUENTIN: chat -->
+<button class="qbtn" id="qbtn" type="button" aria-label="Chat with Quentin" aria-expanded="false"><span class="qq">Q</span><span class="qdot"></span></button>
+<div class="qchat" id="qchat" hidden role="dialog" aria-label="Quentin chat">
+  <div class="qhead"><span class="qq qs">Q</span><div><b>QUENTIN</b><small>Aventus case desk · Open 24/7</small></div><button type="button" id="qx" aria-label="Close chat"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="qlog" id="qlog" aria-live="polite"></div>
+  <div class="qquick" id="qquick"></div>
+  <form class="qform" id="qform"><input id="qin" autocomplete="off" placeholder="Ask Quentin anything" aria-label="Your message"><button type="submit" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button></form>
 </div>
 
 <div id="wm" aria-hidden="true"></div>
