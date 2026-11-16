@@ -172,3 +172,16 @@ body.touring .tour-start{display:none}
 .rec-bg,.contact{filter:none}
 .rec-bg::after{content:"";position:absolute;inset:0;backdrop-filter:grayscale(1);-webkit-backdrop-filter:grayscale(1)}
 .contact{background-blend-mode:normal}
+
+/* hero type: DARK MAGIC bold, sean wells italic lowercase (Ryan 16 Nov) */
+.name .dm{font:700 clamp(64px,13vw,220px)/.86 var(--hd);letter-spacing:-.02em;text-transform:uppercase;color:#fff;background:none}
+.name .sw{display:block;margin-top:.12em;font-size:.42em;line-height:1;background:none;color:inherit}
+.name .sw em{font-style:italic;font-weight:300;color:#e6e6e6;background:none;-webkit-text-fill-color:#e6e6e6}
+@media (max-width:700px){.name{font-size:24vw}.name .dm{font-size:19vw}.name .sw{font-size:.5em}}
+video.vp{width:100%;height:100%;object-fit:cover}
+/* fly-through wall */
+.fly{position:relative;z-index:4;height:420vh}
+.fly-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;perspective:900px;background:#000}
+.fly-world{position:absolute;inset:0;transform-style:preserve-3d}
+.fl{position:absolute;left:50%;top:50%;width:clamp(180px,30vw,420px);height:auto;filter:grayscale(1) contrast(1.1) brightness(.85);will-change:transform,opacity;backface-visibility:hidden}
+.fly-copy{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;z-index:5;pointer-events:none;text-shadow:0 4px 40px #000}
