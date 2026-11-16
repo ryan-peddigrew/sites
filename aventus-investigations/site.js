@@ -62,7 +62,11 @@
       var s = document.createElement('span'); s.className = 'ch'; s.style.animationDelay = (wi * 70) + 'ms'; s.textContent = w; rot.appendChild(s); rot.appendChild(document.createTextNode(' '));
     });
   }
-  if (!RM) setInterval(function () { li = (li + 1) % lines.length; typeLine(lines[li]); }, 3200);
+  var hsv = $$('.hero-svc a'), MAPI = [1, 3, 4, 2, 0];
+  function markSvc() { hsv.forEach(function (a, ai) { a.classList.toggle('on', ai === MAPI[li]); }); }
+  markSvc();
+  if (!RM) setInterval(function () { li = (li + 1) % lines.length; typeLine(lines[li]); markSvc(); }, 3200);
+  hsv.forEach(function (a) { a.addEventListener('click', function () { showSvc(+a.dataset.i); }); });
   var hms = $$('.hm'), hi = 0;
   if (!RM) setInterval(function () {
     hms[hi].classList.remove('on'); hi = (hi + 1) % hms.length;
@@ -117,40 +121,68 @@
   $('#revNext').addEventListener('click', function () { showRev(ri + 1); });
   showRev(0);
 
-  /* ===== areas map ===== */
+  /* ===== areas map: real places, highways, marker types ===== */
   var AR = [
-    ['Toronto', -79.383, 43.653], ['North York', -79.413, 43.770], ['Scarborough', -79.231, 43.773], ['Vaughan', -79.509, 43.838],
-    ['Richmond Hill', -79.437, 43.882], ['Markham', -79.263, 43.856], ['Pickering', -79.089, 43.838], ['Ajax', -79.032, 43.851],
-    ['Whitby', -78.943, 43.897], ['Oshawa', -78.865, 43.897]
+    ['Toronto', -79.383, 43.653, 'r'], ['North York', -79.413, 43.770, 'b'], ['Scarborough', -79.231, 43.773, 'r'], ['Vaughan', -79.509, 43.838, 'b'],
+    ['Richmond Hill', -79.437, 43.882, 't'], ['Markham', -79.263, 43.856, 't'], ['Pickering', -79.089, 43.838, 'b'], ['Ajax', -79.032, 43.851, 't'],
+    ['Whitby', -78.943, 43.897, 't'], ['Oshawa', -78.865, 43.897, 'b']
   ];
-  var NOTE = { Ajax: '40 Hunt Street, Suite 207. Surveillance, family, corporate and locate work across the GTA and Southern Ontario.' };
-  function X(lon) { return (lon + 79.62) * 1090; } function Y(lat) { return (43.98 - lat) * 1050; }
-  var shore = [[-79.66, 43.565], [-79.55, 43.59], [-79.47, 43.625], [-79.40, 43.632], [-79.33, 43.645], [-79.25, 43.69], [-79.17, 43.745], [-79.10, 43.79], [-79.03, 43.815], [-78.95, 43.845], [-78.87, 43.862], [-78.78, 43.87], [-78.76, 43.87]];
-  var sp = shore.map(function (p, i) { return (i ? 'L' : 'M') + X(p[0]).toFixed(0) + ' ' + Y(p[1]).toFixed(0); }).join(' ');
+  /* Past case areas: general areas only, never addresses. Anthony adds these, e.g. ['Ajax', -79.03, 43.85]. */
+  var CASES = [];
+  var NOTE = { Ajax: 'Where we work out of: 40 Hunt Street, Suite 207. Surveillance, family, corporate and locate work across the GTA and Southern Ontario.' };
+  function X(lon) { return Math.round((lon + 79.62) * 1097); } function Y(lat) { return Math.round((44.02 - lat) * 1520); }
+  function line(pts) { return pts.map(function (q, i) { return (i ? 'L' : 'M') + X(q[0]) + ' ' + Y(q[1]); }).join(' '); }
+  var shore = [[-79.66, 43.575], [-79.52, 43.61], [-79.45, 43.625], [-79.38, 43.635], [-79.32, 43.655], [-79.25, 43.69], [-79.17, 43.74], [-79.10, 43.79], [-79.03, 43.815], [-78.95, 43.845], [-78.87, 43.862], [-78.76, 43.87]];
+  var HW = [
+    ['401', [[-79.66, 43.69], [-79.50, 43.72], [-79.40, 43.735], [-79.30, 43.765], [-79.20, 43.79], [-79.10, 43.828], [-79.03, 43.858], [-78.95, 43.877], [-78.86, 43.893], [-78.76, 43.905]], [-79.27, 43.776]],
+    ['407', [[-79.66, 43.765], [-79.50, 43.805], [-79.40, 43.848], [-79.30, 43.872], [-79.20, 43.893], [-79.08, 43.915], [-78.95, 43.935], [-78.76, 43.95]], [-79.12, 43.913]],
+    ['404', [[-79.35, 43.70], [-79.37, 43.80], [-79.40, 43.95]], [-79.385, 43.93]],
+    ['400', [[-79.53, 43.72], [-79.545, 43.85], [-79.55, 43.95]], [-79.55, 43.93]]
+  ];
+  var EYE = 'M-15 0Q0-12 15 0Q0 12-15 0Z';
   var map = $('#map');
-  var g = '<path class="lake" d="' + sp + ' L 900 420 L 0 420 Z"/><path class="shore" d="' + sp + '"/><text class="lake-l" x="420" y="390">LAKE ONTARIO</text>';
+  map.setAttribute('viewBox', '0 100 900 540');
+  var g = '<defs><linearGradient id="sw" x1="0" x2="1"><stop offset="0" stop-color="#E6CB86" stop-opacity="0"/><stop offset="1" stop-color="#E6CB86" stop-opacity=".28"/></linearGradient>' +
+    '<clipPath id="mc"><rect x="0" y="100" width="900" height="540"/></clipPath></defs><g clip-path="url(#mc)">' +
+    '<path class="lake" d="' + line(shore) + ' L 900 700 L 0 700 Z"/><path class="shore" d="' + line(shore) + '"/>';
+  HW.forEach(function (h) { var lx = X(h[2][0]), ly = Y(h[2][1]); g += '<path class="hwy" d="' + line(h[1]) + '"/><g class="hwl"><rect x="' + (lx - 26) + '" y="' + (ly - 15) + '" width="52" height="30" rx="3"/><text x="' + lx + '" y="' + (ly + 7) + '" text-anchor="middle">' + h[0] + '</text></g>'; });
+  g += '<text class="lake-l" x="560" y="560">LAKE ONTARIO</text>';
+  var ox = X(-79.032), oy = Y(43.851);
+  g += '<g class="sweep" style="transform-origin:' + ox + 'px ' + oy + 'px"><path d="M' + ox + ' ' + oy + ' L' + (ox + 700) + ' ' + (oy - 120) + ' A 710 710 0 0 1 ' + (ox + 700) + ' ' + (oy + 120) + ' Z" fill="url(#sw)"/></g>';
   AR.forEach(function (a, i) {
-    var x = X(a[1]), y = Y(a[2]), left = ['Vaughan', 'North York', 'Toronto'].indexOf(a[0]) > -1;
-    var ly = a[0] === 'Pickering' ? y + 26 : a[0] === 'Ajax' ? y - 14 : a[0] === 'Scarborough' ? y + 24 : y + 5;
-    var lx = left ? x - 12 : x + 12, anc = left ? 'end' : 'start';
-    if (a[0] === 'Pickering') { lx = x - 6; anc = 'end'; }
-    if (a[0] === 'Whitby') { ly = y - 14; lx = x - 4; anc = 'middle'; }
-    if (a[0] === 'Oshawa') { ly = y + 26; lx = x + 4; anc = 'middle'; }
-    if (a[0] === 'Richmond Hill') { ly = y - 12; lx = x; anc = 'middle'; }
-    if (a[0] === 'Markham') { ly = y - 12; lx = x + 6; anc = 'middle'; }
-    g += '<g class="pt" data-i="' + i + '" tabindex="0" role="button" aria-label="' + a[0] + '">' + (a[0] === 'Ajax' ? '<circle class="ring" cx="' + x + '" cy="' + y + '" r="10"/>' : '') +
-      '<circle class="h" cx="' + x + '" cy="' + y + '" r="24"/><circle class="d" cx="' + x + '" cy="' + y + '" r="' + (a[0] === 'Ajax' ? 8 : 6) + '"/><text class="lab" x="' + lx + '" y="' + ly + '" text-anchor="' + anc + '">' + a[0] + '</text></g>';
+    var x = X(a[1]), y = Y(a[2]), off = a[0] === 'Ajax', lx = x, ly = y, anc = 'middle';
+    if (a[3] === 'r') { lx = x + 26; ly = y + 10; anc = 'start'; }
+    if (a[3] === 't') { ly = y - 24; }
+    if (a[3] === 'b') { ly = y + 40; }
+    g += '<g class="pt ' + (off ? 'office' : 'area') + '" data-i="' + i + '" data-k="' + (off ? 'office' : 'area') + '" tabindex="0" role="button" aria-label="' + a[0] + '" style="--d:' + (i * 0.37).toFixed(2) + 's">' +
+      (off ? '<circle class="ring" cx="' + x + '" cy="' + y + '" r="16"/><circle class="ring r2" cx="' + x + '" cy="' + y + '" r="16"/>' : '') +
+      '<circle class="h" cx="' + x + '" cy="' + y + '" r="34"/>' +
+      '<g class="eye" transform="translate(' + x + ' ' + y + ') scale(' + (off ? 1.45 : 1) + ')"><path d="' + EYE + '"/><circle r="4.6"/></g>' +
+      '<text class="lab" x="' + lx + '" y="' + ly + '" text-anchor="' + anc + '">' + a[0] + '</text></g>';
   });
+  CASES.forEach(function (c) { var x = X(c[1]), y = Y(c[2]); g += '<g class="pt case" data-k="case"><g transform="translate(' + x + ' ' + y + ')"><circle cx="-7" r="7"/><circle cx="7" r="7"/><rect x="-3" y="-4" width="6" height="5"/></g></g>'; });
+  g += '</g>';
   map.innerHTML = g;
-  $('#areaChips').innerHTML = AR.map(function (a, i) { return '<button type="button" data-i="' + i + '">' + a[0].toUpperCase() + '</button>'; }).join('');
-  $$('#areaChips button').forEach(function (b) { b.addEventListener('click', function () { showArea(+b.dataset.i); }); });
+  $('#areaChips').innerHTML =
+    '<button type="button" data-f="all" aria-pressed="true">ALL</button>' +
+    '<button type="button" data-f="office" aria-pressed="false"><svg viewBox="-17 -13 34 26"><path d="' + EYE + '"/><circle r="4.6"/></svg>WHERE WE WORK OUT OF</button>' +
+    '<button type="button" data-f="area" aria-pressed="false"><svg class="o" viewBox="-17 -13 34 26"><path d="' + EYE + '"/><circle r="4.6"/></svg>ACTIVE AREAS</button>' +
+    '<button type="button" data-f="case" aria-pressed="false"><svg class="b" viewBox="-16 -9 32 18"><circle cx="-7" r="7"/><circle cx="7" r="7"/></svg>PAST CASES</button>';
+  $$('#areaChips button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.dataset.f;
+      $$('#areaChips button').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+      map.setAttribute('data-f', f);
+      if (f === 'case' && !CASES.length) $('#areaCard').innerHTML = '<h3>PAST CASES</h3><p>Anthony adds the general areas of closed cases here (never addresses), so visitors see where Aventus has already worked.</p>';
+      else if (f === 'office') showArea(7);
+    });
+  });
   function showArea(i) {
-    $$('#areaChips button').forEach(function (b) { b.setAttribute('aria-pressed', String(+b.dataset.i === i)); });
     $$('.pt', map).forEach(function (p) { p.classList.toggle('on', +p.dataset.i === i); });
     var n = AR[i][0];
-    $('#areaCard').innerHTML = '<h3>' + n.toUpperCase() + (n === 'Ajax' ? ' · MAIN OFFICE' : '') + '</h3><p>' + (NOTE[n] || 'Surveillance, infidelity, custody, WSIB and corporate investigations, skip trace and locates in ' + n + ' and nearby.') + '</p>';
+    $('#areaCard').innerHTML = '<h3>' + n.toUpperCase() + (n === 'Ajax' ? ' · OFFICE' : ' · ACTIVE') + '</h3><p>' + (NOTE[n] || 'Surveillance, infidelity, custody, WSIB and corporate investigations, skip trace and locates in ' + n + ' and nearby.') + '</p>';
   }
-  $$('.pt', map).forEach(function (p) {
+  $$('.pt[data-i]', map).forEach(function (p) {
     p.addEventListener('click', function () { showArea(+p.dataset.i); });
     p.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showArea(+p.dataset.i); } });
   });
@@ -257,6 +289,8 @@
     { el: '#reviews', k: 'WHAT CHANGED', h: 'Real reviews, easy to read', p: 'His own Google reviews, one at a time, large enough to read on a phone.', o: '' },
     { el: '#areas', k: 'NEW', h: 'Service area map', p: 'All ten communities on one map, with the Ajax office marked.', o: '<b>Opportunity:</b> each area can link to its own page for local search.' },
     { el: '#build', k: 'NEW \u00B7 REVENUE', h: 'Build your quote', p: 'Five quick taps, safe-contact options, then a likely approach and how the quote works, before anything is sent.', o: '<b>Opportunity:</b> better-prepared requests and faster quotes.' },
+    { el: '#room', k: 'NEW', h: 'Secure client room', p: 'Clients upload documents, follow their case step by step and download the final report, instead of email attachments.', o: '<b>Why:</b> privacy is what clients worry about most. This shows it.' },
+    { el: '#faq', k: 'NEW', h: 'Straight answers', p: 'Is it legal? Will they find out? Can you track a phone? Honest answers to what people are afraid to ask.', o: '<b>Opportunity:</b> answers that also help him show up in Google searches.' },
     { el: '#brief', k: 'NEW \u00B7 REVENUE', h: 'The Aventus Brief newsletter', p: 'A monthly note for lawyers, employers, landlords and individuals, with discreet sending.', o: '<b>Opportunity:</b> keeps referral sources thinking of Aventus every month.' },
     { el: '#contact', k: 'THAT\u2019S THE TOUR', h: 'Ready when you are', p: 'Everything uses Aventus\u2019s own words, reviews and logo. Photos are stand-ins and prices are placeholders until Anthony sets them.', o: '' }
   ];
