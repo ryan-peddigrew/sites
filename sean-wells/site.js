@@ -43,7 +43,7 @@
 
   var mist = [], sparks = [], mistLevel = HOME ? .9 : .55;
   function addPuff(x, y, r, vx, vy, life) { mist.push({ x: x, y: y, r: r, vx: vx, vy: vy, a: 0, life: life || 0, t: 0, rot: Math.random() * 6 }); }
-  var BASE = PHONE ? 14 : 26;
+  var BASE = PHONE ? 20 : 36;
   for (var i = 0; i < BASE; i++) addPuff(Math.random() * innerWidth, innerHeight * (.35 + Math.random() * .75), 160 + Math.random() * 260, (Math.random() - .5) * .25, -.05 - Math.random() * .12, 0);
   function burst(x, y, n, spd, col) {
     for (var i = 0; i < n; i++) { var a = Math.random() * 6.283, s = spd * (.3 + Math.random());
@@ -78,6 +78,40 @@
     sparks.push({ x: e.clientX, y: e.clientY, vx: (Math.random() - .5) * .6, vy: .2 + Math.random() * .5, life: 0, max: 34 + Math.random() * 20, sz: .6 + Math.random() * 1.6, c: Math.random() < .5 ? '230,222,255' : '175,150,255' }); }, { passive: true });
   addEventListener('pointerdown', function (e) { if (e.pointerType === 'mouse' || RM) return; burst(e.clientX, e.clientY, 18, 2.4); }, { passive: true });
 
+
+  var PR = {
+    hat: [new Path2D('M14 76 C14 69 86 69 86 76 C86 84 14 84 14 76 Z M30 73 L33 27 C42 22 58 22 67 27 L70 73 M32 41 C44 46 56 46 68 41')],
+    dove: [new Path2D('M18 62 C34 59 46 63 56 60 C64 57 70 53 76 50 L86 50 L78 55 C74 67 60 73 44 71 L24 76 L29 67 Z M48 61 C44 45 36 31 20 22 C36 26 49 37 57 53 M57 57 C59 41 67 26 84 17 C77 32 71 45 65 59')],
+    saw: [(function () { var d = 'M8 44 L76 38 L78 56 L10 62 Z M10 62'; for (var i = 0; i < 9; i++) { var x = 12 + i * 7.4, y = 61.8 - i * .66; d += ' L' + (x + 3.7).toFixed(1) + ' ' + (y + 4.6).toFixed(1) + ' L' + (x + 7.4).toFixed(1) + ' ' + (y - .66).toFixed(1); } d += ' M76 37 L92 35 C97 35 97 59 92 59 L78 57 M83 43 L89 43 L89 51 L83 51 Z'; return new Path2D(d); })()],
+    box: [new Path2D('M22 40 L58 31 L80 40 L44 49 Z M22 40 L22 75 L44 85 L44 49 M44 85 L80 75 L80 40 M33 58 L33 70 M38 60 L38 72 M58 62 L70 58')],
+    wand: [new Path2D('M22 82 L74 26'), new Path2D('M70 30 L78 22')]
+  };
+  var KINDS = ['hat', 'dove', 'saw', 'box', 'wand'], props = [], nextProp = 0, kindI = Math.floor(Math.random() * 5);
+  function spawnProp(now) {
+    var k = KINDS[kindI++ % KINDS.length], s = (PHONE ? 80 : 120) + Math.random() * (PHONE ? 40 : 90);
+    var x = W * (.12 + Math.random() * .76), y = H * (.3 + Math.random() * .55);
+    props.push({ k: k, x: x, y: y, s: s, r: (Math.random() - .5) * .6, vr: (Math.random() - .5) * .003, vx: (Math.random() - .5) * .25, vy: -.12 - Math.random() * .18, t: 0, life: 520 + Math.random() * 240 });
+    smokeBurst(x, y, PHONE ? 3 : 5, 90); burst(x, y, 22, 2.6);
+  }
+  function drawProps() {
+    var now = performance.now();
+    if (now > nextProp && props.length < (PHONE ? 2 : 4)) { spawnProp(now); nextProp = now + 2600 + Math.random() * 2200; }
+    cx.globalCompositeOperation = 'lighter'; cx.lineCap = 'round'; cx.lineJoin = 'round';
+    for (var i = props.length - 1; i >= 0; i--) {
+      var o = props[i]; o.t++; o.x += o.vx; o.y += o.vy + Math.sin(o.t / 60) * .15; o.r += o.vr;
+      var k = o.t / o.life, a = k < .12 ? k / .12 : k > .85 ? Math.max(0, (1 - k) / .15) : 1;
+      if (o.t > o.life) { smokeBurst(o.x, o.y, PHONE ? 3 : 5, 80); burst(o.x, o.y, 16, 2.2); props.splice(i, 1); continue; }
+      cx.save(); cx.translate(o.x, o.y); cx.rotate(o.r); cx.scale(o.s / 100, o.s / 100); cx.translate(-50, -50);
+      cx.globalAlpha = a * .5; cx.strokeStyle = 'rgba(201,184,255,1)'; cx.lineWidth = 5.5; PR[o.k].forEach(function (p) { cx.stroke(p); });
+      cx.globalAlpha = a * .8; cx.strokeStyle = 'rgba(244,240,255,1)'; cx.lineWidth = 1.6; PR[o.k].forEach(function (p) { cx.stroke(p); });
+      if (o.k === 'wand') { cx.globalAlpha = a; cx.fillStyle = '#fff'; cx.beginPath(); cx.arc(78, 22, 2.4 + Math.sin(o.t / 8), 0, 6.283); cx.fill(); if (o.t % 6 === 0) sparks.push({ x: o.x + (28 * o.s / 100), y: o.y - (28 * o.s / 100), vx: (Math.random() - .5), vy: Math.random() * .6, life: 0, max: 40, sz: 1.2, c: '230,222,255' }); }
+      cx.restore();
+    }
+    cx.globalCompositeOperation = 'source-over';
+  }
+  // a random poof now and then
+  setInterval(function () { if (!RM && document.visibilityState === 'visible') { var x = W * (.1 + Math.random() * .8), y = H * (.4 + Math.random() * .5); smokeBurst(x, y, PHONE ? 4 : 6, 110); burst(x, y, 26, 3); } }, 4200);
+
   var running = !RM;
   function frame() {
     cx.clearRect(0, 0, W, H);
@@ -87,9 +121,10 @@
       var m = mist[i]; m.t++; m.x += m.vx; m.y += m.vy; m.rot += .0008;
       if (m.life) { m.vx *= .985; m.vy *= .985; m.r += .9; var k = m.t / m.life; m.a = k < .15 ? k / .15 : Math.max(0, 1 - (k - .15) / .85); if (m.t > m.life) { mist.splice(i, 1); continue; } }
       else { m.a = Math.min(1, m.a + .01); if (m.y < -m.r) { m.y = H + m.r; m.x = Math.random() * W; } if (m.x < -m.r) m.x = W + m.r; if (m.x > W + m.r) m.x = -m.r; }
-      cx.globalAlpha = m.a * (m.life ? .32 : .075 * mistLevel);
+      cx.globalAlpha = m.a * (m.life ? .4 : .11 * mistLevel);
       cx.save(); cx.translate(m.x, m.y); cx.rotate(m.rot); cx.drawImage(puff, -m.r, -m.r, m.r * 2, m.r * 2); cx.restore();
     }
+    drawProps();
     cx.globalCompositeOperation = 'lighter';
     // flash
     if (flash > 0) { var fg = cx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, Math.max(W, H) * .7); fg.addColorStop(0, 'rgba(235,228,255,' + (flash * .55) + ')'); fg.addColorStop(1, 'rgba(120,90,255,0)'); cx.globalAlpha = 1; cx.fillStyle = fg; cx.fillRect(0, 0, W, H); flash *= .86; if (flash < .02) flash = 0; }
@@ -204,7 +239,7 @@
     { p: .75, k: 'THE LONG GAME', h: '1993', p2: 'Watch the years rewind. Three decades, told in one number.', o: '<b>Why:</b> experience lands harder as a moment than as a bullet point.' },
     { p: .92, k: 'THE PRESTIGE', h: 'The record, one tap away', p2: 'Your roles, unions and certifications live on their own page, not on the front. Details for anyone who wants them.', o: '' },
     { el: '#contact', k: 'THE FINAL ACT', h: 'Dark Magic, front and centre', p2: 'Your sean@darkmagic.one address, big and bold. Tap Get in touch: a pop, a dove of light, then a fresh email to you.', o: '<b>Opportunity:</b> a link you can drop into any email, pitch or bio.', poof: true },
-    { el: '#contact', k: 'EVERYWHERE', h: 'Mist, sparks and smoke', p2: 'On a laptop, sparks follow the cursor. On a phone, they burst wherever you tap. Every scene change lets out a little smoke.', o: '' },
+    { el: '#contact', k: 'EVERYWHERE', h: 'Things appear and vanish', p2: 'A top hat, a dove, a saw, a box and a wand drift through the mist, then disappear in a puff. Sparks follow the cursor, or burst wherever you tap on a phone.', o: '' },
     { el: '#contact', k: 'THAT’S THE SHOW', h: 'Built to grow with you', p2: 'Send a few more show photos and a line or two in your own words, and it’s ready to share.', o: '' }
   ];
   var tour = $('#tour'), ti = 0, paused = false, tt = null, DUR = 7000, t0 = 0, left = DUR, raf;
