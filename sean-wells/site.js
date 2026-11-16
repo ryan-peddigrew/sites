@@ -256,7 +256,7 @@
     { p: .58, k: 'THE ILLUSIONIST', h: 'The hard part, gone', p2: 'Festivals, concert tours, live events, video for live shows. All pulled from your own profile.', o: '' },
     { p: .75, k: 'THE LONG GAME', h: '1993', p2: 'Watch the years rewind. Three decades, told in one number.', o: '<b>Why:</b> experience lands harder as a moment than as a bullet point.' },
     { p: .92, k: 'THE PRESTIGE', h: 'The record, one tap away', p2: 'Your roles, unions and certifications live on their own page, not on the front. Details for anyone who wants them.', o: '' },
-    { el: '#fly', k: 'FLY-THROUGH', h: 'Every Veld moment', p2: 'Twenty-two Veld photos rush past the camera as you scroll, straight off Veld’s own site.', o: '' },
+    { el: '#fly', k: 'FLY-THROUGH', h: 'Every moment, by design', p2: 'Festival photos rush past the camera as you scroll. No single show named, so it speaks to all of your work.', o: '' },
     { el: '#contact', k: 'THE FINAL ACT', h: 'Dark Magic, front and centre', p2: 'Your sean@darkmagic.one address, big and bold. Tap Get in touch: a pop of smoke, then a fresh email to you.', o: '<b>Opportunity:</b> a link you can drop into any email, pitch or bio.', poof: true },
     { el: '#contact', k: 'EVERYWHERE', h: 'Now you see it, now you don’t', p2: 'Every Veld photo appears out of the mist and dissolves into the next. Smoke drifts across the whole site.', o: '' },
     { el: '#contact', k: 'THAT’S THE SHOW', h: 'Built to grow with you', p2: 'Send a few more show photos and a line or two in your own words, and it’s ready to share.', o: '' }
