@@ -4,8 +4,8 @@
  if(Q.has('embed')||window.top!==window)return;   /* frames inside a tour are covered by their parent page */
  var me=document.currentScript,FOR=me&&me.getAttribute('data-for')||'';
  var T='CONCEPT  ·  DESIGNED AND POWERED BY CHAIRLIFT  ·  ';
- var svg='<svg xmlns="http://www.w3.org/2000/svg" width="900" height="380"><text x="40" y="230" transform="rotate(-24 450 190)" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="17" letter-spacing="3" fill="#9a97a3" fill-opacity=".55">'+T+'</text></svg>';
- var css='#wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;user-select:none;-webkit-user-select:none;background:url("data:image/svg+xml,'+encodeURIComponent(svg)+'") 0 0/900px 380px repeat;opacity:.55}'+
+ var svg='<svg xmlns="http://www.w3.org/2000/svg" width="900" height="380"><text x="40" y="230" transform="rotate(-24 450 190)" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="22" letter-spacing="3" fill="#E4E0EA" fill-opacity=".9">'+T+'</text></svg>';
+ var css='#wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;user-select:none;-webkit-user-select:none;background:url("data:image/svg+xml,'+encodeURIComponent(svg)+'") 0 0/900px 380px repeat;opacity:.85}'+
  '#wmbig{position:fixed;left:50%;top:50%;width:min(62vmin,520px);transform:translate(-50%,-50%);z-index:2147482990;pointer-events:none;opacity:.2;filter:grayscale(1) brightness(1.6)}#wmbig img{width:100%;height:auto;display:block}'+'#wmt{position:fixed;right:12px;bottom:12px;z-index:2147483001;pointer-events:none;user-select:none;-webkit-user-select:none;font:700 10.5px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:#141B2Aee;padding:7px 11px;max-width:calc(100vw - 24px)}'+
  '@media(max-width:760px){#wmt{bottom:78px;right:8px;font-size:9.5px}}'+
  '#pbc{display:block;text-align:center;background:#141B2A;color:#ffffffcc;font:500 13px/1.4 "Hanken Grotesk",Arial,Helvetica,sans-serif;padding:16px 16px;text-decoration:none;position:relative;z-index:5}'+
@@ -16,7 +16,7 @@
   var d=document;if(!d.body)return;
   if(!d.getElementById('wmcss')){var s=d.createElement('style');s.id='wmcss';s.textContent=css;d.head.appendChild(s)}
   if(!d.getElementById('wm')){var a=d.createElement('div');a.id='wm';a.setAttribute('aria-hidden','true');d.body.appendChild(a)}
-  if(!d.getElementById('wmbig')){var g=d.createElement('div');g.id='wmbig';g.setAttribute('aria-hidden','true');g.innerHTML='<img src="/img/chairlift-mark.svg" alt="">';d.body.appendChild(g)}if(!d.getElementById('wmt')){var b=d.createElement('div');b.id='wmt';b.setAttribute('aria-hidden','true');b.textContent='Concept · Designed and powered by Chairlift';d.body.appendChild(b)}
+  if(!d.getElementById('wmt')){var b=d.createElement('div');b.id='wmt';b.setAttribute('aria-hidden','true');b.textContent='Concept · Designed and powered by Chairlift';d.body.appendChild(b)}
   if(false&&!d.getElementById('pbc')&&getComputedStyle(d.body).overflow!=='hidden'&&!d.documentElement.classList.contains('app')){
    var c=d.createElement('a');c.id='pbc';c.href='https://usechairlift.com';c.target='_blank';c.rel='noopener';c.innerHTML='Powered by <b>Chairlift</b>';d.body.appendChild(c)}
   else if(false&&!d.getElementById('pbc')){var f=d.createElement('a');f.id='pbc';f.className='fx';f.href='https://usechairlift.com';f.target='_blank';f.rel='noopener';f.innerHTML='Powered by <b>Chairlift</b>';d.body.appendChild(f)}
