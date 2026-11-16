@@ -50,7 +50,60 @@
 
   /* ===== scroll story ===== */
   var storyEl = $('#story'), canvas = $('#storyCanvas'), video = $('#storyVideo');
-  var art = Scenes.story(canvas), caps = $$('.cap'), useVideo = false;
+  var art = Scenes.story(canvas), artSized = false, caps = $$('.cap'), useVideo = false;
+  /* real footage: frame sequences in media/story (dirty and clean versions per chapter) */
+  var FOOT = { dir: 'media/story/', n: 24, segs: [
+    { id: 0, a: 0, b: 0.12, d: 1, c: 0, mode: 'none' },
+    { id: 1, a: 0.12, b: 0.31, d: 1, c: 1, mode: 'sweep' },
+    { id: 2, a: 0.31, b: 0.56, d: 1, c: 1, mode: 'diag' },
+    { id: 3, a: 0.56, b: 0.88, d: 1, c: 1, mode: 'sweep' },
+    { id: 4, a: 0.88, b: 1, d: 0, c: 1, mode: 'none' }
+  ] };
+  var footOK = false, sctx = canvas.getContext('2d');
+  (function loadFoot() {
+    var queue = [];
+    FOOT.segs.forEach(function (sg) { sg.imgs = { d: [], c: [] }; ['d', 'c'].forEach(function (k) { if (!sg[k]) return; for (var i = 0; i < FOOT.n; i++) queue.push([sg, k, i]); }); });
+    var active = 0, idx = 0;
+    function next() {
+      while (active < 6 && idx < queue.length) {
+        (function (q) {
+          var im = new Image(); active++;
+          im.onload = function () { q[0].imgs[q[1]][q[2]] = im; active--; if (q[0].id === 0 && !footOK) { footOK = true; storyEl.classList.add('has-foot'); } lastT = -1; next(); };
+          im.onerror = function () { active--; next(); };
+          im.src = FOOT.dir + 's' + q[0].id + '-' + q[1] + '-' + ('0' + (q[2] + 1)).slice(-2) + '.webp';
+        })(queue[idx++]);
+      }
+    }
+    next();
+  })();
+  function pickF(arr, k) { for (var j = 0; j < FOOT.n; j++) { if (arr[k - j]) return arr[k - j]; if (arr[k + j]) return arr[k + j]; } return null; }
+  function coverR(img, push) { var W = canvas.width, H = canvas.height, s = Math.max(W / img.width, H / img.height) * push; return [(W - img.width * s) / 2, (H - img.height * s) / 2, img.width * s, img.height * s]; }
+  function wipeClip(mode, cp) {
+    var W = canvas.width, H = canvas.height; sctx.beginPath();
+    if (mode === 'diag') { var e = W * (-0.25 + 1.5 * cp); sctx.moveTo(0, 0); sctx.lineTo(e + W * 0.2, 0); for (var i = 0; i <= 12; i++) sctx.lineTo(e + W * 0.2 - W * 0.4 * i / 12 + Math.sin(i * 1.7) * W * 0.008, H * i / 12); sctx.lineTo(0, H); }
+    else { var x = W * (-0.03 + 1.06 * cp); sctx.moveTo(0, 0); for (var j = 0; j <= 16; j++) sctx.lineTo(x + Math.sin(j * 2.1 + cp * 9) * W * 0.01, H * j / 16); sctx.lineTo(0, H); }
+    sctx.closePath(); return mode === 'diag' ? W * (-0.25 + 1.5 * cp) : W * (-0.03 + 1.06 * cp);
+  }
+  function footSeg(i, t, alpha) {
+    var sg = FOOT.segs[i], p = Math.max(0, Math.min(1, (t - sg.a) / (sg.b - sg.a))), k = Math.round(p * (FOOT.n - 1));
+    var di = sg.d ? pickF(sg.imgs.d, k) : null, ci = sg.c ? pickF(sg.imgs.c, k) : null, base = di || ci;
+    if (!base) return false;
+    var r = coverR(base, 1.02 + 0.05 * p); sctx.globalAlpha = alpha;
+    sctx.drawImage(base, r[0], r[1], r[2], r[3]);
+    var cp = Math.max(0, Math.min(1, (p - 0.1) / 0.8));
+    if (sg.mode !== 'none' && di && ci && cp > 0) {
+      sctx.save(); var ex = wipeClip(sg.mode, cp); sctx.clip(); sctx.drawImage(ci, r[0], r[1], r[2], r[3]); sctx.restore();
+      if (cp < 1 && sg.mode === 'sweep') { var W = canvas.width, g = sctx.createLinearGradient(ex - W * 0.07, 0, ex + W * 0.01, 0); g.addColorStop(0, 'rgba(255,255,255,0)'); g.addColorStop(0.8, 'rgba(255,255,255,.28)'); g.addColorStop(1, 'rgba(255,255,255,0)'); sctx.fillStyle = g; sctx.fillRect(ex - W * 0.07, 0, W * 0.08, canvas.height); }
+    }
+    sctx.globalAlpha = 1; return true;
+  }
+  function footDraw(t) {
+    var S = FOOT.segs, i = 0; while (i < S.length - 1 && t >= S[i].b) i++;
+    if (!footSeg(i, t, 1)) return false;
+    var X = 0.02; if (i < S.length - 1 && t > S[i].b - X) footSeg(i + 1, S[i + 1].a, (t - (S[i].b - X)) / X);
+    return true;
+  }
+  function artDraw(t) { if (!artSized) { art.resize(); artSized = true; } art.draw(t); }
   var meterNum = $('#meterNum'), meterArc = $('#meterArc'), meterCh = $('#meterCh'), meter = $('.meter');
   var KEYS = [[0, 38], [0.3, 68], [0.55, 80], [0.86, 95], [0.92, 99], [1, 99]];
   var CHN = ['1/4 · Driveway', '2/4 · Roof', '3/4 · Siding', '4/4 · Whole house'];
@@ -61,7 +114,7 @@
     var t = storyT();
     if (t !== lastT) {
       lastT = t;
-      if (useVideo) { if (video.duration) video.currentTime = t * (video.duration - 0.05); } else art.draw(t);
+      if (useVideo) { if (video.duration) video.currentTime = t * (video.duration - 0.05); } else if (!(footOK && footDraw(t))) artDraw(t);
       caps.forEach(function (c) { c.classList.toggle('on', t >= +c.dataset.from && t < +c.dataset.to); });
       var m = Math.round(meterAt(t)); meterNum.textContent = m;
       meterArc.style.strokeDashoffset = (94.25 * (1 - m / 100)).toFixed(2);
@@ -73,7 +126,7 @@
     hdr.classList.toggle('solid', past || nav.classList.contains('open'));
     requestAnimationFrame(frame);
   }
-  function sizeStory() { art.resize(); lastT = -1; }
+  function sizeStory() { var dpr = Math.min(devicePixelRatio || 1, 1.5); canvas.width = Math.round(canvas.clientWidth * dpr); canvas.height = Math.round(canvas.clientHeight * dpr); artSized = false; lastT = -1; }
   sizeStory();
   var rz; addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(function () { sizeStory(); sizePad(true); sizeBA(); }, 180); });
   requestAnimationFrame(frame);
@@ -89,12 +142,13 @@
   var tagsEl = $('#padTags'), cardsEl = $('#padCards'), curEl = $('#toolCursor');
   var tool = 'cleaner', PW = 0, PH = 0, zones = [], started = 0, timer = null, pro = null, spraying = false, last = null, finished = false;
   var zoneOrder = ['oil', 'tires', 'mildew', 'rust', 'weeds'];
+  var concreteImg = new Image(); concreteImg.onload = function () { if (!started) sizePad(false); }; concreteImg.src = 'media/concrete.webp';
   function sizePad(keep) {
     var r = pad.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 1.5);
     var w = Math.min(1400, Math.round(r.width * dpr)), h = Math.round(w * r.height / r.width);
     if (keep && Math.abs(w - PW) < 40) return;
     PW = w; PH = h;
-    var s = Scenes.slab(w, h);
+    var s = Scenes.slab(w, h, concreteImg);
     pc.width = pd.width = w; pc.height = pd.height = h;
     pc.getContext('2d').drawImage(s.clean, 0, 0);
     dctx.globalCompositeOperation = 'source-over'; dctx.drawImage(s.dirt, 0, 0);
@@ -205,8 +259,13 @@
     var r = ba.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 1.5);
     var w = Math.round(r.width * dpr), h = Math.round(r.height * dpr);
     var sw = Math.max(w, h * 1.6), off = (w - sw) / 2;
-    [[baA, 0], [baB, 1]].forEach(function (p) { p[0].width = w; p[0].height = h; p[0].getContext('2d').drawImage(Scenes.house(sw, h, p[1]), off, 0); });
+    [[baA, 0, baImgs[0]], [baB, 1, baImgs[1]]].forEach(function (p) {
+      p[0].width = w; p[0].height = h; var c = p[0].getContext('2d'), im = p[2];
+      if (im.complete && im.naturalWidth) { var s = Math.max(w / im.naturalWidth, h / im.naturalHeight); c.drawImage(im, (w - im.naturalWidth * s) / 2, (h - im.naturalHeight * s) / 2, im.naturalWidth * s, im.naturalHeight * s); }
+      else c.drawImage(Scenes.house(sw, h, p[1]), off, 0);
+    });
   }
+  var baImgs = ['media/ba-after.webp', 'media/ba-before.webp'].map(function (u) { var im = new Image(); im.onload = function () { sizeBA(); }; im.src = u; return im; });
   function setBA(v) { baWrap.style.clipPath = 'inset(0 ' + (100 - v) + '% 0 0)'; baLine.style.left = v + '%'; }
   baRange.addEventListener('input', function () { setBA(+baRange.value); });
   sizeBA(); setBA(50);

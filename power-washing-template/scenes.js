@@ -310,13 +310,21 @@
     { id: 'tires', label: 'Tire tracks', x: .14, y: .3, w: .3, h: .7, tx: .25, ty: .66, c: 'y' },
     { id: 'rust', label: 'Rust fan', x: .82, y: .2, w: .18, h: .62, tx: .85, ty: .42, c: 'b' }
   ];
-  function slab(w, h) {
-    var R = rng(7);
-    var clean = concrete(w, h, 9, 0), cx = clean.getContext('2d');
+  function photo(w, h, img, dirty) {
+    var c = mk(w, h), x = c.getContext('2d'), s = Math.max(w / img.naturalWidth, h / img.naturalHeight);
+    x.drawImage(img, (w - img.naturalWidth * s) / 2, (h - img.naturalHeight * s) / 2, img.naturalWidth * s, img.naturalHeight * s);
+    if (!dirty) { x.globalCompositeOperation = 'screen'; x.fillStyle = 'rgba(40,40,36,.35)'; x.fillRect(0, 0, w, h); }
+    else { x.globalCompositeOperation = 'multiply'; x.fillStyle = '#8f8775'; x.fillRect(0, 0, w, h); }
+    x.globalCompositeOperation = 'source-over'; return c;
+  }
+  function slab(w, h, img) {
+    var R = rng(7), real = img && img.complete && img.naturalWidth;
+    var clean = real ? photo(w, h, img, 0) : concrete(w, h, 9, 0), cx = clean.getContext('2d');
     var dirt = mk(w, h), x = dirt.getContext('2d');
     function joints(ctx, col, lw) { ctx.strokeStyle = col; ctx.lineWidth = lw; [.17, .87].forEach(function (v) { ctx.beginPath(); ctx.moveTo(0, h * v); ctx.lineTo(w, h * v + (R() - .5) * 4); ctx.stroke(); }); }
     joints(cx, '#6f6a60', Math.max(2, w / 300));
-    x.drawImage(concrete(w, h, 13, 1), 0, 0);
+    x.drawImage(real ? photo(w, h, img, 1) : concrete(w, h, 13, 1), 0, 0);
+    if (real) blobs(x, R, 90, 0, 0, w, h, '#4a4535', w * 0.02, w * 0.08, 0.15, 0.35, w * 0.015);
     // tire tracks
     [.18, .34, .66, .8].forEach(function (u) {
       var tw = w * .07; x.globalAlpha = .38; x.fillStyle = '#2d2b25'; x.fillRect(w * u, 0, tw, h);
