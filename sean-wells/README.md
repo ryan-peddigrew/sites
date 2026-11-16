@@ -1,23 +1,20 @@
-# Sean Wells: independent consultant site (concept)
+# Sean Wells: Dark Magic showcase (concept)
 
-Private preview (passcode gate): https://sites-mnj.pages.dev/sean-wells/ (tour: add `?tour=1`).
-Started 16 Nov 2026 for Ryan to walk Sean through. Not public. Not sent to Sean yet.
+Private preview (passcode gate): https://sites-mnj.pages.dev/sean-wells/ (tour: add `?tour=1`). Record page: `record.html`.
+Not public. Don't send the master code to Sean; show it on Ryan's phone.
 
 ## Brief (Ryan, 16 Nov 2026)
-Personal site branding Sean as an independent consultant. Super hip and modern. Say nothing about his current or next job; no company affiliations unless Ryan says so.
+A showcase of Sean, not a resume and not a sales site (no packages, no prices, no quote tool). Brand: DARK MAGIC (his email is sean@darkmagic.one). He's an event producer and illusionist, NOT a magician: never cheesy. His name huge in bold block letters up front. Fly-throughs, scrolling text, nothing static. History and certifications (Barco, CTS, IATSE) belong ONLY on the sub page, never the landing. No headshot exists.
 
-## What's in it
-- Loader: neutral SEAN / WELLS wordmark (Sean has no logo). Once per visit.
-- Hero: giant name, rotating "Brought in for ..." line, Build your quote + Get in touch side by side, portrait frame beside the text (text never covers his face).
-- Ticker, scroll-lit pitch, four ways to work (horizontal rail on desktop, swipe on phones), sticky "how it runs" counter, project bento, about with quick facts, one big quote, 4-step Build your quote (CAD budgets), Field notes signup, big contact line, phone dock.
-- Palette and type are a starting point (ink, bone, cobalt; Bricolage Grotesque + Inter Tight). Swap if Sean has colours.
-- Prominent tiled watermark, copy/save/print blocked, noindex. Footer "Powered by Chairlift".
+## Done (v2, 16 Nov 2026 ~7:45 AM ET)
+- Landing: one sticky stage with six scroll scenes that fly through the camera and dissolve into each other (name, Now you see it, Now you don't, The illusionist, 1993 rewind, The prestige), scrolling outlined text bands, mist canvas, spark trail on the cursor and sparks on tap (phones), a pop and a dove made of light on intro and on Get in touch, which then opens an email to sean@darkmagic.one.
+- Photo: his festival stage photo, cropped from his LinkedIn screenshot (`img/stage.webp`, low resolution, 1206x297). Shown as a wide band over a blurred copy.
+- `record.html`: roles from his LinkedIn (Veld festival TD 2023, IATSE 667 permit 2021, Dark Matter Technologies founder 2017, IATSE 58 2015, PM/TD/technician since 1993), Barco Event Master and CTS (2013).
+- Tour (?tour=1), nine steps, written to Sean.
+- v1 (sales-style consultant site) archived in `archive/v1-2026-11-16/`.
 
-## Placeholders (dashed outline on the page) / needed from Sean
-1. Photos: a portrait (hero), a candid at work (about), one per project.
-2. His focus in one sentence (pitch line and FOCUS fact), city, who hires him, a 2-3 line bio.
-3. 3-5 real projects he can talk about (name, client or client type, year, short story).
-4. Prices in CAD for: strategy session, project lead (from), monthly advisory, workshop (from). Confirm the four offers fit him.
-5. Reply time promise (currently "one business day", marked).
-6. One real quote with permission (name, role, company).
-7. Email, phone, LinkedIn, domain. Forms send nothing yet; hook to his inbox, a booking/payment tool and a mailing service at go-live.
+## Left / next
+1. Higher-resolution show photos (the stage photo is soft when large). More photos = one per scene.
+2. A line or two in Sean's own words; LinkedIn URL for the contact section.
+3. Per-folder passcode for Sean (needs the Cloudflare SECRET); until then only the master code works.
+4. Polish ideas: per-scene photos flying past, sound toggle off by default, custom domain darkmagic.one later (Ryan's go).
