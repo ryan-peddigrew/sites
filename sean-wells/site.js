@@ -263,7 +263,7 @@
     { el: '#fly', k: 'FLY-THROUGH', h: 'Every moment, by design', p2: 'Festival photos rush past the camera as you scroll. No single show named, so it speaks to all of your work.', o: '' },
     { el: '#contact', k: 'THE FINAL ACT', h: 'Dark Magic, front and centre', p2: 'Your sean@darkmagic.one address, big and bold. Tap Get in touch and a fresh email to you opens.', o: '<b>Opportunity:</b> a link you can drop into any email, pitch or bio.', poof: true },
     { el: '#contact', k: 'EVERYWHERE', h: 'Now you see it, now you don’t', p2: 'Every Veld photo appears out of the mist and dissolves into the next.', o: '' },
-    { el: '#indie', k: 'AN OPTION, NOT A PITCH', h: 'If you go the independent route', p2: 'This part only shows on the tour. Four ways people could hire you: show quotes, consulting, workshops and production, each with its own way to earn.', o: '<b>Opportunity:</b> the enquiry form sends a ready-written email straight to sean@darkmagic.one, so a visitor becomes a lead in one tap.' },
+    { el: '#indie', k: 'THE ENCORE', h: 'Work with me', p2: 'Four ways people can hire you, five quick starts that are easy to say yes to, and one intake form that asks the right questions up front.', o: '<b>Opportunity:</b> the enquiry form sends a ready-written email straight to sean@darkmagic.one, with the show, date, venue and crowd size already filled in.' },
     { el: '#contact', k: 'THAT’S THE SHOW', h: 'Built to grow with you', p2: 'Send a few more show photos and a line or two in your own words, and it’s ready to share.', o: '' }
   ];
   var tour = $('#tour'), ti = 0, paused = false, tt = null, DUR = 7000, t0 = 0, left = DUR, raf;
@@ -301,14 +301,20 @@
   vs.forEach(function (v) { if (v.closest('.rec-bg')) v.play().catch(function () {}); else io.observe(v); });
 })();
 
-/* independent route enquiry: opens a ready-written email */
+/* encore: quick starts + intake, opens a ready-written email */
 (function () {
   var f = document.getElementById('indF'); if (!f) return;
+  var need = document.getElementById('indNeed'), err = document.getElementById('indErr');
+  [].forEach.call(document.querySelectorAll('.q-b'), function (b) {
+    b.addEventListener('click', function () { need.value = b.getAttribute('data-need'); f.scrollIntoView({ behavior: 'smooth', block: 'start' }); setTimeout(function () { f.querySelector('[name=name]').focus({ preventScroll: true }); }, 600); });
+  });
   f.addEventListener('submit', function (e) {
     e.preventDefault();
-    var d = new FormData(f), need = d.get('need') || 'An enquiry';
-    var body = 'What I need: ' + need + '\nTiming: ' + (d.get('when') || '') + '\n\n' + (d.get('note') || '') + '\n\n' + (d.get('name') || '') + '\n' + (d.get('email') || '');
+    var d = new FormData(f), g = function (k) { return (d.get(k) || '').toString().trim(); };
+    if (!g('name') || !g('email')) { err.hidden = false; return; }
+    err.hidden = true;
+    var body = ['What I need: ' + g('need'), 'Company or event: ' + g('org'), 'Type of show: ' + g('kind'), 'Date or timing: ' + g('when'), 'Venue or city: ' + g('where'), 'Expected crowd: ' + g('crowd'), '', g('note'), '', g('name'), g('email'), g('phone')].join('\n');
     if (document.body.classList.contains('touring')) return;
-    location.href = 'mailto:sean@darkmagic.one?subject=' + encodeURIComponent(need + ' enquiry') + '&body=' + encodeURIComponent(body);
+    location.href = 'mailto:sean@darkmagic.one?subject=' + encodeURIComponent(g('need') + ' enquiry' + (g('org') ? ' from ' + g('org') : '')) + '&body=' + encodeURIComponent(body);
   });
 })();
