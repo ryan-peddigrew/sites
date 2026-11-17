@@ -105,8 +105,8 @@
 <!-- INDEPENDENT ROUTE: shown only during the tour (?tour=1) -->
 <section class="indie" id="indie" aria-label="Working with me">
   <div class="wrap">
-    <p class="kick">if you go independent</p>
-    <h2 class="big">the<br><em>encore.</em></h2>
+    <p class="kick">the encore</p>
+    <h2 class="big">work<br><em>with me.</em></h2>
     <p class="line">Four ways to work with me, each with a simple way to start.</p>
     <div class="indie-grid">
       <article class="ind"><span class="ind-n">01</span><h3>SHOW QUOTES</h3><p>Tell me the show, the date and the venue. I come back with a clear scope and a quote.</p><p class="ind-r">Turns a cold email into a priced job.</p></article>
@@ -114,21 +114,34 @@
       <article class="ind"><span class="ind-n">03</span><h3>WORKSHOPS</h3><p>Hands-on sessions for crews and teams: show calling, video for live shows, running a festival site.</p><p class="ind-r">Teach once, book again for the next crew.</p></article>
       <article class="ind"><span class="ind-n">04</span><h3>PRODUCTION</h3><p>Full technical direction and production management, from the first call to load-out.</p><p class="ind-r">The big jobs, start to finish.</p></article>
     </div>
+
+    <p class="kick kick-gap">quick starts</p>
+    <div class="qs">
+      <article class="q"><h3>SHOW HEALTH CHECK</h3><p>I review your plan, rider and run of show before you lock it in, and send back written notes.</p><button class="btn btn-line q-b" type="button" data-need="Show health check">REQUEST IT</button></article>
+      <article class="q"><h3>SITE WALK</h3><p>I walk the venue with you and your vendors and flag what will bite you on show day.</p><button class="btn btn-line q-b" type="button" data-need="Site walk">REQUEST IT</button></article>
+      <article class="q"><h3>VIDEO SYSTEM DESIGN</h3><p>Screens, processing and signal flow, planned by a Barco Event Master certified specialist.</p><button class="btn btn-line q-b" type="button" data-need="Video system design">REQUEST IT</button></article>
+      <article class="q"><h3>ON-CALL TECHNICAL DIRECTOR</h3><p>A technical director on the phone for your show week, for the calls that can’t wait.</p><button class="btn btn-line q-b" type="button" data-need="On-call technical director">REQUEST IT</button></article>
+      <article class="q"><h3>CREW WORKSHOP</h3><p>A half-day, hands-on session for your crew or team, built around your own show.</p><button class="btn btn-line q-b" type="button" data-need="Crew workshop">REQUEST IT</button></article>
+    </div>
     <form class="ind-f" id="indF" novalidate>
       <p class="kick">start a conversation</p>
-      <div class="ind-pick" role="radiogroup" aria-label="What do you need?">
-        <label><input type="radio" name="need" value="A show quote" checked><span>SHOW QUOTE</span></label>
-        <label><input type="radio" name="need" value="Consulting"><span>CONSULTING</span></label>
-        <label><input type="radio" name="need" value="A workshop"><span>WORKSHOP</span></label>
-        <label><input type="radio" name="need" value="Production"><span>PRODUCTION</span></label>
-      </div>
+      <label class="ind-full ind-need"><span>WHAT DO YOU NEED?</span><select name="need" id="indNeed">
+        <option>A show quote</option><option>Consulting</option><option>A workshop</option><option>Production</option>
+        <option>Show health check</option><option>Site walk</option><option>Video system design</option><option>On-call technical director</option><option>Crew workshop</option><option>Not sure yet</option>
+      </select></label>
       <div class="ind-row">
-        <label><span>NAME</span><input name="name" autocomplete="name"></label>
-        <label><span>EMAIL</span><input name="email" type="email" autocomplete="email"></label>
+        <label><span>NAME</span><input name="name" autocomplete="name" required></label>
+        <label><span>EMAIL</span><input name="email" type="email" autocomplete="email" required></label>
+        <label><span>PHONE (OPTIONAL)</span><input name="phone" type="tel" autocomplete="tel"></label>
+        <label><span>COMPANY OR EVENT</span><input name="org" autocomplete="organization"></label>
         <label><span>DATE OR TIMING</span><input name="when" placeholder="e.g. August 2027"></label>
+        <label><span>VENUE OR CITY</span><input name="where"></label>
+        <label><span>EXPECTED CROWD</span><select name="crowd"><option value="">Choose one</option><option>Under 500</option><option>500 to 5,000</option><option>5,000 to 25,000</option><option>Over 25,000</option><option>Not sure yet</option></select></label>
+        <label><span>TYPE OF SHOW</span><select name="kind"><option value="">Choose one</option><option>Festival</option><option>Concert or tour</option><option>Corporate event</option><option>Brand activation</option><option>Something else</option></select></label>
       </div>
       <label class="ind-full"><span>THE SHOW, IN A LINE OR TWO</span><textarea name="note" rows="3"></textarea></label>
       <button class="btn btn-solid" type="submit"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>SEND ENQUIRY</button>
+      <p class="ind-err" id="indErr" hidden>Add your name and email so I can reply.</p>
     </form>
   </div>
 </section>
