@@ -53,9 +53,9 @@ h1::before,.namebox::before{content:"";position:absolute;inset:-6% -8%;z-index:-
 .std .s{-webkit-text-stroke:.8px var(--ink);font-family:var(--script);font-size:calc(var(--w)*.21);line-height:1.05}
 .std .t{font-family:var(--display);font-weight:800;font-size:calc(var(--w)*.13);letter-spacing:.04em;line-height:1.2;transform:scaleY(1.12)}
 .tray{position:absolute;left:0;right:0;bottom:0;top:0;overflow:hidden;z-index:2}
-.strip{position:absolute;left:12%;right:12%;top:5.5%;padding:5% 6% 9%;background:var(--paper);display:flex;flex-direction:column;gap:5%;z-index:2;
+.strip{position:absolute;left:14%;right:14%;top:5%;padding:5% 6% 9%;gap:3.5%;background:var(--paper);display:flex;flex-direction:column;gap:5%;z-index:2;
   box-shadow:0 6px 14px rgba(0,0,0,.45);animation:drop 16s cubic-bezier(.45,0,.4,1) infinite;animation-delay:-1s}
-.strip img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;filter:grayscale(1) contrast(1.04)}
+.strip img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;filter:grayscale(1) contrast(1.04)}
 @keyframes drop{
   0%,12%{transform:translateY(-106%)}
   40%{transform:translateY(0)}
@@ -79,7 +79,7 @@ h1::before,.namebox::before{content:"";position:absolute;inset:-6% -8%;z-index:-
 </style>
 </head><body>
 <div class="room"><main class="wrap">
-  <div class="opt" aria-label="Design options"><span data-k="a" class="">Option A · Fern garden</span><span data-k="b" class="">Option B · Midnight fern</span><span data-k="c" class="on">Option C · Gilded fern</span><span data-k="d" class="">Option D · Plain green, gold</span><span data-k="e" class="">Option E · Black, chrome</span></div>
+  <div class="opt" aria-label="Design options"><span data-k="a" class="">Option A · Fern garden</span><span data-k="b" class="">Option B · Midnight fern</span><span data-k="c" class="on">Option C · Gilded fern</span><span data-k="d" class="">Option D · Plain green, gold</span></div>
   <h1><span class="we">We are getting</span><span class="married">Married</span></h1>
 
   <div class="booth" role="img" aria-label="Photo booth strip of Ryan and Amanda, with Save the Date">
@@ -87,9 +87,9 @@ h1::before,.namebox::before{content:"";position:absolute;inset:-6% -8%;z-index:-
       <div class="lamp"></div>
       <div class="std" aria-hidden="true"><span class="s">Save</span><span class="t">THE</span><span class="s">Date</span></div>
       <div class="tray"><div class="strip">
-        <img src="img/p1.jpg" alt="" width="1000" height="1000">
-        <img src="img/p2.jpg" alt="" width="1000" height="1000">
-        <img src="img/p3.jpg" alt="" width="1000" height="1000">
+        <img src="img/p1.jpg" alt="" width="320" height="400">
+        <img src="img/p2.jpg" alt="" width="320" height="400">
+        <img src="img/p3.jpg" alt="" width="320" height="400">
       </div></div>
     </div></div>
   </div>
