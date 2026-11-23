@@ -11,3 +11,11 @@ No Chairlift branding or watermark on this site.
 Open items: Ryan to pick A, B or C; two more engagement photos; the domain; ceremony time and RSVP details.
 
 Strip photos (Ryan, 18 Nov 2:50 PM): his three hearted shoot photos (embrace with club, walking on the green, twirl). Taken from his phone screenshot of the gallery, about 320x400 each, so swap in the full-size originals when he sends them. Earlier photos are in the scratch archive.
+
+## RSVP and full site (23 Nov 2026)
+- index.html = guest view: save the date, countdown, RSVP; the rest is locked ("More to come").
+- everything.html = same page with every section unlocked (also index.html?preview=everything).
+- To open the rest after invitations go out: set `SITE_OPEN = true` in the settings script near the bottom.
+- RSVP sending: set `RSVP_ENDPOINT` (e.g. FormSubmit ajax URL for the chosen email). Empty = nothing is sent.
+- Dashed boxes = details still needed from Ryan (times, reply-by date, parking, hotel, FAQ answers, registry).
+- Source: build.py + site_parts.py in the scratch build (copy in /mnt/project-files/wedding/olive-booth/).
