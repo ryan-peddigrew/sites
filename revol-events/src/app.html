@@ -224,7 +224,7 @@ footer.ft img{width:150px;height:auto}
 </section>
 <div id="more"><div class="s" id="mores"></div></div>
 <div class="toast" id="toast"></div>
-<div class="tour hide" id="tour"><div class="tt"><span>A TOUR FOR JONNY</span><span id="tn"></span></div><h3 id="th"></h3><p id="tp"></p><div class="tb"><i id="tbi"></i></div><div class="bs"><button type="button" id="tpa">PAUSE</button><button type="button" class="nx" id="tnx">NEXT</button><button type="button" id="tend">END</button></div></div>
+<div class="tour hide" id="tour"><div class="tt"><span>A TOUR FOR JONNY AND ROSS</span><span id="tn"></span></div><h3 id="th"></h3><p id="tp"></p><div class="tb"><i id="tbi"></i></div><div class="bs"><button type="button" id="tpa">PAUSE</button><button type="button" class="nx" id="tnx">NEXT</button><button type="button" id="tend">END</button></div></div>
 <div id="wm" aria-hidden="true"></div>
 
 <script>
@@ -589,7 +589,7 @@ $('#mw').innerHTML='MARENGO'.split('').map((c,i)=>`<span style="animation-delay:
 /* ---------- tour (?tour=1) ---------- */
 const firstBLC=()=>{const b=P.find(p=>p.type==='blc'&&p.sub!=='load'&&dayDiff(p.date)>=0);return b?'#/p/'+b.id:'#/blc'};
 const STEPS=[
- ['#/','Jonny, meet MARENGO','I built this around how REVOL actually runs in December: drop-offs every morning, office parties all over the city, and the Better Living Centre run. One screen, every morning, on any phone.','.hello'],
+ ['#/','Jonny and Ross, meet MARENGO','I built this around how REVOL actually runs in December: drop-offs every morning, office parties all over the city, and the Better Living Centre run. One screen, every morning, on any phone.','.hello'],
  ['#/','The gaps come to you','Open shifts, vendors who haven\'t replied, final counts not in. Instead of finding out the day of, it\'s ranked here by what\'s closest.','#att'],
  ['#/blc','The Better Living Centre, week by week','Wednesday and Thursday load-ins, then the parties. Every day shows staff and vendors confirmed. Any day showing OPEN is hall time you can still sell.','.blc5'],
  [firstBLC,'Every project, the same full picture','Tap any party, drop-off or load-in and it\'s all here: run of show, the crew, hours, vendors with arrival times, and the order priced from your own holiday menu.','.ready'],
