@@ -37,10 +37,10 @@ export async function onRequest(ctx) {
   const { request, env, next } = ctx;
   const url = new URL(request.url);
   if (OPEN.some(p => url.pathname.startsWith(p))) return next();
-  if (!env.SECRET) return gate('Preview is being set up. Please try again soon.');
   const folder = url.pathname.split('/')[1] || '';
-  const want = await mk(env.SECRET, folder);
-  const master = await mk(env.SECRET, '*master');
+  if (!env.SECRET && !EXTRA[folder]) return gate('Preview is being set up. Please try again soon.');
+  const want = env.SECRET ? await mk(env.SECRET, folder) : '\u0000';
+  const master = env.SECRET ? await mk(env.SECRET, '*master') : '\u0000';
   const ck = cookies(request);
   const ok = c => c && (c === want || c === master || (EXTRA[folder] && c === EXTRA[folder]));
 
