@@ -215,7 +215,48 @@ i.o,.lg.o{background:var(--bad)}i.a,.lg.a{background:#E7B23A}i.c,.lg.c{backgroun
 .lg{display:inline-block;width:10px;height:10px;border-radius:2px;margin:0 4px 0 10px;vertical-align:-1px}
 .vt th.vh{height:150px;vertical-align:bottom;padding:6px 4px}.vt th.vh span{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap}
 .vx{text-align:center;padding:6px 4px!important}.vd{width:44px;height:44px;border-radius:6px;border:0;color:#fff;font:700 14px var(--ui);cursor:pointer;display:inline-grid;place-items:center}.vd.c{background:var(--ok)}.vd.a{background:#E7B23A;color:var(--ink)}.vd.o{background:var(--bad)}
-#app{min-width:0;width:100%;box-sizing:border-box}.board{max-width:100%}.sec{min-width:0}.sgrp{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-top:6px}.sgrp::-webkit-scrollbar{display:none}.sgrp button{flex:none;min-height:44px;padding:0 14px;border:0;border-radius:var(--r);background:#e7e1de;color:var(--ink);font:700 12px var(--ui);letter-spacing:.12em;cursor:pointer}.sgrp button.on{background:var(--ink);color:#fff}.hide{display:none!important}
+#app{min-width:0;width:100%;box-sizing:border-box}.board{max-width:100%}.sec{min-width:0}.sgrp{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-top:6px}.sgrp::-webkit-scrollbar{display:none}.sgrp button{flex:none;min-height:44px;padding:0 14px;border:0;border-radius:var(--r);background:#e7e1de;color:var(--ink);font:700 12px var(--ui);letter-spacing:.12em;cursor:pointer}.sgrp button.on{background:var(--ink);color:#fff}
+.hA,.hC{position:relative;border-radius:18px;overflow:hidden;background:#000;color:#fff;min-height:210px;margin-top:4px}
+.hA>img,.hC>img,.hB>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42}
+.hA .in,.hC .in{position:relative;padding:22px 18px}.hA h1{font:400 clamp(56px,11vw,110px)/.9 var(--hd);margin:6px 0 12px;letter-spacing:.01em}
+.stl{display:flex;flex-wrap:wrap;gap:6px 14px;font:700 11px var(--ui);letter-spacing:.12em;color:#ffffffd9;align-items:center}
+.pz{display:inline-flex;align-items:center;gap:6px;color:#7CF29A}.pz i{width:8px;height:8px;border-radius:2px;background:#3ddc6a;box-shadow:0 0 0 0 #3ddc6a88;animation:pz 1.8s infinite}
+@keyframes pz{0%{box-shadow:0 0 0 0 #3ddc6a88}70%{box-shadow:0 0 0 8px #3ddc6a00}100%{box-shadow:0 0 0 0 #3ddc6a00}}
+.cmdb{display:flex;align-items:center;gap:10px;width:100%;min-height:52px;margin:14px 0 6px;padding:0 14px;background:#fff;border:1px solid var(--line);border-radius:14px;font:500 15px var(--ui);color:var(--mut);cursor:pointer;text-align:left;box-shadow:0 6px 20px #0000000d}
+.cmdb span{flex:1}.cmdb .i{color:var(--ink)}.cmdb.big{min-height:60px;font-size:16px;margin:16px 0 10px}
+kbd{font:700 10.5px var(--ui);letter-spacing:.08em;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:3px 6px;color:var(--mut);background:#fff}
+.grdA{display:grid;grid-template-columns:repeat(4,1fr);gap:20px 8px;margin-top:14px}@media(min-width:700px){.grdA{grid-template-columns:repeat(6,1fr)}}@media(min-width:1200px){.grdA{grid-template-columns:repeat(8,1fr)}}
+.ap{display:flex;flex-direction:column;align-items:center;gap:7px;text-decoration:none;color:var(--ink);animation:apin .45s cubic-bezier(.2,.9,.3,1.2) both}
+@keyframes apin{from{opacity:0;transform:translateY(10px) scale(.9)}to{opacity:1;transform:none}}
+.api{position:relative;display:grid;place-items:center;width:72px;height:72px;border-radius:20px;overflow:hidden;background:var(--ink);color:#fff;box-shadow:0 8px 18px #13151630,inset 0 0 0 1px #ffffff14;transition:transform .2s}
+.api img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.38;filter:saturate(.8)}.api::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,#F05A2866,transparent 55%)}
+.api .i{position:relative;z-index:1;stroke:#fff;stroke-width:1.7}.ap:hover .api{transform:translateY(-3px)}
+.bdg{position:absolute;z-index:2;top:5px;right:5px;min-width:20px;padding:2px 5px;border-radius:6px;background:var(--or);color:#fff;font:700 11px/1.3 var(--ui);text-align:center;font-style:normal}
+.apl{font:600 12px/1.2 var(--ui);text-align:center;max-width:84px}
+.ap-b .api{width:60px;height:60px;border-radius:17px}.ap-c .api{width:58px;height:58px;border-radius:16px}.ap-c .apl{font-size:11px}
+.grdB{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 8px}@media(min-width:700px){.grdB{grid-template-columns:repeat(8,1fr)}}
+.hB{position:relative;border-radius:18px;overflow:hidden;background:var(--ink);color:#fff;margin-top:4px}.hB>img{opacity:.22}.hB .in{position:relative;padding:22px 18px}
+.hB h1{font:400 clamp(40px,7vw,72px)/.95 var(--hd);margin:6px 0 0}.hB .k{color:#ffffffb3}.hB .cmdb{border-color:#ffffff22}
+.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-bottom:14px}.chips::-webkit-scrollbar{display:none}
+.chips a{flex:none;min-height:40px;display:inline-flex;align-items:center;padding:0 12px;border-radius:8px;background:#ffffff14;border:1px solid #ffffff26;color:#fff;text-decoration:none;font:600 12.5px var(--ui)}
+.wgs{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}@media(min-width:900px){.wgs{grid-template-columns:repeat(3,1fr)}}
+.wg{display:flex;flex-direction:column;gap:4px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;color:var(--ink);text-decoration:none;min-height:130px;box-shadow:0 4px 14px #0000000a;transition:transform .2s}.wg:hover{transform:translateY(-2px)}
+.wn{font:400 40px/1 var(--hd);margin-top:4px}.wn small{font-size:22px;color:var(--mut)}.ws{font-size:12.5px;color:var(--mut);line-height:1.35}
+.wb{display:flex;gap:4px;align-items:flex-end;height:36px;margin-top:auto}.wb i{flex:1;background:var(--or);border-radius:3px 3px 0 0;opacity:.85}
+.wbar{height:8px;border-radius:4px;background:#f1ece9;margin-top:auto}.wbar i{display:block;height:100%;border-radius:4px;background:var(--ok)}
+.wav{display:flex;margin-top:auto}.wav .av{width:28px;height:28px;margin-right:-6px;border:2px solid #fff}
+.hC{min-height:260px}.clkC{font:400 clamp(80px,16vw,150px)/.85 var(--hd);letter-spacing:.01em}.clkC small{font-size:.3em;margin-left:6px}.hC .in{padding-bottom:58px}
+.dock{position:relative;z-index:2;display:flex;gap:12px;justify-content:flex-start;width:max-content;max-width:calc(100% - 16px);overflow-x:auto;scrollbar-width:none;margin:-44px auto 4px;padding:12px 14px 10px;background:#ffffffd9;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid #ffffff;border-radius:24px;box-shadow:0 14px 34px #13151633}
+.dock::-webkit-scrollbar{display:none}
+.grdC{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px}
+.lst{display:flex;align-items:center;gap:10px;min-height:56px;padding:8px 12px;background:#fff;border:1px solid var(--line);border-radius:14px;color:var(--ink);text-decoration:none;position:relative}
+.lst .api{width:40px;height:40px;border-radius:12px;box-shadow:none}.lst b{font:600 13.5px var(--ui)}.lst .bdg{position:static;margin-left:auto}
+.cpb{position:fixed;inset:0;z-index:300;background:#13151699;display:flex;justify-content:center;align-items:flex-start;padding:10vh 12px 0;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.cpw{width:min(580px,100%);background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 30px 80px #0006;animation:apin .25s both}
+.cpi{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}.cpi input{flex:1;border:0;outline:0;font:500 17px var(--ui);min-height:36px;min-width:0}
+#cpl{max-height:60vh;overflow:auto;padding:6px}#cpl a{display:flex;align-items:center;gap:10px;min-height:46px;padding:0 10px;border-radius:10px;color:var(--ink);text-decoration:none}
+#cpl a.on,#cpl a:hover{background:#fdf0ea}#cpl a b{font:600 14px var(--ui)}#cpl a span{margin-left:auto;font:600 12px var(--ui);color:var(--mut)}#cpl .i{color:var(--or)}
+.hide{display:none!important}
 </style>
 </head>
 <body>
@@ -1045,9 +1086,92 @@ function vCompare(){const Y='<span class="tag ok">YES</span>',A='<span class="ta
  <p class="note" style="margin-top:10px">Salesforce and HubSpot can be custom-built to do some of the bottom rows, with developers, add-on apps and per-seat licences. The hub does it on day one because it was made for how REVOL runs: a sale becomes shifts, vendors, a kitchen order and an invoice. Feature tiers change, so check their current plans before comparing prices.</p>
  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><a class="btn" href="#/sales">OPEN THE SALES DESK</a><a class="btn gh" href="#/diy">RUN IT YOURSELF</a></div></section>`}
 
+/* ---------- App-style home: options A, B, C ---------- */
+Object.assign(IC,{
+ a_sales:'<path d="M3 20h18"/><path d="M6 16v-4M11 16V8M16 16v-6"/><path d="M5 9l5-4 4 3 6-5"/><path d="M17 3h3v3"/>',
+ a_events:'<rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M12 13l1.2 2.2 2.4.3-1.8 1.6.5 2.4-2.3-1.2-2.3 1.2.5-2.4-1.8-1.6 2.4-.3z"/>',
+ a_staff:'<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.2a3 3 0 010 5.6M18 14.5c1.8.8 3 2.7 3 5"/>',
+ a_vend:'<path d="M3 9l2-5h14l2 5"/><path d="M3 9c0 1.7 1.3 3 3 3s3-1.3 3-3c0 1.7 1.3 3 3 3s3-1.3 3-3c0 1.7 1.3 3 3 3s3-1.3 3-3"/><path d="M5 12v8h14v-8M10 20v-5h4v5"/>',
+ a_kitchen:'<path d="M6 14h12v5a1 1 0 01-1 1H7a1 1 0 01-1-1z"/><path d="M8 14V9.5A3.5 3.5 0 0112 6a3.5 3.5 0 014 3.5V14"/><path d="M10 3c0 1 1 1 1 2M14 3c0 1-1 1-1 2"/>',
+ a_fin:'<rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/><circle cx="16.5" cy="15" r="1.5"/>',
+ a_calls:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z"/><path d="M15 4a5 5 0 015 5M15 7.5a1.5 1.5 0 011.5 1.5"/>',
+ a_rep:'<path d="M4 4v16h16"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/>',
+ a_conn:'<path d="M9 7V3M15 7V3"/><path d="M7 7h10v4a5 5 0 01-10 0z"/><path d="M12 16v5"/>',
+ a_auto:'<path d="M13 2L5 13h6l-1 9 8-11h-6z"/>',
+ a_key:'<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l2 2M15 8l2 2"/>',
+ a_blc:'<path d="M3 20h18"/><path d="M4 20V10l8-5 8 5v10"/><path d="M8 20v-6h8v6M12 14v6"/>',
+ a_today:'<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>',
+ a_dispatch:'<path d="M2 7h11v9H2zM13 10h4l3 3v3h-7"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/>',
+ a_me:'<rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M8 17c.8-1.8 2.3-2.7 4-2.7s3.2.9 4 2.7"/>',
+ a_vs:'<path d="M4 6h7v12H4zM13 6h7v12h-7z"/><path d="M7.5 10v4M16.5 10v4M15 12h3"/>',
+ a_search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>'});
+function homeData(){const n=nowTO();const up=P.filter(p=>dayDiff(p.date)>=0&&dayDiff(p.date)<14);const wk=P.filter(p=>dayDiff(p.date)>=0&&dayDiff(p.date)<7);const today=P.filter(p=>dayDiff(p.date)===0);
+ const sh=up.reduce((a,p)=>{const s=stats(p);a.n+=s.need;a.c+=s.conf;a.o+=s.open;return a},{n:0,c:0,o:0});const vv=up.reduce((a,p)=>{const s=stats(p);a.n+=s.vn;a.c+=s.vc;return a},{n:0,c:0});
+ const S=REPS.map(repStats);const cb=S.reduce((a,s)=>a+s.cb.length,0);const pipe=DEALS.filter(d=>d.stage!=='Won').reduce((a,d)=>a+dealValue(d),0);
+ const prep=CAT.filter(c=>{const p=P.find(x=>x.id===c.pid);return p&&dayDiff(p.date)>=0&&dayDiff(p.date)<2}).reduce((a,c)=>a+c.qty,0);
+ const inv=INV.filter(i=>i.status!=='Paid').length;const calls=S.reduce((a,s)=>a+s.today.c,0);
+ return {n,wk,today,sh,vv,cb,pipe,prep,inv,calls,S}}
+function apps(D){return [
+ ['Sales','#/sales','a_sales','gala',D.cb,'callbacks owed'],['Events','#/projects','a_events','evt_hall',D.wk.length,'this week'],['Staffing','#/staff','a_staff','crew',D.sh.o,'open shifts'],['Vendors','#/vendors','a_vend','canopy',D.vv.n-D.vv.c,'to chase'],
+ ['Kitchen','#/menu','a_kitchen','kitchen',0,''],['Finance','#/invoices','a_fin','corp_cat2',D.inv,'open invoices'],['Calls','#/sales/3','a_calls','server',0,''],['Reports','#/sales/20','a_rep','table',0,''],
+ ['Connect','#/sales/10','a_conn','trucks',SOURCES.length-SOURCES.filter(s=>CONN[s[0]]).length,'to link'],['Automations','#/sales/11','a_auto','buffet',0,''],['Today','#/today','a_today','team_red',D.today.length,'today'],['Better Living Centre','#/blc','a_blc','evt_hall',0,''],
+ ['Dispatch','#/dispatch','a_dispatch','trucks',0,''],['Staff hub','#/me','a_me','crew',0,''],['Run it yourself','#/diy','a_key','polaroid',0,''],['vs Salesforce','#/compare','a_vs','table',0,'']]}
+const cnt=(v,f)=>`<span class="cu" data-to="${v}" data-f="${f||''}">${f==='$'?money(v).replace('.00',''):fmt(v)}</span>`;
+const pulse=t=>`<span class="pz"><i></i>${t}</span>`;
+function statusLine(D){return `<div class="stl">${pulse('LIVE')}<span>FLEX SYNCED 7:00 AM</span><span>${fmt(REPS.length)} REPS ONLINE</span><span>${fmt(D.calls)} CALLS TODAY</span><span>${fmt(D.today.length)} EVENTS TODAY</span></div>`}
+function appIcon(a,i,style){const [l,h,icn,img,b,bl]=a;return `<a class="ap ap-${style}" href="${h}" data-k="${i<9?i+1:''}" style="animation-delay:${i*35}ms"><span class="api"><img src="${IMG[img]}" alt="" loading="lazy">${ic(icn,30)}${b?`<b class="bdg">${b>99?'99+':b}</b>`:''}</span><span class="apl">${esc(l)}</span></a>`}
+function vHomeA(){const D=homeData();const A=apps(D);
+ return `<section class="hA"><img src="${IMG.team_red}" alt=""><div class="in"><span class="k" style="color:#fff">${D.n.h<12?'GOOD MORNING':D.n.h<17?'GOOD AFTERNOON':'GOOD EVENING'}, JONNY</span><h1>REVOL HUB</h1>${statusLine(D)}</div></section>
+ <button class="cmdb" data-cmd>${ic('a_search',20)}<span>Search or jump to anything</span><kbd>CTRL K</kbd></button>
+ <div class="grdA">${A.map((a,i)=>appIcon(a,i,'a')).join('')}</div>
+ <p class="k" style="margin-top:14px;text-align:center">PRESS 1 TO 9 TO OPEN AN APP · CTRL K TO SEARCH · SAMPLE DATA</p>`}
+function widget(t,body,h){return `<a class="wg" href="${h}"><span class="k">${t}</span>${body}</a>`}
+function widgets(D){const days=Array.from({length:7},(_,i)=>{const dt=iso(addD(T0,i));return P.filter(p=>p.date===dt).reduce((a,p)=>a+stats(p).need,0)});const mx=Math.max(1,...days);
+ return [widget('PIPELINE',`<b class="wn">${cnt(D.pipe,'$')}</b><span class="ws">${fmt(DEALS.filter(d=>d.stage!=='Won').length)} open deals</span>${spark(REPS.map(repStats)[0].days,'c','#F05A28').replace('width="70"','width="100%"').replace('height="22"','height="30" preserveAspectRatio="none"')}`,'#/sales/5'),
+ widget('SHIFTS, NEXT 7 DAYS',`<b class="wn">${cnt(D.sh.c)}<small>/${fmt(D.sh.n)}</small></b><span class="ws">${fmt(D.sh.o)} still open</span><div class="wb">${days.map(v=>`<i style="height:${Math.max(6,v/mx*100)}%"></i>`).join('')}</div>`,'#/staff'),
+ widget('CALLBACKS OWED',`<b class="wn" style="color:var(--bad)">${cnt(D.cb)}</b><span class="ws">across ${fmt(REPS.length)} reps</span><div class="wav">${REPS.map(k=>`<img class="av" src="${IMG[k]}" alt="">`).join('')}</div>`,'#/sales/12'),
+ widget('VENDORS CONFIRMED',`<b class="wn">${cnt(D.vv.c)}<small>/${fmt(D.vv.n)}</small></b><span class="ws">${fmt(D.vv.n-D.vv.c)} to chase</span><div class="wbar"><i style="width:${D.vv.c/Math.max(1,D.vv.n)*100}%"></i></div>`,'#/vendors'),
+ widget('KITCHEN, 2 DAYS',`<b class="wn">${cnt(D.prep)}</b><span class="ws">portions to prep</span>`,'#/menu'),
+ widget('TODAY',`<b class="wn">${cnt(D.today.length)}</b><span class="ws">${D.today.slice(0,2).map(p=>esc(p.name)).join(' · ')||'Quiet day'}</span>`,'#/today')]}
+function vHomeB(){const D=homeData();const A=apps(D);
+ return `<section class="hB"><div class="in"><span class="k">${nice(iso(T0)).toUpperCase()} · TORONTO</span><h1>What do you need, Jonny?</h1>
+ <button class="cmdb big" data-cmd>${ic('a_search',22)}<span>Search "callbacks", "Friday"</span><kbd>CTRL K</kbd></button>
+ <div class="chips">${['Who is behind today','Hot leads','Open shifts this week','Vendors to chase','Margin by event'].map((c,i)=>`<a href="${['#/sales/12','#/sales/13','#/staff','#/vendors','#/sales/18'][i]}">${c}</a>`).join('')}</div>${statusLine(D)}</div><img src="${IMG.gala}" alt=""></section>
+ <div class="wgs">${widgets(D).join('')}</div>
+ <section class="sec"><header><h2>Apps</h2><span class="k">${fmt(A.length)} INSTALLED</span></header><div class="grdB">${A.map((a,i)=>appIcon(a,i,'b')).join('')}</div></section>`}
+function vHomeC(){const D=homeData();const A=apps(D);const dock=A.slice(0,6);
+ return `<section class="hC"><img src="${IMG.evt_hall}" alt=""><div class="in"><div class="clkC">${String(D.n.h%12||12)}:${String(D.n.mi).padStart(2,'0')}<small>${D.n.h<12?'AM':'PM'}</small></div><span class="k" style="color:#fff">${nice(iso(T0)).toUpperCase()} · REVOL HUB</span>${statusLine(D)}</div></section>
+ <div class="dock">${dock.map((a,i)=>appIcon(a,i,'c')).join('')}</div>
+ <div class="wgs">${widgets(D).join('')}</div>
+ <section class="sec"><header><h2>More apps</h2><button class="btn sm gh" data-cmd>SEARCH · CTRL K</button></header><div class="grdC">${A.slice(6).map((a,i)=>`<a class="lst" href="${a[1]}"><span class="api">${ic(a[2],22)}</span><b>${esc(a[0])}</b>${a[4]?`<em class="bdg">${a[4]}</em>`:''}</a>`).join('')}</div></section>`}
+function cmdItems(){const D=homeData();const it=apps(D).map(a=>[a[0],a[1],a[2],a[4]?a[4]+' '+a[5]:'']);
+ const tabs2=['Pipeline','Flex sync','Inbox','Calls','Coaching','Forecast','Follow-ups','Rep day','Tasks','Reps','Connect','Automations','Director','Hot leads','Quotes','Proposal builder','Accounts','Insights','Margin and upside','Templates','Reports'];
+ tabs2.forEach((t,i)=>it.push(['Sales: '+t,'#/sales/'+i,'a_sales','']));
+ REPS.forEach(k=>it.push([rName(k)+', rep dashboard','#/sales/9','a_staff','']));
+ P.filter(p=>dayDiff(p.date)>=0&&dayDiff(p.date)<21).slice(0,40).forEach(p=>it.push([p.name,'#/p/'+p.id,'a_events',nice(p.date)]));
+ return it}
+let cmdSel=0;
+function openCmd(){let m=$('#cmdp');if(!m){m=document.createElement('div');m.id='cmdp';document.body.appendChild(m)}
+ m.innerHTML=`<div class="cpb"><div class="cpw"><div class="cpi">${ic('a_search',20)}<input id="cpq" placeholder="Search apps, reps, events" autocomplete="off"><kbd>ESC</kbd></div><div id="cpl"></div></div></div>`;
+ const q=$('#cpq'),l=$('#cpl');const draw=()=>{const v=q.value.toLowerCase();const r=cmdItems().filter(x=>!v||x[0].toLowerCase().includes(v)).slice(0,9);cmdSel=Math.min(cmdSel,Math.max(0,r.length-1));
+  l.innerHTML=r.map((x,i)=>`<a href="${x[1]}" class="${i===cmdSel?'on':''}">${ic(x[2],18)}<b>${esc(x[0])}</b><span>${esc(x[3])}</span></a>`).join('')||'<p style="padding:14px;color:var(--mut)">No match</p>';
+  $$('#cpl a').forEach(a=>a.onclick=()=>closeCmd())};
+ q.oninput=()=>{cmdSel=0;draw()};q.onkeydown=e=>{const n=$$('#cpl a').length;if(e.key==='ArrowDown'){cmdSel=(cmdSel+1)%Math.max(1,n);draw();e.preventDefault()}else if(e.key==='ArrowUp'){cmdSel=(cmdSel-1+n)%Math.max(1,n);draw();e.preventDefault()}else if(e.key==='Enter'){const a=$$('#cpl a')[cmdSel];if(a){location.hash=a.getAttribute('href');closeCmd()}}else if(e.key==='Escape')closeCmd()};
+ m.querySelector('.cpb').onclick=e=>{if(e.target.classList.contains('cpb'))closeCmd()};draw();setTimeout(()=>q.focus(),30)}
+function closeCmd(){const m=$('#cmdp');if(m)m.innerHTML=''}
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openCmd();return}
+ if(e.key==='Escape'){closeCmd();return}
+ const tg=e.target;if(tg&&(tg.tagName==='INPUT'||tg.tagName==='TEXTAREA'))return;
+ if(e.key==='/'){e.preventDefault();openCmd();return}
+ if(/^[1-9]$/.test(e.key)&&(location.hash==='#/'||location.hash==='')){const a=document.querySelector(`.ap[data-k="${e.key}"]`);if(a)location.hash=a.getAttribute('href')}});
+function countUp(){$$('.cu').forEach(el=>{const to=+el.dataset.to,f=el.dataset.f;if(!to||to<2)return;const t0=performance.now(),d=700;const st=x=>el.textContent=f==='$'?money(Math.round(x)).replace('.00',''):fmt(Math.round(x));
+ const step=t=>{const k=Math.min(1,(t-t0)/d);st(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)})}
+const HOMEV=(()=>{try{return (new URLSearchParams(location.search).get('home')||'').toLowerCase()}catch(e){return ''}})();
+function vHome(){return HOMEV==='a'?vHomeA():HOMEV==='b'?vHomeB():HOMEV==='c'?vHomeC():vHQ()}
+
 /* ---------- router ---------- */
 function route(){const r=location.hash||'#/';drawNav(r.startsWith('#/p/')?'#/projects':r.startsWith('#/sales/')?'#/sales':r);const a=$('#app');let h;
- if(r.startsWith('#/p/'))h=vProject(r.slice(4));else if(r.startsWith('#/sales/')){salesTab=+r.slice(8)||0;if(salesTab>20)salesTab=12;h=vSalesHub()}else h=({'#/':vHQ,'#/today':vToday,'#/sales':()=>{salesTab=12;return vSalesHub()},'#/diy':vDIY,'#/compare':vCompare,'#/projects':vProjects,'#/calendar':vCalendar,'#/blc':vBLC,'#/staff':vStaff,'#/hours':vHours,'#/invoices':vInvoices,'#/vendors':vVendors,'#/menu':vMenu,'#/team':vTeam,'#/import':vImport,'#/dispatch':vDispatch,'#/me':vMe,'#/grow':vGrow}[r]||vToday)();
+ if(r.startsWith('#/p/'))h=vProject(r.slice(4));else if(r.startsWith('#/sales/')){salesTab=+r.slice(8)||0;if(salesTab>20)salesTab=12;h=vSalesHub()}else h=({'#/':vHome,'#/today':vToday,'#/sales':()=>{salesTab=12;return vSalesHub()},'#/diy':vDIY,'#/compare':vCompare,'#/projects':vProjects,'#/calendar':vCalendar,'#/blc':vBLC,'#/staff':vStaff,'#/hours':vHours,'#/invoices':vInvoices,'#/vendors':vVendors,'#/menu':vMenu,'#/team':vTeam,'#/import':vImport,'#/dispatch':vDispatch,'#/me':vMe,'#/grow':vGrow}[r]||vToday)();
  a.innerHTML=h;bind(r);}
 let keepScroll=false;
 function rerender(){const y=scrollY,tab=$('#tabs .on');const ti=tab?tab.dataset.t:null;keepScroll=true;route();if(ti){showTab(ti)}scrollTo(0,y)}
@@ -1093,6 +1217,7 @@ function bind(r){
  $$('[data-copy]').forEach(b=>b.onclick=()=>toast('Booking link copied (sample)'));
  $$('[data-rbm]').forEach(b=>b.onclick=()=>{RB.m=b.dataset.rbm;rerender()});
  $$('[data-rbg]').forEach(b=>b.onclick=()=>{RB.g=b.dataset.rbg;rerender()});
+ $$('[data-cmd]').forEach(b=>b.onclick=openCmd);countUp();
  $$('[data-call]').forEach(b=>b.onclick=()=>{callOpen=callOpen===b.dataset.call?null:b.dataset.call;rerender()});
  {const dh=$('#dlHub');if(dh)dh.onclick=dlHub;const tg=$('#txGo');if(tg)tg.onclick=txRender;const te=$('#txEx');if(te)te.onclick=()=>{$('#txIn').value=TXSAMPLE;txRender()}}
  {const ft=$('#flexTpl');if(ft)ft.onclick=flexCSV;const fn=$('#flexNow');if(fn)fn.onclick=()=>toast('Sample sync run: Flex report read, changes applied');const ff=$('#flexFile');if(ff)ff.onchange=()=>{const f=ff.files[0];if(!f)return;f.text().then(tx=>{const r=parseCSV(tx);if(r.length<2){toast('That file has no rows');return}FLEXIMP={head:r[0],rows:r.slice(1)};toast('Read '+fmt(r.length-1)+' orders from your file');rerender()})}}
