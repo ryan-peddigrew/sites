@@ -173,6 +173,23 @@ body.loading .benny-tab{opacity:0;transform:translateY(20px)}
 .frame .w .amp{display:block;font:400 .6em/1 var(--script);text-transform:none;color:var(--gold)}
 .frame .w small{display:block;margin-top:.4em;font:700 clamp(13px,3.8vw,18px)/1.3 var(--body);letter-spacing:.3em;color:var(--soft)}
 .frame i{position:absolute;left:10px;bottom:8px;font:700 12.5px/1 var(--body);font-style:normal;letter-spacing:.2em;color:var(--gold)}
+
+/* ---- guided tour (?tour=1): one tap to start, then it plays itself ---- */
+.tstart{position:fixed;inset:0;z-index:45;display:grid;place-items:center;background:rgba(5,7,4,.72);text-align:center;padding:24px}
+.tstart[hidden]{display:none}
+.tstart button{min-height:64px;padding:0 30px;background:var(--ink);color:#11160f;border:0;font:400 26px/1 var(--block);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.tstart p{margin:0 0 18px;font:400 clamp(44px,13vw,90px)/.9 var(--block);text-transform:uppercase}
+.tstart small{display:block;margin-top:16px;font:700 14px/1.4 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--soft)}
+.tbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(5,7,4,.95);border-top:1px solid rgba(214,190,130,.4);
+  padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center}
+.tbar[hidden]{display:none}
+.tbar .cap{margin:0;font:600 18px/1.35 var(--body);color:var(--ink)}
+.tbar .cap b{display:block;font:700 12.5px/1.4 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--soft)}
+.tbar button{min-height:46px;padding:0 14px;background:transparent;color:var(--ink);border:1px solid var(--soft);font:400 17px/1 var(--block);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.tbar .prog{grid-column:1/-1;height:3px;background:rgba(255,255,255,.12)}.tbar .prog i{display:block;height:100%;width:0;background:var(--gold)}
+html.touring .benny-tab{bottom:calc(120px + env(safe-area-inset-bottom,0px))}
+html.touring .benny{bottom:calc(178px + env(safe-area-inset-bottom,0px))}
 </style>
 </head><body>
 
@@ -199,7 +216,7 @@ body.loading .benny-tab{opacity:0;transform:translateY(20px)}
   <section class="count reveal" aria-label="Countdown"><div><div class="num" id="days">&nbsp;</div><p class="lab">days until <b>Peddigrew says I do</b></p></div></section>
   <section class="reply" id="rsvp">
     <div class="card reveal">
-      <p class="kick">Kindly reply by <span class="tbc">reply-by date</span></p>
+      <p class="kick">Kindly reply</p>
       <h1>RSVP</h1>
       <p class="facts"><span>Friday, May 28, 2027</span><span>Trail Hub</span><span>Uxbridge, Ontario</span></p>
       <p class="lead">Please reply once for everyone named on your invitation.</p>
@@ -250,7 +267,7 @@ body.loading .benny-tab{opacity:0;transform:translateY(20px)}
     <div class="slab reveal"><h3>Hotel</h3><p><span class="tbc">hotel name and room block</span></p><h3>Booking code</h3><p><span class="tbc">code and book-by date</span></p></div></section>
   <section class="ch later " id="faq"><p class="big out reveal">Questions</p>
     <div class="faq reveal">
-      <details><summary>When should I reply?</summary><p>Please reply by <span class="tbc">reply-by date</span> using the RSVP above.</p></details>
+      <details><summary>When should I reply?</summary><p>Please reply using the RSVP above.</p></details>
       <details><summary>What should I wear?</summary><p><span class="tbc">your answer</span></p></details>
       <details><summary>Can I bring a guest?</summary><p><span class="tbc">your answer</span></p></details>
       <details><summary>Are children invited?</summary><p><span class="tbc">your answer</span></p></details>
@@ -404,7 +421,7 @@ function match(s){ s=s.toLowerCase();
   if(/when|date|day|time|long/.test(s)) return 'when'; if(/hello|hi|bonjour|hey/.test(s)) return 'hi'; return 'other'; }
 document.getElementById('bform').onsubmit=function(e){ e.preventDefault(); var i=document.getElementById('bin'), v=i.value.trim(); if(!v) return; i.value=''; answer(match(v), v); };
 var greeted=0;
-function toggle(show){ box.hidden=!show; tab.setAttribute('aria-expanded', show); if(show && !greeted){ greeted=1; say(A.hi()); } if(show) setTimeout(function(){ document.getElementById('bin').focus({preventScroll:true}); },50); }
+function toggle(show){ box.hidden=!show; tab.setAttribute('aria-expanded', show); if(show && !greeted){ greeted=1; say(A.hi()); } if(show && matchMedia('(hover: hover)').matches && !document.documentElement.classList.contains('touring')) setTimeout(function(){ document.getElementById('bin').focus({preventScroll:true}); },50); }
 tab.onclick=function(){ toggle(box.hidden); };
 document.getElementById('bx').onclick=function(){ toggle(false); tab.focus(); };
 addEventListener('keydown',function(e){ if(e.key==='Escape' && !box.hidden){ toggle(false); tab.focus(); } });
@@ -412,7 +429,7 @@ addEventListener('keydown',function(e){ if(e.key==='Escape' && !box.hidden){ tog
 </script>
 <script>
 /* SETTINGS: RSVP_ENDPOINT is where replies go (FormSubmit ajax URL for the chosen inbox). Empty = preview, nothing is sent. */
-var RSVP_ENDPOINT = "";
+var RSVP_ENDPOINT = "https://formsubmit.co/ajax/benny@peddigrewsaysido.com";
 (function(){
 var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 var loader=document.getElementById('loader'), cd=document.getElementById('cd'), flash=document.getElementById('flash');
@@ -492,6 +509,48 @@ f.addEventListener('submit',function(e){
     .then(function(r){ if(!r.ok) throw 0; ok(); })
     .catch(function(){ btn.disabled=false; btn.textContent='Send our reply'; err.textContent='That did not go through. Please try again in a moment.'; err.hidden=false; });
 });
+})();
+</script>
+
+<div class="tstart" id="tstart" hidden><div><p>Our website</p><button type="button" id="tgo">Start the tour</button><small>Plays by itself · about a minute</small></div></div>
+<div class="tbar" id="tbar" hidden role="region" aria-label="Tour"><p class="cap" id="tcap" aria-live="polite"></p><button type="button" id="tpause">Pause</button><button type="button" id="tnext">Next</button><div class="prog"><i id="tprog"></i></div></div>
+
+<script>
+/* Guided tour: add ?tour=1 to the address. Opens every chapter, one tap to start, then plays. */
+(function(){
+var on = false || /[?&]tour=1/.test(location.search); if(!on) return;
+var de=document.documentElement; de.classList.add('open','touring');
+var start=document.getElementById('tstart'), bar=document.getElementById('tbar'), cap=document.getElementById('tcap'), prog=document.getElementById('tprog');
+function top(sel){ var e=document.querySelector(sel); return e ? e.getBoundingClientRect().top+scrollY-30 : 0; }
+var fly=document.querySelector('.fly');
+var S=[
+ {t:'The opening', c:'A photo-booth countdown and a flash, then your names.', y:function(){return 0;}, ms:4500},
+ {t:'The fly-through', c:'Scrolling flies guests through your three photos.', y:function(){return fly.offsetHeight-innerHeight;}, ms:10000, glide:1},
+ {t:'The countdown', c:'Days to go, counting up as it appears.', y:function(){return top('.count');}, ms:5000},
+ {t:'The RSVP', c:'One reply per invitation: names, yes or no, and a note. Replies go to benny@.', y:function(){return top('#rsvp');}, ms:7000},
+ {t:'Before invitations', c:'Until invitations are out, guests stop here. Everything after this opens later.', y:function(){return top('#rsvp')+document.getElementById('rsvp').offsetHeight-innerHeight*.6;}, ms:5500},
+ {t:'The day', c:'The schedule. Times to fill in.', y:function(){return top('#day');}, ms:5500},
+ {t:'Getting there', c:'Trail Hub, with a button that opens maps.', y:function(){return top('#travel');}, ms:6000},
+ {t:'Where to stay', c:'Hotel and booking code, to fill in.', y:function(){return top('#stay');}, ms:5000},
+ {t:'Questions', c:'Answers to fill in together.', y:function(){return top('#faq');}, ms:5000},
+ {t:'Registry', c:'Optional. Add a link if you want one.', y:function(){return top('#registry');}, ms:4500},
+ {t:'Benny', c:'Benny, our maître d’, answers guests’ questions from what is on the site.', y:function(){return top('#registry');}, ms:8000, benny:1},
+ {t:'That is the tour', c:'Tap Next to watch it again.', y:function(){return 0;}, ms:999999}
+];
+var i=-1, paused=false, el=0, last=0, anim=null;
+function glide(to, ms){ var from=scrollY, s=performance.now(); if(anim) cancelAnimationFrame(anim);
+  (function f(now){ if(paused){ s+=now-(f.p||now); } f.p=now; var k=Math.min(1,(now-s)/ms), e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2; scrollTo(0,from+(to-from)*e); if(k<1) anim=requestAnimationFrame(f); })(s); }
+function closeBenny(){ var b=document.getElementById('benny'); if(!b.hidden) document.getElementById('bx').click(); }
+function show(n){ i=(n+S.length)%S.length; var s=S[i]; el=0; closeBenny();
+  cap.innerHTML='<b>'+(i+1)+' of '+S.length+' · '+s.t+'</b>'+s.c;
+  if(s.glide){ scrollTo(0,0); setTimeout(function(){ glide(s.y(), s.ms-1200); },300); } else glide(s.y(), 1400);
+  if(s.benny) setTimeout(function(){ document.getElementById('btab').click(); setTimeout(function(){ var q=[].find.call(document.querySelectorAll('#bqs button'),function(b){return /where is it/i.test(b.textContent);}); if(q) q.click(); },1400); },1500);
+  document.getElementById('tnext').textContent = i==S.length-1 ? 'Again' : 'Next'; }
+function tick(now){ if(!paused && i>=0) el+=now-last; last=now; var s=S[i]; if(s){ prog.style.width=Math.min(100,el/s.ms*100)+'%'; if(el>=s.ms) show(i+1); } requestAnimationFrame(tick); }
+document.getElementById('tnext').onclick=function(){ show(i+1); };
+document.getElementById('tpause').onclick=function(){ paused=!paused; this.textContent=paused?'Play':'Pause'; };
+start.hidden=false;
+document.getElementById('tgo').onclick=function(){ start.hidden=true; bar.hidden=false; last=performance.now(); show(0); requestAnimationFrame(tick); };
 })();
 </script>
 

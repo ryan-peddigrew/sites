@@ -39,11 +39,17 @@ export async function onRequest(ctx) {
   if (OPEN.some(p => url.pathname.startsWith(p))) return next();
   // Ryan's own wedding site on his domain: public, no gate, only the guest pages.
   if (/(^|\.)peddigrewsaysido\.com$/i.test(url.hostname)) {
-    const p = url.pathname === '/' ? '/index.html' : url.pathname;
+    const p = url.pathname === '/' ? '/index.html' : /^\/rsvp\/?$/.test(url.pathname) ? '/rsvp.html' : url.pathname;
     if (!/^\/(index\.html|rsvp\.html|img\/[\w.-]+\.(jpg|webp|png))$/.test(p)) {
       return Response.redirect(url.origin + '/', 302);
     }
-    return env.ASSETS.fetch(new Request(new URL('/ryan-amanda-wedding' + p, url), request));
+    // Pages serves /x.html at /x, so ask for the clean path and follow one internal redirect.
+    const clean = p === '/index.html' ? '/' : p.replace(/\.html$/, '');
+    let r = await env.ASSETS.fetch(new Request(new URL('/ryan-amanda-wedding' + clean, url), request));
+    if (r.status >= 300 && r.status < 400 && r.headers.get('Location')) {
+      r = await env.ASSETS.fetch(new Request(new URL(r.headers.get('Location'), url), request));
+    }
+    return r;
   }
   if (!env.SECRET) return gate('Preview is being set up. Please try again soon.');
   const folder = url.pathname.split('/')[1] || '';

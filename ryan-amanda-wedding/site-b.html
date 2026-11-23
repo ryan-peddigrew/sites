@@ -201,7 +201,7 @@ body.loading .benny-tab{opacity:0;transform:translateY(20px)}
   <section class="count reveal" aria-label="Countdown"><div><div class="num" id="days">&nbsp;</div><p class="lab">days until <b>Peddigrew says I do</b></p></div></section>
   <section class="reply" id="rsvp">
     <div class="card reveal">
-      <p class="kick">Kindly reply by <span class="tbc">reply-by date</span></p>
+      <p class="kick">Kindly reply</p>
       <h1>RSVP</h1>
       <p class="facts"><span>Friday, May 28, 2027</span><span>Trail Hub</span><span>Uxbridge, Ontario</span></p>
       <p class="lead">Please reply once for everyone named on your invitation.</p>
@@ -252,7 +252,7 @@ body.loading .benny-tab{opacity:0;transform:translateY(20px)}
     <div class="slab reveal"><h3>Hotel</h3><p><span class="tbc">hotel name and room block</span></p><h3>Booking code</h3><p><span class="tbc">code and book-by date</span></p></div></section>
   <section class="ch later " id="faq"><p class="big out reveal">Questions</p>
     <div class="faq reveal">
-      <details><summary>When should I reply?</summary><p>Please reply by <span class="tbc">reply-by date</span> using the RSVP above.</p></details>
+      <details><summary>When should I reply?</summary><p>Please reply using the RSVP above.</p></details>
       <details><summary>What should I wear?</summary><p><span class="tbc">your answer</span></p></details>
       <details><summary>Can I bring a guest?</summary><p><span class="tbc">your answer</span></p></details>
       <details><summary>Are children invited?</summary><p><span class="tbc">your answer</span></p></details>
@@ -406,7 +406,7 @@ function match(s){ s=s.toLowerCase();
   if(/when|date|day|time|long/.test(s)) return 'when'; if(/hello|hi|bonjour|hey/.test(s)) return 'hi'; return 'other'; }
 document.getElementById('bform').onsubmit=function(e){ e.preventDefault(); var i=document.getElementById('bin'), v=i.value.trim(); if(!v) return; i.value=''; answer(match(v), v); };
 var greeted=0;
-function toggle(show){ box.hidden=!show; tab.setAttribute('aria-expanded', show); if(show && !greeted){ greeted=1; say(A.hi()); } if(show) setTimeout(function(){ document.getElementById('bin').focus({preventScroll:true}); },50); }
+function toggle(show){ box.hidden=!show; tab.setAttribute('aria-expanded', show); if(show && !greeted){ greeted=1; say(A.hi()); } if(show && matchMedia('(hover: hover)').matches && !document.documentElement.classList.contains('touring')) setTimeout(function(){ document.getElementById('bin').focus({preventScroll:true}); },50); }
 tab.onclick=function(){ toggle(box.hidden); };
 document.getElementById('bx').onclick=function(){ toggle(false); tab.focus(); };
 addEventListener('keydown',function(e){ if(e.key==='Escape' && !box.hidden){ toggle(false); tab.focus(); } });
@@ -414,7 +414,7 @@ addEventListener('keydown',function(e){ if(e.key==='Escape' && !box.hidden){ tog
 </script>
 <script>
 /* SETTINGS: RSVP_ENDPOINT is where replies go (FormSubmit ajax URL for the chosen inbox). Empty = preview, nothing is sent. */
-var RSVP_ENDPOINT = "";
+var RSVP_ENDPOINT = "https://formsubmit.co/ajax/benny@peddigrewsaysido.com";
 (function(){
 var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 var loader=document.getElementById('loader'), cd=document.getElementById('cd'), flash=document.getElementById('flash');
