@@ -256,6 +256,19 @@ kbd{font:700 10.5px var(--ui);letter-spacing:.08em;border:1px solid var(--line);
 .cpi{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}.cpi input{flex:1;border:0;outline:0;font:500 17px var(--ui);min-height:36px;min-width:0}
 #cpl{max-height:60vh;overflow:auto;padding:6px}#cpl a{display:flex;align-items:center;gap:10px;min-height:46px;padding:0 10px;border-radius:10px;color:var(--ink);text-decoration:none}
 #cpl a.on,#cpl a:hover{background:#fdf0ea}#cpl a b{font:600 14px var(--ui)}#cpl a span{margin-left:auto;font:600 12px var(--ui);color:var(--mut)}#cpl .i{color:var(--or)}
+
+.mt{flex:none;min-height:44px;padding:0 34px 0 14px;border:0;border-radius:var(--r);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23131516' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center/16px;font:700 12px var(--ui);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;box-shadow:inset 0 0 0 1px var(--line);-webkit-appearance:none;appearance:none;color:var(--ink)}
+.mt.on{background-color:var(--or);color:#fff;box-shadow:none}
+#wkS{position:fixed;z-index:250;border-radius:14px;pointer-events:none;box-shadow:0 0 0 2px var(--or),0 0 0 9999px #13151652;transition:all .35s cubic-bezier(.2,.8,.2,1)}
+#wk.tap #wkS{animation:wkp 1.6s infinite}@keyframes wkp{0%,100%{box-shadow:0 0 0 2px var(--or),0 0 0 9999px #13151652}50%{box-shadow:0 0 0 6px #F05A2899,0 0 0 9999px #13151652}}
+#wkC{position:fixed;z-index:251;background:#fff;border-radius:14px;padding:14px 14px 12px;box-shadow:0 18px 50px #0005;border-top:3px solid var(--or);transition:top .35s,left .35s,opacity .2s}
+#wk.mv #wkC{opacity:.0}#wk.mv #wkS{opacity:.6}
+.wkh{display:flex;justify-content:space-between;align-items:center;font:700 10.5px var(--ui);letter-spacing:.14em;color:var(--mut)}
+.wkh button{border:0;background:none;font:700 10.5px var(--ui);letter-spacing:.14em;color:var(--mut);cursor:pointer;min-height:32px;padding:0 4px}
+#wkT{display:block;font:400 28px/1 var(--hd);margin:6px 0 4px}#wkP{margin:0;font-size:14.5px;line-height:1.45;color:var(--ink3)}
+.wkb{display:flex;gap:8px;margin-top:12px}.wkb button{flex:1;min-height:44px;border:0;border-radius:8px;font:700 11.5px var(--ui);letter-spacing:.12em;cursor:pointer;background:#f1ece9;color:var(--ink)}.wkb #wkF{background:var(--or);color:#fff}
+#wk.tap #wkF{background:#f1ece9;color:var(--ink)}.wk-on #chatbtn{display:none}
+.lvb{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--ink);color:#fff;border-radius:12px;padding:10px 12px;margin:0 0 14px}.lvb .pz{font:700 10.5px var(--ui);letter-spacing:.14em;color:#F7B79E}.lvb .pz i{background:var(--or);animation:none}.lvt{flex:1;min-width:150px;font:600 13.5px var(--ui)}.lvb .btn{margin-left:auto}
 .hide{display:none!important}
 </style>
 </head>
@@ -458,8 +471,8 @@ function issues(){const out=[];P.filter(p=>dayDiff(p.date)>=0&&dayDiff(p.date)<=
  return out.sort((a,b)=>a.w-b.w||a.p.date.localeCompare(b.p.date))}
 
 /* ---------- nav ---------- */
-const NAV=[['#/','REVOL HUB','home'],['#/sales','SALES DESK','up'],['#/diy','RUN IT YOURSELF','dl'],['#/compare','VS SALESFORCE','up'],['#/today','OPERATIONS TODAY','alert'],['#/projects','PROJECTS','proj'],['#/calendar','CALENDAR','cal'],['#/blc','BETTER LIVING CENTRE','bld'],['#/staff','STAFFING','staff'],['#/me','EMPLOYEE HUB','team'],['#/hours','SUBMIT HOURS','clock'],['#/vendors','VENDORS','vend'],['#/menu','KITCHEN PREP','food'],['#/dispatch','DISPATCH','truck'],['#/invoices','INVOICES','inv'],['#/grow','GROWTH','up'],['#/team','TEAM','team'],['#/import','CONNECT DATA','dl']];
-function drawNav(r){$('#side').innerHTML='<div class="k grp">HUB</div>'+NAV.map(([h,l,i],ix)=>({1:'SALES',4:'EVENTS',8:'STAFFING',11:'VENDORS',12:'KITCHEN',14:'FINANCE',16:'COMPANY'}[ix]?`<div class="k grp">${({1:'SALES',4:'EVENTS',8:'STAFFING',11:'VENDORS',12:'KITCHEN',14:'FINANCE',16:'COMPANY'})[ix]}</div>`:'')+`<a href="${h}" class="${r===h?'on':''}">${ic(i)}${l}</a>`).join('');
+const NAV=[['#/','REVOL HUB','home'],['#/sales','SALES','up'],['#/projects','EVENTS','proj'],['#/calendar','CALENDAR','cal'],['#/blc','BETTER LIVING CENTRE','bld'],['#/staff','STAFFING','staff'],['#/vendors','VENDORS','vend'],['#/menu','KITCHEN','food'],['#/invoices','FINANCE','inv'],['#/diy','RUN IT YOURSELF','dl']];
+function drawNav(r){$('#side').innerHTML='<div class="k grp">HUB</div>'+NAV.map(([h,l,i],ix)=>({1:'SALES',2:'EVENTS',5:'OPERATIONS',9:'TRY IT'}[ix]?`<div class="k grp">${({1:'SALES',2:'EVENTS',5:'OPERATIONS',9:'TRY IT'})[ix]}</div>`:'')+`<a href="${h}" class="${r===h?'on':''}">${ic(i)}${l}</a>`).join('');
  const B=[['#/','HUB','home'],['#/projects','EVENTS','proj'],['#/staff','STAFF','staff'],['#/vendors','VENDORS','vend']];
  $('#bot').innerHTML=B.map(([h,l,i])=>`<a href="${h}" class="${r===h||(h==='#/projects'&&r.startsWith('#/p/'))?'on':''}">${ic(i)}${l}</a>`).join('')+`<a href="#" id="mb">${ic('more')}MORE</a>`;
  $('#mb').onclick=e=>{e.preventDefault();$('#mores').innerHTML=NAV.filter(x=>!['#/','#/projects','#/staff','#/vendors'].includes(x[0])).map(([h,l,i])=>`<a href="${h}">${ic(i)}${l}</a>`).join('');$('#more').classList.add('on')};}
@@ -721,11 +734,11 @@ function tasks(){const W=[],T=[];
  DEALS.forEach((d,i)=>{if(d.stage==='Lead')T.push({rep:d.rep,t:'Send a proposal: '+d.name,d:'New lead, 1 day old'});if(d.stage==='Proposal sent'&&i%2)T.push({rep:d.rep,t:'Follow up: '+d.name,d:'No reply in 4 days'});if(d.stage==='Contract out')T.push({rep:d.rep,t:'Chase the signed agreement: '+d.name,d:'Contract out since '+nice(iso(addD(T0,-2)))})});
  return {W:W.slice(0,10),T}}
 function vSalesHub(){const tabs=['PIPELINE','FLEX SYNC','INBOX','CALLS','COACHING','FORECAST','FOLLOW-UPS','REP DAY','TASKS','REPS','CONNECT','AUTOMATIONS','DIRECTOR','HOT LEADS','QUOTES','PROPOSAL BUILDER','ACCOUNTS','INSIGHTS','MARGIN AND UPSIDE','TEMPLATES','REPORTS'];const ORD=[12,9,10,11,0,1,2,3,4,5,6,7,8];
- const grp=GROUPS.find(g=>g[1].includes(salesTab))||GROUPS[0];const bar=`<div class="sgrp">${GROUPS.map(g=>`<button data-st="${g[1][0]}" class="${g===grp?'on':''}">${g[0]}</button>`).join('')}</div><div class="tabs" style="top:64px">${grp[1].map(i=>`<button data-st="${i}" class="${salesTab===i?'on':''}">${tabs[i]}</button>`).join('')}</div>`;
+ const MAIN=[12,9,0,13,3,17];const rest=tabs.map((t,i)=>i).filter(i=>!MAIN.includes(i)).sort((a,b)=>tabs[a].localeCompare(tabs[b]));const bar=`<div class="tabs" style="top:64px">${MAIN.map(i=>`<button data-st="${i}" class="${salesTab===i?'on':''}">${tabs[i]}</button>`).join('')}<select id="moreT" class="mt ${MAIN.includes(salesTab)?'':'on'}" aria-label="More tools"><option value="">${MAIN.includes(salesTab)?'MORE TOOLS':tabs[salesTab]}</option>${rest.map(i=>`<option value="${i}">${tabs[i]}</option>`).join('')}</select></div>`;
  const feeds=`<section class="sec"><header><h2>How sales feeds operations</h2><span class="k">AUTOMATIC</span></header><div class="flow">${[['FLEX ORDER CONFIRMED','Event built with shifts, vendor requests, menu and run of show','#/projects'],['GUEST COUNT CHANGES','Shifts recalculated from REVOL\'s ratios','#/staff'],['DATE OR TIME CHANGES','Staff and vendors told the new time, asked to reconfirm','#/vendors'],['REP CLOSES A TASK','Held shifts and vendor requests released to book','#/staff']].map(([a,b,h],i)=>`<a class="fl" href="${h}" style="width:200px"><span class="fn">${String(i+1).padStart(2,'0')}</span><b>${a}</b><span>${b}</span></a>`).join('')}</div></section>`;
  const body=[vSales,vFlex,vInbox,vCalls,vCoach,vForecast,vSeq,vRepDay,vTasks,vReps,vConnect,vAuto,vDirector,vHot,vQuotes,vBuilder,vAccounts,vInsights,vMargin,vTemplates,vReports][salesTab]();
- return `<section class="sec" style="margin-top:0"><header><h2>Sales desk</h2><span class="k">READS YOUR CRM AND FLEX CATERING</span></header>
- <div class="note">Jonny, your CRM keeps running the reps. The hub reads the same sources it does, the Flex Catering report and the reps' email, then adds what a CRM can't see: every call recorded and scored, how each rep sells, what is at risk, and whether REVOL can staff and supply what sales is about to sign.<a class="btn sm" href="#/diy" style="margin-top:10px;display:flex;width:max-content">RUN IT YOURSELF, PRIVATELY</a><a class="btn sm gh" href="#/compare" style="margin-top:8px;display:flex;width:max-content;max-width:100%;white-space:normal;height:auto;padding-top:8px;padding-bottom:8px;text-align:left">HOW THIS COMPARES TO SALESFORCE AND HUBSPOT</a></div><div class="note hide"> the Flex Catering report twice a day, and the reps' email as they sign in. Every change lands in staffing, vendors and the kitchen without anyone retyping it. <b>Everything below is sample data.</b></div></section>${bar}${body}${feeds}`}
+ return `<section class="sec" style="margin-top:0"><header><h2>Sales</h2><span class="k">READS YOUR CRM AND FLEX CATERING</span></header>
+ <div class="note">Jonny, your CRM keeps running the reps. The hub reads the same sources it does, the Flex Catering report and the reps' email, then adds what a CRM can't see: every call recorded and scored, how each rep sells, what is at risk, and whether REVOL can staff and supply what sales is about to sign.<a class="btn sm" href="#/diy" style="margin-top:10px;display:flex;width:max-content">RUN IT YOURSELF, PRIVATELY</a></div></section>${bar}${body}`}
 function vFlex(){const n=nowTO();const R=flexRows();const nw=R.filter(r=>r.ch==='New order').length,chg=R.filter(r=>r.ch!=='No change'&&r.ch!=='New order').length;const pm=n.h>=13;
  const card=(l,done,a,b,c)=>`<div class="kpi" style="${done?'':'opacity:.7'}"><span class="k">${l}</span><b style="font-size:30px">${done?fmt(a)+' ORDERS':'NEXT RUN'}</b><span style="font:600 12.5px var(--ui);color:var(--mut)">${done?fmt(b)+' new · '+fmt(c)+' changed · applied to the hub':'Scheduled for 1:00 PM'}</span></div>`;
  const imp=FLEXIMP?`<section class="sec"><header><h2>Your imported file</h2><span class="k">${fmt(FLEXIMP.rows.length)} ROWS</span></header><div class="tw"><table class="t"><thead><tr>${FLEXIMP.head.slice(0,8).map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${FLEXIMP.rows.slice(0,40).map(r=>`<tr>${r.slice(0,8).map(c=>`<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div></section>`:'';
@@ -960,7 +973,7 @@ function vDirector(){const P_=prompts();const st=x=>NUDGED[x.id]||x.st;const S=R
  const escL=P_.filter(x=>st(x)==='esc');
  return `<section class="sec"><header><h2>Director of sales</h2><span class="k">JONNY'S VIEW · ${nice(iso(T0)).toUpperCase()}</span></header>
  <div class="note">Everything you need to stay on your reps without chasing them. The hub prompts each rep automatically, routes new leads, and only brings a problem to you when a rep lets a prompt slide.</div>
- <div style="background:var(--ink);color:#fff;border-radius:10px;padding:16px;margin-top:6px"><p class="k" style="color:var(--or);margin:0 0 6px">YOUR 7:30 AM DIGEST · WHO IS BEHIND</p>
+ <div id="dg" style="background:var(--ink);color:#fff;border-radius:10px;padding:16px;margin-top:6px"><p class="k" style="color:var(--or);margin:0 0 6px">YOUR 7:30 AM DIGEST · WHO IS BEHIND</p>
  ${behind.map(({s,od,q,e})=>`<div style="display:flex;gap:10px;align-items:center;padding:10px 0;border-top:1px solid #ffffff22"><img class="av" style="width:34px;height:34px;flex:none" src="${IMG[s.k]}" alt=""><div style="flex:1;min-width:0"><b style="font:700 13px var(--ui);text-transform:uppercase">${esc(rName(s.k))}</b><span style="display:block;font-size:13.5px;color:#ffffffcc">${[od?`${od} overdue callback${od>1?'s':''}`:'',q?`${q} deal${q>1?'s':''} going quiet`:'',e?'1 email unanswered':''].filter(Boolean).join(' · ')||'On top of everything'}</span></div><button class="btn sm" data-nudge-rep="${s.k}" ${od+q+e?'':'disabled style="opacity:.4"'}>NUDGE</button></div>`).join('')}</div></section>
  ${escL.length?`<section class="sec"><header><h2>Escalated to you</h2><span class="k">A REP MISSED A PROMPT</span></header><div class="alist">${escL.map(x=>`<div class="al" style="display:flex;gap:10px;align-items:flex-start"><img class="av" style="width:32px;height:32px;flex:none" src="${IMG[x.k]}" alt=""><div style="flex:1"><b>${esc(x.t)}</b><span>${esc(rFirst(x.k))} didn't act on the prompt within 4 hours · ${esc(x.ctx)}</span><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn sm" data-nudge="${x.id}">NUDGE AGAIN</button><button class="btn sm gh" data-done="${x.id}">I'LL HANDLE IT</button></div></div></div>`).join('')}</div></section>`:''}
  <section class="sec"><header><h2>Automatic prompts to reps</h2><span class="k">${fmt(P_.length)} TODAY</span></header>
@@ -1167,12 +1180,55 @@ document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLower
 function countUp(){$$('.cu').forEach(el=>{const to=+el.dataset.to,f=el.dataset.f;if(!to||to<2)return;const t0=performance.now(),d=700;const st=x=>el.textContent=f==='$'?money(Math.round(x)).replace('.00',''):fmt(Math.round(x));
  const step=t=>{const k=Math.min(1,(t-t0)/d);st(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)})}
 const HOMEV=(()=>{try{return (new URLSearchParams(location.search).get('home')||'').toLowerCase()}catch(e){return ''}})();
-function vHome(){return HOMEV==='a'?vHomeA():HOMEV==='b'?vHomeB():HOMEV==='c'?vHomeC():vHQ()}
+function vHome(){return HOMEV==='b'?vHomeB():HOMEV==='c'?vHomeC():HOMEV==='hq'?vHQ():vHomeA()}
+
+/* ---------- Tap-along tour (?tour=1) ---------- */
+const WALK=[
+ {r:'#/',s:'.hA',t:'Jonny, this is REVOL HUB',x:'One place for every arm of REVOL. Every icon is a live app. Let me walk you through it. Ryan'},
+ {r:'#/',s:'.ap[href="#/sales"]',t:'Start with sales',x:'Tap Sales.',c:1},
+ {s:'#dg',t:'Your 7:30 digest',x:'Who is behind today, rep by rep, before your first coffee.'},
+ {s:'#dg [data-nudge-rep]',t:'Nudge a rep',x:'Tap NUDGE to see the exact text they get.',c:1},
+ {s:'#npS',t:'Send it',x:'One tap. If they let it slide, it comes back to you.',c:1},
+ {s:'[data-st="9"]',t:'Every rep, every number',x:'Tap Reps.',c:1},
+ {s:'.kpis',t:'The whole team this week',x:'Calls, phone hours, emails, meetings, proposals and callbacks owed. Logged on their own once linked.'},
+ {s:'button[data-rep]',t:'Open a rep',x:'Tap a rep to see what they owe.',c:1},
+ {s:'#repDet',t:'Nothing hides',x:'Callbacks owed, deals going quiet and 14 days of activity.'},
+ {s:'[data-st="0"]',t:'Now the pipeline',x:'Tap Pipeline.',c:1},
+ {s:'.col:not(:last-child) [data-deal]',t:'Open a deal',x:'Tap a deal. You see the staff and vendors it needs before it closes.',c:1},
+ {s:'[data-win]',t:'Mark it won',x:'Tap it and watch.',c:1},
+ {s:'#tabs',t:'The event builds itself',x:'Shifts from your ratios, vendor requests, the menu and the run of show. Operations starts the same minute.'},
+ {r:'#/',s:'.ap[href="#/staff"]',t:'Staffing',x:'Tap Staffing.',c:1},
+ {s:'.cov',t:'Two weeks out',x:'Confirmed, allocated and open for every day. Busy days show up early.'},
+ {r:'#/',s:'.ap[href="#/vendors"]',t:'Vendors',x:'Tap Vendors.',c:1},
+ {s:'.vt',t:'Every vendor, every event',x:'Who confirmed, who quoted, who hasn\'t answered. Tap a square to update it.'},
+ {r:'#/',s:'.cmdb',t:'Find anything',x:'Search reps, events or tools from anywhere. On a laptop, press Ctrl K.'},
+ {r:'#/',s:'.ap[href="#/diy"]',t:'Yours to try',x:'Tap Run it yourself.',c:1},
+ {s:'.flow',t:'Private by design',x:'Download it and load your own Flex and CRM exports. Nothing comes back to me. Ryan'}];
+let wi=-1,wEl=null,wOn=false,wRaf=0;
+function wkUI(){if($('#wk'))return;const d=document.createElement('div');d.id='wk';d.innerHTML=`<div id="wkS"></div><div id="wkC"><div class="wkh"><span id="wkN"></span><button type="button" id="wkX" aria-label="End tour">END</button></div><b id="wkT"></b><p id="wkP"></p><div class="wkb"><button type="button" id="wkB">BACK</button><button type="button" id="wkF">NEXT</button></div></div>`;document.body.appendChild(d);
+ $('#wkX').onclick=wkEnd;$('#wkB').onclick=()=>wkGo(Math.max(0,wi-1));$('#wkF').onclick=()=>{const st=WALK[wi];if(st&&st.c&&wEl){wEl.click();return}wi>=WALK.length-1?wkEnd():wkGo(wi+1)};
+ document.addEventListener('click',e=>{if(!wOn||!wEl)return;const st=WALK[wi];if(st&&st.c&&wEl.contains(e.target)){const n=wi+1;setTimeout(()=>{if(wi===n-1)wkGo(n)},450)}},true)}
+function wkGo(i){if(i>=WALK.length){wkEnd();return}wi=i;const st=WALK[i];$('#wk').classList.add('mv');
+ if(st.r&&location.hash!==st.r){closeCmd();location.hash=st.r}
+ let tries=0;const find=()=>{const el=document.querySelector(st.s);if(!el||!el.getClientRects().length){if(++tries<14)return setTimeout(find,150);return wkGo(i+1)}
+  wEl=el;el.scrollIntoView({block:'center',behavior:'smooth'});setTimeout(()=>{$('#wkN').textContent=`${i+1} OF ${WALK.length}`;$('#wkT').textContent=st.t;$('#wkP').textContent=st.x;$('#wkB').style.visibility=i?'visible':'hidden';$('#wkF').textContent=st.c?'DO IT FOR ME':i===WALK.length-1?'FINISH':'NEXT';$('#wk').classList.toggle('tap',!!st.c);$('#wk').classList.remove('mv');wkPlace()},380)};
+ setTimeout(find,st.r?260:120)}
+function wkPlace(){if(!wOn||!wEl)return;const r=wEl.getBoundingClientRect(),S=$('#wkS'),C=$('#wkC');const pad=6;
+ S.style.left=(r.left-pad)+'px';S.style.top=(r.top-pad)+'px';S.style.width=(r.width+pad*2)+'px';S.style.height=(Math.min(r.height,innerHeight*.7)+pad*2)+'px';
+ const w=Math.min(340,innerWidth-24);C.style.width=w+'px';const ch=C.offsetHeight||150;const bot=innerHeight-(innerWidth<1000?72:16);let top=r.bottom+14;if(top+ch>bot){top=r.top-ch-14;if(top<70){top=(r.top+r.height/2)>innerHeight/2?70:bot-ch}}
+ let left=Math.min(Math.max(12,r.left),innerWidth-w-12);C.style.top=top+'px';C.style.left=left+'px'}
+function wkLoop(){wkPlace();wRaf=requestAnimationFrame(wkLoop)}
+function wkStart(){wkUI();wOn=true;document.body.classList.add('wk-on');wkLoop();wkGo(0)}
+function wkEnd(){wOn=false;cancelAnimationFrame(wRaf);const d=$('#wk');if(d)d.remove();document.body.classList.remove('wk-on');toast('Tour finished. Explore anything, or add ?tour=1 to run it again')}
+
+
+const LIVEMAP=[['#/sales','your CRM deals and the Flex Catering report'],['#/p/','your Flex orders and event sheet'],['#/projects','your Flex orders and event sheet'],['#/today','today\'s Flex orders'],['#/calendar','your Flex orders and event sheet'],['#/blc','your Better Living Centre bookings'],['#/staff','your staff list and shifts'],['#/me','your staff list and shifts'],['#/hours','your timesheets'],['#/vendors','your vendor list'],['#/menu','your Flex catering orders'],['#/dispatch','today\'s Flex delivery orders'],['#/invoices','your invoices and timesheets'],['#/grow','your Flex orders'],['#/team','your staff list']];
+function liveBar(r){const m=LIVEMAP.find(x=>r.startsWith(x[0]));if(!m)return '';return `<div class="lvb"><span class="pz"><i></i>SAMPLE</span><span class="lvt">See this live with ${m[1]}.</span><a class="btn sm" href="#/import">IMPORT YOUR DATA</a></div>`}
 
 /* ---------- router ---------- */
 function route(){const r=location.hash||'#/';drawNav(r.startsWith('#/p/')?'#/projects':r.startsWith('#/sales/')?'#/sales':r);const a=$('#app');let h;
  if(r.startsWith('#/p/'))h=vProject(r.slice(4));else if(r.startsWith('#/sales/')){salesTab=+r.slice(8)||0;if(salesTab>20)salesTab=12;h=vSalesHub()}else h=({'#/':vHome,'#/today':vToday,'#/sales':()=>{salesTab=12;return vSalesHub()},'#/diy':vDIY,'#/compare':vCompare,'#/projects':vProjects,'#/calendar':vCalendar,'#/blc':vBLC,'#/staff':vStaff,'#/hours':vHours,'#/invoices':vInvoices,'#/vendors':vVendors,'#/menu':vMenu,'#/team':vTeam,'#/import':vImport,'#/dispatch':vDispatch,'#/me':vMe,'#/grow':vGrow}[r]||vToday)();
- a.innerHTML=h;bind(r);}
+ a.innerHTML=liveBar(r)+h;bind(r);}
 let keepScroll=false;
 function rerender(){const y=scrollY,tab=$('#tabs .on');const ti=tab?tab.dataset.t:null;keepScroll=true;route();if(ti){showTab(ti)}scrollTo(0,y)}
 function showTab(i){$$('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t==i));$$('.pane').forEach(p=>p.classList.toggle('on',p.dataset.p==i))}
@@ -1217,7 +1273,7 @@ function bind(r){
  $$('[data-copy]').forEach(b=>b.onclick=()=>toast('Booking link copied (sample)'));
  $$('[data-rbm]').forEach(b=>b.onclick=()=>{RB.m=b.dataset.rbm;rerender()});
  $$('[data-rbg]').forEach(b=>b.onclick=()=>{RB.g=b.dataset.rbg;rerender()});
- $$('[data-cmd]').forEach(b=>b.onclick=openCmd);countUp();
+ $$('[data-cmd]').forEach(b=>b.onclick=openCmd);{const mt=$('#moreT');if(mt)mt.onchange=()=>{if(mt.value!=='')location.hash='#/sales/'+mt.value}}countUp();
  $$('[data-call]').forEach(b=>b.onclick=()=>{callOpen=callOpen===b.dataset.call?null:b.dataset.call;rerender()});
  {const dh=$('#dlHub');if(dh)dh.onclick=dlHub;const tg=$('#txGo');if(tg)tg.onclick=txRender;const te=$('#txEx');if(te)te.onclick=()=>{$('#txIn').value=TXSAMPLE;txRender()}}
  {const ft=$('#flexTpl');if(ft)ft.onclick=flexCSV;const fn=$('#flexNow');if(fn)fn.onclick=()=>toast('Sample sync run: Flex report read, changes applied');const ff=$('#flexFile');if(ff)ff.onchange=()=>{const f=ff.files[0];if(!f)return;f.text().then(tx=>{const r=parseCSV(tx);if(r.length<2){toast('That file has no rows');return}FLEXIMP={head:r[0],rows:r.slice(1)};toast('Read '+fmt(r.length-1)+' orders from your file');rerender()})}}
@@ -1301,7 +1357,7 @@ $('#tnx').onclick=()=>tnext();$('#tend').onclick=tend;
 $('#tpa').onclick=()=>{const b=$('#tbi');if(!tp){tp=true;clearTimeout(tt);tleft-=Date.now()-tstart;const w=getComputedStyle(b).width;b.style.transition='none';b.style.width=w;$('#tpa').textContent='PLAY'}else{tp=false;$('#tpa').textContent='PAUSE';trun(Math.max(800,tleft))}};
 addEventListener('hashchange',()=>{route();if(!keepScroll)scrollTo(0,0);keepScroll=false;$('#chat').classList.remove('on')});
 route();
-const TOUR=/[?&]tour=1/.test(location.search);setTimeout(()=>{$('#ld').classList.add('out');if(TOUR){document.body.classList.add('tour-on');$('#tour').classList.remove('hide');ti=0;tshow()}},TOUR?1100:1500);
+const TOUR=/[?&]tour=1/.test(location.search);setTimeout(()=>{$('#ld').classList.add('out');if(TOUR){wkStart()}},TOUR?1100:1500);
 })();
 </script>
 </body>
