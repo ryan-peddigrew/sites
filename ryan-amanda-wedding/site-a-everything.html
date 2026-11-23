@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en-CA"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ryan and Amanda</title>
+<meta name="description" content="Ryan and Amanda, May 28, 2027, Uxbridge, Ontario. Kindly reply.">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Pinyon+Script&family=Cormorant+Garamond:wght@500;600;700&display=swap">
+<script>window.WALL={"seed": 23, "tile": 680, "base": "#141a13", "mottle": "rgba(40,52,36,.4)", "fernBack": "#232d21", "backAlpha": 0.9, "ferns": ["#3c4d39", "#455842", "#364633"], "rounds": ["#34472f", "#3e5338", "#4a5f44"], "vein": "rgba(10,16,9,.6)", "gild": "rgba(200,170,100,.35)", "blades": ["#5a5636", "#4e4e32", "#474d31"], "stem": "#4a4830", "petal": "#cfc9bb", "eye": "#a8924f", "berry": "#cbc2bc", "bud": "#ad8a49", "flowers": 30, "berries": 20, "buds": 14, "amount": 2.4};</script>
+<style>
+/* One long scroll: a camera flies through the photo strip toward the reply card. */
+:root{--bg:#0e130d;--ink:#fdf6e4;--soft:#d6c79c;--gold:#e6cf8f;--block:'Anton','Impact','Arial Narrow',sans-serif;--script:'Pinyon Script','Snell Roundhand',cursive;--body:'Cormorant Garamond',Georgia,serif;color-scheme:dark}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased}
+body.loading{overflow:hidden}
+*{box-sizing:border-box}
+
+/* loader: booth countdown, then flash */
+#loader{position:fixed;inset:0;z-index:50;background:#070906;display:grid;place-items:center;transition:opacity .5s .15s}
+#loader.gone{opacity:0;pointer-events:none}
+.vf{position:relative;width:min(70vw,300px);aspect-ratio:4/5;display:grid;place-items:center}
+.vf i{position:absolute;width:34px;height:34px;border:2px solid var(--gold)}
+.vf i:nth-child(1){left:0;top:0;border-right:0;border-bottom:0}.vf i:nth-child(2){right:0;top:0;border-left:0;border-bottom:0}
+.vf i:nth-child(3){left:0;bottom:0;border-right:0;border-top:0}.vf i:nth-child(4){right:0;bottom:0;border-left:0;border-top:0}
+.vf b{font:400 clamp(120px,40vw,200px)/1 var(--block);color:var(--ink);text-shadow:0 0 30px rgba(230,207,143,.35)}
+.vf b.tick{animation:tick .62s cubic-bezier(.2,.8,.2,1)}
+@keyframes tick{from{transform:scale(1.6);opacity:0}to{transform:scale(1);opacity:1}}
+.vf small{position:absolute;bottom:-46px;left:0;right:0;text-align:center;font:700 14px/1 var(--body);letter-spacing:.32em;text-transform:uppercase;color:var(--soft)}
+.rec{position:absolute;top:-40px;left:0;display:flex;align-items:center;gap:8px;font:700 13px/1 var(--body);letter-spacing:.28em;color:var(--soft)}
+.rec::before{content:"";width:9px;height:9px;background:#e0574a;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+#flash{position:fixed;inset:0;z-index:60;background:#fffdf6;opacity:0;pointer-events:none}
+#flash.go{animation:flash .9s ease-out}
+@keyframes flash{0%{opacity:0}8%{opacity:1}100%{opacity:0}}
+
+/* stage */
+#wall{position:fixed;inset:-6%;z-index:0;background:var(--paper-img) 0 0/var(--paper-size,680px 680px) repeat, var(--bg);filter:brightness(.55) saturate(.9);transform-origin:50% 45%;will-change:transform}
+#vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(120% 80% at 50% 45%,transparent 30%,rgba(5,7,4,.85) 100%)}
+#motes{position:fixed;inset:0;z-index:2;pointer-events:none;width:100%;height:100%}
+.fly{position:relative;z-index:3;height:560vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;perspective:900px;perspective-origin:50% 45%}
+.layer{position:absolute;left:50%;top:46%;transform-style:preserve-3d;will-change:transform,opacity}
+.photo{width:min(64vw,330px);aspect-ratio:4/5;margin-left:calc(min(64vw,330px)/-2);margin-top:calc(min(64vw,330px)*-.625);background:#f6f4ef;padding:10px 10px 30px;box-shadow:0 30px 70px rgba(0,0,0,.7)}
+.photo img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06)}
+.word{width:100vw;margin-left:-50vw;text-align:center;font:400 clamp(64px,19vw,190px)/.9 var(--block);text-transform:uppercase;letter-spacing:.01em;color:var(--ink);text-shadow:0 6px 30px rgba(0,0,0,.85),0 0 2px rgba(0,0,0,.8)}
+.word .amp{display:block;font:400 .62em/1 var(--script);text-transform:none;color:var(--gold);margin:.04em 0 .02em}
+.word small{display:block;margin-top:.35em;font:700 clamp(15px,4.2vw,22px)/1.3 var(--body);letter-spacing:.34em;color:var(--soft)}
+.hint{position:absolute;left:0;right:0;bottom:calc(22px + env(safe-area-inset-bottom,0px));text-align:center;font:700 13px/1 var(--body);letter-spacing:.34em;text-transform:uppercase;color:var(--soft);transition:opacity .4s}
+.hint::after{content:"";display:block;width:1px;height:34px;margin:12px auto 0;background:linear-gradient(var(--soft),transparent);animation:drip 1.8s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.bar{position:fixed;left:0;top:0;height:3px;z-index:20;background:var(--gold);width:0}
+
+/* reply card */
+.reply{position:relative;z-index:3;padding:0 max(16px,env(safe-area-inset-left,0px)) 40px}
+.card{max-width:520px;margin:0 auto;background:rgba(9,12,8,.93);border:1px solid rgba(214,190,130,.35);padding:38px 22px 34px;box-shadow:0 40px 90px rgba(0,0,0,.6);text-align:center}
+.card .kick{margin:0;font:700 14px/1.4 var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--soft)}
+.card h1{margin:10px 0 0;font:400 clamp(64px,20vw,112px)/.9 var(--block);text-transform:uppercase;letter-spacing:.02em}
+.card .lead{margin:14px 0 0;font:600 20px/1.5 var(--body)}
+.facts{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin:18px 0 0;font:700 15px/1.5 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--soft)}
+.tbc{display:inline-block;padding:0 8px;border:1px dashed rgba(230,211,158,.75);color:var(--gold)}
+form{display:grid;gap:20px;margin-top:26px;text-align:left}
+.field label,.field legend{display:block;margin:0 0 8px;font:800 14px/1.4 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--soft)}
+.field small{display:block;margin-top:6px;font:600 16px/1.4 var(--body);color:var(--soft)}
+.field input[type=text],.field input[type=email],.field textarea{width:100%;min-height:52px;padding:10px 14px;background:rgba(255,250,235,.06);color:var(--ink);border:1px solid rgba(214,190,130,.55);border-radius:0;font:600 19px/1.4 var(--body);font-variant-numeric:lining-nums}
+.field textarea{min-height:92px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:2px solid var(--ink);outline-offset:1px}
+fieldset.field{border:0;margin:0;padding:0}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice label{position:relative;display:flex;align-items:center;justify-content:center;text-align:center;min-height:64px;margin:0;padding:8px 10px;border:1px solid rgba(214,190,130,.55);font:400 22px/1.05 var(--block);letter-spacing:.04em;text-transform:uppercase;color:var(--ink);cursor:pointer;transition:background .2s,color .2s}
+.choice input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.choice label:has(input:checked){background:var(--ink);color:#11160f;border-color:var(--ink)}
+.choice label:has(input:focus-visible){outline:2px solid var(--ink);outline-offset:2px}
+.guests[hidden],form[hidden],.thanks[hidden],.err[hidden]{display:none}
+.send{min-height:56px;width:100%;border:0;background:var(--ink);color:#11160f;font:400 22px/1 var(--block);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.send:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.err{margin:0;color:#ffd7c2;font:700 17px/1.4 var(--body)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.thanks{padding:20px 0 4px}
+.thanks h2{margin:0;font:400 clamp(52px,15vw,84px)/.95 var(--block);text-transform:uppercase}
+.thanks p{font:600 20px/1.5 var(--body)}
+.foot{margin:34px auto 0;text-align:center;font:700 14px/1.6 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--soft)}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hint::after{animation:none}}
+
+/* ---- chapters below the RSVP ---- */
+.reply{padding-bottom:40px}
+.count{position:relative;z-index:3;min-height:100vh;min-height:100svh;display:grid;place-items:center;text-align:center;padding:0 16px;margin-top:-10vh}
+.count .num{font:400 clamp(120px,46vw,380px)/.8 var(--block);color:var(--ink);font-variant-numeric:tabular-nums;text-shadow:0 10px 50px rgba(0,0,0,.8);letter-spacing:-.01em}
+.count .lab{margin:18px 0 0;font:700 clamp(15px,4.4vw,22px)/1.3 var(--body);letter-spacing:.34em;text-transform:uppercase;color:var(--soft)}
+.count .lab b{color:var(--ink);font-weight:700}
+.ch{position:relative;z-index:3;padding:90px max(16px,env(safe-area-inset-left,0px)) 40px;max-width:900px;margin:0 auto}
+.ch .big{margin:0;font:400 clamp(72px,24vw,200px)/.85 var(--block);text-transform:uppercase;color:var(--ink);text-shadow:0 8px 40px rgba(0,0,0,.8)}
+.ch .big.out{color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+.ch p,.ch li{font:600 20px/1.5 var(--body)}
+.ch .sub{margin:12px 0 0;font:700 15px/1.4 var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--soft)}
+.slab{background:rgba(9,12,8,.9);border:1px solid rgba(214,190,130,.3);padding:26px 20px;margin-top:26px}
+.slab h3{margin:0;font:800 14px/1.4 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--soft)}
+.slab p{margin:6px 0 18px}.slab p:last-child{margin-bottom:0}
+/* the day: giant times, alternating sides */
+.times{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:14px}
+.times li{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;background:rgba(9,12,8,.86);border-left:3px solid var(--gold);padding:14px 18px}
+.times li:nth-child(even){transform:translateX(0)}
+.times .t{font:400 34px/1 var(--block);color:var(--ink)}
+.times .t .tbc{font:600 16px/1.6 var(--body)}
+.times span:last-child{font:400 30px/1 var(--block);text-transform:uppercase;letter-spacing:.03em}
+.times.reveal li{opacity:0;transform:translateX(-40px);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.times.reveal li:nth-child(even){transform:translateX(40px)}
+.times.reveal.in li{opacity:1;transform:none}
+.times.reveal.in li:nth-child(2){transition-delay:.1s}.times.reveal.in li:nth-child(3){transition-delay:.2s}.times.reveal.in li:nth-child(4){transition-delay:.3s}.times.reveal.in li:nth-child(5){transition-delay:.4s}
+/* getting there: road marquee */
+.road{position:relative;z-index:3;overflow:hidden;padding:26px 0;border-block:1px solid rgba(214,190,130,.35);background:rgba(7,9,6,.82);margin-top:30px}
+.road div{white-space:nowrap;font:400 clamp(48px,15vw,120px)/1 var(--block);text-transform:uppercase;color:var(--ink);will-change:transform}
+.road div em{font-style:normal;color:var(--gold);padding:0 .3em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;margin-top:20px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;font:400 20px/1 var(--block);letter-spacing:.08em;text-transform:uppercase}
+.btn svg{width:22px;height:22px}
+.btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+/* questions */
+.faq{margin-top:26px}
+.faq details{background:rgba(9,12,8,.88);border:1px solid rgba(214,190,130,.25);margin-top:10px}
+.faq summary{min-height:60px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 18px;cursor:pointer;list-style:none;font:400 24px/1.1 var(--block);text-transform:uppercase;letter-spacing:.02em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:400 30px/1 var(--block);color:var(--gold)}
+.faq details[open] summary::after{content:"\2013"}
+.faq details p{margin:0;padding:0 18px 18px}
+/* locked */
+.locked{position:relative;z-index:3;max-width:560px;margin:40px auto 0;padding:0 16px;text-align:center}
+.locked .big{font:400 clamp(60px,19vw,150px)/.85 var(--block);text-transform:uppercase;color:transparent;-webkit-text-stroke:1.5px var(--ink);margin:0}
+.locked p{font:600 20px/1.5 var(--body);margin:16px 0 0}
+.locked ul{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px}
+.locked li{font:700 15px/1.6 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--soft)}
+html:not(.open) .later{display:none}
+html.open .locked{display:none}
+.foot{position:relative;z-index:3;padding-bottom:120px}
+
+/* ---- Benny, maître d' (text only, bottom right) ---- */
+.benny-tab{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:30;min-height:48px;padding:0 16px;display:flex;align-items:center;gap:10px;background:rgba(9,12,8,.94);color:var(--ink);border:1px solid rgba(214,190,130,.6);font:700 13px/1 var(--body);letter-spacing:.22em;text-transform:uppercase;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.5);transition:opacity .4s,transform .4s}
+.benny-tab b{font:400 18px/1 var(--block);letter-spacing:.06em;color:var(--ink)}
+.benny-tab:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+body.loading .benny-tab{opacity:0;transform:translateY(20px)}
+.benny{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(72px + env(safe-area-inset-bottom,0px));z-index:31;width:min(360px,calc(100vw - 28px));max-height:min(70vh,560px);display:flex;flex-direction:column;background:#0b0f0a;border:1px solid rgba(214,190,130,.5);box-shadow:0 30px 70px rgba(0,0,0,.7);transform-origin:100% 100%;transition:opacity .25s,transform .25s}
+.benny[hidden]{display:flex;opacity:0;transform:translateY(12px) scale(.98);pointer-events:none;visibility:hidden}
+.benny header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 8px 12px 16px;border-bottom:1px solid rgba(214,190,130,.25)}
+.benny header p{margin:0;font:400 22px/1 var(--block);text-transform:uppercase;letter-spacing:.04em}
+.benny header small{display:block;margin-top:4px;font:700 12.5px/1 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--soft)}
+.benny .x{width:44px;height:44px;background:none;border:0;color:var(--ink);font:400 28px/1 var(--body);cursor:pointer}
+.benny .log{flex:1;overflow:auto;padding:14px 16px;display:grid;gap:10px;align-content:start}
+.benny .m{margin:0;max-width:92%;padding:10px 12px;font:600 18px/1.4 var(--body);background:rgba(255,250,235,.07);border-left:2px solid var(--gold)}
+.benny .m.me{justify-self:end;background:var(--ink);color:#11160f;border-left:0}
+.benny .m a{color:var(--gold)}
+.benny .qs{display:flex;flex-wrap:wrap;gap:8px;padding:10px 16px 6px}
+.benny .qs button{min-height:44px;padding:0 12px;background:transparent;color:var(--ink);border:1px solid rgba(214,190,130,.55);font:700 15px/1.2 var(--body);cursor:pointer}
+.benny form{display:flex;gap:8px;padding:8px 16px 14px;margin:0}
+.benny input{flex:1;min-width:0;min-height:46px;padding:0 12px;background:rgba(255,250,235,.06);color:var(--ink);border:1px solid rgba(214,190,130,.55);font:600 17px/1 var(--body)}
+.benny form button{min-height:46px;padding:0 14px;background:var(--ink);color:#11160f;border:0;font:400 17px/1 var(--block);letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+
+/* ---- version B: film reel ---- */
+.leader{position:relative;width:min(76vw,320px);aspect-ratio:4/3;display:grid;place-items:center;border:2px solid var(--gold);overflow:hidden}
+.leader::before,.leader::after{content:"";position:absolute;background:rgba(230,207,143,.5)}
+.leader::before{left:50%;top:0;bottom:0;width:1px}.leader::after{top:50%;left:0;right:0;height:1px}
+.leader .sweep{position:absolute;left:50%;top:50%;width:150%;height:150%;transform-origin:0 0;background:linear-gradient(90deg,rgba(230,207,143,.22),transparent 40%);animation:sweep .7s linear infinite}
+@keyframes sweep{to{transform:rotate(360deg)}}
+.leader b{position:relative;font:400 clamp(110px,34vw,170px)/1 var(--block);color:var(--ink)}
+.leader small{position:absolute;bottom:10px;left:0;right:0;text-align:center;font:700 12.5px/1 var(--body);letter-spacing:.3em;color:var(--soft)}
+.grain{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.08;background-image:var(--noise);animation:grain .5s steps(4) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-2%,1%)}50%{transform:translate(1%,-2%)}75%{transform:translate(2%,2%)}}
+.reel{position:relative;z-index:3;height:480vh}
+.reel .stage{display:flex;align-items:center;perspective:none}
+.film{display:flex;align-items:center;gap:0;padding:0 10vw;will-change:transform;background:#0a0a08;border-block:22px solid #0a0a08;position:relative}
+.film::before,.film::after{content:"";position:absolute;left:0;right:0;height:10px;background:repeating-linear-gradient(90deg,transparent 0 10px,rgba(253,246,228,.85) 10px 22px,transparent 22px 34px);}
+.film::before{top:-16px}.film::after{bottom:-16px}
+.frame{flex:none;width:min(78vw,380px);height:min(97vw,475px);margin-right:16px;display:grid;place-items:center;background:#11140f;overflow:hidden;position:relative}
+.frame img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.08)}
+.frame .w{padding:0 14px;text-align:center;font:400 clamp(56px,17vw,110px)/.9 var(--block);text-transform:uppercase;color:var(--ink)}
+.frame .w .amp{display:block;font:400 .6em/1 var(--script);text-transform:none;color:var(--gold)}
+.frame .w small{display:block;margin-top:.4em;font:700 clamp(13px,3.8vw,18px)/1.3 var(--body);letter-spacing:.3em;color:var(--soft)}
+.frame i{position:absolute;left:10px;bottom:8px;font:700 12.5px/1 var(--body);font-style:normal;letter-spacing:.2em;color:var(--gold)}
+
+/* ---- guided tour (?tour=1): one tap to start, then it plays itself ---- */
+.tstart{position:fixed;inset:0;z-index:45;display:grid;place-items:center;background:rgba(5,7,4,.72);text-align:center;padding:24px}
+.tstart[hidden]{display:none}
+.tstart button{min-height:64px;padding:0 30px;background:var(--ink);color:#11160f;border:0;font:400 26px/1 var(--block);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.tstart p{margin:0 0 18px;font:400 clamp(44px,13vw,90px)/.9 var(--block);text-transform:uppercase}
+.tstart small{display:block;margin-top:16px;font:700 14px/1.4 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--soft)}
+.tbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(5,7,4,.95);border-top:1px solid rgba(214,190,130,.4);
+  padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center}
+.tbar[hidden]{display:none}
+.tbar .cap{margin:0;font:600 18px/1.35 var(--body);color:var(--ink)}
+.tbar .cap b{display:block;font:700 12.5px/1.4 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--soft)}
+.tbar button{min-height:46px;padding:0 14px;background:transparent;color:var(--ink);border:1px solid var(--soft);font:400 17px/1 var(--block);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.tbar .prog{grid-column:1/-1;height:3px;background:rgba(255,255,255,.12)}.tbar .prog i{display:block;height:100%;width:0;background:var(--gold)}
+html.touring .benny-tab{bottom:calc(120px + env(safe-area-inset-bottom,0px))}
+html.touring .benny{bottom:calc(178px + env(safe-area-inset-bottom,0px))}
+</style>
+</head><body>
+
+<div id="loader" aria-hidden="true"><div class="vf"><span class="rec">REC</span><i></i><i></i><i></i><i></i><b id="cd">3</b><small>Hold still</small></div></div>
+<div id="flash"></div>
+<div class="bar" id="bar"></div>
+<div id="wall"></div><div id="vignette"></div><canvas id="motes"></canvas>
+
+<main>
+  <section class="fly" aria-label="Ryan and Amanda, May 28, 2027, Uxbridge, Ontario">
+    <div class="stage" id="stage">
+      <div class="layer" data-z="0"><div class="word">Ryan<span class="amp">&amp;</span>Amanda</div></div>
+      <div class="layer" data-z="1"><div class="photo"><img src="img/p1.jpg" alt="Ryan and Amanda embracing" width="320" height="400"></div></div>
+      <div class="layer" data-z="2"><div class="word">05.28<small>Friday · May 28, 2027</small></div></div>
+      <div class="layer" data-z="3"><div class="photo"><img src="img/p2.jpg" alt="Ryan and Amanda walking together" width="320" height="400"></div></div>
+      <div class="layer" data-z="4"><div class="word">Uxbridge<small>Trail Hub · Ontario</small></div></div>
+      <div class="layer" data-z="5"><div class="photo"><img src="img/p3.jpg" alt="Ryan twirling Amanda" width="320" height="400"></div></div>
+      <div class="layer" data-z="6"><div class="word">Will you<br>be there?</div></div>
+      <p class="hint" id="hint">Scroll</p>
+    </div>
+  </section>
+
+
+  <section class="count reveal" aria-label="Countdown"><div><div class="num" id="days">&nbsp;</div><p class="lab">days until <b>Peddigrew says I do</b></p></div></section>
+  <section class="reply" id="rsvp">
+    <div class="card reveal">
+      <p class="kick">Kindly reply</p>
+      <h1>RSVP</h1>
+      <p class="facts"><span>Friday, May 28, 2027</span><span>Trail Hub</span><span>Uxbridge, Ontario</span></p>
+      <p class="lead">Please reply once for everyone named on your invitation.</p>
+      <form id="f" novalidate>
+        <div class="field"><label for="r-name">Your name</label><input id="r-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="r-email">Email</label><input id="r-email" name="email" type="email" autocomplete="email" inputmode="email" required><small>So we can confirm we received your reply.</small></div>
+        <fieldset class="field"><legend>Will you join us?</legend>
+          <div class="choice">
+            <label><input type="radio" name="attending" value="Joyfully accepts" required>Joyfully accepts</label>
+            <label><input type="radio" name="attending" value="Regretfully declines">Regretfully declines</label>
+          </div>
+        </fieldset>
+        <div class="field guests" hidden><label for="r-guests">Names of everyone attending</label><textarea id="r-guests" name="guest_names" rows="2"></textarea><small>Up to 3 names, including you.</small></div>
+        <div class="field"><label for="r-note">A note for Ryan and Amanda</label><textarea id="r-note" name="message" rows="3"></textarea></div>
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="err" id="err" role="alert" hidden></p>
+        <button class="send" type="submit">Send our reply</button>
+      </form>
+      <div class="thanks" id="thanks" hidden tabindex="-1"><h2 id="th-h">See you there</h2><p id="th-p"></p></div>
+    </div>
+  </section>
+
+  <section class="locked reveal" aria-label="More to come">
+    <p class="big">More to come</p>
+    <p>The day, travel, places to stay and our registry open here once invitations are out.</p>
+    <ul><li>The day</li><li>Getting there</li><li>Where to stay</li><li>Questions</li><li>Registry</li></ul>
+  </section>
+  <section class="ch later " id="day"><p class="big reveal">The day</p><p class="sub">Friday, May 28, 2027</p>
+    <ul class="times reveal">
+      <li><span class="t"><span class="tbc">time</span></span><span>Guests arrive</span></li>
+      <li><span class="t"><span class="tbc">time</span></span><span>Ceremony</span></li>
+      <li><span class="t"><span class="tbc">time</span></span><span>Cocktails</span></li>
+      <li><span class="t"><span class="tbc">time</span></span><span>Dinner</span></li>
+      <li><span class="t"><span class="tbc">time</span></span><span>Dancing</span></li>
+    </ul>
+    <p class="reveal" style="margin-top:22px">Benny will be our maître d' for the evening.</p></section>
+  <section class="later" id="travel" style="position:relative;z-index:3;padding-top:80px">
+    <div class="ch" style="padding-top:0"><p class="big out reveal">Getting there</p></div>
+    <div class="road" aria-hidden="true"><div id="road">Trail Hub<em>/</em>722 Chalk Lake Road<em>/</em>Uxbridge<em>/</em>Ontario<em>/</em>Trail Hub<em>/</em>722 Chalk Lake Road<em>/</em></div></div>
+    <div class="ch" style="padding-top:0">
+      <div class="slab reveal"><h3>Venue</h3><p>Trail Hub, 722 Chalk Lake Road, Uxbridge, Ontario</p>
+        <h3>Parking</h3><p><span class="tbc">parking details</span></p>
+        <h3>Getting home</h3><p><span class="tbc">shuttle or taxi details</span></p>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Trail+Hub+722+Chalk+Lake+Road+Uxbridge+Ontario" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-6.5-6.2-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 14.8 12 21 12 21z"/><path d="M9.6 9.8a2.4 2.4 0 1 0 4.8 0a2.4 2.4 0 1 0-4.8 0"/></svg>Open in maps</a></div>
+    </div>
+  </section>
+  <section class="ch later " id="stay"><p class="big reveal">Where to stay</p><p class="sub">For out-of-town guests</p>
+    <div class="slab reveal"><h3>Hotel</h3><p><span class="tbc">hotel name and room block</span></p><h3>Booking code</h3><p><span class="tbc">code and book-by date</span></p></div></section>
+  <section class="ch later " id="faq"><p class="big out reveal">Questions</p>
+    <div class="faq reveal">
+      <details><summary>When should I reply?</summary><p>Please reply using the RSVP above.</p></details>
+      <details><summary>What should I wear?</summary><p><span class="tbc">your answer</span></p></details>
+      <details><summary>Can I bring a guest?</summary><p><span class="tbc">your answer</span></p></details>
+      <details><summary>Are children invited?</summary><p><span class="tbc">your answer</span></p></details>
+      <details><summary>Indoors or outdoors?</summary><p><span class="tbc">your answer</span></p></details>
+    </div></section>
+  <section class="ch later " id="registry"><p class="big reveal">Registry</p>
+    <div class="slab reveal"><p>Your being there means the most to us.</p><p><span class="tbc">registry link, if you have one</span></p></div></section>
+  <p class="foot">Ryan &amp; Amanda · 05 · 28 · 2027</p>
+</main>
+
+<button class="benny-tab" id="btab" type="button" aria-expanded="false" aria-controls="benny"><b>Benny</b>Maître d'</button>
+<section class="benny" id="benny" hidden aria-label="Ask Benny">
+  <header><div><p>Benny</p><small>Your maître d'</small></div><button class="x" type="button" id="bx" aria-label="Close">&times;</button></header>
+  <div class="log" id="blog" aria-live="polite"></div>
+  <div class="qs" id="bqs"></div>
+  <form id="bform"><input id="bin" type="text" placeholder="Ask Benny" aria-label="Ask Benny a question" autocomplete="off"><button type="submit">Ask</button></form>
+</section>
+
+
+<script>
+/* Original botanical wallpaper, drawn once on load into a seamless tile. */
+window.drawWall=function(P){
+if(!P){document.documentElement.style.removeProperty('--paper-img');document.documentElement.style.removeProperty('--paper-size');return;}
+window.__wallCache=window.__wallCache||{};var ck=JSON.stringify(P);if(window.__wallCache[ck]){document.documentElement.style.setProperty('--paper-img',window.__wallCache[ck]);document.documentElement.style.setProperty('--paper-size',P.tile+'px '+P.tile+'px');return;}
+var T = P.tile, DPR = Math.min(2, window.devicePixelRatio||1), S = T*DPR;
+var c = document.createElement('canvas'); c.width = c.height = S;
+var g = c.getContext('2d'); g.scale(DPR,DPR);
+var seed = P.seed||7; function r(){ seed = (seed*16807)%2147483647; return (seed-1)/2147483646; }
+function R(a,b){ return a + r()*(b-a); }
+function pick(a){ return a[Math.floor(r()*a.length)]; }
+g.fillStyle = P.base; g.fillRect(0,0,T,T);
+// soft mottling, like printed paper
+for(var i=0;i<40;i++){ var x=R(0,T),y=R(0,T),rad=R(80,220); var gr=g.createRadialGradient(x,y,0,x,y,rad);
+  gr.addColorStop(0,P.mottle); gr.addColorStop(1,'rgba(0,0,0,0)'); g.fillStyle=gr; wrap(function(){ g.fillRect(x-rad,y-rad,rad*2,rad*2); }); }
+function wrap(fn){ for(var dx=-1;dx<=1;dx++) for(var dy=-1;dy<=1;dy++){ g.save(); g.translate(dx*T,dy*T); fn(); g.restore(); } }
+function bez(p0,p1,p2,t){ var u=1-t; return [u*u*p0[0]+2*u*t*p1[0]+t*t*p2[0], u*u*p0[1]+2*u*t*p1[1]+t*t*p2[1]]; }
+function tan(p0,p1,p2,t){ var u=1-t; return Math.atan2(2*u*(p1[1]-p0[1])+2*t*(p2[1]-p1[1]), 2*u*(p1[0]-p0[0])+2*t*(p2[0]-p1[0])); }
+
+function fern(x,y,len,ang,bend,col,stroke,alpha){
+  var p0=[x,y], p2=[x+Math.cos(ang)*len, y+Math.sin(ang)*len];
+  var m=[(p0[0]+p2[0])/2,(p0[1]+p2[1])/2], n=[-Math.sin(ang),Math.cos(ang)], p1=[m[0]+n[0]*bend, m[1]+n[1]*bend];
+  var N=Math.round(len/7.5), leaf=len*R(.13,.17);
+  wrap(function(){
+    g.globalAlpha=alpha; g.strokeStyle=stroke; g.lineWidth=1.1; g.beginPath(); g.moveTo(p0[0],p0[1]); g.quadraticCurveTo(p1[0],p1[1],p2[0],p2[1]); g.stroke();
+    for(var i=2;i<N;i++){ var t=i/N, p=bez(p0,p1,p2,t), a=tan(p0,p1,p2,t), s=leaf*Math.min(1,(1-t)*1.25)*Math.min(1,t*4+.2);
+      for(var side=-1;side<=1;side+=2){ var la=a+side*R(1.0,1.2), cx=p[0]+Math.cos(la)*s*.5, cy=p[1]+Math.sin(la)*s*.5;
+        g.fillStyle=col; g.beginPath(); g.ellipse(cx,cy,s*.52,Math.max(1,s*.13),la,0,Math.PI*2); g.fill();
+        if(P.gild){ g.strokeStyle=P.gild; g.lineWidth=.5; g.stroke(); }
+      } }
+    g.globalAlpha=1; });
+}
+function roundLeaves(x,y,r0,col,vein,alpha){
+  var k=pick([3,3,4,5]), base=R(0,6.28);
+  wrap(function(){ g.globalAlpha=alpha;
+    for(var i=0;i<k;i++){ var a=base+i*6.28/k+R(-.25,.25), rr=r0*R(.75,1.05), cx=x+Math.cos(a)*rr*.95, cy=y+Math.sin(a)*rr*.95;
+      g.fillStyle=col; g.beginPath(); g.arc(cx,cy,rr,0,Math.PI*2); g.fill();
+      g.strokeStyle=vein; g.lineWidth=.9; g.beginPath(); g.moveTo(x,y); g.lineTo(cx+Math.cos(a)*rr*.7, cy+Math.sin(a)*rr*.7); g.stroke();
+      for(var j=-1;j<=1;j+=2){ g.beginPath(); g.moveTo(cx,cy); g.lineTo(cx+Math.cos(a+j*.9)*rr*.6, cy+Math.sin(a+j*.9)*rr*.6); g.stroke(); } }
+    g.strokeStyle=vein; g.lineWidth=1.2; g.beginPath(); g.moveTo(x,y); g.lineTo(x+R(-1,1)*r0*2, y+r0*2.6); g.stroke();
+    g.globalAlpha=1; });
+}
+function blade(x,y,len,ang,bend,w,col,alpha){
+  var p0=[x,y], p2=[x+Math.cos(ang)*len,y+Math.sin(ang)*len], n=[-Math.sin(ang),Math.cos(ang)];
+  var m=[(p0[0]+p2[0])/2+n[0]*bend,(p0[1]+p2[1])/2+n[1]*bend];
+  wrap(function(){ g.globalAlpha=alpha; g.fillStyle=col; g.beginPath(); g.moveTo(p0[0],p0[1]);
+    g.quadraticCurveTo(m[0]+n[0]*w,m[1]+n[1]*w,p2[0],p2[1]); g.quadraticCurveTo(m[0]-n[0]*w,m[1]-n[1]*w,p0[0],p0[1]); g.fill();
+    g.strokeStyle='rgba(0,0,0,.18)'; g.lineWidth=.8; g.beginPath(); g.moveTo(p0[0],p0[1]); g.quadraticCurveTo(m[0],m[1],p2[0],p2[1]); g.stroke(); g.globalAlpha=1; });
+}
+function flowers(x,y,r0){
+  var k=Math.round(R(4,8)), pts=[];
+  for(var i=0;i<k;i++){ var a=R(-2.6,-0.5), d=R(.35,1)*r0; pts.push([x+Math.cos(a)*d, y+Math.sin(a)*d]); }
+  wrap(function(){ g.strokeStyle=P.stem; g.lineWidth=.8;
+    pts.forEach(function(p){ g.beginPath(); g.moveTo(x,y+r0*.5); g.quadraticCurveTo(x,y,p[0],p[1]); g.stroke(); });
+    pts.forEach(function(p){ var s=R(3.2,5.2), rot=R(0,6.28);
+      g.fillStyle=P.petal; for(var j=0;j<5;j++){ var a=rot+j*1.2566; g.beginPath(); g.arc(p[0]+Math.cos(a)*s*.62,p[1]+Math.sin(a)*s*.62,s*.52,0,Math.PI*2); g.fill(); }
+      g.fillStyle=P.eye; g.beginPath(); g.arc(p[0],p[1],s*.28,0,Math.PI*2); g.fill(); }); });
+}
+function berries(x,y,len,ang){
+  var k=Math.round(R(3,6));
+  wrap(function(){ g.strokeStyle=P.stem; g.lineWidth=.9; var ex=x+Math.cos(ang)*len, ey=y+Math.sin(ang)*len;
+    g.beginPath(); g.moveTo(x,y); g.lineTo(ex,ey); g.stroke();
+    for(var i=0;i<k;i++){ var t=.3+.7*i/k, px=x+(ex-x)*t, py=y+(ey-y)*t, side=i%2?1:-1, bx=px+Math.cos(ang+side*1.1)*9, by=py+Math.sin(ang+side*1.1)*9;
+      g.beginPath(); g.moveTo(px,py); g.lineTo(bx,by); g.stroke();
+      g.fillStyle=P.berry; g.beginPath(); g.arc(bx,by,R(3.4,4.6),0,Math.PI*2); g.fill();
+      g.fillStyle='rgba(90,60,70,.55)'; g.beginPath(); g.arc(bx+1,by+1.5,1,0,Math.PI*2); g.fill(); } });
+}
+function bud(x,y,s,ang){
+  wrap(function(){ g.save(); g.translate(x,y); g.rotate(ang);
+    g.strokeStyle=P.stem; g.lineWidth=1; g.beginPath(); g.moveTo(0,0); g.quadraticCurveTo(-s*.8,-s*1.4,0,-s*2.4); g.stroke();
+    g.fillStyle=P.bud; g.beginPath(); g.moveTo(0,-s*2.4); g.bezierCurveTo(s*1.1,-s*2.6,s*1.0,-s*4.1,0,-s*4.4); g.bezierCurveTo(-s*.8,-s*3.8,-s*.7,-s*2.6,0,-s*2.4); g.fill();
+    g.restore(); });
+}
+var A=P.amount||1;
+for(var i=0;i<14*A;i++) fern(R(0,T),R(0,T),R(170,300),R(0,6.28),R(-60,60),P.fernBack,P.stem,P.backAlpha);
+for(var i=0;i<12*A;i++) blade(R(0,T),R(0,T),R(110,220),R(0,6.28),R(-50,50),R(7,11),pick(P.blades),.92);
+for(var i=0;i<20*A;i++) roundLeaves(R(0,T),R(0,T),R(12,20),pick(P.rounds),P.vein,.95);
+for(var i=0;i<12*A;i++) fern(R(0,T),R(0,T),R(150,260),R(0,6.28),R(-50,50),pick(P.ferns),P.stem,1);
+for(var i=0;i<P.flowers;i++) flowers(R(0,T),R(0,T),R(20,34));
+for(var i=0;i<P.berries;i++) berries(R(0,T),R(0,T),R(28,46),R(0,6.28));
+for(var i=0;i<P.buds;i++) bud(R(0,T),R(0,T),R(4,6),R(-0.9,0.9));
+var url=c.toDataURL('image/jpeg',.9);
+window.__wallCache[ck]='url('+url+')';document.documentElement.style.setProperty('--paper-img','url('+url+')');
+document.documentElement.style.setProperty('--paper-size',T+'px '+T+'px');
+};
+drawWall(window.WALL);
+
+</script>
+
+<script>
+/* SITE SETTINGS: set SITE_OPEN to true once invitations are out. REPLY_BY: e.g. "March 1, 2027" (empty = not set yet). */
+var SITE_OPEN = true, REPLY_BY = "";
+(function(){
+if (SITE_OPEN || /[?&]preview=everything/.test(location.search)) document.documentElement.classList.add('open');
+var open = document.documentElement.classList.contains('open');
+var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* countdown, counts up when it comes into view */
+var t=new Date(2027,4,28), n=new Date(); n.setHours(0,0,0,0);
+var days=Math.max(0,Math.round((t-n)/864e5)), el=document.getElementById('days'); el.textContent=days.toLocaleString('en-CA');
+if(!reduce){ var ran=0, io=new IntersectionObserver(function(es){ if(es[0].isIntersecting && !ran){ ran=1; var s=performance.now();
+  (function step(now){ var k=Math.min(1,(now-s)/1400), e=1-Math.pow(1-k,3); el.textContent=Math.round(days*e).toLocaleString('en-CA'); if(k<1) requestAnimationFrame(step); })(s); } },{threshold:.4}); io.observe(el); }
+
+/* road marquee moves with scroll */
+var road=document.getElementById('road');
+if(road && !reduce) addEventListener('scroll',function(){ var r=road.parentNode.getBoundingClientRect(); road.style.transform='translateX('+(-(innerHeight-r.top)*0.5)+'px)'; },{passive:true});
+
+/* reveal for chapters */
+var io2=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io2.unobserve(e.target);} }); },{threshold:.15});
+document.querySelectorAll('.reveal:not(.in)').forEach(function(x){ io2.observe(x); });
+
+/* Benny: answers only from what is on this page */
+var tab=document.getElementById('btab'), box=document.getElementById('benny'), log=document.getElementById('blog'), qs=document.getElementById('bqs');
+var soon = open ? 'still being finalized. Please check back soon.' : 'shared here once invitations are out.';
+var A = {
+  rsvp: function(){ return 'Please reply with the RSVP on this page. ' + (REPLY_BY ? 'Kindly reply by '+REPLY_BY+'.' : 'The reply-by date is coming soon.'); },
+  when: function(){ return 'Friday, May 28, 2027. That is '+days.toLocaleString('en-CA')+' days from today.'; },
+  where: function(){ return 'Trail Hub, 722 Chalk Lake Road, Uxbridge, Ontario. <a href="'+"https://www.google.com/maps/search/?api=1&query=Trail+Hub+722+Chalk+Lake+Road+Uxbridge+Ontario"+'" target="_blank" rel="noopener">Open in maps</a>'; },
+  park: function(){ return 'Parking details are '+soon; },
+  stay: function(){ return 'Hotel details are '+soon; },
+  wear: function(){ return 'What to wear is '+soon; },
+  hi: function(){ return 'Bonjour. I am Benny, maître d’ for the evening. Ask me about the day, travel or where to stay.'; },
+  other: function(){ return 'I will make sure my parents hear it. Please add it to the note on your RSVP.'; }
+};
+var Q = [['When is the RSVP due?','rsvp'],['When is the wedding?','when'],['Where is it?','where'],['Where do I park?','park'],['Where should I stay?','stay'],['What should I wear?','wear']];
+function say(html, me){ var p=document.createElement('p'); p.className='m'+(me?' me':''); if(me) p.textContent=html; else p.innerHTML=html; log.appendChild(p); log.scrollTop=log.scrollHeight; }
+function answer(key, label){ say(label, true); setTimeout(function(){ say(A[key]()); }, reduce?0:350); }
+Q.forEach(function(q){ var b=document.createElement('button'); b.type='button'; b.textContent=q[0]; b.onclick=function(){ answer(q[1], q[0]); }; qs.appendChild(b); });
+function match(s){ s=s.toLowerCase();
+  if(/rsvp|reply|respond/.test(s)) return 'rsvp'; if(/park/.test(s)) return 'park'; if(/hotel|stay|sleep|room/.test(s)) return 'stay';
+  if(/wear|dress|attire|tie|suit/.test(s)) return 'wear'; if(/where|address|venue|location|map|direction/.test(s)) return 'where';
+  if(/when|date|day|time|long/.test(s)) return 'when'; if(/hello|hi|bonjour|hey/.test(s)) return 'hi'; return 'other'; }
+document.getElementById('bform').onsubmit=function(e){ e.preventDefault(); var i=document.getElementById('bin'), v=i.value.trim(); if(!v) return; i.value=''; answer(match(v), v); };
+var greeted=0;
+function toggle(show){ box.hidden=!show; tab.setAttribute('aria-expanded', show); if(show && !greeted){ greeted=1; say(A.hi()); } if(show && matchMedia('(hover: hover)').matches && !document.documentElement.classList.contains('touring')) setTimeout(function(){ document.getElementById('bin').focus({preventScroll:true}); },50); }
+tab.onclick=function(){ toggle(box.hidden); };
+document.getElementById('bx').onclick=function(){ toggle(false); tab.focus(); };
+addEventListener('keydown',function(e){ if(e.key==='Escape' && !box.hidden){ toggle(false); tab.focus(); } });
+})();
+</script>
+<script>
+/* SETTINGS: RSVP_ENDPOINT is where replies go (FormSubmit ajax URL for the chosen inbox). Empty = preview, nothing is sent. */
+var RSVP_ENDPOINT = "https://formsubmit.co/ajax/benny@peddigrewsaysido.com";
+(function(){
+var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+var loader=document.getElementById('loader'), cd=document.getElementById('cd'), flash=document.getElementById('flash');
+function done(){ loader.classList.add('gone'); document.body.classList.remove('loading'); }
+if(reduce){ done(); } else {
+  document.body.classList.add('loading'); var n=3;
+  var iv=setInterval(function(){ n--; if(n>0){ cd.textContent=n; cd.classList.remove('tick'); void cd.offsetWidth; cd.classList.add('tick'); }
+    else { clearInterval(iv); flash.classList.add('go'); setTimeout(done,120); } },700);
+  cd.classList.add('tick');
+}
+
+/* fly-through: each layer sits further away; scroll moves the camera forward through them */
+var stage=document.getElementById('stage'), fly=stage.parentNode, layers=[].slice.call(stage.querySelectorAll('.layer')),
+    wall=document.getElementById('wall'), hint=document.getElementById('hint'), bar=document.getElementById('bar');
+var GAP=1100, N=layers.length;
+function frame(){
+  var r=fly.getBoundingClientRect(), total=fly.offsetHeight-innerHeight, p=Math.min(1,Math.max(0,-r.top/total));
+  var cam=p*(N-1)*GAP + 200;
+  layers.forEach(function(L,i){
+    var z=-(i*GAP)+cam, side=(i%2? (i%4==1?-1:1) : 0);
+    var o = z>420 ? Math.max(0,1-(z-420)/260) : z< -GAP ? 0 : Math.min(1,(z+GAP)/(.6*GAP)); if(i==N-1) o*=1-Math.max(0,(p-.9)/.1);
+    var x = side*Math.min(140,innerWidth*.16)*(1-Math.min(1,Math.max(0,(z+GAP)/GAP)));
+    var rot = side*6*(1-Math.min(1,Math.max(0,(z+GAP)/GAP)));
+    L.style.transform='translate3d('+x+'px,0,'+z+'px) rotate('+rot+'deg)';
+    L.style.opacity=o.toFixed(3); L.style.visibility=o<.01?'hidden':'visible';
+  });
+  wall.style.transform='scale('+(1+p*.35)+') rotate('+(p*4)+'deg)';
+  hint.style.opacity = p>.04?0:1;
+  var dr=document.documentElement, all=dr.scrollHeight-innerHeight; bar.style.width=(all>0?scrollY/all*100:0)+'%';
+}
+if(reduce){ fly.style.height='auto'; stage.style.position='static'; stage.style.height='auto'; stage.style.perspective='none';
+  layers.forEach(function(L){ L.style.position='relative'; L.style.left='auto'; L.style.top='auto'; L.style.margin='60px 0'; });
+  stage.querySelectorAll('.photo').forEach(function(ph){ ph.style.margin='0 auto'; });
+  document.querySelector('.reply').style.marginTop='0';
+} else { addEventListener('scroll',function(){ requestAnimationFrame(frame); },{passive:true}); addEventListener('resize',frame); frame(); }
+
+/* reveal the card */
+var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }); },{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+/* floating light motes */
+var c=document.getElementById('motes'), g=c.getContext('2d'), M=[], W, H;
+function size(){ var d=Math.min(2,devicePixelRatio||1); W=c.width=innerWidth*d; H=c.height=innerHeight*d; }
+size(); addEventListener('resize',size);
+for(var k=0;k<38;k++) M.push({x:Math.random(),y:Math.random(),r:.6+Math.random()*1.8,s:.00008+Math.random()*.00022,ph:Math.random()*6.28});
+function mote(t){ g.clearRect(0,0,W,H);
+  M.forEach(function(m){ m.y-=m.s*16; if(m.y<-.02){m.y=1.02;m.x=Math.random();}
+    var a=.25+.45*(.5+.5*Math.sin(t/900+m.ph)), x=(m.x+Math.sin(t/4000+m.ph)*.01)*W, y=m.y*H, rr=m.r*(W/innerWidth);
+    var gr=g.createRadialGradient(x,y,0,x,y,rr*5); gr.addColorStop(0,'rgba(240,220,160,'+a+')'); gr.addColorStop(1,'rgba(240,220,160,0)');
+    g.fillStyle=gr; g.beginPath(); g.arc(x,y,rr*5,0,6.283); g.fill(); });
+  if(!document.hidden) requestAnimationFrame(mote); }
+if(!reduce) requestAnimationFrame(mote);
+document.addEventListener('visibilitychange',function(){ if(!document.hidden && !reduce) requestAnimationFrame(mote); });
+
+/* RSVP */
+var f=document.getElementById('f'), guests=f.querySelector('.guests'), err=document.getElementById('err');
+f.addEventListener('change',function(e){ if(e.target.name==='attending') guests.hidden = e.target.value!=='Joyfully accepts'; });
+f.addEventListener('submit',function(e){
+  e.preventDefault(); err.hidden=true;
+  var d=new FormData(f), miss=[];
+  if(!String(d.get('name')||'').trim()) miss.push('your name');
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(String(d.get('email')||''))) miss.push('your email');
+  if(!d.get('attending')) miss.push('whether you can join us');
+  if(miss.length){ err.textContent='Please add '+miss.join(', ')+'.'; err.hidden=false; return; }
+  if(d.get('_honey')) return;
+  var yes=d.get('attending')==='Joyfully accepts', nm=String(d.get('name')).trim();
+  if(!yes) d.delete('guest_names');
+  d.append('_subject','Wedding RSVP: '+nm+' ('+d.get('attending')+')');
+  var btn=f.querySelector('.send'); btn.disabled=true; btn.textContent='Sending...';
+  function ok(){ f.hidden=true; var th=document.getElementById('thanks'); th.hidden=false;
+    document.getElementById('th-h').textContent = yes ? 'See you there' : 'You will be missed';
+    document.getElementById('th-p').textContent = yes ? 'Thank you, '+nm+'. We cannot wait to celebrate with you on May 28.' : 'Thank you for letting us know, '+nm+'. We will be thinking of you.';
+    th.focus(); if(yes && !reduce){ flash.classList.remove('go'); void flash.offsetWidth; flash.classList.add('go'); } }
+  if(!RSVP_ENDPOINT){ setTimeout(ok,500); return; }
+  var o={}; d.forEach(function(v,k){o[k]=v;});
+  fetch(RSVP_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(o)})
+    .then(function(r){ if(!r.ok) throw 0; ok(); })
+    .catch(function(){ btn.disabled=false; btn.textContent='Send our reply'; err.textContent='That did not go through. Please try again in a moment.'; err.hidden=false; });
+});
+})();
+</script>
+
+<div class="tstart" id="tstart" hidden><div><p>Our website</p><button type="button" id="tgo">Start the tour</button><small>Plays by itself · about a minute</small></div></div>
+<div class="tbar" id="tbar" hidden role="region" aria-label="Tour"><p class="cap" id="tcap" aria-live="polite"></p><button type="button" id="tpause">Pause</button><button type="button" id="tnext">Next</button><div class="prog"><i id="tprog"></i></div></div>
+
+<script>
+/* Guided tour: add ?tour=1 to the address. Opens every chapter, one tap to start, then plays. */
+(function(){
+var on = false || /[?&]tour=1/.test(location.search); if(!on) return;
+var de=document.documentElement; de.classList.add('open','touring');
+var start=document.getElementById('tstart'), bar=document.getElementById('tbar'), cap=document.getElementById('tcap'), prog=document.getElementById('tprog');
+function top(sel){ var e=document.querySelector(sel); return e ? e.getBoundingClientRect().top+scrollY-30 : 0; }
+var fly=document.querySelector('.fly');
+var S=[
+ {t:'The opening', c:'A photo-booth countdown and a flash, then your names.', y:function(){return 0;}, ms:4500},
+ {t:'The fly-through', c:'Scrolling flies guests through your three photos.', y:function(){return fly.offsetHeight-innerHeight;}, ms:10000, glide:1},
+ {t:'The countdown', c:'Days to go, counting up as it appears.', y:function(){return top('.count');}, ms:5000},
+ {t:'The RSVP', c:'One reply per invitation: names, yes or no, and a note. Replies go to benny@.', y:function(){return top('#rsvp');}, ms:7000},
+ {t:'Before invitations', c:'Until invitations are out, guests stop here. Everything after this opens later.', y:function(){return top('#rsvp')+document.getElementById('rsvp').offsetHeight-innerHeight*.6;}, ms:5500},
+ {t:'The day', c:'The schedule. Times to fill in.', y:function(){return top('#day');}, ms:5500},
+ {t:'Getting there', c:'Trail Hub, with a button that opens maps.', y:function(){return top('#travel');}, ms:6000},
+ {t:'Where to stay', c:'Hotel and booking code, to fill in.', y:function(){return top('#stay');}, ms:5000},
+ {t:'Questions', c:'Answers to fill in together.', y:function(){return top('#faq');}, ms:5000},
+ {t:'Registry', c:'Optional. Add a link if you want one.', y:function(){return top('#registry');}, ms:4500},
+ {t:'Benny', c:'Benny, our maître d’, answers guests’ questions from what is on the site.', y:function(){return top('#registry');}, ms:8000, benny:1},
+ {t:'That is the tour', c:'Tap Next to watch it again.', y:function(){return 0;}, ms:999999}
+];
+var i=-1, paused=false, el=0, last=0, anim=null;
+function glide(to, ms){ var from=scrollY, s=performance.now(); if(anim) cancelAnimationFrame(anim);
+  (function f(now){ if(paused){ s+=now-(f.p||now); } f.p=now; var k=Math.min(1,(now-s)/ms), e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2; scrollTo(0,from+(to-from)*e); if(k<1) anim=requestAnimationFrame(f); })(s); }
+function closeBenny(){ var b=document.getElementById('benny'); if(!b.hidden) document.getElementById('bx').click(); }
+function show(n){ i=(n+S.length)%S.length; var s=S[i]; el=0; closeBenny();
+  cap.innerHTML='<b>'+(i+1)+' of '+S.length+' · '+s.t+'</b>'+s.c;
+  if(s.glide){ scrollTo(0,0); setTimeout(function(){ glide(s.y(), s.ms-1200); },300); } else glide(s.y(), 1400);
+  if(s.benny) setTimeout(function(){ document.getElementById('btab').click(); setTimeout(function(){ var q=[].find.call(document.querySelectorAll('#bqs button'),function(b){return /where is it/i.test(b.textContent);}); if(q) q.click(); },1400); },1500);
+  document.getElementById('tnext').textContent = i==S.length-1 ? 'Again' : 'Next'; }
+function tick(now){ if(!paused && i>=0) el+=now-last; last=now; var s=S[i]; if(s){ prog.style.width=Math.min(100,el/s.ms*100)+'%'; if(el>=s.ms) show(i+1); } requestAnimationFrame(tick); }
+document.getElementById('tnext').onclick=function(){ show(i+1); };
+document.getElementById('tpause').onclick=function(){ paused=!paused; this.textContent=paused?'Play':'Pause'; };
+start.hidden=false;
+document.getElementById('tgo').onclick=function(){ start.hidden=true; bar.hidden=false; last=performance.now(); show(0); requestAnimationFrame(tick); };
+})();
+</script>
+
+</body></html>
