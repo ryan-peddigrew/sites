@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#131516">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="REVOL HUB">
+<link rel="apple-touch-icon" sizes="180x180" href="__ICON180__">
+<link rel="icon" type="image/png" sizes="192x192" href="__ICON192__">
+<link rel="manifest" href="__MANIFEST__">
 <title>REVOL HUB · REVOL Events</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
@@ -259,16 +265,17 @@ kbd{font:700 10.5px var(--ui);letter-spacing:.08em;border:1px solid var(--line);
 
 .mt{flex:none;min-height:44px;padding:0 34px 0 14px;border:0;border-radius:var(--r);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23131516' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center/16px;font:700 12px var(--ui);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;box-shadow:inset 0 0 0 1px var(--line);-webkit-appearance:none;appearance:none;color:var(--ink)}
 .mt.on{background-color:var(--or);color:#fff;box-shadow:none}
-#wkS{position:fixed;z-index:250;border-radius:14px;pointer-events:none;box-shadow:0 0 0 2px var(--or),0 0 0 9999px #13151652;transition:all .35s cubic-bezier(.2,.8,.2,1)}
+#wkS{position:fixed;z-index:310;border-radius:14px;pointer-events:none;box-shadow:0 0 0 2px var(--or),0 0 0 9999px #13151652;transition:all .35s cubic-bezier(.2,.8,.2,1)}
 #wk.tap #wkS{animation:wkp 1.6s infinite}@keyframes wkp{0%,100%{box-shadow:0 0 0 2px var(--or),0 0 0 9999px #13151652}50%{box-shadow:0 0 0 6px #F05A2899,0 0 0 9999px #13151652}}
-#wkC{position:fixed;z-index:251;background:#fff;border-radius:14px;padding:14px 14px 12px;box-shadow:0 18px 50px #0005;border-top:3px solid var(--or);transition:top .35s,left .35s,opacity .2s}
+#wkC{position:fixed;z-index:311;background:#fff;border-radius:14px;padding:14px 14px 12px;box-shadow:0 18px 50px #0005;border-top:3px solid var(--or);transition:top .35s,left .35s,opacity .2s}
 #wk.mv #wkC{opacity:.0}#wk.mv #wkS{opacity:.6}
 .wkh{display:flex;justify-content:space-between;align-items:center;font:700 10.5px var(--ui);letter-spacing:.14em;color:var(--mut)}
 .wkh button{border:0;background:none;font:700 10.5px var(--ui);letter-spacing:.14em;color:var(--mut);cursor:pointer;min-height:32px;padding:0 4px}
 #wkT{display:block;font:400 28px/1 var(--hd);margin:6px 0 4px}#wkP{margin:0;font-size:14.5px;line-height:1.45;color:var(--ink3)}
 .wkb{display:flex;gap:8px;margin-top:12px}.wkb button{flex:1;min-height:44px;border:0;border-radius:8px;font:700 11.5px var(--ui);letter-spacing:.12em;cursor:pointer;background:#f1ece9;color:var(--ink)}.wkb #wkF{background:var(--or);color:#fff}
-#wk.tap #wkF{background:#f1ece9;color:var(--ink)}.wk-on #chatbtn{display:none}
+.wk-on #chatbtn{display:none}
 .lvb{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--ink);color:#fff;border-radius:12px;padding:10px 12px;margin:0 0 14px}.lvb .pz{font:700 10.5px var(--ui);letter-spacing:.14em;color:#F7B79E}.lvb .pz i{background:var(--or);animation:none}.lvt{flex:1;min-width:150px;font:600 13.5px var(--ui)}.lvb .btn{margin-left:auto}
+.crmb{display:grid;gap:4px;text-decoration:none;color:#fff;background:var(--ink);border-radius:14px;padding:14px 16px;margin:12px 0 4px;border-left:4px solid var(--or)}.crmb .k{color:#F7B79E}.crmb b{font:400 26px/1.05 var(--hd);text-transform:uppercase}.crmb span{font-size:14px;line-height:1.45;color:#e9e4e1}.crmb .btn{justify-self:start;margin-top:6px;color:#fff}
 .hide{display:none!important}
 </style>
 </head>
@@ -471,11 +478,11 @@ function issues(){const out=[];P.filter(p=>dayDiff(p.date)>=0&&dayDiff(p.date)<=
  return out.sort((a,b)=>a.w-b.w||a.p.date.localeCompare(b.p.date))}
 
 /* ---------- nav ---------- */
-const NAV=[['#/','REVOL HUB','home'],['#/sales','SALES','up'],['#/projects','EVENTS','proj'],['#/calendar','CALENDAR','cal'],['#/blc','BETTER LIVING CENTRE','bld'],['#/staff','STAFFING','staff'],['#/vendors','VENDORS','vend'],['#/menu','KITCHEN','food'],['#/invoices','FINANCE','inv'],['#/diy','RUN IT YOURSELF','dl']];
+const NAV=[['#/','REVOL HUB','home'],['#/sales','REVOL CRM','up'],['#/projects','EVENTS','proj'],['#/calendar','CALENDAR','cal'],['#/blc','BETTER LIVING CENTRE','bld'],['#/staff','STAFFING','staff'],['#/vendors','VENDORS','vend'],['#/menu','KITCHEN','food'],['#/invoices','FINANCE','inv'],['#/diy','RUN IT YOURSELF','dl']];
 function drawNav(r){$('#side').innerHTML='<div class="k grp">HUB</div>'+NAV.map(([h,l,i],ix)=>({1:'SALES',2:'EVENTS',5:'OPERATIONS',9:'TRY IT'}[ix]?`<div class="k grp">${({1:'SALES',2:'EVENTS',5:'OPERATIONS',9:'TRY IT'})[ix]}</div>`:'')+`<a href="${h}" class="${r===h?'on':''}">${ic(i)}${l}</a>`).join('');
- const B=[['#/','HUB','home'],['#/projects','EVENTS','proj'],['#/staff','STAFF','staff'],['#/vendors','VENDORS','vend']];
+ const B=[['#/','HUB','home'],['#/sales','CRM','up'],['#/projects','EVENTS','proj'],['#/staff','STAFF','staff']];
  $('#bot').innerHTML=B.map(([h,l,i])=>`<a href="${h}" class="${r===h||(h==='#/projects'&&r.startsWith('#/p/'))?'on':''}">${ic(i)}${l}</a>`).join('')+`<a href="#" id="mb">${ic('more')}MORE</a>`;
- $('#mb').onclick=e=>{e.preventDefault();$('#mores').innerHTML=NAV.filter(x=>!['#/','#/projects','#/staff','#/vendors'].includes(x[0])).map(([h,l,i])=>`<a href="${h}">${ic(i)}${l}</a>`).join('');$('#more').classList.add('on')};}
+ $('#mb').onclick=e=>{e.preventDefault();$('#mores').innerHTML=NAV.filter(x=>!['#/','#/sales','#/projects','#/staff'].includes(x[0])).map(([h,l,i])=>`<a href="${h}">${ic(i)}${l}</a>`).join('');$('#more').classList.add('on')};}
 $('#more').onclick=e=>{if(e.target.id==='more'||e.target.closest('a'))$('#more').classList.remove('on')};
 
 /* ---------- views ---------- */
@@ -651,7 +658,7 @@ let dealOpen=null;
 function vSales(){const by=s=>DEALS.filter(d=>d.stage===s);const pipeV=DEALS.filter(d=>d.stage!=='Won').reduce((a,d)=>a+dealValue(d),0);
  const card=d=>{const rp=TEAM.find(m=>m.k===d.rep)||TEAM[2];return `<div class="deal ${dealOpen===d.id?'on':''}"><button class="dh" data-deal="${d.id}"><span class="tag ${TYPES[d.type][1]}">${TYPES[d.type][0]}</span><b>${esc(d.name)}</b><span>${nice(d.date)} · ${fmt(d.guests)} guests · ${money(dealValue(d)).replace('.00','')} est.</span><span class="rp"><img class="av" style="width:26px;height:26px" src="${IMG[rp.k]}" alt="">${esc(rp.n)}</span></button>
  ${dealOpen===d.id?dealPlan(d):''}</div>`};
- return `<section class="sec" style="margin-top:0"><header><h2>Sales</h2><span class="k">WORKS BESIDE YOUR CRM</span></header>
+ return `<section class="sec" style="margin-top:0"><header><h2>REVOL CRM</h2><span class="k">PIPELINE</span></header>
  <div class="note">Your reps keep working in the CRM you already built. The hub only needs each deal's date, guest count, venue and stage, synced from the CRM or a shared sheet. The moment a deal is won, it becomes an event the rest of REVOL can run.</div>
  <div class="kpis"><div class="kpi"><span class="k">OPEN DEALS</span><b>${fmt(DEALS.filter(d=>d.stage!=='Won').length)}</b></div><div class="kpi"><span class="k">PIPELINE VALUE</span><b style="font-size:34px">${money(pipeV).replace('.00','')}</b></div><div class="kpi"><span class="k">WON, IN OPERATIONS</span><b>${fmt(by('Won').length)}</b></div><div class="kpi"><span class="k">STAFF THE PIPELINE NEEDS</span><b>${fmt(DEALS.filter(d=>d.stage!=='Won').reduce((a,d)=>a+plan(d.type,d.guests).reduce((x,y)=>x+y[1],0),0))}</b></div></div>
  <p class="k" style="margin:4px 0 10px">TAP A DEAL TO SEE THE STAFF AND VENDORS IT WILL NEED</p>
@@ -737,8 +744,8 @@ function vSalesHub(){const tabs=['PIPELINE','FLEX SYNC','INBOX','CALLS','COACHIN
  const MAIN=[12,9,0,13,3,17];const rest=tabs.map((t,i)=>i).filter(i=>!MAIN.includes(i)).sort((a,b)=>tabs[a].localeCompare(tabs[b]));const bar=`<div class="tabs" style="top:64px">${MAIN.map(i=>`<button data-st="${i}" class="${salesTab===i?'on':''}">${tabs[i]}</button>`).join('')}<select id="moreT" class="mt ${MAIN.includes(salesTab)?'':'on'}" aria-label="More tools"><option value="">${MAIN.includes(salesTab)?'MORE TOOLS':tabs[salesTab]}</option>${rest.map(i=>`<option value="${i}">${tabs[i]}</option>`).join('')}</select></div>`;
  const feeds=`<section class="sec"><header><h2>How sales feeds operations</h2><span class="k">AUTOMATIC</span></header><div class="flow">${[['FLEX ORDER CONFIRMED','Event built with shifts, vendor requests, menu and run of show','#/projects'],['GUEST COUNT CHANGES','Shifts recalculated from REVOL\'s ratios','#/staff'],['DATE OR TIME CHANGES','Staff and vendors told the new time, asked to reconfirm','#/vendors'],['REP CLOSES A TASK','Held shifts and vendor requests released to book','#/staff']].map(([a,b,h],i)=>`<a class="fl" href="${h}" style="width:200px"><span class="fn">${String(i+1).padStart(2,'0')}</span><b>${a}</b><span>${b}</span></a>`).join('')}</div></section>`;
  const body=[vSales,vFlex,vInbox,vCalls,vCoach,vForecast,vSeq,vRepDay,vTasks,vReps,vConnect,vAuto,vDirector,vHot,vQuotes,vBuilder,vAccounts,vInsights,vMargin,vTemplates,vReports][salesTab]();
- return `<section class="sec" style="margin-top:0"><header><h2>Sales</h2><span class="k">READS YOUR CRM AND FLEX CATERING</span></header>
- <div class="note">Jonny, your CRM keeps running the reps. The hub reads the same sources it does, the Flex Catering report and the reps' email, then adds what a CRM can't see: every call recorded and scored, how each rep sells, what is at risk, and whether REVOL can staff and supply what sales is about to sign.<a class="btn sm" href="#/diy" style="margin-top:10px;display:flex;width:max-content">RUN IT YOURSELF, PRIVATELY</a></div></section>${bar}${body}`}
+ return `<section class="sec" style="margin-top:0"><header><h2>REVOL CRM</h2><span class="k">BUILT AROUND THE CRM YOU ALREADY RUN</span></header>
+ <div class="note">REVOL CRM takes in the CRM you already built: the same Flex Catering report at 7 AM and 1 PM, the same rep inbox, the same deals moving on their own. Then it adds what a CRM on its own can't see: every call recorded and scored, how each rep sells, what is at risk, and whether REVOL can staff and supply what sales is about to sign.<a class="btn sm" href="#/diy" style="margin-top:10px;display:flex;width:max-content">TRY IT ON YOUR OWN DATA</a></div></section>${bar}${body}`}
 function vFlex(){const n=nowTO();const R=flexRows();const nw=R.filter(r=>r.ch==='New order').length,chg=R.filter(r=>r.ch!=='No change'&&r.ch!=='New order').length;const pm=n.h>=13;
  const card=(l,done,a,b,c)=>`<div class="kpi" style="${done?'':'opacity:.7'}"><span class="k">${l}</span><b style="font-size:30px">${done?fmt(a)+' ORDERS':'NEXT RUN'}</b><span style="font:600 12.5px var(--ui);color:var(--mut)">${done?fmt(b)+' new · '+fmt(c)+' changed · applied to the hub':'Scheduled for 1:00 PM'}</span></div>`;
  const imp=FLEXIMP?`<section class="sec"><header><h2>Your imported file</h2><span class="k">${fmt(FLEXIMP.rows.length)} ROWS</span></header><div class="tw"><table class="t"><thead><tr>${FLEXIMP.head.slice(0,8).map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${FLEXIMP.rows.slice(0,40).map(r=>`<tr>${r.slice(0,8).map(c=>`<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div></section>`:'';
@@ -849,14 +856,14 @@ const SRC=[['Flex Catering report','Orders, guest counts, menus, dates, totals',
  ['Transcription','Summaries, deal fields, coaching scores','Any transcription service you pick, connected with REVOL\'s own account and key. Or paste a transcript below to try it right now.','Your own account'],
  ['Payroll and timesheets','Hours, labour cost per event','Export hours as CSV, or link your payroll provider.','Your payroll provider'],
  ['Accounting','Invoices, deposits, paid status','QuickBooks or Xero export, or a direct link with your own login.','Your accounting login']];
-function vDIY(){return `<section class="hello hq"><img src="${IMG.gala}" alt=""><div class="in"><div class="k" style="color:#fff">FOR JONNY · A GIFT FROM RYAN</div><h1>Run it yourself</h1><p>Take this and test it on your own data, on your own computer. Nothing comes back to me or to Chairlift. No account, no login, no data shared.</p></div></section>
+function vDIY(){return `<section class="hello hq"><img src="${IMG.gala}" alt=""><div class="in"><div class="k" style="color:#fff">IT'S YOURS</div><h1>Run it yourself</h1><p>Take it if you want it. Here you go. Test it on your own data, on your own computer. Nothing is sent anywhere. No account, no login, no data shared.</p></div></section>
  <section class="sec"><header><h2>Four steps, about 20 minutes</h2><span class="k">PRIVATE BY DESIGN</span></header>
  <div class="flow" style="flex-wrap:wrap">${[['DOWNLOAD THE HUB','One file. Save it to your own computer and open it in Chrome. It runs there, not on our server.'],['CLEAR THE SAMPLES','Under Connect data, upload your own files. Each upload replaces that sample table.'],['ADD FLEX AND YOUR CRM','Export both as CSV and upload them. Your real orders and deals light up staffing, vendors and the forecast.'],['TRY A REAL CALL','Paste any call transcript below and see the summary and coaching score. It never leaves this page.']].map(([a,b],i)=>`<div class="fl" style="width:auto;flex:1 1 220px"><span class="fn">${String(i+1).padStart(2,'0')}</span><b>${a}</b><span>${b}</span></div>`).join('')}</div>
  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button class="btn" id="dlHub">DOWNLOAD THE HUB</button><a class="btn gh" href="#/import">CONNECT DATA</a></div>
  <p class="note" style="margin-top:10px">How it stays private: everything you upload is read by your own browser and kept in that browser's storage on your computer. The file makes no calls home. The only things it loads from the internet are the fonts. Clear your browser data and it is gone.</p></section>
  <section class="sec"><header><h2>What to link, and what it unlocks</h2><span class="k">YOUR KEYS, YOUR ACCOUNTS</span></header>
  <div class="tw"><table class="t"><thead><tr><th>SOURCE</th><th>UNLOCKS</th><th>HOW TO LINK IT</th><th>WHERE THE DATA LIVES</th></tr></thead><tbody>${SRC.map(r=>`<tr><td><b>${esc(r[0])}</b></td><td>${esc(r[1])}</td><td style="min-width:260px">${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join('')}</tbody></table></div>
- <p class="note" style="margin-top:10px">Uploading files covers Flex, the CRM, hours and invoices today. Live email, calendar, phone and meeting links need the hub running in REVOL's own Google account or server, with keys only REVOL holds. If you want that, I can set it up so the keys are yours, or hand it to your team to do. Ontario allows recording a call you are on, but tell clients calls are recorded.</p></section>
+ <p class="note" style="margin-top:10px">Uploading files covers Flex, the CRM, hours and invoices today. Live email, calendar, phone and meeting links need the hub running in REVOL's own Google account or server, with keys only REVOL holds. Your team can set that up so the keys stay yours. Ontario allows recording a call you are on, but tell clients calls are recorded.</p></section>
  <section class="sec"><header><h2>Try a call right now</h2><span class="k">RUNS ONLY IN THIS BROWSER</span></header>
  <div class="note">Paste a transcript with one line per speaker, like "Adam: Thanks for the time today." The first speaker is treated as the rep.</div>
  <textarea id="txIn" rows="9" style="width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:8px;padding:10px;font:14px/1.45 var(--bd,inherit);margin-top:8px" placeholder="Adam: Thanks for making the time..."></textarea>
@@ -1125,10 +1132,10 @@ function homeData(){const n=nowTO();const up=P.filter(p=>dayDiff(p.date)>=0&&day
  const inv=INV.filter(i=>i.status!=='Paid').length;const calls=S.reduce((a,s)=>a+s.today.c,0);
  return {n,wk,today,sh,vv,cb,pipe,prep,inv,calls,S}}
 function apps(D){return [
- ['Sales','#/sales','a_sales','gala',D.cb,'callbacks owed'],['Events','#/projects','a_events','evt_hall',D.wk.length,'this week'],['Staffing','#/staff','a_staff','crew',D.sh.o,'open shifts'],['Vendors','#/vendors','a_vend','canopy',D.vv.n-D.vv.c,'to chase'],
+ ['REVOL CRM','#/sales','a_sales','gala',D.cb,'callbacks owed'],['Events','#/projects','a_events','evt_hall',D.wk.length,'this week'],['Staffing','#/staff','a_staff','crew',D.sh.o,'open shifts'],['Vendors','#/vendors','a_vend','canopy',D.vv.n-D.vv.c,'to chase'],
  ['Kitchen','#/menu','a_kitchen','kitchen',0,''],['Finance','#/invoices','a_fin','corp_cat2',D.inv,'open invoices'],['Calls','#/sales/3','a_calls','server',0,''],['Reports','#/sales/20','a_rep','table',0,''],
  ['Connect','#/sales/10','a_conn','trucks',SOURCES.length-SOURCES.filter(s=>CONN[s[0]]).length,'to link'],['Automations','#/sales/11','a_auto','buffet',0,''],['Today','#/today','a_today','team_red',D.today.length,'today'],['Better Living Centre','#/blc','a_blc','evt_hall',0,''],
- ['Dispatch','#/dispatch','a_dispatch','trucks',0,''],['Staff hub','#/me','a_me','crew',0,''],['Run it yourself','#/diy','a_key','polaroid',0,''],['vs Salesforce','#/compare','a_vs','table',0,'']]}
+ ['Dispatch','#/dispatch','a_dispatch','trucks',0,''],['Staff hub','#/me','a_me','crew',0,''],['Run it yourself','#/diy','a_key','polaroid',0,'']]}
 const cnt=(v,f)=>`<span class="cu" data-to="${v}" data-f="${f||''}">${f==='$'?money(v).replace('.00',''):fmt(v)}</span>`;
 const pulse=t=>`<span class="pz"><i></i>${t}</span>`;
 function statusLine(D){return `<div class="stl">${pulse('LIVE')}<span>FLEX SYNCED 7:00 AM</span><span>${fmt(REPS.length)} REPS ONLINE</span><span>${fmt(D.calls)} CALLS TODAY</span><span>${fmt(D.today.length)} EVENTS TODAY</span></div>`}
@@ -1136,6 +1143,7 @@ function appIcon(a,i,style){const [l,h,icn,img,b,bl]=a;return `<a class="ap ap-$
 function vHomeA(){const D=homeData();const A=apps(D);
  return `<section class="hA"><img src="${IMG.team_red}" alt=""><div class="in"><span class="k" style="color:#fff">${D.n.h<12?'GOOD MORNING':D.n.h<17?'GOOD AFTERNOON':'GOOD EVENING'}, JONNY</span><h1>REVOL HUB</h1>${statusLine(D)}</div></section>
  <button class="cmdb" data-cmd>${ic('a_search',20)}<span>Search or jump to anything</span><kbd>CTRL K</kbd></button>
+ <a class="crmb" href="#/sales"><span class="k">REVOL CRM</span><b>Your CRM, with the whole company behind it</b><span>Flex Catering at 7 AM and 1 PM, every rep inbox and call, plus staffing, vendors and kitchen on the same screen. ${D.cb} callbacks owed today.</span><span class="btn sm">OPEN REVOL CRM</span></a>
  <div class="grdA">${A.map((a,i)=>appIcon(a,i,'a')).join('')}</div>
  <p class="k" style="margin-top:14px;text-align:center">PRESS 1 TO 9 TO OPEN AN APP · CTRL K TO SEARCH · SAMPLE DATA</p>`}
 function widget(t,body,h){return `<a class="wg" href="${h}"><span class="k">${t}</span>${body}</a>`}
@@ -1184,34 +1192,39 @@ function vHome(){return HOMEV==='b'?vHomeB():HOMEV==='c'?vHomeC():HOMEV==='hq'?v
 
 /* ---------- Tap-along tour (?tour=1) ---------- */
 const WALK=[
- {r:'#/',s:'.hA',t:'Jonny, this is REVOL HUB',x:'One place for every arm of REVOL. Every icon is a live app. Let me walk you through it. Ryan'},
- {r:'#/',s:'.ap[href="#/sales"]',t:'Start with sales',x:'Tap Sales.',c:1},
+ {r:'#/',s:'.hA',t:'Jonny, this is REVOL HUB',x:'Sales, events, staffing, vendors and the kitchen in one place. Tap NEXT and try it as you go.'},
+ {r:'#/',s:'.crmb',t:'REVOL CRM',x:'Built around the CRM you already run: same Flex report at 7 AM and 1 PM, same rep inbox. Tap it.',c:1},
  {s:'#dg',t:'Your 7:30 digest',x:'Who is behind today, rep by rep, before your first coffee.'},
  {s:'#dg [data-nudge-rep]',t:'Nudge a rep',x:'Tap NUDGE to see the exact text they get.',c:1},
  {s:'#npS',t:'Send it',x:'One tap. If they let it slide, it comes back to you.',c:1},
  {s:'[data-st="9"]',t:'Every rep, every number',x:'Tap Reps.',c:1},
- {s:'.kpis',t:'The whole team this week',x:'Calls, phone hours, emails, meetings, proposals and callbacks owed. Logged on their own once linked.'},
- {s:'button[data-rep]',t:'Open a rep',x:'Tap a rep to see what they owe.',c:1},
+ {s:'button[data-rep]',t:'Open a rep',x:'Calls, phone hours, emails and callbacks owed. Tap a rep.',c:1},
  {s:'#repDet',t:'Nothing hides',x:'Callbacks owed, deals going quiet and 14 days of activity.'},
- {s:'[data-st="0"]',t:'Now the pipeline',x:'Tap Pipeline.',c:1},
- {s:'.col:not(:last-child) [data-deal]',t:'Open a deal',x:'Tap a deal. You see the staff and vendors it needs before it closes.',c:1},
+ {s:'[data-st="13"]',t:'Hot leads',x:'Tap Hot leads.',c:1},
+ {s:'.alist',t:'Who to call first',x:'Scored by date, budget and how fast they replied. Send one to a rep in a tap.'},
+ {s:'[data-st="3"]',t:'Every call, on the record',x:'Tap Calls.',c:1},
+ {s:'[data-call]',t:'Open a call',x:'Tap it. You can hear any call without sitting in on it.',c:1},
+ {s:'.dp',t:'Written onto the deal',x:'Guest count, date, venue and budget pulled out of the call. No retyping.'},
+ {s:'[data-st="0"]',t:'The pipeline',x:'Tap Pipeline.',c:1},
+ {s:'.col:not(:last-child) [data-deal]',t:'Open a deal',x:'Tap it. You see the staff and vendors it needs before it closes.',c:1},
  {s:'[data-win]',t:'Mark it won',x:'Tap it and watch.',c:1},
- {s:'#tabs',t:'The event builds itself',x:'Shifts from your ratios, vendor requests, the menu and the run of show. Operations starts the same minute.'},
+ {s:'#tabs',t:'The event builds itself',x:'Shifts, vendor requests, the menu and the run of show. Operations starts the same minute.'},
  {r:'#/',s:'.ap[href="#/staff"]',t:'Staffing',x:'Tap Staffing.',c:1},
  {s:'.cov',t:'Two weeks out',x:'Confirmed, allocated and open for every day. Busy days show up early.'},
  {r:'#/',s:'.ap[href="#/vendors"]',t:'Vendors',x:'Tap Vendors.',c:1},
- {s:'.vt',t:'Every vendor, every event',x:'Who confirmed, who quoted, who hasn\'t answered. Tap a square to update it.'},
- {r:'#/',s:'.cmdb',t:'Find anything',x:'Search reps, events or tools from anywhere. On a laptop, press Ctrl K.'},
- {r:'#/',s:'.ap[href="#/diy"]',t:'Yours to try',x:'Tap Run it yourself.',c:1},
- {s:'.flow',t:'Private by design',x:'Download it and load your own Flex and CRM exports. Nothing comes back to me. Ryan'}];
+ {s:'[data-v]',t:'Every vendor, every event',x:'Tap a square to update who confirmed, quoted or hasn\'t answered.',c:1},
+ {r:'#/',s:'.cmdb',t:'Find anything',x:'Tap search. On a laptop, Ctrl K works from anywhere.',c:1},
+ {s:'#cpq',t:'Type anything',x:'A rep, a client, an event or a tool. It jumps straight there.'},
+ {r:'#/',s:'.ap[href="#/diy"]',t:'Try it on your own data',x:'Tap Run it yourself.',c:1},
+ {s:'.flow',t:'It\'s yours',x:'Take it if you want it. Here you go. Load your own Flex and CRM exports. Nothing is sent anywhere.'}];
 let wi=-1,wEl=null,wOn=false,wRaf=0;
 function wkUI(){if($('#wk'))return;const d=document.createElement('div');d.id='wk';d.innerHTML=`<div id="wkS"></div><div id="wkC"><div class="wkh"><span id="wkN"></span><button type="button" id="wkX" aria-label="End tour">END</button></div><b id="wkT"></b><p id="wkP"></p><div class="wkb"><button type="button" id="wkB">BACK</button><button type="button" id="wkF">NEXT</button></div></div>`;document.body.appendChild(d);
  $('#wkX').onclick=wkEnd;$('#wkB').onclick=()=>wkGo(Math.max(0,wi-1));$('#wkF').onclick=()=>{const st=WALK[wi];if(st&&st.c&&wEl){wEl.click();return}wi>=WALK.length-1?wkEnd():wkGo(wi+1)};
  document.addEventListener('click',e=>{if(!wOn||!wEl)return;const st=WALK[wi];if(st&&st.c&&wEl.contains(e.target)){const n=wi+1;setTimeout(()=>{if(wi===n-1)wkGo(n)},450)}},true)}
 function wkGo(i){if(i>=WALK.length){wkEnd();return}wi=i;const st=WALK[i];$('#wk').classList.add('mv');
- if(st.r&&location.hash!==st.r){closeCmd();location.hash=st.r}
+ if(!st.s.startsWith('#cp'))closeCmd();if(st.r&&location.hash!==st.r)location.hash=st.r;
  let tries=0;const find=()=>{const el=document.querySelector(st.s);if(!el||!el.getClientRects().length){if(++tries<14)return setTimeout(find,150);return wkGo(i+1)}
-  wEl=el;el.scrollIntoView({block:'center',behavior:'smooth'});setTimeout(()=>{$('#wkN').textContent=`${i+1} OF ${WALK.length}`;$('#wkT').textContent=st.t;$('#wkP').textContent=st.x;$('#wkB').style.visibility=i?'visible':'hidden';$('#wkF').textContent=st.c?'DO IT FOR ME':i===WALK.length-1?'FINISH':'NEXT';$('#wk').classList.toggle('tap',!!st.c);$('#wk').classList.remove('mv');wkPlace()},380)};
+  wEl=el;el.scrollIntoView({block:'center',behavior:'smooth'});setTimeout(()=>{$('#wkN').textContent=`${i+1} OF ${WALK.length}`;$('#wkT').textContent=st.t;$('#wkP').textContent=st.x;$('#wkB').style.visibility=i?'visible':'hidden';$('#wkF').textContent=i===WALK.length-1?'FINISH':'NEXT';$('#wk').classList.toggle('tap',!!st.c);$('#wk').classList.remove('mv');wkPlace()},380)};
  setTimeout(find,st.r?260:120)}
 function wkPlace(){if(!wOn||!wEl)return;const r=wEl.getBoundingClientRect(),S=$('#wkS'),C=$('#wkC');const pad=6;
  S.style.left=(r.left-pad)+'px';S.style.top=(r.top-pad)+'px';S.style.width=(r.width+pad*2)+'px';S.style.height=(Math.min(r.height,innerHeight*.7)+pad*2)+'px';
@@ -1344,7 +1357,7 @@ const STEPS=[
  ['#/sales/8','What\'s waiting on a rep','Every hand-off operations can\'t finish without sales, and exactly which shifts or vendor requests it is holding up.','.alist'],
  ['#/sales/0','One tap: won becomes an event','Mark a deal won and the hub builds the event: every shift from your ratios, every vendor request, the menu and the run of show.','.board'],
  ['#/staff','Staffing and vendors, already moving','Two weeks of coverage and one vendor grid, fed by the deals you just saw. Busy days show up before the scramble, not during it.','.cov'],
- ['#/diy','Yours to try, privately','Download it, upload your own Flex and CRM exports, paste a real call. It runs on your computer and nothing comes back to me. Ryan','.flow']];
+ ['#/diy','Yours to try, privately','Download it, upload your own Flex and CRM exports, paste a real call. It runs on your computer and nothing is sent anywhere.','.flow']];
 let ti=0,tp=false,tt=null,tstart=0,tleft=0;const DUR=9000;
 function tshow(){const st=STEPS[ti];const r=typeof st[0]==='function'?st[0]():st[0];$('#chat').classList.remove('on');if(location.hash!==r)location.hash=r;else route();
  setTimeout(()=>{if(st[4]&&st[4]!=='chat')showTab(st[4]);if(st[4]==='chat'){$('#chat').classList.add('on');if(!msgs.children.length)say('Hi, this is the REVOL HUB. Ask me about any project, shift, vendor or order.');setTimeout(()=>{say(esc("What's on Friday?"),1);setTimeout(()=>say(answer("What's on Friday?")),300)},400)}
