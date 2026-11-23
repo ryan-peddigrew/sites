@@ -29,7 +29,7 @@ button{margin-top:12px;width:100%;height:54px;font-weight:700;font-size:14px;let
 .e{color:#ffb4b4;margin:10px 0 0;font-size:15px}.f{margin-top:34px;font-size:13px;color:#ffffff99}.f b{color:#fff;font-weight:600}</style></head>
 <body><main><small>Private preview</small><h1>Enter your code</h1><p>This preview was prepared for you. Type the code from your message to open it.</p>
 <form method="post"><input name="code" autocomplete="off" autocapitalize="characters" autofocus aria-label="Preview code" placeholder="CODE"><button type="submit">Open preview</button>${msg ? '<p class="e">' + msg + '</p>' : ''}</form>
-<div class="f">Prepared by <b>Chairlift</b></div></main></body></html>`;
+<div class="f" style="font-size:16px">Powered by <b>Chairlift</b></div></main></body></html>`;
   return new Response(html, { status: 401, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex, nofollow' } });
 }
 
