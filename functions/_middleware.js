@@ -37,6 +37,14 @@ export async function onRequest(ctx) {
   const { request, env, next } = ctx;
   const url = new URL(request.url);
   if (OPEN.some(p => url.pathname.startsWith(p))) return next();
+  // Ryan's own wedding site on his domain: public, no gate, only the guest pages.
+  if (/(^|\.)peddigrewsaysido\.com$/i.test(url.hostname)) {
+    const p = url.pathname === '/' ? '/index.html' : url.pathname;
+    if (!/^\/(index\.html|rsvp\.html|img\/[\w.-]+\.(jpg|webp|png))$/.test(p)) {
+      return Response.redirect(url.origin + '/', 302);
+    }
+    return env.ASSETS.fetch(new Request(new URL('/ryan-amanda-wedding' + p, url), request));
+  }
   if (!env.SECRET) return gate('Preview is being set up. Please try again soon.');
   const folder = url.pathname.split('/')[1] || '';
   const want = await mk(env.SECRET, folder);

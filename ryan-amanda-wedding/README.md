@@ -19,3 +19,8 @@ Strip photos (Ryan, 18 Nov 2:50 PM): his three hearted shoot photos (embrace wit
 - RSVP sending: set `RSVP_ENDPOINT` (e.g. FormSubmit ajax URL for the chosen email). Empty = nothing is sent.
 - Dashed boxes = details still needed from Ryan (times, reply-by date, parking, hotel, FAQ answers, registry).
 - Source: build.py + site_parts.py in the scratch build (copy in /mnt/project-files/wedding/olive-booth/).
+
+## Version A chosen (Ryan, 23 Nov 2026 4:34 PM)
+- index.html = Version A Fly-through, guest view (locked). everything.html = all chapters open. Old booth version in archive/booth-2026-11-23/.
+- Domain peddigrewsaysido.com: functions/_middleware.js serves this folder with no passcode on that host (index, rsvp, img only). Not live until the domain is connected and main is deployed, with Ryan's go.
+- RSVP inbox benny@peddigrewsaysido.com: wire RSVP_ENDPOINT at go time (FormSubmit sends a one-time confirmation to that inbox first).
