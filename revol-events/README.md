@@ -7,4 +7,4 @@ Brief (Ryan, 23 Nov 2026): project-based management app named MARENGO for REVOL 
 
 All projects, clients, staff names and vendors are SAMPLE. Real: logo, photos, team (from /team), holiday menu items and prices (2026 holiday menu).
 
-Next: driver dispatch board, employee hub, ?tour=1 written for Jonathan Leaman.
+Pass 2 (23 Nov): 4-7 drop-offs a day + office parties citywide, Dispatch (by truck, tap status), Employee hub, Growth page (add-ons at menu prices, open hall days), ?tour=1 for Jonny (Jonathan Leaman, VP), ASK button in header on phones.
