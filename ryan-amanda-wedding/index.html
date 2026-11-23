@@ -203,12 +203,7 @@ html:not(.open) .jump{display:none}
         </div>
       </fieldset>
       <div class="coming" hidden>
-        <div class="field"><label for="r-count">How many in your party</label>
-          <select id="r-count" name="party_size"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
-          <small>Including you.</small></div>
-        <div class="field"><label for="r-guests">Names of everyone attending</label><textarea id="r-guests" name="guest_names" rows="3"></textarea></div>
-        <div class="field"><label for="r-diet">Dietary needs or allergies</label><input id="r-diet" name="dietary" type="text"></div>
-        <div class="field"><label for="r-song">A song that gets you dancing</label><input id="r-song" name="song" type="text"></div>
+        <div class="field"><label for="r-guests">Names of everyone attending</label><textarea id="r-guests" name="guest_names" rows="2"></textarea><small>Up to 3 names, including you.</small></div>
       </div>
       <div class="field"><label for="r-note">A note for Ryan and Amanda</label><textarea id="r-note" name="message" rows="3"></textarea></div>
       <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -403,7 +398,7 @@ var RSVP_ENDPOINT = "";
     if(miss.length){ err.textContent='Please add '+miss.join(', ')+'.'; err.hidden=false; return; }
     if(d.get('_honey')) return;
     var yes=d.get('attending')==='Joyfully accepts';
-    if(!yes){ d.delete('party_size'); d.delete('guest_names'); d.delete('dietary'); d.delete('song'); }
+    if(!yes){ d.delete('guest_names'); }
     d.append('_subject','Wedding RSVP: '+d.get('name')+' ('+d.get('attending')+')');
     var btn=f.querySelector('.send'); btn.disabled=true; btn.textContent='Sending...';
     function done(){
