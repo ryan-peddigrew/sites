@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#131516">
-<title>MARENGO · REVOL Events</title>
+<title>REVOL HUB · REVOL Events</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -222,7 +222,7 @@ i.o,.lg.o{background:var(--bad)}i.a,.lg.a{background:#E7B23A}i.c,.lg.c{backgroun
 <div id="ld"><div class="lw"><img class="rm" src="__RMARK__" alt=""><div class="mw" id="mw"></div><div class="bar"><i></i></div><small>FOR REVOL EVENTS</small></div></div>
 
 <header class="top">
-  <a class="brand" href="#/"><img src="__RMARK__" alt="REVOL"><span><b>MARENGO</b><em>REVOL EVENTS HUB</em></span></a>
+  <a class="brand" href="#/"><img src="__RMARK__" alt="REVOL"><span><b>REVOL HUB</b><em>SALES TO SERVICE</em></span></a>
   <span class="sp"></span>
   <div class="clock"><b id="clk">--</b><span id="dte">TORONTO</span></div><button type="button" id="askTop" class="btn sm" style="min-height:44px;padding:0 12px">ASK</button>
 </header>
@@ -234,21 +234,21 @@ i.o,.lg.o{background:var(--bad)}i.a,.lg.a{background:#E7B23A}i.c,.lg.c{backgroun
 </div>
 
 <footer class="ft">
-  <div><img src="__LOGO__" alt="REVOL Events" style="filter:brightness(0) invert(1)"><div style="margin-top:8px">388 Carlaw Ave, Unit W12, Toronto · MARENGO concept</div></div>
+  <div><img src="__LOGO__" alt="REVOL Events" style="filter:brightness(0) invert(1)"><div style="margin-top:8px">388 Carlaw Ave, Unit W12, Toronto · REVOL HUB concept</div></div>
   <a class="pbc" href="https://usechairlift.com" target="_blank" rel="noopener"><span class="pbc-mark" aria-hidden="true"><svg viewBox="-1 -1 66 66"><path d="M2 0H62A2 2 0 0 1 64 2V62A2 2 0 0 1 62 64H2A2 2 0 0 1 0 62V2A2 2 0 0 1 2 0Z" fill="#141B2A" stroke="rgba(255,255,255,0.3)" stroke-width="2"/><rect x="10" y="42.5" width="20" height="7" rx="1.2" fill="#FFFFFF"/><rect x="22" y="29" width="20" height="7" rx="1.2" fill="#FFFFFF"/><rect x="34" y="15.5" width="20" height="7" rx="1.2" fill="#3DFFC1"/></svg></span><span>Powered by <b>Chairlift</b></span></a>
 </footer>
 
 <nav class="bot" id="bot"></nav>
-<button id="chatbtn" type="button"><svg class="i" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg><span class="cbl">ASK MARENGO</span></button>
-<section id="chat" aria-label="Ask MARENGO">
-  <header><b>ASK MARENGO</b><button type="button" id="chatx">CLOSE</button></header>
+<button id="chatbtn" type="button"><svg class="i" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg><span class="cbl">ASK THE HUB</span></button>
+<section id="chat" aria-label="Ask The hub">
+  <header><b>ASK THE HUB</b><button type="button" id="chatx">CLOSE</button></header>
   <div id="msgs"></div>
   <div class="sug" id="sug"></div>
   <form id="chatf"><input id="chati" autocomplete="off" placeholder="Ask about any project, shift or vendor"><button class="btn sm" type="submit">SEND</button></form>
 </section>
 <div id="more"><div class="s" id="mores"></div></div>
 <div class="toast" id="toast"></div>
-<div class="tour hide" id="tour"><div class="tt"><span>A TOUR FOR JONNY AND ROSS</span><span id="tn"></span></div><h3 id="th"></h3><p id="tp"></p><div class="tb"><i id="tbi"></i></div><div class="bs"><button type="button" id="tpa">PAUSE</button><button type="button" class="nx" id="tnx">NEXT</button><button type="button" id="tend">END</button></div></div>
+<div class="tour hide" id="tour"><div class="tt"><span>A TOUR FOR JONNY</span><span id="tn"></span></div><h3 id="th"></h3><p id="tp"></p><div class="tb"><i id="tbi"></i></div><div class="bs"><button type="button" id="tpa">PAUSE</button><button type="button" class="nx" id="tnx">NEXT</button><button type="button" id="tend">END</button></div></div>
 <div id="wm" aria-hidden="true"></div>
 
 <script>
@@ -417,9 +417,9 @@ function issues(){const out=[];P.filter(p=>dayDiff(p.date)>=0&&dayDiff(p.date)<=
  return out.sort((a,b)=>a.w-b.w||a.p.date.localeCompare(b.p.date))}
 
 /* ---------- nav ---------- */
-const NAV=[['#/','REVOL HQ','home'],['#/sales','SALES','up'],['#/today','OPERATIONS TODAY','alert'],['#/projects','PROJECTS','proj'],['#/calendar','CALENDAR','cal'],['#/blc','BETTER LIVING CENTRE','bld'],['#/staff','STAFFING','staff'],['#/me','EMPLOYEE HUB','team'],['#/hours','SUBMIT HOURS','clock'],['#/vendors','VENDORS','vend'],['#/menu','KITCHEN PREP','food'],['#/dispatch','DISPATCH','truck'],['#/invoices','INVOICES','inv'],['#/grow','GROWTH','up'],['#/team','TEAM','team'],['#/import','CONNECT DATA','dl']];
-function drawNav(r){$('#side').innerHTML='<div class="k grp">HUB</div>'+NAV.map(([h,l,i],ix)=>({1:'SALES',2:'EVENTS',6:'STAFFING',9:'VENDORS',10:'KITCHEN',12:'FINANCE',14:'COMPANY'}[ix]?`<div class="k grp">${({1:'SALES',2:'EVENTS',6:'STAFFING',9:'VENDORS',10:'KITCHEN',12:'FINANCE',14:'COMPANY'})[ix]}</div>`:'')+`<a href="${h}" class="${r===h?'on':''}">${ic(i)}${l}</a>`).join('');
- const B=[['#/','HQ','home'],['#/projects','EVENTS','proj'],['#/staff','STAFF','staff'],['#/vendors','VENDORS','vend']];
+const NAV=[['#/','REVOL HUB','home'],['#/sales','SALES DESK','up'],['#/diy','RUN IT YOURSELF','dl'],['#/today','OPERATIONS TODAY','alert'],['#/projects','PROJECTS','proj'],['#/calendar','CALENDAR','cal'],['#/blc','BETTER LIVING CENTRE','bld'],['#/staff','STAFFING','staff'],['#/me','EMPLOYEE HUB','team'],['#/hours','SUBMIT HOURS','clock'],['#/vendors','VENDORS','vend'],['#/menu','KITCHEN PREP','food'],['#/dispatch','DISPATCH','truck'],['#/invoices','INVOICES','inv'],['#/grow','GROWTH','up'],['#/team','TEAM','team'],['#/import','CONNECT DATA','dl']];
+function drawNav(r){$('#side').innerHTML='<div class="k grp">HUB</div>'+NAV.map(([h,l,i],ix)=>({1:'SALES',3:'EVENTS',7:'STAFFING',10:'VENDORS',11:'KITCHEN',13:'FINANCE',15:'COMPANY'}[ix]?`<div class="k grp">${({1:'SALES',3:'EVENTS',7:'STAFFING',10:'VENDORS',11:'KITCHEN',13:'FINANCE',15:'COMPANY'})[ix]}</div>`:'')+`<a href="${h}" class="${r===h?'on':''}">${ic(i)}${l}</a>`).join('');
+ const B=[['#/','HUB','home'],['#/projects','EVENTS','proj'],['#/staff','STAFF','staff'],['#/vendors','VENDORS','vend']];
  $('#bot').innerHTML=B.map(([h,l,i])=>`<a href="${h}" class="${r===h||(h==='#/projects'&&r.startsWith('#/p/'))?'on':''}">${ic(i)}${l}</a>`).join('')+`<a href="#" id="mb">${ic('more')}MORE</a>`;
  $('#mb').onclick=e=>{e.preventDefault();$('#mores').innerHTML=NAV.filter(x=>!['#/','#/projects','#/staff','#/vendors'].includes(x[0])).map(([h,l,i])=>`<a href="${h}">${ic(i)}${l}</a>`).join('');$('#more').classList.add('on')};}
 $('#more').onclick=e=>{if(e.target.id==='more'||e.target.closest('a'))$('#more').classList.remove('on')};
@@ -497,7 +497,7 @@ function vTeam(){return `<section class="sec" style="margin-top:0"><header><h2>T
  <section class="sec"><img src="${IMG.crew}" alt="" style="border-radius:8px;width:100%"></section></section>`}
 const TABLES={projects:['id','name','type','client','venue','date','start','end','guests','lead','status','notes'],staffing:['pid','role','name','state','start','end'],vendors:['pid','service','vendor','status','arrive','contact'],catering:['pid','item','qty','price','unit'],timeline:['pid','time','task','owner','done']};
 function vImport(){return `<section class="sec" style="margin-top:0"><header><h2>Connect your data</h2><span class="k">NO RETYPING</span></header>
- <div class="note">MARENGO reads five simple tables: <b>projects, staffing, vendors, catering, timeline</b>. Keep them in a Google Sheet (one tab each) or export from the booking system as CSV. Every row links to a project by its ID.</div>
+ <div class="note">The hub reads five simple tables: <b>projects, staffing, vendors, catering, timeline</b>. Keep them in a Google Sheet (one tab each) or export from the booking system as CSV. Every row links to a project by its ID.</div>
  <div class="grid c2" style="margin-top:12px"><form class="f" id="gf"><b style="font:400 28px var(--hd)">GOOGLE SHEETS</b><p style="margin:0;font-size:14px">In Google Sheets: File, Share, Publish to web, pick a tab, choose CSV, copy the link. Paste one link per tab.</p>${Object.keys(TABLES).map(k=>`<label class="l">${k.toUpperCase()} TAB LINK<input name="${k}" type="url" placeholder="https://docs.google.com/.../pub?output=csv"></label>`).join('')}<button class="btn" type="submit">CONNECT AND REFRESH</button></form>
  <div><div class="f" style="display:grid;gap:12px"><b style="font:400 28px var(--hd)">UPLOAD CSV FILES</b><p style="margin:0;font-size:14px">Name each file after its table (for example <b>staffing.csv</b>). Upload any or all.</p><label class="btn gh">CHOOSE CSV FILES<input type="file" id="csvf" multiple accept=".csv,text/csv" hidden></label>
  <div class="k">TEMPLATES (FILLED WITH THE SAMPLE DATA)</div><div style="display:flex;flex-wrap:wrap;gap:8px">${Object.keys(TABLES).map(k=>`<button class="btn sm dk" data-dl="${k}">${ic('dl',16)}${k.toUpperCase()}</button>`).join('')}</div>
@@ -533,7 +533,7 @@ function vGrow(){const up=P.filter(p=>dayDiff(p.date)>=0&&p.sub!=='load');const 
  const tot=addon.reduce((a,x)=>a+x[2],0);
  let s0=addD(T0,(3-T0.getUTCDay()+7)%7);const openHall=[];for(let w=0;w<5;w++)for(let o=2;o<5;o++){const d=iso(addD(s0,w*7+o));if(!P.some(p=>p.type==='blc'&&p.date===d))openHall.push(d)}
  const lunchNoParty=[...new Set(P.filter(p=>p.type==='cat').map(p=>p.client))].filter(c=>!P.some(p=>p.type!=='cat'&&p.client===c)).slice(0,8);
- return `<section class="hello"><img src="${IMG.corp_cat}" alt=""><div class="in"><div class="k" style="color:#fff">GROWTH</div><h1>Revenue on the table</h1><p>MARENGO reads every order and booking and points at the sales your team can make today. Values use REVOL's own menu prices.</p></div></section>
+ return `<section class="hello"><img src="${IMG.corp_cat}" alt=""><div class="in"><div class="k" style="color:#fff">GROWTH</div><h1>Revenue on the table</h1><p>The hub reads every order and booking and points at the sales your team can make today. Values use REVOL's own menu prices.</p></div></section>
  <div class="kpis"><div class="kpi"><span class="k">ADD-ONS TO OFFER</span><b>${fmt(addon.length)}</b></div><div class="kpi"><span class="k">ADD-ON VALUE</span><b style="font-size:34px">${money(tot)}</b></div><div class="kpi"><span class="k">OPEN HALL DAYS (THU TO SUN)</span><b>${fmt(openHall.length)}</b></div><div class="kpi"><span class="k">LUNCH CLIENTS WITH NO PARTY BOOKED</span><b>${fmt(lunchNoParty.length)}</b></div></div>
  <div class="grid c2"><div><div class="k" style="margin:10px 0">ADD-ONS WORTH A QUICK CALL</div>${addon.sort((a,b)=>b[2]-a[2]).slice(0,14).map(([p,l,v])=>`<a class="row" href="#/p/${p.id}" style="text-decoration:none"><div class="grow"><b>${esc(l)}</b><span>${esc(p.name)} · ${rel(p.date)} · ${fmt(p.guests)} guests</span></div><b style="font:400 24px var(--hd)">${money(v)}</b></a>`).join('')}</div>
  <div><div class="k" style="margin:10px 0">BETTER LIVING CENTRE DAYS STILL TO SELL</div><div class="slots">${openHall.map(d=>`<span class="slot">${nice(d)}</span>`).join('')}</div>
@@ -579,7 +579,7 @@ function vHQ(){const n=nowTO();const g=n.h<12?'GOOD MORNING':n.h<17?'GOOD AFTERN
  const prep=CAT.filter(c=>{const p=P.find(x=>x.id===c.pid);return p&&dayDiff(p.date)>=0&&dayDiff(p.date)<2}).reduce((a,c)=>a+c.qty,0);
  const open=INV.filter(i=>i.status!=='Paid');
  const flow=[['SALE WON','#/sales',fmt(DEALS.filter(d=>d.stage==='Won').length)+' deals'],['PROJECT BUILT','#/projects',fmt(up.length)+' in 14 days'],['STAFF PLANNED','#/staff',fmt(sh.n)+' shifts'],['VENDORS BOOKED','#/vendors',fmt(vv.c)+'/'+fmt(vv.n)+' confirmed'],['KITCHEN PREPS','#/menu',fmt(prep)+' portions, 2 days'],['DAY OF','#/dispatch',fmt(today.length)+' today'],['HOURS AND INVOICES','#/invoices',fmt(HRS.length+INV.length)+' in'],['BOOKS CLOSED','#/invoices',fmt(INV.filter(i=>i.status==='Paid').length)+' paid']];
- return `<section class="hello hq"><img src="${IMG.team_red}" alt=""><div class="in"><div class="k" style="color:#fff">${g} · ${nice(iso(T0))}</div><h1>REVOL HQ</h1><p>One hub for every arm of the company. Sales, events, staffing, vendors, kitchen and finance all read the same live data.</p></div></section>
+ return `<section class="hello hq"><img src="${IMG.team_red}" alt=""><div class="in"><div class="k" style="color:#fff">${g} · ${nice(iso(T0))}</div><h1>REVOL HUB</h1><p>One hub for every arm of the company. Sales, events, staffing, vendors, kitchen and finance all read the same live data.</p></div></section>
  <div class="doors">
  ${door('#/sales','gala','SALES','Sales',[[fmt(pipe.length),'open deals'],[money(pipe.reduce((a,d)=>a+dealValue(d),0)).replace('.00',''),'in pipeline']],'OPEN SALES')}
  ${door('#/today','evt_hall','PROJECTS AND EVENTS','Events',[[fmt(wk.length),'this week'],[fmt(today.length),'today']],'OPEN OPERATIONS')}
@@ -589,7 +589,7 @@ function vHQ(){const n=nowTO();const g=n.h<12?'GOOD MORNING':n.h<17?'GOOD AFTERN
  ${door('#/invoices','corp_cat2','FINANCE','Finance',[[fmt(open.length),'open invoices'],[fmt(HRS.filter(h=>h.status==='Submitted').length),'timesheets to approve']],'OPEN FINANCE')}
  </div>
  <section class="sec"><header><h2>From sale to service</h2><span class="k">ONE RECORD, EVERY ARM</span></header><div class="flow">${flow.map(([a,h,b],i)=>`<a href="${h}" class="fl"><span class="fn">${String(i+1).padStart(2,'0')}</span><b>${a}</b><span>${b}</span></a>`).join('')}</div>
- <p class="note" style="margin-top:10px">When a deal is marked won, MARENGO builds the event: shifts from REVOL's staffing ratios, a vendor list for that type of event, the menu and a run of show. Staffing and vendors start working the same minute sales closes it.</p></section>
+ <p class="note" style="margin-top:10px">When a deal is marked won, the hub builds the event: shifts from REVOL's staffing ratios, a vendor list for that type of event, the menu and a run of show. Staffing and vendors start working the same minute sales closes it.</p></section>
  <section class="sec"><header><h2>Needs attention</h2><a class="btn sm gh" href="#/today">OPERATIONS</a></header><div class="alist">${issues().slice(0,4).map(i=>`<a class="al ${i.w?'w':''}" href="#/p/${i.p.id}"><span class="i">${ic('alert')}</span><div><b>${esc(i.t)}</b><span>${esc(i.d)}</span></div></a>`).join('')}</div></section>`}
 
 /* ---------- Sales ---------- */
@@ -598,7 +598,7 @@ function vSales(){const by=s=>DEALS.filter(d=>d.stage===s);const pipeV=DEALS.fil
  const card=d=>{const rp=TEAM.find(m=>m.k===d.rep)||TEAM[2];return `<div class="deal ${dealOpen===d.id?'on':''}"><button class="dh" data-deal="${d.id}"><span class="tag ${TYPES[d.type][1]}">${TYPES[d.type][0]}</span><b>${esc(d.name)}</b><span>${nice(d.date)} · ${fmt(d.guests)} guests · ${money(dealValue(d)).replace('.00','')} est.</span><span class="rp"><img class="av" style="width:26px;height:26px" src="${IMG[rp.k]}" alt="">${esc(rp.n)}</span></button>
  ${dealOpen===d.id?dealPlan(d):''}</div>`};
  return `<section class="sec" style="margin-top:0"><header><h2>Sales</h2><span class="k">WORKS BESIDE YOUR CRM</span></header>
- <div class="note">Your reps keep working in the CRM you already built. MARENGO only needs each deal's date, guest count, venue and stage, synced from the CRM or a shared sheet. The moment a deal is won, it becomes an event the rest of REVOL can run.</div>
+ <div class="note">Your reps keep working in the CRM you already built. The hub only needs each deal's date, guest count, venue and stage, synced from the CRM or a shared sheet. The moment a deal is won, it becomes an event the rest of REVOL can run.</div>
  <div class="kpis"><div class="kpi"><span class="k">OPEN DEALS</span><b>${fmt(DEALS.filter(d=>d.stage!=='Won').length)}</b></div><div class="kpi"><span class="k">PIPELINE VALUE</span><b style="font-size:34px">${money(pipeV).replace('.00','')}</b></div><div class="kpi"><span class="k">WON, IN OPERATIONS</span><b>${fmt(by('Won').length)}</b></div><div class="kpi"><span class="k">STAFF THE PIPELINE NEEDS</span><b>${fmt(DEALS.filter(d=>d.stage!=='Won').reduce((a,d)=>a+plan(d.type,d.guests).reduce((x,y)=>x+y[1],0),0))}</b></div></div>
  <p class="k" style="margin:4px 0 10px">TAP A DEAL TO SEE THE STAFF AND VENDORS IT WILL NEED</p>
  <div class="board">${STAGES.map(s=>`<div class="col"><div class="ch"><b>${s.toUpperCase()}</b><span>${fmt(by(s).length)}</span></div>${by(s).map(card).join('')}</div>`).join('')}</div>
@@ -651,7 +651,7 @@ const FLEXCOLS=['Flex order #','Customer','Order type','Event date','Start time'
 function flexRows(){
  const up=P.filter(p=>dayDiff(p.date)>=0&&dayDiff(p.date)<10&&p.sub!=='load').slice(0,26);
  return up.map((p,i)=>{const s=stats(p);const per={cat:19.5,hol:62,blc:48,evt:9}[p.type]||40;const h=hsh(p.id);
-  const kind=h%6;let ch='No change',eff='Matches MARENGO',tone='';
+  const kind=h%6;let ch='No change',eff='Already matches',tone='';
   if(kind===0){ch='New order';eff=`Event built: ${fmt(s.need)} shifts, ${fmt(s.vn)} vendor requests`;tone='ok'}
   else if(kind===1&&p.guests>=40){const add=Math.max(1,Math.round(p.guests*0.12/10)*10);const before=p.guests-add;const extra=Math.max(1,Math.round(add/20));ch=`Guests ${fmt(before)} → ${fmt(p.guests)}`;eff=`+${fmt(extra)} server shift${extra>1?'s':''} added from the ratios`;tone='wa'}
   else if(kind===2){ch=`Time ${t(p.start,-0.5)} → ${p.start}`;eff=`${fmt(s.need)} staff${s.vn?' and '+fmt(s.vn)+' vendors':''} sent the new time`;tone='wa'}
@@ -679,19 +679,19 @@ function tasks(){const W=[],T=[];
   else if(s.vn-s.vc>0&&i%3===1)W.push({rep,p,what:'Client sign-off on rentals and décor',hold:`Holding ${fmt(s.vn-s.vc)} vendor request${s.vn-s.vc>1?'s':''}: vendors can't confirm yet`,due:'DUE '+nice(iso(addD(T0,Math.max(1,dayDiff(p.date)-6))))})});
  DEALS.forEach((d,i)=>{if(d.stage==='Lead')T.push({rep:d.rep,t:'Send a proposal: '+d.name,d:'New lead, 1 day old'});if(d.stage==='Proposal sent'&&i%2)T.push({rep:d.rep,t:'Follow up: '+d.name,d:'No reply in 4 days'});if(d.stage==='Contract out')T.push({rep:d.rep,t:'Chase the signed agreement: '+d.name,d:'Contract out since '+nice(iso(addD(T0,-2)))})});
  return {W:W.slice(0,10),T}}
-function vSalesHub(){const tabs=['PIPELINE','FLEX SYNC','INBOX','REP DAY','TASKS'];
+function vSalesHub(){const tabs=['PIPELINE','FLEX SYNC','INBOX','CALLS','COACHING','FORECAST','FOLLOW-UPS','REP DAY','TASKS'];
  const bar=`<div class="tabs" style="top:64px">${tabs.map((l,i)=>`<button data-st="${i}" class="${salesTab===i?'on':''}">${l}</button>`).join('')}</div>`;
  const feeds=`<section class="sec"><header><h2>How sales feeds operations</h2><span class="k">AUTOMATIC</span></header><div class="flow">${[['FLEX ORDER CONFIRMED','Event built with shifts, vendor requests, menu and run of show','#/projects'],['GUEST COUNT CHANGES','Shifts recalculated from REVOL\'s ratios','#/staff'],['DATE OR TIME CHANGES','Staff and vendors told the new time, asked to reconfirm','#/vendors'],['REP CLOSES A TASK','Held shifts and vendor requests released to book','#/staff']].map(([a,b,h],i)=>`<a class="fl" href="${h}" style="width:200px"><span class="fn">${String(i+1).padStart(2,'0')}</span><b>${a}</b><span>${b}</span></a>`).join('')}</div></section>`;
- const body=[vSales,vFlex,vInbox,vRepDay,vTasks][salesTab]();
+ const body=[vSales,vFlex,vInbox,vCalls,vCoach,vForecast,vSeq,vRepDay,vTasks][salesTab]();
  return `<section class="sec" style="margin-top:0"><header><h2>Sales desk</h2><span class="k">READS YOUR CRM AND FLEX CATERING</span></header>
- <div class="note">Jonny's CRM keeps running the reps. MARENGO reads the same two sources it does: the Flex Catering report twice a day, and the reps' email as they sign in. Every change lands in staffing, vendors and the kitchen without anyone retyping it. <b>Everything below is sample data.</b></div></section>${bar}${body}${feeds}`}
+ <div class="note">Jonny, your CRM keeps running the reps. The hub reads the same sources it does, the Flex Catering report and the reps' email, then adds what a CRM can't see: every call recorded and scored, how each rep sells, what is at risk, and whether REVOL can staff and supply what sales is about to sign.<a class="btn sm" href="#/diy" style="margin-top:10px;display:flex;width:max-content">RUN IT YOURSELF, PRIVATELY</a></div><div class="note hide"> the Flex Catering report twice a day, and the reps' email as they sign in. Every change lands in staffing, vendors and the kitchen without anyone retyping it. <b>Everything below is sample data.</b></div></section>${bar}${body}${feeds}`}
 function vFlex(){const n=nowTO();const R=flexRows();const nw=R.filter(r=>r.ch==='New order').length,chg=R.filter(r=>r.ch!=='No change'&&r.ch!=='New order').length;const pm=n.h>=13;
- const card=(l,done,a,b,c)=>`<div class="kpi" style="${done?'':'opacity:.7'}"><span class="k">${l}</span><b style="font-size:30px">${done?fmt(a)+' ORDERS':'NEXT RUN'}</b><span style="font:600 12.5px var(--ui);color:var(--mut)">${done?fmt(b)+' new · '+fmt(c)+' changed · applied to MARENGO':'Scheduled for 1:00 PM'}</span></div>`;
+ const card=(l,done,a,b,c)=>`<div class="kpi" style="${done?'':'opacity:.7'}"><span class="k">${l}</span><b style="font-size:30px">${done?fmt(a)+' ORDERS':'NEXT RUN'}</b><span style="font:600 12.5px var(--ui);color:var(--mut)">${done?fmt(b)+' new · '+fmt(c)+' changed · applied to the hub':'Scheduled for 1:00 PM'}</span></div>`;
  const imp=FLEXIMP?`<section class="sec"><header><h2>Your imported file</h2><span class="k">${fmt(FLEXIMP.rows.length)} ROWS</span></header><div class="tw"><table class="t"><thead><tr>${FLEXIMP.head.slice(0,8).map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${FLEXIMP.rows.slice(0,40).map(r=>`<tr>${r.slice(0,8).map(c=>`<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div></section>`:'';
  return `<section class="sec"><header><h2>Flex Catering report</h2><span class="k">SYNCS 7:00 AM AND 1:00 PM</span></header>
  <div class="kpis">${card('7:00 AM SYNC',1,R.length,nw,chg)}${card('1:00 PM SYNC',pm,R.length,Math.ceil(nw/2),Math.ceil(chg/2))}<div class="kpi"><span class="k">CHANGES APPLIED TODAY</span><b>${fmt(nw+chg)}</b></div></div>
  <div class="row" style="display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 12px"><button class="btn sm" id="flexNow">RUN A SYNC NOW</button><button class="btn sm gh" id="flexTpl">DOWNLOAD SAMPLE REPORT (CSV)</button><label class="btn sm gh" style="cursor:pointer">IMPORT A FLEX REPORT<input type="file" id="flexFile" accept=".csv,text/csv" style="display:none"></label></div>
- <div class="tw"><table class="t"><thead><tr><th>FLEX #</th><th>CUSTOMER</th><th>TYPE</th><th>DATE</th><th>GUESTS</th><th>SUBTOTAL</th><th>REP</th><th>CHANGE</th><th>WHAT MARENGO DID</th></tr></thead><tbody>${R.map(r=>`<tr><td style="white-space:nowrap"><a href="#/p/${r.pid}"><b>${r.no}</b></a></td><td>${esc(r.cust)}</td><td>${esc(r.type)}</td><td>${nice(r.date)} ${r.start}</td><td>${fmt(r.guests)}</td><td>${money(r.sub).replace('.00','')}</td><td>${esc(rFirst(r.rep))}</td><td>${r.tone?`<span class="tag ${r.tone}">${esc(r.ch.toUpperCase())}</span>`:'<span style="color:var(--mut)">No change</span>'}</td><td>${esc(r.eff)}</td></tr>`).join('')}</tbody></table></div>
+ <div class="tw"><table class="t"><thead><tr><th>FLEX #</th><th>CUSTOMER</th><th>TYPE</th><th>DATE</th><th>GUESTS</th><th>SUBTOTAL</th><th>REP</th><th>CHANGE</th><th>WHAT THE HUB DID</th></tr></thead><tbody>${R.map(r=>`<tr><td style="white-space:nowrap"><a href="#/p/${r.pid}"><b>${r.no}</b></a></td><td>${esc(r.cust)}</td><td>${esc(r.type)}</td><td>${nice(r.date)} ${r.start}</td><td>${fmt(r.guests)}</td><td>${money(r.sub).replace('.00','')}</td><td>${esc(rFirst(r.rep))}</td><td>${r.tone?`<span class="tag ${r.tone}">${esc(r.ch.toUpperCase())}</span>`:'<span style="color:var(--mut)">No change</span>'}</td><td>${esc(r.eff)}</td></tr>`).join('')}</tbody></table></div>
  <p class="k" style="margin-top:10px">SAMPLE REPORT · COLUMNS GET MAPPED TO YOUR REAL FLEX EXPORT ON SETUP</p></section>${imp}`}
 function vInbox(){const L=inbox();
  return `<section class="sec"><header><h2>Deals moved by email</h2><span class="k">READ AS REPS SIGN IN</span></header>
@@ -718,9 +718,130 @@ function flexCSV(){const R=flexRows();const rows=[FLEXCOLS].concat(R.map(r=>[r.n
  const csv=rows.map(r=>r.map(c=>{const v=String(c);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v}).join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='flex-catering-sample-report.csv';a.click()}
 function parseCSV(tx){const out=[];let row=[],f='',q=false;for(let i=0;i<tx.length;i++){const c=tx[i];if(q){if(c==='"'){if(tx[i+1]==='"'){f+='"';i++}else q=false}else f+=c}else if(c==='"')q=true;else if(c===','){row.push(f);f=''}else if(c==='\n'||c==='\r'){if(c==='\r'&&tx[i+1]==='\n')i++;row.push(f);f='';if(row.some(x=>x!==''))out.push(row);row=[]}else f+=c}row.push(f);if(row.some(x=>x!==''))out.push(row);return out}
 
+/* ---------- Sales intelligence: calls, coaching, forecast, follow-ups (sample) ---------- */
+const PROB={'Lead':.1,'Proposal sent':.3,'Contract out':.7,'Won':1};
+const openDeals=()=>DEALS.filter(d=>d.stage!=='Won');
+let callOpen=null;
+function mkCalls(){const kinds=[['Phone call','phone'],['Google Meet','meet'],['Site walk voice memo','memo']];
+ return DEALS.slice(0,DEALS.length).filter((d,i)=>i%2===0||d.stage!=='Won').slice(0,10).map((d,i)=>{const h=hsh(d.id);const k=kinds[h%3];const c=d.client.startsWith('Client')?'the client':d.client.replace(' (sample)','');
+  const talk=38+(h%34);const mins=9+(h%31);const q=3+(h>>4)%11;const mono=40+(h>>6)%150;const nb=(h>>3)%3!==0;
+  const obj=[['Price','"The quote came in higher than last year."'],['Timing','"We may need to move it a week."'],['Competitor','"We have another caterer quoting too."'],['Guest count','"Numbers are not final until HR confirms."']][(h>>2)%4];
+  const day=-((h>>5)%5);
+  return {id:'C'+i,d,rep:d.rep,kind:k[0],mins,talk,q,mono,nb,obj,when:nice(iso(addD(T0,day)))+' · '+hm(9+(h%8)+((h>>7)%2)*.5),
+   sum:[`${c[0].toUpperCase()+c.slice(1)} wants an event on ${nice(d.date)} for about ${fmt(d.guests)} guests at ${d.venue}.`,`Main concern: ${obj[0].toLowerCase()}. ${obj[1]}`,nb?`Next step agreed: ${d.stage==='Lead'?'proposal by tomorrow':d.stage==='Proposal sent'?'walk-through of the menu on a call this week':'signed agreement and deposit by Friday'}.`:'No next step was set before the call ended.'],
+   fields:[['Guests',fmt(d.guests)],['Date',nice(d.date)],['Venue',d.venue],['Dietary',['3 vegan, 2 gluten free','Halal options needed','Nut-free kitchen requested','None mentioned'][h%4]],['Budget',money(Math.round(dealValue(d)*(0.9+(h%3)*.1))).replace('.00','')]],
+   tx:[['00:12',rFirst(d.rep),`Thanks for making the time. Tell me what a great ${d.type==='cat'?'lunch':'party'} looks like for your team this year.`],['00:31',c[0].toUpperCase()+c.slice(1),`We're thinking about ${fmt(d.guests)} people, ${nice(d.date)}, something that feels like a real celebration.`],['01:05',rFirst(d.rep),'Who else is involved in picking the caterer, and when do you need to decide?'],['01:22',c[0].toUpperCase()+c.slice(1),obj[1].replace(/"/g,'')],['02:40',rFirst(d.rep),nb?'Let me send two options by tomorrow morning and hold the date for you until Friday.':'Okay, I will look into it and get back to you.']]}})}
+let CALLS=null;
+function vCalls(){CALLS=CALLS||mkCalls();
+ return `<section class="sec"><header><h2>Calls and meetings</h2><span class="k">RECORDED, TRANSCRIBED, SUMMARISED</span></header>
+ <div class="note">Every client call and video meeting is recorded, transcribed and summarised. Guest count, date, venue, dietary needs and budget are pulled out and written onto the deal, so reps stop retyping notes and you can hear any call without sitting in on it.</div>
+ <div class="alist">${CALLS.map(c=>`<div class="deal ${callOpen===c.id?'on':''}" style="margin-bottom:8px"><button class="dh" data-call="${c.id}" style="display:flex;gap:10px;align-items:flex-start"><img class="av" style="width:36px;height:36px;flex:none" src="${IMG[c.rep]}" alt=""><span style="flex:1;min-width:0"><b style="margin:0 0 3px">${esc(c.d.name)}</b><span>${esc(c.kind)} · ${fmt(c.mins)} min · ${esc(c.when)} · ${esc(rFirst(c.rep))}</span><span class="rp"><span class="tag ${c.nb?'ok':'no'}">${c.nb?'NEXT STEP SET':'NO NEXT STEP'}</span><span class="tag wa">${esc(c.obj[0].toUpperCase())} CONCERN</span></span></span></button>
+ ${callOpen===c.id?`<div class="dp"><div class="k">SUMMARY</div><ul style="margin:6px 0 10px 18px;font-size:14px;line-height:1.45">${c.sum.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
+ <div class="k">WRITTEN ONTO THE DEAL</div><div class="pl">${c.fields.map(([a,b])=>`<span class="slot"><b>${a}:</b>&nbsp;${esc(b)}</span>`).join('')}</div>
+ <div class="k" style="margin-top:10px">TALK TIME</div><div style="display:flex;height:14px;border-radius:4px;overflow:hidden;margin:6px 0"><i style="width:${c.talk}%;background:var(--or)"></i><i style="flex:1;background:var(--ink3)"></i></div><div style="display:flex;justify-content:space-between;font:600 12px var(--ui);color:var(--mut)"><span>${esc(rFirst(c.rep))} ${c.talk}%</span><span>Client ${100-c.talk}%</span></div>
+ <div class="k" style="margin-top:10px">TRANSCRIPT</div><div style="background:#fff;border:1px solid var(--line);border-radius:6px;padding:8px 10px;margin-top:6px">${c.tx.map(([t,w,x])=>`<p style="margin:6px 0;font-size:13.5px;line-height:1.45"><span style="font:600 11px var(--ui);color:var(--mut)">${t}</span> <b>${esc(w)}:</b> ${esc(x)}</p>`).join('')}<p class="k" style="margin-top:6px">SAMPLE · FULL TRANSCRIPT ON THE REAL CALL</p></div></div>`:''}</div>`).join('')}</div>
+ <p class="k" style="margin-top:10px">SAMPLE CALLS · TELL CLIENTS CALLS ARE RECORDED</p></section>`}
+function coachRows(){CALLS=CALLS||mkCalls();return REPS.map(k=>{const cs=CALLS.filter(c=>c.rep===k);const h=hsh(k);const n=cs.length||1;
+ const talk=cs.length?Math.round(cs.reduce((a,c)=>a+c.talk,0)/n):55;const q=cs.length?Math.round(cs.reduce((a,c)=>a+c.q,0)/n):6;
+ const won=DEALS.filter(d=>d.rep===k&&d.stage==='Won').length,all=DEALS.filter(d=>d.rep===k).length||1;
+ return {k,talk,q,mono:cs.length?Math.round(cs.reduce((a,c)=>a+c.mono,0)/n):90,nb:cs.length?Math.round(cs.filter(c=>c.nb).length/n*100):60,lead:5+(h%55),fu:62+(h%36),prop:4+(h>>3)%30,win:Math.round(won/all*100),avg:Math.round(DEALS.filter(d=>d.rep===k).reduce((a,d)=>a+dealValue(d),0)/all)}})}
+function vCoach(){const R=coachRows();const g=(ok,mid)=>ok?'ok':mid?'wa':'no';
+ const cell=(v,t)=>`<td><span class="tag ${t}">${v}</span></td>`;
+ const focus=r=>r.talk>58?'Talking too much: ask, then listen. Aim for under 50% talk time.':r.nb<60?'Calls end without a next step. Close every call with a date and a task.':r.lead>30?'Slow to new enquiries. Reply inside 15 minutes while the client is still shopping.':r.fu<75?'Proposals go quiet. Follow up on day 2 and day 5.':'Strong week. Have them share their best call with the team.';
+ return `<section class="sec"><header><h2>Rep coaching</h2><span class="k">FROM EVERY CALL AND EMAIL</span></header>
+ <div class="note">Your CRM shows what each rep closed. This shows how they sell: how much they talk, how many questions they ask, whether every call ends with a next step, and how fast they answer a new enquiry. Coach the habit, not the result.</div>
+ <div class="tw"><table class="t"><thead><tr><th>REP</th><th>TALK TIME</th><th>QUESTIONS PER CALL</th><th>LONGEST MONOLOGUE</th><th>NEXT STEP SET</th><th>FIRST REPLY TO A LEAD</th><th>FOLLOW-UP IN 24 HRS</th><th>PROPOSAL TURNAROUND</th><th>WIN RATE</th><th>AVG DEAL</th></tr></thead><tbody>
+ ${R.map(r=>`<tr><td style="white-space:nowrap"><img class="av" style="width:26px;height:26px;vertical-align:middle;margin-right:6px" src="${IMG[r.k]}" alt=""><b>${esc(rFirst(r.k))}</b></td>${cell(r.talk+'%',g(r.talk<=50,r.talk<=58))}${cell(r.q,g(r.q>=9,r.q>=6))}${cell(r.mono+' sec',g(r.mono<=75,r.mono<=120))}${cell(r.nb+'%',g(r.nb>=80,r.nb>=60))}${cell(r.lead+' min',g(r.lead<=15,r.lead<=30))}${cell(r.fu+'%',g(r.fu>=90,r.fu>=75))}${cell(r.prop+' hrs',g(r.prop<=12,r.prop<=24))}<td>${r.win}%</td><td>${money(r.avg).replace('.00','')}</td></tr>`).join('')}</tbody></table></div>
+ <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-top:12px">${R.map(r=>`<div style="background:var(--ink);color:#fff;border-radius:8px;padding:14px;border-top:3px solid var(--or)"><div style="display:flex;gap:8px;align-items:center"><img class="av" style="width:32px;height:32px" src="${IMG[r.k]}" alt=""><b style="font:700 13px var(--ui);text-transform:uppercase">${esc(rName(r.k))}</b></div><p class="k" style="color:var(--or);margin:10px 0 4px">COACH THIS WEEK</p><p style="margin:0;font-size:14px;line-height:1.45">${esc(focus(r))}</p></div>`).join('')}</div>
+ <p class="k" style="margin-top:10px">SAMPLE SCORES · TARGETS ARE YOURS TO SET</p></section>`}
+function riskOf(d){const R=[];const days=dayDiff(d.date);const h=hsh(d.id);
+ if((h%4)===0)R.push(`No client reply in ${3+(h%6)} days`);
+ if(days<21&&d.stage!=='Contract out')R.push(`Event in ${days} days and still at ${d.stage.toLowerCase()}`);
+ if((h>>2)%3===0)R.push('Only one contact on the client side');
+ if((h>>4)%3===0)R.push('Guest count not confirmed');
+ const busy=P.filter(p=>p.date===d.date).reduce((a,p)=>a+stats(p).need,0);if(busy>110)R.push(`${fmt(busy)} shifts already booked that day: staffing is tight`);
+ const sc=Math.min(95,R.length*22+(h%12));
+ const nba=R[0]&&R[0].startsWith('No client')?'Call today, not another email':R.some(x=>x.startsWith('Event in'))?'Send the agreement with a 48-hour hold on the date':R.some(x=>x.startsWith('Only one'))?'Ask to add the person who signs off':R.some(x=>x.includes('staffing'))?'Book staff now, before you sign it':'Send the menu tasting invite';
+ return {R,sc,nba}}
+function vForecast(){const n=nowTO();const months=[0,1,2].map(i=>{const dt=new Date(Date.UTC(n.y,n.m-1+i,1));return [dt.getUTCFullYear()+'-'+String(dt.getUTCMonth()+1).padStart(2,'0'),dt.toLocaleString('en-CA',{month:'long',timeZone:'UTC'}).toUpperCase()]});
+ const sum=(m,f)=>DEALS.filter(d=>d.date.startsWith(m)&&f(d)).reduce((a,d)=>a+dealValue(d)*(f===W?PROB[d.stage]:1),0);const W=d=>d.stage!=='Won';
+ const rows=months.map(([m,l])=>({l,won:sum(m,d=>d.stage==='Won'),commit:sum(m,d=>d.stage==='Contract out'),best:sum(m,d=>d.stage==='Proposal sent'),weighted:DEALS.filter(d=>d.date.startsWith(m)&&d.stage!=='Won').reduce((a,d)=>a+dealValue(d)*PROB[d.stage],0)}));
+ const rows2=rows.filter(r=>r.won+r.commit+r.best>0);const mx=Math.max(1,...rows.map(r=>r.won+r.commit+r.best));
+ const risk=openDeals().map(d=>({d,...riskOf(d)})).sort((a,b)=>b.sc-a.sc);
+ return `<section class="sec"><header><h2>Forecast</h2><span class="k">WEIGHTED BY STAGE</span></header>
+ <div class="note">Booked, committed and best case for the next three months, weighted by how likely each stage is to close. Unlike a CRM forecast, it also checks whether REVOL can actually staff and supply what sales is about to sign.</div>
+ <div class="cov" style="align-items:stretch">${rows2.map(r=>`<div style="flex:1;min-width:90px;text-align:center"><div style="height:160px;display:flex;flex-direction:column;justify-content:flex-end;max-width:70px;margin:0 auto"><i style="display:block;height:${r.best/mx*100}%;background:#E7B23A"></i><i style="display:block;height:${r.commit/mx*100}%;background:var(--or)"></i><i style="display:block;height:${r.won/mx*100}%;background:var(--ink)"></i></div><b style="font:400 22px var(--hd);display:block;margin-top:6px">${money(r.won+r.weighted).replace('.00','')}</b><span class="k">${r.l}</span></div>`).join('')}</div>
+ <p style="font:600 12px var(--ui);margin:4px 0 0"><span class="lg" style="background:var(--ink);margin-left:0"></span>Booked<span class="lg" style="background:var(--or)"></span>Contract out<span class="lg" style="background:#E7B23A"></span>Proposal sent</p></section>
+ <section class="sec"><header><h2>Deals at risk</h2><span class="k">WITH THE NEXT BEST ACTION</span></header>
+ <div class="alist">${risk.map(x=>`<div class="al ${x.sc>=60?'':'w'}" style="display:flex;gap:10px;align-items:flex-start"><div style="flex:none;width:50px;text-align:center"><b style="font:400 30px/1 var(--hd);color:${x.sc>=60?'var(--bad)':'#b07d10'}">${x.sc}</b><span class="k" style="display:block;font-size:9.5px">RISK</span></div><div style="flex:1;min-width:0"><b>${esc(x.d.name)}</b><span>${esc(rFirst(x.d.rep))} · ${esc(x.d.stage)} · ${nice(x.d.date)} · ${money(dealValue(x.d)).replace('.00','')}</span><span style="display:block;margin-top:4px;font-size:13px">${x.R.map(esc).join(' · ')||'On track'}</span><span style="display:block;margin-top:6px"><span class="tag ok">NEXT: ${esc(x.nba.toUpperCase())}</span></span></div></div>`).join('')}</div>
+ <p class="k" style="margin-top:10px">SAMPLE DEALS · PROBABILITIES: LEAD 10%, PROPOSAL 30%, CONTRACT 70%</p></section>`}
+const SEQS=[['New enquiry','Every website form, email or phone lead',[['15 MIN','Reply with two menu ideas and a date hold'],['DAY 1','Call to confirm guests, budget and venue'],['DAY 3','Send the holiday menu and photos'],['DAY 7','Last check-in, release the hold']]],
+ ['Proposal sent','From the moment a proposal goes out',[['DAY 2','Did the options land? Offer a quick call'],['DAY 5','Call: walk through the menu'],['DAY 9','Date hold ends Friday, still want it?']]],
+ ['After the event','Day after every party or catering order',[['DAY 1','Thank you and a short review request'],['DAY 14','Ask for one referral'],['DAY 300','Rebook next year before the calendar fills']]],
+ ['Last year\'s clients','Every 2025 holiday booking in Flex not yet rebooked',[['NOW','Book the same date for this year'],['+7 DAYS','Call the organiser'],['+21 DAYS','Offer the Better Living Centre or a partner venue']]]];
+function vSeq(){const cnt=i=>[6,9,14,23][i]+(hsh('s'+i+iso(T0))%5);
+ return `<section class="sec"><header><h2>Follow-ups</h2><span class="k">NO DEAL GOES QUIET</span></header>
+ <div class="note">Each deal drops into the right follow-up plan by itself. The hub drafts every message in the rep's own voice and puts it on their list. Nothing is sent without the rep, unless you switch a step to send on its own.</div>
+ <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px">${SEQS.map(([n,w,steps],i)=>`<div style="background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px"><div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline"><b style="font:400 26px/1 var(--hd)">${esc(n)}</b><span class="tag ok">${fmt(cnt(i))} ACTIVE</span></div><p style="font-size:13px;color:var(--mut);margin:6px 0 10px">${esc(w)}</p>${steps.map(([a,b])=>`<div style="display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--line)"><span style="flex:none;width:62px;font:700 11px var(--ui);letter-spacing:.08em;color:var(--or)">${a}</span><span style="font-size:14px">${esc(b)}</span></div>`).join('')}</div>`).join('')}</div>
+ <p class="k" style="margin-top:10px">SAMPLE PLANS · "LAST YEAR'S CLIENTS" IS NEW REVENUE STRAIGHT FROM FLEX HISTORY</p></section>`}
+
+/* ---------- Run it yourself ---------- */
+const SRC=[['Flex Catering report','Orders, guest counts, menus, dates, totals','Export the order report as CSV (or have it emailed on a schedule) and upload it under Connect data. For automatic runs, drop it in a Google Sheet in your own account.','Stays in your browser or your own Google account'],
+ ['Your CRM','Deals, stages, reps, contacts','Export deals with date, guests, venue, stage and rep. Upload the CSV, or point the hub at the sheet your CRM already writes to.','Same as above'],
+ ['Gmail / Google Workspace','Deals moving from email, reply times, follow-ups','Each rep signs in with Google. Read-only access to client threads. Set it up in REVOL\'s own Google Cloud project so the keys are yours.','Your Google account, your keys'],
+ ['Google Calendar','Rep day report, meetings, site visits','Read-only calendar access through the same Google sign-in.','Your Google account'],
+ ['Phone system','Call recordings, call counts, talk time','Turn on call recording in your phone system (RingCentral, Dialpad, Aircall and most others offer it) and let the hub read new recordings.','Recordings stay in your phone system'],
+ ['Video meetings','Meeting recordings and transcripts','Turn on recording and transcripts in Google Meet or Zoom. The hub reads the transcript file after each meeting.','Your Meet or Zoom account'],
+ ['Transcription','Summaries, deal fields, coaching scores','Any transcription service you pick, connected with REVOL\'s own account and key. Or paste a transcript below to try it right now.','Your own account'],
+ ['Payroll and timesheets','Hours, labour cost per event','Export hours as CSV, or link your payroll provider.','Your payroll provider'],
+ ['Accounting','Invoices, deposits, paid status','QuickBooks or Xero export, or a direct link with your own login.','Your accounting login']];
+function vDIY(){return `<section class="hello hq"><img src="${IMG.gala}" alt=""><div class="in"><div class="k" style="color:#fff">FOR JONNY · A GIFT FROM RYAN</div><h1>Run it yourself</h1><p>Take this and test it on your own data, on your own computer. Nothing comes back to me or to Chairlift. No account, no login, no data shared.</p></div></section>
+ <section class="sec"><header><h2>Four steps, about 20 minutes</h2><span class="k">PRIVATE BY DESIGN</span></header>
+ <div class="flow" style="flex-wrap:wrap">${[['DOWNLOAD THE HUB','One file. Save it to your own computer and open it in Chrome. It runs there, not on our server.'],['CLEAR THE SAMPLES','Under Connect data, upload your own files. Each upload replaces that sample table.'],['ADD FLEX AND YOUR CRM','Export both as CSV and upload them. Your real orders and deals light up staffing, vendors and the forecast.'],['TRY A REAL CALL','Paste any call transcript below and see the summary and coaching score. It never leaves this page.']].map(([a,b],i)=>`<div class="fl" style="width:auto;flex:1 1 220px"><span class="fn">${String(i+1).padStart(2,'0')}</span><b>${a}</b><span>${b}</span></div>`).join('')}</div>
+ <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button class="btn" id="dlHub">DOWNLOAD THE HUB</button><a class="btn gh" href="#/import">CONNECT DATA</a></div>
+ <p class="note" style="margin-top:10px">How it stays private: everything you upload is read by your own browser and kept in that browser's storage on your computer. The file makes no calls home. The only things it loads from the internet are the fonts. Clear your browser data and it is gone.</p></section>
+ <section class="sec"><header><h2>What to link, and what it unlocks</h2><span class="k">YOUR KEYS, YOUR ACCOUNTS</span></header>
+ <div class="tw"><table class="t"><thead><tr><th>SOURCE</th><th>UNLOCKS</th><th>HOW TO LINK IT</th><th>WHERE THE DATA LIVES</th></tr></thead><tbody>${SRC.map(r=>`<tr><td><b>${esc(r[0])}</b></td><td>${esc(r[1])}</td><td style="min-width:260px">${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join('')}</tbody></table></div>
+ <p class="note" style="margin-top:10px">Uploading files covers Flex, the CRM, hours and invoices today. Live email, calendar, phone and meeting links need the hub running in REVOL's own Google account or server, with keys only REVOL holds. If you want that, I can set it up so the keys are yours, or hand it to your team to do. Ontario allows recording a call you are on, but tell clients calls are recorded.</p></section>
+ <section class="sec"><header><h2>Try a call right now</h2><span class="k">RUNS ONLY IN THIS BROWSER</span></header>
+ <div class="note">Paste a transcript with one line per speaker, like "Adam: Thanks for the time today." The first speaker is treated as the rep.</div>
+ <textarea id="txIn" rows="9" style="width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:8px;padding:10px;font:14px/1.45 var(--bd,inherit);margin-top:8px" placeholder="Adam: Thanks for making the time..."></textarea>
+ <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn" id="txGo">SCORE THIS CALL</button><button class="btn gh" id="txEx">LOAD A SAMPLE CALL</button></div><div id="txOut"></div></section>`}
+const TXSAMPLE=`Adam: Thanks for making the time today. Tell me what a great holiday party looks like for your team this year?
+Dana: We're thinking about 240 people, Saturday December 12, ideally at the Better Living Centre.
+Adam: Love it. Who else is involved in choosing the caterer, and when do you need to decide?
+Dana: Me and our HR lead. Honestly the quote last year felt expensive, so budget is around $14,000.
+Adam: That helps. Any dietary needs I should plan for?
+Dana: A few vegan guests and at least ten gluten free. We also have another caterer quoting.
+Adam: Understood. Would a carving station and a gingerbread station work for the crowd?
+Dana: That sounds fun, the kids zone would be great too.
+Adam: Perfect. I'll send two options by tomorrow at 10 and hold December 12 for you until Friday. Can we book a 15 minute call Thursday to pick one?
+Dana: Yes, Thursday works.`;
+function scoreTx(tx){const L=tx.split(/\n+/).map(l=>l.trim()).filter(Boolean).map(l=>{const m=l.match(/^(?:\[?[\d:]+\]?\s*)?([^:]{1,30}):\s*(.*)$/);return m?{w:m[1].trim(),t:m[2]}:null}).filter(Boolean);
+ if(L.length<2)return null;const rep=L[0].w;const words=x=>x.t.split(/\s+/).filter(Boolean).length;
+ const rw=L.filter(x=>x.w===rep).reduce((a,x)=>a+words(x),0),all=L.reduce((a,x)=>a+words(x),0)||1;
+ let mono=0,cur=0;L.forEach(x=>{if(x.w===rep){cur+=words(x);mono=Math.max(mono,cur)}else cur=0});
+ const q=L.filter(x=>x.w===rep).reduce((a,x)=>a+(x.t.match(/\?/g)||[]).length,0);const cl=L.filter(x=>x.w!==rep).map(x=>x.t).join(' ');const T=L.map(x=>x.t).join(' ');
+ const f=[];const g=T.match(/(\d[\d,]{1,6})\s*(guests|people|pax|staff|employees)/i);if(g)f.push(['Guests',g[1]]);
+ const dt=T.match(/(january|february|march|april|may|june|july|august|september|october|november|december)\s+\d{1,2}/i);if(dt)f.push(['Date',dt[0]]);
+ const b=T.match(/\$\s?[\d,]+(\.\d+)?k?/i);if(b)f.push(['Budget',b[0]]);
+ const v=T.match(/better living centre|exhibition place|[A-Z][\w']+ (hall|centre|center|club|studios|gallery)/i);if(v)f.push(['Venue',v[0]]);
+ const di=(T.match(/vegan|vegetarian|gluten[- ]free|halal|kosher|nut[- ]free|dairy[- ]free/gi)||[]);if(di.length)f.push(['Dietary',[...new Set(di.map(x=>x.toLowerCase()))].join(', ')]);
+ const ob=[];if(/expensive|too much|over budget|price|cost/i.test(cl))ob.push('Price');if(/another caterer|other caterer|competitor|quoting/i.test(cl))ob.push('Competitor');if(/move it|reschedul|not final|not sure|confirm later/i.test(cl))ob.push('Timing');
+ const ns=L.filter(x=>x.w===rep).slice(-3).map(x=>x.t).find(t=>/(i'll|i will|let me|send|book|hold|call|meet)/i.test(t));
+ return {rep,talk:Math.round(rw/all*100),q,mono,f,ob,ns,lines:L.length}}
+function txRender(){const r=scoreTx($('#txIn').value);const o=$('#txOut');if(!r){o.innerHTML='<p class="note" style="margin-top:10px">Add at least two lines, each starting with a name and a colon.</p>';return}
+ const t=(ok,mid)=>ok?'ok':mid?'wa':'no';
+ o.innerHTML=`<div class="kpis" style="margin-top:12px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr))"><div class="kpi"><span class="k">${esc(r.rep.toUpperCase())} TALK TIME</span><b>${r.talk}%</b><span class="tag ${t(r.talk<=50,r.talk<=58)}">${r.talk<=50?'GOOD BALANCE':'TALKING A LOT'}</span></div><div class="kpi"><span class="k">QUESTIONS ASKED</span><b>${r.q}</b></div><div class="kpi"><span class="k">LONGEST STRETCH</span><b>${r.mono} words</b></div><div class="kpi"><span class="k">NEXT STEP</span><b style="font-size:26px">${r.ns?'SET':'MISSING'}</b></div></div>
+ <div class="dp" style="border-radius:8px;margin-top:8px"><div class="k">PULLED ONTO THE DEAL</div><div class="pl">${r.f.map(([a,b])=>`<span class="slot"><b>${a}:</b>&nbsp;${esc(b)}</span>`).join('')||'<span class="slot">Nothing found yet</span>'}</div>
+ <div class="k" style="margin-top:10px">CONCERNS RAISED</div><div class="pl">${r.ob.map(x=>`<span class="slot">${x}</span>`).join('')||'<span class="slot">None</span>'}</div>
+ ${r.ns?`<div class="k" style="margin-top:10px">NEXT STEP</div><p style="margin:6px 0 0;font-size:14px">${esc(r.ns)}</p>`:''}
+ <p class="k" style="margin-top:10px">SCORED IN THIS BROWSER · NOTHING WAS SENT ANYWHERE</p></div>`}
+async function dlHub(){try{const r=await fetch(location.href.split('#')[0],{credentials:'same-origin'});const b=await r.blob();const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='revol-hub.html';a.click();toast('Saved revol-hub.html')}catch(e){toast('Use your browser menu: Save page as')}}
+
 /* ---------- router ---------- */
-function route(){const r=location.hash||'#/';drawNav(r.startsWith('#/p/')?'#/projects':r);const a=$('#app');let h;
- if(r.startsWith('#/p/'))h=vProject(r.slice(4));else h=({'#/':vHQ,'#/today':vToday,'#/sales':vSalesHub,'#/projects':vProjects,'#/calendar':vCalendar,'#/blc':vBLC,'#/staff':vStaff,'#/hours':vHours,'#/invoices':vInvoices,'#/vendors':vVendors,'#/menu':vMenu,'#/team':vTeam,'#/import':vImport,'#/dispatch':vDispatch,'#/me':vMe,'#/grow':vGrow}[r]||vToday)();
+function route(){const r=location.hash||'#/';drawNav(r.startsWith('#/p/')?'#/projects':r.startsWith('#/sales/')?'#/sales':r);const a=$('#app');let h;
+ if(r.startsWith('#/p/'))h=vProject(r.slice(4));else if(r.startsWith('#/sales/')){salesTab=+r.slice(8)||0;h=vSalesHub()}else h=({'#/':vHQ,'#/today':vToday,'#/sales':()=>{salesTab=0;return vSalesHub()},'#/diy':vDIY,'#/projects':vProjects,'#/calendar':vCalendar,'#/blc':vBLC,'#/staff':vStaff,'#/hours':vHours,'#/invoices':vInvoices,'#/vendors':vVendors,'#/menu':vMenu,'#/team':vTeam,'#/import':vImport,'#/dispatch':vDispatch,'#/me':vMe,'#/grow':vGrow}[r]||vToday)();
  a.innerHTML=h;bind(r);}
 let keepScroll=false;
 function rerender(){const y=scrollY,tab=$('#tabs .on');const ti=tab?tab.dataset.t:null;keepScroll=true;route();if(ti){showTab(ti)}scrollTo(0,y)}
@@ -749,7 +870,9 @@ function bind(r){
  $$('[data-mc]').forEach(b=>b.onclick=()=>{STF[+b.dataset.mc].state='confirmed';stamp(`${ME} confirmed a shift`);save();toast('Shift confirmed');rerender()});
  $$('[data-cl]').forEach(b=>b.onclick=()=>{const x=STF[+b.dataset.cl];x.name=ME;x.state='allocated';stamp(`${ME} picked up a ${x.role.toLowerCase()} shift`);save();toast('Shift requested. Your lead will confirm.');rerender()});
  $$('[data-av]').forEach(b=>b.onclick=()=>{const k=b.dataset.av;AV[k]=AV[k]===false?true:false;try{localStorage.setItem('marengo-av',JSON.stringify(AV))}catch(e){}rerender()});
- $$('[data-st]').forEach(b=>b.onclick=()=>{salesTab=+b.dataset.st;rerender()});
+ $$('[data-st]').forEach(b=>b.onclick=()=>{keepScroll=true;location.hash='#/sales/'+b.dataset.st});
+ $$('[data-call]').forEach(b=>b.onclick=()=>{callOpen=callOpen===b.dataset.call?null:b.dataset.call;rerender()});
+ {const dh=$('#dlHub');if(dh)dh.onclick=dlHub;const tg=$('#txGo');if(tg)tg.onclick=txRender;const te=$('#txEx');if(te)te.onclick=()=>{$('#txIn').value=TXSAMPLE;txRender()}}
  {const ft=$('#flexTpl');if(ft)ft.onclick=flexCSV;const fn=$('#flexNow');if(fn)fn.onclick=()=>toast('Sample sync run: Flex report read, changes applied');const ff=$('#flexFile');if(ff)ff.onchange=()=>{const f=ff.files[0];if(!f)return;f.text().then(tx=>{const r=parseCSV(tx);if(r.length<2){toast('That file has no rows');return}FLEXIMP={head:r[0],rows:r.slice(1)};toast('Read '+fmt(r.length-1)+' orders from your file');rerender()})}}
  $$('[data-deal]').forEach(b=>b.onclick=()=>{dealOpen=dealOpen===b.dataset.deal?null:b.dataset.deal;rerender()});
  $$('[data-win]').forEach(b=>b.onclick=()=>{const dl=DEALS.find(x=>x.id===b.dataset.win);const pid=convert(dl);toast(`Event created: ${byP(STF,pid).length} shifts and ${byP(VEN,pid).length} vendor requests ready`);keepScroll=false;location.hash='#/p/'+pid});
@@ -777,7 +900,7 @@ function answer(qs){const s=qs.toLowerCase();let m;
  if(hit.length){const p=hit.find(x=>dayDiff(x.date)>=0)||hit[0];const st=stats(p);return `${link(p)} at ${esc(p.venue)}, ${t12(p.start)} to ${t12(p.end)}, ${fmt(p.guests)} guests.<br>Staff ${st.conf}/${st.need} confirmed (${st.open} open), vendors ${st.vc}/${st.vn} confirmed, ${st.score}% ready.`}
  if(/week|busy|summary|overview|hello|hi\b/.test(s)){const wk=P.filter(p=>dayDiff(p.date)>=0&&dayDiff(p.date)<7);return `This week: ${wk.length} projects, ${fmt(wk.reduce((a,p)=>a+p.guests,0))} guests, ${issues().length} things need attention. Busiest day: ${(()=>{const c={};wk.forEach(p=>c[p.date]=(c[p.date]||0)+p.guests);const b=Object.entries(c).sort((a,b)=>b[1]-a[1])[0];return b?rel(b[0]).toLowerCase()+' ('+fmt(b[1])+' guests)':'none'})()}.`}
  return 'I can answer things like "what\'s on Friday", "open shifts", "vendors awaiting reply", "Better Living Centre", "prep for tomorrow", or the name of any project or venue.'}
-$('#chatbtn').onclick=()=>{$('#chat').classList.add('on');if(!msgs.children.length){say('Hi, I\'m MARENGO. Ask me about any project, shift, vendor or order. I read the same live data as the dashboard.')}setTimeout(()=>$('#chati').focus(),300)};
+$('#chatbtn').onclick=()=>{$('#chat').classList.add('on');if(!msgs.children.length){say('Hi, this is the REVOL HUB. Ask me about any project, shift, vendor or order. I read the same live data as the dashboard.')}setTimeout(()=>$('#chati').focus(),300)};
 $('#askTop').onclick=()=>$('#chatbtn').click();$('#chatx').onclick=()=>$('#chat').classList.remove('on');
 $('#sug').innerHTML=["What's on Friday?",'Open shifts','Vendors awaiting reply','Better Living Centre','Prep for tomorrow','Hours to approve'].map(x=>`<button type="button">${x}</button>`).join('');
 $$('#sug button').forEach(b=>b.onclick=()=>{say(esc(b.textContent),1);setTimeout(()=>say(answer(b.textContent)),250)});
@@ -790,28 +913,27 @@ tick();setInterval(tick,15000);
 (function(){const T='CONCEPT  ·  DESIGNED AND POWERED BY CHAIRLIFT';const svg='<svg xmlns="http://www.w3.org/2000/svg" width="760" height="340"><g transform="rotate(-22 380 170)" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="17" letter-spacing="2.4"><text x="40" y="120" fill="#131516" fill-opacity=".13" stroke="#ffffff" stroke-opacity=".25" stroke-width="2" paint-order="stroke">'+T+'</text><text x="-330" y="290" fill="#131516" fill-opacity=".13" stroke="#ffffff" stroke-opacity=".25" stroke-width="2" paint-order="stroke">'+T+'</text></g></svg>';$('#wm').style.backgroundImage='url("data:image/svg+xml,'+encodeURIComponent(svg)+'")'})();
 document.addEventListener('contextmenu',e=>{if(!e.target.closest('input,textarea'))e.preventDefault()});
 document.addEventListener('dragstart',e=>{if(e.target.tagName==='IMG')e.preventDefault()});
-document.addEventListener('copy',e=>{if(e.target.closest&&e.target.closest('input,textarea'))return;e.preventDefault();e.clipboardData&&e.clipboardData.setData('text/plain','MARENGO concept designed and powered by Chairlift. Not for reuse.')});
-$('#mw').innerHTML='MARENGO'.split('').map((c,i)=>`<span style="animation-delay:${.25+i*.06}s">${c}</span>`).join('');
+document.addEventListener('copy',e=>{if(e.target.closest&&e.target.closest('input,textarea'))return;e.preventDefault();e.clipboardData&&e.clipboardData.setData('text/plain','REVOL HUB concept designed and powered by Chairlift. Not for reuse.')});
+$('#mw').innerHTML='REVOL HUB'.split('').map((c,i)=>`<span style="animation-delay:${.25+i*.06}s">${c===' '?'&nbsp;':c}</span>`).join('');
 
 /* ---------- tour (?tour=1) ---------- */
 const firstBLC=()=>{const b=P.find(p=>p.type==='blc'&&p.sub!=='load'&&dayDiff(p.date)>=0);return b?'#/p/'+b.id:'#/blc'};
 const STEPS=[
- ['#/','Jonny and Ross, meet MARENGO','This is a home base for every arm of REVOL: sales, events, staffing, vendors, kitchen and finance, all reading the same live information. One login, every phone.','.hello'],
- ['#/','Six doors, one company','Each arm gets its own space, and every door shows its live numbers. Nobody has to ask another department where something stands.','.doors'],
- ['#/','From sale to service','A won deal flows straight through: the event is built, shifts are planned, vendors are requested, the kitchen preps, the day runs, hours and invoices come in, the books close.','.flow'],
- ['#/sales','Sales stays in your CRM','Jonny, your reps keep the CRM you built. MARENGO just reads each deal\'s date, guests, venue and stage. Tap any deal to see the staff and vendors it will need before it even closes.','.board'],
- ['#/sales','Flex, the inbox and every rep','The same Flex Catering report your CRM pulls at 7 and 1 lands here too, with each change applied. Rep email moves deals along, the rep day report shows scheduled against worked, and anything waiting on a rep shows exactly which shifts or vendors it is holding up.','.tabs'],
- ['#/sales','One tap: won becomes an event','Mark a deal won and MARENGO creates the event with every shift from your staffing ratios and every vendor request for that kind of event. Operations starts the same minute.','.board'],
- ['#/staff','Staffing, two weeks out','Coverage for every day across every event: confirmed, allocated and open. Busy days show up early, so you book people before the scramble, not during it.','.cov'],
- ['#/staff','Your ratios, built in','One server per 20 guests, a captain per 150, logistics crew for load-ins. Set REVOL\'s own standards once and every new event follows them.','.grid'],
- ['#/vendors','Every vendor, every event','One grid: who is confirmed, who quoted, who hasn\'t answered, for every upcoming event. Tap a square to update it.','.vt'],
- ['#/blc','The Better Living Centre run','Wednesday and Thursday load-ins, then the parties, week by week. Open days are hall time you can still sell.','.blc5'],
- ['#/me','A hub for every staff member','Their shifts, open shifts to pick up, availability and notices. Fewer group texts asking who can work Saturday.',null],
- ['#/invoices','Finance closes itself','Hours, mileage and vendor invoices arrive already matched to the event. January stops being a chase for the last timesheets.',null],
- ['#/','Ask it anything','"What\'s on Friday?", "Who\'s short?", "Which vendors haven\'t confirmed?" Anyone can just ask. Let\'s walk through it together. Ryan',null,'chat']];
+ ['#/','Jonny, this is the REVOL HUB','You built a CRM that keeps your reps organised. This is the layer above it. It joins every sale to what happens next, staffing, vendors, kitchen and finance, and shows you how each rep actually sells.','.hello'],
+ ['#/sales/1','Flex, twice a day','The same Flex Catering report your CRM pulls at 7 and 1. Every change is applied for you: more guests adds servers, a new start time goes straight to staff and vendors.','.tw'],
+ ['#/sales/2','Deals move from email','Proposal out, client asks for the agreement, signed copy back. The deal moves on its own, and a signed deal builds the event in one tap.','.alist'],
+ ['#/sales/3','Every call, recorded and summarised','Calls and meetings are transcribed. Guest count, date, venue, dietary needs and budget land on the deal. You can hear any call without sitting in on it.','.alist'],
+ ['#/sales/4','Coach how they sell','Talk time, questions asked, next step set, speed to a new lead. Your CRM shows what a rep closed. This shows why, and what to coach this week.','.tw'],
+ ['#/sales/5','Know what will close','A forecast weighted by stage, every deal at risk with the reason, and the next best action. It also warns you when sales is about to sign a day REVOL can\'t staff.','.cov'],
+ ['#/sales/6','No deal goes quiet','Follow-up plans drafted in each rep\'s voice, including rebooking last year\'s Flex clients before the calendar fills. That one is new revenue.','.grid'],
+ ['#/sales/7','Every rep\'s day','Scheduled against worked for each rep, with emails, replies, calls and proposals. Built from their calendar and inbox, no timesheets.','.card'],
+ ['#/sales/8','What\'s waiting on a rep','Every hand-off operations can\'t finish without sales, and exactly which shifts or vendor requests it is holding up.','.alist'],
+ ['#/sales/0','One tap: won becomes an event','Mark a deal won and the hub builds the event: every shift from your ratios, every vendor request, the menu and the run of show.','.board'],
+ ['#/staff','Staffing and vendors, already moving','Two weeks of coverage and one vendor grid, fed by the deals you just saw. Busy days show up before the scramble, not during it.','.cov'],
+ ['#/diy','Yours to try, privately','Download it, upload your own Flex and CRM exports, paste a real call. It runs on your computer and nothing comes back to me. Ryan','.flow']];
 let ti=0,tp=false,tt=null,tstart=0,tleft=0;const DUR=9000;
 function tshow(){const st=STEPS[ti];const r=typeof st[0]==='function'?st[0]():st[0];$('#chat').classList.remove('on');if(location.hash!==r)location.hash=r;else route();
- setTimeout(()=>{if(st[4]&&st[4]!=='chat')showTab(st[4]);if(st[4]==='chat'){$('#chat').classList.add('on');if(!msgs.children.length)say('Hi, I\'m MARENGO. Ask me about any project, shift, vendor or order.');setTimeout(()=>{say(esc("What's on Friday?"),1);setTimeout(()=>say(answer("What's on Friday?")),300)},400)}
+ setTimeout(()=>{if(st[4]&&st[4]!=='chat')showTab(st[4]);if(st[4]==='chat'){$('#chat').classList.add('on');if(!msgs.children.length)say('Hi, this is the REVOL HUB. Ask me about any project, shift, vendor or order.');setTimeout(()=>{say(esc("What's on Friday?"),1);setTimeout(()=>say(answer("What's on Friday?")),300)},400)}
   $$('.hl').forEach(e=>e.classList.remove('hl'));if(st[3]){const el=$(st[3]);if(el){el.classList.add('hl');el.scrollIntoView({behavior:'smooth',block:'center'})}}else scrollTo({top:0,behavior:'smooth'})},150);
  $('#tn').textContent=(ti+1)+' / '+STEPS.length;$('#th').textContent=st[1];$('#tp').textContent=st[2];$('#tnx').textContent=ti===STEPS.length-1?'FINISH':'NEXT';tp=false;$('#tpa').textContent='PAUSE';trun(DUR)}
 function trun(ms){clearTimeout(tt);tleft=ms;tstart=Date.now();const b=$('#tbi');b.style.transition='none';b.style.width=(100*(1-ms/DUR))+'%';requestAnimationFrame(()=>requestAnimationFrame(()=>{b.style.transition=`width ${ms}ms linear`;b.style.width='100%'}));tt=setTimeout(tnext,ms)}
