@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#10231F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Tool demos | Chairlift</title>
+<link rel="stylesheet" href="demo.css">
+<style>
+.tools{display:grid;gap:12px;margin-top:26px}
+.tool{display:block;text-decoration:none;background:var(--ink2);box-shadow:inset 0 0 0 1px var(--line);clip-path:var(--cut);padding:22px clamp(18px,5vw,28px);transition:background .2s}
+.tool:hover{background:var(--ink3)}
+.tool h2{font-size:clamp(30px,8vw,42px);margin-top:8px}
+.tool p{color:var(--mute);margin-top:8px}
+.tool .go{display:flex;align-items:center;gap:8px;margin-top:14px;font:800 13px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--acc2)}
+.tool .go svg{width:18px;height:18px}
+</style>
+</head>
+<body>
+<div class="sample">Sample businesses · Demo by Chairlift · Not real companies</div>
+<main>
+  <span class="k">Chairlift tool demos</span>
+  <h1>Try the tools.</h1>
+  <p class="lede">Each demo runs on a made-up sample business, so you can tap through exactly what your customers would see. Names, prices and items are samples.</p>
+  <div class="tools">
+    <a class="tool" href="quote/">
+      <span class="k">Sample: Fernwood Home Services</span>
+      <h2>Build your quote</h2>
+      <p>Four taps and the request lands with every detail needed to price it. Ends in a printable brief.</p>
+      <span class="go">Open demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="tool" href="review/">
+      <span class="k">Sample: Fernwood Home Services</span>
+      <h2>Reviews and referrals</h2>
+      <p>One link after the job: stars, a note, post to Google or send it privately, then pass it on to a friend.</p>
+      <span class="go">Open demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="tool" href="availability/">
+      <span class="k">Sample: Harbourline Rentals</span>
+      <h2>Availability checker</h2>
+      <p>Pick your dates and see what's free, without any prices showing. Then ask for a quote in one tap.</p>
+      <span class="go">Open demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+  <p class="foot">Built by our own team at Chairlift.</p>
+</main>
+<script src="../_chairlift/wm.js"></script>
+</body>
+</html>
