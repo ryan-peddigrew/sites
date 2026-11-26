@@ -3,7 +3,7 @@
 const enc = new TextEncoder();
 const OPEN = ['/_chairlift/']; // shared watermark script only; no client content
 // Easy-to-type codes that open ONE folder only (Ryan, 16 Nov 2026).
-const EXTRA = { 'sean-wells': 'darkmagic1993' };
+const EXTRA = { 'sean-wells': 'darkmagic1993', 'tammy-gillis': 'roomtogrow' };
 
 async function mk(secret, key) {
   const k = await crypto.subtle.importKey('raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);

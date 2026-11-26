@@ -9,6 +9,18 @@
   var root = document.documentElement;
   if (EMBED) root.classList.add('embed');
 
+  /* ===== theme: dark or light, one look top to bottom ===== */
+  function theme() { return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark'; }
+  var tb = document.getElementById('themeB');
+  if (tb) tb.addEventListener('click', function () {
+    var t = theme() === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', t);
+    try { localStorage.setItem('gs_theme', t); } catch (e) {}
+    try { var u = new URL(location.href); u.searchParams.set('theme', t); history.replaceState(null, '', u); } catch (e) {}
+  });
+  /* backdrop drifts with scroll */
+  var sc = document.querySelector('.aura .sc');
+  if (sc && !matchMedia('(prefers-reduced-motion: reduce)').matches) addEventListener('scroll', function () { sc.style.setProperty('--sy', (scrollY * 0.12).toFixed(1)); }, { passive: true });
+
   /* ===== watermark (prominent, tiled) ===== */
   (function () {
     var T = 'CONCEPT  ·  DESIGNED AND POWERED BY CHAIRLIFT';
@@ -164,7 +176,7 @@
   br.addEventListener('input', bulk); bulk();
 
   /* ===== gillisone ===== */
-  var OP = ['Real-time reporting and pipeline visibility show what’s working, where the opportunities are and where performance can improve.', 'Repeatable systems, proactive outreach and a structured process create performance that doesn’t depend on one salesperson.', 'Data-driven insights help find high-value relationships and qualified opportunities with more precision.', 'Less time on research, admin and reactive tasks. More time prospecting, building relationships and closing.', 'A complete sales engine that drives proactive business development and grows with your portfolio.'];
+  var OP = ['Real-time reporting and pipeline visibility show what’s working, where the opportunities are and where performance can improve.', 'Repeatable systems, proactive outreach and a structured process create performance that doesn’t depend on one salesperson.', 'AI-powered technology and data-driven insights help identify high-value relationships and qualified opportunities with greater precision.', 'Less time on research, admin and reactive tasks. More time prospecting, building relationships and closing.', 'A complete sales engine that drives proactive business development and grows with your portfolio.'];
   $$('#oneTabs button').forEach(function (b) { b.addEventListener('click', function () { $$('#oneTabs button').forEach(function (x) { x.classList.remove('on'); }); b.classList.add('on'); $('#oneP').textContent = OP[+b.dataset.i]; }); });
   new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('in'); }); }, { threshold: 0.4 }).observe($('.scr'));
 
@@ -225,26 +237,31 @@
     };
     return;
   }
+  /* Each step: what we changed, why it helps, where it came from. */
+  var BOOK = 'https://cal.com/chairlift/5min';
   var S = [
-    ['Hi Tammy, welcome to your new site', 'Same logo, same colours, same team. A bolder layout built around you, your own video and photos, and the words already on your site.', '', '#top'],
-    ['Two moves, always in reach', 'Build your quote and Get in touch sit side by side in the hero. On phones they ride along in a bar at the bottom.', 'Opportunity: more hotels start a conversation instead of leaving.', '#heroBtns'],
-    ['Your story opens with you', 'Your interview footage plays first, then your stage and training photos. Watch Tammy opens the full video.', 'Why: people buy from people. You are the brand.', '#reel'],
-    ['The problem, in your words', 'Your opening message now lights up word by word as visitors scroll, so it actually gets read.', '', '#pressure'],
-    ['Five ways in, one tap each', 'Sales solutions, training, speaking, the book and GillisOne. Each one leads to its own next step.', 'Opportunity: every revenue stream gets its own way to buy.', '#ways'],
-    ['Dedicated. Backed. Supported.', 'Your three-part promise, told one line at a time over your own lobby photo.', '', '#system'],
-    ['One salesperson versus a system', 'Visitors drag the line between the old way and the Gillis way. Your core message, made hands-on.', 'Why: it shows the difference in two seconds.', '#halves'],
-    ['Sales solutions, made clearer', 'Your four advantages, who it is built for, and Tammy’s own line: “We’ve made the investments, so you don’t have to.”', '', '#solutions'],
-    ['New: two-minute health check', 'Six yes-or-no questions, an instant result, and the right next step for that hotel.', 'Opportunity: turns a curious GM into a qualified lead with an email address.', '#check'],
-    ['Training, ready to book', 'Pick a format, see the outcomes, and plan a training in a few taps.', 'Opportunity: training becomes its own sales line, not a footnote.', '#training'],
-    ['Book Tammy to speak', 'Your three talks with their takeaways, a date checker and your headshot ready to download.', 'Opportunity: planners can request a date at midnight, without an email chain.', '#speaking'],
-    ['Room to Grow, front and centre', 'Amazon.com and Amazon.ca buttons, plus team copies with a slider and an optional book-club workshop.', 'Opportunity: bulk orders and a workshop upsell from every brand meeting.', '#book'],
-    ['GillisOne gets its own stage', 'Five benefits and a sample view, with a demo request.', 'Opportunity: your platform becomes a reason to call, not just a feature.', '#gillisone'],
-    ['Your clients, in their own words', 'Real quotes from Realstar, Denham, Metropolitan and Prominence, one at a time, big enough to read on a phone.', '', '#voices'],
-    ['Meet Tammy', 'Your headshot, your awards and a little Cape Breton, plus Butters.', '', '#tammy'],
-    ['Build your quote', 'Five taps: what they need, their hotels, their biggest challenge, timing and details. Your team gets a ready-made brief.', 'Opportunity: better leads, faster proposals.', '#build'],
-    ['That’s the tour', 'Everything uses your own logo, photos, video and words. Prices and reply times are left for you to set. Prepared by Chairlift.', '', '#contact']
+    { t: 'Welcome, Tammy', w: 'This is a concept redesign of gillissales.com, built by Chairlift from your own logo, colours, photos, video and words. This walkthrough shows what we changed, why, and how it helps Gillis win more hotels.', y: 'About three minutes. Pause, go back or skip at any time.', s: 'Your current site, gillissales.com', el: '#top' },
+    { t: 'One flowing look, dark or light', w: 'Your current site jumps between white and dark blocks. Now the whole page is one continuous look in your teal, blue and purple, with a dark and a light version (the switch is at the top).', y: 'A consistent look reads as premium and keeps people scrolling instead of leaving.', s: 'Colours taken straight from your logo file', el: '#top' },
+    { t: 'You lead the story', w: 'The page opens with your own interview footage, then your stage and training photos. Watch Tammy plays the full film.', y: 'Owners and GMs buy from people they trust. Your face and voice do more than a stock lobby photo.', s: 'Your video and photos on gillissales.com', el: '#reel' },
+    { t: 'Two clear next steps', w: 'Build your quote and Get in touch sit side by side in the hero. On phones they stay at the bottom of the screen the whole way down.', y: 'Fewer choices means more enquiries. Today visitors have to hunt for the Contact page.', s: 'Your contact page and its form', el: '#heroBtns' },
+    { t: 'The problem, in your words', w: 'Your opening message now lights up word by word as visitors scroll.', y: 'It actually gets read, and it frames everything that follows.', s: 'Your homepage copy, unchanged', el: '#pressure' },
+    { t: 'Five ways to buy from Gillis', w: 'Sales Solutions, Sales Training, Speaking, Room to Grow and GillisOne, each with its own next step.', y: 'Every revenue stream gets its own path to a sale, instead of one general contact form.', s: 'Your Services menu, book page and GillisOne section', el: '#ways' },
+    { t: 'Dedicated. Backed. Supported.', w: 'Your three-part promise now builds one line at a time over your own lobby photo.', y: 'It turns a tagline into a moment people remember.', s: 'Your homepage', el: '#system' },
+    { t: 'One salesperson, or a sales system', w: 'Visitors drag a line between the old way and the Gillis way.', y: 'Your core difference, understood in two seconds.', s: '\u201cSustainable growth requires a proven sales system, not dependence on one salesperson.\u201d (your homepage)', el: '#halves' },
+    { t: 'Sales Solutions, made clearer', w: 'Your four advantages, the hotel types you serve, the business segments you grow and your own line: \u201cWe\u2019ve made the investments, so you don\u2019t have to.\u201d', y: 'An owner can see in one screen whether Gillis fits their hotel.', s: 'Your Sales Solutions page and FAQ', el: '#solutions' },
+    { t: 'New: two-minute health check', w: 'Six yes-or-no questions give a hotel an instant result and the right next step, then ask for an email to send it.', y: 'It captures owners who are not ready to talk yet, and tells your team where their gaps are before the first conversation.', s: 'Questions built from the challenges on your contact form', el: '#check' },
+    { t: 'Your proof, up front', w: '30+ years, 350+ hotels, 90%+ client retention and 4x average ROI, counting up as they appear.', y: 'Proof works best before the ask, not buried on the About page.', s: 'Only numbers you already publish (homepage, About, Sales Solutions)', el: '#numbers' },
+    { t: 'Training as its own product', w: 'Workshops, webinars and keynotes to choose from, the four outcomes, and a Plan a training button.', y: 'Training becomes a sales line of its own, not a link in a menu.', s: 'Your Sales Training page', el: '#training' },
+    { t: 'Book Tammy to speak', w: 'Your three talks with their takeaways, a date request form and your headshot ready to download.', y: 'Event planners can request a date at midnight, without an email chain.', s: 'Your Speaking Engagements page', el: '#speaking' },
+    { t: 'Room to Grow sells more than copies', w: 'Amazon.com and Amazon.ca buttons, plus team copies with a quantity slider and an optional book-club workshop with you.', y: 'One book order can become a group order and a training lead.', s: 'Your Room to Grow page and its reviews', el: '#book' },
+    { t: 'GillisOne gets its own stage', w: 'The five benefits, a sample view and a demo request.', y: 'Your platform becomes a reason to reach out, not just a feature.', s: 'Your homepage GillisOne section and FAQ', el: '#gillisone' },
+    { t: 'Your clients, in their own words', w: 'Realstar, Denham, Metropolitan and Prominence, one at a time and big enough to read on a phone.', y: 'Real names from real hotel companies carry more weight than anything we could write.', s: 'Your Testimonials page', el: '#voices' },
+    { t: 'Meet Tammy', w: 'Your story, your recognitions, and a little Cape Breton and Butters.', y: 'Hotels hire Gillis because of you. Now the site says so.', s: 'Your Our Team bio and Speaking bio', el: '#tammy' },
+    { t: 'Build your quote', w: 'Five taps: what they need, their hotels, their biggest challenge, timing and contact details.', y: 'Your team gets hotel count, type, challenge and timing before the first conversation. Better leads, faster proposals.', s: 'The options on your current contact form', el: '#build' },
+    { t: 'Straight answers', w: 'Your FAQ, trimmed to the questions owners ask most.', y: 'It handles objections before they come up, and helps Google show your answers.', s: 'Your FAQ page', el: '#faq' },
+    { t: 'What happens next', w: 'Everything here is a working concept. A few items, like book pricing and reply times, are left for your team to set, and nothing is live on your domain.', y: 'Let\u2019s walk through it together and decide what you would like to keep, change or launch first.', s: 'Prepared for Gillis Sales by Chairlift', el: '#contact', cta: true }
   ];
-  var DW = 9500, ovl = null, fr = null, bar = null, timer = 0, idx = 0, mode = 'play', tbhMax = 0;
+  var DW = 13500, ovl = null, fr = null, bar = null, timer = 0, idx = 0, mode = 'play', tbhMax = 0;
   function mk(h) { var d = document.createElement('div'); d.innerHTML = h.trim(); return d.firstChild; }
   function esc(t) { return t.replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
   var pad = function (n) { return (n < 10 ? '0' : '') + n; };
@@ -252,28 +269,29 @@
   function vb(a, l, c) { return '<button type="button" class="vb' + (c ? ' ' + c : '') + '" data-a="' + a + '" aria-label="' + l + '">' + I[a === 'resume' ? 'play' : a] + '</button>'; }
   function open() {
     if (ovl) return;
-    ovl = mk('<div class="tourov" id="tourov"><iframe title="Site tour" src="' + location.pathname + '?embed=1"></iframe><div class="tvglass"></div><div class="tvtag">CONCEPT BY CHAIRLIFT</div></div>');
-    if (!RM) ovl.appendChild($('#tvScene').content.cloneNode(true));
+    ovl = mk('<div class="tourov" id="tourov"><iframe title="Site tour" src="' + location.pathname + '?embed=1&theme=' + theme() + '"></iframe><div class="tvglass"></div><div class="tvtag">CONCEPT BY CHAIRLIFT</div></div>');
+    if (!RM) ovl.appendChild($('#doorScene').content.cloneNode(true));
     document.body.appendChild(ovl); fr = $('iframe', ovl); root.classList.add('tourlock');
     var ready = false, waited = false;
     fr.addEventListener('load', function () { ready = true; if (waited) go(0, 'play'); });
-    setTimeout(function () { waited = true; if (ready) go(0, 'play'); }, RM ? 100 : 3300);
-    setTimeout(function () { var t = $('.tvin', ovl); if (t) t.remove(); }, 4500);
+    setTimeout(function () { waited = true; if (ready) go(0, 'play'); }, RM ? 100 : 3500);
+    setTimeout(function () { var t = $('.dr', ovl); if (t) t.remove(); }, 4200);
   }
   function close() { clearTimeout(timer); if (ovl) { ovl.remove(); ovl = null; bar = null; } root.classList.remove('tourlock'); }
   function go(i, m) {
     clearTimeout(timer); idx = i; mode = m; draw();
-    try { fr.contentWindow.__hl(S[i][3]); } catch (e) {}
+    try { fr.contentWindow.__hl(S[i].el); } catch (e) {}
     if (mode === 'play') { var tp = $('.tbp', bar); tp.style.transitionDuration = DW + 'ms'; requestAnimationFrame(function () { requestAnimationFrame(function () { tp.classList.add('run'); }); }); timer = setTimeout(function () { if (idx + 1 >= S.length) list(); else go(idx + 1, 'play'); }, DW); }
   }
   function draw() {
     var s = S[idx];
     var btns = '<div class="tvcr">' + (idx > 0 ? vb('back', 'Back') : '<span class="vb off"></span>') + (mode === 'play' ? vb('pause', 'Pause', 'main') : vb('resume', 'Play', 'main')) + (idx < S.length - 1 ? vb('next', 'Next') : '<span class="vb off"></span>') + '</div><div class="tvx">' + vb('list', 'See all') + vb('x', 'Exit') + '</div>';
-    place('<aside class="tbar" role="region" aria-label="Site tour"><div class="tbp"></div><div class="tbr"><div class="tbt"><span class="tbn">WHAT’S NEW · ' + (idx + 1) + ' OF ' + S.length + '</span><b>' + esc(s[0]) + '</b><span class="tbx">' + esc(s[1]) + '</span>' + (s[2] ? '<span class="tbo">' + esc(s[2]) + '</span>' : '') + '</div><div class="tbb">' + btns + '</div></div></aside>');
+    var cta = s.cta ? '<a class="tbook" href="' + BOOK + '" target="_blank" rel="noopener">BOOK A MEETING WITH OUR TEAM</a>' : '';
+    place('<aside class="tbar" role="region" aria-label="Site walkthrough"><div class="tbp"></div><div class="tbr"><div class="tbt"><span class="tbn">YOUR REDESIGN \u00b7 ' + (idx + 1) + ' OF ' + S.length + '</span><b>' + esc(s.t) + '</b><span class="tbx">' + esc(s.w) + '</span><span class="tbo"><em>WHY IT HELPS</em>' + esc(s.y) + '</span><span class="tbs"><em>SOURCE</em>' + esc(s.s) + '</span>' + cta + '</div><div class="tbb">' + btns + '</div></div></aside>');
   }
   function list() {
     clearTimeout(timer); mode = 'done';
-    var items = S.map(function (s, i) { return '<a href="#" data-i="' + i + '"><span>' + pad(i + 1) + '</span>' + esc(s[0]) + '</a>'; }).join('');
+    var items = S.map(function (s, i) { return '<a href="#" data-i="' + i + '"><span>' + pad(i + 1) + '</span>' + esc(s.t) + '</a>'; }).join('');
     place('<aside class="tbar" role="region" aria-label="Site tour"><div class="tbr"><div class="tbt"><span class="tbn">THAT’S THE TOUR</span><b>Pick any part to take a closer look</b></div><div class="tbb"><button type="button" class="txt go" data-a="replay">PLAY AGAIN</button><button type="button" class="txt" data-a="x">CLOSE</button></div></div><div class="tbl">' + items + '</div></aside>');
   }
   function place(h) {
