@@ -12,7 +12,12 @@ const EXPIRES = { roomtogrow: '2027-02-28' };
 // Build files never leave the server: sources, scripts and notes return 404 even with a code.
 const PRIVATE = /\/(src|tools)\/|\/README\.md$|\.(py|sh|md)$/i;
 
+const MK = new Map(); // Speed (26 Nov 2026): remember codes so each request skips the crypto work.
 async function mk(secret, key) {
+  const id = secret + '\0' + key; if (MK.has(id)) return MK.get(id);
+  const v = await mk0(secret, key); if (MK.size < 500) MK.set(id, v); return v;
+}
+async function mk0(secret, key) {
   const k = await crypto.subtle.importKey('raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
   const s = await crypto.subtle.sign('HMAC', k, enc.encode(key));
   return [...new Uint8Array(s)].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 10);
