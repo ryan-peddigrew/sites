@@ -58,7 +58,7 @@ export async function onRequest(ctx) {
     }
     return r;
   }
-  if (!env.SECRET) return gate('Preview is being set up. Please try again soon.');
+  // Branch previews have no SECRET: only folders with an EXTRA code open there (production is unchanged).
   const folder = url.pathname.split('/')[1] || '';
   if (!env.SECRET && !EXTRA[folder]) return gate('Preview is being set up. Please try again soon.');
   const want = env.SECRET ? await mk(env.SECRET, folder) : '\u0000';
