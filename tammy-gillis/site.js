@@ -1,0 +1,294 @@
+/* Gillis Sales: concept by Chairlift. (c) 2026 Chairlift. Not for reuse or distribution. */
+(function () {
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var Q = new URLSearchParams(location.search);
+  var EMBED = Q.has('embed') || window.top !== window.self;
+  var TOUR = Q.get('tour') === '1';
+  var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+  if (EMBED) root.classList.add('embed');
+
+  /* ===== watermark (prominent, tiled) ===== */
+  (function () {
+    var T = 'CONCEPT  ·  DESIGNED AND POWERED BY CHAIRLIFT';
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="820" height="360"><g transform="rotate(-22 410 180)" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="17" letter-spacing="2.4">' +
+      '<text x="60" y="130" fill="#ffffff" fill-opacity=".38" stroke="#17142E" stroke-opacity=".34" stroke-width="2.2" paint-order="stroke">' + T + '</text>' +
+      '<text x="-350" y="310" fill="#ffffff" fill-opacity=".38" stroke="#17142E" stroke-opacity=".34" stroke-width="2.2" paint-order="stroke">' + T + '</text></g></svg>';
+    $('#wm').style.backgroundImage = 'url("data:image/svg+xml,' + encodeURIComponent(svg) + '")';
+  })();
+
+  /* ===== anti-copying ===== */
+  document.addEventListener('contextmenu', function (e) { if (!e.target.closest('input,textarea')) e.preventDefault(); });
+  document.addEventListener('dragstart', function (e) { if (e.target.tagName === 'IMG') e.preventDefault(); });
+  document.addEventListener('copy', function (e) {
+    if (e.target.closest && e.target.closest('input,textarea')) return;
+    e.preventDefault();
+    if (e.clipboardData) e.clipboardData.setData('text/plain', 'Concept preview designed and powered by Chairlift. Not for reuse.');
+  });
+  document.addEventListener('keydown', function (e) {
+    var k = (e.key || '').toLowerCase();
+    if ((e.ctrlKey || e.metaKey) && (k === 's' || k === 'u' || k === 'p')) e.preventDefault();
+  });
+
+  /* ===== loader (from the real logo), once per visit ===== */
+  var loader = $('#loader');
+  var seen = false; try { seen = sessionStorage.getItem('gs_ld') === '1'; sessionStorage.setItem('gs_ld', '1'); } catch (e) {}
+  if (RM || seen || EMBED || Q.has('noload')) loader.classList.add('gone');
+  else setTimeout(function () { loader.classList.add('out'); setTimeout(function () { loader.classList.add('gone'); }, 800); }, 2300);
+
+  /* ===== header states ===== */
+  function onScroll() { root.classList.toggle('scrolled', scrollY > 60); root.classList.toggle('nbs', scrollY > 8); }
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  $('.nb-x').addEventListener('click', function () { root.classList.add('nb-off'); });
+
+  /* menu */
+  var mb = $('#menuB'), ov = $('#ov');
+  function menu(o) { ov.hidden = !o; mb.setAttribute('aria-expanded', o); mb.setAttribute('aria-label', o ? 'Close menu' : 'Open menu'); root.classList.toggle('tourlock', o); }
+  mb.addEventListener('click', function () { menu(ov.hidden); });
+  $$('#ov a').forEach(function (a) {
+    a.addEventListener('click', function () { menu(false); });
+    a.addEventListener('mouseenter', function () { if (a.dataset.img) $('#ovImg').src = a.dataset.img; });
+  });
+
+  /* ===== hero words + reel ===== */
+  $$('.hw').forEach(function (w, i) { w.style.animationDelay = (RM ? 0 : (seen || EMBED ? 0.1 : 2.3) + i * 0.09) + 's'; });
+  var reel = $$('#reel .rl'), bars = $$('#reel .rl-bars i'), ri = 0, vid = $('#rlv');
+  function playVid() { try { vid.load(); var p = vid.play(); if (p && p.catch) p.catch(function () {}); } catch (e) {} }
+  if (document.readyState === 'complete') playVid(); else addEventListener('load', playVid);
+  function step() {
+    var d = ri === 0 ? 9000 : 5000;
+    bars.forEach(function (b, j) { b.classList.remove('run'); b.classList.toggle('done', j < ri); });
+    void bars[ri].offsetWidth; bars[ri].style.setProperty('--d', d + 'ms'); bars[ri].classList.add('run');
+    setTimeout(function () { reel[ri].classList.remove('on'); ri = (ri + 1) % reel.length; reel[ri].classList.add('on'); step(); }, d);
+  }
+  if (!RM) step();
+
+  /* ===== film ===== */
+  var film = $('#film'), fv = $('#filmV');
+  $$('[data-film]').forEach(function (b) { b.addEventListener('click', function () { film.hidden = false; try { fv.play(); } catch (e) {} }); });
+  $('#filmX').addEventListener('click', function () { fv.pause(); film.hidden = true; });
+
+  /* ===== scroll-lit words ===== */
+  $$('[data-lit]').forEach(function (p) {
+    (function wrap(n) {
+      $$(':scope > *', n).forEach(wrap);
+      Array.prototype.slice.call(n.childNodes).forEach(function (c) {
+        if (c.nodeType === 3 && c.textContent.trim()) {
+          var f = document.createDocumentFragment();
+          c.textContent.split(/(\s+)/).forEach(function (t) { if (!t) return; if (/^\s+$/.test(t)) f.appendChild(document.createTextNode(t)); else { var s = document.createElement('span'); s.className = 'w'; s.textContent = t; f.appendChild(s); } });
+          n.replaceChild(f, c);
+        }
+      });
+    })(p);
+  });
+  var lits = $$('.lit-p .w');
+  function lit() { var h = innerHeight; lits.forEach(function (w) { var r = w.getBoundingClientRect(); w.classList.toggle('on', r.top < h * 0.72); }); }
+  addEventListener('scroll', lit, { passive: true }); lit();
+
+  /* ===== five ways ===== */
+  var wl = $$('#waysList li'), wimg = $('#waysImg');
+  wl.forEach(function (li) {
+    function act() {
+      if (li.classList.contains('on')) return;
+      wl.forEach(function (x) { x.classList.remove('on'); }); li.classList.add('on');
+      wimg.classList.add('sw'); setTimeout(function () { wimg.src = li.dataset.img; wimg.classList.remove('sw'); }, 250);
+    }
+    $('button', li).addEventListener('click', act);
+    if (matchMedia('(hover:hover)').matches) $('button', li).addEventListener('mouseenter', act);
+  });
+
+  /* ===== sticky chapters ===== */
+  var chap = $('#system'), cls = $$('.chap-l'), cn = $$('.chap-n i');
+  var CS = ['The strongest hotel sales strategies are proactive, measurable and system-driven.', 'Experienced hospitality sellers, many of them former Directors of Sales, with embedded leadership and coaching.', 'GillisOne, real-time reporting and a repeatable process that doesn’t depend on one person.'];
+  var lastC = -1;
+  function chapS() {
+    var r = chap.getBoundingClientRect(), p = Math.min(0.999, Math.max(0, -r.top / (r.height - innerHeight)));
+    var i = Math.floor(p * 3); if (i === lastC) return; lastC = i;
+    cls.forEach(function (c, j) { c.classList.toggle('on', j <= i); }); cn.forEach(function (c, j) { c.classList.toggle('on', j === i); });
+    $('#chapS').textContent = CS[i];
+  }
+  addEventListener('scroll', chapS, { passive: true }); chapS();
+
+  /* ===== halves ===== */
+  var hv = $('#hv'), hr = $('.hv-r', hv);
+  hr.addEventListener('input', function () { hv.style.setProperty('--x', hr.value + '%'); });
+  var hvd = false;
+  new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting && !hvd && !RM) { hvd = true; var t0 = performance.now(); (function f(t) { var p = Math.min(1, (t - t0) / 1600), v = 50 + Math.sin(p * Math.PI * 2) * 22 * (1 - p); hv.style.setProperty('--x', v + '%'); hr.value = v; if (p < 1) requestAnimationFrame(f); })(t0); } }); }, { threshold: 0.5 }).observe(hv);
+
+  /* ===== health check ===== */
+  var CQ = [
+    ['Do you have a dedicated salesperson working on your hotel every week?', 1],
+    ['Would your pipeline survive if your best salesperson left tomorrow?', 1],
+    ['Does most of your base business come from somewhere other than OTAs?', 1],
+    ['Can you see your sales activity and pipeline in real time?', 1],
+    ['Has your sales team had modern sales training in the last 12 months?', 1],
+    ['Do you have a written plan for proactive prospecting this quarter?', 1]
+  ];
+  var ci = 0, cs = 0, cans = [];
+  function ckShow() {
+    $('#ckN').textContent = 'QUESTION ' + (ci + 1) + ' OF ' + CQ.length; $('#ckBar').style.width = (ci / CQ.length * 100) + '%';
+    var q = $('#ckQ'); q.textContent = CQ[ci][0]; q.classList.remove('sw'); void q.offsetWidth; q.classList.add('sw');
+  }
+  function ckEnd() {
+    $('#ckBar').style.width = '100%'; $('#ckN').textContent = 'YOUR RESULT'; $('#ckQ').hidden = true; $('.ck-btns').hidden = true; $('#ckRes').hidden = false;
+    $('#ckScore').textContent = cs + ' OF ' + CQ.length + ' IN PLACE';
+    var h, p, pre = 'solutions';
+    if (!cans[0] || !cans[1]) { h = 'Start with a dedicated seller and a system behind them.'; p = 'Your biggest gap is coverage. A managed sales solution gives you a full-time effort, leadership and reporting without hiring in-house.'; }
+    else if (!cans[4]) { h = 'Your team is in place. Give them a modern playbook.'; p = 'A workshop or keynote for your commercial team is the quickest lift. Many teams pair it with Room to Grow.'; pre = 'training'; }
+    else if (!cans[2] || !cans[5]) { h = 'Time to take back your base business.'; p = 'A proactive prospecting plan reduces how much you lean on OTAs. Our sellers build that pipeline every week.'; }
+    else if (!cans[3]) { h = 'You need to see what sales is doing.'; p = 'GillisOne gives owners real-time visibility into activity, pipeline and opportunities.'; pre = 'gillisone'; }
+    else { h = 'Strong foundation. Let’s find the next level.'; p = 'You have the basics. A conversation with Tammy’s team can show where the next opportunities are hiding.'; }
+    $('#ckH').textContent = h; $('#ckP').textContent = p; $('#ckGo').dataset.pre = pre;
+  }
+  $$('.ck-btns button').forEach(function (b) { b.addEventListener('click', function () { var a = +b.dataset.a; cans.push(a); cs += a; ci++; if (ci >= CQ.length) ckEnd(); else ckShow(); }); });
+  $('#ckRe').addEventListener('click', function () { ci = 0; cs = 0; cans = []; $('#ckQ').hidden = false; $('.ck-btns').hidden = false; $('#ckRes').hidden = true; ckShow(); });
+  ckShow();
+
+  /* ===== counters ===== */
+  $$('.num b').forEach(function (b) { if (!window.__cio) window.__cio =new IntersectionObserver(function (es, o) { es.forEach(function (e) { if (!e.isIntersecting) return; o.unobserve(e.target); var b = e.target, n = +b.dataset.n, s = b.dataset.s || '', t0 = performance.now(); (function f(t) { var p = RM ? 1 : Math.min(1, (t - t0) / 1400); b.textContent = Math.round(n * (1 - Math.pow(1 - p, 3))) + s; if (p < 1) requestAnimationFrame(f); })(t0); }); }, { threshold: 0.6 }); window.__cio.observe(b); });
+
+  /* ===== training formats ===== */
+  var fmt = 'IN-PERSON WORKSHOP';
+  $$('.fmt button').forEach(function (b) { b.addEventListener('click', function () { $$('.fmt button').forEach(function (x) { x.classList.remove('on'); }); b.classList.add('on'); fmt = b.dataset.f; }); });
+
+  /* ===== speaking: pick talk ===== */
+  $$('[data-talk]').forEach(function (a) { a.addEventListener('click', function () { var s = $('#talkSel'); $$('option', s).forEach(function (o) { if (o.textContent.indexOf(a.dataset.talk) === 0) s.value = o.textContent; }); }); });
+
+  /* ===== book ===== */
+  var art = $('#bookArt');
+  if (matchMedia('(hover:hover)').matches) art.addEventListener('mousemove', function (e) { var r = art.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5; $('img', art).style.transform = 'rotateY(' + (x * 26) + 'deg) rotateX(' + (-y * 14) + 'deg)'; });
+  art.addEventListener('mouseleave', function () { $('img', art).style.transform = ''; });
+  var br = $('#bulkR');
+  function bulk() { $('#bulkO').textContent = br.value + ' COPIES'; }
+  br.addEventListener('input', bulk); bulk();
+
+  /* ===== gillisone ===== */
+  var OP = ['Real-time reporting and pipeline visibility show what’s working, where the opportunities are and where performance can improve.', 'Repeatable systems, proactive outreach and a structured process create performance that doesn’t depend on one salesperson.', 'Data-driven insights help find high-value relationships and qualified opportunities with more precision.', 'Less time on research, admin and reactive tasks. More time prospecting, building relationships and closing.', 'A complete sales engine that drives proactive business development and grows with your portfolio.'];
+  $$('#oneTabs button').forEach(function (b) { b.addEventListener('click', function () { $$('#oneTabs button').forEach(function (x) { x.classList.remove('on'); }); b.classList.add('on'); $('#oneP').textContent = OP[+b.dataset.i]; }); });
+  new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('in'); }); }, { threshold: 0.4 }).observe($('.scr'));
+
+  /* ===== voices ===== */
+  var vf = $$('#vq figure'), vi = 0, vt;
+  function vgo(i) { vf[vi].classList.remove('on'); vi = (i + vf.length) % vf.length; vf[vi].classList.add('on'); $('#vqN').textContent = (vi + 1) + ' / ' + vf.length; clearInterval(vt); vt = setInterval(function () { vgo(vi + 1); }, 9000); }
+  $('#vqP').addEventListener('click', function () { vgo(vi - 1); }); $('#vqN2').addEventListener('click', function () { vgo(vi + 1); });
+  if (!RM) vt = setInterval(function () { vgo(vi + 1); }, 9000);
+
+  /* ===== build your quote ===== */
+  var bq = $('#bq'), bs = $$('.bq-s', bq), bl = $$('#bsteps li'), bi = 0, hN = 1;
+  function bshow() { bs.forEach(function (s, j) { s.classList.toggle('on', j === bi); }); bl.forEach(function (l, j) { l.classList.toggle('on', j === bi); l.classList.toggle('done', j < bi); }); $('#bqB').style.visibility = bi ? 'visible' : 'hidden'; $('#bqN').textContent = bi === bs.length - 1 ? 'SEND MY REQUEST' : 'NEXT'; $('#bqErr').textContent = ''; }
+  function val(n) { return $$('[name=' + n + ']:checked', bq).map(function (x) { return x.value; }); }
+  function preset(p) {
+    var map = { solutions: 'Sales solutions', training: 'Sales training', book: 'Room to Grow team copies', gillisone: 'GillisOne demo', speaking: 'Speaking' };
+    $$('[name=need]', bq).forEach(function (x) { x.checked = x.value === map[p]; });
+    bi = 0; $('#bqDone').hidden = true; $('#bqNav').hidden = false; bshow();
+  }
+  $$('[data-pre]').forEach(function (a) { a.addEventListener('click', function () { preset(a.dataset.pre); }); });
+  $('#hM').addEventListener('click', function () { hN = Math.max(1, hN - 1); $('#hN').textContent = hN; });
+  $('#hP').addEventListener('click', function () { hN = Math.min(50, hN + 1); $('#hN').textContent = hN === 50 ? '50+' : hN; });
+  $('#bqB').addEventListener('click', function () { if (bi > 0) { bi--; bshow(); } });
+  $('#bqN').addEventListener('click', function () {
+    var err = '';
+    if (bi === 0 && !val('need').length) err = 'Pick at least one.';
+    if (bi === 2 && !val('ch').length) err = 'Pick the closest one.';
+    if (bi === 3 && !val('when').length) err = 'Pick a timeframe.';
+    if (bi === 4) { var bad = $$('.bq-s.on input[required]', bq).filter(function (i) { return !i.checkValidity(); }); if (bad.length) { err = 'Add your name, a valid email and your hotel or company.'; bad[0].focus(); } }
+    if (err) { $('#bqErr').textContent = err; return; }
+    if (bi < bs.length - 1) { bi++; bshow(); return; }
+    var need = val('need'), types = val('type'), sum = [];
+    sum.push('<b>For:</b> ' + need.join(', ') + (need.indexOf('Sales training') > -1 ? ' (' + fmt.toLowerCase() + ')' : '') + (need.indexOf('Room to Grow team copies') > -1 ? ' (' + br.value + ' copies' + ($('#bulkW').checked ? ' + book-club workshop' : '') + ')' : ''));
+    sum.push('<b>Hotels:</b> ' + (hN === 50 ? '50+' : hN) + (types.length ? ', ' + types.join(', ').toLowerCase() : '') + ', ' + val('where')[0]);
+    sum.push('<b>Main challenge:</b> ' + val('ch')[0]);
+    sum.push('<b>Start:</b> ' + val('when')[0].toLowerCase());
+    sum.push('<b>Next step:</b> a short discovery call, then a tailored proposal for your market.');
+    $('#bqSum').innerHTML = sum.join('').replace(/<b>/g, '<li><b>').replace(/(<li>.*?)(?=<li>|$)/g, '$1</li>');
+    bs.forEach(function (s) { s.classList.remove('on'); }); bl.forEach(function (l) { l.classList.add('done'); l.classList.remove('on'); });
+    $('#bqDone').hidden = false; $('#bqNav').hidden = true;
+  });
+  $('#bqRe').addEventListener('click', function () { bq.reset(); hN = 1; $('#hN').textContent = 1; preset(''); });
+  bshow();
+
+  /* ===== simple forms (preview only) ===== */
+  $$('form[data-ok]').forEach(function (f) {
+    f.addEventListener('submit', function (e) { e.preventDefault(); var p = document.createElement('p'); p.className = 'ok-msg'; p.textContent = f.dataset.ok + ' (Preview: nothing is sent yet.)'; if (f.classList.contains('nb-f')) { f.hidden = true; $('.nb-ok').hidden = false; return; } f.replaceWith(p); });
+  });
+
+  /* ===== tour (?tour=1): TV intro, then the site plays inside the TV ===== */
+  if (EMBED) {
+    window.__hl = function (sel) {
+      var old = $('.tour-hl'); if (old) old.remove();
+      var el = sel && $(sel); if (!el) return;
+      var y = el.getBoundingClientRect().top + scrollY - (innerWidth < 760 ? 70 : 90);
+      scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+      var h = document.createElement('div'); h.className = 'tour-hl'; document.body.appendChild(h);
+      (function f() { if (!h.isConnected) return; var r = el.getBoundingClientRect(), H = innerHeight; var t = Math.max(r.top - 6, 70), b = Math.min(r.bottom + 6, H - 6); if (b - t < 30) h.style.opacity = 0; else { h.style.opacity = 1; h.style.top = t + 'px'; h.style.left = Math.max(r.left - 6, 4) + 'px'; h.style.width = Math.min(r.width + 12, innerWidth - 8) + 'px'; h.style.height = (b - t) + 'px'; } requestAnimationFrame(f); })();
+    };
+    return;
+  }
+  var S = [
+    ['Hi Tammy, welcome to your new site', 'Same logo, same colours, same team. A bolder layout built around you, your own video and photos, and the words already on your site.', '', '#top'],
+    ['Two moves, always in reach', 'Build your quote and Get in touch sit side by side in the hero. On phones they ride along in a bar at the bottom.', 'Opportunity: more hotels start a conversation instead of leaving.', '#heroBtns'],
+    ['Your story opens with you', 'Your interview footage plays first, then your stage and training photos. Watch Tammy opens the full video.', 'Why: people buy from people. You are the brand.', '#reel'],
+    ['The problem, in your words', 'Your opening message now lights up word by word as visitors scroll, so it actually gets read.', '', '#pressure'],
+    ['Five ways in, one tap each', 'Sales solutions, training, speaking, the book and GillisOne. Each one leads to its own next step.', 'Opportunity: every revenue stream gets its own way to buy.', '#ways'],
+    ['Dedicated. Backed. Supported.', 'Your three-part promise, told one line at a time over your own lobby photo.', '', '#system'],
+    ['One salesperson versus a system', 'Visitors drag the line between the old way and the Gillis way. Your core message, made hands-on.', 'Why: it shows the difference in two seconds.', '#halves'],
+    ['Sales solutions, made clearer', 'Your four advantages, who it is built for, and Tammy’s own line: “We’ve made the investments, so you don’t have to.”', '', '#solutions'],
+    ['New: two-minute health check', 'Six yes-or-no questions, an instant result, and the right next step for that hotel.', 'Opportunity: turns a curious GM into a qualified lead with an email address.', '#check'],
+    ['Training, ready to book', 'Pick a format, see the outcomes, and plan a training in a few taps.', 'Opportunity: training becomes its own sales line, not a footnote.', '#training'],
+    ['Book Tammy to speak', 'Your three talks with their takeaways, a date checker and your headshot ready to download.', 'Opportunity: planners can request a date at midnight, without an email chain.', '#speaking'],
+    ['Room to Grow, front and centre', 'Amazon.com and Amazon.ca buttons, plus team copies with a slider and an optional book-club workshop.', 'Opportunity: bulk orders and a workshop upsell from every brand meeting.', '#book'],
+    ['GillisOne gets its own stage', 'Five benefits and a sample view, with a demo request.', 'Opportunity: your platform becomes a reason to call, not just a feature.', '#gillisone'],
+    ['Your clients, in their own words', 'Real quotes from Realstar, Denham, Metropolitan and Prominence, one at a time, big enough to read on a phone.', '', '#voices'],
+    ['Meet Tammy', 'Your headshot, your awards and a little Cape Breton, plus Butters.', '', '#tammy'],
+    ['Build your quote', 'Five taps: what they need, their hotels, their biggest challenge, timing and details. Your team gets a ready-made brief.', 'Opportunity: better leads, faster proposals.', '#build'],
+    ['That’s the tour', 'Everything uses your own logo, photos, video and words. Prices and reply times are left for you to set. Prepared by Chairlift.', '', '#contact']
+  ];
+  var DW = 9500, ovl = null, fr = null, bar = null, timer = 0, idx = 0, mode = 'play', tbhMax = 0;
+  function mk(h) { var d = document.createElement('div'); d.innerHTML = h.trim(); return d.firstChild; }
+  function esc(t) { return t.replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+  var I = { back: '<svg viewBox="0 0 24 24"><path d="M6 5h2.5v14H6zM20 5v14L9.5 12z"/></svg>', next: '<svg viewBox="0 0 24 24"><path d="M15.5 5H18v14h-2.5zM4 5v14l10.5-7z"/></svg>', pause: '<svg viewBox="0 0 24 24"><path d="M6 4h4.5v16H6zM13.5 4H18v16h-4.5z"/></svg>', play: '<svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg>', list: '<svg viewBox="0 0 24 24"><path d="M4 6h16v2.5H4zM4 10.8h16v2.5H4zM4 15.5h16V18H4z"/></svg>', x: '<svg viewBox="0 0 24 24"><path d="M5.6 4 12 10.4 18.4 4 20 5.6 13.6 12 20 18.4 18.4 20 12 13.6 5.6 20 4 18.4 10.4 12 4 5.6z"/></svg>' };
+  function vb(a, l, c) { return '<button type="button" class="vb' + (c ? ' ' + c : '') + '" data-a="' + a + '" aria-label="' + l + '">' + I[a === 'resume' ? 'play' : a] + '</button>'; }
+  function open() {
+    if (ovl) return;
+    ovl = mk('<div class="tourov" id="tourov"><iframe title="Site tour" src="' + location.pathname + '?embed=1"></iframe><div class="tvglass"></div><div class="tvtag">CONCEPT BY CHAIRLIFT</div></div>');
+    if (!RM) ovl.appendChild($('#tvScene').content.cloneNode(true));
+    document.body.appendChild(ovl); fr = $('iframe', ovl); root.classList.add('tourlock');
+    var ready = false, waited = false;
+    fr.addEventListener('load', function () { ready = true; if (waited) go(0, 'play'); });
+    setTimeout(function () { waited = true; if (ready) go(0, 'play'); }, RM ? 100 : 3300);
+    setTimeout(function () { var t = $('.tvin', ovl); if (t) t.remove(); }, 4500);
+  }
+  function close() { clearTimeout(timer); if (ovl) { ovl.remove(); ovl = null; bar = null; } root.classList.remove('tourlock'); }
+  function go(i, m) {
+    clearTimeout(timer); idx = i; mode = m; draw();
+    try { fr.contentWindow.__hl(S[i][3]); } catch (e) {}
+    if (mode === 'play') { var tp = $('.tbp', bar); tp.style.transitionDuration = DW + 'ms'; requestAnimationFrame(function () { requestAnimationFrame(function () { tp.classList.add('run'); }); }); timer = setTimeout(function () { if (idx + 1 >= S.length) list(); else go(idx + 1, 'play'); }, DW); }
+  }
+  function draw() {
+    var s = S[idx];
+    var btns = '<div class="tvcr">' + (idx > 0 ? vb('back', 'Back') : '<span class="vb off"></span>') + (mode === 'play' ? vb('pause', 'Pause', 'main') : vb('resume', 'Play', 'main')) + (idx < S.length - 1 ? vb('next', 'Next') : '<span class="vb off"></span>') + '</div><div class="tvx">' + vb('list', 'See all') + vb('x', 'Exit') + '</div>';
+    place('<aside class="tbar" role="region" aria-label="Site tour"><div class="tbp"></div><div class="tbr"><div class="tbt"><span class="tbn">WHAT’S NEW · ' + (idx + 1) + ' OF ' + S.length + '</span><b>' + esc(s[0]) + '</b><span class="tbx">' + esc(s[1]) + '</span>' + (s[2] ? '<span class="tbo">' + esc(s[2]) + '</span>' : '') + '</div><div class="tbb">' + btns + '</div></div></aside>');
+  }
+  function list() {
+    clearTimeout(timer); mode = 'done';
+    var items = S.map(function (s, i) { return '<a href="#" data-i="' + i + '"><span>' + pad(i + 1) + '</span>' + esc(s[0]) + '</a>'; }).join('');
+    place('<aside class="tbar" role="region" aria-label="Site tour"><div class="tbr"><div class="tbt"><span class="tbn">THAT’S THE TOUR</span><b>Pick any part to take a closer look</b></div><div class="tbb"><button type="button" class="txt go" data-a="replay">PLAY AGAIN</button><button type="button" class="txt" data-a="x">CLOSE</button></div></div><div class="tbl">' + items + '</div></aside>');
+  }
+  function place(h) {
+    if (bar) bar.remove(); bar = mk(h); ovl.appendChild(bar);
+    tbhMax = Math.max(tbhMax, bar.offsetHeight); bar.style.minHeight = tbhMax + 'px'; ovl.style.setProperty('--tbh', tbhMax + 'px');
+    bar.addEventListener('click', function (e) {
+      var a = e.target.closest('[data-a],a[data-i]'); if (!a) return; e.preventDefault();
+      if (a.dataset.i !== undefined) return go(+a.dataset.i, 'browse');
+      var k = a.dataset.a;
+      if (k === 'x') close(); else if (k === 'pause') { clearTimeout(timer); mode = 'browse'; draw(); }
+      else if (k === 'next') go(idx + 1, mode === 'play' ? 'play' : 'browse'); else if (k === 'back') go(Math.max(0, idx - 1), mode === 'play' ? 'play' : 'browse');
+      else if (k === 'resume') go(idx, 'play'); else if (k === 'list') list(); else if (k === 'replay') go(0, 'play');
+    });
+  }
+  $('#tourbtn').addEventListener('click', open);
+  $('#tourStart').addEventListener('click', function (e) { e.preventDefault(); open(); });
+  if (TOUR) { try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) {} setTimeout(open, seen ? 600 : 2500); }
+})();
