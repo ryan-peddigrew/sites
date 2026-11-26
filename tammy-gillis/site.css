@@ -792,3 +792,16 @@ body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 input,textarea,select{-webkit-user-select:text;user-select:text}
 @media print{html body *{display:none!important}html body::before{content:"Confidential concept by Chairlift. Printing is not available.";display:block;font:700 20px Arial;padding:40px}}
 .ftr-base .conf{display:block;width:100%;font-size:12.5px;letter-spacing:.08em;opacity:.75;order:3}
+/* A spacing clean-up (Ryan, 26 Nov 2026): even gaps between rows, and between text, mark and wordmark */
+#wm.wm-a .wg{gap:112px;padding-top:56px}
+#wm.wm-a .wr{gap:72px}
+#wm.wm-a .wr.o{margin-left:-180px}
+#wm.wm-a .wl{gap:12px}
+#wm.wm-a .wl-m{width:1.3em;height:1.3em}
+#wm.wm-a .wl-t{margin-right:2px}
+@media(max-width:760px){
+  #wm.wm-a .wg{gap:104px;padding-top:52px}
+  #wm.wm-a .wr.o{margin-left:0}
+  #wm.wm-a .wl{row-gap:12px;column-gap:12px;font-size:15px}
+  #wm.wm-a .wl-t{margin-right:0}
+}
