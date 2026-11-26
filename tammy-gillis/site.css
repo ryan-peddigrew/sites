@@ -886,3 +886,4 @@ html[data-theme=light] #wm.wm-s .wl-m{opacity:.5}
 #reel img.rl.kb.on{animation:kb 9s ease-out both}
 @keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.12)}}
 @media(prefers-reduced-motion:reduce){#reel img.rl.kb.on{animation:none}}
+.tnew{display:inline-block;vertical-align:2px;margin-right:8px;padding:3px 7px 2px;border-radius:3px;background:var(--teal);color:#fff;font:800 10.5px/1 var(--hd);font-style:normal;letter-spacing:.14em}
