@@ -11,8 +11,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="img/tammy-poster.jpg">
 <link rel="stylesheet" href="site.css">
+<script>(function(){var t=new URLSearchParams(location.search).get("theme");if(t!=="light"&&t!=="dark"){try{t=localStorage.getItem("gs_theme")}catch(e){}}document.documentElement.setAttribute("data-theme",t==="light"?"light":"dark")})();</script>
 </head>
 <body>
+<div class="aura" aria-hidden="true"><div class="sc"><i></i><i></i><i></i></div></div>
 
 <!-- LOADER: built from Tammy's real logo. The three pieces of the G lock together, then the wordmark and tagline appear. -->
 <div class="loader" id="loader" aria-hidden="true">
@@ -38,6 +40,7 @@
     <a href="#solutions">SALES SOLUTIONS</a><a href="#training">TRAINING</a><a href="#speaking">SPEAKING</a><a href="#book">THE BOOK</a><a href="#gillisone">GILLISONE</a><a href="#tammy">ABOUT</a>
   </nav>
   <a class="btn btn-teal hdr-cta" href="#build">BUILD YOUR QUOTE</a>
+  <button class="theme-b" id="themeB" type="button" aria-label="Switch light or dark"><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg><svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
   <button class="menu-b" id="menuB" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
 </header>
 
@@ -112,15 +115,15 @@
     <ol class="ways-list" id="waysList">
       <li class="on" data-img="img/lobby2.webp">
         <button type="button"><small>01</small><span>SALES SOLUTIONS</span></button>
-        <div class="wl-body"><img src="img/lobby2-m.webp" alt="" loading="lazy"><p>A dedicated, experienced seller for your hotel, backed by leadership, coaching and GillisOne. More than outsourced sales.</p><a class="btn btn-teal" href="#build" data-pre="solutions">BUILD YOUR QUOTE</a></div>
+        <div class="wl-body"><img src="img/lobby2-m.webp" alt="" loading="lazy"><p>More than outsourced hotel sales. Discover how we combine experienced sales professionals, AI-powered technology, and proven systems to help hotels generate demand, capture more revenue, and achieve long-term sales success.</p><a class="btn btn-teal" href="#build" data-pre="solutions">BUILD YOUR QUOTE</a></div>
       </li>
       <li data-img="img/training.webp">
         <button type="button"><small>02</small><span>SALES TRAINING</span></button>
-        <div class="wl-body"><img src="img/training-crop-m.webp" alt="" loading="lazy"><p>Workshops, webinars and keynotes that modernize the way your commercial team sells.</p><a class="btn btn-teal" href="#build" data-pre="training">PLAN A TRAINING</a></div>
+        <div class="wl-body"><img src="img/training-crop-m.webp" alt="" loading="lazy"><p>Modern hotel sales require modern training. Hospitality sales training programs that combine practical strategies, AI-powered insights, and proven sales systems to help commercial teams improve performance and drive sustainable revenue growth.</p><a class="btn btn-teal" href="#build" data-pre="training">PLAN A TRAINING</a></div>
       </li>
       <li data-img="img/stage.webp">
         <button type="button"><small>03</small><span>SPEAKING</span></button>
-        <div class="wl-body"><img src="img/stage-crop-m.webp" alt="" loading="lazy"><p>Three talks from Tammy for conferences, brand meetings and owner events.</p><a class="btn btn-teal" href="#speaking">SEE THE TALKS</a></div>
+        <div class="wl-body"><img src="img/stage-crop-m.webp" alt="" loading="lazy"><p>Inspire your audience to rethink sales and prepare for today’s buyers. Discover how Tammy is helping hospitality leaders modernize sales, embrace AI, and build high-performing teams that deliver repeatable results.</p><a class="btn btn-teal" href="#speaking">SEE THE TALKS</a></div>
       </li>
       <li data-img="img/book.webp">
         <button type="button"><small>04</small><span>ROOM TO GROW</span></button>
@@ -128,7 +131,7 @@
       </li>
       <li data-img="img/dash.webp">
         <button type="button"><small>05</small><span>GILLISONE</span></button>
-        <div class="wl-body"><img src="img/dash-m.webp" alt="" loading="lazy"><p>The sales operating system behind every Gillis seller: full visibility, less admin, more time selling.</p><a class="btn btn-teal" href="#gillisone">SEE GILLISONE</a></div>
+        <div class="wl-body"><img src="img/dash-m.webp" alt="" loading="lazy"><p>AI-Powered GillisOne. We’re revolutionizing B2B sales to help you win more business with greater consistency and peace of mind.</p><a class="btn btn-teal" href="#gillisone">SEE GILLISONE</a></div>
       </li>
     </ol>
     <div class="ways-pic" aria-hidden="true"><img id="waysImg" src="img/lobby2.webp" alt=""></div>
@@ -177,8 +180,8 @@
     <ol class="adv">
       <li><span class="adv-n">01</span><div><h3>EXPERIENCE MATTERS</h3><p>The right people, technology, leadership and systems together, so owners know their investment is protected.</p></div></li>
       <li><span class="adv-n">02</span><div><h3>SALES THAT DON'T DEPEND ON ONE PERSON</h3><p>A proven team and a repeatable system: continuity, accountability and results you can count on.</p></div></li>
-      <li><span class="adv-n">03</span><div><h3>SALES INTELLIGENCE BUILT IN</h3><p>GillisOne finds high-value leads, shortens the sales cycle and uncovers revenue before your competitors do.</p></div></li>
-      <li><span class="adv-n">04</span><div><h3>ACCOUNTABILITY YOU CAN SEE</h3><p>Real-time reporting and a client dashboard, so you can run your hotels and still know what sales is doing.</p></div></li>
+      <li><span class="adv-n">03</span><div><h3>AI-POWERED SALES INTELLIGENCE</h3><p>GillisOne, our proprietary AI sales intelligence platform, identifies high-value leads, shortens the sales cycle, and uncovers revenue opportunities before your competitors do.</p></div></li>
+      <li><span class="adv-n">04</span><div><h3>ACCOUNTABILITY THAT GIVES YOU PEACE OF MIND</h3><p>Focus on running your hotels and stay informed with real-time reporting and regular communication through a client dashboard.</p></div></li>
     </ol>
   </div>
   <div class="segs" aria-label="Business we help you grow">
@@ -258,22 +261,22 @@
   <div class="wrap talks">
     <article class="talk">
       <p class="talk-k">MODERN SELLING</p>
-      <h3>HOW NEW TECHNOLOGY IS TRANSFORMING B2B SALES</h3>
-      <p>Buyers expect relevant business conversations at every stage. Tammy shows how to cut research time, find better opportunities and keep the human connection that wins business.</p>
-      <details><summary>WHAT THE ROOM LEAVES WITH</summary><ul><li>Less research and admin, more time selling</li><li>Find the right leads and decision makers faster</li><li>Meet buyers where they are in their buying process</li><li>Ideas to put to work right away</li></ul><p class="for">For commercial leaders, sales and operations teams, and business owners.</p></details>
+      <h3>HOW AI IS TRANSFORMING B2B SALES</h3>
+      <p>AI is disrupting old sales methodologies and amplifying the work produced by hotel sales teams. Tammy shares practical strategies for integrating AI into a modern sales system, without sacrificing the trust and human connection that drive long-term success.</p>
+      <details><summary>WHAT THE ROOM LEAVES WITH</summary><ul><li>Reduce research and administrative time so your team can focus on selling</li><li>Identify relevant leads and decision makers faster across fragmented lead sources</li><li>Learn how AI helps sales professionals meet buyers where they are at in their buying process</li><li>Leverage AI as your coach to build out client strategies and sales plans</li><li>Leave with actionable ideas you can implement immediately</li></ul><p class="for">For commercial leaders, sales and operations teams, and business owners.</p></details>
       <a class="btn btn-line-d" href="#bookTammy" data-talk="Modern Selling">BOOK THIS TALK</a>
     </article>
     <article class="talk">
       <p class="talk-k">THE BLUEPRINT FOR SALES EXCELLENCE</p>
       <h3>HOW TO BUILD HIGH-PERFORMING SALES TEAMS</h3>
-      <p>Great results don't happen by chance. Proven systems, disciplined execution and a team that creates value in every customer conversation.</p>
+      <p>Great sales results don’t happen by chance. They are built on proven systems, disciplined execution, and a team that knows how to create value in every customer interaction.</p>
       <details><summary>WHAT THE ROOM LEAVES WITH</summary><ul><li>The modern fundamentals behind long-term performance</li><li>How to capture attention and stand out on value</li><li>Better prospecting, account planning and execution</li><li>A repeatable framework for coaching and accountability</li></ul><p class="for">For sales leaders, commercial teams and hotel owners.</p></details>
       <a class="btn btn-line-d" href="#bookTammy" data-talk="The Blueprint for Sales Excellence">BOOK THIS TALK</a>
     </article>
     <article class="talk">
       <p class="talk-k">EVERYONE IS IN SALES. OR AT LEAST THEY SHOULD BE!</p>
       <h3>BUILDING A CULTURE THAT DRIVES REVENUE</h3>
-      <p>The strongest hotels don't rely on one department. Tammy shows how to break down silos and make growth everyone's job.</p>
+      <p>The strongest hotels don’t rely on one sales department to drive results. They create a culture where every team member understands how their role contributes to revenue growth.</p>
       <details><summary>WHAT THE ROOM LEAVES WITH</summary><ul><li>A revenue-focused culture beyond the sales team</li><li>More accountability and ownership across departments</li><li>Ideas for getting every team member contributing</li></ul><p class="for">For owners, general managers, department leaders and sales teams.</p></details>
       <a class="btn btn-line-d" href="#bookTammy" data-talk="Everyone Is in Sales">BOOK THIS TALK</a>
     </article>
@@ -328,14 +331,14 @@
   <div class="wrap one-grid">
     <div class="one-tx">
       <p class="kick"><span class="bar"></span>SALES MADE EASY</p>
-      <h2 class="h2">GILLIS<span class="t">ONE.</span></h2>
-      <p class="lead">Our own sales operating system, built for hotel sales. It does the research and admin so your seller spends the day building relationships and closing business.</p>
+      <h2 class="h2">AI-POWERED<br>GILLIS<span class="t">ONE.</span></h2>
+      <p class="lead">We’re revolutionizing B2B sales to help you win more business with greater consistency and peace of mind.</p>
       <div class="one-tabs" role="tablist" id="oneTabs">
-        <button role="tab" class="on" data-i="0">FULL VISIBILITY</button>
-        <button role="tab" data-i="1">CONSISTENT EXECUTION</button>
-        <button role="tab" data-i="2">PROFITABLE OPPORTUNITIES</button>
+        <button role="tab" class="on" data-i="0">FULL VISIBILITY INTO SALES PERFORMANCE</button>
+        <button role="tab" data-i="1">CONSISTENT SALES EXECUTION</button>
+        <button role="tab" data-i="2">PROFITABLE REVENUE OPPORTUNITIES</button>
         <button role="tab" data-i="3">MORE TIME SELLING</button>
-        <button role="tab" data-i="4">BUILT TO SCALE</button>
+        <button role="tab" data-i="4">A TURNKEY SALES SOLUTION BUILT TO SCALE</button>
       </div>
       <p class="one-p" id="oneP">Real-time reporting and pipeline visibility show what's working, where the opportunities are and where performance can improve.</p>
       <a class="btn btn-teal" href="#build" data-pre="gillisone">SEE GILLISONE</a>
@@ -458,7 +461,8 @@
       <details><summary>Can Gillis replace our on-property Director of Sales?</summary><p>For many select-service and extended-stay hotels, yes. Many brands recognize an approved third-party sales partner as an alternative. Requirements vary, so confirm with your brand representative.</p></details>
       <details><summary>How quickly can you begin selling?</summary><p>Every partnership starts with a structured two-week onboarding. We take on a select number of new hotels each month so every client gets full attention.</p></details>
       <details><summary>What happens if my salesperson is away?</summary><p>Your hotel is supported by a whole sales organization, not one person. Our structure keeps service running without a gap.</p></details>
-      <details><summary>Do you work with hotels that already have a sales team?</summary><p>Absolutely. Many clients use us to extend prospecting, add leadership, support new initiatives or strengthen execution.</p></details>
+      <details><summary>Do you use AI in your sales process?</summary><p>Yes. Every managed sales engagement is supported by GillisOne, our proprietary sales intelligence and AI platform designed specifically for hotel sales. Rather than replacing the human element of sales, GillisOne enhances it.</p></details>
+      <details><summary>Does Gillis Sales work if we already have a sales team?</summary><p>Absolutely. Many clients use us to extend prospecting, add leadership, support new initiatives or strengthen execution.</p></details>
     </div>
   </div>
 </section>
@@ -516,25 +520,21 @@
   <video id="filmV" controls playsinline preload="none" poster="img/tammy-poster.jpg"><source src="img/tammy-film.mp4" type="video/mp4"></video>
 </div>
 
-<!-- TOUR intro scene: a TV in a hotel lounge, Tammy's portrait and book beside it. Drawn in code from Tammy's own photos. -->
-<template id="tvScene">
-  <div class="tvin" aria-hidden="true">
-    <div class="tvr">
-      <div class="tvr-wall"><img src="img/lounge-m.webp" alt=""></div>
-      <div class="tvr-frame"><img src="img/tammy-crop-m.webp" alt=""></div>
-      <div class="tvr-shelf"></div>
-      <div class="tvr-plant"><i></i><i></i><i></i><i></i><i></i></div>
-      <div class="tvr-book"><img src="img/book-cover.webp" alt=""></div>
-      <div class="tv">
-        <div class="tv-scr">
-          <div class="tv-snow"></div>
-          <div class="tv-boot">{{MARK:tv-mk}}<span class="tv-play">PLAY</span><span class="tv-new">WHAT'S NEW FOR TAMMY</span><span class="tv-bar"><i></i></span></div>
-          <div class="tv-glass"></div>
+<!-- TOUR intro: walk through the hotel doors into the lobby (Tammy's own lobby photo). Drawn in code. -->
+<template id="doorScene">
+  <div class="dr" aria-hidden="true">
+    <div class="dr-cam">
+      <div class="dr-lobby"><img src="img/lobby2.webp" alt=""></div>
+      <div class="dr-facade">
+        <div class="dr-sign">{{LOGO:dr-logo}}</div>
+        <div class="dr-way">
+          <div class="dr-door l"><i class="gl"></i><i class="hd"></i></div>
+          <div class="dr-door r"><i class="gl"></i><i class="hd"></i></div>
         </div>
-        <div class="tv-side"><i></i><i></i><span></span></div>
+        <div class="dr-step"></div>
       </div>
-      <div class="tvr-console"></div>
     </div>
+    <p class="dr-cap"><span>WELCOME IN, TAMMY</span><small>HERE'S YOUR NEW WEBSITE</small></p>
   </div>
 </template>
 

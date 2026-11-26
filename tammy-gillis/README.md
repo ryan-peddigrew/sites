@@ -19,7 +19,7 @@ Managed sales solutions (core), sales training, speaking, Room to Grow book, Gil
 
 ## Content sources and choices
 All copy is from her pages (home, about, team bio, services, training, speaking, book, FAQ, contact, testimonials). Numbers are her own site's claims: 30+ years, 350+ hotels, 2013, 90%+ client retention, 4x average ROI in 12 months (confirm with Tammy). Quotes are hers (Realstar, Denham, Metropolitan, Prominence; book quotes from Jill Konrath, Brian Leon, Irwin Prince, Rachel Humphrey).
-The word "AI" is left out of the copy (Chairlift rule). Her talk title "How AI is Transforming B2B Sales" is shown as "How new technology is transforming B2B sales": Ryan to decide.
+Ryan (2026-11-26): the no-"AI" rule is for Chairlift's own site only. Tammy's titles and wording (AI-Powered GillisOne, How AI is Transforming B2B Sales, AI-Powered Sales Intelligence) are kept exactly as on her site.
 No phone number button (rule); phone 800.296.2962 is left off.
 
 ## Placeholders / needed before go-live
