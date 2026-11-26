@@ -392,7 +392,7 @@
     var btns = '<div class="tvcr">' + (idx > 0 ? vb('back', 'Back') : '<span class="vb off"></span>') + (mode === 'play' ? vb('pause', 'Pause', 'main') : vb('resume', 'Play', 'main')) + (idx < S.length - 1 ? vb('next', 'Next') : '<span class="vb off"></span>') + '</div><div class="tvx">' + vb('list', 'See all') + vb('x', 'Exit') + '</div>';
     var cta = s.cta ? '<a class="tbook" href="' + BOOK + '" target="_blank" rel="noopener">BOOK 15 MINUTES</a><span class="tinst"><b>Keep this tour on your phone</b>' + (window.__bip ? '<button type="button" class="tinst-b" data-a="install">ADD TO HOME SCREEN</button>' : '') + '<span>iPhone: tap Share, then Add to Home Screen.</span><span>Android: tap the menu, then Add to Home screen or Install app.</span></span>' : '';
     var rc = s.recap ? '<ol class="trecap">' + s.recap.map(function (r) { return '<li>' + esc(r) + '</li>'; }).join('') + '</ol>' : '';
-    place('<aside class="tbar" role="region" aria-label="Site walkthrough"><div class="tbp"></div><div class="tbr"><div class="tbt"><span class="tbn">IDEAS FOR GILLIS \u00b7 ' + (idx + 1) + ' OF ' + S.length + '</span><b>' + esc(s.t) + '</b>' + rc + '<span class="tbx">' + emph(s.w) + '</span><span class="tbo"><em>' + (s.cta ? 'NEXT STEP' : 'WHY IT MIGHT HELP') + '</em>' + emph(s.y) + '</span><span class="tbs"><em>SOURCE</em>' + esc(s.s) + '</span>' + cta + '</div><div class="tbb">' + btns + '</div></div></aside>');
+    place('<aside class="tbar" role="region" aria-label="Site walkthrough"><div class="tbp"></div><div class="tbr"><div class="tbt"><span class="tbn">IDEAS FOR GILLIS \u00b7 ' + (idx + 1) + ' OF ' + S.length + '</span><b>' + esc(s.t) + '</b><span class="tb1">' + emph(s.w.split(/(?<=[.?!])\s/)[0]) + '</span><button type="button" class="tmore" data-a="more" aria-expanded="false">MORE</button><span class="tdet">' + rc + '<span class="tbx">' + emph(s.w) + '</span><span class="tbo"><em>' + (s.cta ? 'NEXT STEP' : 'WHY IT MIGHT HELP') + '</em>' + emph(s.y) + '</span><span class="tbs"><em>SOURCE</em>' + esc(s.s) + '</span></span>' + cta + '</div><div class="tbb">' + btns + '</div></div></aside>');
   }
   function emph(x) { return esc(x).replace(/death by 1,000 tabs/g, '<i>$&</i>'); }
   function list() {
@@ -400,9 +400,10 @@
     var items = S.map(function (s, i) { return '<a href="#" data-i="' + i + '"><span>' + pad(i + 1) + '</span>' + esc(s.t) + '</a>'; }).join('');
     place('<aside class="tbar" role="region" aria-label="Site tour"><div class="tbr"><div class="tbt"><span class="tbn">THAT’S THE TOUR</span><b>Pick any part to take a closer look</b><a class="tbook" href="' + BOOK + '" target="_blank" rel="noopener">BOOK 15 MINUTES</a></div><div class="tbb"><button type="button" class="txt go" data-a="replay">PLAY AGAIN</button><button type="button" class="txt" data-a="x">CLOSE</button></div></div><div class="tbl">' + items + '</div></aside>');
   }
+  function fitBar() { if (!bar) return; if (innerWidth <= 760) { bar.style.minHeight = ''; ovl.style.setProperty('--tbh', bar.offsetHeight + 'px'); return; } tbhMax = Math.max(tbhMax, bar.offsetHeight); bar.style.minHeight = tbhMax + 'px'; ovl.style.setProperty('--tbh', tbhMax + 'px'); }
   function place(h) {
     if (bar) bar.remove(); bar = mk(h); ovl.appendChild(bar);
-    tbhMax = Math.max(tbhMax, bar.offsetHeight); bar.style.minHeight = tbhMax + 'px'; ovl.style.setProperty('--tbh', tbhMax + 'px');
+    fitBar();
     bar.addEventListener('click', function (e) {
       var a = e.target.closest('[data-a],a[data-i]'); if (!a) return; e.preventDefault();
       if (a.dataset.i !== undefined) return go(+a.dataset.i, 'browse');
@@ -410,6 +411,7 @@
       if (k === 'x') close(); else if (k === 'pause') { clearTimeout(timer); mode = 'browse'; draw(); }
       else if (k === 'next') go(idx + 1, mode === 'play' ? 'play' : 'browse'); else if (k === 'back') go(Math.max(0, idx - 1), mode === 'play' ? 'play' : 'browse');
       else if (k === 'resume') go(idx, 'play'); else if (k === 'list') list(); else if (k === 'replay') go(0, 'play');
+      else if (k === 'more') { var on = bar.classList.toggle('more'); a.textContent = on ? 'LESS' : 'MORE'; a.setAttribute('aria-expanded', on); if (on && mode === 'play') { clearTimeout(timer); mode = 'browse'; draw(); bar.classList.add('more'); var m = $('.tmore', bar); m.textContent = 'LESS'; m.setAttribute('aria-expanded', true); } fitBar(); }
       else if (k === 'install' && window.__bip) { try { window.__bip.prompt(); } catch (e) {} window.__bip = null; }
     });
   }
