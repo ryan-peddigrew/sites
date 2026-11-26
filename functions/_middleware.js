@@ -8,7 +8,10 @@ const EXTRA = { 'sean-wells': 'darkmagic1993', 'tammy-gillis': 'roomtogrow' };
 // watermark and hidden in the page, so a leaked copy says whose link it came from.
 // To revoke a code, delete it from EXTRA. To end it on a date, add it to EXPIRES (YYYY-MM-DD, Eastern).
 const LABELS = { roomtogrow: 'TG-01 TAMMY GILLIS', darkmagic1993: 'SW-01 SEAN WELLS' };
-const EXPIRES = { roomtogrow: '2027-02-28' };
+const EXPIRES = {};
+// OPEN TO ANYONE WITH THE LINK (Ryan, 26 Nov 2026: "Get rid of the gate now", Tammy must never be asked for a code).
+// These folders never show the code screen. Old links with ?k= still open; the code is just tidied out of the address.
+const PUBLIC = new Set(['tammy-gillis']);
 // Build files never leave the server: sources, scripts and notes return 404 even with a code.
 const PRIVATE = /\/(src|tools)\/|\/README\.md$|\.(py|sh|md)$/i;
 
@@ -86,11 +89,13 @@ export async function onRequest(ctx) {
     }
     return r;
   }
-  if (!env.SECRET) return gate('Preview is being set up. Please try again soon.');
   const folder = url.pathname.split('/')[1] || '';
+  if (!env.SECRET && PUBLIC.has(folder)) return next();
+  if (!env.SECRET) return gate('Preview is being set up. Please try again soon.');
   const want = await mk(env.SECRET, folder);
   const master = await mk(env.SECRET, '*master');
   const ck = cookies(request);
+  if (PUBLIC.has(folder) && EXTRA[folder] && ck['clk_master'] !== master) ck[cname(folder)] = EXTRA[folder];
   const live = c => !EXPIRES[c] || new Date() <= new Date(EXPIRES[c] + 'T23:59:59-05:00');
   const ok = c => c && (c === want || c === master || (EXTRA[folder] && c === EXTRA[folder] && live(c)));
   if (PRIVATE.test(url.pathname)) return new Response('Not found', { status: 404, headers: { 'X-Robots-Tag': 'noindex, nofollow' } });
@@ -105,8 +110,9 @@ export async function onRequest(ctx) {
   let given = norm(url.searchParams.get('k'));
   if (request.method === 'POST') {
     try { given = norm((await request.formData()).get('code')); } catch (e) {}
-    if (!ok(given)) return gate('That code does not match. Check it and try again.');
+    if (!ok(given)) { if (PUBLIC.has(folder)) return Response.redirect(url.origin + url.pathname, 303); return gate('That code does not match. Check it and try again.'); }
   }
+  if (!ok(given) && given && PUBLIC.has(folder)) { url.searchParams.delete('k'); return new Response(null, { status: 303, headers: { Location: url.pathname + url.search, 'Cache-Control': 'no-store' } }); }
   if (ok(given)) {
     url.searchParams.delete('k');
     const h = new Headers({ Location: url.pathname + url.search, 'Cache-Control': 'no-store' });
