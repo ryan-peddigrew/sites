@@ -279,7 +279,7 @@
     };
     return;
   }
-  var BOOK = 'https://cal.com/chairlift/15min';
+  var BOOK = 'https://usechairlift.com/5min';
   var S = [
     { t: 'Before anything else', w: 'You teach hotels to stop pitch slapping, so this isn’t a pitch. It’s what we noticed on your site, a few ideas built from your own book and talks, and a couple of questions. Keep what’s useful.', y: 'About five minutes. Pause, go back or skip at any time.', s: 'Gillis Sales Podcast, “Stop Pitch Slapping Your Clients” (Oct 30, 2019)', el: '#top' },
     { t: 'Your buyer has changed', w: 'You’ve said the modern buyer no longer needs a salesperson for information. Your own buyers too: a GM or owner reads your site before they ever talk to you. A question for you: when a GM lands here late at night, how do they know which service is for them?', y: 'Everything that follows is built for that reader.', s: 'Gillis Sales press releases, “Selling to the Modern Buyer”', el: '#top' },
