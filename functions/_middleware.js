@@ -40,6 +40,24 @@ button{margin-top:12px;width:100%;height:54px;font-weight:700;font-size:14px;let
   return new Response(html, { status: 401, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex, nofollow' } });
 }
 
+// Preview forms and view alerts (26 Nov 2026): demo submissions and client tour views go to Ryan only,
+// server-side, so no address or service name appears in the page. Nothing is sent to the client or anyone else.
+const LEAD_TO = 'https://formsubmit.co/ajax/ryan@usechairlift.com';
+async function lead(request, url, folder, ref, team) {
+  let d = {};
+  try { const t = await request.text(); if (t.length > 6000) return new Response('Too large', { status: 413 }); d = JSON.parse(t || '{}'); } catch (e) { return new Response('Bad request', { status: 400 }); }
+  const kind = String(d.kind || 'form').slice(0, 40);
+  // View alerts only for client codes, never for the team's own views.
+  if ((kind === 'tour-open' || kind === 'tour-progress' || kind === 'view') && team) return new Response(null, { status: 204 });
+  const body = { _subject: `[Preview ${folder}] ${kind} · ref ${ref}`, _template: 'table', _captcha: 'false', preview: folder, ref, kind, page: String(d.page || '').slice(0, 200), time_utc: new Date().toISOString() };
+  const f = d.fields && typeof d.fields === 'object' ? d.fields : {};
+  Object.keys(f).slice(0, 25).forEach(k => { body[String(k).slice(0, 60)] = String(f[k]).slice(0, 800); });
+  try {
+    const r = await fetch(LEAD_TO, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json', Referer: url.origin + '/' + folder + '/', Origin: url.origin }, body: JSON.stringify(body) });
+    return new Response(JSON.stringify({ ok: r.ok }), { status: r.ok ? 200 : 502, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
+  } catch (e) { return new Response(JSON.stringify({ ok: false }), { status: 502, headers: { 'Content-Type': 'application/json' } }); }
+}
+
 export async function onRequest(ctx) {
   const { request, env, next } = ctx;
   const url = new URL(request.url);
@@ -67,6 +85,12 @@ export async function onRequest(ctx) {
   const ok = c => c && (c === want || c === master || (EXTRA[folder] && c === EXTRA[folder] && live(c)));
   if (PRIVATE.test(url.pathname)) return new Response('Not found', { status: 404, headers: { 'X-Robots-Tag': 'noindex, nofollow' } });
 
+  if (request.method === 'POST' && url.pathname === '/' + folder + '/_lead') {
+    if (!(ok(ck[cname(folder)]) || ok(ck['clk_master']))) return new Response('Forbidden', { status: 403 });
+    const code = ok(ck[cname(folder)]) ? ck[cname(folder)] : ck['clk_master'];
+    const ref = (LABELS[code] || (code === master ? 'CL-TEAM' : 'CL-' + folder.toUpperCase().slice(0, 12)));
+    return lead(request, url, folder, ref, !LABELS[code]);
+  }
   const norm = v => (v || '').toString().replace(/[^a-z0-9]/gi, '').toLowerCase();
   let given = norm(url.searchParams.get('k'));
   if (request.method === 'POST') {
@@ -85,7 +109,9 @@ export async function onRequest(ctx) {
     const r = await next();
     const out = new Response(r.body, r);
     out.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive');
-    out.headers.set('Cache-Control', 'private, max-age=0, must-revalidate');
+    // Speed (26 Nov 2026): photos and video stay on the viewer's device for a day, scripts and styles for 5 minutes; pages always fresh.
+    const ext = (url.pathname.match(/\.(\w+)$/) || [])[1] || '';
+    out.headers.set('Cache-Control', /^(webp|jpe?g|png|svg|mp4|woff2?)$/i.test(ext) ? 'private, max-age=86400' : /^(css|js)$/i.test(ext) ? 'private, max-age=300' : 'private, max-age=0, must-revalidate');
     out.headers.set('Content-Security-Policy', "frame-ancestors 'self'");
     out.headers.set('X-Frame-Options', 'SAMEORIGIN');
     if (!(out.headers.get('Content-Type') || '').includes('text/html')) return out;
