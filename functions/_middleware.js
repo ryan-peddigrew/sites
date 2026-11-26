@@ -67,6 +67,11 @@ export async function onRequest(ctx) {
   const { request, env, next } = ctx;
   const url = new URL(request.url);
   if (OPEN.some(p => url.pathname.startsWith(p))) return next();
+  // Home-screen icons only (26 Nov 2026): iPhones fetch the icon without the preview cookie, so these logo PNGs skip the gate.
+  if (/^\/[\w-]+\/img\/appicon-[\w-]+\.png$/.test(url.pathname)) {
+    const r = await next(); const out = new Response(r.body, r);
+    out.headers.set('Cache-Control', 'public, max-age=604800'); out.headers.set('X-Robots-Tag', 'noindex'); return out;
+  }
   // Ryan's own wedding site on his domain: public, no gate, only the guest pages.
   if (/(^|\.)peddigrewsaysido\.com$/i.test(url.hostname)) {
     const p = url.pathname === '/' ? '/index.html' : /^\/rsvp\/?$/.test(url.pathname) ? '/rsvp.html' : url.pathname;
