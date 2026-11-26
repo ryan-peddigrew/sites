@@ -184,26 +184,30 @@
   </div>
 </section>
 
-<section class="check" id="check" aria-label="Hotel sales health check">
+<section class="check" id="check" aria-label="Hotel Sales Scorecard">
   <div class="wrap check-grid">
     <div>
-      <p class="kick"><span class="bar"></span>TWO-MINUTE HEALTH CHECK</p>
+      <p class="kick"><span class="bar"></span>HOTEL SALES SCORECARD</p>
       <h2 class="h2">WHERE DOES YOUR HOTEL'S SALES <span class="t">STAND?</span></h2>
-      <p class="lead">Six yes-or-no questions. You'll see where the gaps are and the fastest way to close them.</p>
+      <p class="lead">Ten quick questions across the five places hotel revenue is won or lost. You get a score for each, a one-page report, and the first thing to fix.</p>
+      <ul class="sc-areas" id="scAreas" aria-label="What the scorecard covers">
+        <li data-k="0"><b>COVERAGE</b><i><s></s></i></li><li data-k="1"><b>PROSPECTING</b><i><s></s></i></li><li data-k="2"><b>GROUPS AND RFPS</b><i><s></s></i></li><li data-k="3"><b>FRONT DESK</b><i><s></s></i></li><li data-k="4"><b>VISIBILITY AND SKILLS</b><i><s></s></i></li>
+      </ul>
     </div>
     <div class="ck" id="ck">
-      <div class="ck-top"><span id="ckN">QUESTION 1 OF 6</span><span class="ck-bar"><i id="ckBar"></i></span></div>
+      <div class="ck-top"><span id="ckN">QUESTION 1 OF 10</span><span class="ck-bar"><i id="ckBar"></i></span></div>
+      <p class="ck-area" id="ckA"></p>
       <p class="ck-q" id="ckQ"></p>
-      <div class="ck-btns"><button type="button" class="btn btn-teal" data-a="1">YES</button><button type="button" class="btn btn-line-d" data-a="0">NO</button></div>
+      <div class="ck-btns three"><button type="button" class="btn btn-teal" data-a="2">YES</button><button type="button" class="btn btn-line-d" data-a="1">SOMETIMES</button><button type="button" class="btn btn-line-d" data-a="0">NO</button></div>
       <div class="ck-res" id="ckRes" hidden>
-        <p class="ck-score" id="ckScore"></p>
+        <p class="ck-score"><b id="ckScore">0</b><span>/ 100 · YOUR HOTEL SALES SCORE</span></p>
         <h3 id="ckH"></h3>
         <p id="ckP"></p>
-        <form class="ck-f mini" data-ok="Thanks. Tammy's team will send your results and next steps.">
-          <input type="email" required placeholder="Work email for your results" aria-label="Work email">
-          <button class="btn btn-teal" type="submit">SEND MY RESULTS</button>
+        <form class="ck-f mini" data-ok="Thanks. Your one-page report is on its way, and Tammy's team will follow up only if you ask.">
+          <input type="email" required placeholder="Work email for your report" aria-label="Work email">
+          <button class="btn btn-teal" type="submit">SEND MY REPORT</button>
         </form>
-        <div class="ck-more"><a class="btn btn-line-d" href="#build" id="ckGo">BUILD YOUR QUOTE</a><button type="button" class="lnk" id="ckRe">START OVER</button></div>
+        <div class="ck-more"><a class="btn btn-line-d" href="#build" id="ckGo">TALK IT THROUGH WITH TAMMY'S TEAM</a><button type="button" class="lnk" id="ckRe">START OVER</button></div>
       </div>
     </div>
   </div>
@@ -216,6 +220,14 @@
     <div class="num"><b data-n="350" data-s="+">0</b><span>HOTELS ACROSS THE US AND CANADA</span></div>
     <div class="num"><b data-n="90" data-s="%+">0</b><span>CLIENT RETENTION, YEAR AFTER YEAR</span></div>
     <div class="num"><b data-n="4" data-s="x">0</b><span>AVERAGE ROI IN 12 MONTHS</span></div>
+  </div>
+  <div class="wrap res-row" id="results">
+    <p class="kick"><span class="bar"></span>PUBLISHED RESULTS</p>
+    <div class="res-grid">
+      <div><b>$23M</b><span>ACTUAL REVENUE GENERATED FOR CLIENTS IN 2021</span></div>
+      <div><b>+40%</b><span>NEW BUSINESS FOR CLIENTS IN 2021</span></div>
+    </div>
+    <p class="res-src">As announced by Gillis Sales, March 16, 2022.</p>
   </div>
 </section>
 
@@ -235,6 +247,19 @@
     </ul>
     <blockquote class="pull sm">“The biggest risk isn't an untrained sales team. It's a team trained for a market that no longer exists.”<cite>TAMMY GILLIS</cite></blockquote>
     <a class="btn btn-teal" href="#build" data-pre="training" id="trainGo">PLAN A TRAINING</a>
+  </div>
+</section>
+
+
+<section class="paths" id="paths" aria-label="Training paths">
+  <div class="wrap">
+    <p class="kick"><span class="bar"></span>MORE WAYS TO LEARN THE GILLIS WAY</p>
+    <h2 class="h2">PICK THE <span class="t">PATH</span> THAT FITS YOUR TEAM.</h2>
+  </div>
+  <div class="wrap paths-grid">
+    <article class="path"><img src="img/team-m.webp" alt="" loading="lazy"><div><small>FOR MANAGEMENT COMPANIES</small><h3>GILLIS CERTIFIED</h3><p>Your whole commercial team completes the Gillis sales program and earns a certificate, renewed every year so the skills stay current.</p><ul><li>Per-seat, for portfolios of any size</li><li>Manager view of who has finished</li><li>Annual refresh</li></ul><a class="btn btn-teal" href="#build" data-pre="training">ASK ABOUT CERTIFICATION</a></div></article>
+    <article class="path"><img src="img/lobby-m.webp" alt="" loading="lazy"><div><small>FOR EVERY PROPERTY</small><h3>FRONT DESK SELLS</h3><p>A short course for front desk teams. As Room to Grow puts it, the front desk can be your most valuable business development tool.</p><ul><li>Spot the leads that walk in</li><li>Pass them to sales the same day</li><li>Short lessons, between shifts</li></ul><a class="btn btn-teal" href="#build" data-pre="training">BRING IT TO YOUR HOTEL</a></div></article>
+    <article class="path"><img src="img/stage-m.webp" alt="" loading="lazy"><div><small>FREE, ONCE A MONTH</small><h3>THE MONTHLY SALES HOUR</h3><p>A live 40-minute session with Tammy on one sales topic, with time for questions. Bring the whole team.</p><ul><li>Next session: <span class="ph">[date to set]</span></li><li>Recordings for subscribers</li><li>One idea to use that week</li></ul><form class="mini" data-ok="You're registered. The link will arrive before the session."><input type="email" required placeholder="Work email" aria-label="Work email"><button class="btn btn-teal" type="submit">SAVE MY SEAT</button></form></div></article>
   </div>
 </section>
 
@@ -313,6 +338,29 @@
   </div>
 </section>
 
+
+<section class="rfp" id="rfp" aria-label="RFP season">
+  <div class="wrap rfp-grid">
+    <div>
+      <p class="kick"><span class="bar"></span>RFP SEASON PLAYBOOK</p>
+      <h2 class="h2">MOST RFPS ARE WON <span class="t">BEFORE</span> THEY ARRIVE.</h2>
+      <p class="lead">Tammy's advice: be proactive, not passive, in RFP negotiations, which mostly happen between August and January. The playbook walks your team through the season, month by month.</p>
+      <p class="rfp-cd" id="rfpCd"></p>
+      <form class="mini" data-ok="The playbook is on its way, along with an invitation to the August kickoff."><input type="email" required placeholder="Work email" aria-label="Work email"><button class="btn btn-teal" type="submit">GET THE PLAYBOOK</button></form>
+      <p class="res-src">Source: Gillis Sales Podcast, "RFP Best Practices for Best Results" (Nov 20, 2019).</p>
+    </div>
+    <ol class="rfp-line" aria-label="RFP season, month by month">
+      <li><b>JUL</b><span>Review last year's accounts and set targets</span></li>
+      <li><b>AUG</b><span>Season opens: reach out before the RFP does. Live kickoff with Tammy</span></li>
+      <li><b>SEP</b><span>Price with purpose, not just rates, dates and space</span></li>
+      <li><b>OCT</b><span>Follow up on every open bid</span></li>
+      <li><b>NOV</b><span>Negotiate and close</span></li>
+      <li><b>DEC</b><span>Lock in the final accounts</span></li>
+      <li><b>JAN</b><span>Review results and plan next year</span></li>
+    </ol>
+  </div>
+</section>
+
 <section class="one" id="gillisone" aria-label="GillisOne">
   <div class="wrap one-grid">
     <div class="one-tx">
@@ -350,6 +398,25 @@
       <figure><blockquote>“GIVING US <span class="t">CONFIDENCE</span> NO MATTER WHAT COMES UP.”</blockquote><p>Gillis serves as a stand-alone effort for some hotels and, in others, is integrated with our on-site sales team.</p><figcaption>DHAVAL BRAHMBHATT · PRINCIPAL OWNER, PROMINENCE HOSPITALITY GROUP</figcaption></figure>
     </div>
     <div class="vq-nav"><button type="button" id="vqP" aria-label="Previous story"><svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7"/></svg></button><span id="vqN">1 / 4</span><button type="button" id="vqN2" aria-label="Next story"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button></div>
+  </div>
+</section>
+
+
+<section class="partners" id="partners" aria-label="Owners' associations and partners">
+  <div class="wrap part-grid">
+    <div>
+      <p class="kick"><span class="bar"></span>FOR OWNERS' ASSOCIATIONS AND BRANDS</p>
+      <h2 class="h2">BRING GILLIS TO <span class="t">YOUR MEMBERS.</span></h2>
+      <p class="lead">Gillis Sales already partners with the IHG Owners Association to bring members a full-service sales program with member pricing. Associations and brands can set up a member offer of their own.</p>
+    </div>
+    <div class="part-cards">
+      <div class="part on"><small>CURRENT PARTNER</small><b>IHG OWNERS ASSOCIATION</b><p>Member pricing and added benefits on the full-service sales program. <span class="ph">[Tammy to confirm current terms]</span></p><p class="res-src">Announced February 2022.</p></div>
+      <form class="part" data-ok="Thank you. Tammy's team will be in touch about a member offer."><small>YOUR ASSOCIATION OR BRAND</small><b>SET UP A MEMBER OFFER</b><input required placeholder="Association or brand" aria-label="Association or brand"><input type="email" required placeholder="Work email" aria-label="Work email"><button class="btn btn-teal" type="submit">START THE CONVERSATION</button></form>
+    </div>
+  </div>
+  <div class="wrap refer">
+    <div><p class="kick"><span class="bar"></span>FOR CLIENTS</p><h3>KNOW AN OWNER WHO NEEDS THIS?</h3><p>Introduce a fellow owner or GM. Tammy's team will reach out personally, and you'll hear how it goes. <span class="ph">[Thank-you gift to set]</span></p></div>
+    <form class="mini two" data-ok="Thank you for the introduction. We'll take good care of them."><input required placeholder="Their name and hotel" aria-label="Their name and hotel"><input type="email" required placeholder="Their email" aria-label="Their email"><button class="btn btn-teal" type="submit">MAKE THE INTRODUCTION</button></form>
   </div>
 </section>
 
@@ -430,6 +497,44 @@
       <div class="bq-nav" id="bqNav"><button type="button" class="btn btn-line-d" id="bqB">BACK</button><button type="button" class="btn btn-teal" id="bqN">NEXT</button></div>
       <p class="bq-err" id="bqErr" role="alert"></p>
     </form>
+  </div>
+</section>
+
+
+<section class="acad" id="academy" aria-label="Academy concept">
+  <div class="wrap acad-grid">
+    <div class="acad-ph"><img src="img/academy-concept.webp" alt="Concept screen of a Gillis Sales members' academy on a phone" loading="lazy"><span class="acad-tag">CONCEPT · NOT LIVE</span></div>
+    <div>
+      <p class="kick"><span class="bar"></span>AN IDEA FOR GILLIS</p>
+      <h2 class="h2">YOUR TEACHING, <span class="t">AS AN ACADEMY.</span></h2>
+      <p class="lead">A members' academy in your brand. Hotel teams learn your way of selling in short lessons, led by you, on their own time.</p>
+      <div class="acad-th"><span>NOT LEAVING SALES TO CHANCE</span><span>SELLING TO THE MODERN BUYER</span><span>EVERYONE IS IN SALES</span></div>
+      <ul class="acad-ways">
+        <li><b>MEMBERS</b><span>Learn on their own time</span></li>
+        <li><b>HOTEL TEAMS</b><span>Learn together, with a manager view</span></li>
+        <li><b>ONE-ON-ONE</b><span>Time with Tammy</span></li>
+        <li><b>WORKSHOPS</b><span>That lead into your training</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="insights" id="insights" aria-label="Gillis Sales Insights">
+  <div class="wrap ins-grid">
+    <div>
+      <p class="kick"><span class="bar"></span>GILLIS SALES INSIGHTS</p>
+      <h2 class="h2">ONE GOOD SALES IDEA, <span class="t">EVERY MONTH.</span></h2>
+      <p class="lead">Practical hotel sales ideas from Tammy, by email once a month. No pitches. Plus a special edition when RFP season opens.</p>
+      <form class="mini" data-ok="You're on the list. Your first issue arrives next month."><input type="email" required placeholder="Work email" aria-label="Work email"><button class="btn btn-teal" type="submit">SUBSCRIBE</button></form>
+      <label class="ins-opt"><input type="checkbox" checked> Also send me the RFP season edition</label>
+    </div>
+    <div class="ins-mail" aria-label="Sample issues">
+      <p class="ins-h"><span>SAMPLE ISSUES</span><span class="ph">[topics to confirm]</span></p>
+      <article><small>ISSUE · STOP PITCH SLAPPING</small><b>Your buyers don't want a sales conversation. They want a business one.</b></article>
+      <article><small>ISSUE · THE HUNT</small><b>Why waiting for the phone to ring won't grow your base business.</b></article>
+      <article><small>RFP EDITION · AUGUST</small><b>Be proactive, not passive: the season starts now.</b></article>
+      <article><small>ISSUE · EVERYONE IS IN SALES</small><b>The front desk lead you missed last week.</b></article>
+    </div>
   </div>
 </section>
 

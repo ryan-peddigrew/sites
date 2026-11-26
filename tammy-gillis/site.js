@@ -117,33 +117,54 @@
   hr.addEventListener('input', function () { hv.style.setProperty('--x', hr.value + '%'); });
   var hvd = false;
   new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting && !hvd && !RM) { hvd = true; var t0 = performance.now(); (function f(t) { var p = Math.min(1, (t - t0) / 1600), v = 50 + Math.sin(p * Math.PI * 2) * 22 * (1 - p); hv.style.setProperty('--x', v + '%'); hr.value = v; if (p < 1) requestAnimationFrame(f); })(t0); } }); }, { threshold: 0.5 }).observe(hv);
+  var AR = ['COVERAGE', 'PROSPECTING', 'GROUPS AND RFPS', 'FRONT DESK', 'VISIBILITY AND SKILLS'];
   var CQ = [
-    ['Do you have a dedicated salesperson working on your hotel every week?', 1],
-    ['Would your pipeline survive if your best salesperson left tomorrow?', 1],
-    ['Does most of your base business come from somewhere other than OTAs?', 1],
-    ['Can you see your sales activity and pipeline in real time?', 1],
-    ['Has your sales team had modern sales training in the last 12 months?', 1],
-    ['Do you have a written plan for proactive prospecting this quarter?', 1]
+    [0, 'Does someone work on selling your hotel every single week?'],
+    [0, 'Would your pipeline survive if your best salesperson left tomorrow?'],
+    [1, 'Do you have a written plan for proactive prospecting this quarter?'],
+    [1, 'Do you research the real decision maker before reaching out?'],
+    [2, 'Is your RFP plan ready before August?'],
+    [2, 'Do new group leads get a reply the same day?'],
+    [3, 'Does your front desk know how to spot a sales lead and pass it on?'],
+    [3, 'Does most of your base business come from somewhere other than OTAs?'],
+    [4, 'Can you see sales activity and pipeline whenever you want?'],
+    [4, 'Has your sales team had modern sales training in the last 12 months?']
   ];
-  var ci = 0, cs = 0, cans = [];
+  var FIX = [
+    ['Start with coverage.', 'Your biggest gap is consistent selling. A dedicated seller with a system behind them closes it fastest.', 'solutions'],
+    ['Go on the hunt.', 'Waiting for the phone to ring won’t grow your base business. A proactive prospecting plan is your first fix.', 'solutions'],
+    ['Get ahead of RFP season.', 'Most RFPs are won before they arrive. Start with the RFP season playbook and a plan for August.', 'solutions'],
+    ['Turn your front desk into a sales team.', 'Leads walk in every day. A short Front Desk Sells course helps your team catch them.', 'training'],
+    ['See it, then sharpen it.', 'Real-time visibility and modern training help your team sell with confidence.', 'training']
+  ];
+  var ci = 0, cans = [];
+  var scLi = $$('#scAreas li');
   function ckShow() {
     $('#ckN').textContent = 'QUESTION ' + (ci + 1) + ' OF ' + CQ.length; $('#ckBar').style.width = (ci / CQ.length * 100) + '%';
-    var q = $('#ckQ'); q.textContent = CQ[ci][0]; q.classList.remove('sw'); void q.offsetWidth; q.classList.add('sw');
+    $('#ckA').textContent = AR[CQ[ci][0]];
+    var q = $('#ckQ'); q.textContent = CQ[ci][1]; q.classList.remove('sw'); void q.offsetWidth; q.classList.add('sw');
+    scLi.forEach(function (l, k) { l.classList.toggle('on', k === CQ[ci][0]); });
   }
   function ckEnd() {
-    $('#ckBar').style.width = '100%'; $('#ckN').textContent = 'YOUR RESULT'; $('#ckQ').hidden = true; $('.ck-btns').hidden = true; $('#ckRes').hidden = false;
-    $('#ckScore').textContent = cs + ' OF ' + CQ.length + ' IN PLACE';
-    var h, p, pre = 'solutions';
-    if (!cans[0] || !cans[1]) { h = 'Start with a dedicated seller and a system behind them.'; p = 'Your biggest gap is coverage. A managed sales solution gives you a full-time effort, leadership and reporting without hiring in-house.'; }
-    else if (!cans[4]) { h = 'Your team is in place. Give them a modern playbook.'; p = 'A workshop or keynote for your commercial team is the quickest lift. Many teams pair it with Room to Grow.'; pre = 'training'; }
-    else if (!cans[2] || !cans[5]) { h = 'Time to take back your base business.'; p = 'A proactive prospecting plan reduces how much you lean on OTAs. Our sellers build that pipeline every week.'; }
-    else if (!cans[3]) { h = 'You need to see what sales is doing.'; p = 'GillisOne gives owners real-time visibility into activity, pipeline and opportunities.'; pre = 'gillisone'; }
-    else { h = 'Strong foundation. Let’s find the next level.'; p = 'You have the basics. A conversation with Tammy’s team can show where the next opportunities are hiding.'; }
-    $('#ckH').textContent = h; $('#ckP').textContent = p; $('#ckGo').dataset.pre = pre;
+    $('#ckBar').style.width = '100%'; $('#ckN').textContent = 'YOUR REPORT'; $('#ckA').textContent = ''; $('#ckQ').hidden = true; $('.ck-btns').hidden = true; $('#ckRes').hidden = false;
+    var area = [0, 0, 0, 0, 0]; cans.forEach(function (a, i) { area[CQ[i][0]] += a; });
+    var tot = Math.round(cans.reduce(function (x, y) { return x + y; }, 0) / (CQ.length * 2) * 100);
+    var low = 0; area.forEach(function (v, k) { if (v < area[low]) low = k; });
+    scLi.forEach(function (l, k) { l.classList.remove('on'); l.classList.add('done'); l.querySelector('s').style.width = (area[k] / 4 * 100) + '%'; });
+    var el = $('#ckScore'), t0 = performance.now(); (function f(t) { var p = RM ? 1 : Math.min(1, (t - t0) / 1100); el.textContent = Math.round(tot * p); if (p < 1) requestAnimationFrame(f); })(t0);
+    var fx = tot >= 85 ? ['Strong foundation. Let’s find the next level.', 'You have the basics in place. A conversation with Tammy’s team can show where the next opportunities are hiding.', 'solutions'] : FIX[low];
+    $('#ckH').textContent = fx[0]; $('#ckP').textContent = fx[1]; $('#ckGo').dataset.pre = fx[2];
   }
-  $$('.ck-btns button').forEach(function (b) { b.addEventListener('click', function () { var a = +b.dataset.a; cans.push(a); cs += a; ci++; if (ci >= CQ.length) ckEnd(); else ckShow(); }); });
-  $('#ckRe').addEventListener('click', function () { ci = 0; cs = 0; cans = []; $('#ckQ').hidden = false; $('.ck-btns').hidden = false; $('#ckRes').hidden = true; ckShow(); });
+  $$('.ck-btns button').forEach(function (b) { b.addEventListener('click', function () { cans.push(+b.dataset.a); ci++; if (ci >= CQ.length) ckEnd(); else ckShow(); }); });
+  $('#ckRe').addEventListener('click', function () { ci = 0; cans = []; $('#ckQ').hidden = false; $('.ck-btns').hidden = false; $('#ckRes').hidden = true; scLi.forEach(function (l) { l.classList.remove('done'); l.querySelector('s').style.width = '0'; }); ckShow(); });
   ckShow();
+  (function () {
+    var el = $('#rfpCd'); if (!el) return;
+    var now = new Date(), y = now.getFullYear(), m = now.getMonth();
+    if (m >= 7 || m === 0) { el.innerHTML = '<b>RFP SEASON IS ON</b><span>Most negotiations run August to January.</span>'; return; }
+    var d = Math.ceil((new Date(y, 7, 1) - now) / 864e5);
+    el.innerHTML = '<b>' + d + ' DAYS</b><span>until RFP season opens on August 1.</span>';
+  })();
   $$('.num b').forEach(function (b) { if (!window.__cio) window.__cio =new IntersectionObserver(function (es, o) { es.forEach(function (e) { if (!e.isIntersecting) return; o.unobserve(e.target); var b = e.target, n = +b.dataset.n, s = b.dataset.s || '', t0 = performance.now(); (function f(t) { var p = RM ? 1 : Math.min(1, (t - t0) / 1400); b.textContent = Math.round(n * (1 - Math.pow(1 - p, 3))) + s; if (p < 1) requestAnimationFrame(f); })(t0); }); }, { threshold: 0.6 }); window.__cio.observe(b); });
   var fmt = 'IN-PERSON WORKSHOP';
   $$('.fmt button').forEach(function (b) { b.addEventListener('click', function () { $$('.fmt button').forEach(function (x) { x.classList.remove('on'); }); b.classList.add('on'); fmt = b.dataset.f; }); });
@@ -209,26 +230,28 @@
   }
   var BOOK = 'https://cal.com/chairlift/5min';
   var S = [
-    { t: 'Welcome, Tammy', w: 'This is a concept redesign of gillissales.com, built by Chairlift from your own logo, colours, photos, video and words. This walkthrough shows what we changed, why, and how it helps Gillis win more hotels.', y: 'About three minutes. Pause, go back or skip at any time.', s: 'Your current site, gillissales.com', el: '#top' },
-    { t: 'One flowing look, dark or light', w: 'Your current site jumps between white and dark blocks. Now the whole page is one continuous look in your teal, blue and purple, with a dark and a light version (the switch is at the top).', y: 'A consistent look reads as premium and keeps people scrolling instead of leaving.', s: 'Colours taken straight from your logo file', el: '#top' },
-    { t: 'You lead the story', w: 'The page opens with your own interview footage, then your stage and training photos. Watch Tammy plays the full film.', y: 'Owners and GMs buy from people they trust. Your face and voice do more than a stock lobby photo.', s: 'Your video and photos on gillissales.com', el: '#reel' },
-    { t: 'Two clear next steps', w: 'Build your quote and Get in touch sit side by side in the hero. On phones they stay at the bottom of the screen the whole way down.', y: 'Fewer choices means more enquiries. Today visitors have to hunt for the Contact page.', s: 'Your contact page and its form', el: '#heroBtns' },
-    { t: 'The problem, in your words', w: 'Your opening message now lights up word by word as visitors scroll.', y: 'It actually gets read, and it frames everything that follows.', s: 'Your homepage copy, unchanged', el: '#pressure' },
-    { t: 'Five ways to buy from Gillis', w: 'Sales Solutions, Sales Training, Speaking, Room to Grow and GillisOne, each with its own next step.', y: 'Every revenue stream gets its own path to a sale, instead of one general contact form.', s: 'Your Services menu, book page and GillisOne section', el: '#ways' },
-    { t: 'Dedicated. Backed. Supported.', w: 'Your three-part promise now builds one line at a time over your own lobby photo.', y: 'It turns a tagline into a moment people remember.', s: 'Your homepage', el: '#system' },
-    { t: 'One salesperson, or a sales system', w: 'Visitors drag a line between the old way and the Gillis way.', y: 'Your core difference, understood in two seconds.', s: '\u201cSustainable growth requires a proven sales system, not dependence on one salesperson.\u201d (your homepage)', el: '#halves' },
-    { t: 'Sales Solutions, made clearer', w: 'Your four advantages, the hotel types you serve, the business segments you grow and your own line: \u201cWe\u2019ve made the investments, so you don\u2019t have to.\u201d', y: 'An owner can see in one screen whether Gillis fits their hotel.', s: 'Your Sales Solutions page and FAQ', el: '#solutions' },
-    { t: 'New: two-minute health check', w: 'Six yes-or-no questions give a hotel an instant result and the right next step, then ask for an email to send it.', y: 'It captures owners who are not ready to talk yet, and tells your team where their gaps are before the first conversation.', s: 'Questions built from the challenges on your contact form', el: '#check' },
-    { t: 'Your proof, up front', w: '30+ years, 350+ hotels, 90%+ client retention and 4x average ROI, counting up as they appear.', y: 'Proof works best before the ask, not buried on the About page.', s: 'Only numbers you already publish (homepage, About, Sales Solutions)', el: '#numbers' },
-    { t: 'Training as its own product', w: 'Workshops, webinars and keynotes to choose from, the four outcomes, and a Plan a training button.', y: 'Training becomes a sales line of its own, not a link in a menu.', s: 'Your Sales Training page', el: '#training' },
-    { t: 'Book Tammy to speak', w: 'Your three talks with their takeaways, a date request form and your headshot ready to download.', y: 'Event planners can request a date at midnight, without an email chain.', s: 'Your Speaking Engagements page', el: '#speaking' },
-    { t: 'Room to Grow sells more than copies', w: 'Amazon.com and Amazon.ca buttons, plus team copies with a quantity slider and an optional book-club workshop with you.', y: 'One book order can become a group order and a training lead.', s: 'Your Room to Grow page and its reviews', el: '#book' },
-    { t: 'GillisOne gets its own stage', w: 'The five benefits, a sample view and a demo request.', y: 'Your platform becomes a reason to reach out, not just a feature.', s: 'Your homepage GillisOne section and FAQ', el: '#gillisone' },
-    { t: 'Your clients, in their own words', w: 'Realstar, Denham, Metropolitan and Prominence, one at a time and big enough to read on a phone.', y: 'Real names from real hotel companies carry more weight than anything we could write.', s: 'Your Testimonials page', el: '#voices' },
-    { t: 'Meet Tammy', w: 'Your story, your recognitions, and a little Cape Breton and Butters.', y: 'Hotels hire Gillis because of you. Now the site says so.', s: 'Your Our Team bio and Speaking bio', el: '#tammy' },
-    { t: 'Build your quote', w: 'Five taps: what they need, their hotels, their biggest challenge, timing and contact details.', y: 'Your team gets hotel count, type, challenge and timing before the first conversation. Better leads, faster proposals.', s: 'The options on your current contact form', el: '#build' },
-    { t: 'Straight answers', w: 'Your FAQ, trimmed to the questions owners ask most.', y: 'It handles objections before they come up, and helps Google show your answers.', s: 'Your FAQ page', el: '#faq' },
-    { t: 'What happens next', w: 'Everything here is a working concept. A few items, like book pricing and reply times, are left for your team to set, and nothing is live on your domain.', y: 'Let\u2019s walk through it together and decide what you would like to keep, change or launch first.', s: 'Prepared for Gillis Sales by Chairlift', el: '#contact', cta: true }
+    { t: 'Before anything else', w: 'You teach hotels to stop pitch slapping, so this isn’t a pitch. It’s what we noticed on your site, a few ideas built from your own book and talks, and a couple of questions. Keep what’s useful.', y: 'About five minutes. Pause, go back or skip at any time.', s: 'Gillis Sales Podcast, “Stop Pitch Slapping Your Clients” (Oct 30, 2019)', el: '#top' },
+    { t: 'Your buyer has changed', w: 'You’ve said the modern buyer no longer needs a salesperson for information. Your own buyers too: a GM or owner reads your site before they ever talk to you. A question for you: when a GM lands here late at night, how do they know which service is for them?', y: 'Everything that follows is built for that reader.', s: 'Gillis Sales press releases, “Selling to the Modern Buyer”', el: '#top' },
+    { t: 'Your opening line, kept', w: '“Sales should never be left to chance” is your strongest line and the title of your book. It now opens the page, over your own film.', y: 'Visitors hear you in the first five seconds, before they read anything.', s: 'gillissales.com; Room to Grow (Page Two, 2021)', el: '#reel' },
+    { t: 'Two clear next steps', w: 'Build your quote and Get in touch sit side by side at the top, and stay at the bottom of a phone screen the whole way down.', y: 'Fewer choices, more enquiries. Today a visitor has to hunt for the Contact page.', s: 'Your contact page and its form', el: '#heroBtns' },
+    { t: 'Five ways in', w: 'You earn in five ways: sales solutions, training, speaking, the book and GillisOne. Each lived on its own page. Now one list near the top lets each buyer pick their door.', y: 'An owner, a director of sales and an event planner each find their way in on the first screen.', s: 'Your site navigation', el: '#ways' },
+    { t: 'One look, light or dark', w: 'Your current site jumps between white and dark blocks. Now it is one continuous look in your own colours, with a light and a dark version (the switch is at the top).', y: 'A consistent look reads as premium and keeps people scrolling.', s: 'Colours taken straight from your logo file', el: '#system' },
+    { t: 'New: the Hotel Sales Scorecard', w: 'Ten quick questions across five areas: coverage, prospecting, groups and RFPs, front desk, and visibility and skills. A hotel gets a score, a one-page report and the first thing to fix.', y: 'You teach that the seller’s job is to bring insight the buyer can’t get alone. This starts the first conversation with their situation, not your pitch: a relevant business conversation.', s: 'Podcast Ep. 1; Room to Grow; your contact form’s challenges', el: '#check' },
+    { t: 'Your system, side by side', w: 'Your strongest argument is one salesperson versus a sales system. Visitors now drag a line to compare the two, in your own words.', y: 'It shows the difference instead of only saying it.', s: 'Your Sales Solutions page', el: '#halves' },
+    { t: 'Your proof, up front', w: 'The numbers you already publish, plus the results you announced: $23M in actual revenue for clients in 2021 and 40% more new business.', y: 'Proof works best before the ask, not buried in a press room.', s: 'Your homepage and About page; Gillis Sales announcement, March 16, 2022', el: '#numbers' },
+    { t: 'Training as its own product', w: 'Workshops, webinars and keynotes to choose from, the outcomes, and a Plan a training button.', y: 'Training becomes a sales line of its own, not a link in a menu.', s: 'Your Sales Training page', el: '#training' },
+    { t: 'New: three more ways to learn', w: 'Gillis Certified for management companies, a short Front Desk Sells course, and a free monthly sales hour with you.', y: 'Room to Grow calls the front desk your most valuable business development tool. Certification gives portfolios a reason to train every team, every year.', s: 'Room to Grow; other hotel sales trainers run monthly webcasts and certify teams', el: '#paths' },
+    { t: 'Book Tammy to speak', w: 'Your three talks side by side, each with what the room leaves with in your words, and a form that asks for the date first.', y: 'Event planners decide faster when they can see the outcome and check your date.', s: 'Your Speaking page', el: '#speaking' },
+    { t: 'Room to Grow, for whole teams', w: 'Amazon links stay, and a team-copies option sits right beside them.', y: 'A hotel group buying copies for its sales team is a bigger order, and often leads to training.', s: 'Your Room to Grow page', el: '#book' },
+    { t: 'New: the RFP season playbook', w: 'A countdown to August, the season month by month, and a playbook download with a live kickoff each August.', y: 'Your advice is to be proactive, not passive, and most negotiations run August to January. This puts you in their inbox right when it matters.', s: 'Gillis Sales Podcast, “RFP Best Practices for Best Results” (Nov 20, 2019)', el: '#rfp' },
+    { t: 'GillisOne, shown', w: 'GillisOne gets its own stage: your five benefits with your titles unchanged, a sample screen and a demo request.', y: 'A GM can picture using it before asking for a demo.', s: 'Your GillisOne section and FAQ', el: '#gillisone' },
+    { t: 'Your clients, in their words', w: 'Your four client quotes, unchanged and big enough to read on a phone.', y: 'Real names from real hotel companies carry more weight than anything we could write.', s: 'Your Testimonials page', el: '#voices' },
+    { t: 'New: owners’ associations and referrals', w: 'Your IHG Owners Association partnership gets a page, with a way for other associations and brands to ask for a member offer. Below it, clients can introduce a fellow owner.', y: 'One association conversation can reach many hotels at once, and happy clients are your best introductions.', s: 'Gillis Sales announcement, February 2022', el: '#partners' },
+    { t: 'An idea: your teaching, as an academy', w: 'You’ve already taught a full program across your book, talks, podcast and interviews. Picture a members’ academy in your brand: hotel teams learning your way of selling in short lessons, led by you.', y: 'Hotels that aren’t ready for managed sales can still start with your system, and your best ideas keep working when you’re not in the room.', s: 'Concept only: what your members would see', el: '#academy' },
+    { t: 'What it could open up', w: 'Members who learn on their own time, hotel teams learning together, one-on-one time with you, and workshops that lead into your training. A question for you: which of these would your clients actually say yes to?', y: 'New ways to earn from work you’ve already done.', s: 'A concept to react to. How it would be built and run is something we’d walk through together', el: '#academy' },
+    { t: 'Gillis Sales Insights, in their inbox', w: 'Your Insights button only leads to LinkedIn today. Here it becomes a monthly email with one good idea, plus an RFP-season edition.', y: 'A list you own, so every new talk, course or offer has somewhere to go.', s: 'Your homepage Insights section', el: '#insights' },
+    { t: 'Build your quote', w: 'Five quick questions that land as a ready brief in your inbox.', y: 'Your team walks into the first meeting prepared, which is exactly what you ask of sellers.', s: 'The options on your current contact form', el: '#build' },
+    { t: 'What’s next', w: 'You say sales should be proactive, not passive. So here’s our small ask: 15 minutes with our team to tell us what we got wrong and what’s worth keeping. No slides.', y: 'Everything here is a working concept, and nothing is live on your domain.', s: 'Ryan, Chairlift', el: '#contact', cta: true }
   ];
   var DW = 13500, ovl = null, fr = null, bar = null, timer = 0, idx = 0, mode = 'play', tbhMax = 0;
   function mk(h) { var d = document.createElement('div'); d.innerHTML = h.trim(); return d.firstChild; }
@@ -256,7 +279,7 @@
     var s = S[idx];
     var btns = '<div class="tvcr">' + (idx > 0 ? vb('back', 'Back') : '<span class="vb off"></span>') + (mode === 'play' ? vb('pause', 'Pause', 'main') : vb('resume', 'Play', 'main')) + (idx < S.length - 1 ? vb('next', 'Next') : '<span class="vb off"></span>') + '</div><div class="tvx">' + vb('list', 'See all') + vb('x', 'Exit') + '</div>';
     var cta = s.cta ? '<a class="tbook" href="' + BOOK + '" target="_blank" rel="noopener">BOOK A MEETING WITH OUR TEAM</a>' : '';
-    place('<aside class="tbar" role="region" aria-label="Site walkthrough"><div class="tbp"></div><div class="tbr"><div class="tbt"><span class="tbn">YOUR REDESIGN \u00b7 ' + (idx + 1) + ' OF ' + S.length + '</span><b>' + esc(s.t) + '</b><span class="tbx">' + esc(s.w) + '</span><span class="tbo"><em>WHY IT HELPS</em>' + esc(s.y) + '</span><span class="tbs"><em>SOURCE</em>' + esc(s.s) + '</span>' + cta + '</div><div class="tbb">' + btns + '</div></div></aside>');
+    place('<aside class="tbar" role="region" aria-label="Site walkthrough"><div class="tbp"></div><div class="tbr"><div class="tbt"><span class="tbn">IDEAS FOR GILLIS \u00b7 ' + (idx + 1) + ' OF ' + S.length + '</span><b>' + esc(s.t) + '</b><span class="tbx">' + esc(s.w) + '</span><span class="tbo"><em>WHY IT MIGHT HELP</em>' + esc(s.y) + '</span><span class="tbs"><em>SOURCE</em>' + esc(s.s) + '</span>' + cta + '</div><div class="tbb">' + btns + '</div></div></aside>');
   }
   function list() {
     clearTimeout(timer); mode = 'done';
