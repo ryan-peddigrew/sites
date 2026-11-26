@@ -15,3 +15,15 @@ src = re.sub(r'\{\{LOGO(?::([\w-]+))?\}\}', lambda m: logo(m.group(1) or ''), sr
 src = re.sub(r'\{\{MARK(?::([\w-]+))?\}\}', lambda m: mark(m.group(1) or ''), src)
 (R / 'index.html').write_text(src)
 print('built', len(src))
+
+# Shipped files carry no comments or notes: strip HTML, CSS and JS comments (sources stay in src/, which is never served).
+import subprocess
+html = (R / 'index.html').read_text()
+html = re.sub(r'<!--(?!\[).*?-->\s*', '', html, flags=re.S)
+(R / 'index.html').write_text(html)
+css = (R / 'src/site.src.css').read_text()
+css = re.sub(r'/\*.*?\*/', '', css, flags=re.S)
+css = '\n'.join(l.rstrip() for l in css.splitlines() if l.strip()) + '\n'
+(R / 'site.css').write_text(css)
+subprocess.run(['node', str(R / 'src/strip.js'), str(R / 'src/site.src.js'), str(R / 'site.js')], check=True)
+print('stripped comments from index.html, site.css, site.js')

@@ -1,15 +1,12 @@
-/* Gillis Sales: concept by Chairlift. (c) 2026 Chairlift. Not for reuse or distribution. */
 (function () {
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var Q = new URLSearchParams(location.search);
-  var EMBED = window.top !== window.self; /* only when truly framed by the tour, so ?embed=1 can't hide the watermark */
+  var EMBED = window.top !== window.self;
   var TOUR = Q.get('tour') === '1';
   var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var root = document.documentElement;
   if (EMBED) root.classList.add('embed');
-
-  /* ===== theme: dark or light, one look top to bottom ===== */
   function theme() { return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark'; }
   var tb = document.getElementById('themeB');
   if (tb) tb.addEventListener('click', function () {
@@ -17,15 +14,10 @@
     try { localStorage.setItem('gs_theme', t); } catch (e) {}
     try { var u = new URL(location.href); u.searchParams.set('theme', t); history.replaceState(null, '', u); } catch (e) {}
   });
-  /* backdrop drifts with scroll */
   var sc = document.querySelector('.aura .sc');
   if (sc && !matchMedia('(prefers-reduced-motion: reduce)').matches) addEventListener('scroll', function () { sc.style.setProperty('--sy', (scrollY * 0.12).toFixed(1)); }, { passive: true });
-
-  /* ===== watermark (prominent, tiled, readable on phones) =====
-     Built from real text in Chairlift's font (Hanken Grotesk) with the real Chairlift mark.
-     Options for Ryan: ?wm=a (straight rows), ?wm=b (gentle angle), ?wm=c (straight rows + solid credit ribbon), ?wm=d (slight angle), ?wm=e (logo and wordmark only). */
   (function () {
-    var opt = (Q.get('wm') || '').toLowerCase(); if (!/^[abcdes]$/.test(opt)) opt = 's'; /* Ryan (26 Nov 2026, 12:23 PM): one centred diagonal mark, POWERED BY: + logo + Chairlift */
+    var opt = (Q.get('wm') || '').toLowerCase(); if (!/^[abcdes]$/.test(opt)) opt = 's';
     var MARK = '<svg class="wl-m" viewBox="-1 -1 66 66" aria-hidden="true"><path d="M2 0H62A2 2 0 0 1 64 2V62A2 2 0 0 1 62 64H2A2 2 0 0 1 0 62V2A2 2 0 0 1 2 0Z" fill="#141B2A" stroke="rgba(255,255,255,0.45)" stroke-width="2"/><rect x="10" y="42.5" width="20" height="7" rx="1.2" fill="#FFFFFF"/><rect x="22" y="29" width="20" height="7" rx="1.2" fill="#FFFFFF"/><rect x="34" y="15.5" width="20" height="7" rx="1.2" fill="#3DFFC1"/></svg>';
     var LOCK = '<span class="wl"><span class="wl-t">CONCEPT \u00b7 DESIGNED AND POWERED BY:</span>' + MARK + '<b class="wl-w">Chairlift</b></span>';
     if (opt === 's') LOCK = '<span class="wl"><span class="wl-t">POWERED BY:</span>' + MARK + '<b class="wl-w">Chairlift</b></span>';
@@ -40,15 +32,12 @@
     function paint() { wm.className = 'wm-' + opt; wm.setAttribute('style', CSSTXT); wm.innerHTML = HTML; if (wm.parentNode !== document.body || document.body.lastElementChild !== wm) document.body.appendChild(wm); }
     paint();
     document.documentElement.classList.add('wmok');
-    /* Self-restoring: if the watermark is removed, hidden or emptied, it comes straight back. */
     function bad() { if (!document.body.contains(wm) || !wm.querySelector('.wl')) return true; var c = getComputedStyle(wm); return c.display === 'none' || c.visibility !== 'visible' || +c.opacity < 0.9; }
     var busy = false;
     function heal() { if (EMBED || busy || !bad()) return; busy = true; paint(); busy = false; }
     try { new MutationObserver(heal).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class', 'hidden'] }); } catch (e) {}
     setInterval(heal, 1500);
   })();
-
-  /* ===== anti-copying ===== */
   document.addEventListener('contextmenu', function (e) { if (!e.target.closest('input,textarea')) e.preventDefault(); });
   document.addEventListener('dragstart', function (e) { if (e.target.tagName === 'IMG') e.preventDefault(); });
   document.addEventListener('copy', function (e) {
@@ -61,19 +50,13 @@
     if ((e.ctrlKey || e.metaKey) && (k === 's' || k === 'u' || k === 'p' || (e.shiftKey && (k === 'i' || k === 'j' || k === 'c')))) e.preventDefault();
     if (k === 'f12') e.preventDefault();
   });
-
-  /* ===== loader (from the real logo), once per visit ===== */
   var loader = $('#loader');
   var seen = false; try { seen = sessionStorage.getItem('gs_ld') === '1'; sessionStorage.setItem('gs_ld', '1'); } catch (e) {}
   if (RM || seen || EMBED || Q.has('noload')) loader.classList.add('gone');
   else setTimeout(function () { loader.classList.add('out'); setTimeout(function () { loader.classList.add('gone'); }, 800); }, 2300);
-
-  /* ===== header states ===== */
   function onScroll() { root.classList.toggle('scrolled', scrollY > 60); root.classList.toggle('nbs', scrollY > 8); }
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
   $('.nb-x').addEventListener('click', function () { root.classList.add('nb-off'); });
-
-  /* menu */
   var mb = $('#menuB'), ov = $('#ov');
   function menu(o) { ov.hidden = !o; mb.setAttribute('aria-expanded', o); mb.setAttribute('aria-label', o ? 'Close menu' : 'Open menu'); root.classList.toggle('tourlock', o); }
   mb.addEventListener('click', function () { menu(ov.hidden); });
@@ -81,8 +64,6 @@
     a.addEventListener('click', function () { menu(false); });
     a.addEventListener('mouseenter', function () { if (a.dataset.img) $('#ovImg').src = a.dataset.img; });
   });
-
-  /* ===== hero words + reel ===== */
   $$('.hw').forEach(function (w, i) { w.style.animationDelay = (RM ? 0 : (seen || EMBED ? 0.1 : 2.3) + i * 0.09) + 's'; });
   var reel = $$('#reel .rl'), bars = $$('#reel .rl-bars i'), ri = 0, vid = $('#rlv');
   function playVid() { try { vid.load(); var p = vid.play(); if (p && p.catch) p.catch(function () {}); } catch (e) {} }
@@ -94,13 +75,9 @@
     setTimeout(function () { reel[ri].classList.remove('on'); ri = (ri + 1) % reel.length; reel[ri].classList.add('on'); step(); }, d);
   }
   if (!RM) step();
-
-  /* ===== film ===== */
   var film = $('#film'), fv = $('#filmV');
   $$('[data-film]').forEach(function (b) { b.addEventListener('click', function () { film.hidden = false; try { fv.play(); } catch (e) {} }); });
   $('#filmX').addEventListener('click', function () { fv.pause(); film.hidden = true; });
-
-  /* ===== scroll-lit words ===== */
   $$('[data-lit]').forEach(function (p) {
     (function wrap(n) {
       $$(':scope > *', n).forEach(wrap);
@@ -116,8 +93,6 @@
   var lits = $$('.lit-p .w');
   function lit() { var h = innerHeight; lits.forEach(function (w) { var r = w.getBoundingClientRect(); w.classList.toggle('on', r.top < h * 0.72); }); }
   addEventListener('scroll', lit, { passive: true }); lit();
-
-  /* ===== five ways ===== */
   var wl = $$('#waysList li'), wimg = $('#waysImg');
   wl.forEach(function (li) {
     function act() {
@@ -128,8 +103,6 @@
     $('button', li).addEventListener('click', act);
     if (matchMedia('(hover:hover)').matches) $('button', li).addEventListener('mouseenter', act);
   });
-
-  /* ===== sticky chapters ===== */
   var chap = $('#system'), cls = $$('.chap-l'), cn = $$('.chap-n i');
   var CS = ['The strongest hotel sales strategies are proactive, measurable and system-driven.', 'Experienced hospitality sellers, many of them former Directors of Sales, with embedded leadership and coaching.', 'GillisOne, real-time reporting and a repeatable process that doesn’t depend on one person.'];
   var lastC = -1;
@@ -140,14 +113,10 @@
     $('#chapS').textContent = CS[i];
   }
   addEventListener('scroll', chapS, { passive: true }); chapS();
-
-  /* ===== halves ===== */
   var hv = $('#hv'), hr = $('.hv-r', hv);
   hr.addEventListener('input', function () { hv.style.setProperty('--x', hr.value + '%'); });
   var hvd = false;
   new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting && !hvd && !RM) { hvd = true; var t0 = performance.now(); (function f(t) { var p = Math.min(1, (t - t0) / 1600), v = 50 + Math.sin(p * Math.PI * 2) * 22 * (1 - p); hv.style.setProperty('--x', v + '%'); hr.value = v; if (p < 1) requestAnimationFrame(f); })(t0); } }); }, { threshold: 0.5 }).observe(hv);
-
-  /* ===== health check ===== */
   var CQ = [
     ['Do you have a dedicated salesperson working on your hotel every week?', 1],
     ['Would your pipeline survive if your best salesperson left tomorrow?', 1],
@@ -175,37 +144,23 @@
   $$('.ck-btns button').forEach(function (b) { b.addEventListener('click', function () { var a = +b.dataset.a; cans.push(a); cs += a; ci++; if (ci >= CQ.length) ckEnd(); else ckShow(); }); });
   $('#ckRe').addEventListener('click', function () { ci = 0; cs = 0; cans = []; $('#ckQ').hidden = false; $('.ck-btns').hidden = false; $('#ckRes').hidden = true; ckShow(); });
   ckShow();
-
-  /* ===== counters ===== */
   $$('.num b').forEach(function (b) { if (!window.__cio) window.__cio =new IntersectionObserver(function (es, o) { es.forEach(function (e) { if (!e.isIntersecting) return; o.unobserve(e.target); var b = e.target, n = +b.dataset.n, s = b.dataset.s || '', t0 = performance.now(); (function f(t) { var p = RM ? 1 : Math.min(1, (t - t0) / 1400); b.textContent = Math.round(n * (1 - Math.pow(1 - p, 3))) + s; if (p < 1) requestAnimationFrame(f); })(t0); }); }, { threshold: 0.6 }); window.__cio.observe(b); });
-
-  /* ===== training formats ===== */
   var fmt = 'IN-PERSON WORKSHOP';
   $$('.fmt button').forEach(function (b) { b.addEventListener('click', function () { $$('.fmt button').forEach(function (x) { x.classList.remove('on'); }); b.classList.add('on'); fmt = b.dataset.f; }); });
-
-  /* ===== speaking: pick talk ===== */
   $$('[data-talk]').forEach(function (a) { a.addEventListener('click', function () { var s = $('#talkSel'); $$('option', s).forEach(function (o) { if (o.textContent.indexOf(a.dataset.talk) === 0) s.value = o.textContent; }); }); });
-
-  /* ===== book ===== */
   var art = $('#bookArt');
   if (matchMedia('(hover:hover)').matches) art.addEventListener('mousemove', function (e) { var r = art.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5; $('img', art).style.transform = 'rotateY(' + (x * 26) + 'deg) rotateX(' + (-y * 14) + 'deg)'; });
   art.addEventListener('mouseleave', function () { $('img', art).style.transform = ''; });
   var br = $('#bulkR');
   function bulk() { $('#bulkO').textContent = br.value + ' COPIES'; }
   br.addEventListener('input', bulk); bulk();
-
-  /* ===== gillisone ===== */
   var OP = ['Real-time reporting and pipeline visibility show what’s working, where the opportunities are and where performance can improve.', 'Repeatable systems, proactive outreach and a structured process create performance that doesn’t depend on one salesperson.', 'AI-powered technology and data-driven insights help identify high-value relationships and qualified opportunities with greater precision.', 'Less time on research, admin and reactive tasks. More time prospecting, building relationships and closing.', 'A complete sales engine that drives proactive business development and grows with your portfolio.'];
   $$('#oneTabs button').forEach(function (b) { b.addEventListener('click', function () { $$('#oneTabs button').forEach(function (x) { x.classList.remove('on'); }); b.classList.add('on'); $('#oneP').textContent = OP[+b.dataset.i]; }); });
   new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('in'); }); }, { threshold: 0.4 }).observe($('.scr'));
-
-  /* ===== voices ===== */
   var vf = $$('#vq figure'), vi = 0, vt;
   function vgo(i) { vf[vi].classList.remove('on'); vi = (i + vf.length) % vf.length; vf[vi].classList.add('on'); $('#vqN').textContent = (vi + 1) + ' / ' + vf.length; clearInterval(vt); vt = setInterval(function () { vgo(vi + 1); }, 9000); }
   $('#vqP').addEventListener('click', function () { vgo(vi - 1); }); $('#vqN2').addEventListener('click', function () { vgo(vi + 1); });
   if (!RM) vt = setInterval(function () { vgo(vi + 1); }, 9000);
-
-  /* ===== build your quote ===== */
   var bq = $('#bq'), bs = $$('.bq-s', bq), bl = $$('#bsteps li'), bi = 0, hN = 1;
   function bshow() { bs.forEach(function (s, j) { s.classList.toggle('on', j === bi); }); bl.forEach(function (l, j) { l.classList.toggle('on', j === bi); l.classList.toggle('done', j < bi); }); $('#bqB').style.visibility = bi ? 'visible' : 'hidden'; $('#bqN').textContent = bi === bs.length - 1 ? 'SEND MY REQUEST' : 'NEXT'; $('#bqErr').textContent = ''; }
   function val(n) { return $$('[name=' + n + ']:checked', bq).map(function (x) { return x.value; }); }
@@ -238,13 +193,9 @@
   });
   $('#bqRe').addEventListener('click', function () { bq.reset(); hN = 1; $('#hN').textContent = 1; preset(''); });
   bshow();
-
-  /* ===== simple forms (preview only) ===== */
   $$('form[data-ok]').forEach(function (f) {
     f.addEventListener('submit', function (e) { e.preventDefault(); var p = document.createElement('p'); p.className = 'ok-msg'; p.textContent = f.dataset.ok + ' (Preview: nothing is sent yet.)'; if (f.classList.contains('nb-f')) { f.hidden = true; $('.nb-ok').hidden = false; return; } f.replaceWith(p); });
   });
-
-  /* ===== tour (?tour=1): TV intro, then the site plays inside the TV ===== */
   if (EMBED) {
     window.__hl = function (sel) {
       var old = $('.tour-hl'); if (old) old.remove();
@@ -256,7 +207,6 @@
     };
     return;
   }
-  /* Each step: what we changed, why it helps, where it came from. */
   var BOOK = 'https://cal.com/chairlift/5min';
   var S = [
     { t: 'Welcome, Tammy', w: 'This is a concept redesign of gillissales.com, built by Chairlift from your own logo, colours, photos, video and words. This walkthrough shows what we changed, why, and how it helps Gillis win more hotels.', y: 'About three minutes. Pause, go back or skip at any time.', s: 'Your current site, gillissales.com', el: '#top' },

@@ -4,7 +4,7 @@ Private preview (passcode gate): https://sites-mnj.pages.dev/tammy-gillis/ . Tou
 Current site: https://www.gillissales.com/ . Not sent to the client. Ryan has full permission to use Tammy's material for this working demo.
 
 ## Build
-Edit `src/index.src.html`, `site.css`, `site.js`, then run `python3 src/build.py` (inlines Tammy's real logo SVG, unchanged, into index.html for the loader and header).
+Edit `src/index.src.html`, `src/site.src.css`, `src/site.src.js`, then run `python3 src/build.py`. It inlines the logo and writes comment-free `index.html`, `site.css`, `site.js` (the only files a viewer can load; src/ and this README return 404).
 
 ## What's in it (one page, phone first)
 - Loader from her real logo: the three G pieces lock together, then wordmark and tagline.
