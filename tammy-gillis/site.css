@@ -728,3 +728,39 @@ html.scrolled .hdr{background:var(--glass);backdrop-filter:blur(16px);-webkit-ba
 .tbs em{color:var(--mut)}
 .tbook{display:inline-flex;align-items:center;min-height:48px;margin-top:12px;padding:0 20px;background:var(--a1);color:#fff;text-decoration:none;font:800 12.5px/1 var(--hd);letter-spacing:.14em;border-radius:3px}
 @media(max-width:760px){.tbo{font-size:13.5px}.tbs{font-size:12.5px}.tbx{font-size:14px}.tbook{width:100%;justify-content:center}}
+
+/* ===== Chairlift watermark options (Ryan, 26 Nov 2026) ===== */
+#wm{overflow:hidden;background:none!important}
+#wm .wg{position:absolute;left:-40vmax;top:-40vmax;width:calc(100vw + 80vmax);display:flex;flex-direction:column;gap:clamp(70px,13vh,130px);padding-top:6vh}
+#wm .wr{display:flex;gap:clamp(36px,6vw,80px);white-space:nowrap}
+#wm .wr.o{margin-left:clamp(-260px,-30vw,-140px)}
+#wm .wl{display:inline-flex;align-items:center;gap:10px;flex:none;color:#fff;opacity:.5;font:700 clamp(15px,3.9vw,19px)/1 "Hanken Grotesk",Arial,Helvetica,sans-serif;letter-spacing:.08em;text-shadow:0 0 2px #0e0c1d,0 1px 3px #0e0c1dcc}
+#wm .wl-m{width:1.35em;height:1.35em;flex:none;filter:drop-shadow(0 1px 2px #0008)}
+#wm .wl-w{font-weight:600;letter-spacing:0;font-size:1.3em;text-transform:none}
+html[data-theme=light] #wm .wl{color:#17142E;opacity:.4;text-shadow:0 0 2px #fff,0 1px 3px #ffffffcc}
+/* A: straight rows, read left to right */
+#wm.wm-a .wg{transform:none;left:-20vw;top:0;width:140vw}
+/* B: gentle angle */
+#wm.wm-b .wg{transform:rotate(-11deg)}
+/* C: straight rows (lighter) + solid credit ribbon */
+#wm.wm-c .wg{left:-20vw;top:0;width:140vw}
+#wm.wm-c .wl{opacity:.32}
+html[data-theme=light] #wm.wm-c .wl{opacity:.26}
+#wm .wrib{position:fixed;left:0;right:0;top:50%;transform:translateY(-50%);display:flex;justify-content:center;padding:12px 10px;background:#141B2Ad9;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#wm .wrib .wl{opacity:1;font-size:clamp(13px,3.6vw,17px);text-shadow:none;color:#fff}
+@media(max-width:760px){#wm .wg{gap:90px}#wm.wm-a .wg,#wm.wm-c .wg{left:-60vw;width:260vw}}
+@media(max-width:760px){
+  #wm .wg{left:0!important;width:100vw!important;top:0;gap:84px}
+  #wm.wm-b .wg{left:-15vw!important;width:130vw!important;top:-10vh}
+  #wm .wr{gap:0}
+  #wm .wr.o{margin-left:0}
+  #wm .wl{width:100vw;flex-wrap:wrap;justify-content:center;row-gap:7px;font-size:15px}
+  #wm.wm-b .wl{width:130vw}
+  #wm .wl-t{width:100%;text-align:center}
+  #wm .wrib{padding:10px 0}
+  #wm .wrib .wl{font-size:14px}
+}
+@media(max-width:760px){
+  #wm.wm-b .wg{transform:none;left:0!important;width:100vw!important;top:0}
+  #wm.wm-b .wl{width:100vw;transform:rotate(-9deg)}
+}
