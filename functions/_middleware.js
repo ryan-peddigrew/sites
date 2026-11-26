@@ -4,6 +4,13 @@ const enc = new TextEncoder();
 const OPEN = ['/_chairlift/']; // shared watermark script only; no client content
 // Easy-to-type codes that open ONE folder only (Ryan, 16 Nov 2026).
 const EXTRA = { 'sean-wells': 'darkmagic1993', 'tammy-gillis': 'roomtogrow' };
+// Per-recipient tracing (26 Nov 2026): each code carries a viewer reference that is shown in the
+// watermark and hidden in the page, so a leaked copy says whose link it came from.
+// To revoke a code, delete it from EXTRA. To end it on a date, add it to EXPIRES (YYYY-MM-DD, Eastern).
+const LABELS = { roomtogrow: 'TG-01 TAMMY GILLIS', darkmagic1993: 'SW-01 SEAN WELLS' };
+const EXPIRES = { roomtogrow: '2027-02-28' };
+// Build files never leave the server: sources, scripts and notes return 404 even with a code.
+const PRIVATE = /\/(src|tools)\/|\/README\.md$|\.(py|sh|md)$/i;
 
 async function mk(secret, key) {
   const k = await crypto.subtle.importKey('raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
@@ -56,7 +63,9 @@ export async function onRequest(ctx) {
   const want = await mk(env.SECRET, folder);
   const master = await mk(env.SECRET, '*master');
   const ck = cookies(request);
-  const ok = c => c && (c === want || c === master || (EXTRA[folder] && c === EXTRA[folder]));
+  const live = c => !EXPIRES[c] || new Date() <= new Date(EXPIRES[c] + 'T23:59:59-05:00');
+  const ok = c => c && (c === want || c === master || (EXTRA[folder] && c === EXTRA[folder] && live(c)));
+  if (PRIVATE.test(url.pathname)) return new Response('Not found', { status: 404, headers: { 'X-Robots-Tag': 'noindex, nofollow' } });
 
   const norm = v => (v || '').toString().replace(/[^a-z0-9]/gi, '').toLowerCase();
   let given = norm(url.searchParams.get('k'));
@@ -71,11 +80,21 @@ export async function onRequest(ctx) {
     return new Response(null, { status: 303, headers: h });
   }
   if (ok(ck[cname(folder)]) || ok(ck['clk_master'])) {
+    const code = ok(ck[cname(folder)]) ? ck[cname(folder)] : ck['clk_master'];
+    const ref = LABELS[code] || (code === master ? 'CL-TEAM' : 'CL-' + folder.toUpperCase().slice(0, 12));
     const r = await next();
     const out = new Response(r.body, r);
-    out.headers.set('X-Robots-Tag', 'noindex, nofollow');
+    out.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive');
     out.headers.set('Cache-Control', 'private, max-age=0, must-revalidate');
-    return out;
+    out.headers.set('Content-Security-Policy', "frame-ancestors 'self'");
+    out.headers.set('X-Frame-Options', 'SAMEORIGIN');
+    if (!(out.headers.get('Content-Type') || '').includes('text/html')) return out;
+    const id = ref.split(' ')[0];
+    return new HTMLRewriter()
+      .on('head', { element(e) { e.prepend(`<meta name="cl-ref" content="${id}"><meta name="robots" content="noindex,nofollow,noarchive">`, { html: true }); } })
+      .on('html', { element(e) { e.setAttribute('data-ref', id); } })
+      .on('body', { element(e) { e.prepend(`<!-- CONFIDENTIAL CONCEPT. Designed and powered by Chairlift (usechairlift.com). Prepared privately; copying, scraping, rebuilding or removing the watermark is not permitted. Viewer reference: ${id}. -->`, { html: true }); } })
+      .transform(out);
   }
   return gate('');
 }

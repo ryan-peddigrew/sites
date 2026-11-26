@@ -781,3 +781,14 @@ html[data-theme=light] #wm.wm-e .wl{opacity:.34}
   #wm.wm-e .wr.o{margin-left:-60px}
   #wm.wm-e .wl{width:auto;flex-wrap:nowrap;font-size:20px}
 }
+
+/* Protection layers (26 Nov 2026) */
+#wm .wref{position:fixed;left:10px;bottom:calc(10px + env(safe-area-inset-bottom));font:700 10.5px/1 "Hanken Grotesk",Arial,sans-serif;letter-spacing:.14em;color:#fff;opacity:.55;text-shadow:0 1px 2px #000a}
+html[data-theme=light] #wm .wref{color:#17142E;text-shadow:0 0 2px #fff}
+@media(max-width:760px){#wm .wref{bottom:calc(78px + env(safe-area-inset-bottom))}}
+/* If the watermark script is stripped out, a CSS watermark still covers the page. */
+html:not(.wmok) body::after{content:"";position:fixed;inset:0;z-index:2147483000;pointer-events:none;opacity:.5;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='130'%3E%3Ctext x='10' y='80' fill='%23ffffff' fill-opacity='.7' stroke='%230e0c1d' stroke-opacity='.4' stroke-width='.6' font-family='Hanken Grotesk,Arial' font-weight='700' font-size='12.5' letter-spacing='1'%3ECONCEPT %C2%B7 DESIGNED AND POWERED BY: Chairlift%3C/text%3E%3C/svg%3E") repeat}
+body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+input,textarea,select{-webkit-user-select:text;user-select:text}
+@media print{html body *{display:none!important}html body::before{content:"Confidential concept by Chairlift. Printing is not available.";display:block;font:700 20px Arial;padding:40px}}
+.ftr-base .conf{display:block;width:100%;font-size:12.5px;letter-spacing:.08em;opacity:.75;order:3}
