@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#17142E"><link rel="manifest" href="app.webmanifest" crossorigin="use-credentials"><link rel="apple-touch-icon" href="img/app2-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Gillis Sales"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400..900;1,400..700&family=Hanken+Grotesk:wght@600;700&display=swap"><link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400..900;1,400..700&family=Hanken+Grotesk:wght@600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<link rel="preload" as="image" href="img/tammy-poster.jpg">
+<link rel="preload" as="image" href="img/tammy-crop.webp" imagesrcset="img/tammy-crop-m.webp 900w, img/tammy-crop.webp 1200w" imagesizes="100vw" fetchpriority="high">
 <link rel="stylesheet" href="site.css">
 <script>(function(){var t=new URLSearchParams(location.search).get("theme");if(t!=="light"&&t!=="dark"){try{t=localStorage.getItem("gs_theme")}catch(e){}}document.documentElement.setAttribute("data-theme",t==="light"?"light":"dark")})();</script>
 </head>
@@ -65,8 +65,8 @@
 <main>
 <section class="hero" id="top">
   <div class="reel" id="reel">
-    <video class="rl on" id="rlv" muted playsinline loop preload="none" poster="img/tammy-poster.jpg" aria-label="Tammy Gillis speaking about hotel sales"><source src="img/tammy-loop-m.mp4" type="video/mp4" media="(max-width: 760px)"><source src="img/tammy-loop.mp4" type="video/mp4"></video>
-    <img class="rl" src="img/stage-crop.webp" alt="Tammy Gillis on stage" loading="lazy">
+    <img class="rl kb on" src="img/tammy-crop.webp" srcset="img/tammy-crop-m.webp 900w, img/tammy-crop.webp 1200w" sizes="100vw" alt="Tammy Gillis" fetchpriority="high" decoding="async">
+    <img class="rl kb" src="img/stage-crop.webp" srcset="img/stage-crop-m.webp 900w, img/stage-crop.webp 1400w" sizes="100vw" alt="Tammy Gillis on stage" loading="lazy">
     <img class="rl" src="img/training-crop.webp" alt="Tammy Gillis leading a sales training session" loading="lazy">
     <img class="rl" src="img/lobby2.webp" alt="A busy hotel lobby" loading="lazy">
     <div class="rl-shade"></div>

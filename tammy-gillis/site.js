@@ -66,16 +66,6 @@
     a.addEventListener('mouseenter', function () { if (a.dataset.img) $('#ovImg').src = a.dataset.img; });
   });
   $$('.hw').forEach(function (w, i) { w.style.animationDelay = (RM ? 0 : (seen || EMBED ? 0.1 : 1.1) + i * 0.09) + 's'; });
-  (function () {
-    var h = (Q.get('hero') || '').toLowerCase(), R = $('#reel'), v = $('#rlv'); if (!R || !v || !/^[abc]$/.test(h)) return;
-    function img(src, alt) { var i = document.createElement('img'); i.className = 'rl kb'; i.src = src; i.alt = alt; return i; }
-    if (h === 'c') { v.poster = 'img/tammy-wide-poster.jpg'; v.innerHTML = '<source src="img/tammy-wide-m.mp4" type="video/mp4" media="(max-width: 760px)"><source src="img/tammy-wide.mp4" type="video/mp4">'; return; }
-    var first = h === 'a' ? img('img/tammy-crop.webp', 'Tammy Gillis') : img('img/stage-crop.webp', 'Tammy Gillis on stage');
-    v.parentNode.replaceChild(first, v); first.classList.add('on');
-    var st = $$('#reel img[src*="stage-crop"]');
-    if (h === 'b' && st[1]) st[1].parentNode.replaceChild(img('img/tammy-crop.webp', 'Tammy Gillis'), st[1]);
-    if (h === 'a' && st[0]) st[0].classList.add('kb');
-  })();
   var reel = $$('#reel .rl'), bars = $$('#reel .rl-bars i'), ri = 0, vid = $('#rlv') || { load: function () {}, play: function () {} };
   function playVid() { try { vid.load(); var p = vid.play(); if (p && p.catch) p.catch(function () {}); } catch (e) {} }
   if (document.readyState === 'complete') playVid(); else addEventListener('load', playVid);
@@ -295,7 +285,7 @@
   var S = [
     { t: 'Before anything else', w: 'You teach hotels to stop pitch slapping, so this isn’t a pitch. We’re Chairlift. We help busy teams escape death by 1,000 tabs, so the work sits in one place and people get their time back. Here’s what we noticed on your site, a few ideas built from your own book and talks, and a couple of questions. Keep what’s useful.', y: 'About five minutes. Pause, go back or skip at any time.', s: 'Gillis Sales Podcast, “Stop Pitch Slapping Your Clients” (Oct 30, 2019)', el: '#top' },
     { t: 'Your buyer has changed', w: 'You’ve said the modern buyer no longer needs a salesperson for information. Your own buyers too: a GM or owner reads your site before they ever talk to you. A question for you: when a GM lands here late at night, how do they know which service is for them?', y: 'Everything that follows is built for that reader.', s: 'Gillis Sales press releases, “Selling to the Modern Buyer”', el: '#top' },
-    { t: 'Your opening line, kept', w: '“Sales should never be left to chance” is your strongest line and the title of your book. It now opens the page, over your own film.', y: 'Visitors hear you in the first five seconds, before they read anything.', s: 'gillissales.com; Room to Grow (Page Two, 2021)', el: '#reel' },
+    { t: 'Your opening line, kept', w: '“Sales should never be left to chance” is your strongest line and the title of your book. It now opens the page, over a confident portrait of you, with your film one tap away.', y: 'Visitors hear you in the first five seconds, before they read anything.', s: 'gillissales.com; Room to Grow (Page Two, 2021)', el: '#reel' },
     { tag: 'NEW', t: 'Two clear next steps', w: 'Build your quote and Get in touch sit side by side at the top, and stay at the bottom of a phone screen the whole way down.', y: 'Fewer choices, more enquiries. Today a visitor has to hunt for the Contact page.', s: 'Your contact page and its form', el: '#heroBtns' },
     { t: 'Five ways in', w: 'You earn in five ways: sales solutions, training, speaking, the book and GillisOne. Each lived on its own page, so a GM had to open five tabs to see what you do. Now one list near the top lets each buyer pick their door.', y: 'An owner, a director of sales and an event planner each find their way in on the first screen.', s: 'Your site navigation', el: '#ways' },
     { tag: 'NEW', t: 'One look, light or dark', w: 'Your current site jumps between white and dark blocks. Now it is one continuous look in your own colours, with a light and a dark version (the switch is at the top).', y: 'A consistent look reads as premium and keeps people scrolling.', s: 'Colours taken straight from your logo file', el: '#system' },
