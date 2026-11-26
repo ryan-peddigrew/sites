@@ -15,12 +15,12 @@
     try { var u = new URL(location.href); u.searchParams.set('theme', t); history.replaceState(null, '', u); } catch (e) {}
   });
   var sc = document.querySelector('.aura .sc');
-  if (sc && !matchMedia('(prefers-reduced-motion: reduce)').matches) addEventListener('scroll', function () { sc.style.setProperty('--sy', (scrollY * 0.12).toFixed(1)); }, { passive: true });
+  if (sc && innerWidth > 760 && !matchMedia('(prefers-reduced-motion: reduce)').matches) addEventListener('scroll', function () { sc.style.setProperty('--sy', (scrollY * 0.12).toFixed(1)); }, { passive: true });
   (function () {
     var opt = (Q.get('wm') || '').toLowerCase(); if (!/^[abcdes]$/.test(opt)) opt = 's';
     var MARK = '<svg class="wl-m" viewBox="-1 -1 66 66" aria-hidden="true"><path d="M2 0H62A2 2 0 0 1 64 2V62A2 2 0 0 1 62 64H2A2 2 0 0 1 0 62V2A2 2 0 0 1 2 0Z" fill="#141B2A" stroke="rgba(255,255,255,0.45)" stroke-width="2"/><rect x="10" y="42.5" width="20" height="7" rx="1.2" fill="#FFFFFF"/><rect x="22" y="29" width="20" height="7" rx="1.2" fill="#FFFFFF"/><rect x="34" y="15.5" width="20" height="7" rx="1.2" fill="#3DFFC1"/></svg>';
     var LOCK = '<span class="wl"><span class="wl-t">CONCEPT \u00b7 DESIGNED AND POWERED BY:</span>' + MARK + '<b class="wl-w">Chairlift</b></span>';
-    if (opt === 's') LOCK = '<span class="wl"><span class="wl-t">POWERED BY:</span>' + MARK + '<b class="wl-w">Chairlift</b></span>';
+    if (opt === 's') LOCK = '<span class="wl"><span class="wl-t">POWERED BY</span>' + MARK + '<b class="wl-w">Chairlift</b></span>';
     if (opt === 'e') LOCK = '<span class="wl">' + MARK + '<b class="wl-w">Chairlift</b></span>';
     var wm = $('#wm'); wm.className = 'wm-' + opt; wm.style.backgroundImage = 'none';
     var rows = '', n = 22;
@@ -35,7 +35,8 @@
     function bad() { if (!document.body.contains(wm) || !wm.querySelector('.wl')) return true; var c = getComputedStyle(wm); return c.display === 'none' || c.visibility !== 'visible' || +c.opacity < 0.9; }
     var busy = false;
     function heal() { if (EMBED || busy || !bad()) return; busy = true; paint(); busy = false; }
-    try { new MutationObserver(heal).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class', 'hidden'] }); } catch (e) {}
+    var q = 0; function soon() { if (q) return; q = requestAnimationFrame(function () { q = 0; heal(); }); }
+    try { var mo = new MutationObserver(soon); mo.observe(document.body, { childList: true }); mo.observe(wm, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class', 'hidden'] }); mo.observe(document.documentElement, { attributes: true, attributeFilter: ['style', 'class'] }); } catch (e) {}
     setInterval(heal, 1500);
   })();
   document.addEventListener('contextmenu', function (e) { if (!e.target.closest('input,textarea')) e.preventDefault(); });
@@ -53,7 +54,7 @@
   var loader = $('#loader');
   var seen = false; try { seen = sessionStorage.getItem('gs_ld') === '1'; sessionStorage.setItem('gs_ld', '1'); } catch (e) {}
   if (RM || seen || EMBED || Q.has('noload')) loader.classList.add('gone');
-  else setTimeout(function () { loader.classList.add('out'); setTimeout(function () { loader.classList.add('gone'); }, 800); }, 2300);
+  else setTimeout(function () { loader.classList.add('out'); setTimeout(function () { loader.classList.add('gone'); }, 450); }, 1100);
   function onScroll() { root.classList.toggle('scrolled', scrollY > 60); root.classList.toggle('nbs', scrollY > 8); }
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
   $('.nb-x').addEventListener('click', function () { root.classList.add('nb-off'); });
@@ -64,7 +65,7 @@
     a.addEventListener('click', function () { menu(false); });
     a.addEventListener('mouseenter', function () { if (a.dataset.img) $('#ovImg').src = a.dataset.img; });
   });
-  $$('.hw').forEach(function (w, i) { w.style.animationDelay = (RM ? 0 : (seen || EMBED ? 0.1 : 2.3) + i * 0.09) + 's'; });
+  $$('.hw').forEach(function (w, i) { w.style.animationDelay = (RM ? 0 : (seen || EMBED ? 0.1 : 1.1) + i * 0.09) + 's'; });
   var reel = $$('#reel .rl'), bars = $$('#reel .rl-bars i'), ri = 0, vid = $('#rlv');
   function playVid() { try { vid.load(); var p = vid.play(); if (p && p.catch) p.catch(function () {}); } catch (e) {} }
   if (document.readyState === 'complete') playVid(); else addEventListener('load', playVid);
@@ -158,7 +159,7 @@
     var tot = Math.round(cans.reduce(function (x, y) { return x + y; }, 0) / (CQ.length * 2) * 100);
     var low = 0; area.forEach(function (v, k) { if (v < area[low]) low = k; });
     scLi.forEach(function (l, k) { l.classList.remove('on'); l.classList.add('done'); l.querySelector('s').style.width = (area[k] / 4 * 100) + '%'; });
-    var el = $('#ckScore'), t0 = performance.now(); (function f(t) { var p = RM ? 1 : Math.min(1, (t - t0) / 1100); el.textContent = Math.round(tot * p); if (p < 1) requestAnimationFrame(f); })(t0);
+    var el = $('#ckScore'), t0 = performance.now(); el.dataset.v = tot; (function f(t) { var p = RM ? 1 : Math.min(1, (t - t0) / 1100); el.textContent = Math.round(tot * p); if (p < 1) requestAnimationFrame(f); })(t0);
     var fx = tot >= 85 ? ['Strong foundation. Let’s find the next level.', 'You have the basics in place. A conversation with Tammy’s team can show where the next opportunities are hiding.', 'solutions'] : FIX[low];
     $('#ckH').textContent = fx[0]; $('#ckP').textContent = fx[1]; $('#ckGo').dataset.pre = fx[2];
     $('#ckRep').innerHTML = AR.map(function (n, k) { var v = area[k], lv = v >= 4 ? 'STRONG' : v >= 2 ? 'BUILDING' : 'GAP'; return '<li class="' + lv.toLowerCase() + (k === low && tot < 85 ? ' first' : '') + '"><b>' + n + '</b><em>' + lv + '</em><span>' + (v >= 4 ? 'In place. Keep it there.' : 'What good looks like: ' + TIP[k]) + '</span></li>'; }).join('');
@@ -223,12 +224,50 @@
     $('#bqSum').innerHTML = sum.join('').replace(/<b>/g, '<li><b>').replace(/(<li>.*?)(?=<li>|$)/g, '$1</li>');
     bs.forEach(function (s) { s.classList.remove('on'); }); bl.forEach(function (l) { l.classList.add('done'); l.classList.remove('on'); });
     $('#bqDone').hidden = false; $('#bqNav').hidden = true;
+    var bf = { 'Request': $('#bqSum').innerText.replace(/\n+/g, ' | ') }; $$('.bq-s:last-child input, .bq-s input[type=email], .bq-s input[type=text], .bq-s input[type=tel], .bq-s textarea', bq).forEach(function (i) { if (i.value) bf[i.getAttribute('aria-label') || i.name || i.placeholder || 'detail'] = i.value; });
+    (window.__send || function () {})('form: Build your quote', bf);
   });
   $('#bqRe').addEventListener('click', function () { bq.reset(); hN = 1; $('#hN').textContent = 1; preset(''); });
   bshow();
-  $$('form[data-ok]').forEach(function (f) {
-    f.addEventListener('submit', function (e) { e.preventDefault(); var p = document.createElement('p'); p.className = 'ok-msg'; p.textContent = f.dataset.ok + ' (Preview: nothing is sent yet.)'; if (f.classList.contains('nb-f')) { f.hidden = true; $('.nb-ok').hidden = false; return; } f.replaceWith(p); });
-  });
+  (function () {
+    var d = $('#dlg'); if (!d) return; var c = $('.dlg-c', d), last = null;
+    function shut() { d.hidden = true; root.classList.remove('dlg-open'); if (last) last.focus(); }
+    $$('[data-dlg]').forEach(function (b) { b.addEventListener('click', function () { var t = $('#dlg-' + b.dataset.dlg); if (!t) return; last = b; c.innerHTML = ''; c.appendChild(t.content.cloneNode(true)); bindForms(c); d.hidden = false; root.classList.add('dlg-open'); d.scrollTop = 0; $('.dlg-x', d).focus(); }); });
+    $('.dlg-x', d).addEventListener('click', shut);
+    d.addEventListener('click', function (e) { if (e.target === d) shut(); });
+    addEventListener('keydown', function (e) { if (e.key === 'Escape' && !d.hidden) shut(); });
+  })();
+  var LEAD = location.pathname.replace(/[^/]*$/, '') + '_lead';
+  function send(kind, fields) {
+    var body = JSON.stringify({ kind: kind, page: location.pathname + location.hash, fields: fields || {} });
+    try { if (kind.indexOf('tour') === 0 && navigator.sendBeacon) { navigator.sendBeacon(LEAD, new Blob([body], { type: 'application/json' })); return; } } catch (e) {}
+    try { fetch(LEAD, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, keepalive: true, credentials: 'same-origin' }).catch(function () {}); } catch (e) {}
+  }
+  window.__send = send;
+  function fieldsOf(f) {
+    var o = {}, n = 0;
+    $$('input,select,textarea', f).forEach(function (i) {
+      if (i.type === 'submit' || i.type === 'button') return;
+      if ((i.type === 'checkbox' || i.type === 'radio') && !i.checked) return;
+      var k = i.getAttribute('aria-label') || i.name || i.placeholder || ('field ' + (++n));
+      var lab = i.closest('label'); if (lab && !i.getAttribute('aria-label')) k = (lab.textContent || k).trim().slice(0, 50);
+      o[k] = o[k] ? o[k] + ', ' + i.value : (i.type === 'checkbox' && i.value === 'on' ? 'yes' : i.value);
+    });
+    return o;
+  }
+  function bindForms(scope) { $$('form[data-ok]', scope).forEach(function (f) {
+    if (f.__b) return; f.__b = 1;
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var sec = f.closest('section,.nbar,.dlg'), fl = fieldsOf(f);
+      if (f.classList.contains('ck-f')) { fl['Scorecard score'] = ($('#ckScore').dataset.v || $('#ckScore').textContent) + ' / 100'; fl['Scorecard report'] = $$('#ckRep li').map(function (l) { return l.querySelector('b').textContent + ': ' + l.querySelector('em').textContent; }).join(' | '); }
+      var nm = sec && sec.classList.contains('dlg') ? ($('#dlgT') || {}).textContent : sec && (sec.getAttribute('aria-label') || sec.id); send('form: ' + (nm || 'form'), fl);
+      var p = document.createElement('p'); p.className = 'ok-msg'; p.textContent = f.dataset.ok + ' (Concept preview: this goes to Chairlift for the demo, not to your team.)';
+      if (f.classList.contains('nb-f')) { f.hidden = true; $('.nb-ok').hidden = false; return; }
+      f.replaceWith(p);
+    });
+  }); }
+  bindForms(document);
   if (EMBED) {
     window.__hl = function (sel) {
       var old = $('.tour-hl'); if (old) old.remove();
@@ -240,7 +279,7 @@
     };
     return;
   }
-  var BOOK = 'https://cal.com/chairlift/5min';
+  var BOOK = 'https://cal.com/chairlift/15min';
   var S = [
     { t: 'Before anything else', w: 'You teach hotels to stop pitch slapping, so this isn’t a pitch. It’s what we noticed on your site, a few ideas built from your own book and talks, and a couple of questions. Keep what’s useful.', y: 'About five minutes. Pause, go back or skip at any time.', s: 'Gillis Sales Podcast, “Stop Pitch Slapping Your Clients” (Oct 30, 2019)', el: '#top' },
     { t: 'Your buyer has changed', w: 'You’ve said the modern buyer no longer needs a salesperson for information. Your own buyers too: a GM or owner reads your site before they ever talk to you. A question for you: when a GM lands here late at night, how do they know which service is for them?', y: 'Everything that follows is built for that reader.', s: 'Gillis Sales press releases, “Selling to the Modern Buyer”', el: '#top' },
@@ -271,8 +310,13 @@
   var pad = function (n) { return (n < 10 ? '0' : '') + n; };
   var I = { back: '<svg viewBox="0 0 24 24"><path d="M6 5h2.5v14H6zM20 5v14L9.5 12z"/></svg>', next: '<svg viewBox="0 0 24 24"><path d="M15.5 5H18v14h-2.5zM4 5v14l10.5-7z"/></svg>', pause: '<svg viewBox="0 0 24 24"><path d="M6 4h4.5v16H6zM13.5 4H18v16h-4.5z"/></svg>', play: '<svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg>', list: '<svg viewBox="0 0 24 24"><path d="M4 6h16v2.5H4zM4 10.8h16v2.5H4zM4 15.5h16V18H4z"/></svg>', x: '<svg viewBox="0 0 24 24"><path d="M5.6 4 12 10.4 18.4 4 20 5.6 13.6 12 20 18.4 18.4 20 12 13.6 5.6 20 4 18.4 10.4 12 4 5.6z"/></svg>' };
   function vb(a, l, c) { return '<button type="button" class="vb' + (c ? ' ' + c : '') + '" data-a="' + a + '" aria-label="' + l + '">' + I[a === 'resume' ? 'play' : a] + '</button>'; }
+  var maxI = -1, sentOpen = false, lastRep = -1;
+  function report() { if (maxI <= lastRep) return; lastRep = maxI; (window.__send || function () {})('tour-progress', { 'Reached step': (maxI + 1) + ' of ' + S.length, 'Furthest step': S[maxI].t, 'Booking button shown': maxI === S.length - 1 ? 'yes' : 'no' }); }
+  addEventListener('pagehide', report);
+  document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') report(); });
   function open() {
     if (ovl) return;
+    if (!sentOpen) { sentOpen = true; (window.__send || function () {})('tour-open', { 'Device': innerWidth < 760 ? 'phone' : 'computer', 'Theme': theme() }); }
     ovl = mk('<div class="tourov" id="tourov"><iframe title="Site tour" src="' + location.pathname + '?embed=1&theme=' + theme() + '"></iframe><div class="tvglass"></div><div class="tvtag">CONCEPT BY CHAIRLIFT</div></div>');
     if (!RM) ovl.appendChild($('#doorScene').content.cloneNode(true));
     document.body.appendChild(ovl); fr = $('iframe', ovl); root.classList.add('tourlock');
@@ -281,16 +325,16 @@
     setTimeout(function () { waited = true; if (ready) go(0, 'play'); }, RM ? 100 : 3500);
     setTimeout(function () { var t = $('.dr', ovl); if (t) t.remove(); }, 4200);
   }
-  function close() { clearTimeout(timer); if (ovl) { ovl.remove(); ovl = null; bar = null; } root.classList.remove('tourlock'); }
+  function close() { report(); clearTimeout(timer); if (ovl) { ovl.remove(); ovl = null; bar = null; } root.classList.remove('tourlock'); }
   function go(i, m) {
-    clearTimeout(timer); idx = i; mode = m; draw();
+    clearTimeout(timer); idx = i; mode = m; if (i > maxI) maxI = i; draw();
     try { fr.contentWindow.__hl(S[i].el); if (S[i].act) setTimeout(function () { try { fr.contentWindow[S[i].act](); } catch (e) {} }, 1600); } catch (e) {}
     if (mode === 'play') { var tp = $('.tbp', bar); tp.style.transitionDuration = (S[idx].dw || DW) + 'ms'; requestAnimationFrame(function () { requestAnimationFrame(function () { tp.classList.add('run'); }); }); timer = setTimeout(function () { if (idx + 1 >= S.length) list(); else go(idx + 1, 'play'); }, S[idx].dw || DW); }
   }
   function draw() {
     var s = S[idx];
     var btns = '<div class="tvcr">' + (idx > 0 ? vb('back', 'Back') : '<span class="vb off"></span>') + (mode === 'play' ? vb('pause', 'Pause', 'main') : vb('resume', 'Play', 'main')) + (idx < S.length - 1 ? vb('next', 'Next') : '<span class="vb off"></span>') + '</div><div class="tvx">' + vb('list', 'See all') + vb('x', 'Exit') + '</div>';
-    var cta = s.cta ? '<a class="tbook" href="' + BOOK + '" target="_blank" rel="noopener">BOOK A MEETING WITH OUR TEAM</a>' : '';
+    var cta = s.cta ? '<a class="tbook" href="' + BOOK + '" target="_blank" rel="noopener">BOOK 15 MINUTES WITH OUR TEAM</a>' : '';
     place('<aside class="tbar" role="region" aria-label="Site walkthrough"><div class="tbp"></div><div class="tbr"><div class="tbt"><span class="tbn">IDEAS FOR GILLIS \u00b7 ' + (idx + 1) + ' OF ' + S.length + '</span><b>' + esc(s.t) + '</b><span class="tbx">' + esc(s.w) + '</span><span class="tbo"><em>WHY IT MIGHT HELP</em>' + esc(s.y) + '</span><span class="tbs"><em>SOURCE</em>' + esc(s.s) + '</span>' + cta + '</div><div class="tbb">' + btns + '</div></div></aside>');
   }
   function list() {

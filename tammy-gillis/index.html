@@ -8,7 +8,7 @@
 <meta name="description" content="Gillis helps hotels increase occupancy, grow revenue and outperform their market with managed sales, training, speaking and Tammy Gillis's book Room to Grow.">
 <meta name="theme-color" content="#17142E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Hanken+Grotesk:wght@600;700&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Hanken+Grotesk:wght@600;700&family=Instrument+Sans:wght@400..700&display=swap"><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Hanken+Grotesk:wght@600;700&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <link rel="preload" as="image" href="img/tammy-poster.jpg">
 <link rel="stylesheet" href="site.css">
 <script>(function(){var t=new URLSearchParams(location.search).get("theme");if(t!=="light"&&t!=="dark"){try{t=localStorage.getItem("gs_theme")}catch(e){}}document.documentElement.setAttribute("data-theme",t==="light"?"light":"dark")})();</script>
@@ -65,7 +65,7 @@
 <main>
 <section class="hero" id="top">
   <div class="reel" id="reel">
-    <video class="rl on" id="rlv" muted playsinline loop preload="none" poster="img/tammy-poster.jpg" aria-label="Tammy Gillis speaking about hotel sales"><source src="img/tammy-loop.mp4" type="video/mp4"></video>
+    <video class="rl on" id="rlv" muted playsinline loop preload="none" poster="img/tammy-poster.jpg" aria-label="Tammy Gillis speaking about hotel sales"><source src="img/tammy-loop-m.mp4" type="video/mp4" media="(max-width: 760px)"><source src="img/tammy-loop.mp4" type="video/mp4"></video>
     <img class="rl" src="img/stage-crop.webp" alt="Tammy Gillis on stage" loading="lazy">
     <img class="rl" src="img/training-crop.webp" alt="Tammy Gillis leading a sales training session" loading="lazy">
     <img class="rl" src="img/lobby2.webp" alt="A busy hotel lobby" loading="lazy">
@@ -258,9 +258,9 @@
     <h2 class="h2">PICK THE <span class="t">PATH</span> THAT FITS YOUR TEAM.</h2>
   </div>
   <div class="wrap paths-grid">
-    <article class="path"><img src="img/team-m.webp" alt="" loading="lazy"><div><small>FOR MANAGEMENT COMPANIES</small><h3>GILLIS CERTIFIED</h3><p>Your whole commercial team completes the Gillis sales program and earns a certificate, renewed every year so the skills stay current.</p><ul><li>Per-seat, for portfolios of any size</li><li>Manager view of who has finished</li><li>Annual refresh</li></ul><a class="btn btn-teal" href="#build" data-pre="training">ASK ABOUT CERTIFICATION</a></div></article>
-    <article class="path"><img src="img/lobby-m.webp" alt="" loading="lazy"><div><small>FOR EVERY PROPERTY</small><h3>FRONT DESK SELLS</h3><p>A short course for front desk teams. As Room to Grow puts it, the front desk can be your most valuable business development tool.</p><ul><li>Spot the leads that walk in</li><li>Pass them to sales the same day</li><li>Short lessons, between shifts</li></ul><a class="btn btn-teal" href="#build" data-pre="training">BRING IT TO YOUR HOTEL</a></div></article>
-    <article class="path"><img src="img/stage-m.webp" alt="" loading="lazy"><div><small>FREE, ONCE A MONTH</small><h3>THE MONTHLY SALES HOUR</h3><p>A live 40-minute session with Tammy on one sales topic, with time for questions. Bring the whole team.</p><ul><li>Next session: <span class="ph">[date to set]</span></li><li>Recordings for subscribers</li><li>One idea to use that week</li></ul><form class="mini" data-ok="You're registered. The link will arrive before the session."><input type="email" required placeholder="Work email" aria-label="Work email"><button class="btn btn-teal" type="submit">SAVE MY SEAT</button></form></div></article>
+    <article class="path"><img src="img/team-m.webp" alt="" loading="lazy"><div><small>FOR MANAGEMENT COMPANIES</small><h3>GILLIS CERTIFIED</h3><p>Your whole commercial team completes the Gillis sales program and earns a certificate, renewed every year so the skills stay current.</p><ul><li>Per-seat, for portfolios of any size</li><li>Manager view of who has finished</li><li>Annual refresh</li></ul><button type="button" class="btn btn-teal" data-dlg="certified">SEE THE PROGRAM</button></div></article>
+    <article class="path"><img src="img/lobby-m.webp" alt="" loading="lazy"><div><small>FOR EVERY PROPERTY</small><h3>FRONT DESK SELLS</h3><p>A short course for front desk teams. As Room to Grow puts it, the front desk can be your most valuable business development tool.</p><ul><li>Spot the leads that walk in</li><li>Pass them to sales the same day</li><li>Short lessons, between shifts</li></ul><button type="button" class="btn btn-teal" data-dlg="frontdesk">SEE THE COURSE</button></div></article>
+    <article class="path"><img src="img/stage-m.webp" alt="" loading="lazy"><div><small>FREE, ONCE A MONTH</small><h3>THE MONTHLY SALES HOUR</h3><p>A live 40-minute session with Tammy on one sales topic, with time for questions. Bring the whole team.</p><ul><li>Next session: <span class="ph">[date to set]</span></li><li>Recordings for subscribers</li><li>One idea to use that week</li></ul><button type="button" class="btn btn-teal" data-dlg="hour">SEE WHAT'S COMING</button></div></article>
   </div>
 </section>
 
@@ -623,6 +623,35 @@
   </div>
 </template>
 
+
+<div class="dlg" id="dlg" hidden role="dialog" aria-modal="true" aria-labelledby="dlgT"><div class="dlg-in"><button type="button" class="dlg-x" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M5.6 4 12 10.4 18.4 4 20 5.6 13.6 12 20 18.4 18.4 20 12 13.6 5.6 20 4 18.4 10.4 12 4 5.6z"/></svg></button><div class="dlg-c"></div></div></div>
+<template id="dlg-certified">
+  <img class="dlg-img" src="img/team.webp" alt="">
+  <p class="kick"><span class="bar"></span>FOR MANAGEMENT COMPANIES AND PORTFOLIOS</p>
+  <h2 class="h2" id="dlgT">GILLIS <span class="t">CERTIFIED</span></h2>
+  <p class="lead">Your whole commercial team learns the Gillis way of selling, proves it, and keeps it current every year.</p>
+  <ol class="dlg-steps"><li><b>ENROL YOUR TEAM</b><span>Sellers, sales leaders and GMs, across one hotel or a whole portfolio.</span></li><li><b>LEARN AND PRACTISE</b><span>Modern selling, prospecting with purpose, RFP season and a sales culture that reaches the front desk, taught by Tammy.</span></li><li><b>EARN THE CERTIFICATE</b><span>Each seller completes the program and earns Gillis Certified, renewed every year.</span></li></ol>
+  <div class="dlg-two"><div><h3>WHAT MANAGERS GET</h3><ul><li>A view of who has finished and who hasn't</li><li>One shared playbook across every property</li><li>A yearly refresh as buyers change</li></ul></div><div><h3>INVESTMENT</h3><p>Per seat, with portfolio pricing. <span class="ph">[Tammy to set]</span></p></div></div>
+  <form class="mini dlg-f" data-ok="Thanks. Tammy's team will send certification details for your portfolio."><input required placeholder="Company" aria-label="Company"><input type="number" min="1" required placeholder="Number of sellers" aria-label="Number of sellers"><input type="email" required placeholder="Work email" aria-label="Work email"><button class="btn btn-teal" type="submit">REQUEST DETAILS</button></form>
+</template>
+<template id="dlg-frontdesk">
+  <img class="dlg-img" src="img/lobby.webp" alt="">
+  <p class="kick"><span class="bar"></span>FOR EVERY PROPERTY</p>
+  <h2 class="h2" id="dlgT">FRONT DESK <span class="t">SELLS</span></h2>
+  <p class="lead">Room to Grow calls the front desk your most valuable business development tool. This short course shows your team how to use it.</p>
+  <ol class="dlg-steps"><li><b>SPOT IT</b><span>The guest who mentions a team trip, a wedding or a company that needs rooms every month.</span></li><li><b>ASK ONE MORE QUESTION</b><span>Simple, natural questions that turn a check-in into a lead.</span></li><li><b>PASS IT ON THE SAME DAY</b><span>A clear handoff to sales, so no lead waits until Monday.</span></li></ol>
+  <div class="dlg-two"><div><h3>HOW IT RUNS</h3><ul><li>Short lessons your team can take between shifts</li><li>A live kickoff with Tammy</li><li>A one-page front desk lead card</li></ul></div><div><h3>INVESTMENT</h3><p>Per property. <span class="ph">[Tammy to set]</span></p></div></div>
+  <form class="mini dlg-f" data-ok="Thanks. Tammy's team will be in touch about bringing Front Desk Sells to your hotel."><input required placeholder="Hotel" aria-label="Hotel"><input type="number" min="1" placeholder="Front desk team size" aria-label="Front desk team size"><input type="email" required placeholder="Work email" aria-label="Work email"><button class="btn btn-teal" type="submit">BRING IT TO MY HOTEL</button></form>
+</template>
+<template id="dlg-hour">
+  <img class="dlg-img" src="img/stage.webp" alt="">
+  <p class="kick"><span class="bar"></span>FREE, ONCE A MONTH</p>
+  <h2 class="h2" id="dlgT">THE MONTHLY <span class="t">SALES HOUR</span></h2>
+  <p class="lead">Forty minutes live with Tammy on one sales topic, with time for your questions. Bring the whole team.</p>
+  <ol class="dlg-steps"><li><b>STOP PITCH SLAPPING</b><span>Turning sales conversations into business conversations.</span></li><li><b>THE HUNT</b><span>Why waiting for the phone to ring won't grow your base business.</span></li><li><b>RFP SEASON KICKOFF</b><span>Every August: be proactive, not passive.</span></li></ol>
+  <div class="dlg-two"><div><h3>NEXT SESSION</h3><p><span class="ph">[date and time to set]</span></p></div><div><h3>CAN'T MAKE IT LIVE?</h3><p>Recordings go out to Gillis Sales Insights subscribers.</p></div></div>
+  <form class="mini dlg-f" data-ok="You're registered. The link will arrive before the session."><input type="email" required placeholder="Work email" aria-label="Work email"><button class="btn btn-teal" type="submit">SAVE MY SEAT</button></form>
+</template>
 <div id="wm" aria-hidden="true"></div>
 <script src="site.js"></script>
 </body>
