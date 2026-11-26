@@ -279,6 +279,7 @@
     };
     return;
   }
+  addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); window.__bip = e; });
   var BOOK = 'https://usechairlift.com/5min';
   var S = [
     { t: 'Before anything else', w: 'You teach hotels to stop pitch slapping, so this isn’t a pitch. We’re Chairlift. We help busy teams escape death by 1,000 tabs, so the work sits in one place and people get their time back. Here’s what we noticed on your site, a few ideas built from your own book and talks, and a couple of questions. Keep what’s useful.', y: 'About five minutes. Pause, go back or skip at any time.', s: 'Gillis Sales Podcast, “Stop Pitch Slapping Your Clients” (Oct 30, 2019)', el: '#top' },
@@ -334,10 +335,11 @@
   function draw() {
     var s = S[idx];
     var btns = '<div class="tvcr">' + (idx > 0 ? vb('back', 'Back') : '<span class="vb off"></span>') + (mode === 'play' ? vb('pause', 'Pause', 'main') : vb('resume', 'Play', 'main')) + (idx < S.length - 1 ? vb('next', 'Next') : '<span class="vb off"></span>') + '</div><div class="tvx">' + vb('list', 'See all') + vb('x', 'Exit') + '</div>';
-    var cta = s.cta ? '<a class="tbook" href="' + BOOK + '" target="_blank" rel="noopener">BOOK 15 MINUTES</a>' : '';
+    var cta = s.cta ? '<a class="tbook" href="' + BOOK + '" target="_blank" rel="noopener">BOOK 15 MINUTES</a><span class="tinst"><b>Keep this tour on your phone</b>' + (window.__bip ? '<button type="button" class="tinst-b" data-a="install">ADD TO HOME SCREEN</button>' : '') + '<span>iPhone: tap Share, then Add to Home Screen.</span><span>Android: tap the menu, then Add to Home screen or Install app.</span></span>' : '';
     var rc = s.recap ? '<ol class="trecap">' + s.recap.map(function (r) { return '<li>' + esc(r) + '</li>'; }).join('') + '</ol>' : '';
-    place('<aside class="tbar" role="region" aria-label="Site walkthrough"><div class="tbp"></div><div class="tbr"><div class="tbt"><span class="tbn">IDEAS FOR GILLIS \u00b7 ' + (idx + 1) + ' OF ' + S.length + '</span><b>' + esc(s.t) + '</b>' + rc + '<span class="tbx">' + esc(s.w) + '</span><span class="tbo"><em>' + (s.cta ? 'NEXT STEP' : 'WHY IT MIGHT HELP') + '</em>' + esc(s.y) + '</span><span class="tbs"><em>SOURCE</em>' + esc(s.s) + '</span>' + cta + '</div><div class="tbb">' + btns + '</div></div></aside>');
+    place('<aside class="tbar" role="region" aria-label="Site walkthrough"><div class="tbp"></div><div class="tbr"><div class="tbt"><span class="tbn">IDEAS FOR GILLIS \u00b7 ' + (idx + 1) + ' OF ' + S.length + '</span><b>' + esc(s.t) + '</b>' + rc + '<span class="tbx">' + emph(s.w) + '</span><span class="tbo"><em>' + (s.cta ? 'NEXT STEP' : 'WHY IT MIGHT HELP') + '</em>' + emph(s.y) + '</span><span class="tbs"><em>SOURCE</em>' + esc(s.s) + '</span>' + cta + '</div><div class="tbb">' + btns + '</div></div></aside>');
   }
+  function emph(x) { return esc(x).replace(/death by 1,000 tabs/g, '<i>$&</i>'); }
   function list() {
     clearTimeout(timer); mode = 'done';
     var items = S.map(function (s, i) { return '<a href="#" data-i="' + i + '"><span>' + pad(i + 1) + '</span>' + esc(s.t) + '</a>'; }).join('');
@@ -353,6 +355,7 @@
       if (k === 'x') close(); else if (k === 'pause') { clearTimeout(timer); mode = 'browse'; draw(); }
       else if (k === 'next') go(idx + 1, mode === 'play' ? 'play' : 'browse'); else if (k === 'back') go(Math.max(0, idx - 1), mode === 'play' ? 'play' : 'browse');
       else if (k === 'resume') go(idx, 'play'); else if (k === 'list') list(); else if (k === 'replay') go(0, 'play');
+      else if (k === 'install' && window.__bip) { try { window.__bip.prompt(); } catch (e) {} window.__bip = null; }
     });
   }
   $('#tourbtn').addEventListener('click', open);
