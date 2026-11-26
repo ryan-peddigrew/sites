@@ -3,7 +3,7 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var Q = new URLSearchParams(location.search);
-  var EMBED = Q.has('embed') || window.top !== window.self;
+  var EMBED = window.top !== window.self; /* only when truly framed by the tour, so ?embed=1 can't hide the watermark */
   var TOUR = Q.get('tour') === '1';
   var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var root = document.documentElement;
@@ -21,13 +21,30 @@
   var sc = document.querySelector('.aura .sc');
   if (sc && !matchMedia('(prefers-reduced-motion: reduce)').matches) addEventListener('scroll', function () { sc.style.setProperty('--sy', (scrollY * 0.12).toFixed(1)); }, { passive: true });
 
-  /* ===== watermark (prominent, tiled) ===== */
+  /* ===== watermark (prominent, tiled, readable on phones) =====
+     Built from real text in Chairlift's font (Hanken Grotesk) with the real Chairlift mark.
+     Options for Ryan: ?wm=a (straight rows), ?wm=b (gentle angle), ?wm=c (straight rows + solid credit ribbon), ?wm=d (slight angle), ?wm=e (logo and wordmark only). */
   (function () {
-    var T = 'CONCEPT  ·  DESIGNED AND POWERED BY CHAIRLIFT';
-    var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="820" height="360"><g transform="rotate(-22 410 180)" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="17" letter-spacing="2.4">' +
-      '<text x="60" y="130" fill="#ffffff" fill-opacity=".38" stroke="#17142E" stroke-opacity=".34" stroke-width="2.2" paint-order="stroke">' + T + '</text>' +
-      '<text x="-350" y="310" fill="#ffffff" fill-opacity=".38" stroke="#17142E" stroke-opacity=".34" stroke-width="2.2" paint-order="stroke">' + T + '</text></g></svg>';
-    $('#wm').style.backgroundImage = 'url("data:image/svg+xml,' + encodeURIComponent(svg) + '")';
+    var opt = (Q.get('wm') || '').toLowerCase(); if (!/^[abcde]$/.test(opt)) opt = 'a'; /* Ryan picked A (26 Nov 2026) */
+    var MARK = '<svg class="wl-m" viewBox="-1 -1 66 66" aria-hidden="true"><path d="M2 0H62A2 2 0 0 1 64 2V62A2 2 0 0 1 62 64H2A2 2 0 0 1 0 62V2A2 2 0 0 1 2 0Z" fill="#141B2A" stroke="rgba(255,255,255,0.45)" stroke-width="2"/><rect x="10" y="42.5" width="20" height="7" rx="1.2" fill="#FFFFFF"/><rect x="22" y="29" width="20" height="7" rx="1.2" fill="#FFFFFF"/><rect x="34" y="15.5" width="20" height="7" rx="1.2" fill="#3DFFC1"/></svg>';
+    var LOCK = '<span class="wl"><span class="wl-t">CONCEPT \u00b7 DESIGNED AND POWERED BY:</span>' + MARK + '<b class="wl-w">Chairlift</b></span>';
+    if (opt === 'e') LOCK = '<span class="wl">' + MARK + '<b class="wl-w">Chairlift</b></span>';
+    var wm = $('#wm'); wm.className = 'wm-' + opt; wm.style.backgroundImage = 'none';
+    var rows = '', n = 22;
+    for (var i = 0; i < n; i++) rows += '<div class="wr' + (i % 2 ? ' o' : '') + '">' + new Array(6).join(LOCK) + '</div>';
+    var REF = document.documentElement.getAttribute('data-ref') || ((document.querySelector('meta[name=cl-ref]') || {}).content) || 'PREVIEW';
+    window.__clref = REF;
+    var HTML = '<div class="wg">' + rows + '</div>' + (opt === 'c' ? '<div class="wrib">' + LOCK + '</div>' : '') + '<div class="wref">CONFIDENTIAL CONCEPT \u00b7 REF ' + REF + '</div>';
+    var CSSTXT = 'position:fixed;inset:0;z-index:2147483000;pointer-events:none;display:block;visibility:visible;opacity:1;transform:none;filter:none;clip-path:none';
+    function paint() { wm.className = 'wm-' + opt; wm.setAttribute('style', CSSTXT); wm.innerHTML = HTML; if (wm.parentNode !== document.body || document.body.lastElementChild !== wm) document.body.appendChild(wm); }
+    paint();
+    document.documentElement.classList.add('wmok');
+    /* Self-restoring: if the watermark is removed, hidden or emptied, it comes straight back. */
+    function bad() { if (!document.body.contains(wm) || !wm.querySelector('.wg')) return true; var c = getComputedStyle(wm); return c.display === 'none' || c.visibility !== 'visible' || +c.opacity < 0.9; }
+    var busy = false;
+    function heal() { if (EMBED || busy || !bad()) return; busy = true; paint(); busy = false; }
+    try { new MutationObserver(heal).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class', 'hidden'] }); } catch (e) {}
+    setInterval(heal, 1500);
   })();
 
   /* ===== anti-copying ===== */
@@ -36,11 +53,12 @@
   document.addEventListener('copy', function (e) {
     if (e.target.closest && e.target.closest('input,textarea')) return;
     e.preventDefault();
-    if (e.clipboardData) e.clipboardData.setData('text/plain', 'Concept preview designed and powered by Chairlift. Not for reuse.');
+    if (e.clipboardData) e.clipboardData.setData('text/plain', 'Confidential concept preview designed and powered by Chairlift. Not for reuse. Ref ' + (window.__clref || 'PREVIEW') + '.');
   });
   document.addEventListener('keydown', function (e) {
     var k = (e.key || '').toLowerCase();
-    if ((e.ctrlKey || e.metaKey) && (k === 's' || k === 'u' || k === 'p')) e.preventDefault();
+    if ((e.ctrlKey || e.metaKey) && (k === 's' || k === 'u' || k === 'p' || (e.shiftKey && (k === 'i' || k === 'j' || k === 'c')))) e.preventDefault();
+    if (k === 'f12') e.preventDefault();
   });
 
   /* ===== loader (from the real logo), once per visit ===== */
