@@ -1,7 +1,7 @@
 {
   "name": "Gillis Sales",
   "short_name": "Gillis Sales",
-  "start_url": "./?k=roomtogrow&v=2",
+  "start_url": "./?k=roomtogrow",
   "scope": "./",
   "display": "standalone",
   "background_color": "#FFFFFF",
