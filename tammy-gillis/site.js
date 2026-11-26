@@ -66,7 +66,17 @@
     a.addEventListener('mouseenter', function () { if (a.dataset.img) $('#ovImg').src = a.dataset.img; });
   });
   $$('.hw').forEach(function (w, i) { w.style.animationDelay = (RM ? 0 : (seen || EMBED ? 0.1 : 1.1) + i * 0.09) + 's'; });
-  var reel = $$('#reel .rl'), bars = $$('#reel .rl-bars i'), ri = 0, vid = $('#rlv');
+  (function () {
+    var h = (Q.get('hero') || '').toLowerCase(), R = $('#reel'), v = $('#rlv'); if (!R || !v || !/^[abc]$/.test(h)) return;
+    function img(src, alt) { var i = document.createElement('img'); i.className = 'rl kb'; i.src = src; i.alt = alt; return i; }
+    if (h === 'c') { v.poster = 'img/tammy-wide-poster.jpg'; v.innerHTML = '<source src="img/tammy-wide-m.mp4" type="video/mp4" media="(max-width: 760px)"><source src="img/tammy-wide.mp4" type="video/mp4">'; return; }
+    var first = h === 'a' ? img('img/tammy-crop.webp', 'Tammy Gillis') : img('img/stage-crop.webp', 'Tammy Gillis on stage');
+    v.parentNode.replaceChild(first, v); first.classList.add('on');
+    var st = $$('#reel img[src*="stage-crop"]');
+    if (h === 'b' && st[1]) st[1].parentNode.replaceChild(img('img/tammy-crop.webp', 'Tammy Gillis'), st[1]);
+    if (h === 'a' && st[0]) st[0].classList.add('kb');
+  })();
+  var reel = $$('#reel .rl'), bars = $$('#reel .rl-bars i'), ri = 0, vid = $('#rlv') || { load: function () {}, play: function () {} };
   function playVid() { try { vid.load(); var p = vid.play(); if (p && p.catch) p.catch(function () {}); } catch (e) {} }
   if (document.readyState === 'complete') playVid(); else addEventListener('load', playVid);
   function step() {
