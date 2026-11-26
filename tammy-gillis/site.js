@@ -137,6 +137,13 @@
     ['Turn your front desk into a sales team.', 'Leads walk in every day. A short Front Desk Sells course helps your team catch them.', 'training'],
     ['See it, then sharpen it.', 'Real-time visibility and modern training help your team sell with confidence.', 'training']
   ];
+  var TIP = [
+    'Someone sells your hotel every week, with a system behind them, so the pipeline never depends on one person.',
+    'A written prospecting plan and real research on the decision maker before every first call.',
+    'An RFP plan in place by August, and same-day replies to every group lead.',
+    'A front desk that spots leads and passes them to sales the same day.',
+    'A clear view of pipeline and activity, and training that matches today\u2019s buyer.'
+  ];
   var ci = 0, cans = [];
   var scLi = $$('#scAreas li');
   function ckShow() {
@@ -154,7 +161,12 @@
     var el = $('#ckScore'), t0 = performance.now(); (function f(t) { var p = RM ? 1 : Math.min(1, (t - t0) / 1100); el.textContent = Math.round(tot * p); if (p < 1) requestAnimationFrame(f); })(t0);
     var fx = tot >= 85 ? ['Strong foundation. Let’s find the next level.', 'You have the basics in place. A conversation with Tammy’s team can show where the next opportunities are hiding.', 'solutions'] : FIX[low];
     $('#ckH').textContent = fx[0]; $('#ckP').textContent = fx[1]; $('#ckGo').dataset.pre = fx[2];
+    $('#ckRep').innerHTML = AR.map(function (n, k) { var v = area[k], lv = v >= 4 ? 'STRONG' : v >= 2 ? 'BUILDING' : 'GAP'; return '<li class="' + lv.toLowerCase() + (k === low && tot < 85 ? ' first' : '') + '"><b>' + n + '</b><em>' + lv + '</em><span>' + (v >= 4 ? 'In place. Keep it there.' : 'What good looks like: ' + TIP[k]) + '</span></li>'; }).join('');
   }
+  window.__demoScore = function () {
+    $('#ckRe').click(); var A = [2, 1, 2, 0, 0, 1, 1, 2, 2, 1], i = 0;
+    (function nx() { if (i >= A.length) { setTimeout(function () { var r = $('#ckRes'); if (r) r.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 1400); return; } var b = $('.ck-btns button[data-a="' + A[i] + '"]'); if (b) { b.classList.add('tap'); setTimeout(function () { b.classList.remove('tap'); b.click(); i++; setTimeout(nx, 650); }, 350); } })();
+  };
   $$('.ck-btns button').forEach(function (b) { b.addEventListener('click', function () { cans.push(+b.dataset.a); ci++; if (ci >= CQ.length) ckEnd(); else ckShow(); }); });
   $('#ckRe').addEventListener('click', function () { ci = 0; cans = []; $('#ckQ').hidden = false; $('.ck-btns').hidden = false; $('#ckRes').hidden = true; scLi.forEach(function (l) { l.classList.remove('done'); l.querySelector('s').style.width = '0'; }); ckShow(); });
   ckShow();
@@ -236,7 +248,7 @@
     { t: 'Two clear next steps', w: 'Build your quote and Get in touch sit side by side at the top, and stay at the bottom of a phone screen the whole way down.', y: 'Fewer choices, more enquiries. Today a visitor has to hunt for the Contact page.', s: 'Your contact page and its form', el: '#heroBtns' },
     { t: 'Five ways in', w: 'You earn in five ways: sales solutions, training, speaking, the book and GillisOne. Each lived on its own page. Now one list near the top lets each buyer pick their door.', y: 'An owner, a director of sales and an event planner each find their way in on the first screen.', s: 'Your site navigation', el: '#ways' },
     { t: 'One look, light or dark', w: 'Your current site jumps between white and dark blocks. Now it is one continuous look in your own colours, with a light and a dark version (the switch is at the top).', y: 'A consistent look reads as premium and keeps people scrolling.', s: 'Colours taken straight from your logo file', el: '#system' },
-    { t: 'New: the Hotel Sales Scorecard', w: 'Ten quick questions across five areas: coverage, prospecting, groups and RFPs, front desk, and visibility and skills. A hotel gets a score, a one-page report and the first thing to fix.', y: 'You teach that the seller’s job is to bring insight the buyer can’t get alone. This starts the first conversation with their situation, not your pitch: a relevant business conversation.', s: 'Podcast Ep. 1; Room to Grow; your contact form’s challenges', el: '#check' },
+    { t: 'Try it: the Hotel Sales Scorecard', act: '__demoScore', dw: 24000, w: 'Watch a hotel take it now. Ten quick questions across five areas: coverage, prospecting, groups and RFPs, front desk, and visibility and skills. In about a minute they get a score, a report by area and the first thing to fix.', y: 'You teach that the seller’s job is to bring insight the buyer can’t get alone. This starts the first conversation with their situation, not your pitch: a relevant business conversation.', s: 'Podcast Ep. 1; Room to Grow; your contact form’s challenges', el: '#check' },
     { t: 'Your system, side by side', w: 'Your strongest argument is one salesperson versus a sales system. Visitors now drag a line to compare the two, in your own words.', y: 'It shows the difference instead of only saying it.', s: 'Your Sales Solutions page', el: '#halves' },
     { t: 'Your proof, up front', w: 'The numbers you already publish, plus the results you announced: $23M in actual revenue for clients in 2021 and 40% more new business.', y: 'Proof works best before the ask, not buried in a press room.', s: 'Your homepage and About page; Gillis Sales announcement, March 16, 2022', el: '#numbers' },
     { t: 'Training as its own product', w: 'Workshops, webinars and keynotes to choose from, the outcomes, and a Plan a training button.', y: 'Training becomes a sales line of its own, not a link in a menu.', s: 'Your Sales Training page', el: '#training' },
@@ -272,8 +284,8 @@
   function close() { clearTimeout(timer); if (ovl) { ovl.remove(); ovl = null; bar = null; } root.classList.remove('tourlock'); }
   function go(i, m) {
     clearTimeout(timer); idx = i; mode = m; draw();
-    try { fr.contentWindow.__hl(S[i].el); } catch (e) {}
-    if (mode === 'play') { var tp = $('.tbp', bar); tp.style.transitionDuration = DW + 'ms'; requestAnimationFrame(function () { requestAnimationFrame(function () { tp.classList.add('run'); }); }); timer = setTimeout(function () { if (idx + 1 >= S.length) list(); else go(idx + 1, 'play'); }, DW); }
+    try { fr.contentWindow.__hl(S[i].el); if (S[i].act) setTimeout(function () { try { fr.contentWindow[S[i].act](); } catch (e) {} }, 1600); } catch (e) {}
+    if (mode === 'play') { var tp = $('.tbp', bar); tp.style.transitionDuration = (S[idx].dw || DW) + 'ms'; requestAnimationFrame(function () { requestAnimationFrame(function () { tp.classList.add('run'); }); }); timer = setTimeout(function () { if (idx + 1 >= S.length) list(); else go(idx + 1, 'play'); }, S[idx].dw || DW); }
   }
   function draw() {
     var s = S[idx];

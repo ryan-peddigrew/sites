@@ -915,3 +915,15 @@ form.mini.two input{flex:1 1 200px}
 .acad-ways span{color:var(--mut)}
 @media(max-width:900px){.acad-grid{grid-template-columns:1fr}.acad-ph{max-width:280px}}
 @media(max-width:420px){.acad-ways{grid-template-columns:1fr}}
+
+/* scorecard report */
+.ck-rep{list-style:none;margin:18px 0 16px;padding:0;display:grid;gap:8px}
+.ck-rep li{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:12px 14px;border:1px solid var(--line);border-left:4px solid var(--line);border-radius:3px}
+.ck-rep li.strong{border-left-color:var(--teal)}
+.ck-rep li.building{border-left-color:var(--blu)}
+.ck-rep li.gap{border-left-color:var(--pur)}
+.ck-rep li.first{box-shadow:0 0 0 2px var(--teal)}
+.ck-rep b{font:800 12.5px/1.2 var(--hd);letter-spacing:.12em}
+.ck-rep em{font:800 11.5px/1.2 var(--hd);letter-spacing:.14em;font-style:normal;color:var(--teal)}
+.ck-rep span{grid-column:1/-1;color:var(--mut);font-size:15px;line-height:1.45}
+.ck-btns .btn.tap{transform:scale(.96);box-shadow:0 0 0 3px var(--teal-l)}
