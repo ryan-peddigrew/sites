@@ -1000,3 +1000,7 @@ html[data-theme=light] #wm.wm-s .wl-m{opacity:.5}
   .tbar.more .tinst{display:grid}
   .tbb{gap:6px}.tvcr{display:flex;gap:6px;flex:3}.tvx{gap:6px;flex:2}.tbb .vb{width:auto;flex:1;min-width:44px;height:48px}.tbb .vb.off{visibility:hidden}
 }
+/* watermark v3 (Ryan, 26 Nov 2026, 4:39 PM): same single mark, about half the size */
+#wm.wm-s .wl{font-size:clamp(13px,3.4vw,22px);gap:.4em}
+#wm.wm-s .wl-m{width:clamp(56px,15vw,100px);height:clamp(56px,15vw,100px)}
+@media(max-width:760px){#wm.wm-s .wl{font-size:3.6vw}}
