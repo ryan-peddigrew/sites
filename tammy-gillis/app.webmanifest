@@ -1,6 +1,6 @@
 {
-  "name": "Tammy Gillis Tour",
-  "short_name": "Gillis Tour",
+  "name": "Gillis",
+  "short_name": "Gillis",
   "start_url": "./?k=roomtogrow&v=2",
   "scope": "./",
   "display": "standalone",
