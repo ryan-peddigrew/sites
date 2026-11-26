@@ -2,7 +2,7 @@
 :root{
   --ink:#17142E;--ink2:#211C44;--pur:#493989;--blu:#006FB1;--teal:#00A096;--teal-l:#2CC7B9;--grey:#828A8C;
   --mist:#F3F4F8;--line:#DDE0EA;--white:#fff;--tx:#1E1B33;--mut:#5B5F70;
-  --hd:"Archivo",Arial,Helvetica,sans-serif;--bd:"Instrument Sans",Arial,Helvetica,sans-serif;
+  --hd:"Source Sans 3",Arial,Helvetica,sans-serif;--bd:"Source Sans 3",Arial,Helvetica,sans-serif;
   --grad:linear-gradient(120deg,var(--teal),var(--blu) 55%,var(--pur));
   --nb:44px;--hh:72px;
 }
