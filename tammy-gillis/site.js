@@ -302,7 +302,7 @@
     { t: 'What it could open up', w: 'Members who learn on their own time, hotel teams learning together, one-on-one time with you, and workshops that lead into your training. A question for you: which of these would your clients actually say yes to?', y: 'New ways to earn from work you’ve already done.', s: 'A concept to react to. How it would be built and run is something we’d walk through together', el: '#academy' },
     { t: 'Gillis Sales Insights, in their inbox', w: 'Your Insights button only leads to LinkedIn today. Here it becomes a monthly email with one good idea, plus an RFP-season edition.', y: 'A list you own, so every new talk, course or offer has somewhere to go.', s: 'Your homepage Insights section', el: '#insights' },
     { t: 'Build your quote', w: 'Five quick questions that land as a ready brief in your inbox.', y: 'Your team walks into the first meeting prepared, which is exactly what you ask of sellers.', s: 'The options on your current contact form', el: '#build' },
-    { t: 'What’s next', w: 'You say sales should be proactive, not passive. So here’s our small ask: 15 minutes with our team to tell us what we got wrong and what’s worth keeping. No slides.', y: 'Everything here is a working concept, and nothing is live on your domain.', s: 'Ryan, Chairlift', el: '#contact', cta: true }
+    { t: 'Your takeaway: room to grow, together', recap: ['A clearer path for hotels to find, try and book Gillis training.', 'New ways to earn between engagements: the scorecard, the programs, the monthly hour and the academy.', 'Every lead in one place, followed up the same day.'], w: 'You teach that sales should be proactive, not passive. So here is ours: 15 minutes to hear what you would keep, what you would change, and whether it is worth building together.', y: 'Pick a time that suits you. No slides and no pressure. Ryan will walk you through it live.', s: 'Ryan, Chairlift', el: '#contact', cta: true, dw: 30000 }
   ];
   var DW = 13500, ovl = null, fr = null, bar = null, timer = 0, idx = 0, mode = 'play', tbhMax = 0;
   function mk(h) { var d = document.createElement('div'); d.innerHTML = h.trim(); return d.firstChild; }
@@ -329,18 +329,19 @@
   function go(i, m) {
     clearTimeout(timer); idx = i; mode = m; if (i > maxI) maxI = i; draw();
     try { fr.contentWindow.__hl(S[i].el); if (S[i].act) setTimeout(function () { try { fr.contentWindow[S[i].act](); } catch (e) {} }, 1600); } catch (e) {}
-    if (mode === 'play') { var tp = $('.tbp', bar); tp.style.transitionDuration = (S[idx].dw || DW) + 'ms'; requestAnimationFrame(function () { requestAnimationFrame(function () { tp.classList.add('run'); }); }); timer = setTimeout(function () { if (idx + 1 >= S.length) list(); else go(idx + 1, 'play'); }, S[idx].dw || DW); }
+    if (mode === 'play') { var tp = $('.tbp', bar); tp.style.transitionDuration = (S[idx].dw || DW) + 'ms'; requestAnimationFrame(function () { requestAnimationFrame(function () { tp.classList.add('run'); }); }); timer = setTimeout(function () { if (idx + 1 >= S.length) { mode = 'browse'; draw(); } else go(idx + 1, 'play'); }, S[idx].dw || DW); }
   }
   function draw() {
     var s = S[idx];
     var btns = '<div class="tvcr">' + (idx > 0 ? vb('back', 'Back') : '<span class="vb off"></span>') + (mode === 'play' ? vb('pause', 'Pause', 'main') : vb('resume', 'Play', 'main')) + (idx < S.length - 1 ? vb('next', 'Next') : '<span class="vb off"></span>') + '</div><div class="tvx">' + vb('list', 'See all') + vb('x', 'Exit') + '</div>';
-    var cta = s.cta ? '<a class="tbook" href="' + BOOK + '" target="_blank" rel="noopener">BOOK 15 MINUTES WITH OUR TEAM</a>' : '';
-    place('<aside class="tbar" role="region" aria-label="Site walkthrough"><div class="tbp"></div><div class="tbr"><div class="tbt"><span class="tbn">IDEAS FOR GILLIS \u00b7 ' + (idx + 1) + ' OF ' + S.length + '</span><b>' + esc(s.t) + '</b><span class="tbx">' + esc(s.w) + '</span><span class="tbo"><em>WHY IT MIGHT HELP</em>' + esc(s.y) + '</span><span class="tbs"><em>SOURCE</em>' + esc(s.s) + '</span>' + cta + '</div><div class="tbb">' + btns + '</div></div></aside>');
+    var cta = s.cta ? '<a class="tbook" href="' + BOOK + '" target="_blank" rel="noopener">BOOK 15 MINUTES</a>' : '';
+    var rc = s.recap ? '<ol class="trecap">' + s.recap.map(function (r) { return '<li>' + esc(r) + '</li>'; }).join('') + '</ol>' : '';
+    place('<aside class="tbar" role="region" aria-label="Site walkthrough"><div class="tbp"></div><div class="tbr"><div class="tbt"><span class="tbn">IDEAS FOR GILLIS \u00b7 ' + (idx + 1) + ' OF ' + S.length + '</span><b>' + esc(s.t) + '</b>' + rc + '<span class="tbx">' + esc(s.w) + '</span><span class="tbo"><em>' + (s.cta ? 'NEXT STEP' : 'WHY IT MIGHT HELP') + '</em>' + esc(s.y) + '</span><span class="tbs"><em>SOURCE</em>' + esc(s.s) + '</span>' + cta + '</div><div class="tbb">' + btns + '</div></div></aside>');
   }
   function list() {
     clearTimeout(timer); mode = 'done';
     var items = S.map(function (s, i) { return '<a href="#" data-i="' + i + '"><span>' + pad(i + 1) + '</span>' + esc(s.t) + '</a>'; }).join('');
-    place('<aside class="tbar" role="region" aria-label="Site tour"><div class="tbr"><div class="tbt"><span class="tbn">THAT’S THE TOUR</span><b>Pick any part to take a closer look</b></div><div class="tbb"><button type="button" class="txt go" data-a="replay">PLAY AGAIN</button><button type="button" class="txt" data-a="x">CLOSE</button></div></div><div class="tbl">' + items + '</div></aside>');
+    place('<aside class="tbar" role="region" aria-label="Site tour"><div class="tbr"><div class="tbt"><span class="tbn">THAT’S THE TOUR</span><b>Pick any part to take a closer look</b><a class="tbook" href="' + BOOK + '" target="_blank" rel="noopener">BOOK 15 MINUTES</a></div><div class="tbb"><button type="button" class="txt go" data-a="replay">PLAY AGAIN</button><button type="button" class="txt" data-a="x">CLOSE</button></div></div><div class="tbl">' + items + '</div></aside>');
   }
   function place(h) {
     if (bar) bar.remove(); bar = mk(h); ovl.appendChild(bar);

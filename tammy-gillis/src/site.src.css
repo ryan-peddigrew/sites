@@ -970,3 +970,10 @@ html[data-theme=light] #wm.wm-s .wl{color:#141B2A66;text-shadow:0 1px 3px #fffff
 html[data-theme=light] #wm.wm-s .wl-m{opacity:.5}
 @media(max-width:760px){#wm.wm-s .wl{flex-direction:column;font-size:6vw}#wm.wm-s .wl-t{text-align:center}}
 #wm.wm-s .wl-m{width:clamp(110px,30vw,200px);height:clamp(110px,30vw,200px);opacity:.5}
+
+/* tour close (Ryan, 26 Nov 2026): recap, one strong button, plain next step */
+.trecap{margin:8px 0 10px;padding:0;list-style:none;counter-reset:r;display:grid;gap:6px}
+.trecap li{counter-increment:r;display:flex;gap:10px;font-weight:600;line-height:1.35}
+.trecap li::before{content:"0" counter(r);flex:none;font:900 12px/1.6 var(--hd);color:var(--tl);letter-spacing:.1em}
+.tbook{min-height:54px;font-size:15px;letter-spacing:.16em;padding:0 28px;box-shadow:0 6px 20px #00a09655}
+.tnext{display:block;margin-top:8px;font-size:13px;color:var(--mut)}
