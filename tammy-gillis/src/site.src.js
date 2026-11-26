@@ -376,12 +376,10 @@
     if (ovl) return;
     if (!sentOpen) { sentOpen = true; (window.__send || function () {})('tour-open', { 'Device': innerWidth < 760 ? 'phone' : 'computer', 'Theme': theme() }); }
     ovl = mk('<div class="tourov" id="tourov"><iframe title="Site tour" src="' + location.pathname + '?embed=1&theme=' + theme() + '"></iframe><div class="tvglass"></div><div class="tvtag">CONCEPT BY CHAIRLIFT</div></div>');
-    if (!RM) ovl.appendChild($('#doorScene').content.cloneNode(true));
     document.body.appendChild(ovl); fr = $('iframe', ovl); root.classList.add('tourlock');
     var ready = false, waited = false;
     fr.addEventListener('load', function () { ready = true; if (waited) go(0, 'play'); });
-    setTimeout(function () { waited = true; if (ready) go(0, 'play'); }, RM ? 100 : 3500);
-    setTimeout(function () { var t = $('.dr', ovl); if (t) t.remove(); }, 4200);
+    setTimeout(function () { waited = true; if (ready) go(0, 'play'); }, RM ? 100 : 600);
   }
   function close() { report(); clearTimeout(timer); if (ovl) { ovl.remove(); ovl = null; bar = null; } root.classList.remove('tourlock'); }
   function go(i, m) {
@@ -417,5 +415,5 @@
   }
   $('#tourbtn').addEventListener('click', open);
   $('#tourStart').addEventListener('click', function (e) { e.preventDefault(); open(); });
-  if (TOUR) { try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) {} setTimeout(open, seen ? 600 : 2500); }
+  if (TOUR) { try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) {} setTimeout(open, seen ? 300 : 1300); }
 })();
