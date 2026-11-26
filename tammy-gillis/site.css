@@ -764,3 +764,20 @@ html[data-theme=light] #wm.wm-c .wl{opacity:.26}
   #wm.wm-b .wg{transform:none;left:0!important;width:100vw!important;top:0}
   #wm.wm-b .wl{width:100vw;transform:rotate(-9deg)}
 }
+
+/* D: B with a much gentler angle */
+#wm.wm-d .wg{transform:rotate(-4deg);left:-20vw;top:-4vh;width:140vw}
+/* E: logo + wordmark only, straight, tiled across the whole page */
+#wm.wm-e .wg{left:-10vw;top:0;width:120vw;gap:clamp(56px,9vh,90px)}
+#wm.wm-e .wr{gap:clamp(48px,7vw,96px)}
+#wm.wm-e .wr.o{margin-left:clamp(-150px,-14vw,-70px)}
+#wm.wm-e .wl{font-size:clamp(19px,4.6vw,24px);opacity:.42}
+html[data-theme=light] #wm.wm-e .wl{opacity:.34}
+@media(max-width:760px){
+  #wm.wm-d .wg{transform:none;left:0!important;width:100vw!important;top:0}
+  #wm.wm-d .wl{width:100vw;transform:rotate(-4deg)}
+  #wm.wm-e .wg{left:-30vw!important;width:160vw!important;gap:64px}
+  #wm.wm-e .wr{gap:44px}
+  #wm.wm-e .wr.o{margin-left:-60px}
+  #wm.wm-e .wl{width:auto;flex-wrap:nowrap;font-size:20px}
+}
