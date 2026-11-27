@@ -102,6 +102,7 @@ textarea:focus{outline:none;box-shadow:inset 0 0 0 2px var(--teal)}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}h1 .ln span{transform:none}.done-mark svg{stroke-dashoffset:0}}
+.tel-nw{white-space:nowrap}
 </style>
 </head>
 <body>
@@ -170,7 +171,7 @@ textarea:focus{outline:none;box-shadow:inset 0 0 0 2px var(--teal)}
     </section>
 
   </div>
-  <p class="foot">Devman Group Inc. &middot; <a href="tel:+19056040555">905-604-0555</a> &middot; <a href="../">devmaninc.com</a></p>
+  <p class="foot">Devman Group Inc. &middot; <a href="tel:+19056040555"><span class="tel-nw">(905) 604-0555</span></a> &middot; <a href="../">devmaninc.com</a></p>
 </main>
 
 <div class="toast" id="toast" role="status"></div>
