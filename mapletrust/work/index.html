@@ -104,13 +104,19 @@ h1,h2{font-family:var(--head);font-weight:800;letter-spacing:-.03em;line-height:
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 .tel-nw{white-space:nowrap}
 .tt{display:inline-block;font-style:normal;transform:scaleY(1.4) scaleX(.94);transform-origin:50% 100%;margin:0 .02em}
+
+/* Final MapleTrust logo (Ryan, 27 Nov 2026): the only logo used */
+.brand img.logo-final{width:auto;height:76px;max-width:none}
+@media(max-width:440px){.brand img.logo-final{height:60px}}
+#ld .logo-final{width:min(280px,72vw);height:auto;max-width:none;animation:ldup .6s ease both}
+footer .brand img.logo-final{background:#FBF8F3;border-radius:12px;padding:10px 14px;height:auto;width:min(190px,60vw)}
 </style>
 </head>
 <body>
 
 <header class="hd">
   <div class="in">
-    <a class="brand" href="../" aria-label="MapleTrust Restoration home"><img src="../img/mark.svg" alt="" width="40" height="40"><span><b>Maple<em><i class="tt">T</i>rust</em></b><small>RESTORATION</small></span></a>
+    <a class="brand" href="../" aria-label="MapleTrust Restoration home"><img class="logo-final" src="../img/logo-final.png" alt="MapleTrust Restoration" height="52"></a>
     <a class="call" href="tel:+16472676798"><span class="tel-nw">(647) 267-6798</span></a>
   </div>
 </header>
