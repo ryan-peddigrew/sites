@@ -281,7 +281,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:26px;background:var(--teal
 .contact{padding:clamp(64px,9vw,130px) 0 clamp(48px,6vw,80px);background:radial-gradient(60% 70% at 100% 100%,rgba(0,136,163,.22),transparent 60%),var(--bg)}
 .ct-grid{display:grid;gap:40px}
 @media(min-width:960px){.ct-grid{grid-template-columns:1.1fr .9fr;gap:72px}}
-.ct-big{display:block;font:900 clamp(56px,11vw,150px)/.9 var(--display);text-decoration:none;letter-spacing:.01em;margin:16px 0 18px}
+.ct-big{display:block;white-space:nowrap;font:900 clamp(30px,6.4vw,100px)/.9 var(--display);text-decoration:none;letter-spacing:.01em;margin:16px 0 18px}
 .ct-big:hover{color:var(--teal-l)}
 .contact h2{font-size:clamp(30px,3.6vw,48px);color:var(--teal-l)}
 .lines{margin-top:18px;border-top:1px solid var(--line)}
@@ -356,7 +356,7 @@ html.touring .actbar{display:none}
   .br-card{box-shadow:none;border:1px solid #999;border-top:6px solid #0088A3;position:static;background:#fff;color:#000}
   .br-card h3{color:#000}
   .br-note{background:#f3f3f3;color:#333}
-  .br-card::after{content:"Devman Group Inc. · 2651 John St, Unit 6, Markham, ON L3R 2W5 · 905-604-0555 · team@devmaninc.com";display:block;margin-top:18px;font:500 10px var(--mono);color:#555}
+  .br-card::after{content:"Devman Group Inc. · 2651 John St, Unit 6, Markham, ON L3R 2W5 · (905) 604-0555 · team@devmaninc.com";display:block;margin-top:18px;font:500 10px var(--mono);color:#555}
 }
 @media(max-width:600px){.kx{display:none}}
 .cs-band{position:relative;display:grid;gap:8px;padding:clamp(40px,7vw,80px) var(--gut);background:linear-gradient(90deg,rgba(11,14,16,.94),rgba(11,14,16,.55)),url(img/shaw-corridor.jpg) center 55%/cover;color:#fff;text-decoration:none}
@@ -373,6 +373,7 @@ footer a#pbc.pb span,footer a#pbc.pb b{font-style:normal;transform:none}
 footer a#pbc.pb b{font-weight:600;font-size:13px;letter-spacing:0}
 footer a#pbc.pb svg{width:16px;height:16px;flex:none;display:block;animation:none;transform:none}
 @media(max-width:760px){.pb-row{padding-bottom:72px}}
+.tel-nw{white-space:nowrap}
 </style>
 </head>
 <body>
@@ -620,7 +621,7 @@ footer a#pbc.pb svg{width:16px;height:16px;flex:none;display:block;animation:non
   <div class="wrap ct-grid">
     <div>
       <h2>Let's create a beautiful space.</h2>
-      <a class="ct-big" href="tel:+19056040555">905-604-0555</a>
+      <a class="ct-big" href="tel:+19056040555"><span class="tel-nw">(905) 604-0555</span></a>
       <div class="lines">
         <a href="mailto:team@devmaninc.com"><small>Email</small><span>team@devmaninc.com</span></a>
         <a href="https://maps.google.com/?q=2651+John+St+Unit+6+Markham+ON+L3R+2W5" target="_blank" rel="noopener"><small>Office</small><span>2651 John St, Unit 6, Markham, ON L3R 2W5</span></a>
