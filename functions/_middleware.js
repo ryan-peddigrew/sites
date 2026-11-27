@@ -3,7 +3,7 @@
 const enc = new TextEncoder();
 const OPEN = ['/_chairlift/']; // shared watermark script only; no client content
 // Easy-to-type codes that open ONE folder only (Ryan, 16 Nov 2026).
-const EXTRA = { 'sean-wells': 'darkmagic1993', 'tammy-gillis': 'roomtogrow' };
+const EXTRA = { 'sean-wells': 'darkmagic1993', 'tammy-gillis': 'roomtogrow', 'revol-events': 'revol' };
 // Per-recipient tracing (26 Nov 2026): each code carries a viewer reference that is shown in the
 // watermark and hidden in the page, so a leaked copy says whose link it came from.
 // To revoke a code, delete it from EXTRA. To end it on a date, add it to EXPIRES (YYYY-MM-DD, Eastern).
@@ -44,7 +44,7 @@ button{margin-top:12px;width:100%;height:54px;font-weight:700;font-size:14px;let
 .e{color:#ffb4b4;margin:10px 0 0;font-size:15px}.f{margin-top:34px;font-size:13px;color:#ffffff99}.f b{color:#fff;font-weight:600}</style></head>
 <body><main><small>Private preview</small><h1>Enter your code</h1><p>This preview was prepared for you. Type the code from your message to open it.</p>
 <form method="post"><input name="code" autocomplete="off" autocapitalize="characters" autofocus aria-label="Preview code" placeholder="CODE"><button type="submit">Open preview</button>${msg ? '<p class="e">' + msg + '</p>' : ''}</form>
-<div class="f">Prepared by <b>Chairlift</b></div></main></body></html>`;
+<div class="f" style="font-size:16px">Powered by <b>Chairlift</b></div></main></body></html>`;
   return new Response(html, { status: 401, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex, nofollow' } });
 }
 
@@ -91,9 +91,10 @@ export async function onRequest(ctx) {
   }
   const folder = url.pathname.split('/')[1] || '';
   if (!env.SECRET && PUBLIC.has(folder)) return next();
-  if (!env.SECRET) return gate('Preview is being set up. Please try again soon.');
-  const want = await mk(env.SECRET, folder);
-  const master = await mk(env.SECRET, '*master');
+  // Branch previews have no SECRET: only folders with an EXTRA code open there (production is unchanged).
+  if (!env.SECRET && !EXTRA[folder]) return gate('Preview is being set up. Please try again soon.');
+  const want = env.SECRET ? await mk(env.SECRET, folder) : '\u0000';
+  const master = env.SECRET ? await mk(env.SECRET, '*master') : '\u0000';
   const ck = cookies(request);
   if (PUBLIC.has(folder) && EXTRA[folder] && ck['clk_master'] !== master) ck[cname(folder)] = EXTRA[folder];
   const live = c => !EXPIRES[c] || new Date() <= new Date(EXPIRES[c] + 'T23:59:59-05:00');
