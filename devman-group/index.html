@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en-CA">
-<head>
+<head><script>/* Old github.io copy closed (Ryan, 27 Nov 2026): this preview opens only on the private host. */if(/\.github\.io$/.test(location.hostname)){document.documentElement.style.display="none";location.replace("/sites/404.html")}</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
@@ -364,6 +364,16 @@ html.touring .actbar{display:none}
 .cs-band b{font:800 clamp(40px,7vw,84px)/.9 var(--display);text-transform:uppercase;max-width:14ch}
 .cs-band em{font-style:normal;color:#cdd3d4}
 .cs-band .btn{justify-self:start;margin-top:10px;font-style:normal}
+
+/* Powered by Chairlift credit (Ryan, 27 Nov 2026): minimal, bottom right of the footer */
+.pb-row{display:flex;justify-content:flex-end;margin-top:18px}
+footer a#pbc.pb{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0;margin:0;background:none;position:static;z-index:auto;text-align:left;text-decoration:none;color:rgba(255,255,255,.5);font:500 11px/1 Arial,Helvetica,sans-serif;letter-spacing:.02em;opacity:.85;transition:opacity .2s}
+footer a#pbc.pb:hover,footer a#pbc.pb:focus-visible{opacity:1}
+footer a#pbc.pb b{font-weight:600;color:rgba(255,255,255,.75);font-size:11.5px;letter-spacing:0}
+footer a#pbc.pb svg{width:13px;height:13px;flex:none;animation:pbspin 12s linear infinite}
+@keyframes pbspin{to{transform:rotateY(360deg)}}
+@media(prefers-reduced-motion:reduce){footer a#pbc.pb svg{animation:none}}
+@media(max-width:760px){.pb-row{padding-bottom:72px}}
 </style>
 </head>
 <body>
@@ -646,6 +656,7 @@ html.touring .actbar{display:none}
       <form id="news" novalidate><label class="sr" for="news-email">Email address</label><input id="news-email" type="email" autocomplete="email" placeholder="Your email" required><button class="btn btn-teal" type="submit">Subscribe</button></form>
     </div>
   </div>
+  <div class="wrap pb-row"><a id="pbc" class="pb" href="https://usechairlift.com" target="_blank" rel="noopener" aria-label="Powered by Chairlift"><span>Powered by</span><svg viewBox="-1 -1 66 66" aria-hidden="true" focusable="false"><path d="M2 0H62A2 2 0 0 1 64 2V62A2 2 0 0 1 62 64H2A2 2 0 0 1 0 62V2A2 2 0 0 1 2 0Z" fill="#141B2A" stroke="rgba(255,255,255,0.3)" stroke-width="2"/><rect x="10" y="42.5" width="20" height="7" rx="1.2" fill="#FFFFFF"/><rect x="22" y="29" width="20" height="7" rx="1.2" fill="#FFFFFF"/><rect x="34" y="15.5" width="20" height="7" rx="1.2" fill="#3DFFC1"/></svg><b>Chairlift</b></a></div>
 </footer>
 
 <div class="actbar" aria-label="Quick actions">
