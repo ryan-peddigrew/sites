@@ -339,20 +339,16 @@ footer a#pbc.pb svg{width:16px;height:16px;flex:none;display:block;animation:non
 .pb-row{padding-bottom:64px}@media(max-width:1059px){.pb-row{padding-bottom:128px}}
 .tel-nw{white-space:nowrap}
 .tt{display:inline-block;font-style:normal;transform:scaleY(1.4) scaleX(.94);transform-origin:50% 100%;margin:0 .02em}
+
+/* Final MapleTrust logo (Ryan, 27 Nov 2026): the only logo used */
+.brand img.logo-final{width:auto;height:76px;max-width:none}
+@media(max-width:440px){.brand img.logo-final{height:60px}}
+#ld .logo-final{width:min(280px,72vw);height:auto;max-width:none;animation:ldup .6s ease both}
+footer .brand img.logo-final{background:#FBF8F3;border-radius:12px;padding:10px 14px;height:auto;width:min(190px,60vw)}
 </style>
 </head>
 <body>
-<div id="ld" aria-hidden="true"><div class="in">
-  <svg viewBox="0 0 100 100"><defs><clipPath id="ldc"><path d="M50 2L56 16L64 12L62 34L76 22L80 30L92 28L86 44L96 48L74 64L78 72L54 68L54 92L46 92L46 68L22 72L26 64L4 48L14 44L8 28L20 30L24 22L38 34L36 12L44 16Z"/></clipPath></defs>
-    <path d="M50 2L56 16L64 12L62 34L76 22L80 30L92 28L86 44L96 48L74 64L78 72L54 68L54 92L46 92L46 68L22 72L26 64L4 48L14 44L8 28L20 30L24 22L38 34L36 12L44 16Z" fill="none" stroke="#D62B1F" stroke-width="2" stroke-linejoin="round" opacity=".35"/>
-    <g clip-path="url(#ldc)"><g class="w"><g class="wv"><path d="M-10 40 Q0 34 10 40 T30 40 T50 40 T70 40 T90 40 T110 40 T130 40 T150 40 V110 H-10Z" fill="#2F7DE1"/></g></g></g>
-    <path class="red" d="M50 2L56 16L64 12L62 34L76 22L80 30L92 28L86 44L96 48L74 64L78 72L54 68L54 92L46 92L46 68L22 72L26 64L4 48L14 44L8 28L20 30L24 22L38 34L36 12L44 16Z" fill="#D62B1F"/>
-    <g class="hs"><path d="M34 60V46L50 33L66 46V60Z" fill="#FBF8F3"/><path d="M45 60V51H55V60Z" fill="#D62B1F"/></g>
-    <path class="rf" d="M28 47L50 29L72 47" fill="none" stroke="#0F2440" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/>
-  </svg>
-  <div class="nm"><b>Maple<span><i class="tt">T</i>rust</span></b><small>RESTORATION</small></div>
-  <div class="bar"><i></i></div>
-</div></div>
+<div id="ld" aria-hidden="true"><div class="in"><img class="logo-final" src="img/logo-final.png" alt="MapleTrust Restoration" width="1206" height="673"></div></div>
 <script>(function(){var l=document.getElementById('ld'),seen=false;try{seen=sessionStorage.getItem('mt-ld')==='1';sessionStorage.setItem('mt-ld','1')}catch(e){}
 if(seen||matchMedia('(prefers-reduced-motion: reduce)').matches){l.remove();return}
 document.documentElement.style.overflow='hidden';
@@ -367,7 +363,7 @@ setTimeout(function(){l.classList.add('out');document.documentElement.style.over
 
 <header class="hdr">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="MapleTrust Restoration home"><img src="img/mark.svg" alt="" width="46" height="46"><span><b>Maple<em><i class="tt">T</i>rust</em></b><small>RESTORATION</small></span></a>
+    <a class="brand" href="#top" aria-label="MapleTrust Restoration home"><img class="logo-final" src="img/logo-final.png" alt="MapleTrust Restoration" height="52"></a>
     <nav class="nav" aria-label="Main">
       <a href="#services">Services</a>
       <a href="#process">How it works</a>
@@ -578,7 +574,7 @@ setTimeout(function(){l.classList.add('out');document.documentElement.style.over
   <div class="wrap">
     <div class="foot">
       <div style="display:grid;gap:14px;align-content:start">
-        <a class="brand" href="#top"><img src="img/mark-dark.svg" alt="" width="46" height="46"><span><b>Maple<em><i class="tt">T</i>rust</em></b><small>RESTORATION</small></span></a>
+        <a class="brand" href="#top"><img class="logo-final" src="img/logo-final.png" alt="MapleTrust Restoration" height="52"></a>
         <p>24/7 emergency restoration for homes, properties and businesses across Toronto and the GTA.</p>
       </div>
       <div><h4>Services</h4><nav id="foot-svc"></nav></div>
