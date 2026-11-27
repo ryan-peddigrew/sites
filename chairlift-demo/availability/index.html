@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#10231F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Check availability | Harbourline Rentals (sample)</title>
+<link rel="stylesheet" href="../demo.css">
+<style>
+main{max-width:760px}
+.dates{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.dates input{min-width:0;max-width:100%}
+.list{display:grid;gap:10px;margin-top:22px}
+.item{display:grid;grid-template-columns:1fr auto;gap:10px 14px;align-items:center;background:var(--ink2);box-shadow:inset 0 0 0 1px var(--line);clip-path:var(--cut-s);padding:16px}
+.item h3{font-size:22px}
+.item .st{font:800 12.5px var(--body);letter-spacing:.12em;text-transform:uppercase;margin-top:6px}
+.st.ok{color:#8fe3b0}.st.lo{color:var(--acc2)}.st.no{color:#ff9b8a}
+.meter{grid-column:1/-1;height:6px;background:var(--line)}.meter i{display:block;height:100%;background:#8fe3b0;transition:width .5s}
+.qty{display:flex;align-items:center;box-shadow:inset 0 0 0 1px var(--line);clip-path:var(--cut-s)}
+.qty button{width:46px;height:46px;border:0;background:var(--ink3);cursor:pointer;font:800 20px var(--body)}
+.qty input{width:62px;height:46px;text-align:center;background:var(--ink);border:0;font-weight:700;font-size:16px}
+.qty input:disabled,.qty button:disabled{opacity:.35}
+.dock{position:sticky;bottom:0;z-index:40;background:var(--ink);border-top:1px solid var(--line);padding:12px var(--gut) calc(12px + env(safe-area-inset-bottom));display:flex;gap:12px;align-items:center;justify-content:space-between}
+.dock b{font:800 15px var(--body)}
+.dock .btn{width:auto;flex:0 0 auto}
+.empty{color:var(--mute);margin-top:22px}
+dialog{border:0;padding:0;background:transparent;max-width:min(560px,calc(100vw - 24px));width:100%}
+dialog::backdrop{background:#000a}
+dialog .card ul{margin:16px 0 0 18px}
+dialog .card li{margin:4px 0}
+</style>
+</head>
+<body>
+<div class="sample">Sample business · Demo by Chairlift · Not a real company</div>
+<header class="bar"><a class="mark" href="../" aria-label="All demos"><i></i><b>Harbourline</b></a><nav><a href="../">All demos</a></nav></header>
+<main>
+  <span class="k">Live availability</span>
+  <h1>What's free on your dates?</h1>
+  <p class="lede">Pick your event dates. You'll see what's available right now, then send one request for a quote. No prices are shown here.</p>
+  <div class="dates" style="margin-top:22px">
+    <div><label class="lab" for="d1" style="margin-top:0">Pick-up or delivery</label><input type="date" id="d1"></div>
+    <div><label class="lab" for="d2" style="margin-top:0">Return</label><input type="date" id="d2"></div>
+  </div>
+  <p class="hint" id="span"></p>
+  <div class="list" id="list"></div>
+  <p class="foot">Harbourline Rentals is a sample business. Stock numbers change at random for the demo.</p>
+</main>
+<div class="dock"><b id="count">Nothing picked yet</b><button class="btn btn-acc" id="ask" disabled>Request a quote</button></div>
+<dialog id="dlg"><div class="card">
+  <span class="k">Your request</span>
+  <h2 style="font-size:clamp(30px,8vw,40px);margin-top:8px">Ready to send.</h2>
+  <p class="lede" id="dsum"></p>
+  <ul id="dlist"></ul>
+  <label class="lab" for="em">Your email</label><input type="email" id="em" autocomplete="email">
+  <div class="acts"><button class="btn btn-acc" id="send">Send request</button><button class="quiet" id="close">Keep editing</button></div>
+</div></dialog>
+<div class="toast" id="toast" role="status"></div>
+<script>
+(function(){
+  /* Sample inventory. A real client connects their own stock list or spreadsheet. */
+  var INV=[['Folding chairs, white',400],['Banquet tables, 6 ft',60],['Cocktail tables',40],['Frame tent, 20 by 20 ft',6],['Staging decks, 4 by 8 ft',24],['Dance floor sections',48],['Patio heaters',18],['Uplights',36]];
+  var $=function(s){return document.querySelector(s)},picked={};
+  function iso(d){return d.toISOString().slice(0,10)}
+  var t=new Date();t.setDate(t.getDate()+14);$('#d1').value=iso(t);t.setDate(t.getDate()+2);$('#d2').value=iso(t);$('#d1').min=$('#d2').min=iso(new Date());
+  function seed(str){var h=2166136261;for(var i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}return function(){h^=h<<13;h^=h>>>17;h^=h<<5;return ((h>>>0)%1000)/1000}}
+  function free(){var a=$('#d1').value,b=$('#d2').value,r=seed(a+'|'+b);return INV.map(function(x){var f=r();var n=f<.12?0:Math.round(x[1]*(.15+f*.85));return n})}
+  function draw(){
+    var a=$('#d1').value,b=$('#d2').value;
+    if(!a||!b||b<a){$('#list').innerHTML='<p class="empty">Pick a return date after the pick-up date.</p>';$('#span').textContent='';return}
+    var days=Math.round((new Date(b)-new Date(a))/864e5)+1;$('#span').textContent=days+(days===1?' day':' days')+', '+new Date(a+'T12:00').toLocaleDateString('en-CA',{weekday:'short',month:'short',day:'numeric'})+' to '+new Date(b+'T12:00').toLocaleDateString('en-CA',{weekday:'short',month:'short',day:'numeric'});
+    var f=free();
+    $('#list').innerHTML=INV.map(function(x,i){var n=f[i],pc=n/x[1],cls=n===0?'no':pc<.35?'lo':'ok',lab=n===0?'Booked on these dates':pc<.35?'Only '+n.toLocaleString('en-CA')+' left':n.toLocaleString('en-CA')+' available';
+      var q=Math.min(picked[x[0]]||0,n);if(q)picked[x[0]]=q;else delete picked[x[0]];
+      return '<div class="item" data-i="'+i+'" data-max="'+n+'"><div><h3>'+x[0]+'</h3><div class="st '+cls+'">'+lab+'</div></div><div class="qty"><button type="button" data-d="-1" aria-label="Fewer"'+(n?'':' disabled')+'>&minus;</button><input type="number" inputmode="numeric" min="0" max="'+n+'" value="'+q+'" aria-label="How many '+x[0]+'"'+(n?'':' disabled')+'><button type="button" data-d="1" aria-label="More"'+(n?'':' disabled')+'>+</button></div><div class="meter"><i style="width:'+Math.round(pc*100)+'%"></i></div></div>'}).join('');
+    sum();
+  }
+  function sum(){var k=Object.keys(picked),n=k.reduce(function(s,x){return s+picked[x]},0);$('#count').textContent=k.length?k.length+(k.length===1?' item, ':' items, ')+n.toLocaleString('en-CA')+' pieces':'Nothing picked yet';$('#ask').disabled=!k.length}
+  function set(el,v){var it=el.closest('.item'),max=+it.dataset.max,name=INV[+it.dataset.i][0];v=Math.max(0,Math.min(max,v|0));it.querySelector('input').value=v;if(v)picked[name]=v;else delete picked[name];sum()}
+  $('#list').addEventListener('click',function(e){var b=e.target.closest('button[data-d]');if(!b)return;var inp=b.parentNode.querySelector('input');var step=+b.dataset.d*(+b.closest('.item').dataset.max>=100?10:1);set(b,(+inp.value||0)+step)});
+  $('#list').addEventListener('change',function(e){if(e.target.matches('input'))set(e.target,+e.target.value)});
+  $('#d1').addEventListener('change',function(){if($('#d2').value<$('#d1').value)$('#d2').value=$('#d1').value;draw()});$('#d2').addEventListener('change',draw);
+  function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('on')},2800)}
+  $('#ask').addEventListener('click',function(){$('#dsum').textContent=$('#span').textContent;$('#dlist').innerHTML=Object.keys(picked).map(function(k){return '<li>'+picked[k].toLocaleString('en-CA')+' &times; '+k+'</li>'}).join('');$('#dlg').showModal()});
+  $('#close').addEventListener('click',function(){$('#dlg').close()});
+  $('#send').addEventListener('click',function(){$('#dlg').close();toast('Sent (demo). A real request reaches the rental team with these dates and items.')});
+  draw();
+})();
+</script>
+<script src="../../_chairlift/wm.js"></script>
+</body>
+</html>
